@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.26 2004/05/18 13:18:21 snicki Exp $
+%# $Id: channelform.html,v 1.27 2004/05/18 13:56:13 snicki Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2><&|/l&>congrat_changes</&></h2>
@@ -21,7 +21,16 @@
 <legend>
 <&|/l&>account_signup</&>
 </legend>
+
 <table>
+%if ( keys %errs > 0 ) {
+<tr><td colspan="3" class="form_error">*probs_in_reg*:</td></tr>
+% for my $err (values %errs) {
+<tr><td colspan="3" class="form_error"> - <% $err %></td></tr>
+%}
+<tr><td colspan="3" class="form_error">*fix_and_resubmit*</td></tr>
+<tr><td colspan="3" class="form_error"><hr/></td></tr>
+%}
 <% form_row( 'username',  'username', "text", $ARGS{'username'},
              $errs{'username'} ) %>
 <% form_row( "passwd", "password", "password", $ARGS{password},
@@ -51,6 +60,7 @@
 <td>
 % my $yc = $ARGS{public} eq 'yes' ? ' checked="checked"' : '';
 % my $nc = $ARGS{public} eq 'no_' ? ' checked="checked"' : '';
+% $yc = ' checked="checked"' unless $yc or $nc;
 *public*<input type="radio" name="public" value="yes"<% $yc %>>
 *private*<input type="radio" name="public" value="no_"<% $nc %>>
 </td>
@@ -124,12 +134,13 @@ if ( $ARGS{submit} ) {
 <%perl>
 sub form_row {
   my ( $text, $name, $type, $val, $err ) = @_;
+  my $errclass = $err ? ' class="form_error"' : '';
   my $desc = "${text}_description"; #before text-change
   $text = "*$text*";
   return <<HTML;
 <tr>
-  <td>$text:</td>
-  <td><input value="$val" type="$type" name="$name">$err</td>
+  <td$errclass>$text:</td>
+  <td><input value="$val" type="$type" name="$name"><!--$err--></td>
   <td>*$desc*</td>
 </tr>
 HTML
@@ -139,20 +150,24 @@ sub check_args {
   my ( $ARGS, $errs ) = @_;
 
   # XXX: Add checks on rest of input!!!
-  unless ( $$ARGS{shortname} =~ /^[a-z]{4,10}$/ ) {
-    $$errs{shortname} = " *Only 4-10 letters from a-z*";
+  unless ( $$ARGS{shortname} =~ /^[a-z]{4,16}$/ ) {
+    $$errs{shortname} = "*The journal name is invalid*";
   }
-  if ( -d "$ENV{DOCUMENT_ROOT}/users/$$ARGS{shortname}" and !$spoejs{channel}) {
-    $$errs{shortname} = " *Channel already exists*";
+  if ( -d "$ENV{DOCUMENT_ROOT}/users/$$ARGS{shortname}" and 
+       ! defined $spoejs{channel} and ! defined $$errs{shortname} ) {
+    $$errs{shortname} = " *The journal already exists*";
   }
   unless ( $$ARGS{language} =~ /^[a-z]{2}$/ ) {
-    $$errs{language} = " Only 2 letters (eg. 'da' or 'en')";
+    $$errs{language} = " *Only 2 letters (eg. 'da' or 'en')*";
   }
-  unless ( $$ARGS{public} =~ /^yes$|^no$/ ) {
-    $$errs{public} = " Only yes/no";
+  unless ( $$ARGS{public} =~ /^yes$|^no_$/ ) {
+    $$errs{public} = " *Only yes/no*";
+  }
+  unless ( $$ARGS{username} =~ /.{4,16}/ ) {
+    $$errs{username} = "*Invalid username*";
   }
   unless ( $$ARGS{password} eq $$ARGS{password2} ) {
-    $$errs{password} = $$errs{password2} = " Passwords does not match";
+    $$errs{password} = " *Passwords does not match*";
   }
 }
 
