@@ -1,13 +1,10 @@
 %# Handle nonhtml-users (less than 4 or more than 10 chars) calls specially
 % if ( length $path < 4 or length $path > 10 ) {
-<& "/theme/$P{t}/ico", params => \%P &>
-%#
-% # Set correct content type for html pages
-% # XXX: Is this needed?
-% $r->content_type('text/html');
+<& "/theme/$P{t}/$path", params => \%P &>
 %
 %# If requested page exists call it with given params; else show error
 % } elsif ( -e "${doc_root}/$req_uri" ) {
+%
 %# Add header
 <& html/header.html &>
 %
@@ -18,13 +15,11 @@
 % } else {
 <& "/html/error.html" &>
 % }
-
 <%init>
   my $doc_root =  "$ENV{DOCUMENT_ROOT}html";
 
   my ($req_uri, $path) = $m->comp( '/html/session/setupSession',  
-                           req_uri => $ENV{REQUEST_URI} );
+                                   req_uri => $ENV{REQUEST_URI} );
 
   my %P = $m->comp( 'html/session/parseParams', url => $req_uri );
-
 </%init>
