@@ -128,6 +128,8 @@ SiteConf:
  - Default settings.txt from empty
  - Only store in en language
  - encrypt site pw
+ - Site conf tabs
+ - Siteconf link in topbar if admin is logged in
 
 Navigation:
  - StoryList
@@ -167,6 +169,7 @@ Translator:
  - (english) on/off button in topbar
  - Replace l with %filter
  - What if *keyword* appear in userdata?
+ - Replace idynamic **$key** with static **keyword**
 
 Search:
  - Search in channels and stories
