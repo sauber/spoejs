@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: url,v 1.9 2004/05/16 01:22:44 snicki Exp $
+%# $Id: url,v 1.10 2004/05/16 01:24:22 snicki Exp $
 %#
 <%shared>
   no strict;
@@ -28,7 +28,7 @@
   }
   $link =~ s/(.*)\.(.*?)/$1$r.$2/;
 </%perl>
-<% "http://". $ENV{HTTP_HOST} . $link %>\
+<% "http://". $ENV{SERVER_NAME} . $link %>\
 </%method>
 <%method decode>
 <%perl>
