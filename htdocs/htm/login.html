@@ -5,7 +5,8 @@ if ( $login ) {
                                     lang => $spoejs{lang_handle} );
   $spoejs{error}{$m->current_comp->source_file} = $CL->{msg} if $CL->{msg};
 
-  my @channels = $CL->search_channels( username => $username,
+  my @channels;
+  @channels = $CL->search_channels( username => $username,
 	                               password => $password ) 
     unless $CL->{msg};
 
