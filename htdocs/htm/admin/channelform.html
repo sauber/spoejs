@@ -71,7 +71,6 @@ if ( $ARGS{submit} ) {
   if ( keys %errs == 0 && !$spoejs{channel} ) {
 
     my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
-    print Dumper %cl_args;
 
     my $res = $CL->new_channel( %cl_args );
     print "Error: $CL->{msg}" unless $res;
