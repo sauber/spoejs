@@ -15,7 +15,7 @@
 <%init>
   # Todo add div. parameters
   my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
-	 path=>"$ENV{DOCUMENT_ROOT}/users/$spoejs{channel}" );
+	                          path=> $spoejs{channel_path} );
   my @stories = $SL->list_stories(); 
 
 </%init>

@@ -34,7 +34,7 @@ info => $_->info() &>
                         d=>$params{d} &>">Edit</a>
 % }
 <%init>
-  my $path = $ENV{DOCUMENT_ROOT} . "users/" . $spoejs{channel} . "/" .$params{d};
+  my $path = $spoejs{channel_path} . "/" .$params{d};
   my $S = new Spoejs::Story( path => $path,
                              lang => $spoejs{lang_handle} );
   my @media_list = $S->media_list();

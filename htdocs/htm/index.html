@@ -14,8 +14,8 @@ langchooser:<br/>
 
 %#<& debug.html &>
 <%init>
-my $path = "$ENV{DOCUMENT_ROOT}users/$spoejs{channel}";
-my $CC = new Spoejs::ChannelConf( path=> $path, lang => $spoejs{lang_handle} );
+my $CC = new Spoejs::ChannelConf( path=> $spoejs{channel_path},
+                                  lang => $spoejs{lang_handle} );
 </%init>
 <%args>
  $params => undef

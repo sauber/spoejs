@@ -30,11 +30,10 @@ my $CC;
 my %errs;
 
 # Load data if channel exists
-my $path = "$ENV{DOCUMENT_ROOT}users/$spoejs{channel}";
-if ( -d $path && !$ARGS{submit} )
+if ( -d $spoejs{channel_path} && !$ARGS{submit} )
 {
   # XXX: What goes on when adding 'lang' here? (~nothing is returned in get()
-  $CC = new Spoejs::ChannelConf( path => $path );
+  $CC = new Spoejs::ChannelConf( path => $spoejs{channel_path} );
                                            #, lang => $spoejs{lang_handle} );
 
   %ARGS = ( %ARGS, $CC->get() );

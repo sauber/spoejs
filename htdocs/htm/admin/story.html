@@ -60,18 +60,16 @@ Click here to add media to existing story.
 my $cur_lang = $spoejs{lang_handle}->{lang_order}->[0];
 my @entries = qw( title date category abstract fulltext author );
 
-my $chan_path = "$ENV{DOCUMENT_ROOT}/users/$spoejs{channel}";
-
-my $SL = Spoejs::StoryList->new( path => $chan_path,
+my $SL = Spoejs::StoryList->new( path => $spoejs{channel_path},
                                  lang => $spoejs{lang_handle} );
 
 my $story_dir = $params{d} || undef;
 my $S;
 
 # Get data from existing story or create new story
-if ( $params{d} && -d "$chan_path/$params{d}" && !$ARGS{submit} ) {
+if ( $params{d} && -d "$spoejs{channel_path}/$params{d}" && !$ARGS{submit} ) {
 
-  $S = new Spoejs::Story( path => "$chan_path/$params{d}",
+  $S = new Spoejs::Story( path => "$spoejs{channel_path}/$params{d}",
                           lang => $spoejs{lang_handle} );
 
   # Add data to args
@@ -82,11 +80,11 @@ if ( $params{d} && -d "$chan_path/$params{d}" && !$ARGS{submit} ) {
 if ( $ARGS{submit} ) {
 
   # Create new story if necessary
-  unless ( $story_dir && -d "$chan_path/$story_dir" ) {
+  unless ( $story_dir && -d "$spoejs{channel_path}/$story_dir" ) {
     $story_dir = $SL->add_story( date => $ARGS{date} );
   }
 
-  $S = new Spoejs::Story( path => "$chan_path/$story_dir",
+  $S = new Spoejs::Story( path => "$spoejs{channel_path}/$story_dir",
                           lang => $spoejs{lang_handle} );
 
   # XXX: Verify input

@@ -67,8 +67,7 @@ Media to add:<br/>
 # XXX: Add support for multi-upload via zip-files
 
 my @upl;
-my $user_path = "$ENV{DOCUMENT_ROOT}/users/$spoejs{channel}";
-my $SL = new Spoejs::StoryList( path => $user_path, 
+my $SL = new Spoejs::StoryList( path => $spoejs{channel_path}, 
                                 lang => $spoejs{lang_handle} );
 my @stories = $SL->list_stories();
 
@@ -80,7 +79,8 @@ if ( $ARGS{upload} ) {
     next if ($fn eq '' or $_->size < 1);
     next unless $fn =~ /\.(png|gif|jpg|mov|avi|mpg|wma)$/i;
     my $fh = $_->fh;
-    my $P = new Spoejs::Pic( path => "$user_path/$ARGS{story}", file => $fn );
+    my $P = new Spoejs::Pic( path => "$spoejs{channel_path}/$ARGS{story}",
+                             file => $fn );
     $P->save( $fh ) or warn $P->{msg};
  }
 }
