@@ -1,4 +1,4 @@
-# $Id: Bootstring.pm,v 1.6 2004/04/09 17:39:18 sauber Exp $
+# $Id: Bootstring.pm,v 1.7 2004/06/01 06:36:31 sauber Exp $
 # Encode and decode utf8 into a set of basic code points
 
 package Bootstring;
@@ -7,8 +7,8 @@ use strict;
 use integer;
 use utf8;
 
-# $Id: Bootstring.pm,v 1.6 2004/04/09 17:39:18 sauber Exp $
-$Bootstring::VERSION = $Bootstring::VERSION = '$Revision: 1.6 $';
+# $Id: Bootstring.pm,v 1.7 2004/06/01 06:36:31 sauber Exp $
+$Bootstring::VERSION = $Bootstring::VERSION = '$Revision: 1.7 $';
 
 # Constructor
 #
@@ -65,7 +65,7 @@ sub newtable {
   for ( @{$self->{BASIC}} ) {
     $self->{ord}{$_} = $n;
     $n++;
-    $self->{maxord} = ord if $self->{maxord} < ord;
+    $self->{maxord} = ord if not exists $self->{maxord} or $self->{maxord} < ord;
   }
 
   # Put skipped chars after basic code points
