@@ -4,72 +4,64 @@ Register channel or edit configuration
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: channelform.html,v 1.39 2004/06/11 10:09:24 snicki Exp $
+$Id: channelform.html,v 1.40 2004/06/12 09:24:33 snicki Exp $
 </%doc>
-%if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
+%if ( $ARGS{submit} && !$error && $spoejs{channel} ) {
 <h2>**congrat_changes**</h2>
 <a href="/<%$ARGS{shortname}%>/index.html">**click_continue**</a>
-% } elsif ( $ARGS{submit} && keys %errs == 0 ) {
+% } elsif ( $ARGS{submit} && !$error ) {
 <h2>**congrat_signup**</h2>
 <h3><a href="/<%$ARGS{shortname}%>/index.html">**click_channel**</a>
 <br/>
 <a href="/<%$ARGS{shortname}%>/admin/story.html">**or_add_newstory**</a>
 </h3>
 % } else {
-% return unless check_cred( $policy );
-% unless ( defined $spoejs{channel} ) {
+% return unless check_cred( $policy );  # Check unless authorized
+% unless ( defined $spoejs{channel} ) { # Are we editing existing channel
 <h2>
 **signup_newjournal**
 </h2>
 % }
-<form method="post">
 <fieldset>
 <legend>
 **account_signup**
 </legend>
+<&| /htm/admin/fill_in_form.mas, data => \%ARGS, spec => $spec &>
+<form name="channelform" method="post" action="">
 <table>
-%if ( keys %errs > 0 ) {
-<tr><td colspan="3" class="form_error">**probs_in_reg**:</td></tr>
-% for my $err (values %errs) {
-<tr><td colspan="3" class="form_error"> - <% $err %></td></tr>
-%}
-<tr><td colspan="3" class="form_error">**fix_and_resubmit**</td></tr>
-<tr><td colspan="3" class="form_error"><hr/></td></tr>
-%}
 <tr>
   <td>**username**:</td>
-  <td><input type="text" name="username" size="16"></td>
+  <td><input type="text" name="username" size="16" maxlength="16"/></td>
   <td class="form_desc">**username_description**</td>
 </tr>
 <tr>
   <td>**passwd**:</td>
-  <td><input type="password" name="password" size="16"></td>
+  <td><input type="password" name="password" size="16"/></td>
   <td class="form_desc">**passwd_description**</td>
 </tr>
 <tr>
   <td>**passwd_retype**:</td>
-  <td><input type="password" name="password2" size="16"></td>
+  <td><input type="password" name="password2" size="16"/></td>
   <td class="form_desc">**passwd_retype_description**</td>
 </tr>
 <tr>
 <td>&nbsp;</td>
 </tr>
 <tr>
-% my $jour_err_class = defined $errs{shortname} ? ' class="form_error"' : '';
-<td<%$jour_err_class%>>**journal_id**:</td>
-  <td><input value="<%$ARGS{'shortname'}%>" type="text"
-             name="shortname" size="16" maxlength="16"></td>
-  <td class="form_desc">**journal_id_description** http://<%
-  $ENV{SERVER_NAME} %>/&lt;**journal_id**&gt;</td>
+<td>**journal_id**:</td>
+  <td><input type="text" name="shortname" size="16" maxlength="16"/></td>
+  <td class="form_desc">
+ **journal_id_description** http://% $ENV{SERVER_NAME}%>/&lt;**journal_id**&gt;
+  </td>
 </tr>
 <tr>
   <td>**title**:</td>
-  <td><input type="text" name="title" size="30"></td>
+  <td><input type="text" name="title" size="30"/></td>
   <td class="form_desc">**title_description**</td>
 </tr>
 <tr>
   <td>**description**:</td>
-  <td><input type="text" name="description" size="50"></td>
+  <td><input type="text" name="description" size="50"/></td>
   <td class="form_desc">**description_description**</td>
 </tr>
 <tr>
@@ -92,56 +84,77 @@ $Id: channelform.html,v 1.39 2004/06/11 10:09:24 snicki Exp $
 % my $yc = $ARGS{public} eq 'yes' ? ' checked="checked"' : '';
 % my $nc = $ARGS{public} eq 'no_' ? ' checked="checked"' : '';
 % $yc = ' checked="checked"' unless $yc or $nc;
-**public**: <input type="radio" name="public" value="yes"<% $yc %>>
-**private**: <input type="radio" name="public" value="no_"<% $nc %>>
+**public**: <input type="radio" name="public" value="yes"<% $yc %>/>
+**private**: <input type="radio" name="public" value="no_"<% $nc %>/>
 </td>
 <td class="form_desc">**journal_security_description**</td>
 </tr>
 </table>
-</fieldset>
 <br/>
 <input type="submit" name="submit" value="**submit**"/>
 </form>
+</&>
+</fieldset>
 %}
 <%init>
   my $cur_lang = $spoejs{current_language};
 
+  # Setup error checking
+  my $error;
+  my $shortname_check = sub { my $data = shift;
+              return ( -d "$ENV{DOCUMENT_ROOT}/users/$data->{shortname}" and 
+                       !defined $spoejs{channel} and 
+                       length $data->{shortname} > 0 ) ? 0 : 1; };
+
+  my $password2_check = sub { my $data = shift; return ( $data->{password} eq
+                                                      $data->{password2} ); };
+
+  my $spec = { username    => { regexp      => '^.{4,16}$',
+                                error       => '**invalid_username**' },
+               shortname   => { regexp      => '^[a-z]{4,16}$',
+                                error       => '**invalid_journal_id**',
+	                        check       => $shortname_check,
+                                error_check => '**journal_exists**' },
+               title       => { regexp      => '.+',
+	                        error       => '**invalid_title**' },
+	       password    => { regexp      => '...+',
+                                error       => '**invalid_password**' },
+	       password2   => { check       => $password2_check,
+                                error_check => '**password_mismatch**' },
+               description => { regexp      => '.+',
+                                error       => '**invalid_description**' },
+              };
+
+  # Define which variables can be localized 
   my @localize = qw ( title description );
   my @no_local = qw( username shortname language password public );
-  my %errs;
-  my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
-                                 lang => $spoejs{lang_handle} );
-  $spoejs{error}{$m->current_comp->source_file} = $SC->{msg} if $SC->{msg};
 
-  my $policy = $SC->get( 'policy' );
+  # Get site signup policy
+  my $policy = $spoejs{SiteConf}->get( 'policy' );
 
 # Load data if channel exists
 if ( -d $spoejs{channel_path} && !$ARGS{submit} )
 {
-  # XXX: What goes on when adding 'lang' here? (~nothing is returned in get()
-  my $CC = new Spoejs::ChannelConf( path => $spoejs{channel_path},
-                                    lang => $spoejs{lang_handle} );
-  $spoejs{error}{$m->current_comp->source_file} = $CC->{msg} if $CC->{msg};
-
-  %ARGS = ( %ARGS, $CC->get() );
+  %ARGS = ( %ARGS, $spoejs{ChannelConf}->get() );
 }
 
+# Process submission
 if ( $ARGS{submit} ) {
 
-  check_args( \%ARGS, \%errs );
+  # Check for errors
+  $error = $m->comp( '/htm/admin/error.mas:error_check', \%ARGS, $spec, 
+                     'channelform' );
 
-  # Pick appropriate args from %ARGS
+  # Pick appropriate args from %ARGS and ad language where appropriate
   my %cl_args;
-  # No localization for these
   $cl_args{$_} = $ARGS{$_} for ( @no_local );
   $cl_args{$_}{$cur_lang} = $ARGS{$_} for ( @localize );
 
   # Add 'active' based on site policy
   $cl_args{active} = $policy eq 'signup_approve' ? 'no_' : 'yes';
 
-  # Create new channel if there were no errors
-
-  if ( keys %errs == 0 && !$spoejs{channel} ) {
+  # Create new channel if there were no errors and we are not modifying
+  if ( !$error && !$spoejs{channel} ) {
 
     my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
 
@@ -151,51 +164,19 @@ if ( $ARGS{submit} ) {
     # Start as logged in when you have just signed up
     $session{chanauth}{$cl_args{shortname}} = 1;
 
-  } elsif (  keys %errs == 0 && $spoejs{channel} ) {
+  } elsif (  !$error && $spoejs{channel} ) { # Modifying existing channel
 
-    my $CC = new Spoejs::ChannelConf( path => $spoejs{channel_path},
-                                      lang => $spoejs{lang_handle} );
-    $spoejs{error}{$m->current_comp->source_file} = $CC->{msg} if $CC->{msg};
-
-    my $res = $CC->set( %cl_args );
+    my $res = $spoejs{ChannelConf}->set( %cl_args );
   }
 }
 </%init>
 <%perl>
-sub check_args {
-  my ( $ARGS, $errs ) = @_;
-
-  # XXX: Add checks on rest of input!!!
-  unless ( $$ARGS{shortname} =~ /^[a-z]{4,16}$/ ) {
-    $$errs{shortname} = "**invalid_journal_id**";
-  }
-  if ( -d "$ENV{DOCUMENT_ROOT}/users/$$ARGS{shortname}" and 
-       ! defined $spoejs{channel} and ! defined $$errs{shortname} ) {
-    $$errs{shortname} = " **journal_exists**";
-  }
-  unless ( $$ARGS{username} =~ /.{4,16}/ ) {
-    $$errs{username} = "**invalid_username**";
-  }
-  unless ( length $$ARGS{password} > 3 ) {
-    $$errs{username} = "**invalid_password**";
-  }
-  unless ( $$ARGS{password} eq $$ARGS{password2} ) {
-    $$errs{password} = " **password_mismatch**";
-  }
-  unless ( length $$ARGS{title} > 1 ) {
-    $$errs{title} = " **invalid_title**";
-  }
-  unless ( length $$ARGS{description} > 1 ) {
-    $$errs{description} = " **invalid_description**";
-  }
-}
-
 sub check_cred {
  my $policy = shift;
  if ( defined $spoejs{channel} ) {
 
    # We are editing current channel check if we are permitted
-   return undef unless $m->comp( 'checkLogin.html' );
+   return undef unless $m->comp( '/htm/login.html:check_login' );
 
  } elsif (  $policy eq 'inviteonly' and !$session{siteauth} ) {
 

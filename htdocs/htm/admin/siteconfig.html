@@ -1,13 +1,15 @@
-%# Site configuration
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: siteconfig.html,v 1.19 2004/06/11 03:46:57 sauber Exp $
-%#
+<%doc>
+Site configuration
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: siteconfig.html,v 1.20 2004/06/12 09:24:33 snicki Exp $
+</%doc>
+% unless ( defined $session{chanauth} && defined $session{chanauth}{'**sa**'} ) {
+**pleaselogin**
+% return; }
 <h1>**statuschannel**:</h1>
-<& /w, w => "login", action => '', ses_var => 'siteauth' &>
-% return unless ( $session{siteauth} );
 <form method="post" action="">
 <table width="100%">
 <tr>
@@ -105,18 +107,6 @@ my @policy = qw( freeall signup_approve inviteonly );
 my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
                                lang => $spoejs{lang_handle} );
 $spoejs{error}{$m->current_comp->source_file} = $SC->{msg} if $SC->{msg};
-
-if ( $ARGS{login} ) {
-
-  my $p = $SC->get( 'password' );
-  my $u = $SC->get( 'username' );
-  $session{siteauth} = $ARGS{username} 
-                            if $ARGS{username} eq $u and $ARGS{password} eq $p;
-
-} elsif ( $ARGS{logout} ) {
-
-  delete $session{siteauth};
-}
 
 my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
                                   lang => $spoejs{lang_handle} );

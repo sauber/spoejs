@@ -3,9 +3,9 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.25 2004/06/11 03:46:57 sauber Exp $
+%# $Id: story.html,v 1.26 2004/06/12 09:24:33 snicki Exp $
 %#
-% return unless $m->comp( 'checkLogin.html' );
+% return undef unless $m->comp( '/htm/login.html:check_login' );
 <& /js/confirm.js &>
 % if ( $ARGS{submit} ) {
 <h4>**storysave**.</h4>
