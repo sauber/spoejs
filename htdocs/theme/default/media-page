@@ -3,9 +3,9 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media-page,v 1.10 2004/08/12 12:04:43 snicki Exp $
+%# $Id: media-page,v 1.11 2004/08/12 12:12:02 snicki Exp $
 %#
-<h2><% $S->get( 'title' ) %></h2>
+<h2><% $spoejs{Story}->get( 'title' ) %></h2>
 <center>
 <&| /w, w => 'box', heading => $filename &>
 <a href="<% $img_href %>">
@@ -22,7 +22,6 @@
 <a href="<% $back_href %>">Back to story</a>
 <%args>
   $ML        => undef
-  $S         => undef
   $back_href => undef
   $next_href => undef
   $prev_href => undef
