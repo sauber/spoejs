@@ -1,11 +1,10 @@
+<h2><% $S->get( 'title' ) %></h2>
 <center>
-<h4><% $S->get( 'title' ) %></h4>
-<fieldset class="center">
-<legend><% $filename %></legend>
+<&| /w, w => 'box', heading => $filename &>
 <a href="<% $img_href %>">
 <% $img_src %>
 </a>
-</fieldset>
+</&>
 <br/>
 <& /w, w => 'navi', %navi_opt &>
 </center>
