@@ -1,7 +1,7 @@
 % if ( -f "${doc_root}/$url_noparam" ) {
-<& "/html/$url_noparam", params => \%P, %ARGS &>
+<& "/htm/$url_noparam", params => \%P, %ARGS &>
 % } else {
-<& "/html/error.html" &>
+<& "/htm/error.html" &>
 % }
 <%init>
 
@@ -18,11 +18,11 @@ if ( 1 ) {
   use Bootstring;
 }
 
-  my $doc_root =  "$ENV{DOCUMENT_ROOT}html";
+  my $doc_root =  "$ENV{DOCUMENT_ROOT}htm";
 
-  my ($req_uri, $path) = $m->comp( '/html/session/setupSession',  
+  my ($req_uri, $path) = $m->comp( '/htm/session/setupSession',  
                                    req_uri => $ENV{REQUEST_URI} );
 
-  my ( $url_noparam, %P ) = $m->comp( 'html/session/parseParams',
+  my ( $url_noparam, %P ) = $m->comp( 'htm/session/parseParams',
                                        url => $req_uri );
 </%init>

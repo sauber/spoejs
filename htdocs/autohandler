@@ -1,7 +1,7 @@
 %# Add header
-<& html/header.html &>
+<& htm/header.html &>
 <body>
-<& "html/topbar.html" &>
+<& "htm/topbar.html" &>
 <% $m->call_next %>
 </body>
 </html>
@@ -22,5 +22,5 @@ if ( 1 ) {
 
   # We need to call this here to have %spoejs available in pages that do 
   # not get through dhandler
-  $m->comp( '/html/session/setupSession' );
+  $m->comp( '/htm/session/setupSession' );
 </%init>

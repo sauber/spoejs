@@ -2,7 +2,7 @@
 
 % if ( $ARGS{submit} ) {
 <h4>Story saved successfully.</h4>
-<a href="<& /html/url:encode, "/$session{user}/admin/upload.html", d=>$story_dir &>">
+<a href="<& /htm/url:encode, "/$session{user}/admin/upload.html", d=>$story_dir &>">
 Click here to add media to story.
 </a>
 % return; }
@@ -45,7 +45,7 @@ cols="60"><%$ARGS{fulltext}%></textarea>
 <input type="submit" name="delete" value="Delete"/>
 </form>
 
-<a href="<& /html/url:encode, "/$session{user}/admin/upload.html",
+<a href="<& /htm/url:encode, "/$session{user}/admin/upload.html",
 d=>$story_dir &>">
 Click here to add media to existing story.
 </a>

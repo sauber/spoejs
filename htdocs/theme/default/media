@@ -1,4 +1,4 @@
-<img src="<& /html/url:encode, "/$session{user}/pic.jpg", d=>$ARGS{d}, p=>$ARGS{p}, m=> $ARGS{m}&>" 
+<img src="<& /htm/url:encode, "/$session{user}/pic.jpg", d=>$ARGS{d}, p=>$ARGS{p}, m=> $ARGS{m}&>" 
 <% $P->html_imgsize( size => $ARGS{m} ) %>/>
 <%init>
   my $path = "$ENV{DOCUMENT_ROOT}users/$session{user}";

@@ -1,4 +1,4 @@
-%# $Id: index.html,v 1.1 2004/03/25 09:56:15 snicki Exp $
+%# $Id: index.html,v 1.2 2004/03/25 10:08:28 snicki Exp $
 <%args>
 $_username=>undef
 $_password=>undef
@@ -8,7 +8,7 @@ $password=>undef
 <%init>
 my($l,$u,$p,$e,$n);
 if ( ( $_username and $_password ) or ( $username and $password ) ) {
-  open FH, "$ENV{DOCUMENT_ROOT}/html/translate/people.txt";
+  open FH, "$ENV{DOCUMENT_ROOT}/htm/translate/people.txt";
     while (<FH>) {
       next if /^#/;
       ($l,$u,$p,$e,$n) = split ',';

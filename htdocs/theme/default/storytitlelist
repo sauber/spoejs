@@ -6,15 +6,12 @@
 % foreach my $story ( @stories ) {
 % my $path = $story->story_path_from_full();
 <tr>
-  <td><a href="<& /html/url:encode, 'story.html', d => $path &>">
+  <td><a href="<& /htm/url:encode, 'story.html', d => $path &>">
       <% $story->get( 'title' ) %></a></td>
   <td><% $story->get( 'date' ) %></td>
 </tr>
 % }
 </table>
-
-
-
 <%init>
   # Todo add div. parameters
   my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},

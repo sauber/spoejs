@@ -1,5 +1,5 @@
 <%perl>
-  my ( $link, $options ) = $m->comp('/html/url:decode', $url );
+  my ( $link, $options ) = $m->comp('/htm/url:decode', $url );
 
   # Default to configured, then 'default' theme if none is given in URL
   $$options{t} ||= #$channelconf->get(theme) || 
