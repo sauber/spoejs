@@ -5,14 +5,14 @@ Release 0.01 must-have's:
  - Channel register (OK)
  - Channel admin (OK)
  - New/edit story (OK)
- - Clean theme and clean widgets
+ - Clean theme and clean widgets (OK)
  - utf8 input/upload (OK)
  - utf8 filename, category, title, abstract etc. (OK)
  - Storylist (OK)
  - Picture with next/prev (OK)
  - Error check (OK)
  - Install doc (OK)
- - License tags
+ - License tags (OK)
 
 
 Development todo list:
@@ -116,6 +116,8 @@ Media:
  - w/h for icons
  - no channellist in icon names
  - caching of indexthumb, even for random
+ - slow random rotation
+ - gif+bmp
 
 Extras:
  - Calendar
