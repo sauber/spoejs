@@ -15,6 +15,9 @@
 <& "/html/error.html" &>
 % }
 <%init>
+  use Spoejs::Lang;
+  use Spoejs::Resource;
+  use Spoejs::StoryList;
   my $req_uri = $ENV{REQUEST_URI};
 
   my $path;
