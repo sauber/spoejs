@@ -32,32 +32,25 @@ function cr_table( tabbody ) {
 }
 </script>
 
-<h2>File upload for channel: <% $spoejs{channel} %></h2>
+<h2>File upload for story: <% "$spoejs{channel}/$spoejs{p}{d}" %></h2>
 <form name="files" method="post" action="" enctype="multipart/form-data">
-Story to add media to:<br/>
-<select name="story">
-%foreach my $story ( @stories ) {
-% my $arg_path = $spoejs{p}{d};
-% my $cur_path = $story->story_path_from_full();
-% $arg_path =~ s{(\d{4})(\d\d)(\d\d)}{$1/$2/$3}g if $arg_path;
-% my $selected = $arg_path eq $cur_path ? ' selected="selected"' : ''; 
-<option value="<% $cur_path %>"<%$selected%>>
-<% $story->get( 'title') %>
-(<% $story->get( 'date') %>)
-</option>
-%}
-</select>
 <br/>
-<br/>
-Media to add:<br/>
+<fieldset><legend>Media to add</legend>
 <table>
 <tbody id="tb" width="100%"></tbody>
 </table>
+</fieldset>
 <input type="submit" name="upload" value="Upload">
 <input type="button" onclick='cr_table( document.getElementById("tb") );' value="Add field"/>
 </form>
-
-% if ($spoejs{p}{d}) {
+<br/>
+<fieldset><legend>Add files from server</legend>
+<form method="post" action="">
+<input type="text" name="server_path" /><br/>
+<input type="submit" name="server_add" value="Add" />
+</form>
+</fieldset>
+<br/>
 <h4>Current files:</h4>
 % my $ML = new Spoejs::MediaList( path=>"$spoejs{channel_path}/$spoejs{p}{d}" );
 % $spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
@@ -79,7 +72,6 @@ Media to add:<br/>
 Back to story
 </a>
 <br/>
-%}
 <br/>
 <h4><&|/l&>media_man</&>:</h4>
 <a href="<& /htm/url:encode, "/$spoejs{channel}/admin/rename.html", 
@@ -122,16 +114,24 @@ if ( $ARGS{upload} ) {
     my $fh = $_->fh;
     if ( $fn =~  /\.(png|gif|jpg|mov|avi|mpg)$/i ) {
 
-      $A->add_file( "$spoejs{channel_path}/$ARGS{story}", $fn, $fh )
+      $A->add_file( "$spoejs{channel_path}/$spoejs{p}{d}", $fn, $fh )
 	or $spoejs{error}{$m->current_comp->source_file} = $A->{msg};
 
     } elsif ( $fn =~  /\.(zip|gz|tgz|tar)$/i ) {
 
-      $A->add_archive( "$spoejs{channel_path}/$ARGS{story}", $fn, $fh,
+      $A->add_archive( "$spoejs{channel_path}/$spoejs{p}{d}", $fn, $fh,
 		       $_->size )
 	or $spoejs{error}{$m->current_comp->source_file} = $A->{msg};
     }
  }
+}
+
+if ( $ARGS{server_add} ) {
+  my $A = new Spoejs::Archive();
+  if ( -d $ARGS{server_path} ) {
+    $A->add_dir( $ARGS{server_path}, "$spoejs{channel_path}/$spoejs{p}{d}" )
+      or $spoejs{error}{$m->current_comp->source_file} = $A->{msg};
+  }
 }
 
 sub strip_leading {
