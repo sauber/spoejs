@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.32 2004/06/27 23:56:21 snicki Exp $
+%# $Id: story-page,v 1.33 2004/07/02 14:35:57 snicki Exp $
 %#
 <& /htm/admin/story_tab.mas &>
 <h2><% $story_ref->get( 'title' ) %></h2>
@@ -25,9 +25,8 @@
 <br/>
 <br/>
 <&| /w, w => 'box', heading => '**media**' &>
-<& /w, w => 'album', media_list => $media_list, %navi_opt &>
+<& /w, w => 'album', media_list => $media_list, navi_opt => \%navi_opt &>
 </&>
-<& /w, w => 'navi', %navi_opt &>
 % }	
 <br/>
 <br/>
@@ -36,7 +35,7 @@
 <br/>
 <br/>
 % if ( $edit_href ) {
-<a href="<% $edit_href %>">**edit**</a>
+%#<a href="<% $edit_href %>">**edit**</a>
 % }
 </&>
 <%init>
