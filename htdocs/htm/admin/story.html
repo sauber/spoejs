@@ -2,7 +2,8 @@
 
 % if ( $ARGS{submit} ) {
 <h4>Story saved successfully.</h4>
-<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/upload.html", d=>$story_dir &>">
+<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/upload.html", 
+                             d=>$story_dir &>">
 Click here to add media to story.
 </a>
 % return; }
@@ -41,14 +42,31 @@ Full story text:<br/>
 <textarea name="fulltext" rows="20"
 cols="60"><%$ARGS{fulltext}%></textarea>
 <br/>
+<br/>
+Thumbnail:<br/>
+% for ( sort keys %thumb ) {
+<% $thumb{$_} %>: <input type="radio" name="thumbnail" value="<% $_
+%>" <% $checked{$_} %>/>
+% }
+<select name="thumbfile">
+  <option value="">Choose</option>
+% for ( $S->media_list() ) {
+% my $c = $checked_file eq $_->{file} ? ' selected="selected"' : '';
+  <option value="<%$_->{file}%>"<% $c %>><% $_->utf_filename() %></option>
+% }
+</select>
+<br/>
+<br/>
 <input type="submit" name="submit" value="Submit"/>
 <input type="submit" name="delete" value="Delete"/>
 </form>
 
-<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/upload.html", d =>$story_dir &>">
+<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/upload.html", 
+                             d =>$story_dir &>">
 Add media to existing story.
 </a><br/>
-<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/rename.html", d=>$story_dir &>">
+<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/rename.html", 
+                              d=>$story_dir &>">
 Edit media for existing story.
 </a>
 
@@ -58,15 +76,18 @@ Edit media for existing story.
 %#<% Dumper $cur_lang %>
 %#</pre>
 <%init>
-
+my %thumb = ( first => 'First', last => 'Last', random => 'Random',
+specific => 'Specific' );
 my $cur_lang = $spoejs{lang_handle}->{lang_order}->[0];
-my @entries = qw( title date category abstract fulltext author );
+my @entries = qw( title date category abstract fulltext author thumbnail );
 
 my $SL = Spoejs::StoryList->new( path => $spoejs{channel_path},
                                  lang => $spoejs{lang_handle} );
 
 my $story_dir = $params{d} || undef;
 my $S;
+my %checked;
+my $checked_file;
 
 # Get data from existing story or create new story
 if ( $params{d} && -d "$spoejs{channel_path}/$params{d}" && !$ARGS{submit} ) {
@@ -76,10 +97,21 @@ if ( $params{d} && -d "$spoejs{channel_path}/$params{d}" && !$ARGS{submit} ) {
 
   # Add data to args
   %ARGS = ( %ARGS, $S->get() );
+
+  # Find thumbtype for html 'checked'ing
+  for ( keys %thumb ) {
+    $checked{$_} = $_ eq $ARGS{thumbnail} ? ' checked="checked"' : '';
+  }
+  $checked_file = $ARGS{thumbnail} if ! defined $thumb{$ARGS{thumbnail}};
+  $checked{specific} = ' checked="checked"' if ! defined $thumb{$ARGS{thumbnail}};
+
 }
 
 
 if ( $ARGS{submit} ) {
+
+  # Get thumbnail
+  $ARGS{thumbnail} = $ARGS{thumbfile} if $ARGS{thumbnail} eq 'specific';
 
   # Create new story if necessary
   unless ( $story_dir && -d "$spoejs{channel_path}/$story_dir" ) {
