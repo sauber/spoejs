@@ -23,4 +23,8 @@ if ( 1 ) {
 
   # The first part of the request is either the channel or a special component
   $ENV{REQUEST_URI} =~ /\/(\w+)\// and my $chan_comp = $1;
+
+  # We need to call this here to have %spoejs available in pages that do 
+  # not get thorugh dhandler
+  $m->comp( '/html/session/setupSession' );
 </%init>

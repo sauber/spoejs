@@ -21,6 +21,7 @@ sub session_setup {
     my %seen = ();
     @lang = grep { ! $seen{$_} ++ } @lang; # Uniqify
     # Set langs in session
+
     $session{browser_langs} = [@lang];
   }
 
