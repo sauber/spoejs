@@ -150,7 +150,6 @@ Performance:
  - Only read resource.txt once per httpd
  - Remove small blue lines
  - Code it sluggish. Optimize performance.
- - Cachable pictures but not cachable pages
 
 Docs:
  - Website 'about spoejs'
