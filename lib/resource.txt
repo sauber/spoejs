@@ -1,0 +1,32 @@
+<en>
+  <lang=en/>English
+  <lang=dk/>Engelsk
+</en>
+<da>
+  <lang=en/>Danish
+  <lang=da/>Dansk
+</da>
+<de>
+  <lang=en/>German
+</de>
+<fr>
+  <lang=en/>French
+</fr>
+<se>
+  <lang=en/>Swedish
+</se>
+<jp>
+  <lang=en/>Japanese
+</jp>
+<zh>
+  <lang=en/>Chinese
+</zh>
+<gr>
+  <lang=en/>Greece
+</gr>
+<ar>
+  <lang=en/>Arabic
+</ar>
+<it>
+  <lang=en/>Italian
+</it>
