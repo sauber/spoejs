@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.38 2004/08/08 19:07:58 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.38 $';
+# $Id: StoryList.pm,v 1.39 2004/10/28 12:05:34 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.39 $';
 
 sub _initialize {
     my $self = shift;
@@ -62,7 +62,7 @@ sub _all_stories {
 };
 
 
-# Sort list of Storie objekts according to date
+# Sort list of Story objects according to date
 #
 sub _sort_by_date {
 
@@ -70,23 +70,6 @@ sub _sort_by_date {
     @{$self->{stories}} = sort { $b->{sortkey} cmp $a->{sortkey} } 
                       @{$self->{stories}};
 }
-
-
-# Filter stories based given comparison criteria
-#
-sub _ls_loop {
-    my ( $self, $count, $comp, $all ) = @_;
-    
-    my @new;
-    foreach my $story ( @$all ) {
-
-	if ( $comp->( $story->{sortkey} ) ) {
-	    push @new, $story;
-	    last if --$count == 0;
-	}
-    }
-    return @new;
-};
 
 
 #### Public interface ####
@@ -233,7 +216,7 @@ sub list_stories {
 		my $story_kw = $story->get( $kw );
 		
 		# XXX: Special case for non-existing 'active'
-		$story_kw = 'yes' if $kw eq 'active' and ( not $story_kw or $story_kw eq '' );
+		$story_kw ||= 'yes' if $kw eq 'active';
  
 		push @new, $story if ( $story_kw and $story_kw eq $in{$kw} );
 	    }
@@ -254,13 +237,17 @@ sub list_stories {
 	my $sortkey = Date::Manip::ParseDate( $S->get( 'date' ) ) .
 	              '-' . $story;
 
-	@res = $self->_ls_loop( $prev, 
-			       sub { return $_[0] <= $sortkey; },
-			       \@res ) if $prev; 
-	
-	@res = $self->_ls_loop( $next, 
-			       sub { return $_->{sortkey} >= $sortkey; },
-			       reverse \@res ) if $next;
+        # Remove entries newer than sortkey and truncate to given count
+	if ( $prev ) {
+	    @res = grep { $_->{sortkey} <= $sortkey } @res;
+	    $#res = $prev if $prev < $#res;
+	}
+
+	# Remove entries older than sortkey and truncate
+	if ( $next ) {
+	    @res = grep { $_->{sortkey} >= $sortkey } reverse @res;
+	    $#res = $next if $next < $#res;
+	}
     } 
 
     # Handle "from-to" date range separately    
@@ -271,9 +258,7 @@ sub list_stories {
 	my $tol = $to || 99991299;
 	$tol =~ s/\///g;
 
-	@res = $self->_ls_loop( -1,
-			     sub { return $_[0] >= $froml and $_[0] <= $tol; },
-			       \@res ); 
+	@res = grep { $_[0] >= $from1 and $_[0] <= to1 } @res;
     } 
 
     # Shrink array to 'count' elements
