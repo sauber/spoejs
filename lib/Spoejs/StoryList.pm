@@ -13,6 +13,7 @@ use Data::Dumper;
 
 # Dir format yyyy/mm/## width ## 01-99 incrementing by 1 for each story.
 #
+# XXX: Desired functionality:
 # add_story(), list_all_stories(), del_story()
 # list_add_stories(category=>'sport')
 # list_add_stories(author=>'soren')
@@ -22,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.12 2004/03/06 02:08:22 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.12 $';
+# $Id: StoryList.pm,v 1.13 2004/03/06 06:48:42 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.13 $';
 
 sub _initialize {
     my $self = shift;
@@ -36,7 +37,7 @@ sub _initialize {
 
 # Return references to all stories, sorted by date
 #
-sub _all_by_date {
+sub _all_stories {
 
     my $self = shift;
     my @stories;
@@ -58,6 +59,14 @@ sub _all_by_date {
     },
     $root_path;
 
+    return @stories;
+};
+
+
+sub _sort_by_date {
+
+    my ( $self, @stories ) = @_;
+
     @sorted_stories = map { $_->[0] } 
                       sort { $b->[1] <=> $a->[1] } 
                       map { [$_,
@@ -66,8 +75,7 @@ sub _all_by_date {
                       @stories;
 
     return @sorted_stories;
-};
-
+}
 
 sub _ls_loop {
     my ( $self, $count, $comp, @all ) = @_;
@@ -148,7 +156,7 @@ sub count_stories {
     my %counts;
 
     # Get story array
-    @all = $self->_all_by_date();
+    @all = $self->_all_stories();
 
     if ( $in{by} eq 'category' or  $in{by} eq 'author' ) {
 	for ( @all ) {
@@ -168,14 +176,13 @@ sub list_stories {
 
     my $self = shift;
     my %in = @_;
-    my @res;
 
     # Extract count if given; undef for all stories
     $list_count = $in{count} || undef;
     delete $in{count};
 
     # Get story array
-    @res = $self->_all_by_date();
+    my @res = $self->_sort_by_date( $self->_all_stories() );
 
     # Return all stories if no keyword/story is given
     if ( keys %in == 0 ){ }
