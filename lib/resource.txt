@@ -239,6 +239,7 @@
 </gr>
 
 <hu>
+<lang=da/>Ungarnsk
 <lang=en/>Hungarian
 </hu>
 
