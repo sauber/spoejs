@@ -1,11 +1,13 @@
 <%args>
 $content => undef
-$title   => undef
+$heading => undef
 </%args>
 <%init>
-$content =~ s!^<h.>(.*?)</h.>$!!im and $title = $1;
+unless ( $heading ) {
+  $content =~ s!^<h.>(.*?)</h.>$!!im and $heading = $1;
+}
 </%init>
 <fieldset>
-<legend><% $title %></legend>\
+<legend><% $heading %></legend>\
 <% $content %>
 </fieldset>\
