@@ -1,8 +1,155 @@
-%# Offer to sign up
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: signup.html,v 1.8 2004/05/20 08:10:44 snicki Exp $
-%#
-<& channelform.html, %ARGS &>
+<%doc>
+Offer to sign up
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: signup.html,v 1.9 2004/06/15 01:33:53 snicki Exp $
+</%doc>
+% if ( defined $ARGS{submit} && !$error ) {
+<h2>**congrat_signup**</h2>
+<h3><a href="/<%$ARGS{shortname}%>/index.html">**click_channel**</a>
+<br/>
+<a href="/<%$ARGS{shortname}%>/admin/story.html">**or_add_newstory**</a>
+</h3>
+% } else {
+%# Check authorization
+% if (  $policy eq 'inviteonly' and !$session{siteauth} ) {
+**signup_not_allowed**
+% return; }
+<h2>
+**signup_newjournal**
+</h2>
+<fieldset>
+<legend>
+**account_signup**
+</legend>
+<&| /htm/admin/fill_in_form.mas, data => \%ARGS, spec => $spec &>
+<form name="channelform" method="post" action="">
+<table>
+<tr>
+  <td>**username**:</td>
+  <td><input type="text" name="username" size="16" maxlength="16"/></td>
+  <td class="form_desc">**username_description**</td>
+</tr>
+<tr>
+  <td>**passwd**:</td>
+  <td><input type="password" name="password" size="16"/></td>
+  <td class="form_desc">**passwd_description**</td>
+</tr>
+<tr>
+  <td>**passwd_retype**:</td>
+  <td><input type="password" name="password2" size="16"/></td>
+  <td class="form_desc">**passwd_retype_description**</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td>**journal_id**:</td>
+  <td><input type="text" name="shortname" size="16" maxlength="16"/></td>
+  <td class="form_desc">
+ **journal_id_description** http://<% $ENV{SERVER_NAME}%>/&lt;**journal_id**&gt;
+  </td>
+</tr>
+<tr>
+  <td>**title**:</td>
+  <td><input type="text" name="title" size="30"/></td>
+  <td class="form_desc">**title_description**</td>
+</tr>
+<tr>
+  <td>**description**:</td>
+  <td><input type="text" name="description" size="50"/></td>
+  <td class="form_desc">**description_description**</td>
+</tr>
+<tr>
+<td>**language**:</td>
+<td>
+<& /w, w => 'langselect' &>
+</td>
+<td class="form_desc">**language_description**</td>
+</tr>
+<tr>
+<td>**journal_security**:</td>
+<td>
+% my $yc = $ARGS{public} eq 'yes' ? ' checked="checked"' : '';
+% my $nc = $ARGS{public} eq 'no_' ? ' checked="checked"' : '';
+% $yc = ' checked="checked"' unless $yc or $nc;
+**public**: <input type="radio" name="public" value="yes"<% $yc %>/>
+**private**: <input type="radio" name="public" value="no_"<% $nc %>/>
+</td>
+<td class="form_desc">**journal_security_description**</td>
+</tr>
+</table>
+<br/>
+<input type="submit" name="submit" value="**submit**"/>&nbsp;
+</form>
+</&>
+</fieldset>
+%}
+<%init>
+# Check that we are not trying to edit a channelconf
+$m->redirect( '/htm/admin/signup.html' ) if ( defined $spoejs{channel} );
+
+my $cur_lang = $spoejs{current_language};
+
+# Setup error checking
+my $error;
+my $shortname_check = sub { my $data = shift;
+            return ( -d "$ENV{DOCUMENT_ROOT}/users/$data->{shortname}" and 
+                     length $data->{shortname} > 0 ) ? 0 : 1; };
+
+my $password2_check = sub { my $data = shift; return ( $data->{password} eq
+                                                      $data->{password2} ); };
+
+my $spec = { username    => { regexp      => '^.{4,16}$',
+                              error       => '**invalid_username**' },
+             shortname   => { regexp      => '^[a-z]{4,16}$',
+                              error       => '**invalid_journal_id**',
+                              check       => $shortname_check,
+                              error_check => '**journal_exists**' },
+             title       => { regexp      => '.+',
+                              error       => '**invalid_title**' },
+	     password    => { regexp      => '...+',
+                              error       => '**invalid_password**' },
+	     password2   => { check       => $password2_check,
+                              error_check => '**password_mismatch**' },
+             description => { regexp      => '.+',
+                              error       => '**invalid_description**' },
+            };
+
+# Define which variables can be localized 
+my @localize = qw ( title description );
+my @no_local = qw( username shortname language password public );
+
+# Get site signup policy
+my $policy = $spoejs{SiteConf}->get( 'policy' );
+
+# Process submission
+if ( defined $ARGS{submit} ) {
+
+  # Check for errors
+  $error = $m->comp( '/htm/admin/error.mas:error_check', \%ARGS, $spec, 
+                     'channelform' );
+
+  # Pick appropriate args from %ARGS and ad language where appropriate
+  my %cl_args;
+  $cl_args{$_} = $ARGS{$_} for ( @no_local );
+  $cl_args{$_}{$ARGS{language}} = $ARGS{$_} for ( @localize );
+
+  # Add 'active' based on site policy
+  $cl_args{active} = $policy eq 'signup_approve' ? 'no_' : 'yes';
+
+  # Create new channel if there were no errors and we are not modifying
+  unless ( $error ) {
+
+    my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
+
+    my $res = $CL->new_channel( %cl_args );
+    $spoejs{error}{new_chan} = $CL->{msg} unless $res;
+
+    # Start as logged in when you have just signed up
+    $session{chanauth}{$cl_args{shortname}} = 1;
+  }
+}
+</%init>
