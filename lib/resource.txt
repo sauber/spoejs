@@ -24,7 +24,7 @@
 </abstract>
 
 <account_signup>
-<lang=en/>Account Sign Up
+<lang=en/>Journal Information
 <lang=zh/>用户注册
 </account_signup>
 
@@ -881,11 +881,11 @@
 </journal_name>
 
 <journal_security>
-<lang=en/>Journal Security
+<lang=en/>Access
 </journal_security>
 
 <journal_security_description>
-<lang=en/>Access:Publc/Private: Include journal on site front page, or keep private 
+<lang=en/>Include journal on site front page, or keep private 
 </journal_security_description>
 
 <journals_friends>
@@ -1170,7 +1170,7 @@
 </passwd_description>
 
 <passwd_retype>
-<lang=en/>Re-type your password
+<lang=en/>Re-type password
 </passwd_retype>
 
 <passwd_retype_description>
