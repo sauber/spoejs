@@ -1,181 +1,200 @@
 <ar>
+<lang=bg/>Arabski
 <lang=se/>arabisk
-<lang=jp/>アラビア語
-<lang=is/>Arabíska
-<lang=mk/>Арапски
-<lang=en/>Arabic
 <lang=gr/>Αραβικά
+<lang=jp/>アラビア語
+<lang=mk/>Арапски
+<lang=is/>Arabíska
+<lang=en/>Arabic
 <lang=da/>Arabisk
 </ar>
 
 <bg>
+<lang=bg/>Bylgarski
 <lang=se/>bulgarisk
 <lang=jp/>ブルガリア語
-<lang=is/>Búlgarska
 <lang=mk/>Бугарски
-<lang=en/>Bulgarian
+<lang=is/>Búlgarska
 <lang=gr/>Βουλγαρικά
+<lang=en/>Bulgarian
 </bg>
 
 <category>
+<lang=bg/>Kategoriia
 <lang=se/>kategori
 <lang=jp/>カテゴリー
 <lang=mk/>Категорија
-<lang=gr/>Κατηγορία
 <lang=en/>Category
+<lang=gr/>Κατηγορία
 <lang=da/>Kategori
 </category>
 
 <change>
+<lang=bg/>Promeni
 <lang=se/>ändra
 <lang=jp/>変更
-<lang=is/>Breyting
 <lang=mk/>Промена
-<lang=en/>Change
+<lang=is/>Breyting
 <lang=gr/>Αλλαγή
+<lang=en/>Change
 <lang=da/>Skift
 </change>
 
 <da>
+<lang=bg/>Danski
 <lang=se/>Danska
 <lang=jp/>デンマーク語
-<lang=is/>Danska
 <lang=mk/>Дански
-<lang=en/>Danish
+<lang=is/>Danska
 <lang=gr/>Δανικά
+<lang=en/>Danish
 <lang=da/>Dansk
 </da>
 
 <date>
+<lang=bg/>Data
 <lang=se/>datum
 <lang=jp/>日付
-<lang=mk/>Дата
 <lang=is/>Dagsetning
-<lang=en/>Date
+<lang=mk/>Дата
 <lang=gr/>Ημερομηνία
+<lang=en/>Date
 <lang=da/>Dato
 </date>
 
 <de>
+<lang=bg/>Germanski
 <lang=se/>Tyska
 <lang=jp/>ドイツ語
-<lang=is/>Þýska
 <lang=mk/>Германски
-<lang=en/>German
+<lang=is/>Þýska
 <lang=gr/>Γερμανικά
+<lang=en/>German
 <lang=da/>Tysk
 </de>
 
 <en>
+<lang=bg/>Angliiski
 <lang=se/>Engelska
 <lang=jp/>英語
-<lang=is/>Enska
 <lang=mk/>Англиски
-<lang=en/>English
+<lang=is/>Enska
 <lang=gr/>Αγγλικά
+<lang=en/>English
 <lang=da/>Engelsk
 </en>
 
 <fr>
+<lang=bg/>Frenski
 <lang=se/>Franska
 <lang=jp/>フランス語
-<lang=is/>Franska
 <lang=mk/>Француски
-<lang=en/>French
+<lang=is/>Franska
 <lang=gr/>Γαλλικά
+<lang=en/>French
 <lang=da/>Fransk
 </fr>
 
 <gr>
+<lang=bg/>Grytski
 <lang=se/>grekiska
 <lang=jp/>ギリシャ語
-<lang=is/>Gríska
 <lang=mk/>Грчки
-<lang=en/>Greek
+<lang=is/>Gríska
 <lang=gr/>Ελληνικά
+<lang=en/>Greek
 <lang=da/>Græsk
 </gr>
 
 <is>
+<lang=bg/>Islandski
 <lang=se/>islandska
 <lang=jp/>アイスランド語
-<lang=is/>Íslenska
 <lang=mk/>Исландски
-<lang=en/>Icelandic
+<lang=is/>Íslenska
 <lang=gr/>Ισλανδικά
+<lang=en/>Icelandic
 <lang=da/>Islandsk
 </is>
 
 <it>
+<lang=bg/>Italianski
 <lang=se/>italiansk
 <lang=jp/>イタリア語
-<lang=is/>Ítalska
 <lang=mk/>Италијански
-<lang=en/>Italian
+<lang=is/>Ítalska
 <lang=gr/>Ιταλικά
+<lang=en/>Italian
 </it>
 
 <jp>
+<lang=bg/>Iaponski
 <lang=se/>japanska
 <lang=jp/>日本語
-<lang=is/>Japanska
 <lang=mk/>Јапонски
-<lang=en/>Japanese
+<lang=is/>Japanska
 <lang=gr/>Ιαπωνικά
+<lang=en/>Japanese
 <lang=da/>Japansk
 </jp>
 
 <mk>
+<lang=bg/>Makedonski
 <lang=se/>macedoniska
 <lang=mk/>Македонски
-<lang=en/>Macedonian
 <lang=gr/>Μακεδονικά
+<lang=en/>Macedonian
 </mk>
 
 <passwd>
+<lang=bg/>Parola
 <lang=se/>passord
 <lang=jp/>パスワード
-<lang=is/>Lykilorð
 <lang=mk/>Клучен збор
-<lang=gr/>Κωδικός
+<lang=is/>Lykilorð
 <lang=en/>Password
+<lang=gr/>Κωδικός
 </passwd>
 
 <posted_by>
+<lang=bg/>Avtor
 <lang=se/>postat av
 <lang=jp/>記入される
 <lang=mk/>Испраќа
-<lang=gr/>Καταχώρηση από
 <lang=en/>Posted by
+<lang=gr/>Καταχώρηση από
 <lang=da/>Af
 </posted_by>
 
 <se>
+<lang=bg/>Shvedski
 <lang=se/>svenska
 <lang=jp/>スウェーデン語
-<lang=is/>Sænska
 <lang=mk/>Шведски
-<lang=en/>Swedish
+<lang=is/>Sænska
 <lang=gr/>Σουηδικά
+<lang=en/>Swedish
 </se>
 
 <title>
+<lang=bg/>Zaglavie
 <lang=se/>titel
 <lang=jp/>タイトル
-<lang=mk/>Наслов
 <lang=is/>Titill
-<lang=en/>Title
+<lang=mk/>Наслов
 <lang=gr/>Τίτλος
+<lang=en/>Title
 <lang=da/>Titel
 </title>
 
 <zh>
+<lang=bg/>Kitaiski
 <lang=se/>kinesiska
 <lang=jp/>中国語
-<lang=is/>Kínverska
 <lang=mk/>Кинески
-<lang=en/>Chinese
+<lang=is/>Kínverska
 <lang=gr/>Κινέζικα
+<lang=en/>Chinese
 <lang=da/>Kinesisk
 </zh>
 
