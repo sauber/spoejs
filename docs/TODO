@@ -154,6 +154,7 @@ Performance:
  - Only read resource.txt once per httpd
  - Remove small blue lines
  - Code it sluggish. Optimize performance.
+ - latest.html should use cached information from story-save
 
 Docs:
  - Website 'about spoejs'
