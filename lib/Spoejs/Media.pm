@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.14 2004/05/08 05:06:18 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.14 $';
+# $Id: Media.pm,v 1.15 2004/05/08 13:53:35 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.15 $';
 
 
 # Initializor
@@ -107,9 +107,8 @@ sub scale {
   }
 
   my($w,$h) = $self->info();
-  return $self->_err( "Got zero width or height" ) if $w == 0 or $h == 0;
-  if ( $w>$h ) { $x=$m; $y = int .5 + $m*$h/$w }
-          else { $y=$m; $x = int .5 + $m*$w/$h }
+  my($x,$y) = $self->_scaledxy($w,$h,$m);
+  return $self->_err( "Got zero width or height" ) if $x == 0 or $y == 0;
   $self->{_im}->Scale(width=>$x,height=>$y);
 
   # Convert back to blob?
@@ -129,6 +128,23 @@ sub _create_bs {
 			   TMIN => 38,
 			   DAMP => 40,
 			   );
+}
+
+# Calculate x,y of scaled image
+sub _scaledxy {
+  my($self,$x,$y,$s) = @_;
+
+  # Old method
+  # my($x,$y);
+  #if ( $w>$h ) { $x=$m; $y = int .5 + $m*$h/$w }
+  #        else { $y=$m; $x = int .5 + $m*$w/$h }
+
+  # New method (square pictures don't become too big compared to rectangles)
+  return (0,0) if $y ==0 or $x == 0;
+  my $r = $y/$x;
+  $x = int .5 + sqrt( $s**2 / (1+$r**2) );
+  $y = int .5 + $x * $r;
+  return ($x,$y);
 }
 
 #### Public interface ####

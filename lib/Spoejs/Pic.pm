@@ -1,8 +1,8 @@
 package Spoejs::Pic;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-# $Id: Pic.pm,v 1.13 2004/05/08 05:06:18 snicki Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.13 $';
+# $Id: Pic.pm,v 1.14 2004/05/08 13:53:35 sauber Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.14 $';
 
 # Supported extensions
 $Spoejs::Pic::EXTENSIONS = 'jpg|png|gif|bmp';
@@ -45,10 +45,9 @@ sub html_imgsize {
 
   return undef if ( $w == 0 || $h == 0 );
 
-  # Scale shortest side
-  my $x = $y = $params{size};
-  $x = int( $x * $w / $h ) if $w < $h;
-  $y = int( $y * $h / $w ) if $w > $h;
+  # Calculate scaled size
+  my($x,$y) = $self->_scaledxy($w,$h,$params{size});
+  return $self->_err( "Got zero width or height" ) if $x == 0 or $y == 0;
 
   return "width=\"$x\" height=\"$y\"";
 }

@@ -3,8 +3,8 @@ use base ( "Spoejs::Media" );
 use Data::Dumper;
 use Video::Info;
 
-# $Id: Movie.pm,v 1.3 2004/05/08 05:06:18 snicki Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.3 $';
+# $Id: Movie.pm,v 1.4 2004/05/08 13:53:35 sauber Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.4 $';
 
 # Supported extensions
 $Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov';
@@ -64,12 +64,9 @@ sub html_imgsize {
 
   my($w,$h) = $self->ping();
 
-  return undef if ( $w == 0 || $h == 0 );
-
-  # Scale shortest side
-  my $x = $y = $params{size};
-  $x = int( $x * $w / $h ) if $w < $h;
-  $y = int( $y * $h / $w ) if $w > $h;
+  # Calculate scaled size
+  my($x,$y) = $self->_scaledxy($w,$h,$params{size});
+  return $self->_err( "Got zero width or height" ) if $x == 0 or $y == 0;
 
   return "width=\"$x\" height=\"$y\"";
 }
