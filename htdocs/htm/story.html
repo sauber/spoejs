@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.17 2004/06/13 07:58:58 snicki Exp $
+%# $Id: story.html,v 1.18 2004/06/13 08:23:26 snicki Exp $
 %#
 <& /w, w          => 'story-page',
        story_dir  => $spoejs{p}{d},
@@ -14,7 +14,7 @@
 &>
 <%init>
   # XXX: Make ChannelConf or user selectable
-  my $count = $spoejs{ChannelConf}->get( 'thumbnail_count' );
+  my $count = $spoejs{ChannelConf}->get( 'thumb_count' );
   $count ||= 0; # 0 means All
 
 my $a_edit;
