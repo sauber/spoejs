@@ -1,3 +1,10 @@
+%# Show a list of media with links to larger versions
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: album,v 1.2 2004/04/10 07:40:54 snicki Exp $
+%#
 <% $img_list %>
 <%args>
   $img_list => undef
