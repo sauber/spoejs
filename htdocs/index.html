@@ -3,61 +3,37 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.30 2004/05/11 10:30:32 snicki Exp $
+%# $Id: index.html,v 1.31 2004/05/16 07:37:30 snicki Exp $
 %#
-<& /js/detectua.js &>
-<script language="JavaScript">
-<!--
-function calcHeightIE(frame_id)
-{
-//find the height of the internal page
- var the_height=document.getElementById(frame_id).contentWindow.document.body.scrollHeight;
-
-//document.writeln(the_height);
-
- //change the height of the iframe
- document.getElementById(frame_id).style.height=the_height;
-}
-
-function calcHeightNS(frame_id)
-{
-//find the height of the internal page
- var the_height=document.getElementById(frame_id).contentDocument.body.offsetHeight;
-//confirm(the_height);
-
- //change the height of the iframe
- document.getElementById(frame_id).height=the_height+10;
-}
-
-function calcHeight(frame_id)
-{
-if (is_ie4up) {
-  calcHeightIE(frame_id);
-} else {
-  calcHeightNS(frame_id);
-}
-}
-//-->
-</script>
+<table><tr><td width="50%" valign="top">
 <h1>
-<&|/l&>spoejs_channels_at_this_site</&>
+%#<&|/l&>spoejs_channels_at_this_site</&>
+Local journals
 </h1>
-% my $count = 0;
 % foreach my $chan ( @channels ) {
 <h2>
 <a href="/<% $chan->channel_dir() %>/index.html">
 <% $chan->get( 'title' ) %>
 </a>
 </h2>
-<iframe id="<% "the_iframe" . $count %>"
- onload="calcHeight('<% "the_iframe" . $count++ %>');" src="/<%
- $chan->channel_dir() %>/intro.html" height="240"
- frameborder="0" vspace="0" hspace="0" scrolling="NO"
- style="overflow:invisible; width:100%;">
-</iframe>
-<br/>
+% if ( $chan->{S} ) {
+% $spoejs{channel_path} = $chan->{path};
+% $spoejs{channel} = $chan->channel_dir();
+% $spoejs{p}{t} = $chan->get('theme');
+<& /w, w => 'abstract', box => 1, storyref => $chan->{S} &>
+<br clear="all"/>
+% } else {
+<&|/l&>no_stories</&>
+% }
 <br/>
 % }
+</td><td width="50%" valign="top">
+<h1>Journals at friend's sites</h1>
+%for my $rem ( @{$remotes} ) {
+<h2><a href=""><%$rem->{shortname}%> at <% $rem->{url} %></a></h2>
+<% $rem->{summary} %><br/><br/>
+%}
+</td></tr></table>
 <hr/>
 <&|/l&>administration</&>
 <br/>
@@ -72,4 +48,8 @@ $spoejs{error}{$m->current_comp->source_file} = $CL->{msg} if $CL->{msg};
 my @channels;
 my @auth =  keys %{$session{chanauth}} if defined $session{chanauth};
 @channels = $CL->newest_channels( auth => \@auth )  unless $CL->{msg};
+
+my $SYN = new Spoejs::Syndication( path => "$ENV{DOCUMENT_ROOT}/users/",
+                                   lang => $spoejs{lang_handle} );
+my $remotes = $SYN->newest_remotes();
 </%init>
