@@ -1,10 +1,11 @@
-%# Insert or edit story
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: story.html,v 1.31 2004/06/16 12:55:11 snicki Exp $
-%#
+<%doc>
+Insert or edit story
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: story.html,v 1.32 2004/06/17 01:37:14 snicki Exp $
+</%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
 <& /htm/admin/story_tab.mas &>
@@ -47,10 +48,8 @@
 <br/>
 % if ( defined $spoejs{Story} ) {
 **thumbnail**:<br/>
-% for my $i ( @thumb ) {
-**<% $i %>**: <input type="radio" name="thumbnail" value="<% $i
-%>" <% $checked{$i} %>/> 
-% }
+**journal_default**: <input type="radio" name="thumbnail" value="default" <% $checked{default} %>/> 
+**specific**: <input type="radio" name="thumbnail" value="specific" <% $checked{specific} %>/> 
 <select name="thumbfile">
   <option value="">**choose**</option>
 % for ( $spoejs{Story}->media_list() ) {
@@ -65,7 +64,6 @@
 </form>
 </fieldset>
 <%init>
-my @thumb = qw( first last random always_random specific );
 my $cur_lang = $spoejs{current_language};
 my @entries = qw( title date category abstract fulltext author thumbnail );
 
@@ -80,14 +78,13 @@ if ( defined $spoejs{Story} && !$ARGS{submit} ) {
   %ARGS = ( %ARGS, $spoejs{Story}->get() );
 
   # Find thumbtype for html 'checked'ing
-  for ( @thumb ) {
+  for ( qw( default specific ) ) {
     $checked{$_} = $_ eq $ARGS{thumbnail} ? ' checked="checked"' : '';
   }
-  $checked_file = $ARGS{thumbnail} unless grep {$_ eq
-  $ARGS{thumbnail}} @thumb ;
-  $checked{specific} = ' checked="checked"'  unless grep {$_ eq
-  $ARGS{thumbnail}} @thumb ;
-
+  unless ( $ARGS{thumbnail} eq 'default') {
+    $checked_file = $ARGS{thumbnail};
+    $checked{specific} = ' checked="checked"';
+  }
 }
 
 if ( defined $ARGS{submit} ) {
