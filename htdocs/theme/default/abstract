@@ -11,7 +11,18 @@
   <td><& /w, w => 'categoryicon', category =>$storyref->get( 'category' ) &></td>
   <td><% $storyref->get( 'abstract' ) %></td>
 </tr>
-
+<tr>
+<td>
+% my $path = $storyref->story_path_from_full();
+% $path =~ s/\///g;
+<a href="/<%$session{user}%>/story_d<%$path%>.html">More</a>
+<a href="">Comment</a>
+% if ( $session{chanauth} && $session{user} && 
+%      $session{chanauth}{$session{user}}) {
+<a href="/<%$session{user}%>/admin/story_d<%$path%>.html">Edit</a>
+% }
+</td>
+</tr>
 </table>
 
 <%init>
