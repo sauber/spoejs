@@ -1,5 +1,5 @@
 % foreach my $cat ( keys %count ) {
-  <% $cat %> (<% $count{$cat} %>)<br>
+  <% $cat %> (<% $count{$cat} %>)<br/>
 % }
 
 
