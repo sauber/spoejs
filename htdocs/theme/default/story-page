@@ -14,17 +14,12 @@
 <br/>
 <br/>
 <fieldset class="full"><legend>Media</legend>
-% for ( @media_list ) {
-% my $p = $_->{file};
-%# XXX: Consider moving generation of these links to caller
-<div class="media">
-<center>
-<a href="<& /htm/url:encode, 'media.html', d => $story_dir, p => $p &>">\
-<& /w, w => "media", d => $story_dir, p => $p, m => 150, info => $_->info() &>\
-</a><br>
-%# XXX: Insert annotation here
-</center>
-</div>
+% for my $p ( @media_list ) {
+%# my $p = $m->{file};
+% my $href = $m->scomp( '/htm/url:encode', 'media.html',
+%                       d => $story_dir, p => $p->{file} );
+<& /w, w => "media", d => $story_dir, p => $p->{file}, m => $thumb_size, 
+       html_wh => $p->html_imgsize( size => $thumb_size ), href => $href &>\
 % }
 </fieldset>
 <& /w, w => 'navi', %navi_opt &>
@@ -41,4 +36,5 @@
   $edit_href  => undef
   %navi_opt   => undef
   @media_list => undef
+  $thumb_size => 150
 </%args>
