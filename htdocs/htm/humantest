@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: humantest,v 1.6 2004/07/12 08:24:55 sauber Exp $
+%# $Id: humantest,v 1.7 2004/08/30 03:02:06 sauber Exp $
 %#
 <%once>
 use Authen::Captcha;
@@ -13,8 +13,8 @@ unless ( -d '/tmp/captcha' ) {
   system 'mkdir /tmp/captcha';
   system 'chmod 777 /tmp/captcha';
   system 'chmod +t /tmp/captcha';
-  system 'touch /tmp/captcha/codex.txt';
-  system 'chmod 666 /tmp/captcha/codex.txt';
+  system 'touch /tmp/captcha/codes.txt';
+  system 'chmod 666 /tmp/captcha/codes.txt';
 }
 
 # Create a secret for this system
