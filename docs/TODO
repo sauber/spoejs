@@ -90,6 +90,7 @@ SiteConf:
  - Neighborhood spoejs sites
  - Invite-only/register-confirm/free-for-all
  - Quota
+ - Username/password set/change
 
 Navigation:
  - StoryList
@@ -109,6 +110,7 @@ Media:
  - /chan/story/pic_m150.jpg url
  - Delete
  - utf8 category icon
+ - windows filenames
 
 Extras:
  - Calendar
