@@ -1,0 +1,13 @@
+%# An icon pseudo matching category
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: categoryicon,v 1.1 2004/06/02 14:15:11 sauber Exp $
+%#
+<img src="<& /htm/url:encode, "/ico/ico.jpg", c=>$category, m=>$size&>" alt="<% $category %> icon" align=center vspace=9 hspace=5/>\
+%#width="<%$size%>" height="<%$size%>"
+<%args>
+    $category => undef
+    $size => undef
+</%args>

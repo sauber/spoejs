@@ -1,0 +1,27 @@
+%# List of story titles
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: storytitlelist,v 1.1 2004/06/02 14:15:11 sauber Exp $
+%#
+% use Date::Manip;
+<h2><&|/l&>stories</&></h2>
+%#<&|/l&>storytitlelist</&>
+% foreach my $story ( $spoejs{SL}->list_stories( %sl_opt ) ) {
+% my $path = $story->story_path_from_full();
+<li><a href="<& /htm/url:encode, 'story.html', d=>$path &>"><% $story->get('title') %></a> (<% $story->get('date') %>)</li>
+% }
+<& /w, w => 'navi', %navi_opt &>
+<%init>
+
+my $count = 10;
+my $start = $spoejs{p}{s} + $count;
+my %sl_opt = ( category  => $spoejs{p}{c},
+	       prev      => $count,
+	       story_num => $start
+	     );
+
+my %navi_opt = ( url => "/$spoejs{channel}/index.html",
+		 count => $count, start => $start, list_ref => $spoejs{SL} );
+</%init>

@@ -1,0 +1,15 @@
+%# List of story categories
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: categorylist,v 1.1 2004/06/02 14:15:11 sauber Exp $
+%#
+%#<&|/l&>categorylist</&>
+<h2><&|/l&>categories</&></h2>
+% for my $info ( sort { $$a{category} cmp $$b{category} } @cat_info ) {
+<a href="<% $$info{href} %>"><% $$info{category} %>(<% $$info{count} %>)</a><br/>
+% }
+<%args>
+  @cat_info => undef
+</%args>

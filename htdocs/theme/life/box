@@ -1,0 +1,22 @@
+%# put html output inside a box
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: box,v 1.1 2004/06/02 14:15:11 sauber Exp $
+%#
+<%args>
+$content => undef
+$heading => ""
+</%args>
+<%init>
+unless ( $heading ) {
+  $content =~ s!^<h.>(.*?)</h.>$!!im and $heading = $1;
+}
+# Avoid empty boxes
+return unless $content =~ /\w/;
+</%init>
+<table width="100%">
+<tr bgcolor="#cccccc"><th><% $heading %></th></tr>
+<tr valign=top><td><% $content %></td></tr>
+</table>

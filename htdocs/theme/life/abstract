@@ -1,0 +1,43 @@
+%# title, icon, indexthumb, etc. for a story
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: abstract,v 1.1 2004/06/02 14:15:10 sauber Exp $
+%#
+<h3><% $title %></h3>
+<br/>
+<div class="left">
+     <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
+<div class="bottom">
+<a href="<% $story_href %>"><&|/l&>view</&></a>
+%# XXX: Not yet implemented
+%# <a href=""><&|/l&>comment</&></a>
+% if ( $edit_href ) {
+<a href="<% $edit_href %>"><&|/l&>edit</&></a>
+% }
+</div>
+</div>
+<div class="right">
+    <& /w, w => 'media', d => $path, p => $thumb_file,
+           m => 250, href=>$story_href &>
+</div>
+<div class="center">
+<b><&|/l&>date</&>:</b> <% $date %><br/>
+<b><&|/l&>posted_by</&>:</b> <% $author %><br/>
+<b><&|/l&>category</&>:</b> <% $category %><br/>
+<br/>
+<& /w, w => "text", text=>$abstract &>
+</div>
+<%args>
+  $title      => undef
+  $author     => undef
+  $category   => undef
+  $date       => undef
+  $abstract   => undef
+  $icon_size  => undef
+  $story_href => undef
+  $path       => undef
+  $edit_href  => undef
+  $thumb_file => undef
+</%args>
