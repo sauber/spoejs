@@ -4,7 +4,7 @@ Register channel or edit configuration
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: channelform.html,v 1.44 2004/06/13 07:58:25 snicki Exp $
+$Id: channelform.html,v 1.45 2004/06/13 08:22:36 snicki Exp $
 </%doc>
 %if ( defined $ARGS{delete} ) {
 <h2>**channel_deleted**</h2>
@@ -26,7 +26,9 @@ $Id: channelform.html,v 1.44 2004/06/13 07:58:25 snicki Exp $
 <h2>
 **signup_newjournal**
 </h2>
-% }
+% } else {
+<a href="/<%$spoejs{channel}%>/admin/layout.html">**edit_layout**</a><br/><br/>
+%}
 <fieldset>
 <legend>
 **account_signup**
