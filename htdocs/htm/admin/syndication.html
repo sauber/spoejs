@@ -1,0 +1,46 @@
+<%doc>
+Syndication configuration
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: syndication.html,v 1.1 2004/06/17 02:42:22 snicki Exp $
+</%doc>
+<& /htm/admin/site_tab.mas &>
+<br/>
+<form method="post" action="">
+**peers**:<br/>
+<textarea name="peers" cols="40" rows="10">\
+<% $SC->get('peers') %>\
+</textarea>
+<br/>
+<br/>
+**proxy**:<br/>
+<input type="text" name="proxy" size="40" value="<% $SC->get('proxy') %>"/>
+<br/>
+<br/>
+<input type="submit" name="submit" value="**submit**" />
+</form>
+<%init>
+# Check auth
+unless ( defined $session{chanauth} && defined $session{chanauth}{'**scf**'} ) {
+  $m->print( '**pleaselogin**' );
+  return; 
+}
+
+my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
+                               lang => $spoejs{lang_handle} );
+$spoejs{error}{$m->current_comp->source_file} = $SC->{msg} if
+                               $SC->{msg};
+
+# Set the info
+if ( $ARGS{submit} ) {
+  # Set peers
+  $SC->set( peers => $ARGS{peers} );
+
+  #Set proxy
+  $SC->set( proxy => $ARGS{proxy} );
+
+  warn $SC->{msg} if defined $SC->{msg};
+}
+</%init>

@@ -1,0 +1,99 @@
+<%doc>
+Journal management
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: journal_admin.html,v 1.1 2004/06/17 02:42:22 snicki Exp $
+</%doc>
+<& /htm/admin/site_tab.mas &>
+<br/>
+<fieldset><legend>**statusjournal**:</legend>
+<form method="post" action="">
+<table width="100%">
+<tr>
+<th>**shortname**</th><th>Title</th><th>**public**</th>
+<th>**active**</th><th>**archive**</th><th>**delete**</th>
+</tr>
+% foreach my $chan ( @channels ) {
+<tr>
+<td><% $chan->get( 'shortname' ) %></td>
+<td><a href="/<% $chan->channel_dir() %>/index.html">
+<% $chan->get( 'title' ) %></a>
+</td>
+<td align="center"><% $chan->get( 'public' ) %></td>
+<td align="center">
+<select name="<% $chan->get( 'shortname' ) %>">
+% for my $k ( qw( yes no_ ) ) {
+<option value="<% $k %>"\
+<% $chan->get( 'active' ) eq $k ? ' selected="selected">' : '>' %>
+**<% $k %>**
+</option>
+% }
+</select>
+</td>
+%# Archive
+<td>
+<input type="submit" name="archive" value="<% $chan->get( 'shortname' ) %>"/>
+</td>
+%# Delete
+<td>
+<input type="submit" name="delete" value="<% $chan->get( 'shortname' ) %>"/>
+</td>
+</tr>
+% }
+</table>
+<input type="submit" name="submit" value="**submit**" />
+</fieldset>
+<br/>
+<br/>
+<fieldset><legend>**change_journal_password**</legend>
+**journal_name**: <& /w, w => 'channelselect', channels =>\@channels &><br/>
+<br/>
+**new_password**: <input type="password" name="channel_password"/><br/>
+<br/>
+<input type="submit" name="change_chan_pw" value="**set_password**" />
+</fieldset>
+<br/>
+<br/>
+<%init>
+# Check auth
+unless ( defined $session{chanauth} && defined $session{chanauth}{'**scf**'} ) {
+  $m->print( '**pleaselogin**' );
+  return; 
+}
+
+my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
+                                  lang => $spoejs{lang_handle} );
+$spoejs{error}{$m->current_comp->source_file} = $CL->{msg} if $CL->{msg};
+
+# Delete and archive before getting channel list
+if ( $ARGS{delete} ) {
+
+  $CL->delete_channel( $ARGS{delete} ) or warn $CL->{msg};
+}
+
+if ( $ARGS{archive} ) {
+
+  $CL->archive_channel( $ARGS{archive} );
+}
+
+# Get array of ChannelConf object refs
+my @channels;
+@channels = $CL->search_channels();
+@channels = () if $channels[0] eq undef;
+
+# Set the new status
+if ( $ARGS{submit} ) {
+
+  foreach my $chan ( @channels ) {
+    $chan->set( active => $ARGS{$chan->get('shortname')} );
+  }
+
+}
+
+if ( $ARGS{change_chan_pw} ) {
+  $channels[$ARGS{channel}]->set( password => undef );
+  $channels[$ARGS{channel}]->set( password => $ARGS{channel_password});
+}
+</%init>

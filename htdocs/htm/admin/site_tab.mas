@@ -1,0 +1,14 @@
+<& /w, w => 'tabs',
+       list    => \@urls,
+       caller  => $m->caller()->name(),
+       label   => '**site_config**',
+       no_auth => 1
+&>
+<%init>
+my $prefix = "/htm/admin";
+my @urls = ( 
+[ "$prefix/siteconfig.html", '**siteconfig**' ],
+[ "$prefix/journal_admin.html", '**journal_admin**' ],
+[ "$prefix/syndication.html", '**syndication**' ],
+);
+</%init>

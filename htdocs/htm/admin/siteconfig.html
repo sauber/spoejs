@@ -4,56 +4,11 @@ Site configuration
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: siteconfig.html,v 1.23 2004/06/16 12:01:20 sauber Exp $
+$Id: siteconfig.html,v 1.24 2004/06/17 02:40:58 snicki Exp $
 </%doc>
-% unless ( defined $session{chanauth} && defined $session{chanauth}{'**scf**'} ) {
-**pleaselogin**
-% return; }
-<h1>**statusjournal**:</h1>
+<& /htm/admin/site_tab.mas &>
+<br/>
 <form method="post" action="">
-<table width="100%">
-<tr>
-<th>**shortname**</th><th>Title</th><th>**public**</th>
-<th>**active**</th><th>**archive**</th><th>**delete**</th>
-</tr>
-% foreach my $chan ( @channels ) {
-<tr>
-<td><% $chan->get( 'shortname' ) %></td>
-<td><a href="/<% $chan->channel_dir() %>/index.html">
-<% $chan->get( 'title' ) %></a>
-</td>
-<td align="center"><% $chan->get( 'public' ) %></td>
-<td align="center">
-<select name="<% $chan->get( 'shortname' ) %>">
-% for my $k ( qw( yes no_ ) ) {
-<option value="<% $k %>"\
-<% $chan->get( 'active' ) eq $k ? ' selected="selected">' : '>' %>
-**<% $k %>**
-</option>
-% }
-</select>
-</td>
-%# Archive
-<td>
-<input type="submit" name="archive" value="<% $chan->get( 'shortname' ) %>"/>
-</td>
-%# Delete
-<td>
-<input type="submit" name="delete" value="<% $chan->get( 'shortname' ) %>"/>
-</td>
-</tr>
-% }
-</table>
-<br/>
-<fieldset><legend>**change_journal_password**</legend>
-**journal_name**: <& /w, w => 'channelselect', channels =>\@channels &><br/>
-<br/>
-**new_password**: <input type="password" name="channel_password"/><br/>
-<br/>
-<input type="submit" name="change_chan_pw" value="**set_password**" />
-</fieldset>
-<br/>
-<br/>
 **sitepolicy**:
 <select name="policy">
 % foreach my $pol ( @policy ) {
@@ -78,7 +33,7 @@ $Id: siteconfig.html,v 1.23 2004/06/16 12:01:20 sauber Exp $
 <br/>
 **show_trans**:
 <select name="<% $transopt %>">
-% for my $k ( qw( yes no_ ) ) {
+% for my $k ( @yesno ) {
 <option value="<% $k %>"\
 <% $SC->get( $transopt ) eq $k ? ' selected="selected">' : '>' %>
 **<% $k %>**
@@ -86,55 +41,33 @@ $Id: siteconfig.html,v 1.23 2004/06/16 12:01:20 sauber Exp $
 % }
 </select>
 <br/>
-**peers**:<br/>
-<textarea name="peers" cols="40" rows="10">\
-<% $SC->get('peers') %>\
-</textarea>
 <br/>
-<br/>
-**proxy**:<br/>
-<input type="text" name="proxy" size="40" value="<% $SC->get('proxy') %>"/>
-<br/>
-<br/>
-<input type="submit" name="submit" value="**submit**" />
+<input type="submit" name="subsmit" value="**submit**" />
 </form>
 <a href="/htm/admin/signup.html">
 **addnewjournal**
 </a>
 <%init>
+# Check auth
+unless ( defined $session{chanauth} && defined $session{chanauth}{'**scf**'} ) {
+  $m->print( '**pleaselogin**' );
+  return; 
+}
+
 my $transopt = 'showtranslationoptions';
-my @policy = qw( freeall signup_approve inviteonly );
+
+my $policy_options = '**freeall** **signup_approve** **inviteonly**';
+my @policy = $policy_options =~ m/\*\*(\w+)\*\*/g;
+
+my $yesno_opt = '**yes** **no_**';
+my @yesno = $yesno_opt =~ m/\*\*(\w+)\*\*/g;
 
 my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
                                lang => $spoejs{lang_handle} );
 $spoejs{error}{$m->current_comp->source_file} = $SC->{msg} if $SC->{msg};
 
-my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
-                                  lang => $spoejs{lang_handle} );
-$spoejs{error}{$m->current_comp->source_file} = $CL->{msg} if $CL->{msg};
-
-# Delete and archive before getting channel list
-if ( $ARGS{delete} ) {
-
-  $CL->delete_channel( $ARGS{delete} ) or warn $CL->{msg};
-}
-
-if ( $ARGS{archive} ) {
-
-  $CL->archive_channel( $ARGS{archive} );
-}
-
-# Get array of ChannelConf object refs
-my @channels;
-@channels = $CL->search_channels();
-@channels = () if $channels[0] eq undef;
-
 # Set the new status
 if ( $ARGS{submit} ) {
-
-  foreach my $chan ( @channels ) {
-    $chan->set( active => $ARGS{$chan->get('shortname')} );
-  }
 
   # Set new policy
   $SC->set( policy => $ARGS{policy} );
@@ -146,16 +79,6 @@ if ( $ARGS{submit} ) {
   # Set transoptions
   $SC->set( $transopt => $ARGS{$transopt} );
 
-  # Set peers
-  $SC->set( peers => $ARGS{peers} );
-
-  #Set proxy
-  $SC->set( proxy => $ARGS{proxy} );
-
   warn $SC->{msg} if defined $SC->{msg};
-}
-if ( $ARGS{change_chan_pw} ) {
-  $channels[$ARGS{channel}]->set( password => undef );
-  $channels[$ARGS{channel}]->set( password => $ARGS{channel_password});
 }
 </%init>
