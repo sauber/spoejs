@@ -1,0 +1,22 @@
+%# Pulldown menu of themes 
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: themeselect,v 1.1 2004/04/19 07:14:21 bottle18 Exp $
+%#
+<%init>
+my @themes;
+opendir DH, "$ENV{DOCUMENT_ROOT}/theme";
+  @themes = grep /(.){4,10}/, readdir DH;
+closedir DH;
+</%init>
+<select name="theme">
+% foreach my $theme ( @themes ) {
+% my $sel = $ARGS{theme} eq $theme ? ' selected="selected"' : ' ';
+%# my $sel = '';
+<option value="<% $theme %>"<% $sel %>>
+<% $theme %>
+</option>
+%}
+</select>
