@@ -1,15 +1,11 @@
 <%args>
-$content=>undef
+$content => undef
+$title   => undef
 </%args>
 <%init>
-$content =~ s!^<h.>(.*?)</h.>$!<table width=100% bgcolor=#CCCC00><tr><td>$1</td></tr></table>!im;
+$content =~ s!^<h.>(.*?)</h.>$!!im and $title = $1;
 </%init>
-<table bgcolor=#000000 border=1>
-<tr><td>
-<table bgcolor=#FFFFFF border=1>
-<tr><td>
+<fieldset>
+<legend><% $title %></legend>\
 <% $content %>
-</td></tr>
-</table>
-</td></tr>
-</table>
+</fieldset>\
