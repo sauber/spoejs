@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.23 2004/05/20 10:12:20 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.23 $';
+# $Id: Text.pm,v 1.24 2004/06/01 09:59:05 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.24 $';
 
 
 # Constructor
@@ -42,32 +42,41 @@ sub _store_data {
 
     my $self = shift;
     my %data = %{$self->{data}}; #grab data for easier access
+    my $entry;
+    my $subentry;
+
     open (FH, ">$self->{path}/$self->{file}") or
  	return $self->_err( "Could not open $self->{path}/$self->{file}: $!");
 
     foreach $key ( sort keys( %data ) ) {
-	
-	print FH "<$key>\n";
+
+	$entry = "<$key>\n";
+
+	$subentry = '';
 	foreach $lang ( sort keys( %{ $data{$key} }) ) {
-	    
+
+	    next unless length $data{$key}{$lang} > 0;
+
 	    $text = $data{$key}{$lang};
 
 	    if( $text =~ /\n/ ) {
 		
-		print FH "<lang=$lang>\n";
-		print FH "$data{$key}{$lang}\n";
-		print FH "</lang>\n";
+		$subentry .= "<lang=$lang>\n";
+		$subentry .= "$text\n";
+		$subentry .= "</lang>\n";
 		
 	    } else {
 		
-		print FH "<lang=$lang/>$text\n";
+		$subentry .= "<lang=$lang/>$text\n";
 	    }
 	}
 	
 	# If not a hash, add variable directly
-	print FH "$data{$key}\n" unless ref $data{$key};
+	$subentry .= "$data{$key}\n" unless ref $data{$key};
 	
-	print FH "</$key>\n\n";
+	$entry .= $subentry . "</$key>\n\n";
+
+	print FH $entry if length $subentry > 0;
     }
 
     close FH;
