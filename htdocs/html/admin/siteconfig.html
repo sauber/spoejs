@@ -1,0 +1,29 @@
+<h1>Status for channels at this site:</h1>
+% foreach my $chan ( @channels ) {
+%   if ( $chan->get( 'approved' ) eq 'yes' ) {
+<a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'shortname' ) %></a>
+Yes<br/>
+%   } elsif ( $chan->get( 'approved' ) eq 'no' ) {
+<a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'shortname' ) %></a>
+No<br/>
+
+% } else {
+<a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'shortname' ) %></a>
+Unknown<br/>
+
+% } }
+
+
+
+<%init>
+
+# Show list of un/approved channels; functionality to change status
+#
+#
+
+
+my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
+# Gives array of ChannelConf object refs
+my @channels = $CL->search_channels();
+
+</%init>
