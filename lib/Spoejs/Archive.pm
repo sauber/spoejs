@@ -4,8 +4,8 @@ use Spoejs::Pic;
 use Archive::Zip;
 use Archive::Tar;
 
-# $Id: Archive.pm,v 1.1 2004/03/29 06:25:50 snicki Exp $
-$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.1 $';
+# $Id: Archive.pm,v 1.2 2004/03/29 08:22:11 snicki Exp $
+$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.2 $';
 
 #### Private helper functions ####
 
@@ -113,5 +113,8 @@ sub add_file {
   my $P = new Spoejs::Pic( path => $path, file => $fn );
   return $self->_err( $P->{msg} ) if $P->{msg};
   $P->save( $fh ) or return $self->_err( $P->{msg} );
+
+  # Check if file is ok
+  $P->delete() unless $P->ping();
 }
 
