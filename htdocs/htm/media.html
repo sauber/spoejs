@@ -2,11 +2,10 @@
       ML => $ML,
       S  => $S,
       back_href => $back_href,
-      next_href => $next_href,
-      prev_href => $prev_href,
       img_href  => $img_href,
-      img_src  => $img_src,
+      img_src   => $img_src,
       filename  => $filename,
+      navi_opt  => \%navi_opt
 &>
 <%init>
 my $web_path = "/users/$spoejs{channel}/$spoejs{p}{d}";
@@ -18,26 +17,20 @@ $spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
 my $S = new Spoejs::Story( path => $path, lang => $spoejs{lang_handle} );
 $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
 
-my %ml_opt = ( current => $spoejs{p}{p}, count => 2 );
-
-my $next_href;
-my @p = $ML->next( %ml_opt );
-if ( $p[1] ) {
-  $next_href = $m->scomp( '/htm/url:encode', "media.html", d=>$spoejs{p}{d},
-			   p=> $p[1]->{file} );
-}
-my $prev_href;
-@p = $ML->prev( %ml_opt );
-if ( $p[1] ) {
-  $prev_href = $m->scomp( '/htm/url:encode', "media.html", d=>$spoejs{p}{d},
-			   p=> $p[1]->{file} );
-}
-my $back_href = $m->scomp( "url:encode", 'story.html', d => $spoejs{p}{d} );
-my $img_href  = "$web_path/$spoejs{p}{p}";
-my $img_src   = $m->scomp( '/w', w => "media", d => $spoejs{p}{d}, 
-			  p => $spoejs{p}{p}, m => 480 );
-
-my $picref    = $ML->get_picref($spoejs{p}{p}) 
+my $picref    = ($ML->list())[$spoejs{p}{s}]
   or $spoejs{error}{$m->current_comp->source_file} = $ML->{msg};
+
+my $back_href = $m->scomp( "url:encode", 'story.html', d => $spoejs{p}{d} );
+my $img_href  = "$web_path/$picref->{file}";
+
+my $img_src   = $m->scomp( '/w', w => "media", d => $spoejs{p}{d},
+			   p => $picref->{file}, m => 480 );
+
 my $filename  = $picref->utf_filename();
+
+my %navi_opt = ( url => "/$spoejs{channel}/media.html",
+		 count => 1,
+		 start => $spoejs{p}{s},
+		 list_ref => $ML );
+
 </%init>

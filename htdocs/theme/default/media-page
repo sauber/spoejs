@@ -7,21 +7,7 @@
 </a>
 </fieldset>
 <br/>
-% if ( $prev_href ) {
-<a href="<% $prev_href %>">
-<==
-</a>
-% } else {
-<==
-% }
-==
-% if ( $next_href ) {
-<a href="<% $next_href %>">
-==>
-</a>
-% } else {
-==>
-% }
+<& /w, w => 'navi', %navi_opt &>
 </center>
 <a href="<% $back_href %>">Back to story</a>
 <%args>
@@ -33,4 +19,5 @@
   $img_href  => undef
   $img_src   => undef
   $filename  => undef
+  %navi_opt  => undef
 </%args>

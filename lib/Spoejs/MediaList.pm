@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.11 2004/04/06 02:10:15 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.11 $';
+# $Id: MediaList.pm,v 1.12 2004/04/06 08:07:46 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.12 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -69,21 +69,6 @@ sub list_unsorted {
     my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG|gif|GIF)$' );
     return $self->_list( $opt{start}, $opt{count}, @files );
 }
-
-
-
-#sub next {
-#    my ( $self, %param ) = @_;
-#    my @list = $self->list( $parm{count} );
-#    return $self->_next( $param{start}, $param{count}, @list );
-#}
-
-
-#sub prev {
-#    my ( $self, %param ) = @_;
-#    my @list = reverse $self->list( $param{count} );
-#    return $self->_next( $param{start}, $param{count}, @list );
-#}
 
 sub get_picref {
     my ( $self, $current ) = @_;
