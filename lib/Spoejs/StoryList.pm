@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.19 2004/04/04 23:59:50 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.19 $';
+# $Id: StoryList.pm,v 1.20 2004/04/05 12:17:57 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.20 $';
 
 sub _initialize {
     my $self = shift;
@@ -186,6 +186,11 @@ sub list_stories {
     # Get story array
     my @res = $self->_sort_by_date( $self->_all_stories() );
 
+    # Convert story_num to story
+    $in{story} = $res[$in{story_num}] if defined $in{story_num};
+    $in{story} = $in{story}->story_path_from_full() if defined $in{story};
+    delete $in{story_num};
+
     # Handle 'story' separately
     if ( $in{story} ) {
 	my $story_dir = $in{story};
@@ -230,11 +235,34 @@ sub list_stories {
 	    }
 	    
 	    @res = @new;
-	}	
+	}
     }
-    warn Dumper @res;
     # Shrink array to 'count' elements
     $#res = $list_count - 1 if $list_count and @res > $list_count;
 
     return @res;
+}
+
+
+# Return elements 'next' newer tham 'current'
+#
+sub next {
+    my ( $self, %param ) = @_;
+
+    return undef if $param{start} <= 0;
+    return 0 if $param{count} > $param{start};
+    my $index = $param{start} - $param{count};
+    return $index;
+}
+
+
+# Return elements 'prev' older tham 'current'
+#
+sub prev {
+    my ( $self, %param ) = @_;
+
+    my @all = $self->list_stories( category => $param{category} );
+    return undef if $param{count} + $param{start} >= @all;
+    my $index = $param{start} + $param{count};
+    return $index;
 }
