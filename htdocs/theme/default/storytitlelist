@@ -1,14 +1,15 @@
-%# List of story titles
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: storytitlelist,v 1.26 2004/06/11 03:46:57 sauber Exp $
-%#
+<%doc>
+List of story titles
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+ $Id: storytitlelist,v 1.27 2004/07/04 02:57:11 snicki Exp $
+</%doc>
 % use Date::Manip;
 <h2>**stories**</h2>
 %#**storytitlelist**
-% foreach my $story ( $spoejs{SL}->list_stories( %sl_opt ) ) {
+% foreach my $story ( @stories ) {
 % my $path = $story->story_path_from_full();
 <a href="<& /htm/url:encode, 'story.html', d => $path &>">
       <% $story->get( 'title' ) %></a>
@@ -17,15 +18,7 @@
 <br/>
 % }
 <& /w, w => 'navi', %navi_opt &>
-<%init>
-
-my $count = 10;
-my $start = $spoejs{p}{s} + $count;
-my %sl_opt = ( category  => $spoejs{p}{c},
-	       prev      => $count,
-	       story_num => $start
-	     );
-
-my %navi_opt = ( url => "/$spoejs{channel}/index.html",
-		 count => $count, start => $start, list_ref => $spoejs{SL} );
-</%init>
+<%args>
+ @stories  => undef
+ %navi_opt => undef
+</%args>

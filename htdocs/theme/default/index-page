@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index-page,v 1.16 2004/06/15 05:28:20 snicki Exp $
+%# $Id: index-page,v 1.17 2004/07/04 02:57:11 snicki Exp $
 %#
 <table>
 <tr>
@@ -20,7 +20,6 @@
 </td>
 </tr>
 </table>
-%#<br/>
 <& /w, w => "list" &>
 <%init>
 </%init>

@@ -1,0 +1,35 @@
+<%doc>
+Generate data for story title list
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: storytitlelist.sub,v 1.1 2004/07/04 02:57:11 snicki Exp $
+</%doc>
+<& $w,
+  stories  => \@stories,
+  navi_opt => \%navi_opt
+&>
+<%init>
+my $count = 10;
+
+# Get all stories
+my @all = $spoejs{SL}->list_stories();
+
+# Get index of 
+my $start = $spoejs{p}{s} || 0;
+$start = $spoejs{SL}->_index_of( $start, \@all );
+$start += $count;
+my %sl_opt = ( category  => $spoejs{p}{c},
+	       prev      => $count,
+	       story_num => $start
+	     );
+
+my @stories = $spoejs{SL}->list_stories( %sl_opt );
+
+my %navi_opt = ( url => "/$spoejs{channel}/index.html",
+		 count => $count, start => $start, list_ref => $spoejs{SL} );
+</%init>
+<%args>
+  $w => undef
+</%args>
