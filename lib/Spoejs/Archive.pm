@@ -4,16 +4,18 @@ use Spoejs::Pic;
 use Archive::Zip;
 use Archive::Tar;
 
-# $Id: Archive.pm,v 1.9 2004/04/22 06:40:11 snicki Exp $
-$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.9 $';
+# $Id: Archive.pm,v 1.10 2004/05/08 05:06:18 snicki Exp $
+$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.10 $';
 
+# Supported extensions
+$Spoejs::Archive::EXTENSIONS = 'tar|gz|tgz|zip';
 
 # Initializor
 #
 sub _initialize {
   my($self) = shift;
   # Set supported extensions and call Media's initializor
-  $self->{extensions} = 'tar|gz|tgz|zip';
+  $self->{extensions} = $Spoejs::Archive::EXTENSIONS;
 
 #  Media::_check_save(); is copied here in modified form
 

@@ -3,15 +3,18 @@ use base ( "Spoejs::Media" );
 use Data::Dumper;
 use Video::Info;
 
-# $Id: Movie.pm,v 1.2 2004/04/18 14:27:43 snicki Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.2 $';
- 
+# $Id: Movie.pm,v 1.3 2004/05/08 05:06:18 snicki Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.3 $';
+
+# Supported extensions
+$Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov';
+
 # Initializor
 #
 sub _initialize {
   my($self) = shift;
   # Set supported extensions and call Media's initializer
-  $self->{extensions} = 'avi|mpg|wmv|asf|mov';
+  $self->{extensions} = $Spoejs::Movie::EXTENSIONS;
   $self->_check_save();
 }
  

@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.18 2004/04/25 14:03:59 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.18 $';
+# $Id: MediaList.pm,v 1.20 2004/05/08 05:06:18 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.20 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -63,7 +63,7 @@ sub list {
     my $self = shift;
     my %opt  = @_;
 # XXX: What pattern should be used here?
-    my @files = $self->_list_from_file_pattern( '(jpg|png|gif|avi|mpg)$' );
+    my @files = $self->_list_from_file_pattern( '('. $self->all_extensions() . ')$' );
     return $self->_list( $opt{start}, $opt{count}, sort @files );
 }
 
@@ -72,7 +72,7 @@ sub list_unsorted {
     my $self = shift;
     my %opt  = @_;
 # XXX: What pattern should be used here?
-    my @files = $self->_list_from_file_pattern( '(jpg|png|gif|avi|mpg)$' );
+    my @files = $self->_list_from_file_pattern( '('. $self->all_extensions() . ')$' );
     return $self->_list( $opt{start}, $opt{count}, @files );
 }
 
@@ -98,7 +98,7 @@ sub get {
     my ( $self, $type ) = @_;
 
     # XXX: This ads duplicated code, but is fatser than using list();
-    my @files = $self->_list_from_file_pattern( '(jpg|png|gif|avi|mpg)$' );
+    my @files = $self->_list_from_file_pattern( '('. $self->all_extensions() . ')$' );
     return undef unless @files > 0;
     my $i;
 
@@ -109,7 +109,7 @@ sub get {
     } elsif ( $type eq 'last' ) {
 	$i = 0;
 
-    } elsif ( $type eq 'random' or $type eq '' ) {
+    } elsif ( $type eq 'random' or $type eq 'always_random' or $type eq '' ) {
 
 	$i = int rand($#files + 1);
     } else {
@@ -119,6 +119,14 @@ sub get {
 
     @d{ 'file', 'path' } = fileparse $files[$i];
     return new Spoejs::Media( %d );
+}
+
+
+# List of extensions for all media types
+#
+sub all_extensions {
+    return $Spoejs::Pic::EXTENSIONS . '|' . $Spoejs::Movie::EXTENSIONS . '|' . 
+	$Spoejs::Archive::EXTENSIONS;
 }
 
 __END__
