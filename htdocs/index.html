@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.32 2004/05/16 08:13:46 snicki Exp $
+%# $Id: index.html,v 1.33 2004/05/16 10:21:09 snicki Exp $
 %#
 <table><tr><td width="50%" valign="top">
 <h1>
@@ -30,7 +30,8 @@
 </td><td width="50%" valign="top">
 <h1>*Journals at friend's sites</h1>
 %for my $rem ( @{$remotes} ) {
-<h2><a href=""><%$rem->{shortname}%> at <% $rem->{url} %></a></h2>
+<h2><a href="<% $rem->{url} . '/' . $rem->{shortname} .'/index.html' %>">
+<%$rem->{shortname}%> at <% $rem->{url} %></a></h2>
 <% $rem->{summary} %><br/><br/>
 %}
 </td></tr></table>
