@@ -92,10 +92,10 @@ li {
 
 div.media {
   float: left;
-  min-height: 150px;
-  min-width: 150px;
-  width:expression(this.scrollWidth < 166? "166px" : "auto" );
-  height:expression(this.scrollHeight < 166? "166px" : "auto" );
+#  min-height: 150px;
+#  min-width: 150px;
+#  width:expression(this.scrollWidth < 166? "166px" : "auto" );
+#  height:expression(this.scrollHeight < 166? "166px" : "auto" );
   padding:3px;
   border-style:ridge;
   margin: 5px;
@@ -104,7 +104,7 @@ div.media {
 
 div.left {
   float: left;
-  width:70px;
+  width:60px;
 }
 
 div.left_index {
@@ -129,7 +129,7 @@ div.center {
 
 div.right {
   float: right;
-  width:170px;
+#  width:170px;
 }
 
 div.bottom {
