@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.42 2004/06/04 11:20:20 snicki Exp $
+%# $Id: media,v 1.43 2004/06/25 05:07:59 sauber Exp $
 %#
 % unless ( $no_div ) {
 <div class="media" <% $styleh %>>
@@ -59,23 +59,6 @@ return if $m->cache_self(key => $ckey, expires_in => '240 hours');
   my $annotation;
   $annotation = $spoejs{Annotations}->get( $ARGS{p} ) 
 	                                       if defined $spoejs{Annotations};
-
-  ## Comment in for random annotation
-  #$annotation = random_annotation();
-
-#### Temp random annotation generator
-sub random_annotation {
-  my @words=qw(samba random word roppongi nudler flot s.p.o.e.j.s annotation home hehe);
-  my $res;
-
-  $res .= ucfirst $words[int rand @words];
-
-  for ( 0..1 + int rand 8 ) {
-    $res .= " $words[int rand @words]";
-  }
-
-  return $res;
-}
 
 my $styleh;
 # Add size for annotation
