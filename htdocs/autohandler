@@ -1,10 +1,11 @@
-%# topbar and .pm module loader
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: autohandler,v 1.29 2004/06/04 11:20:20 snicki Exp $
-%#
+<%doc>
+topbar and .pm module loader
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: autohandler,v 1.30 2004/06/12 10:03:25 snicki Exp $
+</%doc>
 <& htm/header.html &>
 <body>
 <& /w, w=> "topbar" &>
@@ -41,6 +42,9 @@ if ( 1 ) {
 
 $m->comp( '/htm/session/setupSession' );
 $m->comp( '/htm/session/parseParams' );
+
+# Get hold of top-level post data, for easier use in subcomponents
+$spoejs{ARGS} = \%ARGS if %ARGS;
 
 # Generate picture immediately to avoid generations of page header etc.
 $m->call_next if ( $spoejs{url_noparam} =~ /pic\.common/ );
