@@ -31,7 +31,7 @@ Developers:
  - Dev jabber channel with logging (Net::Jabber + chatbot?)
 
 Code structure:
- - Debug on/off
+ - Debug on/off (-D_ option on each page)
  - Error message when cookies missing
  - abstract rename to summary/intro
 
@@ -40,50 +40,33 @@ Data:
  - File locks (write lock at first value update)
  - Undo, revisions
  - Normalize UTF8 (get out of bytemode first)
- - Stack trace on syntax error in ::Text
+ - Avoid to show stack trace on syntax error in ::Text
  - Userdefined fields (location, people...)
 
 Channelconf:
- - Only store in en language
- - bug: selected theme is not saved
- - rename channelconf to journalconf
- - 10/20/50/all/decided_by_theme selector
- - bug: have to reenter pw every time
- - bug: no delete button before channel is created
- - in top bar have: sign-in and sign-up
+ - default intro thumbnail select algorithm (first/random...)
 
 ChannelList:
  - Complete content page
- - Next/prev page
  - By latest update
  - By alphabet sorted
  - List of remote sites
 
 Register:
- - Check fields for valid data
- - Delete own channel
- - Languages is messy
  - free-for-all/submit-confirm => include humantest
 
 Session:
  - Session component to avoid masonhandler code
  - Expire cookies
 
-URL parser:
- - Set all needed %spoejs variables (channel, story, picture...)
-
 Theme:
- - css
  - Credits on About page
  - Theme version match spoejs version
- - Theme-selector
  - Document that summary-widgets needs to be stand-alone-renderable (or automate)
 
 GUI Design:
  - Spoejs Logo
- - Page top
  - Lists with stripes in different colors.
- - Divider or spacing between local/remote columns
 
 StoryConf:
  - Store GMT unixtime as well as user-entered date string
@@ -99,24 +82,18 @@ Syndication:
  - move latest.html into htm/
 
 Annotations:
- - Specialize ::Text
- - Component to render pictures+localized annotation
 
 Comments:
- - Specialize ::Text
- - Comment to story
- - Comment to media
- - Component to input comments
- - Component to render comments
 
 StoryList:
  - Sub channels or story-sequences.
  - ==> in storytitlelist should skip two pages ahead
  - When clicking thumb show story instead of bigger picture
  - Make clicks on icons work
+ - Ensure that stories only are stored in valid paths eg( /\w+/\d\d\d\d/\d\d/\d\d// )
 
 StoryAdmin:
- - Del story with confirm
+ - Del story with confirm/warning
  - Revise Write in more languages (only copy changed fields)
  - Active/inactive story
  - Support Media=* anywhere in story
@@ -138,7 +115,6 @@ Navigation:
     - next/prev story
     - by month/year
  - Slideshow
- - Single signon page for admin/user/translate
 
 Media:
  - Crop, rotate, brightness, compress
@@ -150,7 +126,6 @@ Media:
 
 Icons:
  - pregenerated icons (fx party)
- - no channelname in icon path
  - fix utf8 icons
 
 Extras:
@@ -167,18 +142,14 @@ Extras:
 
 Translator:
  - Support parameters in translations,... %1 %2 ...
- - Return keyword if no text present
- - (english) on/off button in topbar
- - Replace l with %filter
- - What if *keyword* appear in userdata?
- - Replace idynamic **$key** with static **keyword**
+ - Replace dynamic **$key** with static **keyword**
 
 Search:
  - Search in channels and stories
 
 Performance:
  - Mason caching, shared mem, squid
- - Only read resource.txt once
+ - Only read resource.txt once per httpd
  - Remove small blue lines
  - Code it sluggish. Optimize performance.
 
