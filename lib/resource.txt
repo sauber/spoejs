@@ -1,6 +1,4 @@
 ---
-(optional):
-  en: (Optional)
 access_statistics:
   da: Adgangsstatistik
   en: Access Statistics
@@ -1611,11 +1609,7 @@ new_category:
 new_password:
   ar: 'كلمة مرور جديدة'
   da: Nyt password
-<<<<<<< resource.txt
-  de: Neues Benutzerkonto
-=======
   de: neues Passwort
->>>>>>> 1.84
   en: New Password
   es: Nueva contraseña
   et: Uus salasõna
@@ -1735,6 +1729,8 @@ oneerror_occur:
     Една или повеќе грешки се појавија во
   ru: 'одна или более ошибок в'
   zh: '出现有一个或更多的错误'
+optional:
+  en: Optional 
 or_new:
   ar: 'أو جديد'
   da: eller ny
