@@ -1213,6 +1213,17 @@ sat:
   en: Site configuration
 save_changes:
   en: Save Changes
+scf:
+  ar: 'تغيرات على الموقع'
+  da: Site konfiguration
+  de: Website Konfiguration
+  en: Site configuration
+  es: Configuración del sitio
+  hu: hely konfiguracio
+  iw: 'דף שידרג'
+  ja: 'サイト配置'
+  ru: 'Конфигурация сайта'
+  zh: '网页结构'
 se:
   ar: 'سويدي'
   bg: 'Шведски'
@@ -1255,6 +1266,8 @@ shortname_description:
     4-16 små bogstaver til at identificeres din journal, fx:
   en: |-
     4 to 16 lowercase letters to identify journal in URL like this:
+show_trans:
+  en: Show translation options
 signup:
   ar: 'التسجيل'
   bg: 'Абонамент'
@@ -1312,17 +1325,6 @@ site_home:
   ja: 'サイトのホーム'
   ru: 'Адрес сайта'
   zh: '本页'
-scf:
-  ar: 'تغيرات على الموقع'
-  da: Site konfiguration
-  de: Website Konfiguration
-  en: Site configuration
-  es: Configuración del sitio
-  hu: hely konfiguracio
-  iw: 'דף שידרג'
-  ja: 'サイト配置'
-  ru: 'Конфигурация сайта'
-  zh: '网页结构'
 sitepolicy:
   ar: 'قوانيين الموقع'
   da: Site politik
