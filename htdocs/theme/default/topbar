@@ -2,20 +2,20 @@
 <tr>
 <th align="left">
 <a href="/index.html"><&|/l&>site_home</&></a>&nbsp;|
-% if ( defined $spoejs{channel} ) {
-<a href="/<% $spoejs{channel} %>/index.html"><&|/l&>chan_home</&></a>&nbsp;|
-%   if ( defined $spoejs{p}{d} ) {
-<a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d => $spoejs{p}{d} &>">
+% if ( $channel_href ) {
+<a href="<% $channel_href %>"><&|/l&>chan_home</&></a>&nbsp;|
+% }
+% if ( $story_href ) {
+<a href="<% $story_href %>">
 Story home<&|/l&>story_home</&></a>&nbsp;|
-%   }
-% } elsif ( $policy eq 'ffa' or $policy eq 'signup' ) {
-<a href="/htm/admin/signup.html"><&|/l&>register</&></a>&nbsp;|
+% }
+% if ( $signup_href ) {
+<a href="<% $signup_href %>"><&|/l&>register</&></a>&nbsp;|
 % }
 <a href="/htm/about.html"><&|/l&>about</&></a>
-% if ( defined $session{chanauth} && 
-%       defined $session{chanauth}{$spoejs{channel}} ) {
+% if ( $new_href ) {
 &nbsp;|
-<a href="/<% $spoejs{channel} %>/admin/story.html"><&|/l&>new_story</&></a>
+<a href="/<% $new_href %>"><&|/l&>new_story</&></a>
 % }
 &nbsp;
 </th>
@@ -28,8 +28,9 @@ Story home<&|/l&>story_home</&></a>&nbsp;|
 </tr>
 </table>
 <hr/>
-<%init>
-my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
-                               lang => $spoejs{lang_handle} );
-my $policy = $SC->get( 'policy' );
-</%init>
+<%args>
+  $channel_href => undef
+  $story_href   => undef
+  $signup_href  => undef
+  $new_href     => undef
+</%args>
