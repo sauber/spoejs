@@ -7,7 +7,7 @@
 
 PORTNAME=	spoejs
 PORTVERSION=	0.1
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	www
 MASTER_SITES=   # none
 DISTFILES=      # none
@@ -17,6 +17,7 @@ MAINTAINER=	sauber@users.sourceforge.net
 COMMENT=	spoejs meta port
 
 RUN_DEPENDS+=	${LOCALBASE}/bin/mplayer:${PORTSDIR}/multimedia/mplayer
+RUN_DEPENDS+=	${SITE_PERL}/mod_perl.pm:${PORTSDIR}/www/mod_perl
 RUN_DEPENDS+=	${SITE_PERL}/HTML/Mason.pm:${PORTSDIR}/www/p5-HTML-Mason
 RUN_DEPENDS+=	${SITE_PERL}/Image/Magick.pm:${PORTSDIR}/graphics/ImageMagick
 RUN_DEPENDS+=	${SITE_PERL}/YAML.pm:${PORTSDIR}/textproc/p5-YAML
