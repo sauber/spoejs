@@ -528,7 +528,7 @@
 <siteconf>
 <lang=en/>Site configuration
 <lang=hu/>hely konfiguracio
-<lang=zh/>增加
+<lang=zh/>网页结构
 </siteconf>
 
 <specific>
