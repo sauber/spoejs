@@ -6,8 +6,8 @@ use Date::Manip;
 use Digest::MD5 qw(md5_hex);
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.21 2004/05/22 14:14:28 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.21 $';
+# $Id: ChannelList.pm,v 1.22 2004/06/04 11:42:03 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.22 $';
 
 
 # Constructor
@@ -40,7 +40,6 @@ sub search_channels {
     $p{password} = md5_hex( $p{password} ) if defined $p{password};
 
     my @all;
-#    @all = $self->_list_from_filename( $self->{path}, $self->{file} )
     @all = $self->_dirs_in_path( $self->{path} )
 	or return $self->_err( $self->{msg} );
     @all = () if $all[0] eq undef;
