@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: siteconfig.html,v 1.9 2004/05/06 05:56:06 snicki Exp $
+%# $Id: siteconfig.html,v 1.10 2004/05/06 07:22:42 snicki Exp $
 %#
 <h1><&|/l&>statuschannel</&>:</h1>
 <& /w, w => "login", action => '', ses_var => 'siteauth' &>
@@ -65,6 +65,7 @@
 %#<input type="text" name="newpassword2"/>
 <br/>
 <br/>
+**Show translation options**:
 <select name="<% $transopt %>">
 % for my $k ( qw( yes no_ ) ) {
 <option value="<% $k %>"\
