@@ -36,9 +36,9 @@ my @channels = $CL->search_channels();
 
 # Sort channels by date of newest entry
 for ( @channels ) {
-  my $SLL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
+  my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
                                   path => $_->{path} );
-  my @s = $SLL->list_stories( count => 1 );
+  my @s = $SL->list_stories( count => 1 );
 
   # Add date in seconds since epoch
   $_->{newest_date} = $s[0] ? UnixDate($s[0]->get( 'date' ), "%s") : 0;
