@@ -4,17 +4,22 @@ Show information about media files
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: mediainfo,v 1.4 2004/08/12 13:22:33 sauber Exp $
+$Id: mediainfo,v 1.5 2004/08/13 06:33:25 sauber Exp $
 </%doc>
-<h3>**media_information**</h3>
-**dimensions**: <% "$w x $h" %><br/>
-**file_size**: <% $s %> bytes<br/>
-**file_type**: <% $f %><br/>
-<br/>
-**number_of_views**:<br/>
-**past7days**: <% $week %><br/>
-**past30days**: <% $month %><br/>
-**total**: <% $total %><br/>
+<table border=0>
+<tr><th colspan=3 align=left>**media_information**:</th></tr>
+<tr><td align=right>**dimensions**<td> : </td><td align=left><% "$w x $h" %></td></tr>
+<tr><td align=right>**file_size**<td> : </td><td align=left><% $s %> bytes</td></tr>
+<tr><td align=right>**file_type**<td> : </td><td align=left><% $f %></td></tr>
+<tr><th colspan=3 align=left>**number_of_views**: </th></tr>
+<tr><td align=right>**past7days**<td> : </td><td align=left><% $week %></td></tr>
+<tr><td align=right>**past30days**<td> : </td><td align=left><% $month %></td></tr>
+<tr><td align=right>**total**<td> : </td><td align=left><% $total %></td></tr>
+<tr><th colspan=3 align=left>**extended_information**:</th></tr>
+% for ( sort { lc($a) cmp lc($b)} keys %$extinfo ) {
+<tr><td align=right><% "$_" %><td> : </td><td align=left><% "$extinfo->{$_}" %></td></tr>
+% }
+</table>
 <%init>
 my $web_path = "/users/$spoejs{channel}/$spoejs{p}{d}";
 my $path = "$ENV{DOCUMENT_ROOT}$web_path";
@@ -26,5 +31,9 @@ my ( $w, $h, $s, $f ) = $picref->ping();
 
 # Get access stats for this image
 my ( $total, $month, $week ) = $spoejs{Stats}->stats( $picref->{file} );
+
+# Get lots (potentially) of extra information
+my $extinfo = $picref->extinfo();
+$extinfo = \{} unless $extinfo; # No information if error occured.
 
 </%init>
