@@ -1,24 +1,38 @@
-Snicki style
-<table width="400">
-<tr>
-  <th class="abstract"><% $storyref->get( 'title' ) %></th>
-  <th class="abstract" align="right"><% $storyref->get( 'date' ) %></th>
-</tr>
+<fieldset><legend><% $title %></legend>
+<table width="80%">
 <tr>
   <td><&|/l&>posted_by</&>: <% $author %></td>
-  <td><&|/l&>category</&>: <%$storyref->get( 'category' )%></td>
+  <td><&|/l&>category</&>: <% $category %></td>
+  <td align="right"><&|/l&>date</&>: <% $date %></td>
 </tr>
 <tr>
-  <td><& /w, w => 'categoryicon', category =>$storyref->get( 'category' ) &></td>
-  <td><% $storyref->get( 'abstract' ) %></td>
+  <td>
+     <& /w, w => 'categoryicon', category =>$category, size=> $icon_size &>
+  </td>
+  <td><p><% $abstract %></p></td>
+  <td align="right">
+    <a href="<% $story_href %>"><& /w, w => 'thumbnail', d => $path &></a>
+</td>
 </tr>
-
+<tr>
+<td colspan="3">
+<a href="<% $story_href %>">More</a>
+<a href="">Comment</a>
+% if ( $edit_href ) {
+<a href="<% $edit_href %>">Edit</a>
+% }
+</td>
+</tr>
 </table>
-
-<%init>
-  my $author = $storyref->get( 'author' );
-</%init>
-
+</fieldset>
 <%args>
- $storyref => undef
+  $title      => undef
+  $author     => undef
+  $category   => undef
+  $date       => undef
+  $abstract   => undef
+  $icon_size  => undef
+  $story_href => undef
+  $path       => undef
+  $edit_href  => undef
 </%args>
