@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract,v 1.6 2004/08/31 02:18:31 sauber Exp $
+%# $Id: abstract,v 1.7 2004/09/20 08:27:22 sauber Exp $
 %#
 <h3><% $title %></h3>
 <br/>
@@ -38,4 +38,5 @@
   $path       => undef
   $edit_href  => undef
   $thumb_file => undef
+  $views      => 0
 </%args>
