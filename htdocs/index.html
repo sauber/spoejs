@@ -1,0 +1,11 @@
+<h1>Spoejs channels at this site:</h1>
+% for ( @channels ) {
+<a href="/<% $_->channel_dir() %>/index.html"><% $_->get( 'name' ) %></a><br/>
+% }
+
+<%init>
+my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/"
+);
+# Gives array of ChannelConf object refs
+my @channels = $CL->search_channels();
+</%init>
