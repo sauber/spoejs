@@ -34,6 +34,7 @@ Code structure:
  - Debug on/off (-D_ option on each page)
  - Error message when cookies missing
  - abstract rename to summary/intro
+ - More code in .subs
 
 Data:
  - Don't save text unless really changed
