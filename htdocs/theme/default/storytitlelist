@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: storytitlelist,v 1.18 2004/05/05 09:18:16 snicki Exp $
+%# $Id: storytitlelist,v 1.19 2004/05/17 13:40:40 snicki Exp $
 %#
 % use Date::Manip;
 <h2><&|/l&>storytitlelist</&></h2>
@@ -14,4 +14,3 @@
 <br/>(<% UnixDate($story->get( 'date' ), "%d/%m/%y") %>)
 <br/>
 % }
-</table>

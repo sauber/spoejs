@@ -3,12 +3,14 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: topbar.sub,v 1.5 2004/04/10 07:21:09 sauber Exp $
+%# $Id: topbar.sub,v 1.6 2004/05/17 13:40:40 snicki Exp $
 %#
 <& $w,
    policy       => $policy,
    channel_href => $channel_href,
+   channel_name => $chan_name,
    story_href   => $story_href,
+   story_title  => $story_title,
    signup_href  => $signup_href,
    new_href     => $new_href,
    about_href   => 'http://spoejs.sourceforge.net/index.php?showpage=whatisit&amp;faq=1'
@@ -17,7 +19,6 @@
 my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
                                lang => $spoejs{lang_handle} );
 my $policy = $SC->get( 'policy' );
-my $channel_href = "/$spoejs{channel}/index.html" if defined $spoejs{channel};
 
 my $story_href;
 if ( defined $spoejs{p}{d} and defined $spoejs{channel} ) {
@@ -36,6 +37,18 @@ my $new_href;
 if ( defined $session{chanauth} && 
      defined $session{chanauth}{$spoejs{channel}} ) {
   $new_href = "/$spoejs{channel}/admin/story.html";
+}
+
+my $chan_name;
+my $channel_href;
+if ( defined $spoejs{channel} ) {
+  $chan_name = $spoejs{ChannelConf}->get( 'title' );
+  $channel_href = "/$spoejs{channel}/index.html" if defined $spoejs{channel};
+}
+
+my $story_title;
+if ( defined $spoejs{Story} ) {
+ $story_title = $spoejs{Story}->get( 'title' );
 }
 </%init>
 <%args>

@@ -3,23 +3,22 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: topbar,v 1.8 2004/04/10 13:07:28 bottle18 Exp $
+%# $Id: topbar,v 1.9 2004/05/17 13:40:40 snicki Exp $
 %#
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
 <th align="left">
-<a href="/index.html"><&|/l&>site_home</&></a>&nbsp;|
+<a href="/index.html">*Home*</a>&nbsp;|
 % if ( $channel_href ) {
-<a href="<% $channel_href %>"><&|/l&>chan_home</&></a>&nbsp;|
+<a href="<% $channel_href %>"><% $channel_name %></a>&nbsp;|
 % }
 % if ( $story_href ) {
-<a href="<% $story_href %>">
-<&|/l&>story_home</&></a>&nbsp;|
+<a href="<% $story_href %>"><% $story_title %></a>&nbsp;|
 % }
 % if ( $signup_href ) {
 <a href="<% $signup_href %>"><&|/l&>register</&></a>&nbsp;|
 % }
-<a href="<% $about_href %>"><&|/l&>about</&></a>
+<a href="<% $about_href %>">*Help*</a>
 % if ( $new_href ) {
 &nbsp;|
 <a href="<% $new_href %>"><&|/l&>new_story</&></a>
@@ -37,7 +36,9 @@
 <hr/>
 <%args>
   $channel_href => undef
+  $channel_name => undef
   $story_href   => undef
+  $story_title  => undef
   $signup_href  => undef
   $new_href     => undef
   $about_href   => undef

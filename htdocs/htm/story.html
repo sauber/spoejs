@@ -3,23 +3,23 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.14 2004/04/10 07:39:12 snicki Exp $
+%# $Id: story.html,v 1.15 2004/05/17 13:40:39 snicki Exp $
 %#
 <& /w, w          => 'story-page',
        story_dir  => $spoejs{p}{d},
-       story_ref  => $S,
+       story_ref  => $spoejs{Story},
        edit_href  => $a_edit,
        navi_opt   => \%navi_opt,
-       media_list => $S->{ML}
+       media_list => $spoejs{Story}->{ML}
 &>
 <%init>
   # XXX: Make ChannelConf or user selectable
   my $count = 20;
 
-  my $path = $spoejs{channel_path} . "/" .$spoejs{p}{d};
-  my $S = new Spoejs::Story( path => $path,
-                             lang => $spoejs{lang_handle} );
-  $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
+# my $path = $spoejs{channel_path} . "/" .$spoejs{p}{d};
+#  my $S = new Spoejs::Story( path => $path,
+#                             lang => $spoejs{lang_handle} );
+#  $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
 
 my $a_edit;
 if ( $session{chanauth} && $spoejs{channel} &&
@@ -33,5 +33,5 @@ if ( $session{chanauth} && $spoejs{channel} &&
 my %navi_opt = ( url => "/$spoejs{channel}/story.html",
 		 count => $count,
 		 start => $spoejs{p}{s},
-		 list_ref => $S->{ML} );
+		 list_ref => $spoejs{Story}->{ML} );
 </%init>

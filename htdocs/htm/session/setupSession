@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: setupSession,v 1.12 2004/05/06 05:56:06 snicki Exp $
+%# $Id: setupSession,v 1.13 2004/05/17 13:40:40 snicki Exp $
 %#
 <%perl>
 
@@ -75,6 +75,12 @@ if ( $spoejs{channel_path} ) {
 				       lang => $spoejs{lang_handle} );
   $spoejs{error}{$m->current_comp->source_file} = $spoejs{SL}->{msg}
     if $spoejs{SL}->{msg};
+
+  $spoejs{ChannelConf} = new Spoejs::ChannelConf( path => $spoejs{channel_path},
+				       lang => $spoejs{lang_handle} );
+  $spoejs{error}{$m->current_comp->source_file} = $spoejs{ChannelConf}->{msg}
+    if $spoejs{ChannelConf}->{msg};
+
 }
 
 # Get som siteconf vars
