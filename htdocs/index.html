@@ -4,18 +4,16 @@ front page
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: index.html,v 1.54 2004/08/08 20:05:58 snicki Exp $
+$Id: index.html,v 1.55 2004/08/13 07:08:36 sauber Exp $
 </%doc>
 <table width="100%">
 % if ( @{$remotes} > 0 ) {
 <tr><td width="50%">
-<h1>
-**localjournal**
-</h1>
+<h3 align=center>**localjournal**</h3>
 </td>
 <td rowspan="2" valign="top" style="border: dashed gray 1px;"></td>
 <td width="50%" valign="top">
-<h1>**journals_friends**</h1>
+<h3 align=center>**journals_friends**</h3>
 </td></tr>
 %}
 <tr>
@@ -24,11 +22,10 @@ $Id: index.html,v 1.54 2004/08/08 20:05:58 snicki Exp $
 <hr style="border: dashed gray 1px;">
 <br/>
 <span style="font-size: large;">
-**newest_story_at** <a href="/<% $chan->channel_dir() %>/index.html">
-<% $chan->get( 'title' ) %></a>:
+<a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'title' ) %></a>
 </span>
 <br/>
-<br/>
+**newest_story**:<br/>
 % if ( $chan->{S} ) {
 % # Set up minimal spoejs environment
 % $spoejs{channel_path} = $chan->{path};
@@ -49,14 +46,14 @@ $Id: index.html,v 1.54 2004/08/08 20:05:58 snicki Exp $
 % if ( @{$remotes} > 0 ) {
 <td valign="top" style="padding-left: 8px;">
 %for my $rem ( @{$remotes} ) {
+%  $rem->{url} =~ s,/$,,; #Remove trailing slash if present
 <hr style="border: dashed gray 1px;">
 <br/>
 <span style="font-size: large;">
-**newest_story_at** <a href="<% $rem->{url} . '/' . $rem->{shortname} . '/index.html' %>">
- <% $rem->{url} %>/<% $rem->{shortname} %></a>:
+<a href="<% $rem->{url} . '/' . $rem->{shortname} . '/index.html' %>"><% $rem->{url} %>/<% $rem->{shortname} %></a>
 </span>
 <br/>
-<br/>
+**newest_story**:<br/>
 <% $rem->{summary} %>
 <br/>
 %}
