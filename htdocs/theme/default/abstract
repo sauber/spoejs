@@ -10,9 +10,7 @@
              size=> 75 &></td>
   <td><p><% $storyref->get( 'abstract' ) %></p></td>
   <td align="right">
-    <a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d=>$path&>">
-      <& /w, w => 'thumbnail', d => $path &>
-    </a>
+    <a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d=>$path&>"><& /w, w => 'thumbnail', d => $path &></a>
 </td>
 </tr>
 <tr>
@@ -31,7 +29,6 @@
   my $author = $storyref->get( 'author' );
   my $path = $storyref->story_path_from_full();
 </%init>
-
 <%args>
  $storyref => undef
 </%args>

@@ -1,9 +1,9 @@
 %# Forward args to component 
 % if ( $box ) {
 %   my $content = $m->scomp($comp, %ARGS);
-<& $boxc, content=>$content &>
+<& $boxc, content=>$content &>\
 % } else {
-<& $comp, %ARGS &>
+<& $comp, %ARGS &>\
 % }
 <%init>
 # Does component exist in required theme? Otherwise use default.
@@ -18,4 +18,4 @@ my $boxc = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{p}{t}/box"
 <%args>
 $w => undef
 $box => undef
-</%args>	
+</%args>
