@@ -6,8 +6,8 @@ use LWP::UserAgent;
 use Spoejs::ChannelList;
 use Spoejs::SiteConf;
 
-# $Id: Syndication.pm,v 1.14 2004/05/16 12:18:09 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.14 $';
+# $Id: Syndication.pm,v 1.15 2004/05/16 12:30:37 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.15 $';
 
 # Constructor
 sub _initialize {
@@ -29,6 +29,8 @@ sub _fetch_url {
   my $ua = LWP::UserAgent->new;
   # XXX: Make check for valid proxy stricter
   $ua->proxy( 'http', $self->{proxy} ) if length $self->{proxy} > 10;
+  $ua->timeout(10);
+  
   my $res= $ua->get($url);
   my ($content);
   if ($res->is_success) {
@@ -78,6 +80,7 @@ sub _fetch_remote_lists {
 
   for my $url ( @peers ) {
       my $list = $self->_fetch_url( $url . $remotedoc ) if length $url > 10;
+      next unless $list;
       push @{$self->{globallist}}, $self->_parse_remote_list( $url, $list );
   }
 }
