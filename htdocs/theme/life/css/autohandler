@@ -1,4 +1,8 @@
 <%flags>
 inherit => undef
 </%flags>
+% if ( $ENV{HTTP_USER_AGENT} =~ /MSIE/ ) {
+<& spoejs_IE.css &>
+% } else {
 <% $m->call_next %>
+% }
