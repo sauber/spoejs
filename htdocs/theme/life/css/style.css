@@ -112,9 +112,6 @@ img {
     border: 0;
 }
 
-p {
-}
-
 li {
 }
 
@@ -154,7 +151,11 @@ div.fixed-media {
 
 div.left {
   float: left;
-  width:60px;
+#  width:60px;
+}
+
+span.left {
+  float: left;
 }
 
 div.left_index {
@@ -173,11 +174,19 @@ div.right_index {
 }
 
 div.center {
-  margin: 5px;
+float: left;
+#  margin: 0 0 0 80px;
 }
 
 div.right {
   float: right;
+}
+
+span.right {
+  float: right;
+  padding:1px;
+  margin: 3px;
+  border: ridge;
 }
 
 div.bottom {
