@@ -118,6 +118,7 @@ Navigation:
     - next/prev story
     - by month/year
  - Slideshow
+ - Single signon page for admin/user/translate
 
 Media:
  - Crop, rotate, brightness, compress
@@ -146,6 +147,8 @@ Translator:
  - Support parameters in translations,... %1 %2 ...
  - Return keyword if no text present
  - (english) on/off button in topbar
+ - Replace l with %filter
+ - What if *keyword* appear in userdata?
 
 Search:
  - Search in channels and stories
