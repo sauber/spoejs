@@ -3,7 +3,7 @@
 %   my $content = $m->scomp($comp, %ARGS);
 <& $boxc, content=>$content &>\
 % } elsif ( $sub ) {
-<& $sub, w=> $w, %ARGS &>\
+<& $sub, %ARGS, w => $comp &>\
 % } else {
 <& $comp, %ARGS &>\
 % }
