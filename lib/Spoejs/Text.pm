@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.6 2004/02/28 07:36:21 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.6 $';
+# $Id: Text.pm,v 1.7 2004/03/01 09:53:22 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.7 $';
 
 
 # Constructor
@@ -24,18 +24,21 @@ sub _initialize {
     $self->{story_path}  = $param{path};
     $self->{file}        = $param{file};
     $self->{full_path}   = "$self->{path}/$param{file}";
+    $self->{full_path}   = $param{full_path} if $param{full_path};
     $self->{lang}        = $param{lang};
     $self->{is_loaded}   = 0;
     $self->{is_modified} = 0;
 
-    assert( $param{path} ne '' ) if DEBUG;
-    assert( $param{file} ne '' ) if DEBUG;
+#    assert( $param{path} ne '' ) if DEBUG;
+#    assert( $param{file} ne '' ) if DEBUG;
 }
 
 
 #### Private helper functions ####
 
 # Save report hash to file
+# Todo: binmode utf8
+#
 my $store_data = sub {
 
     my $self = shift;
@@ -77,7 +80,8 @@ my $store_data = sub {
 #
 # Todo: 
 # 1. Support single line: <anno><lang=dk>pic1.jpg: test</lang><anno>
-#
+# 2. binmode utf8
+# 3. skip whitespace
 my $read_data = sub {
 
     my $self = shift;
@@ -95,7 +99,7 @@ my $read_data = sub {
 	chomp;
 
 	# One-line lang-tags
-	if ( s/^<lang=(\w\w)\/>// and $lang = $1) {
+	if ( s/^\s*<lang=(\w\w)\/>// and $lang = $1) {
 	    $in_lang=1;
 	    $one_lang=1;
 	}
@@ -107,7 +111,7 @@ my $read_data = sub {
 	}
 
 	# Start lang-tag
-	if ( /^<lang=(\w\w)>$/ and $lang = $1 ) {
+	if ( /^\s*<lang=(\w\w)>$/ and $lang = $1 ) {
 	    $in_lang = 1;
 	    next;
 	}
@@ -191,6 +195,7 @@ sub get {
  	return $res{$val};
     }
     elsif ( @_ > 1 ) {
+   warn Dumper( $self->{data} );
 	# Copy value for each argument
 	for (@_) {
 
