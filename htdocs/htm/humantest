@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: humantest,v 1.7 2004/08/30 03:02:06 sauber Exp $
+%# $Id: humantest,v 1.8 2004/08/30 03:08:20 sauber Exp $
 %#
 <%once>
 use Authen::Captcha;
@@ -25,6 +25,7 @@ my $AC = new Authen::Captcha(
   data_folder => '/tmp/captcha',
   output_folder => '/tmp/captcha',
   secret => $secret,
+  expire => 1800,
   debug => 1,
 );
 </%once>
