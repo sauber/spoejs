@@ -1,20 +1,24 @@
-<table width="400">
+<table width="600">
 <tr>
-  <th class="abstract"><% $storyref->get( 'title' ) %></th>
+  <th colspan="2" class="abstract" align="left"><% $storyref->get( 'title' ) %></th>
   <th class="abstract" align="right"><% $storyref->get( 'date' ) %></th>
 </tr>
 <tr>
   <td><&|/l&>posted_by</&>: <% $author %></td>
-  <td><&|/l&>category</&>: <%$storyref->get( 'category' )%></td>
+  <td colspan="2"><&|/l&>category</&>: <%$storyref->get( 'category' )%></td>
 </tr>
 <tr>
   <td><& /w, w => 'categoryicon', category =>$storyref->get( 'category' ), 
              size=> 75 &></td>
-  <td><% $storyref->get( 'abstract' ) %></td>
+  <td><p><% $storyref->get( 'abstract' ) %></p></td>
+  <td align="right">
+    <a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d=>$path&>">
+      <& /w, w => 'thumbnail', d => $path &>
+    </a>
+</td>
 </tr>
 <tr>
-<td>
-% my $path = $storyref->story_path_from_full();
+<td colspan="3">
 <a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d=>$path&>">More</a>
 <a href="">Comment</a>
 % if ( $session{chanauth} && $spoejs{channel} && 
@@ -27,6 +31,7 @@
 
 <%init>
   my $author = $storyref->get( 'author' );
+  my $path = $storyref->story_path_from_full();
 </%init>
 
 <%args>

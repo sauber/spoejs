@@ -2,8 +2,8 @@ package Spoejs::MediaList;
 use base ( "Spoejs::List" );
 use File::Basename;
 
-# $Id: MediaList.pm,v 1.4 2004/03/25 03:48:48 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.4 $';
+# $Id: MediaList.pm,v 1.5 2004/03/27 09:32:56 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.5 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -25,23 +25,38 @@ sub _next {
     return basename $found;
 }
 
+sub _list {
 
-#### Public interface ####
+    my ($self, @files) = @_;
 
-sub list {
-    my $self = shift;
 
-# XXX: What pattern should be used here?
-    my @files = $self->_list_from_file_pattern( '(jpg|JPG)$' );
     my @items;
 
-    for ( sort @files ) {
+    for ( @files ) {
 	@d{ 'file', 'path' } = fileparse $_;
 	push @items, new Spoejs::Pic( %d );
     }
 
     return @items;
+
 }
+#### Public interface ####
+
+sub list {
+    my $self = shift;
+# XXX: What pattern should be used here?
+    my @files = $self->_list_from_file_pattern( '(jpg|JPG)$' );
+    return $self->_list( sort @files );
+}
+
+
+sub list_unsorted {
+    my $self = shift;
+# XXX: What pattern should be used here?
+    my @files = $self->_list_from_file_pattern( '(jpg|JPG)$' );
+    return $self->_list( @files );
+}
+
 
 
 sub next {
@@ -67,4 +82,25 @@ sub get_picref {
     }
 
     return undef;
+}
+
+
+# Get particular media based on keyword: first, last, random
+#
+sub get {
+    my ( $self, $type ) = @_;
+
+
+    if ( $type eq 'first' ) {
+	my @all = $self->list();
+	return $all[0];
+    } elsif ( $type eq 'last' ) {
+	my @all = reverse $self->list_unsorted();
+	return $all[0];
+    }
+    else {
+	my $i = int rand($#all + 1);
+	return $all[$i];
+    }    
+
 }
