@@ -6,8 +6,8 @@ use Date::Manip;
 use Digest::MD5 qw(md5_hex);
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.23 2004/07/04 06:16:56 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.23 $';
+# $Id: ChannelList.pm,v 1.24 2004/08/16 08:47:00 sauber Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.24 $';
 
 
 # Constructor
@@ -42,7 +42,7 @@ sub search_channels {
     my @all;
     @all = $self->_dirs_in_path( $self->{path} )
 	or return $self->_err( $self->{msg} );
-    @all = () if $all[0] eq undef;
+    @all = () if @all and not $all[0];
 
     my @chans;
     for my $ch ( @all ) {
@@ -77,7 +77,7 @@ sub search_channels {
 	}
     }
 
-    @chans = () if $chans[0] eq undef;
+    @chans = () if @chans and not $chans[0];
 
     return @chans;
 }
@@ -162,7 +162,7 @@ sub newest_channels {
   # Gives array of ChannelConf object refs
   my @channels;
   @channels = $self->search_channels( public => 'yes' ) unless $self->{msg};
-  @channels = () if ( $channels[0] eq undef );
+  @channels = () if @channels and not $channels[0];
 
 
   # Add channels we have auth for 
@@ -173,7 +173,8 @@ sub newest_channels {
       @authchans = ( @authchans, @newc );
   }
 
-  @channels = ( @channels,  @authchans ) unless ( $authchans[0] eq undef );
+  @channels = ( @channels,  @authchans )
+            unless ( @authchans and not $authchans[0] );
 
   my %seen = ();
   @channels = grep { ! $seen{$_->shortname()} ++ } @channels; # Uniqify
