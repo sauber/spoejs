@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: autohandler,v 1.23 2004/05/16 07:19:39 snicki Exp $
+%# $Id: autohandler,v 1.24 2004/05/18 13:11:42 snicki Exp $
 %#
 <& htm/header.html &>
 <body>
@@ -43,3 +43,11 @@ $m->comp( '/htm/session/parseParams' );
 # Generate picture immediately to avoid generations of page header etc.
 $m->call_next if ( $spoejs{url_noparam} =~ /pic\.common/ );
 </%init>
+<%filter>
+if ( $spoejs{showtranslationoptions} eq 'yes' ) {
+  s{\*(\w+?)\*}{($spoejs{res_handle}->get( $1 )||"*$1*") .
+                ( '(' . ($spoejs{res_handle}->get( $1 )||"*$1*") . ')' )}gex;
+}else{
+  s{\*(\w+?)\*}{$spoejs{res_handle}->get( $1 )||"*$1*"}gex;
+}
+</%filter>
