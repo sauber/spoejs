@@ -119,8 +119,6 @@ sub add_archive {
 
   use File::Temp qw/ tempdir /;
   use File::Path;
-  use Archive::Zip;
-  use Archive::Tar;
 
   # Make temp-dir
   # XXX: Unix specific
@@ -138,6 +136,7 @@ sub add_archive {
   chdir $tempdir;
 
   if ( $fn =~ /\.zip/ ) {
+    use Archive::Zip;
     # Open archive
     my $zip = Archive::Zip->new( "$tempdir/$fn" ) or print "Could'nt open zip";
 
