@@ -6,6 +6,7 @@
 </about>
 
 <abstract>
+<lang=da/>Resume
 <lang=en/>Abstract
 </abstract>
 
@@ -75,6 +76,7 @@
 </archive>
 
 <backtostory>
+<lang=da/>Tilbage til historie
 <lang=en/>Back to story
 </backtostory>
 
@@ -203,6 +205,7 @@
 </congrat_signup>
 
 <currentfile>
+<lang=da/>Nuværende filer
 <lang=en/>Current files
 </currentfile>
 
@@ -400,14 +403,15 @@
 <lang=zh/>全文报导正文
 </full_story>
 
-<fulltext>
-<lang=en/>Full text
-</fulltext>
-
 <fullpath>
 <lang=da/>Fuld sti
 <lang=en/>Full path
 </fullpath>
+
+<fulltext>
+<lang=da/>Fuld tekst
+<lang=en/>Full text
+</fulltext>
 
 <gr>
 <lang=ar/>يوناني
@@ -533,6 +537,7 @@
 </logout>
 
 <media>
+<lang=da/>Media
 <lang=en/>Media
 </media>
 
@@ -663,6 +668,7 @@
 </posted_by>
 
 <preview>
+<lang=da/>Udkast
 <lang=en/>Preview
 <lang=zh/>预现
 </preview>
@@ -795,6 +801,7 @@
 </story_abstract>
 
 <story_home>
+<lang=da/>Historie
 <lang=en/>Story home
 </story_home>
 
