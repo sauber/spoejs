@@ -8,8 +8,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use YAML qw( DumpFile LoadFile);
 
-# $Id: Text.pm,v 1.36 2004/08/08 19:11:49 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.36 $';
+# $Id: Text.pm,v 1.37 2004/08/11 10:43:51 sauber Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.37 $';
 
 
 # Constructor
@@ -84,33 +84,33 @@ sub _check_load {
 
 # Check if a file can be created for saving data
 #
-sub _check_save {
-  my $self = shift;
-
-  return 1 if $self->{is_savable};
-
-  # Check if file already exists and is writable
-  if ( -e "$self->{path}/$self->{file}" ) {
-    if ( -w "$self->{path}/$self->{file}" ) {
-      $self->{is_savable} = 1;
-      return 1;
-    } else {
-      return $self->_err( "$self->{path}/$self->{file} is not writable" );
-    }
-  }
-
-  # Otherwise check if dir exists and is writable
-  if ( -e $self->{path} ) {
-    if ( -w $self->{path} ) {
-      $self->{is_savable} = 1;
-      return 1;
-    } else {
-      return $self->_err( "$self->{path} is not writable" );
-    }
-  } else {
-    return $self->_err( "$self->{path} doesn't exist" );
-  }
-}
+#sub _check_save {
+#  my $self = shift;
+#
+#  return 1 if $self->{is_savable};
+#
+#  # Check if file already exists and is writable
+#  if ( -e "$self->{path}/$self->{file}" ) {
+#    if ( -w "$self->{path}/$self->{file}" ) {
+#      $self->{is_savable} = 1;
+#      return 1;
+#    } else {
+#      return $self->_err( "$self->{path}/$self->{file} is not writable" );
+#    }
+#  }
+#
+#  # Otherwise check if dir exists and is writable
+#  if ( -e $self->{path} ) {
+#    if ( -w $self->{path} ) {
+#      $self->{is_savable} = 1;
+#      return 1;
+#    } else {
+#      return $self->_err( "$self->{path} is not writable" );
+#    }
+#  } else {
+#    return $self->_err( "$self->{path} doesn't exist" );
+#  }
+#}
 
 
 # Set a single variable, if it is not identical to the current one

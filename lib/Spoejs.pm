@@ -8,8 +8,8 @@ use warnings;
 
 require Exporter;
 
-# $Id: Spoejs.pm,v 1.8 2004/04/18 23:47:06 snicki Exp $
-$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.8 $';
+# $Id: Spoejs.pm,v 1.9 2004/08/11 10:43:50 sauber Exp $
+$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.9 $';
 
 # Constructor
 #
@@ -38,6 +38,36 @@ sub _err {
   my $self = shift;
   $self->{msg} = shift;
   return undef;
+}
+
+# Generic check if a file can be created for saving data
+#
+sub _check_save {
+  my $self = shift;
+
+  return 1 if $self->{is_savable};
+
+  # Check if file already exists and is writable
+  if ( -e "$self->{path}/$self->{file}" ) {
+    if ( -w "$self->{path}/$self->{file}" ) {
+      $self->{is_savable} = 1;
+      return 1;
+    } else {
+      return $self->_err( "$self->{path}/$self->{file} is not writable" );
+    }
+  }
+
+  # Otherwise check if dir exists and is writable
+  if ( -e $self->{path} ) {
+    if ( -w $self->{path} ) {
+      $self->{is_savable} = 1;
+      return 1;
+    } else {
+      return $self->_err( "$self->{path} is not writable" );
+    }
+  } else {
+    return $self->_err( "$self->{path} doesn't exist" );
+  }
 }
 
 our @ISA = qw(Exporter);
