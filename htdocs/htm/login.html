@@ -4,7 +4,7 @@ login, authenticate, logout
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: login.html,v 1.8 2004/06/12 09:25:47 snicki Exp $
+$Id: login.html,v 1.9 2004/06/12 09:40:13 snicki Exp $
 </%doc>
 % if ( $ARGS{login} ) {
 %  # List authorized channels
@@ -55,6 +55,7 @@ if ( ( $policy eq 'freeall' or $policy eq 'signup_approve') ) {
 }
 </%init>
 <%method check_login>
+<%perl>
 unless ( defined $spoejs{channel} && defined $session{chanauth} &&
          defined $session{chanauth}{$spoejs{channel}} ) {
   $m->print( '**pleaselogin**' );
@@ -62,6 +63,7 @@ unless ( defined $spoejs{channel} && defined $session{chanauth} &&
 } else { 
   return 1;
 }
+</%perl>
 </%method>
 <%args>
 $username => undef
