@@ -1,50 +1,29 @@
 % foreach my $story ( @stories ) {
 <& /w, w => 'abstract', storyref => $story &><br/>
 % }
-<& /w, w => 'navi', left_href => $newer_href, right_href => $older_href &>
+<& /w, w => 'navi', left_href => $older_href, right_href => $newer_href &>
 <%init>
   # Todo add div. parameters
   my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
 	                          path => $spoejs{channel_path} );
 $spoejs{error}{$m->current_comp->source_file} = $SL->{msg} if $SL->{msg};
-my @stories;
 
 my $count = $spoejs{p}{n} || 4;
-
-my %sl_opt = ( category => $spoejs{p}{c},
-	       count    => $count,
-	       prev     => $count,
-	       story    => $spoejs{p}{d}
+my $start = $spoejs{p}{s} || 0;
+my %sl_opt = ( category  => $spoejs{p}{c},
+	       prev      => $count,
+	       story_num => $start
 	     );
-@stories = $SL->list_stories( %sl_opt );
-my $older_story = pop @stories if @stories > $count-1;
-delete $sl_opt{prev};
-delete $sl_opt{count};
-my @newer_stories =  $SL->list_stories( %sl_opt, next => $count+1 );
-my $newer_href;
-unless ( $newer_stories[0] eq undef ) {
-  my $ns = (reverse @newer_stories)[0]->story_path_from_full();
-  unless ( $ns eq $spoejs{p}{d} ) {
-    my %nh_opt = ( n => $count,
-		   d => $ns
-		 );
-    $newer_href = $m->scomp( '/htm/url:encode',
-			     "/$spoejs{channel}/index.html",
-			     %nh_opt
-			   );
-  }
-}
-my $older_href;
-unless ( $older_story eq undef ) {
-  my %oh_opt = ( n => $count,
-		 d => $older_story->story_path_from_full(),
-	       );
-  $older_href = $m->scomp( '/htm/url:encode', "/$spoejs{channel}/index.html",
-			   %oh_opt
-			 );
-}
+my %opt;
+$opt{n} = $spoejs{p}{n} if defined $spoejs{p}{n};
 
+my @stories = $SL->list_stories( %sl_opt );
+%sl_opt = ( count => $count, start => $start );
+my @cmp = ( "/htm/url:encode", "/$spoejs{channel}/index.html" );
+
+$opt{s} = $SL->next( %sl_opt );
+my $newer_href = $m->scomp( @cmp, %opt ) if defined $opt{s};
+
+$opt{s} = $SL->prev(  %sl_opt );
+my $older_href = $m->scomp( @cmp, %opt ) if defined $opt{s};
 </%init>
-<%args>
- $category => undef
-</%args>
