@@ -1,6 +1,6 @@
 <en>
   <lang=en/>English
-  <lang=dk/>Engelsk
+  <lang=da/>Engelsk
 </en>
 <da>
   <lang=en/>Danish
