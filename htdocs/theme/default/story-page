@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.38 2004/07/02 16:58:33 snicki Exp $
+%# $Id: story-page,v 1.39 2004/07/02 17:04:37 snicki Exp $
 %#
 <& /htm/admin/story_tab.mas &>
 <h2><% $story_ref->get( 'title' ) %></h2>
@@ -38,10 +38,11 @@
 % unless ( $tmptxt =~ /media=/isg ) { #XXX: Consider other ways...
 <br/>
 <br/>
+% if ( $media_list->list() > 0 ) {
 <&| /w, w => 'box', heading => '**media**' &>
 <& /w, w => 'album', media_list => $media_list, navi_opt => \%navi_opt &>
 </&>
-% }	
+% }}
 <br/>
 <br/>
 <& /w, w => 'comments', box => 1 &>
