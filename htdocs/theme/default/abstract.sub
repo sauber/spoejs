@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract.sub,v 1.6 2004/06/17 01:43:56 snicki Exp $
+%# $Id: abstract.sub,v 1.7 2004/08/05 10:01:05 snicki Exp $
 %#
 <& $w,
    title      => $storyref->get( 'title' ),
@@ -41,6 +41,7 @@
   my $img  = $storyref->{ML}->get( $type );
   my $thumb_fn;
   $thumb_fn = $type eq 'random' ? 'ANY' : $img->{file};
+  $thumb_fn = undef unless $storyref->{ML}->get() > 0;
 </%init>
 <%args>
  $storyref => undef
