@@ -1,1 +1,1 @@
-<% $m->{session}{res_handle}->get( $m->content ) %>
+<% $session{res_handle}->get( $m->content ) %>

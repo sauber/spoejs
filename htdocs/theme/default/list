@@ -8,6 +8,6 @@
 
 <%init>
   # Todo add div. parameters
-  my $SL = new Spoejs::StoryList( lang => $m->{session}{lang_handle} );
+  my $SL = new Spoejs::StoryList( lang => $session{lang_handle} );
   my @stories = $SL->list_stories(); 
 </%init>

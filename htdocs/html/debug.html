@@ -6,10 +6,15 @@ use Data::Dumper;
 <h2>Debug info:</h2>
 Session:
 <pre>
-<% Dumper( $m->session ) %>
+<% Dumper( \%session ) %>
 </pre>
 ENV:
 <pre>
 <% Dumper( \%ENV ) %>
+</pre>
+<hr noshade="noshade"/>
+M:
+<pre>
+%#<% Dumper( \$m ) %>
 </pre>
 <hr noshade="noshade"/>

@@ -22,7 +22,7 @@
   my @path = split //, $path;
  
   # Add user-path to session
-  $m->{session}{user} = $path;
+  $session{user} = $path;
 
   my $doc_root =  "$ENV{DOCUMENT_ROOT}html";
 
@@ -39,27 +39,26 @@
   # Language
   # Does language extraction belong here?
   #
-  unless( $m->{session}{browser_langs} ) {
+  unless( $session{browser_langs} ) {
     my @lang = split /,/, $ENV{HTTP_ACCEPT_LANGUAGE};    
     $_ = substr( $_, 0, 2 ) for( @lang ); # Remove dialekt and quality
     my %seen = ();
     @lang = grep { ! $seen{$_} ++ } @lang; # Uniqify
     # Set langs in session
-    $m->{session}{browser_langs} = [@lang];
+    $session{browser_langs} = [@lang];
   }
   # Set prefered language
-  unless ( $m->{session}{pref_lang} ) {
-    $m->{session}{pref_lang} = $m->{session}{browser_langs}[0];
+  unless ( $session{pref_lang} ) {
+    $session{pref_lang} = $session{browser_langs}[0];
   }
   # Set language object
-  unless ( $m->{session}{lang_handle} ) {
-    $m->{session}{lang_handle} = new Spoejs::Lang( $m->{session}{pref_lang},
-						   @{$m->{session}{browser_langs}}
-						   );
+  unless ( $session{lang_handle} ) {
+    $session{lang_handle} = new Spoejs::Lang( $session{pref_lang},
+				              @{$session{browser_langs}}
+					    );
   }
   # Set resource object
-  unless ( $m->{session}{res_handle} ) {
-    $m->{session}{res_handle} = new Spoejs::Resource( lang => 
-                                                  $m->{session}{lang_handle} );
+  unless ( $session{res_handle} ) {
+    $session{res_handle} = new Spoejs::Resource( lang => $session{lang_handle} );
   }
 </%init>

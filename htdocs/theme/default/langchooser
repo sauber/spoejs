@@ -1,7 +1,7 @@
-<form method="post" action="/html/change_lang.html">
+<form method="post" action="/html/changeLang.html">
 <select name="language">
 % foreach my $lang ( sort keys %langs ) {
-% my $sel = $m->{session}{pref_lang} eq $lang ? ' selected="selected"' : ' ';
+% my $sel = $session{pref_lang} eq $lang ? ' selected="selected"' : ' ';
 <option value="<% $lang %>"<% $sel %>>
 <% $langs{$lang} %>
 </option>
@@ -10,5 +10,5 @@
 <input type="submit" value="<&|/l&>change</&>"/>
 </form>
 <%init>
-  my %langs = $m->{session}{lang_handle}->lang_list();
+  my %langs = $session{lang_handle}->lang_list();
 </%init>
