@@ -3,21 +3,21 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: url,v 1.12 2004/05/17 12:45:53 sauber Exp $
+%# $Id: url,v 1.13 2004/06/04 08:04:11 snicki Exp $
 %#
-<%shared>
-  no strict;
-  my @basic = eval "a..z, A..Z, 0..9";
-  use strict;
-  my $BS = new Bootstring( BASIC => \@basic, 
-	TMAX => 53,
-	SKEW => 78,
-	INITIAL_BIAS => 32,
-	TMIN => 38,
-	DAMP => 40,
-        DELIMITER => '_',
+<%once>
+  my @basic;
+  push @basic, "a".."z", "A".."Z", "0".."9";
+
+  my $BS = new Bootstring( BASIC => \@basic,
+      TMAX => 53,
+      SKEW => 78,
+      INITIAL_BIAS => 32,
+      TMIN => 38,
+      DAMP => 40,
+      DELIMITER => '_',
  );
-</%shared>
+</%once>
 <%method encode>\
 <%perl>
   my($link,%options) = @_;
