@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: text.sub,v 1.2 2004/06/17 08:51:45 sauber Exp $
+%# $Id: text.sub,v 1.3 2004/06/21 13:01:34 sauber Exp $
 %#
 <%args>
 $w=>undef
@@ -17,16 +17,19 @@ $text=>undef
 my $ML = new Spoejs::MediaList( path => "$spoejs{channel_path}/$spoejs{p}{d}" );
 my @pgr;
 
-# $text might be a reference to an array of text paragraphs
-for my $p ( defined @$text ? @$text : split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $text ) {
-  if ( $p =~ /^media\s*=/i ) {
-    my @files = $p =~ /^media\s*=\s*(.*?)\s*$/mig;
-    my @ml = $ML->get_picref( @files );
-    if ( @ml and $ml[0] ne undef ) {
-      push @pgr, { type=>'media',  content=>\@ml };
+if ( $text ) {
+  # $text might be a reference to an array of text paragraphs
+  for my $p ( defined @$text ? @$text
+                             : split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $text ) {
+    if ( $p =~ /^media\s*=/i ) {
+      my @files = $p =~ /^media\s*=\s*(.*?)\s*$/mig;
+      my @ml = $ML->get_picref( @files );
+      if ( @ml and $ml[0] ne undef ) {
+        push @pgr, { type=>'media',  content=>\@ml };
+      }
+    } else {
+      push @pgr, { type=>'text',  content=>$p };
     }
-  } else {
-    push @pgr, { type=>'text',  content=>$p };
   }
 }
 </%init>
