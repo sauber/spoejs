@@ -4,7 +4,7 @@ compact list of channels and the date of their last update
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: latest.html,v 1.4 2004/08/08 16:12:08 snicki Exp $
+$Id: latest.html,v 1.5 2004/08/13 06:47:05 sauber Exp $
 </%doc>
 % foreach my $chaninfo ( @sns ) {
 <%$chaninfo->{shortname} . ';' . $chaninfo->{date} %>
@@ -19,7 +19,7 @@ $m->clear_buffer;
 $r->content_type('text/plain');
 
 # Caching
-my $offset = 60 * 30; # seconds * minutes
+my $offset = 60 * 60 * 12; # seconds * minutes * hours
 my $e = gmtime( time + $offset );
 my $l = gmtime( time - $offset * 10 );
 $r->headers_out->add( "Expires" => $e );
