@@ -1,8 +1,9 @@
 package Spoejs::MediaList;
 use base ( "Spoejs::List" );
+use File::Basename;
 
-# $Id: MediaList.pm,v 1.2 2004/03/22 12:19:37 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.2 $';
+# $Id: MediaList.pm,v 1.3 2004/03/23 07:41:16 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.3 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -17,14 +18,13 @@ sub _next {
     $current =~ s{(.*)(...)}{$1\.$2}g;
     my $found;
     for ( @media ) {
-	if ($found) { $found = $_->{path}; last; }
-	$found = 1 if ( $_->{path} =~ /$current/ );
+	if ($found) { $found = $_->{file}; last; }
+	$found = 1 if ( $_->{file} =~ /$current/ );
     }
 
     return undef if $found == 1;
 
-    my @p = reverse split /\//, $found;
-    $found = $p[0];
+    $found = basename $found;
     $found =~ s{\.}{}g;
     return $found;
 }
@@ -42,7 +42,8 @@ sub list {
     my @items;
 
     for ( sort @files ) {
-	push @items, new Spoejs::Pic( path => $_ );
+	@d{ 'file', 'path' } = fileparse $_;
+	push @items, new Spoejs::Pic( %d );
     }
 
     return @items;

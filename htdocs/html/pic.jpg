@@ -3,15 +3,16 @@
 <%init>
     use Spoejs::Pic;
     my $path = "$ENV{DOCUMENT_ROOT}/users/$session{user}";
-    my $story_path = $$params{d};
+    my $story_path = $params{d};
     $story_path =~ s{(....)(..)(..)}{/$1/$2/$3};
     $path .= $story_path;
-    my $P = Spoejs::Pic->new( path => $path );
 
     # Add '.' to filename parameter
-    my $file = $$params{p};
+    my $file = $params{p};
     $file =~ s{(.*)(...)}{$1\.$2};
-    my $picref = $P->get( file => $file, size => $$params{m} );
+
+    my $P = Spoejs::Pic->new( path => $path, file => $file );
+    my $picref = $P->get( size => $params{m} );
 
     # Make sure we only send out jpeg data
     $m->clear_buffer();
@@ -24,5 +25,5 @@
     $r->headers_out->add( "Last-Modified" => $l );
 </%init>
 <%args>
- $params => undef    
+ %params => undef    
 </%args>

@@ -10,20 +10,19 @@ use Image::Magick;
 no Carp::Assert;
 use base ( "Spoejs" );
 
-# $Id: Media.pm,v 1.4 2004/02/29 08:57:01 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.4 $';
+# $Id: Media.pm,v 1.5 2004/03/23 07:41:16 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.5 $';
 
 #### Private helper functions ####
 
 # strip illegal chars from filename
 #
 sub valid_name {
-    my($self,$f) = @_;
+    my($self) = @_;
 
-    $f =~ tr/A-Z/a-z/;                        # Only lowercase letters
-    $f =~ s/[^a-z0-9.]//g;                  # Only letters and numbers
-    while ( $f =~ s/(.*)\.(.*)\.(.+?)/$1$2\.$3/g ) {}   # Only one dot
-    return $f;
+    $self->{file} =~ tr/A-Z/a-z/;                   # Only lowercase letters
+    $self->{file} =~ s/[^a-z0-9.]//g;               # Only letters and numbers
+    while ( $self->{file} =~ s/(.*)\.(.*)\.(.+?)/$1$2\.$3/g ) {} # Only one dot
 };
 
 # Scale current image magick object to specified maxside

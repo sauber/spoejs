@@ -2,8 +2,8 @@ package Spoejs::Pic;
 use Image::Size;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-# $Id: Pic.pm,v 1.5 2004/03/22 12:09:58 snicki Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.5 $';
+# $Id: Pic.pm,v 1.6 2004/03/23 07:41:16 snicki Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.6 $';
 
 # Initializor
 #
@@ -11,6 +11,7 @@ sub _initialize {
   my($self) = shift;
 
   $self->{path} ||= '.';
+  return $self->_err( "Must give file to new" ) unless $self->{file};
 }
 
 
@@ -24,14 +25,15 @@ sub _initialize {
 sub save {
   my($self,$fh,$filename) = @_;
 
-  $filename = $self->valid_name($filename);
-  open _PIC, ">$self->{path}/$filename" or 
-             return $self->_err( "Could not open $self->{path}/$filename: $!");
+  $self->valid_name(); # Validate member filename
+
+  open _PIC, ">$self->{path}/$self->{file}" or 
+         return $self->_err( "Could not open $self->{path}/$self->{file}: $!");
     binmode _PIC;
     while( <$fh> ){ print _PIC $_ }
   close _PIC;
 
-  return  $filename;
+  return  $self->{file};
 }
 
 # Load file as blob reference
@@ -41,7 +43,7 @@ sub load {
 
   my $tmpslash = $/;
   undef $/;
-  open _PIC, "$self->{path}/$filename" or return undef;
+  open _PIC, "$self->{path}/$self->{file}" or return undef;
     binmode _PIC;
     $self->{_blob} = <_PIC>;
   close _PIC;
@@ -54,8 +56,8 @@ sub load {
 sub get {
   my($self,%params) = @_;
 
-  return undef unless $params{file};
-  $self->load( $params{file} ) or return undef;
+  return undef unless $self->{file};
+  $self->load() or return undef;
   if ( $params{size} ) {
     $self->scale( $params{size} );
   }
@@ -68,9 +70,9 @@ sub get {
 sub html_imgsize {
   my( $self, %params ) = @_;
 
-  return undef unless ( $params{filename} && $self->{path} && $params{size} );
+  return undef unless ( $self->{file} && $self->{path} && $params{size} );
 
-  my ( $w, $h ) = imgsize( "$self->{path}/$params{filename}" );
+  my ( $w, $h ) = imgsize( "$self->{path}/$self->{file}" );
 
   return undef if ( $w == 0 || $h == 0 );
 

@@ -80,8 +80,8 @@ if ( $ARGS{upload} ) {
     # Skip empty fields and zero-sized files
     next if ($fn eq '' or $_->size < 1);
     my $fh = $_->fh;
-    my $P = new Spoejs::Pic( path => "$user_path/$ARGS{story}" );
-    $P->save( $fh, $fn ) or warn $P->{msg};
+    my $P = new Spoejs::Pic( path => "$user_path/$ARGS{story}", file => $fn );
+    $P->save( $fh ) or warn $P->{msg};
  }
 }
 </%init>

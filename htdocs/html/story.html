@@ -18,11 +18,11 @@ Fulltext:
 Media:
 <br/>
 % for ( @media_list ) {
-% my @p = reverse split /\//, $_->{path};
-% $p[0] =~ s{\.}{};
-<a href="media_d<% $no_slash_path %>_p<% $p[0] %>.html">
-<& /w, w => "media", d => $no_slash_path, p => $p[0], m => 150, info
-=> $_->info() &>
+% my $p = $_->{file};
+% $p =~ s{\.}{};
+<a href="media_d<% $no_slash_path %>_p<% $p %>.html">
+<& /w, w => "media", d => $no_slash_path, p => $p, m => 150, 
+info => $_->info() &>
 </a>
 % }
 <br/>
