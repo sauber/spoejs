@@ -1,10 +1,10 @@
 package Spoejs::ChannelList;
 use base ( "Spoejs::List", "Spoejs" );
 use Spoejs::ChannelConf;
-use Data::Dumper;
+use File::Path;
 
-# $Id: ChannelList.pm,v 1.5 2004/03/14 10:19:43 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.5 $';
+# $Id: ChannelList.pm,v 1.6 2004/03/15 11:38:20 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.6 $';
 
 
 # Constructor
@@ -83,12 +83,40 @@ sub new_channel {
 	return $self->_err( "Could not create directory " . 
 			    " $full_path: $!" );
 
-    # Create channel config, adding approved='no' as default 
+    # Create channel config, adding active='no' as default 
     # XXX: remove created dir if we _err here
     my $CC = new Spoejs::ChannelConf( path => $full_path );
-    $params{approved} ||= "no";
+    $params{active} ||= "no";
     $CC->set( %params ) or return $self->_err( "Could not set settings." );
 
     # Success
     return 1;
+}
+
+
+# Remove channel
+#
+sub delete_channel {
+
+    my ($self, $channel) = @_;
+
+    # Remove given story-dir
+    my $res = rmtree "$self->{path}/$channel";
+    return $self->_err( "Could not delete channel: $!" ) unless $res > 0;
+    return 1;
+}
+
+
+# Archive channel removing channel, leaving tarball of it
+#
+sub archive_channel {
+
+    my ($self, $channel) = @_;
+
+    # Make archive
+    my $path = "$self->{path}/${channel}";
+    `tar czf ${path}.tgz $path`;
+    
+    # Delete chan
+    $self->delete_channel( $channel );
 }
