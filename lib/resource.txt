@@ -30,3 +30,23 @@
 <it>
   <lang=en/>Italian
 </it>
+<title>
+  <lang=en/>Title
+  <lang=da/>Titel
+</title>
+<date>
+  <lang=en/>Date
+  <lang=da/>Dato
+</date>
+<posted_by>
+  <lang=en/>Posted by
+  <lang=da/>Af
+</posted_by>
+<category>
+  <lang=en/>Category
+  <lang=da/>Kategori
+</category>
+<change>
+  <lang=en/>Change
+  <lang=da/>Skift
+</change>

@@ -1,0 +1,14 @@
+<&| /l &>title</&>
+<br/>
+<% $S->get( 'abstract' ) %>
+<a href="/test/index.html">Back</a>
+<%init>
+  my $path;
+  $params{d} =~ /(\d{4})(\d\d)(\d\d)/ and $path = "$1/$2/$3";
+ 
+  my $S = new Spoejs::Story( path => $path, 
+                             lang => $m->{session}{lang_handle} );
+</%init>
+<%args>
+  %params => undef
+</%args>
