@@ -9,7 +9,7 @@
 <form method="post">
 <fieldset>
 <legend>Please fill out this form</legend>
-<table width="50%">
+<table>
 % foreach my $t ( @text_f ) {
 %# Disable some controls when editing story
 % my $dis = defined $spoejs{channel} && $t eq 'shortname' ? 'disabled="disabled"' : '';
@@ -30,12 +30,10 @@
 Yes:<input type="radio" name="public" value="yes"<% $yc %>>
 No:<input type="radio" name="public" value="no"<% $nc %>>
 </td></tr>
-<tr>
-  <td><input type="submit" name="submit" value="<&|/l&>submit</&>"/>
-</td>
-</tr>
 </table>
 </fieldset>
+<br/>
+<input type="submit" name="submit" value="<&|/l&>submit</&>"/>
 </form>
 %}
 <%init>
