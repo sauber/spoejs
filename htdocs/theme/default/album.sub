@@ -3,18 +3,14 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: album.sub,v 1.5 2004/04/16 10:27:51 snicki Exp $
+%# $Id: album.sub,v 1.6 2004/04/16 10:39:46 snicki Exp $
 %#
 <& $w,
    img_list  => \@ml,
    img_count => $spoejs{p}{s},
-   %img_size
 &>
 <%init>
   my @ml = $media_list->list( start => $spoejs{p}{s}, count => $count );
-
-  my %img_size;
-  %img_size = ( img_size => $spoejs{p}{m} ) if defined $spoejs{p}{m};
 </%init>
 <%args>
   $w          => undef
