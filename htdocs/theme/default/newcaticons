@@ -1,6 +1,6 @@
 % for ( @cats ) {
-<a href="<& /htm/url:encode, "/$spoejs{channel}/index.html", c => $_ &>">
-<& /w, w => 'categoryicon', category => $_, size => 75 &>
+<a href="<& /htm/url:encode, "/$spoejs{channel}/index.html", c => $_ &>">\
+<& /w, w => 'categoryicon', category => $_, size => 75 &>\
 </a>
 % }
 <%init>
