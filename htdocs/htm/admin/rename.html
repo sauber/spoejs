@@ -14,8 +14,8 @@
 <input type="text" size="40" name="<% $pic->{file} %>" \
 value="<% $pic->utf_filename() %>">
 </td>
-<td>
-<input type="submit" name="delete" value="<% $pic->{file} %>">
+<td align="center">
+<input type="checkbox" name="delete" value="<% $pic->{file} %>">
 </td>
 </tr>
 % }
@@ -28,16 +28,22 @@ value="<% $pic->utf_filename() %>">
   if ( defined $ARGS{submit} ) {
 
     delete $ARGS{submit};
+
+    if ( defined $ARGS{delete} ) {
+      foreach my $file ( @{$ARGS{delete}} ) {
+	my $M = new Spoejs::Media( path => $user_path, file => $file );
+	$spoejs{error}{$m->current_comp->source_file} = $M->{msg} if $M->{msg};
+	$M->delete() or print "Could not delete file";
+	delete $ARGS{file};
+      }
+    }
+    delete $ARGS{delete};
+
     while( my ( $k, $v ) = each %ARGS ) {
       my $M = new Spoejs::Media( path => $user_path, file => $k );
       $spoejs{error}{$m->current_comp->source_file} = $M->{msg} if $M->{msg};
       $M->rename( $v );
     }
-  }
-  if ( defined $ARGS{delete} ) {
-      my $M = new Spoejs::Media( path => $user_path, file => $ARGS{delete} );
-      $spoejs{error}{$m->current_comp->source_file} = $M->{msg} if $M->{msg};
-      $M->delete() or print "Could not delete file";
   }
 
   my $ML = new Spoejs::MediaList( path => $user_path );
