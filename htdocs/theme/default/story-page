@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.23 2004/05/20 10:16:23 snicki Exp $
+%# $Id: story-page,v 1.24 2004/06/03 10:23:53 sauber Exp $
 %#
 <h2><% $story_ref->get( 'title' ) %></h2>
 <&| /w, w => "box", heading => $story_ref->get( 'title' ) &>
@@ -25,6 +25,11 @@
 <br/>
 <&| /w, w => 'box', heading => $m->comp( '/l', l => 'media' ) &>
 <& /w, w => 'album', media_list => $media_list, %navi_opt &>
+</&>
+<br/>
+<br/>
+<&| /w, w => 'box', heading => $m->comp( '/l', l => 'media' ) &>
+<& /w, w => 'comments', comments => 'comments', %navi_opt &>
 </&>
 <& /w, w => 'navi', %navi_opt &>
 % }	

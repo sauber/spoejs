@@ -1,0 +1,39 @@
+%# Show comments for story or media
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: comments,v 1.1 2004/06/03 10:24:25 sauber Exp $
+%#
+<h2>**comments**</h2>
+% #
+% # Display all existing comments
+% #
+% for my $c ( @$comments ) {
+<p><% $c->{Text} %><p>
+% if ( $c->{Email} ) {
+**posted_by**: <a href="mailto:<% $c->{Email} %>"><% $c->{By} %></a>.
+% } else {
+**posted_by**: <% $c->{By} %>.
+% }
+**date**: <% $c->{Date} %>.
+<hr>
+% }
+% #
+% # Offer a form to input comments
+% #
+%# XXX: Extract username/email from cookie if possible
+<h2>**post_a_comment**</h2>
+<form>
+**name**: <input size=20> **email**: <input size=20><br>
+**comments**: <input size=60><br>
+%# XXX: Need security image generator
+%# XXX: Only show security image unless already typed
+**enter_characters_from_image**: <input size=10>
+<img src="http://www.firstproductions.com/abc/017e2a2b86019d069ac18efed307d4ac.png">
+</form>
+<%init>
+</%init>
+<%args>
+  $comments  => "No comment"
+</%args>

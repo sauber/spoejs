@@ -1,0 +1,66 @@
+%# Generate data for comments
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: comments.sub,v 1.1 2004/06/03 10:24:25 sauber Exp $
+%#
+<& $w,
+   comments => \@comments
+&>
+<%init>
+# The idea here is to get the name of the file holding comments,
+# and the object to extract the comments for.
+# $object is either the know keyword 'story' or a media filename.
+# The end result is a reference to a list of hashes
+
+# Read in the data like this
+#my $C = new Spoejs::Comments ( file=>$file );
+#my $data = $C->get( $object );
+
+# For test generate random data
+sub random_comments {
+  my @words=qw(that's interesting it actually reinforced my initial feeling);
+  my @authors=qw(tom john phil maria anna elizabeth anonymous);
+  my @langs=qw(en da de zh jp);
+
+  my $res;
+  # Number of comments
+  for my $n ( 0..1 + int rand 7 ) {
+    $res .= sprintf "By=%s\n", ucfirst $authors[int rand @authors];
+    $res .= sprintf "Date=%d\n", 800000000 + int rand 285815078;
+    if ( 0.5 > rand 1 ) {
+      $res .= sprintf "Email=%s\@email.com\n", $authors[int rand @authors];
+    }
+    $res .= sprintf "Lang=%s\n", $langs[int rand @langs];
+    my $t = ucfirst $words[int rand @words];
+    for ( 0..1 + int rand 25 ) {
+      $t .= " $words[int rand @words]";
+    }
+    $res .= sprintf "Text=%s.\n", $t;
+    $res .= "\n";
+  }
+
+  return $res;
+}
+my $data = random_comments();
+
+# After data is load from file, then parse it into a list of hashes
+my @comments = map {{ /^(\w+?)\s*=\s*(.+?)$/gm }}
+               split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $data;
+
+# XXX: Throw an error if there are no comments...
+
+# Fix dates to be human readable
+use POSIX qw(strftime);
+for ( @comments ) {
+  $_->{Date} = strftime "%F", localtime $_->{Date};
+}
+
+
+</%init>
+<%args>
+  $w      => undef
+  $file   => undef
+  $object => undef
+</%args>
