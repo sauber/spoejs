@@ -555,8 +555,8 @@ invalid_password:
   da: Det angivne password er for kort
   en: Password too short
 invalid_thumb_count:
-  da: Ugykdigt ikon antal
-  en: Invalid thumbnail count
+  da: Ugyldigt antal miniaturebilleder
+  en: Invalid number of thumbnails
 invalid_title:
   da: Fejl i tittel
   en: 'Invalid title '
@@ -1164,14 +1164,13 @@ theme_description:
   da: Journalens udseende
   en: Visual appearance of journal
 thumb_count:
-  da: Antal ikoner
-  en: thumb count
+  en: Thumbnails per page
 thumb_count_description:
-  da: Antal ikoner der vises på hver historie side
-  en: thumb count description
+  da: Antal miniaturebilleder der vises på hver historie side
+  en: Number of media thumbnails per story page
 thumbnail:
   ar: 'الرموز'
-  da: Ikon
+  da: Miniaturebillede
   de: Miniaturbild
   en: Thumbnail
   es: Vista en miniatura
