@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.34 2004/07/23 17:48:24 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.34 $';
+# $Id: StoryList.pm,v 1.35 2004/07/28 07:44:27 sauber Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.35 $';
 
 sub _initialize {
     my $self = shift;
@@ -67,7 +67,7 @@ sub _all_stories {
 sub _sort_by_date {
 
     my ( $self ) = @_;
-    @{$self->{stories}} = sort { $b->{sortkey} <=> $a->{sortkey} } 
+    @{$self->{stories}} = sort { $b->{sortkey} cmp $a->{sortkey} } 
                       @{$self->{stories}};
 }
 
@@ -233,9 +233,11 @@ sub list_stories {
 		my $story_kw = $story->get( $kw );
 		
 		# XXX: Special case for non-existing 'active'
-		$story_kw = 'yes' if $kw eq 'active' and $story_kw eq '';
+                if ( $kw and $story_kw ) {
+		    $story_kw = 'yes' if $kw eq 'active' and $story_kw eq '';
+                }
  
-		push @new, $story if ( $story_kw eq $in{$kw} );
+		push @new, $story if ( $story_kw and $story_kw eq $in{$kw} );
 	    }
 	    
 	    @res = @new;
