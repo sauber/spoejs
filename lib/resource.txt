@@ -1,4 +1,6 @@
 ---
+account_information:
+  en: Account Information
 active:
   ar: 'فعال'
   da: Aktiv
@@ -1242,6 +1244,8 @@ name:
   it: il nome
   ja: '名前'
   mk: 'Име'
+name_description:
+  en: Name Description 
 name_missing:
   da: Navn mangler
   de: Name fehlt
@@ -1308,6 +1312,8 @@ newfilename:
   mk: 'Ново име на фајлот'
   ru: 'новое имя файла'
   zh: '新的文件名'
+newpass:
+  en: New Passwrod 
 no_:
   ar: 'ﻻ'
   da: Nej
@@ -1732,6 +1738,8 @@ story:
   ja: 'ストーリー'
   mk: 'Приказна'
   zh: '记事'
+story_abstract:
+  en: Story Abstract 
 story_deleted:
   de: gelöschte Geschichten
   en: Story deleted
