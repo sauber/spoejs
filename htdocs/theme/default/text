@@ -1,0 +1,11 @@
+<%args>
+$text=>undef
+</%args>
+<%init>
+# The idea is to look for newlines to split the text up into paragraphs
+#my @blocks = split /[\n\r]+[\n\r]+/, $text;
+my @blocks = split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $text;
+</%init>
+% for ( @blocks ) {
+<p align=justify><% $_ %></p>
+% }

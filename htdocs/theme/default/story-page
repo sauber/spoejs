@@ -9,7 +9,7 @@
 <br/>
 <br/>
 <fieldset class="full"><legend>Fulltext</legend>
-<% $story_ref->get( 'fulltext' ) %>
+<& /w, w => "text", text=>$story_ref->get( 'fulltext' ) &>
 </fieldset>
 <br/>
 <br/>
