@@ -19,15 +19,13 @@
   my @media_list = $S->{ML}->list( start => $spoejs{p}{s},
 				   count => $count );
 
-my $a_edit = '';
+my $a_edit;
 if ( $session{chanauth} && $spoejs{channel} &&
      $session{chanauth}{$spoejs{channel}} ) {
 
-  $a_edit  = '<a href="';
-  $a_edit .= $m->scomp( '/htm/url:encode',
-			"/$spoejs{channel}/admin/story.html",
-			d => $spoejs{p}{d} );
-  $a_edit .= '">Edit</a>';
+  $a_edit = $m->scomp( '/htm/url:encode',
+		       "/$spoejs{channel}/admin/story.html",
+		       d => $spoejs{p}{d} );
 }
 
 my %navi_opt = ( url => "/$spoejs{channel}/story.html",

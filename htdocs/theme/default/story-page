@@ -32,13 +32,13 @@
 <br/>
 <br/>
 <br/>
-<% $edit_href %>
+% if ( $edit_href ) {
+<a href="<% $edit_href %>">Edit</a>
+% }
 <%args>
   $story_dir  => undef
   $story_ref  => undef
   $edit_href  => undef
   %navi_opt   => undef
-#  $next_href  => undef
-#  $prev_href  => undef
   @media_list => undef
 </%args>
