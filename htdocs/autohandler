@@ -1,14 +1,20 @@
+%# Handle nonhtml-users (less than 4 or more than 10 chars) calls specially
+% if ( length $path < 4 or length $path > 10 ) {
+<& "/theme/$P{t}/$path", params => \%P &>
+% } else {
 %# Add header
 <& html/header.html &>
 <body>
 <% $m->call_next %>
 </body>
 </html>
+% }
 <%init>
 
 if ( 1 ) {
   use Spoejs::Text;
   use Spoejs::ChannelConf;
+  use Spoejs::ChannelList;
   use Spoejs::Lang;
   use Spoejs::StoryList;
   use Spoejs::Resource;
