@@ -3,8 +3,8 @@ use base ( "Spoejs::List", "Spoejs" );
 use Spoejs::ChannelConf;
 use File::Path;
 
-# $Id: ChannelList.pm,v 1.7 2004/03/29 04:25:20 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.7 $';
+# $Id: ChannelList.pm,v 1.8 2004/03/29 05:09:34 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.8 $';
 
 
 # Constructor
@@ -17,6 +17,7 @@ sub _initialize {
     %{$self} = ( %{$self}, @_ );
 
     $self->{file} = "settings.txt";
+    $self->_check_dir();
 }
 
 #### Private helper functions ####

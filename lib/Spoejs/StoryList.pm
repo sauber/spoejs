@@ -23,13 +23,14 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.16 2004/03/29 04:25:20 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.16 $';
+# $Id: StoryList.pm,v 1.17 2004/03/29 05:09:49 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.17 $';
 
 sub _initialize {
     my $self = shift;
-
+    
     $self->{file} = "data.txt";
+    $self->_check_dir();
 }
 
 
