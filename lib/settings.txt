@@ -1,0 +1,12 @@
+<password>
+password
+</password>
+
+<policy>
+ffa
+</policy>
+
+<username>
+admin
+</username>
+
