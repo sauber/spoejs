@@ -20,7 +20,7 @@ Release 0.03 (2004-07-03) must-have's:
  - Demo site
  - Accurate translations
  - Theme credits/versioning
- - Unified auth for site/channel
+ - Unified auth for site/channel/translation
 
 
 Development to-do list:
@@ -31,16 +31,14 @@ Developers:
 
 Code structure:
  - Debug on/off
- - Test UTF8
  - Error message when cookies missing
- - remove html and jscript dirs from cvs
- - abstract rename to preview
+ - abstract rename to summary/intro
 
 Data:
  - Don't save text unless really changed
  - File locks
  - Undo, revisions
- - Normalize UTF8
+ - Normalize UTF8 (get out of bytemode first)
  - Stack trace on syntax error in ::Text
  - Userdefined fields (location, people...)
 
