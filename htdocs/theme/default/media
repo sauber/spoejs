@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.39 2004/06/03 01:14:05 snicki Exp $
+%# $Id: media,v 1.40 2004/06/03 01:14:59 snicki Exp $
 %#
 % unless ( $no_div ) {
 <div class="media" <% $styleh %>>
@@ -78,7 +78,7 @@ sub random_annotation {
 
 my $styleh;
 # Add size for annotation
-$box_height += 50 if $box_height; 
+$box_height += 40 if $box_height; 
 $styleh = "style=\"height: ${box_height}px;\"" if $box_height;
 my ( $width, $stylew );
 if ( $html_wh ) {
