@@ -4,13 +4,12 @@ Generate data for comments
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: comments.sub,v 1.4 2004/06/13 07:22:51 snicki Exp $
+$Id: comments.sub,v 1.5 2004/06/13 07:25:39 snicki Exp $
 </%doc>
 <& $w,
    comments => \@comments,
    ignore   => [ 'code', 'md5sum' ]
 &>
-<& /htm/debug.html &>
 <%init>
 # Get hold of comment object
 my $story_path = "$spoejs{channel_path}/$spoejs{p}{d}";
