@@ -13,7 +13,8 @@ a:active {
 }
 body {
   color: #000000;
-  background-color: #fefefe;
+  background-color: #cccccc;
+#  background-color: #fefefe;
   text-decoration: none;
   font-family: Verdana,Helvetica,sans-serif;
   font-size: 10px;
@@ -49,16 +50,7 @@ select {
     color: black;
     text-decoration: none;
     font-family: Verdana,Helvetica,sans-serif;
-    font-size: 8px;
     font-weight: normal;
-    border: 0px;
-    padding: 0px;
-}
-
-form.topbar {
-    border: 0px;
-    padding: 0px; 
-    margin: 0 0 0 0;
 }
 
 button {
@@ -73,10 +65,8 @@ input {
     color: black;
     text-decoration: none;
     font-family: Verdana,Helvetica,sans-serif;
-    font-size: 10px;
     font-weight: bold;
-    border: #000000 1px solid;
-    padding: 0px;
+    border: #000000 2px solid;
 }
 
 
@@ -107,6 +97,19 @@ td.form_error {
 td.form_desc {
    font-size: 9px;
    color: #666666;
+}
+
+
+span.form_error {
+   font-size: 12px;
+   font-weight: bold;
+   color: red;
+}
+
+li.form_error {
+   font-size: 12px;
+   font-weight: bold;
+   color: red;
 }
 
 img {
@@ -176,6 +179,12 @@ div.right {
 
 div.bottom {
   margin-top: 70%;
+}
+
+hr.topbar {
+  padding: 0px;
+  border: solid black 1px;
+  clear: both;
 }
 
 div.spacer {
