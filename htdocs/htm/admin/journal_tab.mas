@@ -1,7 +1,7 @@
 <& /w, w => 'tabs',
        list   => \@urls,
        caller => $m->caller()->name(),
-       label  => '**journal_config**'
+       label  => '**journal_config**',
 &>
 <%init>
 my $prefix = "/$spoejs{channel}/admin";
