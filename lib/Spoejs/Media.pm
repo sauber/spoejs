@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.11 2004/04/18 23:57:23 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.11 $';
+# $Id: Media.pm,v 1.12 2004/04/20 14:36:43 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.12 $';
 
 
 # Initializor
@@ -41,8 +41,12 @@ sub _check_save {
 
   # Check for supported extension and save if filehandle is given
   if ( $self->{file} =~ /($self->{extensions})$/i ) {
-      $self->save( $self->{fh} ) if defined $self->{fh};
-      return $self->_check();
+      if ( defined $self->{fh} ) {
+	  $self->save( $self->{fh} );
+	  return $self->_check();
+      } else {
+	  return 1;
+      }
   } else {
       return $self->_err( "Unsuported filetype" );
   }
