@@ -1,0 +1,32 @@
+%# Handle non-users (less than 4 or more than 10 chars) calls specially
+% if ( @path < 4 or @path > 10 ) {
+<& "/theme/$P{t}/ico", params => \%P &>
+%
+%# If requested page exists call it with given params; else show error
+% } elsif ( -e "${doc_root}/$req_uri" ) {
+%
+<& "/html/$req_uri", params => \%P &>
+% } else {
+<& "/html/error.html" &>
+% }
+<%perl>
+  my $req_uri = $ENV{REQUEST_URI};
+
+  my $path;
+  $req_uri =~ s/\/(\w+)\/// and $path = $1;
+  my @path = split //, $path;
+
+
+  my $doc_root =  "$ENV{DOCUMENT_ROOT}html";
+
+  # Extract URL encoded parameters
+  my %P;
+  while( $req_uri =~ s/_(\w)(\w*?)(?=[_\.])// ) {
+    $P{$1} = $2;
+  };
+
+  # Default to configured, then 'default' theme if none is given in URL
+  $P{t} ||= #$channelconf->get(theme) || 
+            'default';
+
+</%perl>
