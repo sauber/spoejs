@@ -3,9 +3,10 @@ use base ( "Spoejs::List", "Spoejs" );
 use Spoejs::ChannelConf;
 use File::Path;
 use Date::Manip;
+use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.10 2004/04/02 10:14:12 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.10 $';
+# $Id: ChannelList.pm,v 1.11 2004/04/02 13:20:02 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.11 $';
 
 
 # Constructor
@@ -137,12 +138,23 @@ sub archive_channel {
 # List of channels sorted by newest entry
 #
 sub newest_channels {
-  my ( $self, $count ) = @_;
+  my ( $self, %params ) = @_;
 
   # Gives array of ChannelConf object refs
   my @channels;
   @channels = $self->search_channels( public => 'yes' ) unless $self->{msg};
   @channels = () if ( $channels[0] eq undef );
+
+
+  # Add channels we have auth for 
+  my @authchans;
+  for $u ( @{$params{auth}} ) {
+      my @newc = $self->search_channels( shortname => $u ) 
+	  unless $self->{msg};
+      @authchans = ( @authchans, @newc );
+  }
+
+  @channels = ( @channels,  @authchans ) unless ( $authchans[0] eq undef );
 
   # Sort channels by date of newest entry
   for my $c ( @channels ) {
@@ -160,8 +172,9 @@ sub newest_channels {
   # Sort based on date in seconds
   @channels = sort { $b->{newest_date} <=> $a->{newest_date} } @channels;
 
-  # Shrinf if count is given
-  $#channels = $count - 1 if $count and @channels > $count;
-
+  # Shrinf if count is given and not -1
+  if ( defined $params{count} ) {
+      $#channels = $params{count} - 1 if @channels > $params{count};
+  }
   return @channels;
 }
