@@ -6,8 +6,8 @@ use Date::Manip;
 use Digest::MD5 qw(md5_hex);
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.19 2004/05/08 05:58:06 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.19 $';
+# $Id: ChannelList.pm,v 1.20 2004/05/18 07:41:16 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.20 $';
 
 
 # Constructor
@@ -30,6 +30,7 @@ sub _initialize {
 
 # Search channels for given key/value pairs.
 # Return only those that satisfies all criteria
+# XXX: Only use settings.txt from one level down
 #
 sub search_channels {
 
@@ -46,6 +47,7 @@ sub search_channels {
     my @chans;
     for my $ch ( @all ) {
 	my $CC = new Spoejs::ChannelConf( path => $ch, lang => $self->{lang} );
+	next if defined $CC->{msg};
 
 	# Only get() if criterias are given; else we get all instead of none
 	my %c;
