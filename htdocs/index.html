@@ -1,11 +1,19 @@
 <h1>Spoejs channels at this site:</h1>
-<& /w, w => 'langchooser' &>
 % foreach my $chan ( @channels ) {
 % if ( $chan->get( 'active' ) eq 'yes' && $chan->get( 'public' ) eq 'yes' ) {
 <a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'title' ) %>
 </a><br/>
 % } }
-
+<br/>
+Change language:<br/>
+<& /w, w => 'langchooser' &>
+<br/>
+<hr/>
+Administration:
+<br/>
+<a href="/html/admin/siteconfig.html">
+Site configuration
+</a>
 <%init>
 my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
                                   lang => $spoejs{lang_handle} );

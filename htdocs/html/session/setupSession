@@ -5,6 +5,10 @@ $req_uri =~ s/\/(\w+)\/// and my $path = $1;
 # Add user-path to session
 if ( length $path > 3 and length $path < 11 ) {
   $session{user} = $path;
+} else {
+# Keeps this as authorization might depend on non-channel data being
+# read when this is not set
+  delete $session{user};
 }
 
 session_setup();

@@ -5,7 +5,8 @@
 <h2>Congratulations you are now signed up</h2>
 <a href="/<%$ARGS{shortname}%>/index.html">Click here to continue</a>
 % } else {
-% return unless $m->comp( 'checkLogin.html' );
+%# !defined user, allows new signups, but not edits to existing
+% return unless $m->comp( 'checkLogin.html' ) or !defined $session{user};
 <form method="post">
 <table>
 % foreach my $t ( @text_f ) {
