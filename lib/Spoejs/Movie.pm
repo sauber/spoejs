@@ -2,8 +2,8 @@ package Spoejs::Movie;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
 
-# $Id: Movie.pm,v 1.13 2004/06/24 07:34:50 sauber Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.13 $';
+# $Id: Movie.pm,v 1.14 2004/08/13 06:32:55 sauber Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.14 $';
 
 # Supported extensions
 $Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov|qt|mpeg|mpe';
@@ -99,3 +99,33 @@ sub html_imgsize {
 
   return "width=\"$x\" height=\"$y\"";
 }
+
+# Retrieve extended info from image file, such as fx EXIF
+#
+sub extinfo {
+  my( $self, %params ) = @_;
+
+  return undef unless ( $self->{file} && $self->{path} );
+  return $self->_err("$self->{path}/$self->{file} does not exist")
+    unless -f "$self->{path}/$self->{file}";
+
+  my %vidinfo;
+  # Video::Info sometimes hang, so timeout after 2 seconds.
+  eval {
+    local $SIG{ALRM} = sub { die "timeout\n" };
+    alarm 2;
+    use Video::Info;
+    my $info = new Video::Info(-file=>"$self->{path}/$self->{file}");
+    for my $k ( keys %$info ) {
+      my $v = scalar $info->{$k};
+      my $t = ref($v);
+      #warn "Image::Info $k ($t): $v\n" unless $t;
+      # Only bother to get scalar values
+      $vidinfo{$k} = $v unless $t;
+    }
+    alarm 0;
+  };
+
+  return \%vidinfo;
+}
+

@@ -1,8 +1,8 @@
 package Spoejs::Pic;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-# $Id: Pic.pm,v 1.18 2004/07/16 15:15:54 snicki Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.18 $';
+# $Id: Pic.pm,v 1.19 2004/08/13 06:32:55 sauber Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.19 $';
 
 # Supported extensions
 $Spoejs::Pic::EXTENSIONS = 'jpg|jpeg|png|gif|bmp';
@@ -51,6 +51,35 @@ sub html_imgsize {
   return $self->_err( "Got zero width or height" ) if $x == 0 or $y == 0;
 
   return "width=\"$x\" height=\"$y\"";
+}
+
+# Retrieve extended info from image file, such as fx EXIF
+#
+sub extinfo {
+  my( $self, %params ) = @_;
+
+  return undef unless ( $self->{file} && $self->{path} );
+  return $self->_err("$self->{path}/$self->{file} does not exist")
+    unless -f "$self->{path}/$self->{file}";
+
+  my %picinfo;
+  # Image::Info sometimes hang, so timeout after 2 seconds.
+  eval {
+    local $SIG{ALRM} = sub { die "timeout\n" };
+    alarm 2;
+    use Image::Info qw(image_info);
+    my $info = image_info("$self->{path}/$self->{file}");
+    for my $k ( keys %$info ) {
+      my $v = scalar $info->{$k};
+      my $t = ref($v);
+      #warn "Image::Info $k ($t): $v\n" unless $t;
+      # Only bother to get scalar values
+      $picinfo{$k} = $v unless $t;
+    }
+    alarm 0;
+  };
+
+  return \%picinfo;
 }
 
 

@@ -12,8 +12,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.26 2004/08/08 07:55:51 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.26 $';
+# $Id: Media.pm,v 1.27 2004/08/13 06:32:55 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.27 $';
 
 
 # Initializor
@@ -229,21 +229,6 @@ sub info {
   return $self->{_im}->Get('width','height','filesize','Magick');
 }
 
-# Count the number of entries in log files for filename
-# in both standard form and Bootstring encoded.
-sub logcount {
-  my($self,$logfilebase) = @_;
-
-  return undef unless $self->{file};
-
-  my $BS = _create_bs();
-  my $bs = $BS->encode($self->{file});
-  my $count = 0;
-  #$count += `egrep "$self->{file}|$bs" ${logfilebase}* | wc -l`;
-  return $count;
-}
-
-
 # Rotate 90 degrees clockwise (90) or counterclickwise (270)
 sub rotate {
   my( $self, $degrees ) = @_;
@@ -325,6 +310,12 @@ sub ping {
 #
 sub extenxions {
     return $self->{extensions};
+}
+
+# Generate hash of extended information about file
+#
+sub extinfo {
+ return \{};
 }
 
 __END__
