@@ -17,6 +17,7 @@ if ( 1 ) {
   use Spoejs::Icon;
   use Spoejs::Pic;
   use Spoejs::SiteConf;
+  use Bootstring;
 }
 
   # We need to call this here to have %spoejs available in pages that do 

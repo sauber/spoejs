@@ -2,8 +2,8 @@ package Spoejs::MediaList;
 use base ( "Spoejs::List" );
 use File::Basename;
 
-# $Id: MediaList.pm,v 1.3 2004/03/23 07:41:16 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.3 $';
+# $Id: MediaList.pm,v 1.4 2004/03/25 03:48:48 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.4 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -15,7 +15,6 @@ sub _initialize {
 
 sub _next {
     my ( $self, $current, @media ) = @_;
-    $current =~ s{(.*)(...)}{$1\.$2}g;
     my $found;
     for ( @media ) {
 	if ($found) { $found = $_->{file}; last; }
@@ -23,14 +22,8 @@ sub _next {
     }
 
     return undef if $found == 1;
-
-    $found = basename $found;
-    $found =~ s{\.}{}g;
-    return $found;
+    return basename $found;
 }
-
-
-
 
 
 #### Public interface ####
@@ -38,6 +31,7 @@ sub _next {
 sub list {
     my $self = shift;
 
+# XXX: What pattern should be used here?
     my @files = $self->_list_from_file_pattern( '(jpg|JPG)$' );
     my @items;
 
@@ -61,4 +55,16 @@ sub prev {
     my ( $self, $current ) = @_;
 
     return $self->_next( $current, reverse $self->list() );
+}
+
+sub get_picref {
+    my ( $self, $current ) = @_;
+    
+    my @all = $self->list();
+
+    for ( @all ) {
+	return $_ if ( $_->{file} eq $current );
+    }
+
+    return undef;
 }

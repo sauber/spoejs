@@ -7,11 +7,12 @@
 
 package Spoejs::Media;
 use Image::Magick;
+use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 
-# $Id: Media.pm,v 1.5 2004/03/23 07:41:16 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.5 $';
+# $Id: Media.pm,v 1.6 2004/03/25 03:48:48 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.6 $';
 
 #### Private helper functions ####
 
@@ -20,9 +21,20 @@ $Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.5 $';
 sub valid_name {
     my($self) = @_;
 
-    $self->{file} =~ tr/A-Z/a-z/;                   # Only lowercase letters
-    $self->{file} =~ s/[^a-z0-9.]//g;               # Only letters and numbers
-    while ( $self->{file} =~ s/(.*)\.(.*)\.(.+?)/$1$2\.$3/g ) {} # Only one dot
+    my ($file, $ext);
+    $file = $self->{file};
+    $file =~ s/(.*)(\.)(....?)$/$1/ and $ext = $3;
+    my @basic = eval "a..z, A..Z, 0..9";
+  my $BS = new Bootstring( BASIC => \@basic, 
+	TMAX => 53,
+	SKEW => 78,
+	INITIAL_BIAS => 32,
+	TMIN => 38,
+	DAMP => 40,
+ );
+    $file = $BS->encode( $file );
+
+    $self->{file} = "$file.$ext";
 };
 
 # Scale current image magick object to specified maxside
@@ -52,6 +64,17 @@ sub scale {
   }
 };
 
+sub _create_bs {
+    my @basic = eval "a..z, A..Z, 0..9";
+    return new Bootstring( BASIC => \@basic, 
+			   TMAX => 53,
+			   SKEW => 78,
+			   INITIAL_BIAS => 32,
+			   TMIN => 38,
+			   DAMP => 40,
+			   );
+}
+
 #### Public interface ####
 
 # Get size etc about current image magick object
@@ -62,5 +85,27 @@ sub info {
   return $self->{_im}->Get('width','height','filesize','Magick');
 }
 
+sub utf_filename {
+    my($self) = @_;
 
-1;
+    my $BS = _create_bs();
+    my ($file, $ext);
+    $file = $self->{file};
+    $file =~ s/(.*)\.(...)$/$1/ and $ext = $2;
+    $file = $BS->decode( $file );
+    return $file . '.' . $ext;
+}
+
+
+sub rename {
+    my ( $self, $new_file ) = @_;
+
+    my $old_file = "$self->{path}/$self->{file}";
+
+    my $BS = _create_bs();
+
+    $self->{file} = $new_file;
+    $self->valid_name();
+
+    rename "$old_file", "$self->{path}/$self->{file}" or warn "rename: $!";
+}

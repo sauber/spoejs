@@ -4,7 +4,7 @@
   <th><&|/l&>date</&></th>
 </tr>
 % foreach my $story ( @stories ) {
-% my $path = $story->story_string_from_full();
+% my $path = $story->story_path_from_full();
 <tr>
   <td><a href="<& /html/url:encode, 'story.html', d => $path &>">
       <% $story->get( 'title' ) %></a></td>

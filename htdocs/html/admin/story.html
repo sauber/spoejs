@@ -2,7 +2,7 @@
 
 % if ( $ARGS{submit} ) {
 <h4>Story saved successfully.</h4>
-<a href="<& /html/url:encode, "/$session{user}/admin/upload.html", d=>$story_url &>">
+<a href="<& /html/url:encode, "/$session{user}/admin/upload.html", d=>$story_dir &>">
 Click here to add media to story.
 </a>
 % return; }
@@ -28,7 +28,8 @@ Category:<br/>
 <select name="category">
 <option value="">Please select</option>
 % foreach my $cat ( sort keys %categories ) {
-<option value="<% $cat %>"><% $cat %></option>
+% my $selected = $cat eq $ARGS{category} ? ' selected="selected"' : '';
+<option value="<% $cat %>"<% $selected %>><% $cat %></option>
 % }
 </select>
 or new: 
@@ -45,7 +46,7 @@ cols="60"><%$ARGS{fulltext}%></textarea>
 </form>
 
 <a href="<& /html/url:encode, "/$session{user}/admin/upload.html",
-d=>$story_url &>">
+d=>$story_dir &>">
 Click here to add media to existing story.
 </a>
 
@@ -60,7 +61,6 @@ my $cur_lang = $spoejs{lang_handle}->{lang_order}->[0];
 my @entries = qw( title date category abstract fulltext author );
 
 my $chan_path = "$ENV{DOCUMENT_ROOT}/users/$session{user}";
-$params{d} =~ s{(\d{4})(\d\d)(\d\d)}{$1/$2/$3}g if $params{d};
 
 my $SL = Spoejs::StoryList->new( path => $chan_path,
                                  lang => $spoejs{lang_handle} );
@@ -107,9 +107,6 @@ if ( $ARGS{delete} ) {
 
 # Used for category chooser - counts ignored
 my %categories = $SL->count_stories( by => 'category' );
-
-my $story_url = $story_dir;
-$story_url =~ s{/}{}g; # Remove '/' for use in url
 </%init>
 <%args>
   %params => undef

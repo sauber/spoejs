@@ -19,9 +19,9 @@ Media:
 <br/>
 % for ( @media_list ) {
 % my $p = $_->{file};
-% $p =~ s{\.}{};
-<a href="<& url:encode, 'media.html', d => $no_slash_path, p => $p &>">
-<& /w, w => "media", d => $no_slash_path, p => $p, m => 150, 
+%# $p =~ s{\.}{};
+<a href="<& url:encode, 'media.html', d => $params{d}, p => $p &>">
+<& /w, w => "media", d => $params{d}, p => $p, m => 150, 
 info => $_->info() &>
 </a>
 % }
@@ -31,16 +31,12 @@ info => $_->info() &>
 % if ( $session{chanauth} && $session{user} && 
 %      $session{chanauth}{$session{user}}) {
 <a href="<& url:encode, "/$session{user}/admin/story.html", 
-                        d=>$no_slash_path &>">Edit</a>
+                        d=>$params{d} &>">Edit</a>
 % }
 <%init>
-  my ($slash_path, $no_slash_path);
-  $params{d} =~ /(\d{4})(\d\d)(\d\d)/ and $slash_path = "$1/$2/$3",
-  $no_slash_path = "$1$2$3";
-  my $path = "$ENV{DOCUMENT_ROOT}users/$session{user}/$slash_path";
+  my $path = $ENV{DOCUMENT_ROOT} . "users/" . $session{user} . "/" .$params{d};
   my $S = new Spoejs::Story( path => $path,
                              lang => $spoejs{lang_handle} );
-
   my @media_list = $S->media_list();
 </%init>
 <%args>

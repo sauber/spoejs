@@ -14,7 +14,7 @@
 </tr>
 <tr>
 <td>
-% my $path = $storyref->story_string_from_full();
+% my $path = $storyref->story_path_from_full();
 <a href="<& /html/url:encode, "/$session{user}/story.html", d=>$path&>">More</a>
 <a href="">Comment</a>
 % if ( $session{chanauth} && $session{user} && 

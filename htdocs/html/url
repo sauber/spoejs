@@ -1,15 +1,24 @@
 % # This module encodes and decodes url's
-% # $Id: url,v 1.2 2004/03/24 00:51:24 snicki Exp $
+% # $Id: url,v 1.3 2004/03/25 03:47:39 snicki Exp $
 % # Encode and decode url
-
+%
+<%shared>
+  no strict;
+  my @basic = eval "a..z, A..Z, 0..9";
+  use strict;
+  my $BS = new Bootstring( BASIC => \@basic, 
+	TMAX => 53,
+	SKEW => 78,
+	INITIAL_BIAS => 32,
+	TMIN => 38,
+	DAMP => 40,
+ );
+</%shared>
 <%method encode>
 <%perl>
   my($link,%options) = @_;
-my @b = qw( a b c d e f g h i j k l m n o p q r s t u v x y z A B C D E F G H I J K L M N O P Q R S T U V X Y Z 0 1 2 3 4 5 6 7 8 9 );
-push @b, '.';
-  my $BS = new Bootstring( BASIC => \@b );
-
   my($r,$k,$v);
+
   while ( ($k,$v) = each %options ) {
     my $new_v = $BS->encode($v);
     $r .= "_$k${new_v}";
@@ -22,10 +31,6 @@ push @b, '.';
 <%method decode>
 <%perl>
   my($link) = @_;
-my @b = qw( a b c d e f g h i j k l m n o p q r s t u v x y z A B C D E F G H I J K L M N O P Q R S T U V X Y Z 0 1 2 3 4 5 6 7 8 9 );
-push @b, '.';
-
-  my $BS = new Bootstring( BASIC => \@b );
 
   my %O;
   while ( $link =~ s/(_)(.)(.*?)(?=[_.])// ) {

@@ -1,6 +1,7 @@
 <center>
 <h4><% $S->get( 'title' ) %></h4>
-<a href="<% "$slash_d/$pic" %>">
+Filename: <% $ML->get_picref($params{p})->utf_filename() %><br/>
+<a href="<% "$web_path/$params{p}" %>">
 <& /w, w => "media", d => $params{d}, p => $params{p}, m => 480 &>
 </a>
 <br/>
@@ -24,20 +25,10 @@
 Back to story
 </a>
 <%init>
-  my $slash_d = $params{d};
-  # Split dir string
-  $slash_d =~ s{(....)(..)(..)}{$1/$2/$3}g;
-  my $pic = $params{p};
-  # Add '.' to filename
-  $pic =~ s{(.*)(...)$}{$1\.$2}g;
-  $slash_d = "/users/$session{user}/$slash_d";
-
-
-  my $path = "$ENV{DOCUMENT_ROOT}/$slash_d";
+  my $web_path = "/users/$session{user}/$params{d}";
+  my $path = "$ENV{DOCUMENT_ROOT}$web_path";
   my $ML = new Spoejs::MediaList( path => $path );
-
   my $S = new Spoejs::Story( path => $path, lang => $spoejs{lang_handle} );
-
 </%init>
 <%args>
  %params => undef

@@ -15,6 +15,7 @@ if ( 1 ) {
   use Spoejs::Icon;
   use Spoejs::Pic;
   use Spoejs::SiteConf;
+  use Bootstring;
 }
 
   my $doc_root =  "$ENV{DOCUMENT_ROOT}html";

@@ -1,4 +1,4 @@
-<img src="/<% $session{user}%>/ico_c<%$category%>_m<%$size%>.jpg" alt="<% $category %> icon"/>
+<img src="<& /html/url:encode, "/$session{user}/ico.jpg", c=>$category, m=>$size&>" alt="<% $category %> icon"/>
 <%args>
     $category => undef
     $size => undef

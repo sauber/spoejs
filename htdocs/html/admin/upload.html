@@ -64,7 +64,6 @@ Media to add:<br/>
 <%init>
 # XXX: Use different Spoejs objects for different file type
 # XXX: Check and only process handled file types
-# XXX: Store original filename somehow
 # XXX: Add support for multi-upload via zip-files
 
 my @upl;
@@ -79,6 +78,7 @@ if ( $ARGS{upload} ) {
     my $fn = $_->filename;
     # Skip empty fields and zero-sized files
     next if ($fn eq '' or $_->size < 1);
+    next unless $fn =~ /\.(png|gif|jpg|mov|avi|mpg|wma)$/i;
     my $fh = $_->fh;
     my $P = new Spoejs::Pic( path => "$user_path/$ARGS{story}", file => $fn );
     $P->save( $fh ) or warn $P->{msg};
