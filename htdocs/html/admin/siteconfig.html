@@ -56,16 +56,17 @@ my %yn = ( yes => 'Yes', no => 'No' );
 my %policy = ( ffa => 'Free-for-all', signup => 'Signup-Approve',
                invite => 'Invite-only' );
 
-
 my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
                                lang => $spoejs{lang_handle} );
 
 if ( $ARGS{login} ) {
-my $p = $SC->get( 'password' );
-my $u = $SC->get( 'username' );
+
+  my $p = $SC->get( 'password' );
+  my $u = $SC->get( 'username' );
   $session{siteauth} = 1 if $ARGS{username} eq $u and $ARGS{password} eq $p;
-}
-if ( $ARGS{logout} ) {
+
+} elsif ( $ARGS{logout} ) {
+
   delete $session{siteauth};
 } 
 
