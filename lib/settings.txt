@@ -1,12 +1,12 @@
 <password>
-kodeord
+pass
 </password>
 
 <policy>
-ffa
+freeall
 </policy>
 
 <username>
-snicki
+admin
 </username>
 
