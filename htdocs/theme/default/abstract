@@ -3,7 +3,8 @@
      <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
 <div class="bottom">
 <a href="<% $story_href %>"><&|/l&>more</&></a>
-<a href=""><&|/l&>comment</&></a>
+%# XXX: Not yet implemented
+%# <a href=""><&|/l&>comment</&></a>
 % if ( $edit_href ) {
 <a href="<% $edit_href %>"><&|/l&>edit</&></a>
 % }
