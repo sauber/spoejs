@@ -689,7 +689,7 @@ ja:
   zh: '日语'
 journal_config:
   da: Journal konfiguration
-  en: Journal Configure
+  en: Journal Configuration
 journal_exists:
   da: Journal-ID eksisterer allerede
   en: Journal-ID already exists
@@ -742,9 +742,6 @@ language_description:
 localjournal:
   da: Lokale journaler
   en: Local Journals
-log_in:
-  da: Log ind
-  en: Login
 log_out:
   da: Log ud
   en: Logout
@@ -874,7 +871,7 @@ newpass:
   ar: 'كلمة مرور جديدة'
   da: Nyt password
   de: neues Passwort
-  en: New Passward
+  en: New Password
   es: Nueva contraseña
   iw: 'סיסמה חדשה'
   ja: '新しいパスワード'
