@@ -105,6 +105,7 @@ SiteConf:
  - Neighborhood spoejs sites
  - Quota
  - Default settings.txt or create from empty
+ - Change pw for user
 
 Navigation:
  - StoryList
