@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: topbar.sub,v 1.8 2004/05/18 07:40:46 snicki Exp $
+%# $Id: topbar.sub,v 1.9 2004/06/15 05:27:47 snicki Exp $
 %#
 <& $w,
    channel_href => $channel_href,
@@ -11,6 +11,8 @@
    story_href   => $story_href,
    story_title  => $story_title,
    new_href     => $new_href,
+   signup_href  => $show_signup,
+   edit_href    => $edit_href,
    about_href   => 'http://spoejs.sourceforge.net/index.php?showpage=whatisit&amp;faq=1'
 &>
 <%init>
@@ -38,6 +40,18 @@ if ( defined $spoejs{channel} ) {
 my $story_title;
 if ( defined $spoejs{Story} ) {
  $story_title = $spoejs{Story}->get( 'title' );
+}
+
+my $policy = $spoejs{SiteConf}->get( 'policy' );
+my $show_signup;
+if ( ( $policy eq 'freeall' or $policy eq 'signup_approve') and
+     ( !defined $session{chanauth} ) ) {
+  $show_signup = '<a href="/htm/admin/signup.html">**new_account**</a>';
+}
+
+my $edit_href;
+if ( $session{chanauth} ) {
+  $edit_href="<a href=\"/$spoejs{channel}/admin/channelform.html\">**journal_config**</a>";
 }
 </%init>
 <%args>
