@@ -81,6 +81,8 @@ if ( $ARGS{submit} ) {
 
   # Create new story if necessary
   unless ( $story_dir && -d "$spoejs{channel_path}/$story_dir" ) {
+    use Date::Manip;
+    $ARGS{date} ||= Date::Manip::UnixDate( "today", "%b %d %Y %H:%M" );
     $story_dir = $SL->add_story( date => $ARGS{date} );
   }
 
