@@ -4,6 +4,7 @@ use Spoejs::ChannelConf;
 use Spoejs::Story;
 no Carp::Assert;
 use Date::Manip;
+use File::Path;
 use Data::Dumper;
 
 # Dir format yyyy/mm/## width ## 01-99 incrementing by 1 for each story.
@@ -17,8 +18,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.2 2004/02/27 08:18:52 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.2 $';
+# $Id: StoryList.pm,v 1.3 2004/02/28 00:55:46 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.3 $';
 
 sub _initialize {
     my $self = shift;
@@ -118,7 +119,7 @@ sub del_story {
     my $root_path = $self->{channel_path};
 
     # Remove given story-dir
-    system( "rm -rf ${root_path}/$in{story}" );
+    rmtree "${root_path}/$in{story}";
 }
 
 
