@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.22 2004/04/25 14:03:59 snicki Exp $
+%# $Id: media,v 1.23 2004/05/20 08:20:36 snicki Exp $
 %#
 % unless ( $no_div ) {
 <div class="media">
@@ -22,18 +22,23 @@
 </div>
 % }
 <%init>
+  # We need a picture to continue
   return unless defined $ARGS{p};
 
+  # Let size (m) be overridable in url 
   my $size = $spoejs{p}{m} || $ARGS{m};
 
+  # get width/height for html
   unless ( $html_wh or $ARGS{p} eq 'ANY' ) {
-  my $M = new Spoejs::Media( path => "$spoejs{channel_path}/$ARGS{d}",
-                           file => $ARGS{p} );
-  $spoejs{error}{$m->current_comp->source_file} = $M->{msg} if defined $M->{msg};
-  return undef if defined $M->{msg};
+    my $M = new Spoejs::Media( path => "$spoejs{channel_path}/$ARGS{d}",
+                               file => $ARGS{p} );
+    $spoejs{error}{$m->current_comp->source_file} = $M->{msg} if defined $M->{msg};
+    return undef if defined $M->{msg};
 
-  $html_wh = $M->html_imgsize( size => $size );
-}
+    $html_wh = $M->html_imgsize( size => $size );
+  }
+
+  # Find correct extension, ANY is specialcase, and always jpg
   my $ext;
   $ARGS{p} =~ /(...)$/ and $ext = lc $1;
   $ext = 'jpg' if $ARGS{p} eq 'ANY';
