@@ -3,19 +3,22 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: topbar,v 1.10 2004/05/17 14:39:29 snicki Exp $
+%# $Id: topbar,v 1.11 2004/05/18 02:10:30 bottle18 Exp $
 %#
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
 <th align="left">
-<a href="/index.html">*Home*</a>&nbsp;|
+%#<a href="/index.html"><&|/l&>home</&></a>&nbsp;|
+<a href="/index.html"><&|/l&>home</&></a>&nbsp;|
 % if ( $channel_href ) {
+%#<a href="<% $channel_href %>"><&|/l&>chan_home</&></a>&nbsp;|
+%#<a href="<% $channel_href %>"><% $spoejs{channel} %></a>&nbsp;|
 <a href="<% $channel_href %>"><% $channel_name %></a>&nbsp;|
 % }
 % if ( $story_href ) {
 <a href="<% $story_href %>"><% $story_title %></a>&nbsp;|
 % }
-<a href="<% $about_href %>">*Help*</a>
+<a href="<% $about_href %>"><&|/l&>help</&></a>
 % if ( $new_href ) {
 &nbsp;|
 <a href="<% $new_href %>"><&|/l&>new_story</&></a>

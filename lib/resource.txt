@@ -35,6 +35,10 @@
 <lang=zh/>运行
 </active>
 
+<account_signup>
+<lang=en/>Account Sign Up
+</account_signup>
+
 <add>
 <lang=ar/>أضيق
 <lang=da/>Tilføj
@@ -238,6 +242,10 @@
 <lang=zh/>种类
 </category>
 
+<categories>
+<lang=en/>Categories
+</categories>
+
 <categorylist>
 <lang=ar/>لأحة الختيرات
 <lang=da/>Kategori liste
@@ -250,6 +258,10 @@
 <lang=ru/>список категорий
 <lang=zh/>一揽
 </categorylist>
+
+<change_language>
+<lang=en/>Change language
+</change_language>
 
 <chan_home>
 <lang=ar/>قناة البيت
@@ -512,6 +524,10 @@
 <lang=ru/>размерность
 </dimensions>
 
+<do_u_need_account>
+<lang=en/>Do you need an account?
+</do_u_need_account>
+
 <edit>
 <lang=ar/>تصحيح
 <lang=da/>Ret
@@ -739,6 +755,14 @@
 <lang=zh/>希腊
 </gr>
 
+<help>
+<lang=en/>Help
+</help>
+
+<home>
+<lang=en/>Home
+</home>
+
 <hu>
 <lang=ar/>هنجاري
 <lang=da/>Ungarnsk
@@ -834,6 +858,10 @@
 <lang=zh/>日语
 </ja>
 
+<journals_friends>
+<lang=en/>Journals at friend's sites
+</journals_friends>
+
 <language>
 <lang=ar/>لغة
 <lang=bg/>Език
@@ -863,6 +891,10 @@
 <lang=ru/>прошлый
 <lang=zh/>持续
 </last>
+
+<localjournal>
+<lang=en/>Local Journals
+</localjournal>
 
 <login>
 <lang=ar/>دخول
@@ -1265,6 +1297,10 @@
 <lang=zh/>登记新的网页
 </signup_newchannel>
 
+<signup_newjournal>
+<lang=en/>Sign up for a new media journal and share your experiences with friends family.
+</signup_newjournal>
+
 <site_home>
 <lang=ar/>العودة الى الصفحة الاولى
 <lang=da/>Kanal index
@@ -1339,6 +1375,14 @@
 <lang=ru/>Состояние каналов на этом сайте
 <lang=zh/>本网站网页的状况
 </statuschannel>
+
+<story>
+<lang=en/>Story
+</story>
+
+<stories>
+<lang=en/>Stories
+</stories>
 
 <story_abstract>
 <lang=ar/>محتويات القصة
@@ -1427,6 +1471,10 @@
 <lang=ja/>クエリーを提出
 <lang=ru/>представить запрос
 </submit_query>
+
+<summary>
+<lang=en/>Summary
+</summary>
 
 <thechannel_notexit>
 <lang=ar/>هذة القناة غير موجودة
@@ -1518,6 +1566,10 @@
 <lang=ru/>Имя пользователя
 <lang=zh/>用户名
 </username>
+
+<view>
+<lang=en/>View
+</view>
 
 <yes>
 <lang=ar/>نعم

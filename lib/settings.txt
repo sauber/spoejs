@@ -7,7 +7,7 @@ freeall
 </policy>
 
 <showtranslationoptions>
-no_
+yes
 </showtranslationoptions>
 
 <username>
