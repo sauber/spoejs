@@ -223,7 +223,8 @@ blank_default:
   en: '(leave blank if story is current)'
   es: |-
     (déjalo en blanco si el artículo ya está seleccionado)
-  et: (Kui lugu on pooleli, siis jäta tühjaks)
+  et: |-
+    (Kui lugu on pooleli, siis jäta tühjaks)
   hu: hagyd uresen ha a tortenet mostani?
   it: lasccia spazio se la storia e coretto
   iw: |-2
@@ -2056,7 +2057,8 @@ thumb_count:
   de: Anzahl der Voransichten pro Seite
   en: Thumbnails per page
   es: Imágenes en miniatura por página
-  et: Ühe lehe kujundusviitade arv
+  et: |-
+    Ühe lehe kujundusviitade arv
   it: i schizzi per la pagina
   ja: 'ページごとのサムネール'
 thumb_count_description:
@@ -2066,7 +2068,8 @@ thumb_count_description:
   en: Number of media thumbnails per story page
   es: |-
     Número de imágenes en miniatura por página del artículo
-  et: Ühel lehele pandud kujundusviitade arv
+  et: |-
+    Ühel lehele pandud kujundusviitade arv
   it: i numeri di media schizzi per la pagina storia
   ja: |-
     ストーリーページの中のメディアサムネイルの数
