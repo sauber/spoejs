@@ -1,5 +1,28 @@
-Revision history for Perl extension Spoejs.
+Revision history for Spoejs.
+
+0.02
+  New features:
+  - Mixing text+media support
+  - Visual text+media mixing editor
+  - Movie clip support
+  - Syndication
+  - Encrypted passwords
+  - Translator mode
+  - Right and left columns
+  Bug fixes:
+  - Wording changes: Channel->Journal
+  - Maxside->diagonal for scaling media
 
 0.01  Fri Apr  9 00:37:15 2004
-	- original version
-
+  - Original version
+  - Perl modules for storage
+  - Bootstring encoded url's and filenames
+  - Multi-lingual menus and stories
+  - Picture support
+  - Icons
+  - Theme layer
+  - Registration
+  - Site Administration
+  - Media page, story page, story-list page, channel list page
+  - Picture upload
+  - Import pictures from local-disk
