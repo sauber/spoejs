@@ -5,8 +5,8 @@ use Date::Manip;
 use LWP::UserAgent;
 use Spoejs::ChannelList;
 
-# $Id: Syndication.pm,v 1.5 2004/05/16 08:13:17 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.5 $';
+# $Id: Syndication.pm,v 1.6 2004/05/16 09:14:32 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.6 $';
 
 # Constructor
 sub _initialize {
@@ -90,6 +90,18 @@ sub _fetch_summaries {
 
 }
 
+
+#
+#
+sub _rewrite_urls {
+    my $self  = shift;
+
+    for my $chan ( @{$self->{globallist}} ) {
+	$chan->{summary} =~ s|href="(?!http)(.*)"|href="$chan->{url}/$chan->{shortname}/$1"|g;
+    }
+}
+
+
 #### Public interface ####
 
 # Get simple text list of channels and date of their newest story
@@ -132,11 +144,16 @@ sub newest_remotes {
   # Sort on date of newest entry
   $self->_sort_globallist();
 
+  # Shrink array to 'count' elements
+  # XXX: What is the syntax for directly shrinking an array when you have ref
+  @list = @{$self->{globallist}}[0..$opt{count}-1];
+  @{$self->{globallist}} = @list;
+
   # Fetch newset summaries
   $self->_fetch_summaries();
 
-  # Shrink array to 'count' elements
-  @list = @{$self->{globallist}}[0..$opt{count}-1];
+  # Rewrite urls so they are absolute
+  $self->_rewrite_urls();
 
   return \@list;
 }
