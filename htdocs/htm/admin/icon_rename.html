@@ -1,0 +1,75 @@
+<%doc>
+Rename media files
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: icon_rename.html,v 1.1 2004/08/23 11:38:21 snicki Exp $
+</%doc>
+<& /htm/admin/site_tab.mas &>
+<& /js/confirm.js &>
+<& /htm/admin/story_tab.mas &>
+<br/>
+<form name="med_ren" action="" method="post" onsubmit="return confirmSubmit()">
+<table width="100%">
+<tr>
+  <th>**currentfilename**:</th>
+  <th>**newfilename**:</th>
+  <th>**deletefile**</th>
+  <th>**preview**</th>
+</tr>
+% foreach my $pic ( @media ) {
+<tr>
+<td>
+<% $pic->utf_filename() %>
+</td>
+<td>
+<input type="text" size="20" name="<% $pic->{file} %>" \
+value="<% $pic->utf_filename() %>">
+</td>
+<td align="center">
+<input type="checkbox" name="delete" value="<% $pic->{file} %>">
+</td>
+<td align="center">
+% my $cat = $pic->utf_filename(); $cat =~ s|\.jpg$||;
+<& /w, w => "categoryicon", category => $cat, size => 100 &>
+</td>
+</tr>
+% }
+</table>
+<input type="submit" name="submit">
+</form>
+<%init>
+# Check auth
+unless ( defined $session{chanauth} && defined $session{chanauth}{'**scf**'} ) {
+  $m->print( '**pleaselogin**' );
+  return;
+}
+
+  my $user_path = "$ENV{DOCUMENT_ROOT}/../lib/icons";
+
+  if ( defined $ARGS{submit} ) {
+
+    delete $ARGS{submit};
+
+    foreach my $file ( @delete ) {
+      my $M = new Spoejs::Media( path => $user_path, file => $file );
+      $spoejs{error}{$m->current_comp->source_file} = $M->{msg} if $M->{msg};
+      $M->delete() or print "Could not delete file: $file";
+    }
+
+    while( my ( $k, $v ) = each %ARGS ) {
+      my $M = new Spoejs::Media( path => $user_path, file => $k );
+      $spoejs{error}{$m->current_comp->source_file} = $M->{msg} if $M->{msg};
+      $M->rename( $v );
+    }
+  }
+
+  my $ML = new Spoejs::MediaList( path => $user_path );
+      $spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
+  my @media = $ML->list();
+
+</%init>
+<%args>
+  @delete => undef
+</%args>
