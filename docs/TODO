@@ -147,6 +147,8 @@ Extras:
 Translator:
  - Support parameters in translations,... %1 %2 ...
  - Return keyword if no text present
+ - On/off of (english) in topbar
+ - Siteconfig to have on/off button
 
 Search:
  - Search in channels and stories
