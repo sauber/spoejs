@@ -9,6 +9,7 @@ unless ( -d $spoejs{channel_path} ) {
 if ( -f $doc ) {
   $m->comp( "/htm/$spoejs{url_noparam}", %ARGS );
 } else {
-  $spoejs{error}{$m->current_comp->source_file} = "File/path doesn't exist!";
+  $spoejs{error}{$m->current_comp->source_file} = 
+    "File/path doesn't exist: $doc";
 }
 </%init>

@@ -5,8 +5,8 @@ use File::Path;
 use Date::Manip;
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.15 2004/04/04 01:47:16 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.15 $';
+# $Id: ChannelList.pm,v 1.16 2004/04/06 02:48:26 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.16 $';
 
 
 # Constructor
@@ -185,4 +185,10 @@ sub newest_channels {
   }
 
   return @channels;
+}
+
+sub list {
+  my ( $self, %params ) = @_;
+  # XXX: Handle 'auth' from site index
+  return $self->newest_channels();
 }

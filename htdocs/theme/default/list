@@ -9,7 +9,7 @@
 $spoejs{error}{$m->current_comp->source_file} = $SL->{msg} if $SL->{msg};
   # XXX: Make ChannelConf or user selectable
 
-my $count = 4;
+my $count = 5;
 my $start = $spoejs{p}{s} || 0;
 my %sl_opt = ( category  => $spoejs{p}{c},
 	       prev      => $count,
