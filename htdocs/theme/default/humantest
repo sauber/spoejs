@@ -1,0 +1,18 @@
+%# Human test (Captcha) for form submissions
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: humantest,v 1.1 2004/06/03 14:11:52 sauber Exp $
+%#
+%# XXX: Only show security image until typed in
+% if ( exists $session{humanname} ) {
+%   # Nothing to do
+% } else {
+**enter_characters_from_image**: <input size=10>
+<img src="<& /htm/url:encode, "/cap/cap.png", c=>$session{humantest} &>" alt="human verification image"/>\
+% }
+<%init>
+</%init>
+<%args>
+</%args>

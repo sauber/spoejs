@@ -1,0 +1,30 @@
+%# Display captcha image
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: cap.png,v 1.1 2004/06/03 14:11:52 sauber Exp $
+%#
+<% $blob %>\
+% $m->abort();
+<%init>
+    # Read security image in
+    my $blob;
+    open(FH, "/tmp/captcha/$spoejs{p}{c}.png");
+      #or {
+      #  # XXX: Panic. What to do if we cannot read image?
+      #};
+      my $size = -s FH;
+      sysread FH, $blob, $size;
+    close FH;
+
+    # Make sure we only send out blob
+    $m->clear_buffer();
+    $r->content_type('image/png');
+    # Caching
+    my $offset = 60 * 60 * 24 * 60; # seconds * minutes * hours * days
+    my $e = gmtime( time + $offset );
+    my $l = gmtime( time - $offset * 10 );
+    $r->headers_out->add( "Expires" => $e );
+    $r->headers_out->add( "Last-Modified" => $l );
+</%init>

@@ -3,13 +3,19 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: dhandler,v 1.29 2004/05/19 13:31:32 sauber Exp $
+%# $Id: dhandler,v 1.30 2004/06/03 14:11:47 sauber Exp $
 %#
 <%init>
 
 # Handle icons
 if ( $spoejs{url_noparam} =~ /ico.jpg/ ) {
   $m->comp( "/htm/ico.jpg", %ARGS );
+  $m->abort;
+}
+
+# Handle captcha images
+if ( $spoejs{url_noparam} =~ /cap.png/ ) {
+  $m->comp( "/htm/cap.png", %ARGS );
   $m->abort;
 }
 

@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media-page,v 1.5 2004/04/10 07:21:08 sauber Exp $
+%# $Id: media-page,v 1.6 2004/06/03 14:11:52 sauber Exp $
 %#
 <h2><% $S->get( 'title' ) %></h2>
 <center>
@@ -11,6 +11,11 @@
 <a href="<% $img_href %>">
 <% $img_src %>
 </a>
+</&>
+<br/>
+<br/>
+<&| /w, w => 'box', heading => $m->comp( '/l', l => 'comments' ) &>
+<& /w, w => 'comments', comments => 'comments', %navi_opt &>
 </&>
 <br/>
 <& /w, w => 'navi', %navi_opt &>

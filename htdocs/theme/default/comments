@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: comments,v 1.1 2004/06/03 10:24:25 sauber Exp $
+%# $Id: comments,v 1.2 2004/06/03 14:11:52 sauber Exp $
 %#
 <h2>**comments**</h2>
 % #
@@ -27,10 +27,7 @@
 <form>
 **name**: <input size=20> **email**: <input size=20><br>
 **comments**: <input size=60><br>
-%# XXX: Need security image generator
-%# XXX: Only show security image unless already typed
-**enter_characters_from_image**: <input size=10>
-<img src="http://www.firstproductions.com/abc/017e2a2b86019d069ac18efed307d4ac.png">
+<& /w, w => "humantest" &>
 </form>
 <%init>
 </%init>
