@@ -4,7 +4,7 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.42 2004/07/16 15:16:10 snicki Exp $
+$Id: story.html,v 1.43 2004/07/26 12:22:59 snicki Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
@@ -107,14 +107,16 @@ if ( defined $spoejs{Story} && !$ARGS{submit} ) {
   } else {
     $checked{default} =  ' checked="checked"';
   }
-
-  # HTML check'ing of 'active'
-  if ( $ARGS{active} eq 'no' ) {
-    $checked{active_no} = ' checked="checked"';
-  } else {
-    $checked{active_yes} = ' checked="checked"';
-  }
 }
+
+
+# HTML check'ing of 'active' defaults to yes
+if ( $ARGS{active} eq 'no' ) {
+  $checked{active_no} = ' checked="checked"';
+} else {
+  $checked{active_yes} = ' checked="checked"';
+}
+
 
 if ( defined $ARGS{submit} ) {
 
@@ -168,7 +170,7 @@ if ( defined $ARGS{submit} ) {
 
 # Pre-fill author if none is found in ARGS
 $ARGS{author} = $spoejs{ChannelConf}->get( 'name' ) 
-                                                  unless defined $ARGS{author};
+                                                 unless defined $ARGS{author};
 
 # Used for category chooser - counts ignored
 my %categories = $spoejs{SL}->count_stories( by => 'category' );
