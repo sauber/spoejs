@@ -4,7 +4,7 @@ front page
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: index.html,v 1.57 2004/08/13 07:37:29 sauber Exp $
+$Id: index.html,v 1.58 2004/08/13 08:16:47 sauber Exp $
 </%doc>
 <table width="100%">
 % if ( @{$remotes} > 0 ) {
@@ -19,7 +19,7 @@ $Id: index.html,v 1.57 2004/08/13 07:37:29 sauber Exp $
 <tr>
 <td valign="top" style="padding-right: 8px;">
 % foreach my $chan ( @channels ) {
-<table><tr><td bgcolor="#<% hashcolor($chan->get( 'title' )) %>">
+<table width="100%"><tr><td bgcolor="#<% hashcolor($chan->get( 'title' )) %>">
 <span style="font-size: large;">
 <a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'title' ) %></a>
 </span>
@@ -31,7 +31,7 @@ $Id: index.html,v 1.57 2004/08/13 07:37:29 sauber Exp $
 % $spoejs{channel} = $chan->channel_dir();
 % $spoejs{ChannelConf} = $chan;
 % $spoejs{p}{t} = $chan->get('theme');
-<table><tr><td bgcolor=#ffffff>
+<table width="100%"><tr><td bgcolor="#ffffff">
 <& /w, w => 'abstract', box => 1, storyref => $chan->{S} &>
 <br clear="all"/>
 </td></tr></table>
@@ -49,13 +49,13 @@ $Id: index.html,v 1.57 2004/08/13 07:37:29 sauber Exp $
 <td valign="top" style="padding-left: 8px;">
 %for my $rem ( @{$remotes} ) {
 %  $rem->{url} =~ s,/$,,; #Remove trailing slash if present
-<table width=100%><tr><td bgcolor="#<% hashcolor($rem->{shortname}) %>">
+<table width="100%"><tr><td bgcolor="#<% hashcolor($rem->{shortname}) %>">
 <span style="font-size: large;">
 <a href="<% $rem->{url} . '/' . $rem->{shortname} . '/index.html' %>"><% $rem->{url} %>/<% $rem->{shortname} %></a>
 </span>
 <br/>
 **newest_story**:<br/>
-<table width=100%><tr><td bgcolor=#ffffff>
+<table width="100%"><tr><td bgcolor="#ffffff">
 <% $rem->{summary} %>
 </td></tr></table>
 </td></tr></table>
