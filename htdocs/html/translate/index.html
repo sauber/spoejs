@@ -1,0 +1,50 @@
+<%init>
+use Spoejs::Resource;
+my $R = new Spoejs::Resource;
+my @langs = $R->lang_list;
+my @keys = $R->keys;
+my $lang = $ARGS{targetlanguage} || 'en';
+for ( @keys ) {
+  if ( $ARGS{$_} ){
+    $R->set( $_ => { $lang => $ARGS{$_} } );
+  }
+}
+</%init>
+<form method="post">
+<select name="targetlanguage">
+% for ( @langs ) {
+% my $sel = $_ eq $lang ? ' selected="selected"' : ' ';
+<option value="<% $_ %>"<% $sel %>><% $R->{data}{$_}{en} %></option>
+% }
+</select>
+<input type="submit" value="Change"/>
+</form>
+<p>Translate words and phrases below to target language</p>
+<form method="post">
+<table border=1>
+<tr>
+<th>Source=<% $R->{data}{en}{$lang} || $R->{data}{en}{en}%></th>
+<th>Target=<% $R->{data}{$lang}{$lang} || $R->{data}{$lang}{en}%></th>
+</tr>
+% for ( @keys ) {
+<tr>
+<td><% $R->{data}{$_}{en} %></td>
+<td><input name="<% $_ %>" value="<% $R->{data}{$_}{$lang} %>"></td>
+</tr>
+% }
+</table>
+<input type=hidden name=savechanges value=no>
+<input type=hidden name=targetlanguage value="<% $lang %>">
+<input type="submit" value="Change"/>
+</form>
+%# <hr/>
+%# Debug:<br/>
+%# <% Dumper(\%ARGS) %>
+%# <pre>
+%# % for ( @keys ) {
+%# %   if ( $ARGS{$_} ){
+%# $R->set( <% $_ %> => { <% $lang %> => "<% $ARGS{$_} %>" } );
+%# %   }
+%# % }
+%# </pre>
+%# <hr/>
