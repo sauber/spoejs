@@ -154,6 +154,7 @@
 <lang=is/>Lykilorð
 <lang=en/>Password
 <lang=gr/>Κωδικός
+<lang=da/>Kodeord
 </passwd>
 
 <posted_by>
@@ -198,3 +199,17 @@
 <lang=da/>Kinesisk
 </zh>
 
+<username>
+<lang=en/>Username
+<lang=da/>Brugernavn
+</username>
+
+<login>
+<lang=en/>Login
+<lang=da/>Log ind
+</login>
+
+<logout>
+<lang=en/>Logout
+<lang=da/>Log ud
+</logout>
