@@ -1,0 +1,29 @@
+<%doc>
+Delete a story
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: delete_story.html,v 1.1 2004/06/16 14:01:14 snicki Exp $
+</%doc>
+% if ( $ARGS{delete} ) {
+<h4>**story_deleted**</h4>
+<a href="/<% $spoejs{channel} %>/index.html">**journal_home**</a>
+% return; }
+
+<& /js/confirm.js &>
+<& /htm/admin/story_tab.mas &>
+<br/>
+<fieldset><legend>**delete_story**</legend>
+<form action="" method="post">
+<input type="submit" name="delete" value="**delete**" onclick="return confirmSubmit()"/>
+</form>
+</fieldset>
+<%init>
+return undef unless $m->comp( '/htm/login.html:check_login' );
+
+my $story_dir = $spoejs{p}{d} || undef;
+
+# Delete story if so told
+$spoejs{SL}->del_story( story => $story_dir ) if ( $ARGS{delete} );
+</%init>

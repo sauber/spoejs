@@ -1,0 +1,23 @@
+<& /w, w => 'tabs',
+       list => \@urls,
+&>
+<%init>
+my $path = $m->caller()->path();
+$path =~ s{^/htm/}{};
+my $prefix = "/$spoejs{channel}/admin";
+my @urls = (
+[ "/$spoejs{channel}/story.html", '**story**' ],
+[ "$prefix/story.html", '**story_edit**' ],
+[ "$prefix/upload.html", '**media_upload**' ],
+[ "$prefix/mixmedia.html", '**media_mixing**' ],
+[ "$prefix/annotations.html", '**media_annotations**' ],
+[ "$prefix/rename.html", '**media_rename**' ],
+[ "$prefix/delete_story.html", '**delete_story**' ],
+);
+
+# Add story dir to urls
+for my $url ( @urls ) {
+  if ( $url->[0] =~ /$path$/ ) { $url->[0] = undef; next; }
+  $url->[0] =  $m->scomp( '/htm/url:encode', $url->[0], d => $spoejs{p}{d} );
+}
+</%init>
