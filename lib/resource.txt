@@ -24,6 +24,7 @@
 </abstract>
 
 <account_signup>
+<lang=da/>Journal information
 <lang=en/>Journal Information
 <lang=zh/>用户注册
 </account_signup>
@@ -226,6 +227,7 @@
 </bo>
 
 <categories>
+<lang=da/>Kategorier
 <lang=en/>Categories
 <lang=zh/>种类
 </categories>
@@ -251,7 +253,7 @@
 
 <categorylist>
 <lang=ar/>لأحة الختيرات
-<lang=da/>Kategori liste
+<lang=da/>Kategorier
 <lang=de/>Kategorienliste
 <lang=en/>Category list
 <lang=es/>Lista de categorías
@@ -295,6 +297,7 @@
 </change>
 
 <change_language>
+<lang=da/>Skift sprog
 <lang=en/>Change Language
 <lang=zh/>语言变换
 </change_language>
@@ -517,6 +520,7 @@
 </description>
 
 <description_description>
+<lang=da/>Beskrivelse af journalens indhold
 <lang=en/>Describe content of journal 
 </description_description>
 
@@ -676,6 +680,7 @@
 </first>
 
 <fix_and_resubmit>
+<lang=da/>Ret og indsend igen
 <lang=en/>Fix and Resubmit
 </fix_and_resubmit>
 
@@ -769,11 +774,13 @@
 </gr>
 
 <help>
+<lang=da/>Hjælp
 <lang=en/>Help
 <lang=zh/>帮助
 </help>
 
 <home>
+<lang=da/>Hjem
 <lang=en/>Home
 <lang=zh/>本页
 </home>
@@ -792,22 +799,27 @@
 </hu>
 
 <invalid_description>
+<lang=da/>Fejl i beskrivelsen
 <lang=en/>Invalid description 
 </invalid_description>
 
 <invalid_journal_id>
+<lang=da/>Fejl i Journal-ID
 <lang=en/>Invalid Journal-ID
 </invalid_journal_id>
 
 <invalid_password>
+<lang=da/>Det angivne password er for kort
 <lang=en/>Password too short
 </invalid_password>
 
 <invalid_title>
+<lang=da/>Fejl i tittel
 <lang=en/>Invalid title 
 </invalid_title>
 
 <invalid_username>
+<lang=da/>Fejl i brugernavn
 <lang=en/>Invalid Username 
 </invalid_username>
 
@@ -894,17 +906,23 @@
 </ja>
 
 <journal_id>
+<lang=da/>Journal-ID
 <lang=en/>Journal-ID
 </journal_id>
 
 <journal_id_description>
+<lang=da/>4-16 små bogstaver til at identificeres din journal, fx:
 <lang=en/>4 to 16 lowercase letters to identify journal in URL like this:
+</journal_id_description>
+
 <journal_name>
+<lang=da/>Journal navn
 <lang=en/>Journal Name
 <lang=zh/>杂记名
 </journal_name>
 
 <journal_security>
+<lang=da/>Tilgængelighed
 <lang=en/>Access
 </journal_security>
 
@@ -913,6 +931,7 @@
 </journal_security_description>
 
 <journals_friends>
+<lang=da/>Journaler på vennesider
 <lang=en/>Journals at friend's sites
 </journals_friends>
 
@@ -934,6 +953,7 @@
 </language>
 
 <language_description>
+<lang=da/>Det primære sprog for journal indhold
 <lang=en/>Primary language of journal content
 </language_description>
 
@@ -951,6 +971,7 @@
 </last>
 
 <localjournal>
+<lang=da/>Lokale journaler
 <lang=en/>Local Journals
 </localjournal>
 
@@ -1034,7 +1055,7 @@
 
 <more>
 <lang=ar/>مزيد
-<lang=da/>Mere
+<lang=da/>Vis
 <lang=de/>mehr
 <lang=en/>More
 <lang=es/>Más
@@ -1045,6 +1066,7 @@
 </more>
 
 <new_account>
+<lang=da/>Ny konto
 <lang=en/>New account
 <lang=zh/>新用户注册
 </new_account>
@@ -1135,6 +1157,7 @@
 </oneerror_occur>
 
 <open_public>
+<lang=da/>Åben for alle
 <lang=en/>Open to public
 <lang=zh/>对外公开
 </open_public>
@@ -1185,23 +1208,28 @@
 </passwd>
 
 <passwd_again>
+<lang=da/>Indtast kodeord igen
 <lang=en/>Please enter your password again
 <lang=zh/>请再次按入密码
 </passwd_again>
 
 <passwd_description>
+<lang=da/>Et godt password er let at huske men svært at gætte
 <lang=en/>Something easy to remember but hard to guess
 </passwd_description>
 
 <passwd_retype>
+<lang=da/>Skriv kodeord igen
 <lang=en/>Re-type password
 </passwd_retype>
 
 <passwd_retype_description>
+<lang=da/>Samme som ovenfor
 <lang=en/>Same as above 
 </passwd_retype_description>
 
 <password_mismatch>
+<lang=da/>Kodeordene var ikke ens
 <lang=en/>Passwords did not match
 </password_mismatch>
 
@@ -1260,13 +1288,15 @@
 <lang=zh/>预现
 </preview>
 
-<probs_in_reg>
-<lang=en/>The Journal Information you entered has problems:
-</probs_in_reg>
-
 <private>
+<lang=da/>Privat
 <lang=en/>Private
 </private>
+
+<probs_in_reg>
+<lang=da/>Den indtastede information havde fejl:
+<lang=en/>The Journal Information you entered has problems:
+</probs_in_reg>
 
 <public>
 <lang=ar/>عمومي 
@@ -1312,6 +1342,7 @@
 </register>
 
 <ru>
+<lang=da/>Russisk
 <lang=en/>Russian
 <lang=ru/>Русский
 <lang=zh/>俄语
@@ -1355,6 +1386,7 @@
 </shortname>
 
 <shortname_description>
+<lang=da/>4-16 små bogstaver til at identificeres din journal, fx:
 <lang=en/>4 to 16 lowercase letters to identify journal in URL like this:
 </shortname_description>
 
@@ -1400,6 +1432,7 @@
 </signup_newchannel>
 
 <signup_newjournal>
+<lang=da/>Opret en ny journal og del dine oplevelser med venner og familie.
 <lang=en/>Sign up for a new media journal and share your experiences with friends and family.
 <lang=zh/>注册新的杂记并与家人及朋友分享
 </signup_newjournal>
@@ -1480,11 +1513,13 @@
 </statuschannel>
 
 <stories>
+<lang=da/>Historier
 <lang=en/>Stories
 <lang=zh/>记事
 </stories>
 
 <story>
+<lang=da/>Historie
 <lang=en/>Story
 <lang=zh/>记事
 </story>
@@ -1541,7 +1576,7 @@
 
 <storytitlelist>
 <lang=ar/>جدول عناوين القصص
-<lang=da/>Historietitelliste
+<lang=da/>Historier
 <lang=de/>Geschichtstitelliste
 <lang=en/>Story title list
 <lang=es/>Lista de títulos de artículos
@@ -1569,6 +1604,7 @@
 </submit>
 
 <submit_query>
+<lang=da/>Indsend
 <lang=de/>Abfrage abschicken
 <lang=en/>Submit Query
 <lang=es/>Enviar consulta
@@ -1578,6 +1614,7 @@
 </submit_query>
 
 <summary>
+<lang=da/>Resume
 <lang=en/>Summary
 <lang=zh/>摘要
 </summary>
@@ -1616,6 +1653,7 @@
 </theme>
 
 <theme_description>
+<lang=da/>Journalens udseende
 <lang=en/>Visual appearance of journal
 </theme_description>
 
@@ -1653,6 +1691,7 @@
 </title>
 
 <title_description>
+<lang=da/>Journalens navn
 <lang=en/>Name of journal
 </title_description>
 
@@ -1686,10 +1725,12 @@
 </username>
 
 <username_description>
+<lang=da/>4-16 små bogstaver og tal
 <lang=en/>4 to 16 lowercase letters or numbers
 </username_description>
 
 <view>
+<lang=da/>Vis
 <lang=en/>View
 </view>
 
