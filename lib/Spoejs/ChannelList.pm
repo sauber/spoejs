@@ -3,8 +3,8 @@ use base ( "Spoejs::List", "Spoejs" );
 use Spoejs::ChannelConf;
 use File::Path;
 
-# $Id: ChannelList.pm,v 1.8 2004/03/29 05:09:34 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.8 $';
+# $Id: ChannelList.pm,v 1.9 2004/04/02 08:48:33 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.9 $';
 
 
 # Constructor
@@ -36,17 +36,24 @@ sub search_channels {
 	or return $self->_err( "Could not get channel list" );
 
     my @chans;
-    for ( @all ) {
-	my $CC = new Spoejs::ChannelConf( path => $_, lang => $self->{lang} );
+    for my $ch ( @all ) {
+	my $CC = new Spoejs::ChannelConf( path => $ch, lang => $self->{lang} );
 
 	# Only get() if criterias are given; else we get all instead of none
-	my %c = $CC->get( keys %p ) if %p;
+	my %c;
+	my @k = keys %p;
+	if ( @k == 1 ) {
+	    # single-key special case
+	    $c{$k[0]} = $CC->get( keys %p ) if %p;
+	} else {
+	    %c = $CC->get( keys %p ) if %p;
+	}
+
 
 	# Check given criteria; remove if satisfied
 	foreach my $key (keys %c) {
 	    delete $c{$key} if ($p{$key} eq $c{$key});
 	}
-
 	# Check that all criteria was removed
 	if ( keys %c == 0  ) {
 	    push @chans, $CC
