@@ -8,8 +8,8 @@ no Carp::Assert;
 use Spoejs::SiteConf;
 use base ( "Spoejs" );
 
-# $Id: Text.pm,v 1.3 2004/02/26 04:30:50 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.3 $';
+# $Id: Text.pm,v 1.4 2004/02/26 05:32:23 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.4 $';
 
 
 # Constructor
@@ -21,10 +21,10 @@ sub _initialize {
     # Get site_dir for current user
     $param{path} =  Spoejs::SiteConf->site_dir();
 
-    $self->{is_loaded}   = 0;
     $self->{path}        = $param{path};
     $self->{file}        = $param{file};
     $self->{full_path}   = "$param{path}/$param{file}";
+    $self->{is_loaded}   = 0;
     $self->{is_modified} = 0;
 
     assert( $param{path} ne '' ) if DEBUG;
@@ -39,7 +39,7 @@ my $store_data = sub {
 
     my $self = shift;
     my %data = %{$self->{data}}; #grab data for easier access
-    open FH, ">$self->{full_path}" or assert(0) if $DEBUG;
+    open (FH, ">$self->{full_path}") or assert(0) if DEBUG;
 
     foreach $key ( keys( %data ) ) {
 	
@@ -65,7 +65,7 @@ my $store_data = sub {
 	
 	print FH "</$key>\n\n";
     }
-    
+
     close FH;
 };
 
