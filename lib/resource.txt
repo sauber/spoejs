@@ -1,3 +1,13 @@
+<about>
+<lang=da/>Om Spoejs
+<lang=en/>About
+</about>
+
+<add>
+<lang=da/>Tilføj
+<lang=en/>Add
+</add>
+
 <ar>
 <lang=ar/>عربي
 <lang=bg/>Арабски
@@ -26,6 +36,11 @@
 <lang=se/>bulgarisk
 </bg>
 
+<blank_default>
+<lang=da/>(blank for dags dato)
+<lang=en/>(leave blank if story is current)
+</blank_default>
+
 <bo>
 <lang=ar/>تبتي
 <lang=bg/>Тибетски
@@ -49,6 +64,11 @@
 <lang=se/>kategori
 </category>
 
+<chan_home>
+<lang=da/>Historie index
+<lang=en/>Channel home
+</chan_home>
+
 <change>
 <lang=ar/>تغير
 <lang=bg/>Промени
@@ -62,6 +82,11 @@
 <lang=mk/>Промена
 <lang=se/>ändra
 </change>
+
+<choose>
+<lang=da/>Vælg
+<lang=en/>Choose
+</choose>
 
 <da>
 <lang=ar/>دنماركي
@@ -105,6 +130,11 @@
 <lang=se/>Tyska
 </de>
 
+<delete>
+<lang=da/>Slet
+<lang=en/>Delete
+</delete>
+
 <description>
 <lang=ar/>وصف
 <lang=bg/>Описание
@@ -115,6 +145,16 @@
 <lang=ja/>記述
 <lang=mk/>Опис
 </description>
+
+<edit>
+<lang=da/>Ret
+<lang=en/>Edit
+</edit>
+
+<edit_lang>
+<lang=da/>Retter for sproget
+<lang=en/>Editing language
+</edit_lang>
 
 <en>
 <lang=ar/>أنجليزي
@@ -137,6 +177,11 @@
 <lang=en/>Spanish
 </es>
 
+<first>
+<lang=da/>Første
+<lang=en/>First
+</first>
+
 <fr>
 <lang=ar/>فرنسي
 <lang=bg/>Френски
@@ -150,6 +195,11 @@
 <lang=mk/>Француски
 <lang=se/>Franska
 </fr>
+
+<full_story>
+<lang=da/>Hele historien
+<lang=en/>Full story text
+</full_story>
 
 <gr>
 <lang=ar/>يوناني
@@ -218,6 +268,11 @@
 <lang=mk/>Јазик
 </language>
 
+<last>
+<lang=da/>Sidste
+<lang=en/>Last
+</last>
+
 <login>
 <lang=ar/>دخول
 <lang=bg/>Вход
@@ -240,6 +295,11 @@
 <lang=mk/>Логаут (Излез)
 </logout>
 
+<media_man>
+<lang=da/>Medie håndtering
+<lang=en/>Media management
+</media_man>
+
 <mk>
 <lang=ar/>ماسادوني
 <lang=bg/>Македонски
@@ -252,6 +312,16 @@
 <lang=mk/>Македонски
 <lang=se/>macedoniska
 </mk>
+
+<new_story>
+<lang=da/>Ny historie
+<lang=en/>New story
+</new_story>
+
+<or_new>
+<lang=da/>eller ny
+<lang=en/>or new
+</or_new>
 
 <passwd>
 <lang=ar/>كلمة المرور
@@ -291,6 +361,16 @@
 <lang=mk/>Јавен
 </public>
 
+<random>
+<lang=da/>Tilfældig
+<lang=en/>Random
+</random>
+
+<register>
+<lang=da/>Registrer
+<lang=en/>Register
+</register>
+
 <se>
 <lang=ar/>سودي
 <lang=bg/>Шведски
@@ -327,6 +407,26 @@
 <lang=mk/>Впиши
 </signup>
 
+<site_home>
+<lang=da/>Kanal index
+<lang=en/>Site home
+</site_home>
+
+<specific>
+<lang=da/>Specifik
+<lang=en/>Specific
+</specific>
+
+<story_abstract>
+<lang=da/>Historie abstrakt
+<lang=en/>Story abstract
+</story_abstract>
+
+<storytitle>
+<lang=da/>Historie titel
+<lang=en/>Story title
+</storytitle>
+
 <submit>
 <lang=ar/>أرسال
 <lang=bg/>Приложи
@@ -348,6 +448,11 @@
 <lang=ja/>テーマ
 <lang=mk/>Тема
 </theme>
+
+<thumbnail>
+<lang=da/>Ikon
+<lang=en/>Thumbnail
+</thumbnail>
 
 <title>
 <lang=ar/>عنوان
@@ -373,6 +478,11 @@
 <lang=ja/>ユーザー名
 <lang=mk/>Корисничко име
 </username>
+
+<yourname>
+<lang=da/>Dit navn
+<lang=en/>Your name
+</yourname>
 
 <zh>
 <lang=ar/>صينس
