@@ -1,4 +1,4 @@
-%# $Id: index.html,v 1.2 2004/03/25 10:08:28 snicki Exp $
+%# $Id: index.html,v 1.3 2004/04/06 04:43:44 sauber Exp $
 <%args>
 $_username=>undef
 $_password=>undef
@@ -28,7 +28,7 @@ if ( ( $_username and $_password ) or ( $username and $password ) ) {
 }
 </%init>
 % if ( $session{translator} ) {
-<p>You are authorized to edit <% $session{translator} %> language.
+<p>Translate words below.
 <a href=logout.html>Logout</a>.</p>
 <& form.html, %ARGS &>
 % } else {
