@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.24 2004/06/01 09:59:05 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.24 $';
+# $Id: Text.pm,v 1.25 2004/06/04 11:17:20 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.25 $';
 
 
 # Constructor
@@ -72,7 +72,7 @@ sub _store_data {
 	}
 	
 	# If not a hash, add variable directly
-	$subentry .= "$data{$key}\n" unless ref $data{$key};
+	$subentry .= "$data{$key}" unless ref $data{$key};
 	
 	$entry .= $subentry . "</$key>\n\n";
 
@@ -110,8 +110,6 @@ sub _read_data {
 
     while ( <FH> ) {
 
-	chomp;
-
 	# One-line lang-tags
 	if ( s/^\s*<lang=(\w\w)\/>// and $lang = $1) {
 	    $in_lang=1;
@@ -132,12 +130,14 @@ sub _read_data {
 
 	# End-tag
 	if ( /^<\/($kw_pattern+?)>$/ and $1 eq $tag ) {
+	    chomp $self->{data}{$tag};
 	    $in_tag = 0;
 	    next;
 	}
 
 	# End lang-tag
 	if ( /^<\/(\w+)>$/ and $1 eq "lang" ) {
+	    chomp $self->{data}{$tag}{$lang};
 	    $in_lang = 0;
 	    next;
 	}
@@ -148,19 +148,24 @@ sub _read_data {
 	{
 	    # If data exists for this key we append new data.
 	    # This is for multiline data in eg. fulltext.
-	    if ( $self->{data}{$tag}{$lang} ) {
-		$self->{data}{$tag}{$lang} .= "\n$_";
+	    if ( defined $self->{data}{$tag}{$lang} ) {
+		$self->{data}{$tag}{$lang} .= $_;
 	    } else {
 		$self->{data}{$tag}{$lang} = $_;
 	    }
 	    if ( $one_lang ) {
+		chomp $self->{data}{$tag}{$lang};
 		$one_lang = 0;
 		$in_lang  = 0;
 	    }
-	} else {
+	} elsif ( $in_tag ) {
 	    
 	    # We have a tag without lang
-	    $self->{data}{$tag} = $_ if ( $in_tag );
+	    if ( defined $self->{data}{$tag} ) {
+		$self->{data}{$tag} .= $_; 
+	    } else {
+		$self->{data}{$tag} = $_;
+	    }
 	}
     }
     close FH;
@@ -168,6 +173,7 @@ sub _read_data {
     # Success
     return 1;
 }
+
 
 
 # Read file from disk if it is not already in memory 
