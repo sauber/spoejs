@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: url,v 1.5 2004/05/08 14:54:08 sauber Exp $
+%# $Id: url,v 1.6 2004/05/09 23:28:18 snicki Exp $
 %#
 <%shared>
   no strict;
@@ -40,7 +40,7 @@
   }
 
   # Everything not an html page or an icon will have thumbnails generated
-  $link =~ /html|ico/ or $link = "pic.common";
+  $link =~ /html|ico|^(.)$/ or $link = "pic.common";
 
   return $link,\%O;
 </%perl>
