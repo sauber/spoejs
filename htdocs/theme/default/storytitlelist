@@ -3,10 +3,11 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: storytitlelist,v 1.19 2004/05/17 13:40:40 snicki Exp $
+%# $Id: storytitlelist,v 1.20 2004/05/17 14:07:18 snicki Exp $
 %#
 % use Date::Manip;
-<h2><&|/l&>storytitlelist</&></h2>
+<h2>*Stories*</h2>
+%#<&|/l&>storytitlelist</&>
 % foreach my $story ( $spoejs{SL}->list_stories() ) {
 % my $path = $story->story_path_from_full();
 <a href="<& /htm/url:encode, 'story.html', d => $path &>">

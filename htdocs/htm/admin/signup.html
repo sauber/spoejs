@@ -3,11 +3,14 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: signup.html,v 1.4 2004/04/09 18:06:42 sauber Exp $
+%# $Id: signup.html,v 1.5 2004/05/17 14:07:16 snicki Exp $
 %#
 %unless ( $ARGS{submit} ) {
 <h2>
-<&|/l&>signup_newchannel</&>
+%# XXX: Re-use keyword but change text to that below
+%#<&|/l&>signup_newchannel</&>
+*Sign up for a new media journal and share your experiences with friends
+and family.*
 </h2>
 % }
 <& channelform.html, %ARGS &>

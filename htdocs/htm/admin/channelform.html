@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.22 2004/05/06 05:56:06 snicki Exp $
+%# $Id: channelform.html,v 1.23 2004/05/17 14:07:16 snicki Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2><&|/l&>congrat_changes</&></h2>
@@ -18,7 +18,10 @@
 % return unless check_cred( $policy );
 <form method="post">
 <fieldset>
-<legend><&|/l&>please_fill_out_this_form</&></legend>
+<legend>
+%#<&|/l&>please_fill_out_this_form</&>
+*Account Sign Up*
+</legend>
 <table>
 % foreach my $t ( @text_f ) {
 <% form_row( $t, $t, "text", $ARGS{$t}, $errs{$t} ) %>
