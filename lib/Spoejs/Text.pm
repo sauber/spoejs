@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.13 2004/03/06 02:10:38 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.13 $';
+# $Id: Text.pm,v 1.14 2004/03/07 10:16:09 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.14 $';
 
 
 # Constructor
@@ -34,7 +34,7 @@ sub _store_data {
  	return $self->_err( "Text::_store_data(): Could not open $self->{path}/$self->{file}: $! ");
     binmode( FH, ":utf8" );
 
-    foreach $key ( keys( %data ) ) {
+    foreach $key ( sort keys( %data ) ) {
 	
 	print FH "<$key>\n";
 	foreach $lang ( keys( %{ $data{$key} }) ) {
