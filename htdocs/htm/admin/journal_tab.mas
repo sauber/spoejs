@@ -1,11 +1,12 @@
 <& /w, w => 'tabs',
-       list => \@urls,
-       caller => $m->caller()->name()
+       list   => \@urls,
+       caller => $m->caller()->name(),
+       label  => '**journal_config**'
 &>
 <%init>
 my $prefix = "/$spoejs{channel}/admin";
 my @urls = ( 
-[ "$prefix/channelform.html", '**journal_info**' ],
-[ "$prefix/layout.html", '**journal_layout**' ],
+[ "$prefix/channelform.html", '**information**' ],
+[ "$prefix/layout.html", '**layout**' ],
 );
 </%init>
