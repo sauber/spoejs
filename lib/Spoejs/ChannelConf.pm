@@ -1,8 +1,8 @@
 package Spoejs::ChannelConf;
-use base ( "Spoejs", "Spoejs::Text" );
+use base ( "Spoejs::Text" );
 
-# $Id: ChannelConf.pm,v 1.2 2004/02/27 06:51:26 snicki Exp $
-$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.2 $';
+# $Id: ChannelConf.pm,v 1.3 2004/03/06 09:16:24 snicki Exp $
+$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.3 $';
 
 sub _initialize {
     my $self = shift;
