@@ -1,0 +1,17 @@
+<form method="post" action="/html/login.html">
+% if ( $session{logged_in} ) {
+<input type="submit" name="logout" value="<&|/l&>logout</&>"/></td>
+% } else {
+<table>
+<tr>
+<td><&|/l&>username</&>:</td>
+<td><input type="text" name="username"></td>
+</tr><tr>
+<td><&|/l&>passwd</&>:</td>
+<td><input type="password" name="password"></td>
+</tr><tr>
+<td><input type="submit" name="login" value="<&|/l&>login</&>"/></td>
+</tr>
+</table>
+% }
+</form>

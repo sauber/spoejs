@@ -1,0 +1,24 @@
+<%init>
+if ( $login ) {
+
+  my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
+
+  my @channels = $CL->search_channels( username => $username,
+	                               password => $password );
+
+  $session{logged_in} = 1 if @channels > 0;
+
+} elsif ( $logout ) {
+
+  delete $session{logged_in};
+}
+
+$m->redirect( $ENV{HTTP_REFERER} );
+
+</%init>
+<%args>
+$username => undef
+$password => undef
+$login    => undef
+$logout   => undef
+</%args>
