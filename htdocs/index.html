@@ -25,7 +25,6 @@ Site configuration
 my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
                                   lang => $spoejs{lang_handle} );
 $spoejs{error}{$m->current_comp->source_file} = $CL->{msg} if $CL->{msg};
-
 # Gives array of ChannelConf object refs
 my @channels;
 my @auth =  keys %{$session{chanauth}} if defined $session{chanauth};

@@ -117,7 +117,7 @@ sub check_args {
   unless ( $$ARGS{shortname} =~ /^[a-z]{4,10}$/ ) {
     $$errs{shortname} = " Only 4-10 letters from a-z";
   }
-  if ( -d "$ENV{DOCUMENT_ROOT}users/$$ARGS{shortname}" and !$spoejs{channel}) {
+  if ( -d "$ENV{DOCUMENT_ROOT}/users/$$ARGS{shortname}" and !$spoejs{channel}) {
     $$errs{shortname} = " Channel already exists";
   }
   unless ( $$ARGS{language} =~ /^[a-z]{2}$/ ) {
