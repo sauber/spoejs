@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.24 2004/05/20 10:09:38 snicki Exp $
+%# $Id: media,v 1.25 2004/05/20 10:18:16 snicki Exp $
 %#
 % unless ( $no_div ) {
 <div class="media">
@@ -20,7 +20,7 @@
 %#Insert annotation here
 %my $annotation = $spoejs{Annotations}->get( $ARGS{p} ) 
 %	                                       if defined $spoejs{Annotations};
-<br/><% $annotaion %>
+<br/><% $annotation %>
 % unless ( $no_div ) {
 </div>
 % }
