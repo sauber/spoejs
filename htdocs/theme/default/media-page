@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media-page,v 1.9 2004/06/12 03:39:44 snicki Exp $
+%# $Id: media-page,v 1.10 2004/08/12 12:04:43 snicki Exp $
 %#
 <h2><% $S->get( 'title' ) %></h2>
 <center>
@@ -11,6 +11,7 @@
 <a href="<% $img_href %>">
 <% $img_src %>
 </a>
+<& /w, w=> 'mediainfo' &>
 </&>
 <br/>
 <br/>
