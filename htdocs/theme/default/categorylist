@@ -1,5 +1,7 @@
 % foreach my $cat ( keys %count ) {
+<a href="<& /htm/url:encode, "/$spoejs{channel}/index.html", c => $cat &>">
   <% $cat %> (<% $count{$cat} %>)<br/>
+</a>
 % }
 
 
