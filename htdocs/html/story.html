@@ -20,7 +20,7 @@ Media:
 % for ( @media_list ) {
 % my $p = $_->{file};
 % $p =~ s{\.}{};
-<a href="media_d<% $no_slash_path %>_p<% $p %>.html">
+<a href="<& url:encode, 'media.html', d => $no_slash_path, p => $p &>">
 <& /w, w => "media", d => $no_slash_path, p => $p, m => 150, 
 info => $_->info() &>
 </a>
@@ -30,7 +30,8 @@ info => $_->info() &>
 <br/>
 % if ( $session{chanauth} && $session{user} && 
 %      $session{chanauth}{$session{user}}) {
-<a href="/<%$session{user}%>/admin/story_d<%$no_slash_path%>.html">Edit</a>
+<a href="<& url:encode, "/$session{user}/admin/story.html", 
+                        d=>$no_slash_path &>">Edit</a>
 % }
 <%init>
   my ($slash_path, $no_slash_path);

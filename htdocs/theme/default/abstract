@@ -15,11 +15,11 @@
 <tr>
 <td>
 % my $path = $storyref->story_string_from_full();
-<a href="/<%$session{user}%>/story_d<%$path%>.html">More</a>
+<a href="<& /html/url:encode, "/$session{user}/story.html", d=>$path&>">More</a>
 <a href="">Comment</a>
 % if ( $session{chanauth} && $session{user} && 
 %      $session{chanauth}{$session{user}}) {
-<a href="/<%$session{user}%>/admin/story_d<%$path%>.html">Edit</a>
+<a href="<& /html/url:encode, "/$session{user}/admin/story.html", d=>$path&>">Edit</a>
 % }
 </td>
 </tr>

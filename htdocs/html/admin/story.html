@@ -1,9 +1,8 @@
 % return unless $m->comp( 'checkLogin.html' );
-%# XXX: Do we need an author field?
 
 % if ( $ARGS{submit} ) {
 <h4>Story saved successfully.</h4>
-<a href="/<% $session{user} %>/admin/upload_d<% $story_url %>.html">
+<a href="<& /html/url:encode, "/$session{user}/admin/upload.html", d=>$story_url &>">
 Click here to add media to story.
 </a>
 % return; }
@@ -45,7 +44,8 @@ cols="60"><%$ARGS{fulltext}%></textarea>
 <input type="submit" name="delete" value="Delete"/>
 </form>
 
-<a href="/<% $session{user} %>/admin/upload_d<% $story_url %>.html">
+<a href="<& /html/url:encode, "/$session{user}/admin/upload.html",
+d=>$story_url &>">
 Click here to add media to existing story.
 </a>
 

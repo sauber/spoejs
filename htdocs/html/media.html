@@ -5,7 +5,7 @@
 </a>
 <br/>
 % if (  $ML->prev( $params{p} ) ) {
-<a href="media_d<% $params{d} %>_p<%  $ML->prev( $params{p} ) %>.html">
+<a href="<& url:encode, "media.html", d=>$params{d}, p=> $ML->prev( $params{p} ) &>">
 <==
 </a>
 % } else {
@@ -13,14 +13,14 @@
 % }
 ==
 % if (  $ML->next( $params{p} ) ) {
-<a href="media_d<% $params{d} %>_p<%  $ML->next( $params{p} ) %>.html">
+<a href="<& url:encode, "media.html", d=>$params{d}, p=> $ML->next( $params{p} ) &>">
 ==>
 </a>
 % } else {
 ==>
 % }
 </center>
-<a href="story_d<% $params{d} %>.html">
+<a href="<& url:encode, 'story.html', d => $params{d} &>">
 Back to story
 </a>
 <%init>

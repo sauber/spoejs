@@ -6,7 +6,8 @@
 % foreach my $story ( @stories ) {
 % my $path = $story->story_string_from_full();
 <tr>
-  <td><a href="story_d<% $path %>.html"><% $story->get( 'title' ) %></a></td>
+  <td><a href="<& /html/url:encode, 'story.html', d => $path &>">
+      <% $story->get( 'title' ) %></a></td>
   <td><% $story->get( 'date' ) %></td>
 </tr>
 % }
