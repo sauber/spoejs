@@ -3,8 +3,8 @@ use base ( "Spoejs::Media" );
 use Data::Dumper;
 use Video::Info;
 
-# $Id: Movie.pm,v 1.1 2004/04/18 12:26:03 snicki Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.1 $';
+# $Id: Movie.pm,v 1.2 2004/04/18 14:27:43 snicki Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.2 $';
  
 # Initializor
 #
@@ -12,7 +12,7 @@ sub _initialize {
   my($self) = shift;
   # Set supported extensions and call Media's initializer
   $self->{extensions} = 'avi|mpg|wmv|asf|mov';
-  $self->SUPER::_initialize();
+  $self->_check_save();
 }
  
 #### Private helper functions ####
@@ -50,4 +50,23 @@ sub ping {
   my $info = Video::Info->new(-file=>"$self->{path}/$self->{file}"); 
 
   return ($info->width(), $info->height(), $info->filesize(), $info->type());
+}
+
+# Get width/height string for use in HTML
+#
+sub html_imgsize {
+  my( $self, %params ) = @_;
+
+  return undef unless ( $self->{file} && $self->{path} && $params{size} );
+
+  my($w,$h) = $self->ping();
+
+  return undef if ( $w == 0 || $h == 0 );
+
+  # Scale shortest side
+  my $x = $y = $params{size};
+  $x = int( $x * $w / $h ) if $w < $h;
+  $y = int( $y * $h / $w ) if $w > $h;
+
+  return "width=\"$x\" height=\"$y\"";
 }
