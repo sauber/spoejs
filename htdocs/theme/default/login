@@ -4,13 +4,13 @@
 % } else {
 <table>
 <tr>
-<td><&|/l&>username</&>:</td>
-<td><input type="text" name="username"></td>
+  <td><&|/l&>username</&>:</td>
+  <td><input type="text" name="username" /></td>
 </tr><tr>
-<td><&|/l&>passwd</&>:</td>
-<td><input type="password" name="password"></td>
+  <td><&|/l&>passwd</&>:</td>
+  <td><input type="password" name="password" /></td>
 </tr><tr>
-<td><input type="submit" name="login" value="<&|/l&>login</&>"/></td>
+  <td><input type="submit" name="login" value="<&|/l&>login</&>"/></td>
 </tr>
 </table>
 % }
