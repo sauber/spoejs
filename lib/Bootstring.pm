@@ -1,4 +1,4 @@
-# $Id: Bootstring.pm,v 1.8 2004/06/01 07:32:17 sauber Exp $
+# $Id: Bootstring.pm,v 1.9 2004/06/01 08:52:29 sauber Exp $
 # Encode and decode utf8 into a set of basic code points
 
 package Bootstring;
@@ -7,8 +7,8 @@ use strict;
 use integer;
 use utf8;
 
-# $Id: Bootstring.pm,v 1.8 2004/06/01 07:32:17 sauber Exp $
-$Bootstring::VERSION = $Bootstring::VERSION = '$Revision: 1.8 $';
+# $Id: Bootstring.pm,v 1.9 2004/06/01 08:52:29 sauber Exp $
+$Bootstring::VERSION = $Bootstring::VERSION = '$Revision: 1.9 $';
 
 # Constructor
 #
@@ -149,8 +149,10 @@ sub encode {
   my $n     = $self->{INITIAL_N};
   my $delta = 0;
   my $bias  = $self->{INITIAL_BIAS};
-  my $BasicRE = join'',@{$self->{BASIC}};
-  $BasicRE = qr/[$BasicRE]/;
+  unless ( exists $self->{BasicRE} ) {
+    my $BasicRE = join'',@{$self->{BASIC}};
+    $self->{BasicRE} = qr/[$BasicRE]/;
+  }
 
   # Trace output
   if ( exists $self->{DEBUG} ) {
@@ -161,7 +163,8 @@ sub encode {
 
   my @output;
   my @tmpout;
-  my @basic = grep /$BasicRE/, @input;
+  #my @basic = grep /$BasicRE/, @input;
+  my @basic = grep /$self->{BasicRE}/, @input;
   my $h = my $b = @basic;
   push @output, @basic, $self->{DELIMITER} if $b > 0;
 
@@ -177,15 +180,16 @@ sub encode {
     }
   }
 
+  my @ninput = map $self->nord($_), @input;
   while ($h < @input) {
-    my $m = min(grep { $_ >= $n } map $self->nord($_), @input);
+    my $m = min(grep { $_ >= $n } @ninput);
     if ( exists $self->{DEBUG} ) {
       $self->{trace} .= sprintf "next code point to insert is %04x\n", $m;
     }
     $delta += ($m - $n) * ($h + 1);
     $n = $m;
-    for my $i (@input) {
-      my $c = $self->nord($i);
+    for my $c (@ninput) {
+      #my $c = $i;
       $delta++ if $c < $n;
       if ($c == $n) {
         my $q = $delta;
@@ -241,7 +245,7 @@ sub decode{
   my $n      = $self->{INITIAL_N};
   my $i      = 0;
   my $bias   = $self->{INITIAL_BIAS};
-  my $BasicRE = join'',@{$self->{BASIC}};
+  #my $BasicRE = join'',@{$self->{BASIC}};
   #$BasicRE = qr/[$BasicRE]/;
   #$BasicRE = qr/[join'',@{$self->{BASIC}}]/;
 
