@@ -4,7 +4,7 @@ Site configuration
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: siteconfig.html,v 1.20 2004/06/12 09:24:33 snicki Exp $
+$Id: siteconfig.html,v 1.21 2004/06/14 11:15:54 sauber Exp $
 </%doc>
 % unless ( defined $session{chanauth} && defined $session{chanauth}{'**sa**'} ) {
 **pleaselogin**
@@ -87,8 +87,8 @@ $Id: siteconfig.html,v 1.20 2004/06/12 09:24:33 snicki Exp $
 </select>
 <br/>
 **peers**:<br/>
-<textarea name="peers" cols="40" rows="10">
-<% $SC->get('peers') %>
+<textarea name="peers" cols="40" rows="10">\
+<% $SC->get('peers') %>\
 </textarea>
 <br/>
 <br/>
