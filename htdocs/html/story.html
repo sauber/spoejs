@@ -6,9 +6,9 @@
 <%init>
   my $path;
   $params{d} =~ /(\d{4})(\d\d)(\d\d)/ and $path = "$1/$2/$3";
- 
-  my $S = new Spoejs::Story( path => $path, 
-                             lang => $session{lang_handle} );
+  $path = "$ENV{DOCUMENT_ROOT}/users/$session{user}/$path";
+  my $S = new Spoejs::Story( path => $path,
+                             lang => $spoejs{lang_handle} );
 </%init>
 <%args>
   %params => undef
