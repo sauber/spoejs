@@ -3,11 +3,17 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: categoryicon,v 1.13 2004/07/02 14:45:50 sauber Exp $
+%# $Id: categoryicon,v 1.14 2004/08/08 20:36:17 snicki Exp $
 %#
-<img src="<& /htm/url:encode, "/ico/ico.jpg", c=>$category, m=>$size&>" alt="<% $category %> icon"/>\
+<a href="<% $href %>">\
+<img src="<& /htm/url:encode, "/ico/ico.jpg", c=>$category, m=>$size&>" alt="<% $category %> icon"/></a>\
 %# XXX: It would be good to know the size of the icon, but currently impossible
 %#width="<%$size%>" height="<%$size%>"
+<%init>
+  my $href= $m->scomp( "/htm/url:encode",
+		       "/$spoejs{channel}/index.html",
+		       c => $category );
+</%init>
 <%args>
     $category => undef
     $size => undef
