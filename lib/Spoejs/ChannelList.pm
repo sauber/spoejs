@@ -3,8 +3,8 @@ use base ( "Spoejs::List", "Spoejs" );
 use Spoejs::ChannelConf;
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.2 2004/03/09 01:40:51 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.2 $';
+# $Id: ChannelList.pm,v 1.3 2004/03/11 09:33:04 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.3 $';
 
 
 # Constructor
@@ -52,4 +52,42 @@ sub search_channels {
     }
 
     return @chans;
+}
+
+
+# Create directory and settings for a new channel 
+#
+#skal oprette dir. Channelconf skal skrive en settings.txt
+#fil channel configuration
+#
+sub new_channel {
+    
+    my ( $self, %params ) = @_;
+    
+    # Check for correct shortname
+    return $self->_err( "$params{shortname} is not a valid shortname - must be"
+			 . " 4-10 characters [a-z]" ) 
+	unless $params{shortname} =~ /^[a-z]{4,10}$/;
+
+    my @cur_dirs = $self->_dirs_in_path( $self->{path} );
+
+    # Check if dir already exists
+    for ( @cur_dirs ) {
+	return $self->_err( "$params{shortname} already exists" ) 
+	    if $params{shortname} eq $_;
+    }
+
+    # Create dir
+    my $full_path = "$self->{path}/$params{shortname}";
+    mkdir $full_path or 
+	return $self->_err( "Could not create directory " . 
+			    " $full_path: $!" );
+
+    # Create channel config
+    # XXX: remove created dir if we _err here
+    my $CC = new Spoejs::ChannelConf( path => $full_path );
+    $CC->set( %params ) or return $self->_err( "Could not set settings." );
+
+    # Success
+    return 1;
 }
