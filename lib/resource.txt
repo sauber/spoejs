@@ -9,11 +9,6 @@
 <lang=zh/>大约
 </administration>
 
-<siteconf>
-<lang=en/>Site configuration
-<lang=zh/>增加
-</siteconf>
-
 <add>
 <lang=da/>Tilføj
 <lang=en/>Add
@@ -419,6 +414,7 @@
 <lang=zh/>随便
 </random>
 
+:1
 <register>
 <lang=da/>Registrer
 <lang=en/>Register
@@ -463,6 +459,11 @@
 <lang=mk/>Впиши
 <lang=zh/>搜索
 </signup>
+
+<siteconf>
+<lang=en/>Site configuration
+<lang=zh/>增加
+</siteconf>
 
 <site_home>
 <lang=da/>Kanal index
