@@ -112,6 +112,8 @@ Comments:
 StoryList:
  - Sub channels or story-sequences.
  - ==> in storytitlelist should skip two pages ahead
+ - When clicking thumb show story instead of bigger picture
+ - Make clicks on icons work
 
 StoryAdmin:
  - Del story with confirm
