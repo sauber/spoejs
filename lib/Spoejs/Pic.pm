@@ -1,15 +1,15 @@
 package Spoejs::Pic;
 use base ( "Spoejs::Media" );
-
-# $Id: Pic.pm,v 1.2 2004/02/29 08:57:01 sauber Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.2 $';
+use Data::Dumper;
+# $Id: Pic.pm,v 1.3 2004/03/16 23:00:51 snicki Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.3 $';
 
 # Initializor
 #
 sub _initialize {
-  my($self,%param) = @_;
+  my($self) = shift;
 
-  $self->{path} = $param{path} || '.';
+  $self->{path} ||= '.';
 }
 
 
@@ -24,7 +24,8 @@ sub save {
   my($self,$fh,$filename) = @_;
 
   $filename = $self->valid_name($filename);
-  open _PIC, ">$self->{path}/$filename" or return undef;
+  open _PIC, ">$self->{path}/$filename" or 
+             return $self->_err( "Could not open $self->{path}/$filename: $!");
     binmode _PIC;
     while( <$fh> ){ print _PIC $_ }
   close _PIC;
