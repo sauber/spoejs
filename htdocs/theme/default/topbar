@@ -4,10 +4,12 @@ topbar of links on every page
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: topbar,v 1.20 2004/08/22 04:04:31 sauber Exp $
+$Id: topbar,v 1.21 2004/08/22 20:26:38 snicki Exp $
 </%doc>
 <div style="float:left;">
 <img src="/theme/default/spoejs-logo.jpg" width="164" height="38" alt="powered by spoejs">&nbsp;
+</div>
+<div style="float:left;">
 <a href="/index.html">**home**</a>&nbsp;|
 % if ( $channel_href ) {
 <a href="<% $channel_href %>"><% $channel_name %></a>&nbsp;|
