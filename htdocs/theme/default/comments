@@ -3,35 +3,39 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: comments,v 1.4 2004/06/04 11:20:20 snicki Exp $
+%# $Id: comments,v 1.5 2004/06/05 10:16:38 sauber Exp $
 %#
+% if ( @$comments > 0 ) {
 <h2>**comments**</h2>
-% #
-% # Display all existing comments
-% #
-% for my $c ( @$comments ) {
+%   #
+%   # Display all existing comments
+%   #
+%   for my $c ( @$comments ) {
 <p><% $c->{Comment} %><p>
-% if ( $c->{Email} ) {
+%     if ( $c->{Email} ) {
 **posted_by**: <a href="mailto:<% $c->{Email} %>"><% $c->{Name} %></a>.
-% } else {
+%     } else {
 **posted_by**: <% $c->{Name} %>.
-% }
+%     }
 **date**: <% $c->{Date} %>.
 <hr>
+%   }
 % }
 % #
 % # Offer a form to input comments
 % #
-%# XXX: Extract username/email from cookie if possible
+% # XXX: Extract username/email from cookie if possible
 <h2>**post_a_comment**</h2>
 <form method="post" action="<% $post_url %>">
-**name**: <input name="name" size="20">
-**email**: <input name="email" size="20"> (optional)<br>
+**name**: <input name="name" size="20"<% $na %>>
+**email**: <input name="email" size="20"<% $em %>> (optional)<br>
 **comments**: <input name="comment" size="60"><br>
 <& /w, w => "humantest" &>
 <input type="submit">
 </form>
 <%init>
+my $na = exists $session{humanname} ? " value=\"$session{humanname}\"" : '';
+my $em = exists $session{humanemail} ? " value=\"$session{humanemail}\"" : '';
 </%init>
 <%args>
   $comments  => "No comment"
