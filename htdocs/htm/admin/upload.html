@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: upload.html,v 1.19 2004/04/09 18:06:42 sauber Exp $
+%# $Id: upload.html,v 1.20 2004/04/09 21:13:39 bottle18 Exp $
 %#
 % return unless $m->comp( 'checkLogin.html' );
 <& /js/detectua.js &>
@@ -39,10 +39,10 @@ function cr_table( tabbody ) {
 }
 </script>
 
-<h2>File upload for story: <% "$spoejs{channel}/$spoejs{p}{d}" %></h2>
+<h2><&|/l&>fileupload</&>: <% "$spoejs{channel}/$spoejs{p}{d}" %></h2>
 <form name="files" method="post" action="" enctype="multipart/form-data">
 <br/>
-<fieldset><legend>Add files from PC</legend>
+<fieldset><legend><&|/l&>addfilepc</&></legend>
 <table>
 <tbody id="tb" width="100%"></tbody>
 </table>
@@ -52,20 +52,20 @@ function cr_table( tabbody ) {
 </form>
 <br/>
 % if ( defined $session{siteauth} ) {
-<fieldset><legend>Add files from server</legend>
+<fieldset><legend><&|/l&>addfileserver</&></legend>
 <form method="post" action="">
-Full path: <input type="text" name="server_path" /><br/>
+<&|/l&>fullpath</&>: <input type="text" name="server_path" /><br/>
 <input type="submit" name="server_add" value="Add" />
 </form>
 </fieldset>
 % }
 <br/>
-<h4>Current files:</h4>
+<h4><&|/l&>currentfile</&>:</h4>
 % my $ML = new Spoejs::MediaList( path=>"$spoejs{channel_path}/$spoejs{p}{d}" );
 % $spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
 
 <table width="100%">
-<tr><th>Filename</th><th>File size</th><th>Dimensions</th><th>File format</th></tr>
+<tr><th><&|/l&>filename</&></th><th><&|/l&>filesize</&></th><th><&|/l&>dimensions</&></th><th><&|/l&>fileformat</&></th></tr>
 % for ($ML->list()) {
 % my ($width, $height, $size, $format) = $_->ping();
 <tr>

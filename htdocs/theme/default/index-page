@@ -6,7 +6,7 @@
 </td>
 <td align="right">
 % if ( defined $spoejs{p}{c} ) {
-<h3>Category: <%  $spoejs{p}{c} %></h3>
+<h3><&|/l&>category</&>: <%  $spoejs{p}{c} %></h3>
 % } else {
 <& /w, w => 'newcaticons' &>
 % }
@@ -15,16 +15,16 @@
 </table>
 <& /w, w => "list" &>
 <br/>
-<fieldset><legend>Category list</legend>
+<fieldset><legend><&|/l&>categorylist</&></legend>
 <& /w, w => "categorylist" &>
 </fieldset>
 <br/>
-<fieldset><legend>Story title list</legend>
+<fieldset><legend><&|/l&>storytitlelist</&></legend>
 <& /w, w => "storytitlelist" &>
 </fieldset>
 % if ( $edit_href ) {
 <br/>
-<a href="/<% $edit_href %>">Channel configuration</a>
+<a href="/<% $edit_href %>"><&|/l&>channelconf</&></a>
 % }
 <%init>
 </%init>

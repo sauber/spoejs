@@ -5,12 +5,30 @@
 <lang=zh/>关于
 </about>
 
+<active>
+<lang=en/>Active
+<lang=zh/>运行
+</active>
+
 <add>
 <lang=da/>Tilføj
 <lang=en/>Add
 <lang=hu/>ad
 <lang=zh/>添加
 </add>
+
+<addfilepc>
+<lang=en/>Add files from PC
+</addfilepc>
+
+<addfileserver>
+<lang=en/>Add files from server 
+</addfileserver>
+
+<addnewchannel>
+<lang=en/>Add a new spoejs channel
+<lang=zh/>添加一个新的Spoejs网页
+</addnewchannel>
 
 <administration>
 <lang=en/>Administration
@@ -33,6 +51,11 @@
 <lang=se/>arabisk
 <lang=zh/>阿拉伯语
 </ar>
+
+<archive>
+<lang=en/>Archive
+<lang=zh/>完全控制
+</archive>
 
 <bg>
 <lang=ar/>بلغاري
@@ -111,12 +134,45 @@
 <lang=zh/>更改
 </change>
 
+<channelconf>
+<lang=en/>Channel Configuration
+<lang=zh/>网页构造
+</channelconf>
+
 <choose>
 <lang=da/>Vælg
 <lang=en/>Choose
 <lang=hu/>valaszt
 <lang=zh/>选择
 </choose>
+
+<click_channel>
+<lang=en/>Click here to go to channel
+<lang=zh/>按这里进入网页
+</click_channel>
+
+<click_continue>
+<lang=en/>Click here to continue
+<lang=zh/>按这里继续
+</click_continue>
+
+<congrat_changes>
+<lang=en/>Congratulations your changes were successful
+<lang=zh/>祝贺你的更改成功了
+</congrat_changes>
+
+<congrat_signup>
+<lang=en/>Congratulations you are now signed up
+<lang=zh/>祝贺你现在登录了
+</congrat_signup>
+
+<currentfilename>
+<lang=en/>Current filename
+</currentfilename>
+
+<currentfile>
+<lang=en/>Current files
+</currentfile>
 
 <da>
 <lang=ar/>دنماركي
@@ -173,6 +229,10 @@
 <lang=zh/>删去
 </delete>
 
+<deletefile>
+<lang=en/>Delete file
+</deletefile>
+
 <description>
 <lang=ar/>وصف
 <lang=bg/>Описание
@@ -185,6 +245,10 @@
 <lang=mk/>Опис
 <lang=zh/>描述 
 </description>
+
+<dimensions>
+<lang=en/>Dimentions
+</dimensions>
 
 <edit>
 <lang=da/>Ret
@@ -225,6 +289,22 @@
 <lang=zh/>西班牙语
 </es>
 
+<fileformat>
+<lang=en/>File format
+</fileformat>
+
+<filename>
+<lang=en/>Filename
+</filename>
+
+<filesize>
+<lang=en/>Filesize
+</filesize>
+
+<fileupload>
+<lang=en/>File upload for story
+</fileupload>
+
 <first>
 <lang=da/>Første
 <lang=en/>First
@@ -247,6 +327,15 @@
 <lang=se/>Franska
 <lang=zh/>法语
 </fr>
+
+<freeall>
+<lang=en/>Free-for-all
+<lang=zh/>完全自由
+</freeall>
+
+<fullpath>
+<lang=en/>Full path
+</fullpath>
 
 <full_story>
 <lang=da/>Hele historien
@@ -277,6 +366,11 @@
 <lang=hu/>magyar
 <lang=zh/>匈牙利语
 </hu>
+
+<inviteonly>
+<lang=en/>Invite-only
+<lang=zh/>只邀请
+</inviteonly>
 
 <is>
 <lang=ar/>أسلندي
@@ -394,12 +488,26 @@
 <lang=zh/>马其顿语
 </mk>
 
+<newfilename>
+<lang=en/>New filename
+</newfilename>
+
 <new_story>
 <lang=da/>Ny historie
 <lang=en/>New story
 <lang=hu/>uj tortenet
 <lang=zh/>新的故事
 </new_story>
+
+<new_username>
+<lang=en/>New username
+<lang=zh/>新的用户名
+</new_username>
+
+<newpass>
+<lang=en/>New Passward
+<lang=zh/>新的密码
+</newpass>
 
 <no>
 <lang=en/>No
@@ -410,6 +518,16 @@
 <lang=en/>No stories
 <lang=zh/>没有内容
 </no_stories>
+
+<oneerror_occur>
+<lang=en/>One or more errors has occured in
+<lang=zh/>出现有一个或更多的错误
+</oneerror_occur>
+
+<or_add_newstory>
+<lang=en/>or here to add a new story
+<lang=zh/>或许按这儿添加新的记事
+</or_add_newstory>
 
 <or_new>
 <lang=da/>eller ny
@@ -439,6 +557,11 @@
 <lang=zh/>请填写这张表
 </please_fill_out_this_form>
 
+<pleaselogin>
+<lang=en/>Please Login before accessing this page
+<lang=zh/>进入此页之前请登录
+</pleaselogin>
+
 <posted_by>
 <lang=ar/>تحرير من 
 <lang=bg/>Автор
@@ -453,6 +576,10 @@
 <lang=se/>postat av
 <lang=zh/>邮寄
 </posted_by>
+
+<preview>
+<lang=en/>Preview
+</preview>
 
 <public>
 <lang=ar/>عمومي 
@@ -510,6 +637,11 @@
 <lang=zh/>短名
 </shortname>
 
+<sigenup_approve>
+<lang=en/>Signup Approve
+<lang=zh/>允许登记
+</sigenup_approve>
+
 <signup>
 <lang=ar/>التسجيل
 <lang=bg/>Абонамент
@@ -541,6 +673,11 @@
 <lang=zh/>网页结构
 </siteconf>
 
+<sitepolicy>
+<lang=en/>Site Policy
+<lang=zh/>本页特权
+</sitepolicy>
+
 <specific>
 <lang=da/>Specifik
 <lang=en/>Specific
@@ -552,6 +689,11 @@
 <lang=en/>Spoejs channels at this site
 <lang=zh/>Spoejs网页
 </spoejs_channels_at_this_site>
+
+<statuschannel>
+<lang=en/>Status for channels at this site
+<lang=zh/>本网站网页的状况
+</statuschannel>
 
 <story_abstract>
 <lang=da/>Historie abstrakt
@@ -585,6 +727,11 @@
 <lang=zh/>承诺
 </submit>
 
+<thechannel_notexit>
+<lang=en/>The channel doesn't exist!
+<lang=zh/>这个网页不存在
+</thechannel_notexit>
+
 <theme>
 <lang=ar/>ميزة
 <lang=bg/>Тема
@@ -597,10 +744,6 @@
 <lang=mk/>Тема
 <lang=zh/>主题
 </theme>
-
-<thechannel_notexit>
-<lang=en/>The channel doesn't exist!
-</thechannel_notexit>
 
 <thumbnail>
 <lang=da/>Ikon

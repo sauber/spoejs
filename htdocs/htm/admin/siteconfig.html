@@ -3,16 +3,16 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: siteconfig.html,v 1.6 2004/04/09 18:06:42 sauber Exp $
+%# $Id: siteconfig.html,v 1.7 2004/04/09 21:13:39 bottle18 Exp $
 %#
-<h1>Status for channels at this site:</h1>
+<h1><&|/l&>statuschannel</&>:</h1>
 <& /w, w => "login", action => '', ses_var => 'siteauth' &>
 % return unless ( $session{siteauth} );
 <form method="post" action="">
 <table width="100%">
 <tr>
-<th>Shortname</th><th>Title</th><th>Public</th>
-<th>Active</th><th>Archive</th><th>Delete</th>
+<th><&|/l&>shortname</&></th><th>Title</th><th><&|/l&>public</&></th>
+<th><&|/l&>active</&></th><th><&|/l&>archive</&></th><th><&|/l&>delete</&></th>
 </tr>
 % foreach my $chan ( @channels ) {
 <tr>
@@ -43,7 +43,7 @@
 % }
 </table>
 <br/>
-Site policy:
+<&|/l&>sitepolicy</&>:
 <select name="policy">
 % foreach my $pol ( sort keys %policy ) {
  <option value="<% $pol %>"\
@@ -53,11 +53,11 @@ Site policy:
 </select>
 <br/>
 <br/>
-New username:
+<&|/l&>new_username</&>:
 <input type="text" name="newusername" value="<%$session{siteauth}%>"/>
 <br/>
 <br/>
-New password:
+<&|/l&>newpass</&>:
 <input type="password" name="newpassword1"/>
 % # Add password verification
 %#<br/>
@@ -65,17 +65,17 @@ New password:
 %#<input type="text" name="newpassword2"/>
 <br/>
 <br/>
-<input type="submit" name="submit" value="Submit" />
+<input type="submit" name="submit" value="<&|/l&>submit</&>" />
 </form>
 <a href="/htm/admin/signup.html">
-Add a new spoejs channel
+<&|/l&>addnewchannel</&>
 </a>
 <%init>
 
 my %yn = ( yes => 'Yes', no => 'No' );
 
-my %policy = ( ffa => 'Free-for-all', signup => 'Signup-Approve',
-               invite => 'Invite-only' );
+my %policy = ( ffa => 'Free All', signup => 'Signup Aprrove',
+               invite => 'Invite Only' );
 
 my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
                                lang => $spoejs{lang_handle} );

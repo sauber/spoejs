@@ -3,16 +3,16 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: rename.html,v 1.12 2004/04/09 18:06:42 sauber Exp $
+%# $Id: rename.html,v 1.13 2004/04/09 21:13:39 bottle18 Exp $
 %#
 <& /js/confirm.js &>
 <form action="" method="post" onsubmit="return confirmSubmit()">
 <table width="100%">
 <tr>
-  <th>Current filename:</th>
-  <th>New filename:</th>
-  <th>Delete file</th>
-  <th>Preview</th>
+  <th><&|/l&>currentfilename</&>:</th>
+  <th><&|/l&>newfilename</&>:</th>
+  <th><&|/l&>deletefile</&></th>
+  <th><&|/l&>preview</&></th>
 </tr>
 % foreach my $pic ( @media ) {
 <tr>

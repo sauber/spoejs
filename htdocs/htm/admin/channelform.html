@@ -3,16 +3,16 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.17 2004/04/09 18:06:41 sauber Exp $
+%# $Id: channelform.html,v 1.18 2004/04/09 21:13:39 bottle18 Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
-<h2>Congratulations your changes were successful</h2>
-<a href="/<%$ARGS{shortname}%>/index.html">Click here to continue</a>
+<h2><&|/l&>congrat_changes</&></h2>
+<a href="/<%$ARGS{shortname}%>/index.html"><&|/l&>click_continue</&></a>
 % } elsif ( $ARGS{submit} && keys %errs == 0 ) {
-<h2>Congratulations you are now signed up</h2>
-<h3><a href="/<%$ARGS{shortname}%>/index.html">Click here to go to channel</a>
+<h2><&|/l&>congrat_signup</&></h2>
+<h3><a href="/<%$ARGS{shortname}%>/index.html"><&|/l&>click_channel</&></a>
 <br/>
-<a href="/<%$ARGS{shortname}%>/admin/story.html">or here to add a new story</a>
+<a href="/<%$ARGS{shortname}%>/admin/story.html"><&|/l&>or _add_newstory</&></a>
 </h3>
 % } else {
 % return unless check_cred( $policy );

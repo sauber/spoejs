@@ -3,9 +3,9 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: checkLogin.html,v 1.3 2004/04/09 18:06:42 sauber Exp $
+%# $Id: checkLogin.html,v 1.4 2004/04/09 21:13:39 bottle18 Exp $
 %#
 % unless ( $spoejs{channel} && $session{chanauth} &&
 %          $session{chanauth}{$spoejs{channel}} ) {
-Please login before accesing this page
+<&|/l&>pleaselogin</&>
 % return undef; } else { return 1; }

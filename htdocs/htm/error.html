@@ -3,11 +3,13 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: error.html,v 1.5 2004/04/09 17:56:19 sauber Exp $
+%# $Id: error.html,v 1.6 2004/04/09 21:13:39 bottle18 Exp $
 %#
 % if ( $spoejs{error} ) {
 <hr/>
-<h3>One or more errors has occured in:</h3>
+<h3>
+<&|/l&>oneerror_occur</&>
+:</h3>
 % while ( my ($k, $v ) = each %{$spoejs{error}} ) {
 <% $k . ": " . $v %><br/>
 % }
