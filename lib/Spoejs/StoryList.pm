@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.17 2004/03/29 05:09:49 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.17 $';
+# $Id: StoryList.pm,v 1.18 2004/04/04 06:17:29 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.18 $';
 
 sub _initialize {
     my $self = shift;
@@ -186,14 +186,11 @@ sub list_stories {
     # Get story array
     my @res = $self->_sort_by_date( $self->_all_stories() );
 
-    # Return all stories if no keyword/story is given
-    # if ( keys %in == 0 ){ }
-
     # Handle 'story' separately
     if ( $in{story} ) {
 	my $story_dir = $in{story};
 	$story_dir =~ s/\///g;
-	
+
 	@res = $self->_ls_loop( $in{'prev'}, 
 			       sub { return $_[0] < $story_dir; },
 			       @res ) if $in{'prev'}; 
@@ -201,12 +198,11 @@ sub list_stories {
 	@res = $self->_ls_loop( $in{'next'}, 
 			       sub { return $_[0] > $story_dir; },
 			       reverse @res ) if $in{'next'};
-	
-	delete $in{'story'};
-	delete $in{'prev'};
-	delete $in{'next'};
     } 
-    
+    delete $in{'story'};
+    delete $in{'prev'};
+    delete $in{'next'};
+
     # Handle "from-to" date range separately    
     if ( $in{from} or $in{to} ) {
 	my $from = $in{from} || 0;
@@ -218,23 +214,23 @@ sub list_stories {
 	@res = $self->_ls_loop( -1,
 			       sub { return $_[0] >= $from and $_[0] <= $to; },
 			       @res ); 
-	
-	delete $in{from};
-	delete $in{to};
     } 
-    
+    delete $in{from};
+    delete $in{to};
+
     if ( keys %in > 0 ) {
 	# Filter by keyword, if given
 	my @kw = keys %in;
 	my $kw = $kw[0];
-	
-	my @new;
-	foreach $story ( @res ) {
-	    my $story_kw = $story->get( $kw );
-	    push @new, $story if ( $story_kw eq $in{$kw} );
-	}
-
-	@res = @new;	
+	if ( defined $in{$kw} ) {
+	    my @new;
+	    foreach $story ( @res ) {
+		my $story_kw = $story->get( $kw );
+		push @new, $story if ( $story_kw eq $in{$kw} );
+	    }
+	    
+	    @res = @new;
+	}	
     }
 
     # Shrink array to 'count' elements
