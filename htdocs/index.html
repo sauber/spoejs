@@ -3,11 +3,11 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.46 2004/06/11 03:46:34 sauber Exp $
+%# $Id: index.html,v 1.47 2004/06/13 10:58:27 snicki Exp $
 %#
-<table width="100%"><tr>
+<table width="100%">
 % if ( @{$remotes} > 0 ) {
-<td width="50%">
+<tr><td width="50%">
 <h1>
 <u>**localjournal**</u>
 </h1>
@@ -15,14 +15,8 @@
 <td></td>
 <td width="50%" valign="top">
 <h1><u>**journals_friends**</u></h1>
-</td>
-%} else {
-<td width="100%" valign="top">
-<h1>
-<u>**localjournal**</u></h1>
-</td>
+</td></tr>
 %}
-</tr>
 <tr>
 <td valign="top" style="padding-right: 8px;">
 % foreach my $chan ( @channels ) {
