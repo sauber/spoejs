@@ -8,8 +8,8 @@ use warnings;
 
 require Exporter;
 
-# $Id: Spoejs.pm,v 1.7 2004/04/09 16:23:17 boinger Exp $
-$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.7 $';
+# $Id: Spoejs.pm,v 1.8 2004/04/18 23:47:06 snicki Exp $
+$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.8 $';
 
 # Constructor
 #
@@ -20,7 +20,10 @@ sub new {
 
     my $self = { @_ };
     bless $self, $class;
-    $self->_initialize();
+
+    # XXX: How do we remove this special case???
+    my $tmp = $self->_initialize();
+    $self = $tmp if (UNIVERSAL::isa($tmp, 'Spoejs::Media') );
 
     return $self;
 }
