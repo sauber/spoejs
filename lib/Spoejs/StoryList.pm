@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.28 2004/07/02 15:16:06 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.28 $';
+# $Id: StoryList.pm,v 1.29 2004/07/04 02:48:44 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.29 $';
 
 sub _initialize {
     my $self = shift;
@@ -87,7 +87,6 @@ sub _ls_loop {
     }
     return @new;
 };
-
 
 #### Public interface ####
 

@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.15 2004/07/02 16:51:17 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.15 $';
+# $Id: List.pm,v 1.16 2004/07/04 02:48:44 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.16 $';
 
 
 # Constructor
@@ -121,7 +121,6 @@ sub _index_of {
 	    $count++;
 	}
     }
-
     return $item;
 }
 
