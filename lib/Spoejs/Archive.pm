@@ -4,8 +4,8 @@ use Spoejs::Pic;
 use Archive::Zip;
 use Archive::Tar;
 
-# $Id: Archive.pm,v 1.2 2004/03/29 08:22:11 snicki Exp $
-$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.2 $';
+# $Id: Archive.pm,v 1.3 2004/03/29 10:28:13 snicki Exp $
+$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.3 $';
 
 #### Private helper functions ####
 
@@ -110,11 +110,18 @@ sub add_dir {
 
 sub add_file {
   my ( $self, $path, $fn, $fh ) = @_;
+  return $self->_err( "Unknown file type" ) unless $fn =~ /(jpg|png|gif)$/i;
   my $P = new Spoejs::Pic( path => $path, file => $fn );
   return $self->_err( $P->{msg} ) if $P->{msg};
   $P->save( $fh ) or return $self->_err( $P->{msg} );
 
-  # Check if file is ok
-  $P->delete() unless $P->ping();
+  # Check if file is ok and rotate
+  if ( $P->ping() ) {
+      # XXX: Not-portable
+      my $fp = "$P->{path}/$P->{file}";
+      `jhead -autorot $fp` if -f `which jhead`;
+  } else {
+      $P->delete();
+  }
 }
 
