@@ -1,0 +1,49 @@
+Spoejs version 0.01
+===================
+
+The basic idea of Spoejs is an image-oriented blog/journal. Spoejs can be used not only for storing pictures, but also for journaling of stories in a diary style. Or a combination thereof.
+
+There are web sites that allow you to upload one picture a day, or that allow you a limit quota. What we are writing is for larger volume picture collections. This project is geared more toward people with home networks or who otherwise admin their own personal servers.
+
+We imagine the typical situation is a tech kid with his/her own Linux server(s) at home installing spoejs and letting family and friends post large picture collections from summer BBQ's, ski trips, parties, vacations and so on.
+
+Since we are imagining this to be used not only by the tech kids themselves but also family and friends, this means that it should be easy to use for non-tech people. We intend the interface for uploading pictures, writing stories and annotations to have a very low learning curve. For those that need it, there'll also be basic photo editing options such as rotation, cropping and adjusting brightness.
+
+Our choice of technology is Perl and Mason. We write .pm modules to control data, and write Mason code to embed data into HTML. We use a few Apache features. We run a squid cache in front of Apache for caching scaled pictures, etc. That way we don't have to do much caching inside Mason, improving performance.
+
+Our data is stored as media and text files in the file system. We have a format for text files that looks like xml, but is easier to read and edit in a text editor. We have chosen this so that it is indeed to hand edit and to tar up to move to a different server if necessary. 
+
+Visit http://spoejs.sf.net/ for additional information.
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install   <-- as root, of course!
+
+DEPENDENCIES
+
+This module requires these other modules and libraries:
+
+  Image::Magick
+  Date::Manip
+  Archive::Tar
+  Archive::Zip
+(there may well be more...If so, please let us know.  We didn't keep track of this as well as we should have :))
+
+USAGE
+
+Included in the distribution are basic html docs that should be placed in your htdocs directory (or in the subdirectory of your choosing) as well as test perl scripts which can be used by placing them in your cgi-bin or other script-enabled directory.
+
+COPYRIGHT AND LICENCE
+
+This module is release under the GNU Public License.
+
+Copyright (C) 2004 sauber, snicki, boinger, sondara, and probably others.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself, either Perl version 5.8.3 or,
+at your option, any later version of Perl 5 you may have available.
