@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.30 2004/06/02 02:16:34 snicki Exp $
+%# $Id: media,v 1.31 2004/06/03 00:15:09 snicki Exp $
 %#
 % unless ( $no_div ) {
 <div class="media" <% $styleh %>>
@@ -76,8 +76,8 @@ sub random_annotation {
   return $res;
 }
 
-my $styleh = $size > 400 ? 'style="height: 400px;"' : 'style="height: 160px;"';
-my $stylew = $size > 400 ? 'style="width: 390px;"' : 'style="width: 120px;"';
+my $styleh = 'style="height: ' . $size+10 . ';"';
+my $stylew = 'style="width: '. $size . ';"';
 </%init>
 <%args>
  $href    => undef
