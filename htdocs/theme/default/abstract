@@ -1,34 +1,38 @@
-<fieldset><legend><% $storyref->get( 'title' ) %></legend>
+<fieldset><legend><% $title %></legend>
 <table width="80%">
 <tr>
   <td><&|/l&>posted_by</&>: <% $author %></td>
-  <td><&|/l&>category</&>: <%$storyref->get( 'category' )%></td>
-  <td align="right"><&|/l&>date</&>: <% $storyref->get( 'date' ) %></td>
+  <td><&|/l&>category</&>: <% $category %></td>
+  <td align="right"><&|/l&>date</&>: <% $date %></td>
 </tr>
 <tr>
-  <td><& /w, w => 'categoryicon', category =>$storyref->get( 'category' ), 
-             size=> 75 &></td>
-  <td><p><% $storyref->get( 'abstract' ) %></p></td>
+  <td>
+     <& /w, w => 'categoryicon', category =>$category, size=> $icon_size &>
+  </td>
+  <td><p><% $abstract %></p></td>
   <td align="right">
-    <a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d=>$path&>"><& /w, w => 'thumbnail', d => $path &></a>
+    <a href="<% $story_href %>"><& /w, w => 'thumbnail', d => $path &></a>
 </td>
 </tr>
 <tr>
 <td colspan="3">
-<a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d=>$path&>">More</a>
+<a href="<% $story_href %>">More</a>
 <a href="">Comment</a>
-% if ( $session{chanauth} && $spoejs{channel} && 
-%      $session{chanauth}{$spoejs{channel}}) {
-<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/story.html", d=>$path&>">Edit</a>
+% if ( $edit_href ) {
+<a href="<% $edit_href %>">Edit</a>
 % }
 </td>
 </tr>
 </table>
 </fieldset>
-<%init>
-  my $author = $storyref->get( 'author' );
-  my $path = $storyref->story_path_from_full();
-</%init>
 <%args>
- $storyref => undef
+  $title      => undef
+  $author     => undef
+  $category   => undef
+  $date       => undef
+  $abstract   => undef
+  $icon_size  => undef
+  $story_href => undef
+  $path       => undef
+  $edit_href  => undef
 </%args>
