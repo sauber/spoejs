@@ -74,6 +74,11 @@ Media to add:<br/>
 </tr>
 % }
 </table>
+<br/>
+<a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d=>$params{d} &>">
+Back to story
+</a>
+<br/>
 %}
 <br/>
 <h4><&|/l&>media_man</&>:</h4>
@@ -96,7 +101,7 @@ Media to add:<br/>
 
 use Spoejs::Archive;
 my @upl;
-my $SL = new Spoejs::StoryList( path => $spoejs{channel_path}, 
+my $SL = new Spoejs::StoryList( path => $spoejs{channel_path},
                                 lang => $spoejs{lang_handle} );
 $spoejs{error}{$m->current_comp->source_file} = $SL->{msg} if $SL->{msg};
 
