@@ -13,11 +13,14 @@ Revision history for Spoejs.
   - Humantest
   - YAML for text storage
   - Tabbed configuration pages for site, journal and story
+  - Picture rotation
+  - Stories active/inactive
   Bug fixes:
   - Wording changes: Channel->Journal
   - Maxside->diagonal for scaling media
   - Encrypted passwords
   - Sorting by date
+  - Change date of story
 
 0.01  Fri Apr  9 00:37:15 2004
   - Original version
