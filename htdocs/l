@@ -1,1 +1,2 @@
+%# Put input (available in $m->content) through Resource
 <% $session{res_handle}->get( $m->content ) %>
