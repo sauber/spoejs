@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: topbar,v 1.9 2004/05/17 13:40:40 snicki Exp $
+%# $Id: topbar,v 1.10 2004/05/17 14:39:29 snicki Exp $
 %#
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
@@ -14,9 +14,6 @@
 % }
 % if ( $story_href ) {
 <a href="<% $story_href %>"><% $story_title %></a>&nbsp;|
-% }
-% if ( $signup_href ) {
-<a href="<% $signup_href %>"><&|/l&>register</&></a>&nbsp;|
 % }
 <a href="<% $about_href %>">*Help*</a>
 % if ( $new_href ) {
@@ -39,7 +36,6 @@
   $channel_name => undef
   $story_href   => undef
   $story_title  => undef
-  $signup_href  => undef
   $new_href     => undef
   $about_href   => undef
 </%args>

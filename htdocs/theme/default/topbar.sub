@@ -3,34 +3,22 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: topbar.sub,v 1.6 2004/05/17 13:40:40 snicki Exp $
+%# $Id: topbar.sub,v 1.7 2004/05/17 14:39:29 snicki Exp $
 %#
 <& $w,
-   policy       => $policy,
    channel_href => $channel_href,
    channel_name => $chan_name,
    story_href   => $story_href,
    story_title  => $story_title,
-   signup_href  => $signup_href,
    new_href     => $new_href,
    about_href   => 'http://spoejs.sourceforge.net/index.php?showpage=whatisit&amp;faq=1'
 &>
 <%init>
-my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
-                               lang => $spoejs{lang_handle} );
-my $policy = $SC->get( 'policy' );
-
 my $story_href;
 if ( defined $spoejs{p}{d} and defined $spoejs{channel} ) {
   $story_href = $m->scomp( '/htm/url:encode',
 			   "/$spoejs{channel}/story.html",
 			   d => $spoejs{p}{d} );
-}
-
-my $signup_href;
-if ( ( $policy eq 'freeall' or $policy eq 'signup_approve') and 
-     !defined $spoejs{channel} ) {
-  $signup_href = "/htm/admin/signup.html";
 }
 
 my $new_href;

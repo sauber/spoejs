@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: setupSession,v 1.13 2004/05/17 13:40:40 snicki Exp $
+%# $Id: setupSession,v 1.14 2004/05/17 14:39:29 snicki Exp $
 %#
 <%perl>
 
@@ -84,7 +84,8 @@ if ( $spoejs{channel_path} ) {
 }
 
 # Get som siteconf vars
-my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
+$spoejs{SiteConf} = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
                                lang => $spoejs{lang_handle} );
-$spoejs{showtranslationoptions} = $SC->get( 'showtranslationoptions' );
+
+$spoejs{showtranslationoptions} = $spoejs{SiteConf}->get( 'showtranslationoptions' );
 </%perl>
