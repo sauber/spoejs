@@ -2,8 +2,8 @@ package Spoejs::MediaList;
 use base ( "Spoejs::List" );
 use File::Basename;
 
-# $Id: MediaList.pm,v 1.5 2004/03/27 09:32:56 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.5 $';
+# $Id: MediaList.pm,v 1.6 2004/03/27 14:08:05 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.6 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -99,6 +99,7 @@ sub get {
 	return $all[0];
     }
     else {
+	my @all = $self->list();
 	my $i = int rand($#all + 1);
 	return $all[$i];
     }    
