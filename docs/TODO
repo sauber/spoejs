@@ -51,6 +51,7 @@ Data:
 
 Channelconf:
  - default intro thumbnail select algorithm (first/random...)
+ - After signup, show journalconf tabs
 
 ChannelList:
  - Complete content page
