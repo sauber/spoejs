@@ -8,8 +8,8 @@ use warnings;
 
 require Exporter;
 
-# $Id: Spoejs.pm,v 1.9 2004/08/11 10:43:50 sauber Exp $
-$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.9 $';
+# $Id: Spoejs.pm,v 1.10 2004/08/16 10:06:38 sauber Exp $
+$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.10 $';
 
 # Constructor
 #
@@ -69,6 +69,21 @@ sub _check_save {
     return $self->_err( "$self->{path} doesn't exist" );
   }
 }
+
+# Create a Bootstring object
+#
+sub _create_bs {
+  my($self) = shift;
+  $self->{_BS} ||= new Bootstring( BASIC => ["a".."z", "A".."Z", "0".."9"],
+                                   DELIMITER => '_',
+                                   INITIAL_BIAS => 32,
+                                   TMIN => 38,
+                                   DAMP => 40,
+                                   TMAX => 53,
+                                   SKEW => 78,
+                                 );
+}
+
 
 our @ISA = qw(Exporter);
 
