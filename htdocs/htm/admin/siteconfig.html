@@ -1,3 +1,10 @@
+%# Site configuration
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: siteconfig.html,v 1.6 2004/04/09 18:06:42 sauber Exp $
+%#
 <h1>Status for channels at this site:</h1>
 <& /w, w => "login", action => '', ses_var => 'siteauth' &>
 % return unless ( $session{siteauth} );
