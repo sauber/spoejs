@@ -3,18 +3,21 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: album.sub,v 1.6 2004/04/16 10:39:46 snicki Exp $
+%# $Id: album.sub,v 1.7 2004/04/16 13:53:02 snicki Exp $
 %#
 <& $w,
    img_list  => \@ml,
    img_count => $spoejs{p}{s},
 &>
 <%init>
-  my @ml = $media_list->list( start => $spoejs{p}{s}, count => $count );
+if ( $ml[0] eq undef ) {
+  @ml = $media_list->list( start => $spoejs{p}{s}, count => $count );
+}
 </%init>
 <%args>
   $w          => undef
   $start      => undef
   $count      => undef
   $media_list => undef
+  @ml         => undef
 </%args>
