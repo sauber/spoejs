@@ -2,6 +2,7 @@
 
 use Spoejs::StoryList;
 use Spoejs::Lang;
+use Data::Dumper;
 
 my $L = Spoejs::Lang->new( 'en' );
 
@@ -31,6 +32,10 @@ my @prev_stories = $SL->list_stories( story=>'2004/02/04', prev => 3 );
 print "prev stories:\n";
 print $_->date(), "\n" for @prev_stories;
 
-my @next_stories = $SL->list_stories( story=>'2004/02/04', next => 4 );
+my @next_stories = $SL->list_stories( story=>'2004/02/04', next => 1 );
 print "next stories:\n";
 print $_->date(), "\n" for @next_stories;
+
+my %counts = $SL->count_stories( by => 'category' );
+print "Counts:\n";
+print Dumper( %counts );
