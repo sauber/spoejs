@@ -2,8 +2,8 @@ package Spoejs::Movie;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
 
-# $Id: Movie.pm,v 1.9 2004/06/04 07:51:35 snicki Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.9 $';
+# $Id: Movie.pm,v 1.10 2004/06/12 09:59:40 snicki Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.10 $';
 
 # Supported extensions
 $Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov|qt|mpeg|mpe';
@@ -28,7 +28,7 @@ sub load {
   my $mov = "$self->{path}/$self->{file}";
 
   # Get duration of movie
-  my $info = `mplayer -identify $mov`;
+  my $info = `mplayer -frames 0 -identify $mov`;
   my($sec);
   if ( $info =~ /ID_LENGTH=(\d+)/ and $1 > 1 ) {
     $sec = $1;
@@ -69,7 +69,7 @@ sub ping {
   my($self, %params) = @_;
 
   my $file = "$self->{path}/$self->{file}";
-  my $info = `mplayer -identify $file | grep VIDEO:`;
+  my $info = `mplayer -frames 0 -identify $file | grep VIDEO:`;
   my $size = -s $file;
   my($format,$width,$height) = $info =~ /VIDEO:\s+(.*?)\s+(\d+)x(\d+)/;
 
