@@ -1,13 +1,14 @@
 <& $w,
-   title    => $storyref->get( 'title' ),
-   author   => $storyref->get( 'author' ),
-   category => $storyref->get( 'category' ),
-   date     => $storyref->get( 'date' ),
-   abstract => $storyref->get( 'abstract' ),
-   icon_size=> 75,
+   title      => $storyref->get( 'title' ),
+   author     => $storyref->get( 'author' ),
+   category   => $storyref->get( 'category' ),
+   date       => $storyref->get( 'date' ),
+   abstract   => $storyref->get( 'abstract' ),
+   icon_size  => 75,
    story_href => $story_href,
    path       => $path,
-   edit_href  => $edit_href
+   edit_href  => $edit_href,
+   thumb_ref  => $img,
 &>
 <%init>
   my $author = $storyref->get( 'author' );
@@ -22,6 +23,10 @@
     $edit_href = $m->scomp( '/htm/url:encode',
 			    "/$spoejs{channel}/admin/story.html", d => $path );
   }
+
+  # Thumbnail
+  my $type = $storyref->get( 'thumbnail' );
+  my $img  = $storyref->{ML}->get( $type );
 </%init>
 <%args>
  $storyref => undef

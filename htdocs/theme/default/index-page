@@ -13,9 +13,7 @@
 </td>
 </tr>
 </table>
-<center>
 <& /w, w => "list" &>
-</center>
 <br/>
 <fieldset><legend>Category list</legend>
 <& /w, w => "categorylist" &>

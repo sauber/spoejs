@@ -103,6 +103,17 @@ div.media {
   margin:3px;
   background-color: #EBEBFF;
 }
+div.right {
+  float: right;
+}
+div.left {
+  float: left;
+  padding:3px;
+  margin:3px;
+}
+div.bottom {
+  margin-top: 70%;
+}
 fieldset {
 #  margin: 0 90% 0 0%;
 #  width: 0%;

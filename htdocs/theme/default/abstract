@@ -1,29 +1,25 @@
 <fieldset><legend><% $title %></legend>
-<table width="80%">
-<tr>
-  <td><&|/l&>posted_by</&>: <% $author %></td>
-  <td><&|/l&>category</&>: <% $category %></td>
-  <td align="right"><&|/l&>date</&>: <% $date %></td>
-</tr>
-<tr>
-  <td>
-     <& /w, w => 'categoryicon', category =>$category, size=> $icon_size &>
-  </td>
-  <td><p><% $abstract %></p></td>
-  <td align="right">
-    <a href="<% $story_href %>"><& /w, w => 'thumbnail', d => $path &></a>
-</td>
-</tr>
-<tr>
-<td colspan="3">
+<div class="left">
+     <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
+<div class="bottom">
 <a href="<% $story_href %>">More</a>
 <a href="">Comment</a>
 % if ( $edit_href ) {
 <a href="<% $edit_href %>">Edit</a>
 % }
-</td>
-</tr>
-</table>
+</div>
+</div>
+<div class="left">
+<b><&|/l&>date</&>:</b> <% $date %><br/>
+<b><&|/l&>posted_by</&>:</b> <% $author %><br/>
+<b><&|/l&>category</&>:</b> <% $category %><br/>
+<br/>
+<% $abstract %>
+</div>
+<div class="right">
+    <& /w, w => 'media', d => $path, p => $thumb_ref->{file},
+           m => 150, href=>$story_href &>
+</div>
 </fieldset>
 <%args>
   $title      => undef
@@ -35,4 +31,5 @@
   $story_href => undef
   $path       => undef
   $edit_href  => undef
+  $thumb_ref  => undef
 </%args>

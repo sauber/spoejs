@@ -15,7 +15,6 @@
 <br/>
 <fieldset class="full"><legend>Media</legend>
 % for my $p ( @media_list ) {
-%# my $p = $m->{file};
 % my $href = $m->scomp( '/htm/url:encode', 'media.html',
 %                       d => $story_dir, p => $p->{file} );
 <& /w, w => "media", d => $story_dir, p => $p->{file}, m => $thumb_size, 
