@@ -2,8 +2,8 @@ package Spoejs::Icon;
 use LWP::UserAgent;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.5 2004/03/04 07:24:31 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.5 $';
+# $Id: Icon.pm,v 1.6 2004/03/30 04:29:43 snicki Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.6 $';
 
 #### Private interface ####
 
@@ -13,6 +13,7 @@ sub _downloadicon {
   my($self,$category,$size) = @_;
 
   my $ua = LWP::UserAgent->new;
+  $ua->timeout(5); # XXX: Reconsider timeout when in production
   $ua->agent('Lynx/2.8.4rel.1 libwww-FM/2.14');
 
   # Perform the search
