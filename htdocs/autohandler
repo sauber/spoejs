@@ -3,6 +3,7 @@
 <body>
 <& "htm/topbar.html" &>
 <% $m->call_next %>
+<& htm/error.html &>
 </body>
 </html>
 <%init>
