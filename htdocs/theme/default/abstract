@@ -1,5 +1,5 @@
-<fieldset class="center"><legend><% $storyref->get( 'title' ) %></legend>
-<table width="600">
+<fieldset><legend><% $storyref->get( 'title' ) %></legend>
+<table width="80%">
 <tr>
   <td><&|/l&>posted_by</&>: <% $author %></td>
   <td><&|/l&>category</&>: <%$storyref->get( 'category' )%></td>
