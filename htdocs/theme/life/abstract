@@ -3,30 +3,25 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract,v 1.7 2004/09/20 08:27:22 sauber Exp $
+%# $Id: abstract,v 1.8 2004/11/26 04:05:54 sauber Exp $
 %#
 <h3><% $title %></h3>
-<br/>
-<div class="center">
 % if ( $thumb_file ) {
-<span class="right">
-    <& /w, w => 'media', d => $path, p => $thumb_file,
-           m => 250, href=>$story_href, no_div=>1 &>
-</span>
+<div class="right" style="margin: 5px;">
+  <& /w, w => 'media', d => $path, p => $thumb_file,
+     m => 250, href=>$story_href, no_div=>1 &>
+</div>
 % }
-<span class="left">
-     <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
-</span>
+<& /w, w => 'categoryicon', category => $category, size => $icon_size &>
 <b>**posted_by**:</b> <% $author %>
 <b>**date**:</b> <% $date %>
 <b>**category**:</b> <% $category %>
 <b>**views**:</b> <% $views %>
-<& /w, w => "text", text=>$abstract &>
+<& /w, w => "text", text=>$abstract &><br />
 <a href="<% $story_href %>">**view**</a>
 % if ( $edit_href ) {
 <a href="<% $edit_href %>">**edit**</a>
 % }
-</div>
 <%args>
   $title      => undef
   $author     => undef

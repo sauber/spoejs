@@ -3,10 +3,17 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: categoryicon,v 1.1 2004/06/02 14:15:11 sauber Exp $
+%# $Id: categoryicon,v 1.2 2004/11/26 04:05:54 sauber Exp $
 %#
-<img src="<& /htm/url:encode, "/ico/ico.jpg", c=>$category, m=>$size&>" alt="<% $category %> icon" align=center vspace=9 hspace=5/>\
-%#width="<%$size%>" height="<%$size%>"
+<a href="<% $href %>">\
+%#<img src="<& /htm/url:encode, "/ico/ico.jpg", c=>$category, m=>$size&>" alt="<% $category %> icon" align=left vspace=9 hspace=5/>\
+<img src="<& /htm/url:encode, "/ico/ico.jpg", c=>$category, m=>$size&>" alt="<% $category %> icon" style="float: left;" vspace=9 hspace=5 />\
+</a>\
+<%init>
+  my $href= $m->scomp( "/htm/url:encode",
+                       "/$spoejs{channel}/index.html",
+                       c => $category );
+</%init>
 <%args>
     $category => undef
     $size => undef
