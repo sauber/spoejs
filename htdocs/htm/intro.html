@@ -3,12 +3,12 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: intro.html,v 1.3 2004/05/16 11:13:11 snicki Exp $
+%# $Id: intro.html,v 1.4 2004/06/11 03:46:35 sauber Exp $
 %#
 %if ( @s > 0 ) {
 <& /w, w => 'abstract', box => 1, storyref => $s[0] &>
 % } else {
-<&|/l&>no_stories</&>
+**no_stories**
 % }
 % $m->abort;
 <%init>

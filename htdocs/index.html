@@ -3,23 +3,23 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.45 2004/05/19 10:49:36 snicki Exp $
+%# $Id: index.html,v 1.46 2004/06/11 03:46:34 sauber Exp $
 %#
 <table width="100%"><tr>
 % if ( @{$remotes} > 0 ) {
 <td width="50%">
 <h1>
-<u><&|/l&>localjournal</&></u>
+<u>**localjournal**</u>
 </h1>
 </td>
 <td></td>
 <td width="50%" valign="top">
-<h1><u><&|/l&>journals_friends</&></u></h1>
+<h1><u>**journals_friends**</u></h1>
 </td>
 %} else {
 <td width="100%" valign="top">
 <h1>
-<u><&|/l&>localjournal</&></u></h1>
+<u>**localjournal**</u></h1>
 </td>
 %}
 </tr>
@@ -38,7 +38,7 @@
 <& /w, w => 'abstract', box => 1, storyref => $chan->{S} &>
 <br clear="all"/>
 % } else {
-<&|/l&>no_stories</&>
+**no_stories**
 % }
 %# Cleanup above assigmnets
 % delete $spoejs{channel_path};
@@ -59,7 +59,7 @@
 </tr></table>
 <hr/>
 <a href="/htm/admin/siteconfig.html">
-<&|/l&>siteconf</&>
+**siteconf**
 </a>
 <%init>
 my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
