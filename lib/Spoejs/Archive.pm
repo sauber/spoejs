@@ -4,8 +4,8 @@ use Spoejs::Pic;
 use Archive::Zip;
 use Archive::Tar;
 
-# $Id: Archive.pm,v 1.3 2004/03/29 10:28:13 snicki Exp $
-$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.3 $';
+# $Id: Archive.pm,v 1.4 2004/03/29 10:40:25 snicki Exp $
+$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.4 $';
 
 #### Private helper functions ####
 
@@ -119,7 +119,9 @@ sub add_file {
   if ( $P->ping() ) {
       # XXX: Not-portable
       my $fp = "$P->{path}/$P->{file}";
-      `jhead -autorot $fp` if -f `which jhead`;
+      my $jh = `which jhead`;
+      chomp $jh;
+      `jhead -autorot $fp` if -f $jh;
   } else {
       $P->delete();
   }
