@@ -516,6 +516,10 @@
 <lang=zh/>描述 
 </description>
 
+<description_description>
+<lang=en/>Description for description
+</description_description>
+
 <dimensions>
 <lang=ar/>حدود او مواصفات
 <lang=da/>Dimensioner
@@ -1569,8 +1573,8 @@
 <lang=zh/>主题
 </theme>
 
-<theme_descrption>
-<lang=en/>Soren will explain it in better way
+<theme_description>
+<lang=en/>Theme:Soren will explain it in better way
 </theme_description>
 
 <thumbnail>
