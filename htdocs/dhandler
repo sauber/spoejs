@@ -9,7 +9,7 @@
 % } else {
 <& "/html/error.html" &>
 % }
-<%perl>
+<%init>
   my $req_uri = $ENV{REQUEST_URI};
 
   my $path;
@@ -29,4 +29,4 @@
   $P{t} ||= #$channelconf->get(theme) || 
             'default';
 
-</%perl>
+</%init>
