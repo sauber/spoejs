@@ -1,2 +1,6 @@
 <%flags>inherit => undef</%flags>
+<& /htm/header.html &>
+<body>
 % $m->call_next;
+</body>
+</html>
