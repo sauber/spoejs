@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.25 2004/05/18 07:40:45 snicki Exp $
+%# $Id: channelform.html,v 1.26 2004/05/18 13:18:21 snicki Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2><&|/l&>congrat_changes</&></h2>
@@ -22,39 +22,50 @@
 <&|/l&>account_signup</&>
 </legend>
 <table>
-% foreach my $t ( @text_f ) {
-<% form_row( $t, $t, "text", $ARGS{$t}, $errs{$t} ) %>
-% }
-<% form_row( "passwd", "password", "password", $ARGS{password}, $errs{password} ) %> 
-<% form_row( "passwd", "password2", "password", "", $errs{password2} ) %> 
+<% form_row( 'username',  'username', "text", $ARGS{'username'},
+             $errs{'username'} ) %>
+<% form_row( "passwd", "password", "password", $ARGS{password},
+             $errs{password} ) %> 
+<% form_row( "passwd_retype", "password2", "password", "", $errs{password2}) %>
+<% form_row( 'shortname', 'shortname', "text", $ARGS{'shortname'},
+             $errs{'shortname'} ) %>
+<% form_row( 'title',  'title', "text", $ARGS{'title'}, $errs{'title'} ) %>
+<% form_row( 'description', 'description', "text", $ARGS{'description'},
+              $errs{'description'} ) %>
 <tr>
-<td><&|/l&>language</&>:</td>
+<td>*language*:</td>
 <td>
 <& /w, w => 'langselect' &>
-</td></tr>
+</td>
+<td>*language_description*</td>
+</tr>
 <tr>
-<td><&|/l&>theme</&>:</td>
+<td>*theme*:</td>
 <td>
 <& /w, w => 'themeselect' &>
-</td></tr>
+</td>
+<td>*theme_description*</td>
+</tr>
 <tr>
-<td><&|/l&>public</&></td>
+<td>*journal_security*</td>
 <td>
 % my $yc = $ARGS{public} eq 'yes' ? ' checked="checked"' : '';
 % my $nc = $ARGS{public} eq 'no_' ? ' checked="checked"' : '';
-<&|/l&>yes</&><input type="radio" name="public" value="yes"<% $yc %>>
-<&|/l&>no_</&><input type="radio" name="public" value="no_"<% $nc %>>
-</td></tr>
+*public*<input type="radio" name="public" value="yes"<% $yc %>>
+*private*<input type="radio" name="public" value="no_"<% $nc %>>
+</td>
+<td>*journal_security_description*</td>
+</tr>
 </table>
 </fieldset>
 <br/>
-<input type="submit" name="submit" value="<&|/l&>submit</&>"/>
+<input type="submit" name="submit" value="*submit*"/>
 </form>
 %}
 <%init>
   my $cur_lang = $spoejs{lang_handle}->{lang_order}->[0];
 
-  my @text_f = qw ( shortname title description username );
+  my @text_f = qw ( username shortname title description );
   my @non_text_f = qw( language password public );
   my %errs;
   my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
@@ -108,18 +119,18 @@ if ( $ARGS{submit} ) {
 
     my $res = $CC->set( %cl_args );
   }
-
-
 }
 </%init>
 <%perl>
 sub form_row {
   my ( $text, $name, $type, $val, $err ) = @_;
-  $text = $m->comp( "/l", l => $text );
+  my $desc = "${text}_description"; #before text-change
+  $text = "*$text*";
   return <<HTML;
 <tr>
   <td>$text:</td>
   <td><input value="$val" type="$type" name="$name">$err</td>
+  <td>*$desc*</td>
 </tr>
 HTML
 }
@@ -129,10 +140,10 @@ sub check_args {
 
   # XXX: Add checks on rest of input!!!
   unless ( $$ARGS{shortname} =~ /^[a-z]{4,10}$/ ) {
-    $$errs{shortname} = " Only 4-10 letters from a-z";
+    $$errs{shortname} = " *Only 4-10 letters from a-z*";
   }
   if ( -d "$ENV{DOCUMENT_ROOT}/users/$$ARGS{shortname}" and !$spoejs{channel}) {
-    $$errs{shortname} = " Channel already exists";
+    $$errs{shortname} = " *Channel already exists*";
   }
   unless ( $$ARGS{language} =~ /^[a-z]{2}$/ ) {
     $$errs{language} = " Only 2 letters (eg. 'da' or 'en')";
