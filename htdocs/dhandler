@@ -1,8 +1,8 @@
-% if ( -f "${doc_root}/$spoejs{url_noparam}" ) {
-<& "/htm/$spoejs{url_noparam}", %ARGS &>
-% } else {
-%  $spoejs{error}{not_found} = "File doesn't exist!";
-% }
 <%init>
-  my $doc_root =  "$ENV{DOCUMENT_ROOT}htm";
+my $doc =  "$ENV{DOCUMENT_ROOT}htm/$spoejs{url_noparam}";
+if ( -f $doc ) {
+  $m->comp( "/htm/$spoejs{url_noparam}", %ARGS );
+} else {
+  $spoejs{error}{not_found} = "File doesn't exist!";
+}
 </%init>
