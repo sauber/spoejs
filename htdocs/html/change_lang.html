@@ -1,0 +1,7 @@
+<%init>
+  $m->{session}{pref_lang} = $language;
+  $m->redirect( $ENV{HTTP_REFERER} );
+</%init>
+<%args>
+  $language => undef
+</%args>
