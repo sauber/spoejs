@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: url,v 1.4 2004/04/09 17:56:20 sauber Exp $
+%# $Id: url,v 1.5 2004/05/08 14:54:08 sauber Exp $
 %#
 <%shared>
   no strict;
@@ -38,6 +38,9 @@
   while ( $link =~ s/(_)(.)(.*?)(?=[_.])// ) {
     $O{$2} = $BS->decode($3);
   }
+
+  # Everything not an html page or an icon will have thumbnails generated
+  $link =~ /html|ico/ or $link = "pic.common";
 
   return $link,\%O;
 </%perl>
