@@ -2,14 +2,13 @@ Release 0.02 (2004-05-22) must-have's:
 --------------------------------------
 
  - Documentation
- - Mix pic+txt
+ - Mix pic+txt (done)
  - Annotations
  - Comments
- - Movie-clips
+ - Movie-clips (done)
  - Nice theme
  - Better navigation
  - Link list
- - Slow-random indexpic
  - (Upload of non-story html pages)
 
 
@@ -54,9 +53,8 @@ ChannelList:
 
 Register:
  - Check fields for valid data
- - Theme selector
- - Encrypted passwords
  - Delete own channel
+ - Languages is messy
 
 Session:
  - Session component to avoid masonhandler code
@@ -99,6 +97,7 @@ StoryAdmin:
  - Support Media=* anywhere in story
  - Media=* at end.
  - Don't show inline pictures at end
+ - Limitting possible _m values
 
 SiteConf:
  - Paths, theme, lang
@@ -131,10 +130,8 @@ Media:
  - no channellist in icon names
  - caching of indexthumb, even for random
  - slow random rotation
- - gif+bmp
  - pregenerated icons (fx party)
  - ML->ignore( @ml )
- - Support .wmv
 
 Extras:
  - Calendar
