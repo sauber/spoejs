@@ -5,7 +5,11 @@
 <h4><% $CC->get( 'description' ) %></h4>
 </td>
 <td align="right">
+% if ( $category ) {
+<h3>Category: <% $category %></h3>
+% } else {
 <& /w, w => 'newcaticons' &>
+% }
 </td>
 </tr>
 </table>
