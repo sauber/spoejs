@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: upload.html,v 1.25 2004/06/12 09:24:33 snicki Exp $
+%# $Id: upload.html,v 1.26 2004/06/16 12:56:16 snicki Exp $
 %#
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 <& /js/detectua.js &>
@@ -38,6 +38,8 @@ function cr_table( tabbody ) {
   tabbody.appendChild(tr);
 }
 </script>
+
+<& /htm/admin/story_tab.mas &>
 
 <h2>**fileupload**: <% "$spoejs{channel}/$spoejs{p}{d}" %></h2>
 <form name="files" method="post" action="" enctype="multipart/form-data">

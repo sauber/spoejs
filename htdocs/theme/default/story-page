@@ -3,8 +3,9 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.30 2004/06/15 00:54:49 snicki Exp $
+%# $Id: story-page,v 1.31 2004/06/16 12:57:17 snicki Exp $
 %#
+<& /htm/admin/story_tab.mas &>
 <h2><% $story_ref->get( 'title' ) %></h2>
 <&| /w, w => "box", heading => $story_ref->get( 'title' ) &>
 **date**:

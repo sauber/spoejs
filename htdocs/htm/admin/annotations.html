@@ -1,3 +1,5 @@
+<& /htm/admin/story_tab.mas &>
+<br/>
 <&| /w, w => 'box', heading => '**edit_annotations**' &>
 <h2><% $success %></h2>
 <form method="post" action="">
@@ -15,6 +17,9 @@ value="<%$local_anno{$p->{file}}%>">
 </form>
 </&>
 <%init>
+  # Check auth
+  return unless $m->comp( '/htm/login.html:check_login' );
+
   my $S = new Spoejs::Story( path => "$spoejs{channel_path}/$spoejs{p}{d}",
                           lang => $spoejs{lang_handle} );
   $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};

@@ -1,0 +1,46 @@
+<%doc>
+Mix story text with media
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: mixmedia.html,v 1.1 2004/06/16 12:56:16 snicki Exp $
+</%doc>
+% return undef unless $m->comp( '/htm/login.html:check_login' );
+<& /htm/admin/story_tab.mas &>
+
+<h3>**edit_lang**: **<% $cur_lang %>**</h3>
+<div style="float: left;">
+<table width="100%">
+<tr><td width="490" valign="top">
+<form action="" method="post">
+<fieldset><legend>**please_fill_out_this_form**</legend>
+**full_story**:<br/>
+<textarea name="fulltext" rows="20" cols="60" id="fulltext">
+<%$ARGS{fulltext}%></textarea>
+<br/>
+<br/>
+<input type="submit" name="submit" value="**submit**"/>&nbsp;
+</fieldset>
+</form>
+</td><td valign="top">
+<&| /w, w => 'box', heading => '**click_insert_image**' &>
+<iframe src="<& /htm/url:encode, "/$spoejs{channel}/admin/mediapicker.html", 
+        d=>$story_dir &>" width="100%" height="620" frameborder="1">
+[Your user agent does not support frames or is currently configured
+not to display frames.]
+</iframe>
+</&>
+</td></tr></table>
+</div>
+<%init>
+my $cur_lang = $spoejs{current_language};
+my $story_dir = $spoejs{p}{d} || undef;
+
+if ( defined $ARGS{submit} ) {
+  $spoejs{Story}->set( fulltext => { $cur_lang => $ARGS{fulltext} } );
+}
+
+# Add data to args
+%ARGS = ( %ARGS, $spoejs{Story}->get() );
+</%init>

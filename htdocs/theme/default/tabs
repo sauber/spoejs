@@ -1,12 +1,16 @@
 <table class="tab"><tr>
 %for ( @list ) {
-% if ( $_->[0] =~ /$caller$/ ) {
+% if ( !$_->[0] or $_->[0] =~ /$caller$/ ) {
 <td class="tab_marked"><% $_->[1] %></td>
 % } else {
 <td class="tab"><a href="<% $_->[0] %>"><% $_->[1] %></a></td>
 %}}
 </tr></table>
+<%init>
+# Check authorization
+return undef unless $m->comp( '/htm/login.html:check_login', silent => 1 );
+</%init>
 <%args>
   @list => undef
-  $caller => undef
+  $caller => 'NO_MATCH'
 </%args>
