@@ -3,8 +3,8 @@ use base ( "Spoejs::Text" );
 use Digest::MD5 qw(md5_hex);
 use Data::Dumper;
 
-# $Id: ChannelConf.pm,v 1.7 2004/05/08 05:58:06 snicki Exp $
-$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.7 $';
+# $Id: ChannelConf.pm,v 1.8 2004/06/04 11:33:46 snicki Exp $
+$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.8 $';
 
 sub _initialize {
     my $self = shift;
@@ -16,10 +16,8 @@ sub set {
     my $self = shift;
     my %params = @_;
 
-    if ( defined $params{password} && ref $params{password} ) {
-	foreach my $k (keys %{$params{password}}) {
-	    $params{password}{$k} = md5_hex( $params{password}{$k} );
-	}
+    if ( defined $params{password} ) {
+	$params{password} = md5_hex( $params{password} );
     }
     $self->SUPER::set( %params );
 }
