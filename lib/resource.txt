@@ -3,6 +3,9 @@ access_statistics:
   da: Adgangsstatistik
   en: Access Statistics
   es: Estadísticas de acceso
+  et: Külastusi
+  hu: statisztika elérése
+  ja: 'アクセス統計'
   ru: 'статистика доступа'
   zh: '运行统计'
 account_information:
@@ -32,7 +35,10 @@ active:
   ru: 'активный'
   zh: '运行'
 add:
+  da: Tilføj
   en: Add
+  es: Agregar
+  et: Lisa
   hu: ad
   is: Bæta við
   it: agguingere
@@ -123,6 +129,7 @@ all:
   gr: '‘Ολα'
   hu: minden
   it: tutto
+  iw: 'כולל'
   ja: '全て'
   mk: 'Се'
   ru: 'все'
@@ -222,9 +229,8 @@ bg:
   se: bulgarisk
   zh: '保加利亚语'
 blank_default:
-  ar: >-
-    (ﺎﺗﺮﻜﻫ ﻑﺍﺮﻏ ﺃﺫﺍ ﻙﺎﻨﺗ ﺎﻠﻘﺻﺓ
-    ﺺﺤﻴﺤﻫ)
+  ar: |-
+    أترك فراغ أذا كانت القصة حالية
   da: '(blank for dags dato)'
   de: '(bei aktueller Geschichte leer lassen)'
   en: '(leave blank if story is current)'
@@ -325,6 +331,7 @@ change_language:
   gr: 'Αλλαγή γλώσσας'
   hu: változtass nyelvet
   it: cambia la lingua
+  iw: 'החלפת שפה'
   ja: '言語を変える'
   mk: 'Промени го јазикот'
   ru: 'изменить язык'
@@ -432,6 +439,9 @@ current_category:
   da: Nuværende kategori
   en: Current Category
   es: Categoría actual
+  et: Valitud kõneaine
+  hu: az aktuális kategória
+  ja: '現在のカテゴリー'
   ru: 'текущая категория'
 currentfile:
   ar: 'الملفات المفتوحة'
@@ -539,6 +549,9 @@ delete_category:
   da: Slet kategori
   en: Delete Category
   es: Eliminar categoría
+  et: Kustuta kõneaine
+  hu: töröld a kategóriát
+  ja: 'カテゴリーを消去'
   ru: 'удалить категорию'
   zh: '删去种类'
 delete_journal:
@@ -562,6 +575,7 @@ delete_story:
   gr: 'Διαγραφή ιστορίας'
   hu: töröld a történetet
   it: cancellare la storia
+  iw: 'מחק ספור'
   ja: 'ストーリーを消去'
   mk: 'Избриши ја приказната'
   ru: 'удалить историю'
@@ -575,7 +589,7 @@ deletefile:
   gr: 'Διαγραφή αρχείου'
   hu: töröld a fájlt
   it: cancellare il documeti
-  iw: 'מחק אתתיק'
+  iw: 'מחק את התיק'
   ja: 'ファイルを消去'
   mk: 'Избриши го фајлот'
   ru: 'удалить файл'
@@ -675,6 +689,7 @@ email:
   gr: Email
   hu: email
   it: Email
+  iw: 'דואר'
   ja: Eメール
   mk: 'Електронска пошта'
   ru: 'электронная почта'
@@ -753,6 +768,7 @@ file_size:
   es: Tamaño de archivo
   et: Faili suurus
   hu: fájl méret
+  iw: 'גודל הקובץ'
   ja: 'ファイルサイズ'
   ru: 'размер файла'
 file_type:
@@ -947,6 +963,7 @@ help:
   et: Abi
   hu: segítség
   it: aiuto
+  iw: 'עזרה'
   ja: 'ヘルプ'
   mk: 'Помош'
   ru: 'помощь'
@@ -959,6 +976,7 @@ home:
   et: Kodu
   hu: otthon
   it: home
+  iw: 'בית'
   ja: 'ホーム'
   mk: 'Дома'
   ru: 'домой'
@@ -982,10 +1000,16 @@ icon_admin:
   da: Administrér billede
   en: Icon Admin
   es: Administración de iconos
+  et: Kujundi töötlus
+  hu: Admin ikon
+  ja: Adminのアイコン
 icon_upload:
   da: Upload billede
   en: Icon Upload
   es: Cargar icono
+  et: Kujundi lisamine
+  hu: Feltöltés ikon
+  ja: 'アイコンのアップロード'
 image_code:
   da: Billedekode
   de: Bildcode
@@ -1005,6 +1029,7 @@ information:
   et: Teave
   hu: információ
   it: informazioni
+  iw: 'אנפורמציה'
   ja: 'インフォメーション'
   mk: 'Информации'
   ru: 'информация'
@@ -1051,6 +1076,7 @@ invalid_name:
   es: Nombre incorrecto
   et: Kõlbmatu nimi
   hu: 'érvénytelen név'
+  iw: 'שם לא מתחביר'
   ja: '無効な名前'
   mk: 'Погрешно име'
   ru: 'неправильное имя'
@@ -1064,6 +1090,7 @@ invalid_password:
   hu: a jelszó túl rövid
   is: Lykilorð of stutt
   it: password e corta
+  iw: 'סיסמה קתנה'
   ja: 'パスワードが短すぎます'
   mk: 'Лозинката е премногу куса'
   ru: 'пароль слишком короткий'
@@ -1098,6 +1125,7 @@ invalid_username:
   hu: 'érvénytelen felhasználói név'
   is: 'Ógilt notendanafn'
   it: Username invalido
+  iw: 'שם משתמיש לא מתחביר'
   ja: '無効なユーザー名'
   mk: 'Погрешно корисничко име'
   ru: |-
@@ -1331,6 +1359,7 @@ journal_security:
   et: Ligipääs
   hu: elérés
   it: accesso
+  iw: 'חיבור'
   ja: 'アクセス'
   mk: 'Пристап'
 journal_security_description:
@@ -1498,6 +1527,7 @@ media_information:
   es: Información de medios
   et: Salvestise üksikasjad
   hu: média információ
+  iw: 'אנפורמציה מידיה'
   ja: 'メディアインフォメーション'
 media_man:
   ar: '   ادارة الاعلام'
@@ -1564,6 +1594,9 @@ month_top5:
   da: Månedens top 5
   en: Month Top5
   es: Top 5 del mes
+  et: Selle kuu viis parimat
+  hu: a hónap első 5-je
+  ja: '今月のトップ５'
 name:
   da: Navn
   de: Name
@@ -1573,6 +1606,7 @@ name:
   hu: név
   is: Nafn
   it: il nome
+  iw: 'שם'
   ja: '名前'
   mk: 'Име'
 name_description:
@@ -1608,6 +1642,9 @@ new_category:
   da: Ny kategori
   en: New Category
   es: Nueva categoría
+  et: Uus kõneaine
+  hu: 'új kategória'
+  ja: '新しいカテゴリー'
 new_password:
   ar: 'كلمة مرور جديدة'
   da: Nyt password
@@ -1683,6 +1720,7 @@ newpass:
   et: Uus salasõna
   hu: 'új jelszó'
   is: Nýtt lykilorð
+  iw: 'סיסמה חדשה'
   ja: '新しいパスワード'
   mk: 'Нова лозинка'
   zh: '新的密码'
@@ -1732,7 +1770,12 @@ oneerror_occur:
   ru: 'одна или более ошибок в'
   zh: '出现有一个或更多的错误'
 optional:
-  en: Optional 
+  da: Valgfri
+  en: Optional
+  es: Opcional
+  et: ' Vabatahtlik'
+  hu: opcionális
+  ja: 'オプション'
 or_new:
   ar: 'أو جديد'
   da: eller ny
@@ -1799,6 +1842,7 @@ passwd_retype:
   hu: 'írd újra a jelszó'
   is: Sláðu lykilorð inn aftur
   it: Re-type Password
+  iw: 'נא-לרשום סיסמה'
   ja: |-
     もう一度パスワードを入力して下さい
   mk: |-
@@ -1847,15 +1891,19 @@ pause_play:
   da: Hold pause
   en: Pause Play
   es: Detener reproducción
+  et: '???'
+  hu: megállít lejátszik
+  ja: '一時停止　再生'
   ru: 'пауза'
 peers:
   da: Venner
   de: Pier
   en: Peers
   es: Iguales
-  et: '???'
+  et: Sõbrad
   hu: osztálytársak
   it: per vedere
+  iw: 'עיתונאי'
   ja: '仲間'
 please_fill_out_this_form:
   ar: 'الرجاء أكمال هذا الجدول'
@@ -1984,6 +2032,7 @@ random:
   hu: véletlen
   is: Tilviljanakennt
   iw: 'ראנדומאלי'
+  ja: 'ランダム'
   ru: 'Случайный'
   zh: '随便'
 ru:
@@ -2061,6 +2110,7 @@ set_password:
   et: Määra salasõna
   hu: 'írj jelszót'
   it: metta Password
+  iw: 'הוסיפ סיסמה'
   ja: 'パスワードをセットする'
   mk: 'Постави лозинка'
   ru: 'установить пароль'
@@ -2086,6 +2136,7 @@ show_story:
   es: Ver artículo
   et: Kas lugu näidata?
   hu: mutasd a történetet
+  iw: 'לראות סיפור'
   ja: 'ストーリーを見せる'
   mk: 'Прика'
   ru: 'показать историю'
@@ -2144,6 +2195,7 @@ signup_newjournal:
     поделись своим опытом с друзьями и семьей
   zh: '注册新的杂记并与家人及朋友分享'
 signup_not_allowed:
+  ar: 'االا شتراك غير مسموح'
   da: Tilmelding er ikke tilladt
   de: Anmeldung fehlgeschlagen
   en: Signup not allowed
@@ -2171,7 +2223,7 @@ sitepolicy:
   ru: 'Политика сайта'
   zh: '本页特权'
 specific:
-  ar: 'ﺥﺎﺻ'
+  ar: 'تفصيل'
   da: Specifik
   de: speziell
   en: Specific
@@ -2185,6 +2237,7 @@ specific:
   ru: 'Определенный'
   zh: '具体'
 statusjournal:
+  ar: 'وضع النشرة على الموقع'
   da: Status for journaler på denne side
   de: Verwendung von Ausgaben auf dieser Seite
   en: Status for journals on this site
@@ -2198,6 +2251,7 @@ statusjournal:
   ru: |-
     состояние журналов на этом сайте
 stories:
+  ar: 'قصص'
   da: Historier
   de: Geschichten
   en: Stories
@@ -2210,6 +2264,7 @@ stories:
   ru: 'истории'
   zh: '记事'
 story:
+  ar: 'القصة'
   da: Historie
   de: Geschichte
   en: Story
@@ -2217,11 +2272,13 @@ story:
   et: Jutt
   hu: történet
   it: la storia
+  iw: 'סיפור'
   ja: 'ストーリー'
   mk: 'Приказна'
   ru: 'история'
   zh: '记事'
 story_deleted:
+  ar: 'محي القصة'
   da: Historie slettet
   de: gelöschte Geschichten
   en: Story deleted
@@ -2233,6 +2290,7 @@ story_deleted:
   mk: 'Статијата е избришана'
   ru: 'история удалена'
 story_details:
+  ar: 'تفاصيل القصة'
   da: Detaljer fra historien
   de: komplette Geschichte
   en: Story details
@@ -2244,6 +2302,7 @@ story_details:
   mk: 'Детали за статијата'
   ru: 'детали истории'
 story_edit:
+  ar: 'تعديل القصة'
   da: 'Ændre historie'
   de: zusammengefasste Geschichte
   en: Story edit
@@ -2297,6 +2356,7 @@ storytitle:
   ru: 'Заголовок рассказа'
   zh: '记事标题'
 storytitlelist:
+  ar: 'لائحة اسامي القصص'
   da: Overskrift
   de: Themenüberblick für Geschichten
   en: Story title list
@@ -2323,6 +2383,7 @@ submit:
   ru: 'представить'
   zh: '承诺'
 summary:
+  ar: 'تلخيص'
   da: Resume
   de: Zusammenfassung
   en: Summary
@@ -2361,6 +2422,7 @@ theme:
   ru: 'Тема'
   zh: '主题'
 theme_default:
+  ar: 'الميزة الاصلية'
   da: Standard tema
   de: Themen-Voreinstellung
   en: Theme default
@@ -2372,6 +2434,7 @@ theme_default:
   mk: 'Дефолт на темата'
   ru: 'Тема по умолчанию'
 theme_description:
+  ar: 'المنضر العام لنشرة'
   da: Journalens udseende
   de: Erscheinungsbild der Ausgabe
   en: Visual appearance of journal
@@ -2383,6 +2446,7 @@ theme_description:
     Визуелен изглед на списанието
   ru: 'Визульный вид журнала'
 thumb_count:
+  ar: 'عدد الرموز لكل صفحة'
   da: Markeringer pr. side
   de: Anzahl der Voransichten pro Seite
   en: Thumbnails per page
@@ -2393,6 +2457,7 @@ thumb_count:
   ja: 'ページごとのサムネール'
   ru: 'Пиктограмм на страницу'
 thumb_count_description:
+  ar: 'عدد الرموز لكل قصة'
   da: |-
     Antal miniaturebilleder der vises på hver historie side
   de: Anzahl der Medien-Voransichten pro Seite
@@ -2440,6 +2505,7 @@ title:
   se: titel
   zh: '标题'
 title_description:
+  ar: 'اسم النشرة'
   da: Journalens navn
   de: Name der Ausgabe
   en: Name of journal
@@ -2452,6 +2518,7 @@ title_description:
   ru: 'имя журнала'
   zh: '记事名'
 total:
+  ar: 'المجموع'
   da: I alt
   en: Total
   es: Total
@@ -2461,12 +2528,17 @@ total:
   ru: 'Всего'
   zh: '全部'
 total_top5:
+  ar: 'الخمسة الاوئل من المجموع'
   da: Total top 5
   en: Total Top5
   es: Top 5 totales
+  et: 5 parimat
+  hu: az összes legjobb 5-je
+  ja: '総合トップ５'
   ru: Top 5  за все время
   zh: '占全部的前五位'
 up_:
+  ar: 'فوق'
   da: Op
   en: Up
   es: Arriba
@@ -2548,18 +2620,23 @@ views:
   da: Visninger
   en: Views
   es: Vistas
-  et: Vaated
+  et: Vaadatud kordi
   hu: képek
   ja: '複数表示'
   ru: 'виды'
   zh: '一览'
 week_top5:
+  ar: 'الخمسة الاوائل لاسبوع'
   da: Denne uges top 5
   en: Week Top5
   es: Top 5 de la semana
+  et: Selle nädala viis parimat
+  hu: a hét legjobb 5-je
+  ja: '今週のトップ５'
   ru: Top 5 за неделю
   zh: '占每星期的前五位'
 wrong_user_or_pwd:
+  ar: 'اسم او رقم مرور خاطئ'
   da: Forkert brugernavn eller adgangskode
   de: falscher Benutzername oder falsches Kennwort
   en: Wrong Username or password
@@ -2576,7 +2653,7 @@ wrong_user_or_pwd:
     неправильное имя пользователя или пароль
   zh: '错误的用户名或密码'
 yes:
-  ar: 'ﻦﻌﻣ'
+  ar: 'نعم'
   da: Ja
   de: Ja
   en: Yes
@@ -2591,6 +2668,7 @@ yes:
   ru: 'Да'
   zh: '是'
 you_have_been_logged_out:
+  ar: 'انت خرجت من الموقع'
   da: Du er nu logget ud
   de: Sie wurden soeben abgemeldet
   en: You have been logged out
