@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.42 2004/05/18 02:15:23 snicki Exp $
+%# $Id: index.html,v 1.43 2004/05/18 02:16:48 snicki Exp $
 %#
 <table width="100%"><tr>
 % if ( @{$remotes} > 0 ) {
@@ -62,5 +62,5 @@ my @auth =  keys %{$session{chanauth}} if defined $session{chanauth};
 
 my $SYN = new Spoejs::Syndication( path => "$ENV{DOCUMENT_ROOT}/../lib/",
                                    lang => $spoejs{lang_handle} );
-my $remotes = $SYN->newest_remotes( count => $#channels );
+my $remotes = $SYN->newest_remotes( count => scalar @channels );
 </%init>
