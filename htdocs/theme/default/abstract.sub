@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract.sub,v 1.5 2004/05/09 03:09:24 snicki Exp $
+%# $Id: abstract.sub,v 1.6 2004/06/17 01:43:56 snicki Exp $
 %#
 <& $w,
    title      => $storyref->get( 'title' ),
@@ -33,10 +33,14 @@
 
   # Thumbnail
   my $type = $storyref->get( 'thumbnail' );
+
+  # Get default from channelconf
+  if ( !$type or $type eq 'default' ) {
+    $type = $spoejs{ChannelConf}->get( 'thumbnail' );
+  }
   my $img  = $storyref->{ML}->get( $type );
   my $thumb_fn;
   $thumb_fn = $type eq 'random' ? 'ANY' : $img->{file};
-#warn $thumb_fn;
 </%init>
 <%args>
  $storyref => undef
