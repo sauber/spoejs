@@ -23,7 +23,7 @@
                             );
 
      # Add errors on top of form
-     prepend_errors( \$filled ) if keys %$data;
+     prepend_errors( \$filled ) if keys %{$spoejs{ARGS}};
 
      $m->print($filled);
 
