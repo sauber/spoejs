@@ -1,9 +1,13 @@
-<img src="<& /htm/url:encode, "/$spoejs{channel}/pic.jpg", d=>$ARGS{d},
+<img src="<& /htm/url:encode, "/$spoejs{channel}/pic.$ext", d=>$ARGS{d},
                               p=>$ARGS{p}, m=> $ARGS{m}&>" 
 <% $P->html_imgsize( size => $ARGS{m} ) %>/>
 <%init>
   my $P = new Spoejs::Pic( path => "$spoejs{channel_path}/$ARGS{d}",
                            file => $ARGS{p} );
+  $spoejs{error}{$m->current_comp->source_file} = $P->{msg} if $P->{msg};
+
+  my $ext;
+  $ARGS{p} =~ /(...)$/ and $ext = $1;
 </%init>
 <%args>
  %params => undef    

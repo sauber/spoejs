@@ -1,6 +1,8 @@
 <center>
 <h4><% $S->get( 'title' ) %></h4>
-Filename: <% $ML->get_picref($params{p})->utf_filename() %><br/>
+% my $picref = $ML->get_picref($params{p}) 
+%                or $spoejs{error}{$m->current_comp->source_file} = $ML->{msg};
+Filename: <% $picref->utf_filename() %><br/>
 <a href="<% "$web_path/$params{p}" %>">
 <& /w, w => "media", d => $params{d}, p => $params{p}, m => 480 &>
 </a>
@@ -27,7 +29,10 @@ Back to story
 <%init>
   my $web_path = "/users/$spoejs{channel}/$params{d}";
   my $path = "$ENV{DOCUMENT_ROOT}$web_path";
+
   my $ML = new Spoejs::MediaList( path => $path );
+  $spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
+
   my $S = new Spoejs::Story( path => $path, lang => $spoejs{lang_handle} );
   $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
 </%init>
