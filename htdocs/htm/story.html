@@ -1,44 +1,26 @@
-<&| /l &>title</&>:
-<% $S->get( 'title' ) %>
-<br/>
-<&| /l &>date</&>:
-<% $S->get( 'date' ) %>
-<br/>
-<br/>
-Abstract:
-<br/>
-<% $S->get( 'abstract' ) %>
-<br/>
-<br/>
-Fulltext:
-<br/>
-<% $S->get( 'fulltext' ) %>
-<br/>
-<br/>
-Media:
-<br/>
-% for ( @media_list ) {
-% my $p = $_->{file};
-%# $p =~ s{\.}{};
-<a href="<& url:encode, 'media.html', d => $params{d}, p => $p &>">
-<& /w, w => "media", d => $params{d}, p => $p, m => 150, 
-info => $_->info() &>
-</a>
-% }
-<br/>
-<br/>
-<br/>
-% if ( $session{chanauth} && $spoejs{channel} && 
-%      $session{chanauth}{$spoejs{channel}}) {
-<a href="<& url:encode, "/$spoejs{channel}/admin/story.html", 
-                        d=>$params{d} &>">Edit</a>
-% }
+<& /w, w => 'story', 
+       story_dir => $params{d},
+       story_ref => $S, 
+       edit_href => $a_edit,
+       media_list => \@media_list
+&>
 <%init>
   my $path = $spoejs{channel_path} . "/" .$params{d};
   my $S = new Spoejs::Story( path => $path,
                              lang => $spoejs{lang_handle} );
   $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
   my @media_list = $S->media_list();
+
+my $a_edit = '';
+if ( $session{chanauth} && $spoejs{channel} &&
+     $session{chanauth}{$spoejs{channel}} ) {
+
+  $a_edit = '<a href="';
+  $a_edit .= $m->scomp( '/htm/url:encode',
+			"/$spoejs{channel}/admin/story.html",
+			d => $params{d} );
+  $a_edit .= '">Edit</a>';
+}
 </%init>
 <%args>
   %params => undef
