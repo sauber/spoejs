@@ -1,17 +1,20 @@
 package Spoejs::Syndication;
-use base ( "Spoejs::Text" );
+use base ( "Spoejs" );
 use Data::Dumper;
 use Date::Manip;
 use LWP::UserAgent;
 use Spoejs::ChannelList;
+use Spoejs::SiteConf;
 
-# $Id: Syndication.pm,v 1.9 2004/05/16 10:15:23 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.9 $';
+# $Id: Syndication.pm,v 1.10 2004/05/16 10:59:29 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.10 $';
 
 # Constructor
 sub _initialize {
     my $self  = shift;
-    $self->SUPER::_initialize(@_, file => 'syndication.txt' );
+#    $self->SUPER::_initialize(@_, file => 'syndication.txt' );
+    $self->{siteconf} = new Spoejs::ChannelConf( path => $self->{path},
+						 lang => $self->{lang} );
 }
 
 #### Private helper functions ####
@@ -53,13 +56,28 @@ sub _parse_remote_list {
     return @sname_dates;
 }
 
+#
+#
+sub _remotes_from_conf {
+  my $self  = shift;
+
+  my $list = $self->{siteconf}->get( 'peers' );
+  my @strings = split /\n/, $list;
+  my %peers;
+  for my $str ( @strings ) {
+      my ( $short, $url ) = split /;/, $str;
+      $peers{$short} = $url;
+  }
+  return %peers;
+}
+
 
 #
 #
 sub _fetch_remote_lists {
   my $self  = shift;
   my $remotedoc = "/latest.html"; #XXX: Consider moving to new() call or config
-  my %sites = $self->get();
+  my %sites = $self->_remotes_from_conf();
 
   while ( my ( $site, $url ) = ( each %sites ) ) {
       my $list = $self->_fetch_url( $url . $remotedoc );
