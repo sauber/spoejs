@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.31 2004/06/16 12:57:17 snicki Exp $
+%# $Id: story-page,v 1.32 2004/06/27 23:56:21 snicki Exp $
 %#
 <& /htm/admin/story_tab.mas &>
 <h2><% $story_ref->get( 'title' ) %></h2>
@@ -21,7 +21,7 @@
 <&| /w, w => "box", heading => '**story**' &>
 <& /w, w => "text", text => $text &>
 </&>
-% unless ( $text =~ /media=/ig ) { #XXX: Consider other ways...
+% unless ( $text =~ /media=/isg ) { #XXX: Consider other ways...
 <br/>
 <br/>
 <&| /w, w => 'box', heading => '**media**' &>
