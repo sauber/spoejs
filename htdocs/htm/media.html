@@ -18,15 +18,19 @@ $spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
 my $S = new Spoejs::Story( path => $path, lang => $spoejs{lang_handle} );
 $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
 
+my %ml_opt = ( current => $spoejs{p}{p}, count => 2 );
+
 my $next_href;
-if (  $ML->next( $spoejs{p}{p} ) ) {
+my @p = $ML->next( %ml_opt );
+if ( $p[1] ) {
   $next_href = $m->scomp( '/htm/url:encode', "media.html", d=>$spoejs{p}{d},
-			   p=> $ML->next( $spoejs{p}{p} ) );
+			   p=> $p[1]->{file} );
 }
 my $prev_href;
-if (  $ML->prev( $spoejs{p}{p} ) ) {
+@p = $ML->prev( %ml_opt );
+if ( $p[1] ) {
   $prev_href = $m->scomp( '/htm/url:encode', "media.html", d=>$spoejs{p}{d},
-			   p=> $ML->prev( $spoejs{p}{p} ) );
+			   p=> $p[1]->{file} );
 }
 my $back_href = $m->scomp( "url:encode", 'story.html', d => $spoejs{p}{d} );
 my $img_href  = "$web_path/$spoejs{p}{p}";

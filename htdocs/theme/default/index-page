@@ -5,8 +5,8 @@
 <h4><% $CC->get( 'description' ) %></h4>
 </td>
 <td align="right">
-% if ( $category ) {
-<h3>Category: <% $category %></h3>
+% if ( defined $spoejs{p}{c} ) {
+<h3>Category: <%  $spoejs{p}{c} %></h3>
 % } else {
 <& /w, w => 'newcaticons' &>
 % }
@@ -14,7 +14,7 @@
 </tr>
 </table>
 <center>
-<& /w, w => "list", category => $category &>
+<& /w, w => "list" &>
 </center>
 <br/>
 <fieldset><legend>Category list</legend>
@@ -33,5 +33,4 @@
 <%args>
  $CC        => undef
  $edit_href => undef
- $category  => undef
 </%args>
