@@ -47,6 +47,7 @@ Register:
  - Check fields for valid data
  - Pop-down menus.
  - Theme selector
+ - Encrypted passwords
 
 Session:
  - Session component to avoid masonhandler code
@@ -83,7 +84,7 @@ Annotations:
 StoryAdmin:
  - Add annotations to pictures
  - Edit story/pictures/annotations
- - Del story
+ - Del story with confirm
  - Guest comment on story
  - Write in more languages
  - Active/inactive story
@@ -118,6 +119,7 @@ Media:
  - remove dirs before / or \
  - utf8 filenames
  - exif
+ - caching headers
 
 Extras:
  - Calendar
