@@ -1,11 +1,9 @@
+<fieldset class="center"><legend><% $storyref->get( 'title' ) %></legend>
 <table width="600">
 <tr>
-  <th colspan="2" class="abstract" align="left"><% $storyref->get( 'title' ) %></th>
-  <th class="abstract" align="right"><% $storyref->get( 'date' ) %></th>
-</tr>
-<tr>
   <td><&|/l&>posted_by</&>: <% $author %></td>
-  <td colspan="2"><&|/l&>category</&>: <%$storyref->get( 'category' )%></td>
+  <td><&|/l&>category</&>: <%$storyref->get( 'category' )%></td>
+  <td align="right"><&|/l&>date</&>: <% $storyref->get( 'date' ) %></td>
 </tr>
 <tr>
   <td><& /w, w => 'categoryicon', category =>$storyref->get( 'category' ), 
@@ -28,7 +26,7 @@
 </td>
 </tr>
 </table>
-
+</fieldset>
 <%init>
   my $author = $storyref->get( 'author' );
   my $path = $storyref->story_path_from_full();
