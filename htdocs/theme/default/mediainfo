@@ -1,0 +1,20 @@
+<%doc>
+Show information about media files
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: mediainfo,v 1.1 2004/08/12 12:04:15 snicki Exp $
+</%doc>
+<h3>**media_information**</h3>
+**dimentions**: <% "$w x $h" %><br/>
+**size**: <% $s %> bytes<br/>
+**file_type**: <% $f %><br/>
+
+<%init>
+my $picref = ($spoejs{Story}->{ML}->list( start => $spoejs{p}{s}, count => 1 ))[0]
+  or $spoejs{error}{$m->current_comp->source_file} = $spoejs{Story}->{ML}->{msg};
+
+my ( $w, $h, $s, $f ) = $picref->ping();
+
+</%init>
