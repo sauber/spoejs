@@ -1,7 +1,7 @@
 % # This module encodes and decodes url's
-% # $Id: url,v 1.1 2004/03/25 10:52:21 snicki Exp $
+% # $Id: url,v 1.2 2004/03/27 13:38:00 snicki Exp $
 % # Encode and decode url
-%
+% #
 <%shared>
   no strict;
   my @basic = eval "a..z, A..Z, 0..9";
@@ -27,7 +27,6 @@
 </%perl>
 <% $link %>\
 </%method>
-
 <%method decode>
 <%perl>
   my($link) = @_;
@@ -39,4 +38,4 @@
 
   return $link,\%O;
 </%perl>
-</%method> 
+</%method>
