@@ -1,9 +1,10 @@
 <h1>Spoejs channels at this site:</h1>
 % foreach my $chan ( @channels ) {
+<h2>
 <a href="/<% $chan->channel_dir() %>/index.html">
-<h2><% $chan->get( 'title' ) %></h2>
+<% $chan->get( 'title' ) %>
 </a>
-
+</h2>
 % if ( $chan->{S} ) {
 % $spoejs{channel_path} = $chan->{path};
 % $spoejs{channel} = $chan->channel_dir();
