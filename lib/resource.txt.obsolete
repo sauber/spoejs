@@ -1,0 +1,381 @@
+---
+about:
+  ar: 'ﻊﻧ'
+  da: Om Spoejs
+  de: 'über'
+  en: About
+  es: Acerca de
+  hu: korulbelul?
+  iw: 'על'
+  ja: '情報'
+  ru: 'о'
+  zh: '有关内容'
+abstract:
+  ar: 'ﻢﺤﺗﻮﻳﺎﺗ'
+  da: Resume
+  de: Zusammenfassung
+  en: Abstract
+  es: Resumen
+  iw: 'תוכן'
+  ja: '空想'
+  ru: 'аннотация'
+  zh: '摘要'
+administration:
+  ar: 'ﺍﻷﺩﺍﺭﺓ'
+  da: Administration
+  de: Verwaltung
+  en: Administration
+  es: Administración
+  gr: 'Διαχείριση'
+  hu: adminisztracio
+  iw: 'הכהלה'
+  ja: '管理'
+  ru: 'администрация'
+  zh: '系统管理'
+always_random:
+  da: Altid tilfældig
+  en: Always Random
+archive:
+  ar: 'ﺍﻷﺮﺸﻴﻓ'
+  da: Arkiver
+  de: Archiv
+  en: Archive
+  es: Archivo
+  gr: 'Αρχείο'
+  iw: 'ארכיון'
+  ja: '古文書'
+  ru: 'архив'
+  zh: '完全控制'
+blank_default:
+  ar: |-
+    (ﺎﺗﺮﻜﻫ ﻑﺍﺮﻏ ﺃﺫﺍ ﻙﺎﻨﺗ ﺎﻠﻘﺻﺓ ﺺﺤﻴﺤﻫ)
+  da: '(blank for dags dato)'
+  de: '(bei aktueller Geschichte leer lassen)'
+  en: '(leave blank if story is current)'
+  es: |-
+    (déjelo en blanco si el artículo ya está seleccionado)
+  hu: hagyd uresen ha a tortenet mostani?
+  iw: |-2
+     לעזב את השדה ריק אם הסיפורנכרן
+  ja: |-
+    （ストーリーが現在のものであれば空白にする）
+  ru: |-
+    (не заполнять, если рассказ текущий)
+  zh: '(如果记事是当今的，留下空癿)'
+chan_home:
+  ar: 'ﻖﻧﺍﺓ ﺎﻠﺒﻴﺗ'
+  da: Historie index
+  de: Kanalstartseite
+  en: Channel home
+  es: Inicio del canal
+  iw: 'ערוץ הבית'
+  ja: 'チャンネルホーム'
+  ru: |-
+    домашний канал? (it is not clear w/o context)
+  zh: '网页'
+change:
+  ar: 'ﺖﻐﻳﺭ'
+  bg: 'Промени'
+  da: Skift
+  de: wechseln
+  en: Change
+  es: Cambiar
+  fr: Change
+  gr: 'Αλλαγή'
+  hu: valtozas
+  is: Breyting
+  it: cambio
+  iw: 'שינוי'
+  ja: '変える'
+  mk: 'Промена'
+  ru: 'изменить '
+  se: 'ändra'
+  zh: '更改'
+change_deleted:
+  da: Skift slettede
+  en: Change deleted
+channelconf:
+  ar: 'ﺖﻐﻳﺭ ﻞﻠﻘﻧﺍﺓ'
+  da: Journalkonfiguration
+  de: Kanal konfigurieren
+  en: Channel Configuration
+  es: Configuración de canales
+  iw: 'שידרוג הערוץ'
+  ja: 'チャンネル配置'
+  ru: 'конфигурация канала'
+  zh: '网页构造'
+click_continue:
+  ar: 'ﺄﻗﺭ ﻪﻧﺍ ﻝﻸﺴﺘﻣﺭﺍﺭ'
+  da: Fortsæt
+  de: anklicken zum Fortsetzen
+  en: Click here to continue
+  es: Pulse aquí para continuar
+  gr: 'Συνέχεια'
+  iw: 'להקליק כאן כדי להמשיךן'
+  ja: '続けるにはこちらをクリック'
+  ru: 'продолжить'
+  zh: '按这里继续'
+congrat_changes:
+  ar: 'ﺖﻐﻳﺭﺎﺘﻛ ﻙﺎﻨﺗ ﻥﺎﺠﺣﺓ'
+  da: 'Ændringer var successfulde'
+  de: Gratulation, Ihre Änderungen waren erfolgreich
+  en: Congratulations your changes were successful
+  es: |-
+    Enhorabuena, sus cambios se han realizado sin problemas
+  iw: 'השינוי שלך היה נכון'
+  ja: |-
+    おめでとうございます。変更は正常に処理されました。
+  ru: |-
+    Мои позравления, ваши изменения успешны
+  zh: '祝贺你的更改成功了'
+dimensions:
+  ar: 'ﺡﺩﻭﺩ ﺍﻭ ﻡﻭﺎﺼﻓﺎﺗ'
+  da: Dimensioner
+  de: Dimension
+  en: Dimentions
+  es: Dimensiones
+  gr: 'Διαστάσεις'
+  iw: 'הטל'
+  ja: '寸法'
+  ru: 'размерность'
+do_u_need_account:
+  da: New konto
+  en: Do you need an account?
+  zh: '新用户注册'
+fileformat:
+  ar: 'ﺖﻐﻳﺭ ﻥﻮﻋ ﻢﻠﻓ'
+  da: Filformat
+  de: Dateiformat
+  en: File format
+  es: Formato de archivo
+  gr: 'Τύπος αρχείου'
+  iw: 'פורמט קובץ'
+  ja: 'ファイル　フォーマット'
+  ru: 'формат файла'
+  zh: '文件格式'
+filesize:
+  ar: 'ﺢﺠﻣ ﻢﻠﻓ'
+  da: Filstørrelse
+  de: Dateigröße
+  en: Filesize
+  es: Tamaño de archivo
+  gr: 'Μέγεθος αρχείου'
+  iw: 'גודל הקובץ'
+  ja: 'ファイルサイズ'
+  ru: 'размер файла'
+  zh: '文件大小'
+first:
+  ar: 'ﺃﻮﻟ'
+  da: Første
+  de: zu erst
+  en: First
+  es: Primero
+  hu: elso
+  iw: 'הראשון'
+  ja: '最初'
+  ru: 'первый'
+  zh: '首先'
+freeall:
+  ar: 'ﻢﺟﺎﻧﺍًَ ﻞﻠﺠﻤﻴﻋ'
+  da: Fri-for-alle
+  de: allgemein zugänglich
+  en: Free-for-all
+  es: Gratis para todos
+  iw: 'חינם'
+  ja: '無料で開かれている'
+  ru: 'бесплатно для всех'
+  zh: '完全自由'
+fulltext:
+  ar: 'ﺞﻤﻴﻋ ﺎﻠﻛﺎﻣﺎﺗ'
+  da: Fuld tekst
+  de: voller Text
+  en: Full text
+  es: Texto completo
+  iw: 'טקסט מליג'
+  ja: '全テキスト'
+  ru: 'полный текст'
+  zh: '全部文章'
+inviteonly:
+  ar: 'ﻢﻋﺯﻮﻣ ﻒﻘﻃ'
+  da: Kun inviterede
+  de: nur auf Einladung
+  en: Invite-only
+  es: Sólo con invitación
+  iw: 'רק עם הזמנה'
+  ja: '招待のみ'
+  ru: 'пригласить только'
+  zh: '只邀请'
+last:
+  ar: 'ﺎﻠﻨﻫﺎﻳﺓ'
+  da: Sidste
+  de: zu letzt
+  en: Last
+  es: 'Último'
+  hu: utolso
+  iw: 'אחרון'
+  ja: '最後'
+  ru: 'прошлый'
+  zh: '持续'
+no_:
+  ar: 'ﻻ'
+  da: Nej
+  de: Nein
+  en: No
+  es: No
+  iw: 'לא'
+  ja: 'いいえ'
+  ru: 'нет'
+  zh: '否'
+open_public:
+  da: 'Åben for alle'
+  en: Open to public
+  zh: '对外公开'
+passwd_again:
+  da: Indtast adgangskode igen
+  en: Please enter your password again
+  zh: '请再次按入密码'
+probs_in_reg:
+  da: 'Den indtastede information havde fejl:'
+  en: 'The Journal Information you entered has problems:'
+random:
+  ar: 'ﻊﺷﻭﺎﺌﻳ'
+  da: Tilfældig
+  de: zufällig
+  en: Random
+  es: Aleatorio
+  hu: veletlen
+  iw: 'ראנדומאלי'
+  ja: 'ランダム'
+  ru: 'Случайный'
+  zh: '随便'
+register:
+  ar: 'ﺖﺴﺠﻴﻟ'
+  da: Registrer
+  de: einschreiben
+  en: Register
+  es: Registrarse
+  hu: regisztral
+  iw: 'הרשמה'
+  ja: '登録'
+  ru: 'Зарегистрироваться'
+  zh: '登录'
+sat:
+  da: Site konfiguration
+  en: Site configuration
+shortname_description:
+  da: |-
+    4-16 små bogstaver til at identificeres din journal, fx:
+  en: |-
+    4 to 16 lowercase letters to identify journal in URL like this:
+signup:
+  ar: 'ﺎﻠﺘﺴﺠﻴﻟ'
+  bg: 'Абонамент'
+  da: Tilmeld
+  de: anmelden
+  en: Sign up
+  es: Inscribirse
+  fr: Subscription
+  hu: feliratkozik
+  it: firmi in (su)
+  iw: 'הרשמה'
+  ja: 'サインアップ'
+  mk: 'Впиши'
+  ru: 'Подписаться'
+  zh: '登记'
+signup_approve:
+  ar: 'ﺖﻣ ﺎﻠﻣﻭﺎﻔﻗﺓ '
+  da: Tilmeld-godkend
+  de: Anmeldung bestätigt
+  en: Signup Approve
+  es: Aprobar inscripción
+  iw: 'ההרשמה התקבלה'
+  ja: 'サインアップ承諾'
+  ru: 'Подтвердить подписку'
+  zh: '允许登记'
+signup_newchannel:
+  ar: 'ﺲﺠﻟ ﺎﻟﻯ ﻖﻧﺍﺓ ﺲﺑﻮﺠﻳ ﺝﺪﻳﺩﺓ'
+  da: Tilmeld en ny spoejs kanal
+  de: für einen neuen Spoejs Kanal anmelden
+  en: Sign up for a new Spoejs channel
+  es: Inscríbase en un nuevo canal de Spoejs
+  iw: 'ההרשמה לערוץ סבוכי חדש'
+  ja: |-
+    新しいSpoejsチャンネルへサインアップする
+  ru: |-
+    Подписаться на новый Spoejs канал
+  zh: '登记新的网页'
+site_home:
+  ar: 'ﺎﻠﻋﻭﺩﺓ ﺎﻟﻯ ﺎﻠﺼﻔﺣﺓ ﺍﻻﻮﻟﻯ'
+  da: Kanal index
+  de: Startseite
+  en: Site home
+  es: Página de inicio del sitio
+  hu: eredeti hely?
+  iw: 'דף בית'
+  ja: 'サイトのホーム'
+  ru: 'Адрес сайта'
+  zh: '本页'
+specific:
+  ar: 'ﺥﺎﺻ'
+  da: Specifik
+  de: speziell
+  en: Specific
+  es: Específico
+  hu: specialis
+  iw: 'ספציפי'
+  ja: '詳細'
+  ru: 'Определенный'
+  zh: '具体'
+spoejs_channels_at_this_site:
+  ar: |-
+    ﻱﻮﺟﺩ ﻖﻧﻭﺎﺗ ﺲﺑﻮﺠﻳ ﻒﻳ ﻩﺫﺍ ﺎﻠﻣﻮﻘﻋ
+  da: Spoejs kanaler på dette site
+  de: Spoejs Kanäle auf diesem Website
+  en: Spoejs channels at this site
+  es: Canales de Spoejs en este sitio
+  iw: 'קישור עם ערוץסבוכי'
+  ja: 'このサイトのSpoejsチャンネル'
+  ru: 'Каналы Spoejs на этом сайте'
+  zh: Spoejs网页
+story_home:
+  ar: 'ﺎﻠﻋﻭﺩﺓ ﻞﻠﻘﺻﺓ'
+  da: Historie
+  de: Start der Geschichte
+  en: Story home
+  es: Inicio del artículo
+  iw: 'התחלת הסיפור'
+  ja: 'ストーリーホーム'
+  ru: 'Адрес рассказа'
+  zh: '记事本页'
+submit_query:
+  da: Indsend
+  de: Abfrage abschicken
+  en: Submit Query
+  es: Enviar consulta
+  iw: 'שליחת ההמלצה'
+  ja: 'クエリーを提出'
+  ru: 'представить запрос'
+thanks:
+  en: Thank you
+thechannel_notexit:
+  ar: 'ﻩﺫﺓ ﺎﻠﻘﻧﺍﺓ ﻎﻳﺭ ﻡﻮﺟﻭﺩﺓ'
+  da: Kanalen eksisterer ikke!
+  de: der Kanal existiert nicht
+  en: The channel doesn't exist!
+  es: '¡Ese canal no existe!'
+  iw: 'הערוץ לא כמצא'
+  ja: 'このチャンネルは存在しません'
+  ru: 'Канал не существует!'
+  zh: '这个网页不存在'
+yes:
+  ar: 'ﻦﻌﻣ'
+  da: Ja
+  de: Ja
+  en: Yes
+  es: Sí
+  iw: 'כן'
+  ja: 'はい'
+  ru: 'Да'
+  zh: '是'
+
+
