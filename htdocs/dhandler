@@ -2,6 +2,9 @@
 % if ( @path < 4 or @path > 10 ) {
 <& "/theme/$P{t}/ico", params => \%P &>
 %#
+% # Set correct content type for html pages
+% $r->content_type('text/html');
+%
 %# If requested page exists call it with given params; else show error
 % } elsif ( -e "${doc_root}/$req_uri" ) {
 %# Add header
