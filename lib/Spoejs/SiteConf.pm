@@ -1,14 +1,14 @@
 package Spoejs::SiteConf;
 use Spoejs::Text;
-use base ( "Spoejs" );
+use base ( "Spoejs::Text" );
 use Data::Dumper;
 
-# $Id: SiteConf.pm,v 1.2 2004/02/26 04:09:19 snicki Exp $
-$Spoejs::SiteConf::VERSION = $Spoejs::SiteConf::VERSION = '$Revision: 1.2 $';
+# $Id: SiteConf.pm,v 1.3 2004/03/15 11:38:50 snicki Exp $
+$Spoejs::SiteConf::VERSION = $Spoejs::SiteConf::VERSION = '$Revision: 1.3 $';
 
 sub _initialize {
     my $self = shift;
-    $self->{T} = Spoejs::Text->new( file => 'settings.txt' );
+    $self->SUPER::_initialize(@_, file => 'settings.txt' );
 }
 
 
