@@ -93,37 +93,33 @@ li {
 div.media {
   float: left;
   min-height: 150px;
-#  min-width: 150px;
   padding:3px;
   border-style:ridge;
-  margin:10px;
+  margin: 5px;
   background-color: #EBEBFF;
 }
 
 div.right {
   float: right;
+  width:170px;
 }
 
 div.center {
-  float: left;
-}
-
-div.abstract {
-  height: 170px;
+  margin: 0 100px;
 }
 
 div.left {
   float: left;
-  padding:3px;
-  margin:10px;
+  width:70px;
 }
+
 div.bottom {
   margin-top: 70%;
 }
+
 fieldset {
   padding: 1em .5em .5em .5em;
   border: 1px solid #000000;
-  float: left;
   width: 98%;
   margin: 5px;
 }
