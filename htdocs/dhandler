@@ -20,7 +20,9 @@
   my $path;
   $req_uri =~ s/\/(\w+)\/// and $path = $1;
   my @path = split //, $path;
-
+ 
+  # Add user-path to session
+  $m->{session}{user} = $path;
 
   my $doc_root =  "$ENV{DOCUMENT_ROOT}html";
 
@@ -48,5 +50,16 @@
   # Set prefered language
   unless ( $m->{session}{pref_lang} ) {
     $m->{session}{pref_lang} = $m->{session}{browser_langs}[0];
+  }
+  # Set language object
+  unless ( $m->{session}{lang_handle} ) {
+    $m->{session}{lang_handle} = new Spoejs::Lang( $m->{session}{pref_lang},
+						   @{$m->{session}{browser_langs}}
+						   );
+  }
+  # Set resource object
+  unless ( $m->{session}{res_handle} ) {
+    $m->{session}{res_handle} = new Spoejs::Resource( lang => 
+                                                  $m->{session}{lang_handle} );
   }
 </%init>
