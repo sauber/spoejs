@@ -81,6 +81,7 @@ StoryConf:
 Syndication:
  - Central site for root index
  - Parallel lwp fetch
+ - RSS feeds
 
 Annotations:
  - Specialize ::Text
