@@ -1,5 +1,5 @@
 <ar>
-<lang=bg/>Arabski
+<lang=bg/>Арабски
 <lang=da/>Arabisk
 <lang=en/>Arabic
 <lang=fr/>Arabe
@@ -12,7 +12,7 @@
 </ar>
 
 <bg>
-<lang=bg/>Bylgarski
+<lang=bg/>Български
 <lang=en/>Bulgarian
 <lang=fr/>Bulgare
 <lang=gr/>Βουλγαρικά
@@ -24,6 +24,7 @@
 </bg>
 
 <bo>
+<lang=bg/>Тибетски
 <lang=en/>Tibetan
 <lang=fr/>Tibetain
 <lang=it/>tibetano
@@ -31,7 +32,7 @@
 </bo>
 
 <category>
-<lang=bg/>Kategoriia
+<lang=bg/>Категория
 <lang=da/>Kategori
 <lang=en/>Category
 <lang=fr/>Categorie
@@ -43,7 +44,7 @@
 </category>
 
 <change>
-<lang=bg/>Promeni
+<lang=bg/>Промени
 <lang=da/>Skift
 <lang=en/>Change
 <lang=fr/>Change
@@ -56,7 +57,7 @@
 </change>
 
 <da>
-<lang=bg/>Danski
+<lang=bg/>Датски
 <lang=da/>Dansk
 <lang=en/>Danish
 <lang=fr/>Danois
@@ -69,7 +70,7 @@
 </da>
 
 <date>
-<lang=bg/>Data
+<lang=bg/>Дата
 <lang=da/>Dato
 <lang=en/>Date
 <lang=fr/>Date
@@ -82,7 +83,7 @@
 </date>
 
 <de>
-<lang=bg/>Germanski
+<lang=bg/>Германски
 <lang=da/>Tysk
 <lang=en/>German
 <lang=fr/>Allemand
@@ -95,6 +96,7 @@
 </de>
 
 <description>
+<lang=bg/>Описание
 <lang=da/>Beskrivelse
 <lang=en/>Description
 <lang=fr/>Description
@@ -104,7 +106,7 @@
 </description>
 
 <en>
-<lang=bg/>Angliiski
+<lang=bg/>Английски
 <lang=da/>Engelsk
 <lang=en/>English
 <lang=fr/>Anglais
@@ -116,8 +118,12 @@
 <lang=se/>Engelska
 </en>
 
+<es>
+<lang=en/>Spanish
+</es>
+
 <fr>
-<lang=bg/>Frenski
+<lang=bg/>Френски
 <lang=da/>Fransk
 <lang=en/>French
 <lang=fr/>Francais
@@ -130,7 +136,7 @@
 </fr>
 
 <gr>
-<lang=bg/>Grytski
+<lang=bg/>Гръцки
 <lang=da/>Græsk
 <lang=en/>Greek
 <lang=fr/>Grecque
@@ -143,7 +149,7 @@
 </gr>
 
 <is>
-<lang=bg/>Islandski
+<lang=bg/>Исландски
 <lang=da/>Islandsk
 <lang=en/>Icelandic
 <lang=fr/>Islandais
@@ -156,7 +162,7 @@
 </is>
 
 <it>
-<lang=bg/>Italianski
+<lang=bg/>Италиански
 <lang=da/>Italiensk
 <lang=en/>Italian
 <lang=fr/>Italien
@@ -169,7 +175,7 @@
 </it>
 
 <ja>
-<lang=bg/>Iaponski
+<lang=bg/>Японски
 <lang=da/>Japansk
 <lang=en/>Japanese
 <lang=fr/>Japonais
@@ -182,6 +188,7 @@
 </ja>
 
 <language>
+<lang=bg/>Език
 <lang=en/>Language
 <lang=fr/>Language
 <lang=it/>lingua
@@ -190,6 +197,7 @@
 </language>
 
 <login>
+<lang=bg/>Вход
 <lang=da/>Log ind
 <lang=en/>Login
 <lang=fr/>Connection
@@ -199,6 +207,7 @@
 </login>
 
 <logout>
+<lang=bg/>Изход
 <lang=da/>Log ud
 <lang=en/>Logout
 <lang=fr/>Deconnection
@@ -208,7 +217,7 @@
 </logout>
 
 <mk>
-<lang=bg/>Makedonski
+<lang=bg/>Македонски
 <lang=en/>Macedonian
 <lang=fr/>Mecedonien
 <lang=gr/>Μακεδονικά
@@ -219,7 +228,7 @@
 </mk>
 
 <passwd>
-<lang=bg/>Parola
+<lang=bg/>Парола
 <lang=da/>Kodeord
 <lang=en/>Password
 <lang=fr/>Mot de passe
@@ -232,7 +241,7 @@
 </passwd>
 
 <posted_by>
-<lang=bg/>Avtor
+<lang=bg/>Автор
 <lang=da/>Af
 <lang=en/>Posted by
 <lang=fr/>Poster par
@@ -244,6 +253,7 @@
 </posted_by>
 
 <public>
+<lang=bg/>Публичен
 <lang=en/>Public
 <lang=fr/>Publique
 <lang=it/>pubulico
@@ -252,7 +262,7 @@
 </public>
 
 <se>
-<lang=bg/>Shvedski
+<lang=bg/>Шведски
 <lang=en/>Swedish
 <lang=fr/>Suedois
 <lang=gr/>Σουηδικά
@@ -264,6 +274,7 @@
 </se>
 
 <shortname>
+<lang=bg/>Кратко име
 <lang=en/>Shortname
 <lang=fr/>Surnom
 <lang=it/>nome corto
@@ -272,6 +283,7 @@
 </shortname>
 
 <signup>
+<lang=bg/>Абонамент
 <lang=en/>Sign up
 <lang=fr/>Subscription
 <lang=it/>firmi in (su)
@@ -280,6 +292,7 @@
 </signup>
 
 <submit>
+<lang=bg/>Приложи
 <lang=da/>Indsend
 <lang=en/>Submit
 <lang=fr/>Soumettre
@@ -289,6 +302,7 @@
 </submit>
 
 <theme>
+<lang=bg/>Тема
 <lang=en/>Theme
 <lang=fr/>Theme
 <lang=it/>tema
@@ -297,7 +311,7 @@
 </theme>
 
 <title>
-<lang=bg/>Zaglavie
+<lang=bg/>Заглавие
 <lang=da/>Titel
 <lang=en/>Title
 <lang=fr/>Titre
@@ -310,6 +324,7 @@
 </title>
 
 <username>
+<lang=bg/>Име на потребител
 <lang=da/>Brugernavn
 <lang=en/>Username
 <lang=fr/>Nom d'Utilisateur
@@ -319,7 +334,7 @@
 </username>
 
 <zh>
-<lang=bg/>Kitaiski
+<lang=bg/>Китайски
 <lang=da/>Kinesisk
 <lang=en/>Chinese
 <lang=fr/>Chinois
