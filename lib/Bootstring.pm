@@ -1,4 +1,4 @@
-# $Id: Bootstring.pm,v 1.5 2004/04/09 17:18:38 sauber Exp $
+# $Id: Bootstring.pm,v 1.6 2004/04/09 17:39:18 sauber Exp $
 # Encode and decode utf8 into a set of basic code points
 
 package Bootstring;
@@ -6,6 +6,9 @@ package Bootstring;
 use strict;
 use integer;
 use utf8;
+
+# $Id: Bootstring.pm,v 1.6 2004/04/09 17:39:18 sauber Exp $
+$Bootstring::VERSION = $Bootstring::VERSION = '$Revision: 1.6 $';
 
 # Constructor
 #
