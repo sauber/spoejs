@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.20 2004/05/08 05:06:18 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.20 $';
+# $Id: MediaList.pm,v 1.21 2004/06/11 08:19:37 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.21 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -38,7 +38,7 @@ sub _list {
     my ($self, $start, $count, @files) = @_;
 
     # Get index of 'start' if it is a filename
-    if ( $start =~ /(\D\D\D)$/ ) {
+    unless ( $start =~ /^(\d+)$/ ) {
 	$start = $self->_index_of( $start, \@files );
     }
 
