@@ -7,7 +7,7 @@
   $spoejs{error}{$m->current_comp->source_file} = $P->{msg} if $P->{msg};
 
   my $ext;
-  $ARGS{p} =~ /(...)$/ and $ext = $1;
+  $ARGS{p} =~ /(...)$/ and $ext = lc $1;
 </%init>
 <%args>
  %params => undef    

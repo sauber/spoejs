@@ -10,5 +10,6 @@
   # Todo add div. parameters
   my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
 	                          path => $spoejs{channel_path} );
-  my @stories = $SL->list_stories(); 
+  $spoejs{error}{$m->current_comp->source_file} = $SL->{msg} if $SL->{msg};
+  my @stories = $SL->list_stories();
 </%init>

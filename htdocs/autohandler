@@ -1,7 +1,7 @@
 %# Add header
 <& htm/header.html &>
 <body>
-<& "htm/topbar.html" &>
+<& /w, w=> "topbar" &>
 <% $m->call_next %>
 <& htm/error.html &>
 </body>
