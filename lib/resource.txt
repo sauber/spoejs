@@ -2,7 +2,10 @@
 <lang=ar/>عن
 <lang=da/>Om Spoejs
 <lang=en/>About
+<lang=es/>Acerca de
 <lang=hu/>korulbelul?
+<lang=iw/>על
+<lang=jp/>およそ
 <lang=zh/>关于
 </about>
 
@@ -10,6 +13,9 @@
 <lang=ar/>محتويات
 <lang=da/>Resume
 <lang=en/>Abstract
+<lang=es/>Resumen
+<lang=iw/>תוכן
+<lang=jp/>空想
 <lang=zh/>摘要
 </abstract>
 
@@ -17,7 +23,10 @@
 <lang=ar/>فعال
 <lang=da/>Aktiv
 <lang=en/>Active
+<lang=es/>Activar
 <lang=gr/>Ενεργό
+<lang=iw/>פעיל
+<lang=jp/>アクティブ
 <lang=zh/>运行
 </active>
 
@@ -25,14 +34,20 @@
 <lang=ar/>أضيق
 <lang=da/>Tilføj
 <lang=en/>Add
+<lang=es/>Agregar
 <lang=gr/>Προσθήκη
 <lang=hu/>ad
+<lang=iw/>מוסיף
+<lang=jp/>追加
 <lang=zh/>添加
 </add>
 
 <addfield>
 <lang=ar/>أضيف جدول
 <lang=en/>Add field
+<lang=es/>Agregar campo
+<lang=iw/>מוסיף שדה
+<lang=jp/>分野を追加
 <lang=zh/>添加项目
 </addfield>
 
@@ -40,7 +55,10 @@
 <lang=ar/>أضيف ملف من الحاسوب
 <lang=da/>Tilføj filer fra PC
 <lang=en/>Add files from PC
+<lang=es/>Agregar archivos desde PC
 <lang=gr/>Προσθήκη αρχείων απο τον υπολογιστή σας
+<lang=iw/>הוטפת תיק מהמחשב אישי
+<lang=jp/>PCからファイルを追加
 <lang=zh/>从PC上引入文件
 </addfilepc>
 
@@ -48,12 +66,18 @@
 <lang=ar/>أضيف ملف من السرفر
 <lang=da/>Tilføj filer fra server
 <lang=en/>Add files from server 
+<lang=es/>Agregar archivos desde servidor
+<lang=iw/>הוטפת תיק סירבר
+<lang=jp/>サーバーからファイルを追加
 <lang=zh/>从Server上引入文件
 </addfileserver>
 
 <addmediastory>
 <lang=ar/>أضيف المحقات للقصة
 <lang=en/>Add media to story
+<lang=es/>Agregar medio a artículo
+<lang=iw/>הוטפת מידיא על הסיפוד
+<lang=jp/>ストーリーにメディアを追加
 <lang=zh/>给记事里加煤体
 </addmediastory>
 
@@ -61,6 +85,9 @@
 <lang=ar/>أضيف قناة سبوجي جديدة
 <lang=da/>Tilføj ny spoejs kanal
 <lang=en/>Add a new spoejs channel
+<lang=es/>Agregar un canal nuevo de Spoejs
+<lang=iw/>הוטפת עררץ סבוכי חדש
+<lang=jp/>新しいspoejsチャンネルを追加
 <lang=zh/>添加一个新的Spoejs网页
 </addnewchannel>
 
@@ -68,8 +95,11 @@
 <lang=ar/>الأدارة
 <lang=da/>Administration
 <lang=en/>Administration
+<lang=es/>Administración
 <lang=gr/>Διαχείριση
 <lang=hu/>adminisztracio
+<lang=iw/>הכהלה
+<lang=jp/>管理
 <lang=zh/>系统管理
 </administration>
 
@@ -78,12 +108,15 @@
 <lang=bg/>Арабски
 <lang=da/>Arabisk
 <lang=en/>Arabic
+<lang=es/>Árabe
 <lang=fr/>Arabe
 <lang=gr/>Αραβικά
 <lang=hu/>arab
 <lang=is/>Arabíska
 <lang=it/>arabo
+<lang=iw/>ערבית
 <lang=ja/>アラビア語
+<lang=jp/>アラビア語
 <lang=mk/>Арапски
 <lang=se/>arabisk
 <lang=zh/>阿拉伯语
@@ -93,7 +126,10 @@
 <lang=ar/>الأرشيف
 <lang=da/>Arkiver
 <lang=en/>Archive
+<lang=es/>Archivo
 <lang=gr/>Αρχείο
+<lang=iw/>ארכיון
+<lang=jp/>古文書
 <lang=zh/>完全控制
 </archive>
 
@@ -101,6 +137,9 @@
 <lang=ar/>الرجوع للقصة
 <lang=da/>Tilbage til historie
 <lang=en/>Back to story
+<lang=es/>Volver a la historia
+<lang=iw/>חזרה בסיפור
+<lang=jp/>ストーリーに戻る
 <lang=zh/>回到记事
 </backtostory>
 
@@ -109,12 +148,15 @@
 <lang=bg/>Български
 <lang=da/>Bulgarsk
 <lang=en/>Bulgarian
+<lang=es/>Búlgaro
 <lang=fr/>Bulgare
 <lang=gr/>Βουλγαρικά
 <lang=hu/>bolgar
 <lang=is/>Búlgarska
 <lang=it/>bulgano
+<lang=iw/>בולגרית
 <lang=ja/>ブルガリア語
+<lang=jp/>ブルガリア語
 <lang=mk/>Бугарски
 <lang=se/>bulgarisk
 <lang=zh/>保加利亚语
@@ -124,7 +166,10 @@
 <lang=ar/>(اتركه فارغ أذا كانت القصة صحيحه)
 <lang=da/>(blank for dags dato)
 <lang=en/>(leave blank if story is current)
+<lang=es/>(déjelo en blanco si el artículo ya está seleccionado)
 <lang=hu/>hagyd uresen ha a tortenet mostani?
+<lang=iw/> לעזב את השדה ריק אם הסיפורנכרן
+<lang=jp/>（ストーリーが現在のものであれば空白にする）
 <lang=zh/>(如果记事是当今的，留下空癿)
 </blank_default>
 
@@ -133,9 +178,12 @@
 <lang=bg/>Тибетски
 <lang=da/>Tibetansk
 <lang=en/>Tibetan
+<lang=es/>Tibetano
 <lang=fr/>Tibetain
 <lang=hu/>tibeti
 <lang=it/>tibetano
+<lang=iw/>תיבתית
+<lang=jp/>チベット語
 <lang=mk/>Тибетски
 <lang=zh/>西藏语
 </bo>
@@ -145,11 +193,14 @@
 <lang=bg/>Категория
 <lang=da/>Kategori
 <lang=en/>Category
+<lang=es/>Categoría
 <lang=fr/>Categorie
 <lang=gr/>Κατηγορία
 <lang=hu/>kategoria
 <lang=it/>categoria
+<lang=iw/>קטאגורית
 <lang=ja/>カテゴリー
+<lang=jp/>カテゴリー
 <lang=mk/>Категорија
 <lang=se/>kategori
 <lang=zh/>种类
@@ -159,7 +210,10 @@
 <lang=ar/>لأحة الختيرات
 <lang=da/>Kategori liste
 <lang=en/>Category list
+<lang=es/>Lista de categorías
 <lang=gr/>Λίστα κατηγοριών
+<lang=iw/>רשימת הקטאגורית
+<lang=jp/>カテゴリーリスト
 <lang=zh/>一揽
 </categorylist>
 
@@ -167,6 +221,9 @@
 <lang=ar/>قناة البيت
 <lang=da/>Historie index
 <lang=en/>Channel home
+<lang=es/>Inicio del canal
+<lang=iw/>ערוץ הבית
+<lang=jp/>チャンネルホーム
 <lang=zh/>网页
 </chan_home>
 
@@ -175,12 +232,15 @@
 <lang=bg/>Промени
 <lang=da/>Skift
 <lang=en/>Change
+<lang=es/>Cambiar
 <lang=fr/>Change
 <lang=gr/>Αλλαγή
 <lang=hu/>valtozas
 <lang=is/>Breyting
 <lang=it/>cambio
+<lang=iw/>שינוי
 <lang=ja/>変更
+<lang=jp/>変える
 <lang=mk/>Промена
 <lang=se/>ändra
 <lang=zh/>更改
@@ -190,6 +250,9 @@
 <lang=ar/>تغير للقناة
 <lang=da/>Kannalkonfiguration
 <lang=en/>Channel Configuration
+<lang=es/>Configuración de canales
+<lang=iw/>שידרוג הערוץ
+<lang=jp/>チャンネル配置
 <lang=zh/>网页构造
 </channelconf>
 
@@ -197,8 +260,11 @@
 <lang=ar/>أختار
 <lang=da/>Vælg
 <lang=en/>Choose
+<lang=es/>Elegir
 <lang=gr/>Επιλογή
 <lang=hu/>valaszt
+<lang=iw/>בחירה
+<lang=jp/>選択
 <lang=zh/>选择
 </choose>
 
@@ -206,7 +272,10 @@
 <lang=ar/>أنقر هنا للذهاب الى القناه
 <lang=da/>Gå til kannal
 <lang=en/>Click here to go to channel
+<lang=es/>Pulse aquí apra ir al canal
 <lang=gr/>Ακύρωση
+<lang=iw/>להקליק כאן כדי לעכורלערוץ
+<lang=jp/>チャンネルへはこちらをクリック
 <lang=zh/>按这里进入网页
 </click_channel>
 
@@ -214,7 +283,10 @@
 <lang=ar/>أقر هنا للأستمرار
 <lang=da/>Fortsæt
 <lang=en/>Click here to continue
+<lang=es/>Pulse aquí para continuar
 <lang=gr/>Συνέχεια
+<lang=iw/>להקליק כאן כדי להמשיךן
+<lang=jp/>続けるにはこちらをクリック
 <lang=zh/>按这里继续
 </click_continue>
 
@@ -222,6 +294,9 @@
 <lang=ar/>أقترحات
 <lang=da/>Kommenter
 <lang=en/>Comment
+<lang=es/>Comentario
+<lang=iw/>דעות
+<lang=jp/>コメント
 <lang=zh/>见解
 </comment>
 
@@ -229,6 +304,9 @@
 <lang=ar/>تغيراتك كانت ناجحة
 <lang=da/>Ændringer var successfulde
 <lang=en/>Congratulations your changes were successful
+<lang=es/>Enhorabuena, sus cambios se han realizado sin problemas
+<lang=iw/>השינוי שלך היה נכון
+<lang=jp/>おめでとうございます。変更は正常に処理されました。
 <lang=zh/>祝贺你的更改成功了
 </congrat_changes>
 
@@ -236,6 +314,9 @@
 <lang=ar/>لقد نجحت في التسجيل
 <lang=da/>Tillykke du er nu oprettet
 <lang=en/>Congratulations you are now signed up
+<lang=es/>Enhorabuena, ya está inscrito
+<lang=iw/>אתה נרשםחדש
+<lang=jp/>おめでとうございます。サインアップが完了しました。
 <lang=zh/>祝贺你现在登录了
 </congrat_signup>
 
@@ -243,6 +324,9 @@
 <lang=ar/>الملفات المفتوحة
 <lang=da/>Nuværende filer
 <lang=en/>Current files
+<lang=es/>Archivos actuales
+<lang=iw/>התקירת המשומשות
+<lang=jp/>現在のファイル
 <lang=zh/>现在的文件
 </currentfile>
 
@@ -250,6 +334,9 @@
 <lang=ar/>أسماء المفات الحالية
 <lang=da/>Aktuelt filnavn
 <lang=en/>Current filename
+<lang=es/>Nombre del archivo actual
+<lang=iw/>שם התיק המשומש
+<lang=jp/>現在のファイルネーム
 <lang=zh/>现在的文件名
 </currentfilename>
 
@@ -258,12 +345,15 @@
 <lang=bg/>Датски
 <lang=da/>Dansk
 <lang=en/>Danish
+<lang=es/>Danés
 <lang=fr/>Danois
 <lang=gr/>Δανικά
 <lang=hu/>dan
 <lang=is/>Danska
 <lang=it/>danese
+<lang=iw/>דינמרקית
 <lang=ja/>デンマーク語
+<lang=jp/>デンマーク語
 <lang=mk/>Дански
 <lang=se/>Danska
 <lang=zh/>丹麦语
@@ -274,12 +364,15 @@
 <lang=bg/>Дата
 <lang=da/>Dato
 <lang=en/>Date
+<lang=es/>Fecha
 <lang=fr/>Date
 <lang=gr/>Ημερομηνία
 <lang=hu/>datum
 <lang=is/>Dagsetning
 <lang=it/>data
+<lang=iw/>תאריך
 <lang=ja/>日付
+<lang=jp/>日付
 <lang=mk/>Дата
 <lang=se/>datum
 <lang=zh/>日期
@@ -290,12 +383,15 @@
 <lang=bg/>Германски
 <lang=da/>Tysk
 <lang=en/>German
+<lang=es/>Alemán
 <lang=fr/>Allemand
 <lang=gr/>Γερμανικά
 <lang=hu/>nemet
 <lang=is/>Þýska
 <lang=it/>tedesco
+<lang=iw/>גרמנית
 <lang=ja/>ドイツ語
+<lang=jp/>ドイツ語
 <lang=mk/>Германски
 <lang=se/>Tyska
 <lang=zh/>德语
@@ -305,8 +401,11 @@
 <lang=ar/>أمحاء
 <lang=da/>Slet
 <lang=en/>Delete
+<lang=es/>Eliminar
 <lang=gr/>Διαγραφή
 <lang=hu/>torol
+<lang=iw/>מחק
+<lang=jp/>消去
 <lang=zh/>删去
 </delete>
 
@@ -314,7 +413,10 @@
 <lang=ar/>أمحاء ملف
 <lang=da/>Slet fil
 <lang=en/>Delete file
+<lang=es/>Eliminar archivo
 <lang=gr/>Διαγραφή αρχείου
+<lang=iw/>מחק אתתיק
+<lang=jp/>ファイルを消去
 <lang=zh/>删去文件
 </deletefile>
 
@@ -323,11 +425,14 @@
 <lang=bg/>Описание
 <lang=da/>Beskrivelse
 <lang=en/>Description
+<lang=es/>Descripción
 <lang=fr/>Description
 <lang=gr/>Περιγραφή
 <lang=hu/>leiras
 <lang=it/>descrizione
+<lang=iw/>תיאור
 <lang=ja/>記述
+<lang=jp/>概要
 <lang=mk/>Опис
 <lang=zh/>描述 
 </description>
@@ -336,15 +441,21 @@
 <lang=ar/>حدود او مواصفات
 <lang=da/>Dimensioner
 <lang=en/>Dimentions
+<lang=es/>Dimensiones
 <lang=gr/>Διαστάσεις
+<lang=iw/>הטל
+<lang=jp/>寸法
 </dimensions>
 
 <edit>
 <lang=ar/>تصحيح
 <lang=da/>Ret
 <lang=en/>Edit
+<lang=es/>Editar
 <lang=gr/>Επεξεργασία
 <lang=hu/>szerkeszt
+<lang=iw/>עריכה
+<lang=jp/>編集
 <lang=zh/>编辑
 </edit>
 
@@ -352,8 +463,11 @@
 <lang=ar/>تصحيح ملف
 <lang=da/>Retter for sproget
 <lang=en/>Editing language
+<lang=es/>Idioma de edición
 <lang=gr/>Επεξεργασία γλώσσας
 <lang=hu/>nyelv-szerkesztes
+<lang=iw/>שפת עריכה
+<lang=jp/>編集用語
 <lang=zh/>编辑语言
 </edit_lang>
 
@@ -362,12 +476,15 @@
 <lang=bg/>Английски
 <lang=da/>Engelsk
 <lang=en/>English
+<lang=es/>Inglés
 <lang=fr/>Anglais
 <lang=gr/>Αγγλικά
 <lang=hu/>angol
 <lang=is/>Enska
 <lang=it/>inglese
+<lang=iw/>אנגלית
 <lang=ja/>英語
+<lang=jp/>英語
 <lang=mk/>Англиски
 <lang=se/>Engelska
 <lang=zh/>英语
@@ -378,21 +495,30 @@
 <lang=bg/>Испански
 <lang=da/>Spansk
 <lang=en/>Spanish
+<lang=es/>Español
 <lang=gr/>Ισπανικά
 <lang=hu/>spanyol
+<lang=iw/>ספרדית
+<lang=jp/>スペイン語
 <lang=zh/>西班牙语
 </es>
 
 <et>
 <lang=ar/>أستوني
 <lang=en/>Estonian
+<lang=es/>Estonio
+<lang=iw/>אוסטונית
+<lang=jp/>エストニア語
 </et>
 
 <fileformat>
 <lang=ar/>تغير نوع ملف
 <lang=da/>Filformat
 <lang=en/>File format
+<lang=es/>Formato de archivo
 <lang=gr/>Τύπος αρχείου
+<lang=iw/>פורמט קובץ
+<lang=jp/>ファイル　フォーマット
 <lang=zh/>文件格式
 </fileformat>
 
@@ -400,7 +526,10 @@
 <lang=ar/>أسم ملف
 <lang=da/>Filnavn
 <lang=en/>Filename
+<lang=es/>Nombre de archivo
 <lang=gr/>Όνομα αρχείου
+<lang=iw/>שם קובץ
+<lang=jp/>ファイルネーム
 <lang=zh/>文件名
 </filename>
 
@@ -408,7 +537,10 @@
 <lang=ar/>حجم ملف
 <lang=da/>Filstørrelse
 <lang=en/>Filesize
+<lang=es/>Tamaño de archivo
 <lang=gr/>Μέγεθος αρχείου
+<lang=iw/>גודל הקובץ
+<lang=jp/>ファイルサイズ
 <lang=zh/>文件大小
 </filesize>
 
@@ -416,6 +548,9 @@
 <lang=ar/>أدخال ملف للقصة
 <lang=da/>Filupload til historie
 <lang=en/>File upload for story
+<lang=es/>Cargar archivo para artículo
+<lang=iw/>שמירת קובץ לסיפור
+<lang=jp/>ストーリー用のファイルアップロード
 <lang=zh/>文件上载
 </fileupload>
 
@@ -423,7 +558,10 @@
 <lang=ar/>أول
 <lang=da/>Første
 <lang=en/>First
+<lang=es/>Primero
 <lang=hu/>elso
+<lang=iw/>הראשון
+<lang=jp/>最初
 <lang=zh/>首先
 </first>
 
@@ -432,12 +570,15 @@
 <lang=bg/>Френски
 <lang=da/>Fransk
 <lang=en/>French
+<lang=es/>Francés
 <lang=fr/>Francais
 <lang=gr/>Γαλλικά
 <lang=hu/>francia
 <lang=is/>Franska
 <lang=it/>francese
+<lang=iw/>צרפתית
 <lang=ja/>フランス語
+<lang=jp/>フランス語
 <lang=mk/>Француски
 <lang=se/>Franska
 <lang=zh/>法语
@@ -447,6 +588,9 @@
 <lang=ar/>مجاناًَ للجميع
 <lang=da/>Fri-for-alle
 <lang=en/>Free-for-all
+<lang=es/>Gratis para todos
+<lang=iw/>חינם
+<lang=jp/>無料で開かれている
 <lang=zh/>完全自由
 </freeall>
 
@@ -454,7 +598,10 @@
 <lang=ar/>كلمات القصة جميعاً
 <lang=da/>Hele historien
 <lang=en/>Full story text
+<lang=es/>Texto completo del artículo
 <lang=hu/>a tortenet teljes szovege
+<lang=iw/>טקסט מלא לסיפור
+<lang=jp/>フルストーリーテキスト
 <lang=zh/>全文报导正文
 </full_story>
 
@@ -462,6 +609,9 @@
 <lang=ar/>الطريق كاملة
 <lang=da/>Fuld sti
 <lang=en/>Full path
+<lang=es/>Ruta completa
+<lang=iw/>הדרך המלאה
+<lang=jp/>全通路
 <lang=zh/>全部地址
 </fullpath>
 
@@ -469,6 +619,9 @@
 <lang=ar/>جميع الكامات
 <lang=da/>Fuld tekst
 <lang=en/>Full text
+<lang=es/>Texto completo
+<lang=iw/>טקסט מליג
+<lang=jp/>全テキスト
 <lang=zh/>全部文章
 </fulltext>
 
@@ -477,12 +630,15 @@
 <lang=bg/>Гръцки
 <lang=da/>Græsk
 <lang=en/>Greek
+<lang=es/>Griego
 <lang=fr/>Grecque
 <lang=gr/>Ελληνικά
 <lang=hu/>gorog
 <lang=is/>Gríska
 <lang=it/>greco
+<lang=iw/>יוונית
 <lang=ja/>ギリシャ語
+<lang=jp/>ギリシャ語
 <lang=mk/>Грчки
 <lang=se/>grekiska
 <lang=zh/>希腊
@@ -492,7 +648,10 @@
 <lang=ar/>هنجاري
 <lang=da/>Ungarnsk
 <lang=en/>Hungarian
+<lang=es/>Húngaro
 <lang=hu/>magyar
+<lang=iw/>הונגרית
+<lang=jp/>ハンガリー語
 <lang=zh/>匈牙利语
 </hu>
 
@@ -500,6 +659,9 @@
 <lang=ar/>معزوم فقط
 <lang=da/>Kun inviterede
 <lang=en/>Invite-only
+<lang=es/>Sólo con invitación
+<lang=iw/>רק עם הזמנה
+<lang=jp/>招待のみ
 <lang=zh/>只邀请
 </inviteonly>
 
@@ -508,12 +670,15 @@
 <lang=bg/>Исландски
 <lang=da/>Islandsk
 <lang=en/>Icelandic
+<lang=es/>Islandés
 <lang=fr/>Islandais
 <lang=gr/>Ισλανδικά
 <lang=hu/>izlandi
 <lang=is/>Íslenska
 <lang=it/>islandese
+<lang=iw/>איסלדית
 <lang=ja/>アイスランド語
+<lang=jp/>アイスランド語
 <lang=mk/>Исландски
 <lang=se/>islandska
 <lang=zh/>冰岛语
@@ -524,12 +689,15 @@
 <lang=bg/>Италиански
 <lang=da/>Italiensk
 <lang=en/>Italian
+<lang=es/>Italiano
 <lang=fr/>Italien
 <lang=gr/>Ιταλικά
 <lang=hu/>olasz
 <lang=is/>Ítalska
 <lang=it/>italiano
+<lang=iw/>איטלקית
 <lang=ja/>イタリア語
+<lang=jp/>イタリア語
 <lang=mk/>Италијански
 <lang=se/>italiansk
 <lang=zh/>意大利语
@@ -537,6 +705,9 @@
 
 <iw>
 <lang=en/>Hebrew
+<lang=es/>Hebreo
+<lang=iw/>עברית
+<lang=jp/>ヘブライ語
 </iw>
 
 <ja>
@@ -544,26 +715,35 @@
 <lang=bg/>Японски
 <lang=da/>Japansk
 <lang=en/>Japanese
+<lang=es/>Japonés
 <lang=fr/>Japonais
 <lang=gr/>Ιαπωνικά
 <lang=hu/>japan
 <lang=is/>Japanska
 <lang=it/>giapponese
+<lang=iw/>יפנית
 <lang=ja/>日本語
+<lang=jp/>日本語
 <lang=mk/>Јапонски
 <lang=se/>japanska
 <lang=zh/>日语
 </ja>
+
+<jp>
+</jp>
 
 <language>
 <lang=ar/>لغة
 <lang=bg/>Език
 <lang=da/>Sprog
 <lang=en/>Language
+<lang=es/>Idioma
 <lang=fr/>Language
 <lang=hu/>nyelv
 <lang=it/>lingua
+<lang=iw/>שפה
 <lang=ja/>言語
+<lang=jp/>言語
 <lang=mk/>Јазик
 <lang=zh/>语言
 </language>
@@ -572,7 +752,10 @@
 <lang=ar/>النهاية
 <lang=da/>Sidste
 <lang=en/>Last
+<lang=es/>Último
 <lang=hu/>utolso
+<lang=iw/>אחרון
+<lang=jp/>最後
 <lang=zh/>持续
 </last>
 
@@ -581,10 +764,13 @@
 <lang=bg/>Вход
 <lang=da/>Log ind
 <lang=en/>Login
+<lang=es/>Inicio de sesión
 <lang=fr/>Connection
 <lang=hu/>bejelentkezes
 <lang=it/>inizio attivita
+<lang=iw/>כניטה
 <lang=ja/>ログイン
+<lang=jp/>ログイン
 <lang=mk/>Логин (Влез)
 <lang=zh/>登录
 </login>
@@ -594,10 +780,13 @@
 <lang=bg/>Изход
 <lang=da/>Log ud
 <lang=en/>Logout
+<lang=es/>Final de sesión
 <lang=fr/>Deconnection
 <lang=hu/>kijelentkezes
 <lang=it/>termine attivita
+<lang=iw/>יציאה
 <lang=ja/>ログアウト
+<lang=jp/>ログアウト
 <lang=mk/>Логаут (Излез)
 <lang=zh/>注销
 </logout>
@@ -606,6 +795,9 @@
 <lang=ar/>أعلام
 <lang=da/>Media
 <lang=en/>Media
+<lang=es/>Medios
+<lang=iw/>מידיא
+<lang=jp/>メディア
 <lang=zh/>煤体
 </media>
 
@@ -613,7 +805,10 @@
 <lang=ar/>   ادارة الاعلام
 <lang=da/>Medie håndtering
 <lang=en/>Media management
+<lang=es/>Gestión de medios
 <lang=hu/>media szervezes
+<lang=iw/>   ניהול מידיא
+<lang=jp/>メディアマネージメント
 <lang=zh/>媒体管理
 </media_man>
 
@@ -622,11 +817,14 @@
 <lang=bg/>Македонски
 <lang=da/>Makedonsk
 <lang=en/>Macedonian
+<lang=es/>Macedonio
 <lang=fr/>Mecedonien
 <lang=gr/>Μακεδονικά
 <lang=hu/>makedon
 <lang=it/>mecedone
+<lang=iw/>מסדונית
 <lang=ja/>マケドニア語
+<lang=jp/>マケドニア語
 <lang=mk/>Македонски
 <lang=se/>macedoniska
 <lang=zh/>马其顿语
@@ -636,6 +834,9 @@
 <lang=ar/>مزيد
 <lang=da/>Mere
 <lang=en/>More
+<lang=es/>Más
+<lang=iw/>ירתר
+<lang=jp/>以上
 <lang=zh/>更多
 </more>
 
@@ -643,7 +844,10 @@
 <lang=ar/>قصة جديدة
 <lang=da/>Ny historie
 <lang=en/>New story
+<lang=es/>Artículo nuevo
 <lang=hu/>uj tortenet
+<lang=iw/>סיפור חדש
+<lang=jp/>新しいストーリー
 <lang=zh/>新的故事
 </new_story>
 
@@ -651,6 +855,9 @@
 <lang=ar/>عضو جديد
 <lang=da/>Nyt brugernavn
 <lang=en/>New username
+<lang=es/>Nuevo nombre de usuario
+<lang=iw/>שם משתמש חדש
+<lang=jp/>新しいユーザーネーム
 <lang=zh/>新的用户名
 </new_username>
 
@@ -658,6 +865,9 @@
 <lang=ar/>أسم ملف جديد
 <lang=da/>Nyt filnavn
 <lang=en/>New filename
+<lang=es/>Nuevo nombre de archivo
+<lang=iw/>שם קובץ חדש
+<lang=jp/>新しいファイルネーム
 <lang=zh/>新的文件名
 </newfilename>
 
@@ -665,6 +875,9 @@
 <lang=ar/>كلمة مرور جديدة
 <lang=da/>Nyt password
 <lang=en/>New Passward
+<lang=es/>Nueva contraseña
+<lang=iw/>סיסמה חדשה
+<lang=jp/>新しいパスワード
 <lang=zh/>新的密码
 </newpass>
 
@@ -672,6 +885,9 @@
 <lang=ar/>لا
 <lang=da/>Nej
 <lang=en/>No
+<lang=es/>No
+<lang=iw/>לא
+<lang=jp/>いいえ
 <lang=zh/>否
 </no_>
 
@@ -679,6 +895,9 @@
 <lang=ar/>لا يوجد قصص
 <lang=da/>Ingen historier
 <lang=en/>No stories
+<lang=es/>No hay artículos
+<lang=iw/>בלי סיפורים
+<lang=jp/>ストーリーはありません
 <lang=zh/>没有内容
 </no_stories>
 
@@ -686,6 +905,9 @@
 <lang=ar/>حدث خطاء أو أكثر
 <lang=da/>En eller flere fejl er opstået i
 <lang=en/>One or more errors has occured in
+<lang=es/>Se han producido uno o más errores en
+<lang=iw/>נעשה יותר מטעות אחת
+<lang=jp/>の中で一つまたはそれ以上のエラーが起きました。
 <lang=zh/>出现有一个或更多的错误
 </oneerror_occur>
 
@@ -693,6 +915,9 @@
 <lang=ar/>أو هنا لأضافة قصة جديدة
 <lang=da/>eller her for at tilføje en ny historie
 <lang=en/>or here to add a new story
+<lang=es/>o aquí para agregar un nuevo artículo
+<lang=iw/>אוכאן כדי להוסיף סיפור חדש
+<lang=jp/>またはここから新しいストーリーを追加して下さい
 <lang=zh/>或许按这儿添加新的记事
 </or_add_newstory>
 
@@ -700,7 +925,10 @@
 <lang=ar/>أو جديد
 <lang=da/>eller ny
 <lang=en/>or new
+<lang=es/>o nuevo
 <lang=hu/>vagy uj
+<lang=iw/>או חדש
+<lang=jp/>または新しい
 <lang=zh/>或许新
 </or_new>
 
@@ -709,12 +937,15 @@
 <lang=bg/>Парола
 <lang=da/>Kodeord
 <lang=en/>Password
+<lang=es/>Contraseña
 <lang=fr/>Mot de passe
 <lang=gr/>Κωδικός
 <lang=hu/>jelszo
 <lang=is/>Lykilorð
 <lang=it/>parola d'acceso
+<lang=iw/>סיסמה
 <lang=ja/>パスワード
+<lang=jp/>パスワード
 <lang=mk/>Клучен збор
 <lang=se/>passord
 <lang=zh/>密码
@@ -724,6 +955,9 @@
 <lang=ar/>الرجاء أكمال هذا الجدول
 <lang=da/>Venligst udfyld denne formular
 <lang=en/>Please fill out this form
+<lang=es/>Rellene este formulario
+<lang=iw/>בבקשה למליגאת הבקשה הבאה
+<lang=jp/>この用紙に記入して下さい。
 <lang=zh/>请填写这张表
 </please_fill_out_this_form>
 
@@ -731,6 +965,9 @@
 <lang=ar/>الرجاء ادخال معلوماتك قبل الدخول
 <lang=da/>Log venligst ind før denne side tilgåes
 <lang=en/>Please Login before accessing this page
+<lang=es/>Inicie una sesión antes de acceder a esta página
+<lang=iw/>יש להרשם לפני הכניטה
+<lang=jp/>このページにアクセスするにはログインが必要です。
 <lang=zh/>进入此页之前请登录
 </pleaselogin>
 
@@ -739,11 +976,14 @@
 <lang=bg/>Автор
 <lang=da/>Af
 <lang=en/>Posted by
+<lang=es/>Enviado por
 <lang=fr/>Poster par
 <lang=gr/>Καταχώρηση από
 <lang=hu/>feladva ... altal?
 <lang=it/>inviato da
+<lang=iw/>באדיברת
 <lang=ja/>記入される
+<lang=jp/>からのお知らせ
 <lang=mk/>Испраќа
 <lang=se/>postat av
 <lang=zh/>邮寄
@@ -753,6 +993,9 @@
 <lang=ar/>مراجعة
 <lang=da/>Udkast
 <lang=en/>Preview
+<lang=es/>Vista preliminar
+<lang=iw/>חזרה
+<lang=jp/>プレビュー
 <lang=zh/>预现
 </preview>
 
@@ -761,10 +1004,13 @@
 <lang=bg/>Публичен
 <lang=da/>Offentlig
 <lang=en/>Public
+<lang=es/>Público
 <lang=fr/>Publique
 <lang=hu/>nyilvanos
 <lang=it/>pubulico
+<lang=iw/>פופלארי
 <lang=ja/>公共
+<lang=jp/>パブリック
 <lang=mk/>Јавен
 <lang=zh/>公众
 </public>
@@ -773,7 +1019,10 @@
 <lang=ar/>عشوائي
 <lang=da/>Tilfældig
 <lang=en/>Random
+<lang=es/>Aleatorio
 <lang=hu/>veletlen
+<lang=iw/>ראנדומאלי
+<lang=jp/>ランダム
 <lang=zh/>随便
 </random>
 
@@ -781,7 +1030,10 @@
 <lang=ar/>تسجيل
 <lang=da/>Registrer
 <lang=en/>Register
+<lang=es/>Registrarse
 <lang=hu/>regisztral
+<lang=iw/>הרשמה
+<lang=jp/>登録
 <lang=zh/>登录
 </register>
 
@@ -790,12 +1042,15 @@
 <lang=bg/>Шведски
 <lang=da/>Svensk
 <lang=en/>Swedish
+<lang=es/>Sueco
 <lang=fr/>Suedois
 <lang=gr/>Σουηδικά
 <lang=hu/>sved
 <lang=is/>Sænska
 <lang=it/>svedese
+<lang=iw/>שוודית
 <lang=ja/>スウェーデン語
+<lang=jp/>スェーデン語
 <lang=mk/>Шведски
 <lang=se/>svenska
 <lang=zh/>瑞典语
@@ -806,10 +1061,13 @@
 <lang=bg/>Кратко име
 <lang=da/>Kortnavn
 <lang=en/>Shortname
+<lang=es/>Diminutivo
 <lang=fr/>Surnom
 <lang=hu/>rovid nev
 <lang=it/>nome corto
+<lang=iw/>שם משתמש
 <lang=ja/>ショートネーム
+<lang=jp/>ショートネーム
 <lang=mk/>Кратко име
 <lang=zh/>短名
 </shortname>
@@ -819,10 +1077,13 @@
 <lang=bg/>Абонамент
 <lang=da/>Tilmeld
 <lang=en/>Sign up
+<lang=es/>Inscribirse
 <lang=fr/>Subscription
 <lang=hu/>feliratkozik
 <lang=it/>firmi in (su)
+<lang=iw/>הרשמה
 <lang=ja/>サインアップ
+<lang=jp/>サインアップ
 <lang=mk/>Впиши
 <lang=zh/>登记
 </signup>
@@ -831,6 +1092,9 @@
 <lang=ar/>تم الموافقة 
 <lang=da/>Tilmeld-godkend
 <lang=en/>Signup Approve
+<lang=es/>Aprobar inscripción
+<lang=iw/>ההרשמה התקבלה
+<lang=jp/>サインアップ承諾
 <lang=zh/>允许登记
 </signup_approve>
 
@@ -838,6 +1102,9 @@
 <lang=ar/>سجل الى قناة سبوجي جديدة
 <lang=da/>Tilmeld en ny spoejs kanal
 <lang=en/>Sign up for a new Spoejs channel
+<lang=es/>Inscríbase en un nuevo canal de Spoejs
+<lang=iw/>ההרשמה לערוץ סבוכי חדש
+<lang=jp/>新しいSpoejsチャンネルへサインアップする
 <lang=zh/>登记新的网页
 </signup_newchannel>
 
@@ -845,7 +1112,10 @@
 <lang=ar/>العودة الى الصفحة الاولى
 <lang=da/>Kanal index
 <lang=en/>Site home
+<lang=es/>Página de inicio del sitio
 <lang=hu/>eredeti hely?
+<lang=iw/>דף בית
+<lang=jp/>サイトのホーム
 <lang=zh/>本页
 </site_home>
 
@@ -853,7 +1123,10 @@
 <lang=ar/>تغيرات على الموقع
 <lang=da/>Site konfiguration
 <lang=en/>Site configuration
+<lang=es/>Configuración del sitio
 <lang=hu/>hely konfiguracio
+<lang=iw/>דף שידרג
+<lang=jp/>サイト配置
 <lang=zh/>网页结构
 </siteconf>
 
@@ -861,6 +1134,9 @@
 <lang=ar/>قوانيين الموقع
 <lang=da/>Site politik
 <lang=en/>Site Policy
+<lang=es/>Normas del sitio
+<lang=iw/>כללים
+<lang=jp/>サイトポリシー
 <lang=zh/>本页特权
 </sitepolicy>
 
@@ -868,7 +1144,10 @@
 <lang=ar/>خاص
 <lang=da/>Specifik
 <lang=en/>Specific
+<lang=es/>Específico
 <lang=hu/>specialis
+<lang=iw/>ספציפי
+<lang=jp/>詳細
 <lang=zh/>具体
 </specific>
 
@@ -876,6 +1155,9 @@
 <lang=ar/>يوجد قنوات سبوجي في هذا الموقع
 <lang=da/>Spoejs kanaler på dette site
 <lang=en/>Spoejs channels at this site
+<lang=es/>Canales de Spoejs en este sitio
+<lang=iw/>קישור עם ערוץסבוכי
+<lang=jp/>このサイトのSpoejsチャンネル
 <lang=zh/>Spoejs网页
 </spoejs_channels_at_this_site>
 
@@ -883,6 +1165,9 @@
 <lang=ar/>تحديد للقناوات في هذا الموقع
 <lang=da/>Status for kanaler på dette site
 <lang=en/>Status for channels at this site
+<lang=es/>Estado de los canales en este sitio
+<lang=iw/>מצב הערוצים בדף הזה
+<lang=jp/>このサイトのチャンネルのステータス
 <lang=zh/>本网站网页的状况
 </statuschannel>
 
@@ -890,7 +1175,10 @@
 <lang=ar/>محتويات القصة
 <lang=da/>Historie abstrakt
 <lang=en/>Story abstract
+<lang=es/>Resumen del artículo
 <lang=hu/>tortenet kivonat
+<lang=iw/>תוכך הסיפור
+<lang=jp/>空想のストーリー
 <lang=zh/>记事摘要
 </story_abstract>
 
@@ -898,12 +1186,18 @@
 <lang=ar/>العودة للقصة
 <lang=da/>Historie
 <lang=en/>Story home
+<lang=es/>Inicio del artículo
+<lang=iw/>התחלת הסיפור
+<lang=jp/>ストーリーホーム
 <lang=zh/>记事本页
 </story_home>
 
 <storysave>
 <lang=ar/>تم حفظ القصة بنجاح
 <lang=en/>Story saved successfully
+<lang=es/>El artículo se ha guardado sin problemas
+<lang=iw/>הסיפור נכמר בהצלחה
+<lang=jp/>ストーリーは正常に保存されました
 <lang=zh/>保存记事成功
 </storysave>
 
@@ -911,7 +1205,10 @@
 <lang=ar/>عنوان القصة
 <lang=da/>Historie titel
 <lang=en/>Story title
+<lang=es/>Título del artículo
 <lang=hu/>tortenet cim
+<lang=iw/>כותרת הסיפור
+<lang=jp/>ストーリータイトル
 <lang=zh/>记事标题
 </storytitle>
 
@@ -919,6 +1216,9 @@
 <lang=ar/>جدول عناوين القصص
 <lang=da/>Historietitelliste
 <lang=en/>Story title list
+<lang=es/>Lista de títulos de artículos
+<lang=iw/>רשימת כרתרות
+<lang=jp/>ストーリータイトルリスト
 <lang=zh/>记事标题一览
 </storytitlelist>
 
@@ -927,22 +1227,31 @@
 <lang=bg/>Приложи
 <lang=da/>Indsend
 <lang=en/>Submit
+<lang=es/>Enviar
 <lang=fr/>Soumettre
 <lang=hu/>bead
 <lang=it/>presenti
+<lang=iw/>שליחה
 <lang=ja/>承諾
+<lang=jp/>提出
 <lang=mk/>Поднеси
 <lang=zh/>承诺
 </submit>
 
 <submit_query>
 <lang=en/>Submit Query
+<lang=es/>Enviar consulta
+<lang=iw/>שליחת ההמלצה
+<lang=jp/>クエリーを提出
 </submit_query>
 
 <thechannel_notexit>
 <lang=ar/>هذة القناة غير موجودة
 <lang=da/>Kanalen eksisterer ikke!
 <lang=en/>The channel doesn't exist!
+<lang=es/>¡Ese canal no existe!
+<lang=iw/>הערוץ לא כמצא
+<lang=jp/>このチャンネルは存在しません
 <lang=zh/>这个网页不存在
 </thechannel_notexit>
 
@@ -951,10 +1260,13 @@
 <lang=bg/>Тема
 <lang=da/>Tema
 <lang=en/>Theme
+<lang=es/>Tema
 <lang=fr/>Theme
 <lang=hu/>tema
 <lang=it/>tema
+<lang=iw/>תכונה
 <lang=ja/>テーマ
+<lang=jp/>テーマ
 <lang=mk/>Тема
 <lang=zh/>主题
 </theme>
@@ -963,7 +1275,10 @@
 <lang=ar/>الرموز
 <lang=da/>Ikon
 <lang=en/>Thumbnail
+<lang=es/>Vista en miniatura
 <lang=hu/>huvelykujjkorom?
+<lang=iw/>איקונם
+<lang=jp/>サムネイル
 <lang=zh/>简要
 </thumbnail>
 
@@ -972,12 +1287,15 @@
 <lang=bg/>Заглавие
 <lang=da/>Titel
 <lang=en/>Title
+<lang=es/>Título
 <lang=fr/>Titre
 <lang=gr/>Τίτλος
 <lang=hu/>cim
 <lang=is/>Titill
 <lang=it/>titolo
+<lang=iw/>כותרת
 <lang=ja/>タイトル
+<lang=jp/>タイトル
 <lang=mk/>Наслов
 <lang=se/>titel
 <lang=zh/>标题
@@ -986,6 +1304,9 @@
 <upload>
 <lang=ar/>أدخال
 <lang=en/>Upload
+<lang=es/>Cargar
+<lang=iw/>שליפה
+<lang=jp/>アップロード
 <lang=zh/>上载
 </upload>
 
@@ -994,10 +1315,13 @@
 <lang=bg/>Име на потребител
 <lang=da/>Brugernavn
 <lang=en/>Username
+<lang=es/>Nombre de usuario
 <lang=fr/>Nom d'Utilisateur
 <lang=hu/>felhasznaloi nev
 <lang=it/>nome di utente
+<lang=iw/>שם משתמש
 <lang=ja/>ユーザー名
+<lang=jp/>ユーザーネーム
 <lang=mk/>Корисничко име
 <lang=zh/>用户名
 </username>
@@ -1006,6 +1330,9 @@
 <lang=ar/>نعم
 <lang=da/>Ja
 <lang=en/>Yes
+<lang=es/>Sí
+<lang=iw/>כן
+<lang=jp/>はい
 <lang=zh/>是
 </yes>
 
@@ -1013,7 +1340,10 @@
 <lang=ar/>أسمك
 <lang=da/>Dit navn
 <lang=en/>Your name
+<lang=es/>Su nombre
 <lang=hu/>neve, neved?
+<lang=iw/>השם שלך
+<lang=jp/>あなたのお名前
 <lang=zh/>你的名字
 </yourname>
 
@@ -1022,12 +1352,15 @@
 <lang=bg/>Китайски
 <lang=da/>Kinesisk
 <lang=en/>Chinese
+<lang=es/>Chino
 <lang=fr/>Chinois
 <lang=gr/>Κινέζικα
 <lang=hu/>kinai
 <lang=is/>Kínverska
 <lang=it/>cinese
+<lang=iw/>סיני
 <lang=ja/>中国語
+<lang=jp/>中国語
 <lang=mk/>Кинески
 <lang=se/>kinesiska
 <lang=zh/>中文
