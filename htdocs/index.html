@@ -4,14 +4,6 @@
 <a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'title' ) %>
 </a><br/>
 % } }
-% if ( $policy eq 'ffa' or $policy eq 'signup' ) {
-<h2>
-<a href="/htm/admin/signup.html">
-Click here to sign up for a new spoejs channel
-</a>
-</h2>
-<br/>
-% }
 <hr/>
 Change language:<br/>
 <& /w, w => 'langchooser' &>
