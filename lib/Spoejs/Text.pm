@@ -8,8 +8,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use YAML qw( DumpFile LoadFile);
 
-# $Id: Text.pm,v 1.35 2004/08/08 16:51:42 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.35 $';
+# $Id: Text.pm,v 1.36 2004/08/08 19:11:49 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.36 $';
 
 
 # Constructor
@@ -113,6 +113,28 @@ sub _check_save {
 }
 
 
+# Set a single variable, if it is not identical to the current one
+# 
+sub _set_value {
+
+    my $self = shift;
+    my ( $hashr, $key, $value ) = @_;
+
+    # Do no touch identical values
+    unless( defined $$hashr{$key} && $$hashr{$key} eq $$value ) {
+
+	# Delete empty keys or set new value
+	if ( $$value =~ /^\s*$/ ) {
+	    delete $$hashr{$key}
+	} else {
+	    $$hashr{$key} = $$value;
+	}
+
+	$self->{is_modified} = 1;
+    }
+}
+
+
 #### Public interface ####
 
 # Return desired values from memory. If data not loaded from disk do so first.
@@ -176,33 +198,25 @@ sub set {
     # Loop through outer elements
     foreach $key ( keys %in_data ) {
 	my $type = ref( $in_data{$key} );
-	
+
 	if ( $type eq "" ) {
 	    # If SCALAR, ref is false - add/overwrite directly
-
-	    unless( $self->{data}{$key} && 
-		    $self->{data}{$key} eq $in_data{$key} ) {
-		$self->{data}{$key} = $in_data{$key};
-		$self->{is_modified} = 1;
-	    }
+	    
+	    $self->_set_value( \%{$self->{data}}, $key, \$in_data{$key} );
 	    
 	} else {
-	    # If this level contains nested elements they will be replaced
-	    # TODO: Check and report nested elements og make funktion recursive
-	    # to handle "unlimited" nesting.
-	    # TODO: Set is_modified only if something really changes.
-	    if( defined $self->{data}{$key} ) {
-		%{ $self->{data}{$key} } = ( %{ $self->{data}{$key} }, 
-					     %{ $in_data{$key} } );
-		$self->{is_modified} = 1;
-
-	    } else {
-		%{ $self->{data}{$key} } = ( %{ $in_data{$key} } );
-		$self->{is_modified} = 1;
+	    
+	    # Loop through inner (language) keys 
+	    foreach $inner_key ( keys %{ $in_data{$key} } ) {
+		
+		$self->_set_value( \%{$self->{data}{$key}}, $inner_key, 
+				   \$in_data{$key}{$inner_key} );
+		
+		delete $self->{data}{$key} unless keys %{$self->{data}{$key}};
 	    }
 	}
     }
-
+    
     # Success
     return 1;
 }
