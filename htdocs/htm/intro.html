@@ -3,16 +3,14 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: intro.html,v 1.1 2004/05/11 05:42:19 snicki Exp $
+%# $Id: intro.html,v 1.2 2004/05/16 01:01:51 snicki Exp $
 %#
-<& /htm/header.html &>
 %if ( @s > 0 ) {
 <& /w, w => 'abstract', box => 1, storyref => $s[0] &>
 % } else {
 <&|/l&>no_stories</&>
 % }
-</body>
-</html>
+% $m->abort;
 <%init>
     my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
 				    path => $spoejs{channel_path} );
