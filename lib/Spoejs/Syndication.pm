@@ -6,8 +6,8 @@ use LWP::UserAgent;
 use Spoejs::ChannelList;
 use Spoejs::SiteConf;
 
-# $Id: Syndication.pm,v 1.11 2004/05/16 11:22:40 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.11 $';
+# $Id: Syndication.pm,v 1.12 2004/05/16 11:45:04 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.12 $';
 
 # Constructor
 sub _initialize {
@@ -65,7 +65,7 @@ sub _remotes_from_conf {
   my $self  = shift;
 
   my $list = $self->{siteconf}->get( 'peers' );
-  return split /\n/, $list;
+  return split /\s+/, $list;
 }
 
 
