@@ -3,34 +3,41 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.29 2004/05/28 06:20:27 snicki Exp $
+%# $Id: media,v 1.30 2004/06/02 02:16:34 snicki Exp $
 %#
+% unless ( $no_div ) {
+<div class="media" <% $styleh %>>
+% }
 % if ( $href ) {
 <a href="<% $href %>">\
 %}
-% unless ( $no_div ) {
-<button>
-% }
 <img src="<& /htm/url:encode, "/$spoejs{channel}/pic.$ext", d=>$ARGS{d},
                               p=>$ARGS{p}, m=> $size &>" <% $html_wh
 			      %> alt="<% $ARGS{p} %>" />\
-% if ( $annotation && !defined $no_annotation ) {
-<div style="max-width: 130px;">
-<% $annotation %>
-</div>
-% }
-% unless ( $no_div ) {
-</button>
 % if ( $href ) {
 </a>
 %}
+% if ( $annotation && !defined $no_annotation ) {
+<div class="annotation" <% $stylew %>>
+<% $annotation %>
+</div>
 % }
-<%init>
-  # We need a picture to continue
+
+% unless ( $no_div ) {
+</div>
+% }
+<%init> 
+
+ # We need a picture to continue
   return unless defined $ARGS{p};
 
   # Let size (m) be overridable in url 
   my $size = $spoejs{p}{m} || $ARGS{m};
+
+# caching
+my $lang = $spoejs{lang_handle}->{lang_order}->[0];
+my $ckey ="$spoejs{channel_path}-$ARGS{d}-$ARGS{p}-$size-$lang";
+return if $m->cache_self(key => $ckey, expires_in => '240 hours');
 
   # get width/height for html
   unless ( $html_wh or $ARGS{p} eq 'ANY' ) {
@@ -63,14 +70,14 @@ sub random_annotation {
   $res .= ucfirst $words[int rand @words];
 
   for ( 0..1 + int rand 8 ) {
-    $res .= $words[int rand @words];
+    $res .= " $words[int rand @words]";
   }
 
   return $res;
 }
 
-
-
+my $styleh = $size > 400 ? 'style="height: 400px;"' : 'style="height: 160px;"';
+my $stylew = $size > 400 ? 'style="width: 390px;"' : 'style="width: 120px;"';
 </%init>
 <%args>
  $href    => undef
