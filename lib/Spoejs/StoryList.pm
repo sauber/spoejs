@@ -22,8 +22,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.7 2004/02/28 06:09:16 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.7 $';
+# $Id: StoryList.pm,v 1.8 2004/02/28 06:11:31 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.8 $';
 
 sub _initialize {
     my $self = shift;
@@ -72,21 +72,21 @@ my $all_by_date = sub {
 };
 
 
-my $by_keyword = sub {
-    my $self = shift;
-    my %input = @_;
-
-
-    my $switch = { 'category' => sub { print "cat: " . $input{'category'} . "\n"; }, 
- 		   'author' => sub { print "auth: ". $input{'author'} . "\n"; }, 
-# 		   'y' => sub { print ""; },
-# 		   'q' => sub { exit; } 
-};
-
-    my @cat = keys %input;
-    $$switch{$cat[0]}(); # Call the anon. sub
-
+my $ls_loop = sub {
+    my ( $self, $count, $comp, @all ) = @_;
     
+    my @new;
+    foreach $story ( @all ) {
+	# XXX: make story_path function call in Story
+	my $path = $story->{story_path};
+	$path =~ s/\///g;
+	
+	if ( $comp->( $path ) ) {
+	    push @new, $story;
+	    last if --$count == 0;
+	}
+    }
+    return @new;
 };
 
 
@@ -164,23 +164,6 @@ sub count_stories {
     
 }
 
-sub ls_loop {
-    my ( $self, $count, $comp, @all ) = @_;
-    
-    my @new;
-    foreach $story ( @all ) {
-	# XXX: make story_path function call in Story
-	my $path = $story->{story_path};
-	$path =~ s/\///g;
-	
-	if ( $comp->( $path ) ) {
-	    push @new, $story;
-	    last if --$count == 0;
-	}
-    }
-    return @new;
-}
-
 
 # List stories based on given keywords
 # Overall ideas is to get full list and remove based on given criterias
@@ -206,11 +189,11 @@ sub list_stories {
 	my $story_dir = $in{story};
 	$story_dir =~ s/\///g;
 	
-	@res = $self->ls_loop( $in{'prev'}, 
+	@res = $self->$ls_loop( $in{'prev'}, 
 			       sub { return $_[0] < $story_dir; },
 			       @res ) if $in{'prev'}; 
 	
-	@res = $self->ls_loop( $in{'next'}, 
+	@res = $self->$ls_loop( $in{'next'}, 
 			       sub { return $_[0] > $story_dir; },
 			       reverse @res ) if $in{'next'};
 	
@@ -227,7 +210,7 @@ sub list_stories {
 	my $to = $in{to} || 99991299;
 	$to =~ s/\///g;
 
-	@res = $self->ls_loop( -1,
+	@res = $self->$ls_loop( -1,
 			       sub { return $_[0] >= $from and $_[0] <= $to; },
 			       @res ); 
 	
