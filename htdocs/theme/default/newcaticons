@@ -3,12 +3,10 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: newcaticons,v 1.5 2004/04/10 07:21:09 sauber Exp $
+%# $Id: newcaticons,v 1.6 2004/08/08 20:34:30 snicki Exp $
 %#
 % for my $icon ( @cat_icons ) {
-<a href="<% $$icon{href} %>">\
-<& /w, w => 'categoryicon', category => $$icon{category}, size => $icon_size &>\
-</a>
+<& /w, w => 'categoryicon', category => $icon, size => $icon_size &>
 % }
 <%args>
   @cat_icons => undef
