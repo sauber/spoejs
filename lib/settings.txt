@@ -1,5 +1,5 @@
 <password>
-password
+kodeord
 </password>
 
 <policy>
@@ -7,6 +7,6 @@ ffa
 </policy>
 
 <username>
-admin
+snicki
 </username>
 

@@ -1,8 +1,8 @@
 package Spoejs::Pic;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-# $Id: Pic.pm,v 1.8 2004/03/24 14:41:38 sauber Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.8 $';
+# $Id: Pic.pm,v 1.9 2004/03/28 07:19:36 snicki Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.9 $';
 
 # Initializor
 #
@@ -83,4 +83,16 @@ sub html_imgsize {
   $y = int( $y * $h / $w ) if $w > $h;
 
   return "width=\"$x\" height=\"$y\"";
+}
+
+# Get info (IM->Ping) about pic
+#
+sub ping {
+  my( $self, %params ) = @_;
+
+  return undef unless ( $self->{file} && $self->{path} );
+
+  # Use Image:Magick's ping to get resolution of image
+  my $im = Image::Magick->new();
+  return $im->Ping( "$self->{path}/$self->{file}" );
 }
