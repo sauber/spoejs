@@ -1,9 +1,8 @@
 package Spoejs::Comments;
 use base ( "Spoejs::Text" );
-use Data::Dumper;
 
-# $Id: Comments.pm,v 1.1 2004/06/04 11:19:43 snicki Exp $
-$Spoejs::Comments::VERSION = $Spoejs::Comments::VERSION = '$Revision: 1.1 $';
+# $Id: Comments.pm,v 1.2 2004/06/08 09:37:34 snicki Exp $
+$Spoejs::Comments::VERSION = $Spoejs::Comments::VERSION = '$Revision: 1.2 $';
 
 sub _initialize {
     my $self = shift;
@@ -15,13 +14,10 @@ sub _initialize {
 sub append {
   my ($self, %params ) = @_;
  
-  warn Dumper \%params;
-  warn Dumper $self;
   my @keys = keys %params;
   my $key = $keys[0];
   my $old = $self->get( "$key" );
   $self->set( $key => "${old}$params{$key}" );
-
   return 1;
 }
 

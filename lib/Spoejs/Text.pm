@@ -4,14 +4,12 @@
 
 package Spoejs::Text;
 use Storable qw( dclone );
-use Carp::Assert;
 use Spoejs::ChannelConf;
 use base ( "Spoejs" );
-#use Data::Dumper;
-use YAML ':all';
+use YAML qw( DumpFile LoadFile);
 
-# $Id: Text.pm,v 1.28 2004/06/08 02:54:42 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.28 $';
+# $Id: Text.pm,v 1.29 2004/06/08 09:36:53 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.29 $';
 
 
 # Constructor
@@ -48,8 +46,10 @@ sub _store_data {
     my $USE_YAML = undef;
 
     if ( $USE_YAML  ) {
+
       local $YAML::UseVersion = 0; # Avoid cluttering files with version info
       DumpFile( "$self->{path}/$self->{file}", $self->{data} );
+
     } else {
 
     open (FH, ">$self->{path}/$self->{file}") or
