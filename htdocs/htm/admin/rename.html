@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: rename.html,v 1.13 2004/04/09 21:13:39 bottle18 Exp $
+%# $Id: rename.html,v 1.14 2004/04/10 13:33:38 snicki Exp $
 %#
 <& /js/confirm.js &>
 <form action="" method="post" onsubmit="return confirmSubmit()">
@@ -27,7 +27,8 @@ value="<% $pic->utf_filename() %>">
 <input type="checkbox" name="delete" value="<% $pic->{file} %>">
 </td>
 <td align="center">
-<& /w, w => "media", d => $spoejs{p}{d}, p => $pic->{file}, m => 75, info => $pic->info() &>
+<& /w, w => "media", d => $spoejs{p}{d}, p => $pic->{file}, m => 75,
+info => $pic->info(), no_div => 1 &>
 </td>
 </tr>
 % }
