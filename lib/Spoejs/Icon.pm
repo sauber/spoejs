@@ -1,17 +1,16 @@
 package Spoejs::Icon;
 use LWP::UserAgent;
-no Carp::Assert;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.4 2004/03/04 05:29:03 snicki Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.4 $';
+# $Id: Icon.pm,v 1.5 2004/03/04 07:24:31 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.5 $';
 
 #### Private interface ####
 
 # Search on google and download the most square icon
 #
 sub _downloadicon {
-  my($self,$category) = @_;
+  my($self,$category,$size) = @_;
 
   my $ua = LWP::UserAgent->new;
   $ua->agent('Lynx/2.8.4rel.1 libwww-FM/2.14');
@@ -23,7 +22,7 @@ sub _downloadicon {
     $index = $r->content;
   } else {
     warn $r->status_line;
-    return undef;
+    return $self->_err('Could not find any matching pictures');
   }
 
   # Identify all links and their sizes
@@ -39,6 +38,11 @@ sub _downloadicon {
   for $n ( 0 .. $#p ) {
     my($x,$y) = $p[$n] =~ m/\d+/g;
     my $s = $y/$x; $s = 1/$s if $s > 1;
+    # Also consider size of picture if size desired size is specified
+    if ( $size ) {
+      my $xy = ( $x * $y ) / ( $size * $size ); $xy = 1/$xy if $xy > 1;
+      $s *= $xy;
+    }
     $I[$n]{link} = $l[$n];
     $I[$n]{xyrt} = $s;
   }
@@ -48,7 +52,7 @@ sub _downloadicon {
   unless ( @I ) {
     $index =~ m/Did you mean:.*?<i>(.*?)<\/i>/;
     $self->{_didyoumean} = $1 || 'unknown';
-    return undef;
+    return $self->_err('No mathing pictures. Try alternative.');
   }
 
   # sort by squaredness
@@ -61,7 +65,7 @@ sub _downloadicon {
     return 1;
   } else {
     warn $r->status_line;
-    return undef;
+    return $self->_err('Picture cannot be downloaded');
   }
 };
 
@@ -70,9 +74,9 @@ sub _downloadicon {
 sub get {
   my($self,%data) = @_;
 
-  $self->_downloadicon($data{category})
+  $self->_downloadicon($data{category},$data{size})
     || $self->_downloadicon($self->{_didyoumean});
-  return undef unless $self->{_blob};
+  return $self->_err('No picture downloaded') unless $self->{_blob};
 
   # If size is specified then convert to imagemagick object, scale, and
   # convert back to jpeg again.
