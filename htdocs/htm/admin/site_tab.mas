@@ -11,5 +11,6 @@ my @urls = (
 [ "$prefix/journal_admin.html", '**journal_admin**' ],
 [ "$prefix/syndication.html", '**syndication**' ],
 [ "$prefix/icon_upload.html", '**icon_upload**' ],
+[ "$prefix/icon_admin.html", '**icon_admin**' ],
 );
 </%init>
