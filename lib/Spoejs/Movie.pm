@@ -3,11 +3,11 @@ use base ( "Spoejs::Media" );
 use Data::Dumper;
 use Video::Info;
 
-# $Id: Movie.pm,v 1.4 2004/05/08 13:53:35 sauber Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.4 $';
+# $Id: Movie.pm,v 1.5 2004/05/09 10:57:21 sauber Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.5 $';
 
 # Supported extensions
-$Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov';
+$Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov|qt|mpeg|mpe';
 
 # Initializor
 #
@@ -25,23 +25,28 @@ sub _initialize {
 sub load {
   my($self) = @_;
 
-  my $mov = "$self->{path}/$self->{file}";
 
-  # XXX: Add random/uniqueness to tmp filename
-  my $tmp = "/tmp/$self->{file}.jpg";
-  my $cmd = "ffmpeg -y -t 00:00:00.01 -i $mov -f singlejpeg $tmp";
-  system("$cmd > /dev/null 2>&1");
-  return $self->_err( "Unable to extract frame" ) if $?;
+  # Use mplayer to extract one frame from movie
+  # 00000001.jpg is sometimes first frame of movie
+  # 00000002.jpg is random frame of movie
+  my $mov = "$self->{path}/$self->{file}";
+  my $info = Video::Info->new(-file=>$mov);
+  my $sec = $info->duration();
+  my $randomstart = int rand $sec;
+  my $tmpdir = "/tmp/.spoejstmp.$$";
+  my $tmpfile = $tmpdir . "/00000002.jpg";
+  system("mkdir $tmpdir");
+  system("mplayer -really-quiet -ss $randomstart -frames 2 -vo jpeg -jpeg outdir=$tmpdir -nosound $mov");
 
   my $tmpslash = $/;
   undef $/;
-  open _PIC, "$tmp" or return $self->_err( "unable to open file $tmp: $!" );
+  open _PIC, "$tmpfile" or return $self->_err( "unable to open file $tmpfile: $!" );
     binmode _PIC;
     $self->{_blob} = <_PIC>;
   close _PIC;
   $/ = $tmpslash;
 
-  unlink $tmp;
+  system("rm -rf $tmpdir");
 
   return \$self->{_blob};
 }
