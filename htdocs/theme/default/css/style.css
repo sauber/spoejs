@@ -122,11 +122,15 @@ li {
 }
 
 div.media {
-  float: left;
-  padding:3px;
-  border-style:ridge;
-  margin: 5px;
-  background-color: #EBEBFF;
+  float:left; 
+  text-align:center;
+  padding:1px;
+  margin: 3px;
+}
+
+div.annotation {
+  background-color:#EEEEEE;
+  text-align: center;
 }
 
 div.fixed-media {
@@ -172,6 +176,10 @@ div.right {
 
 div.bottom {
   margin-top: 70%;
+}
+
+div.spacer {
+  clear: both;
 }
 
 fieldset {
