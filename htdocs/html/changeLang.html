@@ -1,0 +1,14 @@
+<%init>
+  $session{pref_lang} = $language;
+  $session{lang_handle} = new Spoejs::Lang( $session{pref_lang},
+				            @{$session{browser_langs}}
+  );
+
+  $session{res_handle} = new Spoejs::Resource( lang => 
+                                                  $session{lang_handle} );
+	
+  $m->redirect( $ENV{HTTP_REFERER} );
+</%init>
+<%args>
+  $language => undef
+</%args>
