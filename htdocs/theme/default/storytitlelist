@@ -3,12 +3,12 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: storytitlelist,v 1.22 2004/05/20 13:14:31 snicki Exp $
+%# $Id: storytitlelist,v 1.23 2004/06/02 13:19:18 snicki Exp $
 %#
 % use Date::Manip;
 <h2><&|/l&>stories</&></h2>
 %#<&|/l&>storytitlelist</&>
-% foreach my $story ( $spoejs{SL}->list_stories() ) {
+% foreach my $story ( $spoejs{SL}->list_stories( %sl_opt ) ) {
 % my $path = $story->story_path_from_full();
 <a href="<& /htm/url:encode, 'story.html', d => $path &>">
       <% $story->get( 'title' ) %></a>
@@ -16,3 +16,16 @@
 <br/>
 <br/>
 % }
+<& /w, w => 'navi', %navi_opt &>
+<%init>
+
+my $count = 10;
+my $start = $spoejs{p}{s} || 0;
+my %sl_opt = ( category  => $spoejs{p}{c},
+	       prev      => $count,
+	       story_num => $start
+	     );
+
+my %navi_opt = ( url => "/$spoejs{channel}/index.html",
+		 count => $count, start => $start, list_ref => $spoejs{SL} );
+</%init>
