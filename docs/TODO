@@ -9,6 +9,10 @@ Code structure:
  - Debug on/off
  - Test UTF8
 
+Data:
+ - Don't save text unless really changed
+ - File locks
+
 ChannelList:
  - List channels on frontpage
 
@@ -93,6 +97,7 @@ Search:
 
 Caching:
  - Mason caching, shared mem, squid
+ - Only read resource.txt once
 
 Docs:
  - Website 'about spoejs'
