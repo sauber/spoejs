@@ -45,6 +45,12 @@ Data:
 
 Channelconf:
  - Only store in en language
+ - bug: selected theme is not saved
+ - rename channelconf to journalconf
+ - 10/20/50/all/decided_by_theme selector
+ - bug: have to reenter pw every time
+ - bug: no delete button before channel is created
+ - in top bar have: sign-in and sign-up
 
 ChannelList:
  - Complete content page
@@ -121,6 +127,7 @@ SiteConf:
  - Limitting possible _m values
  - Default settings.txt from empty
  - Only store in en language
+ - encrypt site pw
 
 Navigation:
  - StoryList
