@@ -7,7 +7,7 @@
 
 PORTNAME=	spoejs
 PORTVERSION=	0.1
-PORTREVISION=	3
+PORTREVISION=	4
 CATEGORIES=	www
 MASTER_SITES=   # none
 DISTFILES=      # none
@@ -23,6 +23,7 @@ RUN_DEPENDS+=	${SITE_PERL}/mach/Image/Magick.pm:${PORTSDIR}/graphics/ImageMagick
 RUN_DEPENDS+=	${SITE_PERL}/YAML.pm:${PORTSDIR}/textproc/p5-YAML
 RUN_DEPENDS+=	${SITE_PERL}/Apache/Request.pm:${PORTSDIR}/www/p5-libapreq
 RUN_DEPENDS+=	${SITE_PERL}/Apache/Session/File.pm:${PORTSDIR}/www/p5-Apache-Session
+RUN_DEPENDS+=	${SITE_PERL}/Image/Info.pm:${PORTSDIR}/graphics/p5-Image-Info
 RUN_DEPENDS+=	${SITE_PERL}/Image/Size.pm:${PORTSDIR}/graphics/p5-Image-Size
 RUN_DEPENDS+=	${SITE_PERL}/Date/Manip.pm:${PORTSDIR}/devel/p5-Date-Manip
 RUN_DEPENDS+=	${SITE_PERL}/Carp/Assert.pm:${PORTSDIR}/devel/p5-Carp-Assert
