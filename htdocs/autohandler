@@ -19,6 +19,7 @@ if ( 1 ) {
   use Spoejs::StoryList;
   use Spoejs::Resource;
   use Spoejs::Icon;
+  use Spoejs::SiteConf;
 }
 
   # The first part of the request is either the channel or a special component
