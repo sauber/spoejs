@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: siteconfig.html,v 1.16 2004/05/19 13:40:06 snicki Exp $
+%# $Id: siteconfig.html,v 1.17 2004/05/20 10:14:15 snicki Exp $
 %#
 <h1><&|/l&>statuschannel</&>:</h1>
 <& /w, w => "login", action => '', ses_var => 'siteauth' &>
@@ -43,12 +43,12 @@
 % }
 </table>
 <br/>
-<fieldset><legend>*change_journal_password*</legend>
-*journal_name*: <& /w, w => 'channelselect', channels =>\@channels &><br/>
+<fieldset><legend>**change_journal_password**</legend>
+**journal_name**: <& /w, w => 'channelselect', channels =>\@channels &><br/>
 <br/>
-*new_password*: <input type="password" name="channel_password"/><br/>
+**new_password**: <input type="password" name="channel_password"/><br/>
 <br/>
-<input type="submit" name="change_chan_pw" value="*set_password*" />
+<input type="submit" name="change_chan_pw" value="**set_password**" />
 </fieldset>
 <br/>
 <br/>
@@ -84,13 +84,13 @@
 % }
 </select>
 <br/>
-**Peers:***<br/>
+**peers**:<br/>
 <textarea name="peers" cols="40" rows="10">
 <% $SC->get('peers') %>
 </textarea>
 <br/>
 <br/>
-**Proxy:**<br/>
+**proxy**_<br/>
 <input type="text" name="proxy" size="40" value="<% $SC->get('proxy') %>"/>
 <br/>
 <input type="submit" name="submit" value="<&|/l&>submit</&>" />
