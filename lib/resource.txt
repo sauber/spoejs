@@ -517,7 +517,7 @@
 </description>
 
 <description_description>
-<lang=en/>Description for description
+<lang=en/>Describe content of journal 
 </description_description>
 
 <dimensions>
@@ -869,6 +869,12 @@
 <lang=zh/>日语
 </ja>
 
+<journal_id>
+<lang=en/>Journal-ID
+</journal_id>
+
+<journal_id_description>
+<lang=en/>4 to 16 lowercase letters to identify journal in URL like this:
 <journal_name>
 <lang=en/>Journal Name
 <lang=zh/>杂记名
@@ -879,7 +885,7 @@
 </journal_security>
 
 <journal_security_description>
-<lang=en/>Choose public or private if the journal shall be seen by public 
+<lang=en/>Access:Publc/Private: Include journal on site front page, or keep private 
 </journal_security_description>
 
 <journals_friends>
@@ -904,7 +910,7 @@
 </language>
 
 <language_description>
-<lang=en/>The Lauguage you will choose to edit your journal
+<lang=en/>Primary language of journal content
 </language_description>
 
 <last>
@@ -1160,15 +1166,15 @@
 </passwd_again>
 
 <passwd_description>
-<lang=en/>Ask administrator-Soren
+<lang=en/>Something easy to remember but hard to guess
 </passwd_description>
 
 <passwd_retype>
-<lang=en/>Retype your password
+<lang=en/>Re-type your password
 </passwd_retype>
 
 <passwd_retype_description>
-<lang=en/>Same as passwd
+<lang=en/>Same as above 
 </passwd_retype_description>
 
 <please_fill_out_this_form>
@@ -1317,7 +1323,7 @@
 </shortname>
 
 <shortname_description>
-<lang=en/>A unique name for your journal.
+<lang=en/>4 to 16 lowercase letters to identify journal in URL like this:
 </shortname_description>
 
 <signup>
@@ -1574,7 +1580,7 @@
 </theme>
 
 <theme_description>
-<lang=en/>Theme:Soren will explain it in better way
+<lang=en/>Visual appearance of journal
 </theme_description>
 
 <thumbnail>
@@ -1611,7 +1617,7 @@
 </title>
 
 <title_description>
-<lang=en/>Title for the journal
+<lang=en/>Name of journal
 </title_description>
 
 <upload>
@@ -1644,7 +1650,7 @@
 </username>
 
 <username_description>
-<Lang=en/>Choose a 4 to 16 letter for user name
+<lang=en/>4 to 16 lowercase letters or numbers
 </username_description>
 
 <view>
