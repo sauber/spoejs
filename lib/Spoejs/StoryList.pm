@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.21 2004/04/06 02:10:15 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.21 $';
+# $Id: StoryList.pm,v 1.22 2004/04/09 17:18:39 sauber Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.22 $';
 
 sub _initialize {
     my $self = shift;
@@ -247,3 +247,16 @@ sub list {
     my $self = shift;
     return $self->list_stories();
 }
+
+__END__
+                                                                                
+=head1 NAME
+                                                                                
+Spoejs::StoryList - List, insert, edit or delete stories
+
+=head1 LICENSE
+                                                                                
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+                                                                                
+=cut

@@ -1,8 +1,8 @@
 package Spoejs::Pic;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-# $Id: Pic.pm,v 1.10 2004/03/29 08:22:11 snicki Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.10 $';
+# $Id: Pic.pm,v 1.11 2004/04/09 17:18:39 sauber Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.11 $';
 
 # Initializor
 #
@@ -84,3 +84,16 @@ sub html_imgsize {
 
   return "width=\"$x\" height=\"$y\"";
 }
+
+__END__
+
+=head1 NAME
+                                                                                
+Spoejs::Pic - Picture operations
+
+=head1 LICENSE
+                                                                                
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+                                                                                
+=cut

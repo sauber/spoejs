@@ -2,8 +2,8 @@ package Spoejs::Lang;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Lang.pm,v 1.10 2004/03/27 01:52:40 snicki Exp $
-$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.10 $';
+# $Id: Lang.pm,v 1.11 2004/04/09 17:18:39 sauber Exp $
+$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.11 $';
 
 sub _initialize { }
 
@@ -54,3 +54,16 @@ sub tr {
 
     return %{$data};
 }
+
+__END__
+                                                                                
+=head1 NAME
+                                                                                
+Spoejs::Lang - Update and lookup translations
+
+=head1 LICENSE
+                                                                                
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+                                                                                
+=cut

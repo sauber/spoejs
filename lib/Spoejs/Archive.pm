@@ -4,8 +4,8 @@ use Spoejs::Pic;
 use Archive::Zip;
 use Archive::Tar;
 
-# $Id: Archive.pm,v 1.6 2004/04/05 03:43:56 snicki Exp $
-$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.6 $';
+# $Id: Archive.pm,v 1.7 2004/04/09 17:18:38 sauber Exp $
+$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.7 $';
 
 #### Private helper functions ####
 
@@ -133,3 +133,15 @@ sub add_file {
   return 1;
 }
 
+__END__
+
+=head1 NAME
+                                                                                
+Spoejs::Archive - Archival of channels
+
+=head1 LICENSE
+                                                                                
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+                                                                                
+=cut

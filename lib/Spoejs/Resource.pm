@@ -1,8 +1,8 @@
 package Spoejs::Resource;
 use base ( "Spoejs::Text" );
 
-# $Id: Resource.pm,v 1.9 2004/04/03 05:22:21 snicki Exp $
-$Spoejs::Resource::VERSION = $Spoejs::Resource::VERSION = '$Revision: 1.9 $';
+# $Id: Resource.pm,v 1.10 2004/04/09 17:18:39 sauber Exp $
+$Spoejs::Resource::VERSION = $Spoejs::Resource::VERSION = '$Revision: 1.10 $';
 
 # Set path and filename for resource file
 #
@@ -36,3 +36,16 @@ sub keys {
 
   return sort keys %{$self->{data}};
 }
+
+__END__
+
+=head1 NAME
+                                                                                
+Spoejs::Resource - Translations of all webpage text
+
+=head1 LICENSE
+                                                                                
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+                                                                                
+=cut

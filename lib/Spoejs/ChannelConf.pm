@@ -1,8 +1,8 @@
 package Spoejs::ChannelConf;
 use base ( "Spoejs::Text" );
 
-# $Id: ChannelConf.pm,v 1.5 2004/03/12 07:13:37 snicki Exp $
-$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.5 $';
+# $Id: ChannelConf.pm,v 1.6 2004/04/09 17:18:38 sauber Exp $
+$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.6 $';
 
 sub _initialize {
     my $self = shift;
@@ -17,3 +17,16 @@ sub channel_dir {
     @dirs = reverse split /\//, $self->{path}; 
     return $dirs[0];
 }
+
+__END__
+                                                                                
+=head1 NAME
+                                                                                
+Spoejs::ChannelConf - Configuration of a channel
+                                                                                
+=head1 LICENSE
+                                                                                
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+                                                                                
+=cut

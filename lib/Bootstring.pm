@@ -1,4 +1,4 @@
-# $Id: Bootstring.pm,v 1.4 2004/03/25 03:48:48 snicki Exp $
+# $Id: Bootstring.pm,v 1.5 2004/04/09 17:18:38 sauber Exp $
 # Encode and decode utf8 into a set of basic code points
 
 package Bootstring;
@@ -278,7 +278,15 @@ sub decode{
   return $res;
 }
 
-1;
-
 __END__;
 
+=head1 NAME
+
+Bootstring - Encode a large symbol set into a small symbol set
+
+=head1 LICENSE
+
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+
+=cut

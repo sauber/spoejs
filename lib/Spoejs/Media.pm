@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 
-# $Id: Media.pm,v 1.9 2004/03/29 11:39:38 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.9 $';
+# $Id: Media.pm,v 1.10 2004/04/09 17:18:39 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.10 $';
 
 #### Private helper functions ####
 
@@ -130,3 +130,16 @@ sub ping {
     my $im = Image::Magick->new();
     return $im->Ping( "$self->{path}/$self->{file}" );
 }
+
+__END__
+
+=head1 NAME
+                                                                                
+Spoejs::Media - General media module for pictures, movies and icons
+
+=head1 LICENSE
+                                                                                
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+                                                                                
+=cut

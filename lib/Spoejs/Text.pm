@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.19 2004/03/29 04:25:20 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.19 $';
+# $Id: Text.pm,v 1.20 2004/04/09 17:18:39 sauber Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.20 $';
 
 
 # Constructor
@@ -297,3 +297,16 @@ sub DESTROY {
     my $self = shift;
     $self->_store_data( @_ ) if $self->{is_modified};
 }
+
+__END__
+                                                                                
+=head1 NAME
+                                                                                
+Spoejs::Text - Generic module for handling text files. Supports text in multiple languages.
+
+=head1 LICENSE
+                                                                                
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+                                                                                
+=cut

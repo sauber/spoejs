@@ -5,8 +5,8 @@ use File::Path;
 use Date::Manip;
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.16 2004/04/06 02:48:26 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.16 $';
+# $Id: ChannelList.pm,v 1.17 2004/04/09 17:18:39 sauber Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.17 $';
 
 
 # Constructor
@@ -192,3 +192,16 @@ sub list {
   # XXX: Handle 'auth' from site index
   return $self->newest_channels();
 }
+
+__END__
+                                                                                
+=head1 NAME
+                                                                                
+Spoejs::ChannelList - List, archive, delete etc. channels
+
+=head1 LICENSE
+                                                                                
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+                                                                                
+=cut

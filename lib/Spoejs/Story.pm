@@ -2,8 +2,8 @@ package Spoejs::Story;
 use base ( "Spoejs::Text" );
 use Spoejs::MediaList;
 
-# $Id: Story.pm,v 1.7 2004/03/29 04:25:20 snicki Exp $
-$Spoejs::Story::VERSION = $Spoejs::Story::VERSION = '$Revision: 1.7 $';
+# $Id: Story.pm,v 1.8 2004/04/09 17:18:39 sauber Exp $
+$Spoejs::Story::VERSION = $Spoejs::Story::VERSION = '$Revision: 1.8 $';
 
 sub _initialize {
     my $self = shift;
@@ -39,3 +39,16 @@ sub media_list {
 
     return $self->{ML}->list();
 }
+
+__END__
+                                                                                
+=head1 NAME
+                                                                                
+Spoejs::Story - Text, Attributes, MediaList, Annotations, Comments for a story
+
+=head1 LICENSE
+                                                                                
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+                                                                                
+=cut

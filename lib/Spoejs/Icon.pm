@@ -2,8 +2,8 @@ package Spoejs::Icon;
 use LWP::UserAgent;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.9 2004/04/07 09:22:46 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.9 $';
+# $Id: Icon.pm,v 1.10 2004/04/09 17:18:39 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.10 $';
 
 #### Private interface ####
 
@@ -94,4 +94,15 @@ sub get {
   return \$self->{_blob};
 }
 
-1;
+__END__
+                                                                                
+=head1 NAME
+                                                                                
+Spoejs::Icon - Generate icon images using Google image search
+
+=head1 LICENSE 
+
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+                                                                                
+=cut

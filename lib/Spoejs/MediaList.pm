@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.12 2004/04/06 08:07:46 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.12 $';
+# $Id: MediaList.pm,v 1.13 2004/04/09 17:18:39 sauber Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.13 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -101,3 +101,16 @@ sub get {
 	return $all[$i];
     }    
 }
+
+__END__
+
+=head1 NAME
+                                                                                
+Spoejs::MediaList - Manage an album of media
+
+=head1 LICENSE
+                                                                                
+Artistic License
+http://www.opensource.org/licenses/artistic-license.php
+                                                                                
+=cut
