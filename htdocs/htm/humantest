@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: humantest,v 1.1 2004/06/04 08:26:03 sauber Exp $
+%# $Id: humantest,v 1.2 2004/06/04 08:34:52 sauber Exp $
 %#
 <%once>
 use Authen::Captcha;
@@ -47,7 +47,7 @@ my $result = $AC->check_code($code,$md5sum);
          #         -2 : Failed: invalid code (not in database)
          #         -3 : Failed: invalid code (code does not match crypt)
          ##############
-warn "code=$code md5sum=$md5sum result=$result email=$email";
+#warn "code=$code md5sum=$md5sum result=$result email=$email";
 if ( $result == 1 ) {
   $session{humanname} = $name;
   $session{humanemail} = $email if $email;
