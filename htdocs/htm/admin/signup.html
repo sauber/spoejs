@@ -4,9 +4,9 @@ Offer to sign up
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: signup.html,v 1.9 2004/06/15 01:33:53 snicki Exp $
+$Id: signup.html,v 1.10 2004/06/15 01:53:24 snicki Exp $
 </%doc>
-% if ( defined $ARGS{submit} && !$error ) {
+% if ( defined $ARGS{signup_form} && !$error ) {
 <h2>**congrat_signup**</h2>
 <h3><a href="/<%$ARGS{shortname}%>/index.html">**click_channel**</a>
 <br/>
@@ -25,7 +25,7 @@ $Id: signup.html,v 1.9 2004/06/15 01:33:53 snicki Exp $
 **account_signup**
 </legend>
 <&| /htm/admin/fill_in_form.mas, data => \%ARGS, spec => $spec &>
-<form name="channelform" method="post" action="">
+<form name="signup_form" method="post" action="">
 <table>
 <tr>
   <td>**username**:</td>
@@ -82,7 +82,7 @@ $Id: signup.html,v 1.9 2004/06/15 01:33:53 snicki Exp $
 </tr>
 </table>
 <br/>
-<input type="submit" name="submit" value="**submit**"/>&nbsp;
+<input type="submit" name="signup_form" value="**submit**"/>&nbsp;
 </form>
 </&>
 </fieldset>
@@ -126,7 +126,7 @@ my @no_local = qw( username shortname language password public );
 my $policy = $spoejs{SiteConf}->get( 'policy' );
 
 # Process submission
-if ( defined $ARGS{submit} ) {
+if ( defined $ARGS{signup_form} ) {
 
   # Check for errors
   $error = $m->comp( '/htm/admin/error.mas:error_check', \%ARGS, $spec, 
