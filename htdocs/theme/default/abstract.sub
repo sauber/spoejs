@@ -1,0 +1,29 @@
+<& $w,
+   title    => $storyref->get( 'title' ),
+   author   => $storyref->get( 'author' ),
+   category => $storyref->get( 'category' ),
+   date     => $storyref->get( 'date' ),
+   abstract => $storyref->get( 'abstract' ),
+   icon_size=> 75,
+   story_href => $story_href,
+   path       => $path,
+   edit_href  => $edit_href
+&>
+<%init>
+  my $author = $storyref->get( 'author' );
+  my $path = $storyref->story_path_from_full();
+  my $story_href = $m->scomp( '/htm/url:encode',
+			      "/$spoejs{channel}/story.html",
+			      d => $path
+			    );
+  my $edit_href; 
+  if ( $session{chanauth} && $spoejs{channel} && 
+       $session{chanauth}{$spoejs{channel}}) {
+    $edit_href = $m->scomp( '/htm/url:encode',
+			    "/$spoejs{channel}/admin/story.html", d => $path );
+  }
+</%init>
+<%args>
+ $storyref => undef
+ $w        => undef
+</%args>
