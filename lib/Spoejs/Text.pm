@@ -8,8 +8,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use YAML qw( DumpFile LoadFile);
 
-# $Id: Text.pm,v 1.34 2004/08/08 10:53:07 sauber Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.34 $';
+# $Id: Text.pm,v 1.35 2004/08/08 16:51:42 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.35 $';
 
 
 # Constructor
@@ -23,16 +23,11 @@ sub _initialize {
 
 #### Private helper functions ####
 
-# Save report hash to file
-# Todo: binmode utf8
+#
 #
 sub _store_data {
 
     my $self = shift;
-    my %data = %{$self->{data}}; #grab data for easier access
-    my $entry;
-    my $subentry;
-    my $USE_YAML = 1;
 
     # Keep three backups of old versions
     rename "$self->{path}/$self->{file}.1", "$self->{path}/$self->{file}.2"
@@ -42,157 +37,28 @@ sub _store_data {
     rename "$self->{path}/$self->{file}", "$self->{path}/$self->{file}.0"
      if -s "$self->{path}/$self->{file}";
 
-    if ( $USE_YAML  ) {
-      local $YAML::UseVersion = 0; # Avoid cluttering files with version info
-      DumpFile( "$self->{path}/$self->{file}", $self->{data} );
-    } else {
-
-        open (FH, ">$self->{path}/$self->{file}") or
-          return $self->_err( "Could not open $self->{path}/$self->{file}: $!");
-
-      foreach $key ( sort keys( %data ) ) {
-
-	$entry = "<$key>\n";
-
-	$subentry = '';
-	foreach $lang ( sort keys( %{ $data{$key} }) ) {
-
-	    next unless length $data{$key}{$lang} > 0;
-
-	    $text = $data{$key}{$lang};
-
-	    if( $text =~ /\n/ ) {
-		
-		$subentry .= "<lang=$lang>\n";
-		$subentry .= "$text\n";
-		$subentry .= "</lang>\n";
-		
-	    } else {
-		
-		$subentry .= "<lang=$lang/>$text\n";
-	    }
-	}
-	
-	# If not a hash, add variable directly
-	$subentry .= "$data{$key}\n" unless ref $data{$key};
-	
-	$entry .= $subentry . "</$key>\n\n";
-
-	print FH $entry if length $subentry > 0;
-    }
-    close FH;
-}
+    local $YAML::UseVersion = 0; # Avoid cluttering files with version info
+    DumpFile( "$self->{path}/$self->{file}", $self->{data} );
 
     # Success
     return 1;
 };
 
 
-# Reads and parses xml-like file format.
-# Overall idea is a small state-machine that keeps track of which tags
-# we are in.
 #
-# Todo: 
-# 1. Support single line: <anno><lang=dk>pic1.jpg: test</lang><anno>
-# 2. skip whitespace
+#
 sub _read_data {
 
     my $self = shift;
 
-    open FH, "<$self->{path}/$self->{file}" or 
- 	return $self->_err( "Could not open $self->{path}/$self->{file}: $! ");
-    my $firstline = <FH>;
-    close FH;
-
-    # Simple detection of old file format
-    unless ( $firstline =~ /</g ) {
-
-	eval{$self->{data} = LoadFile( "$self->{path}/$self->{file}" );};
-	if ($@) { 
-	    my @msgs = split /\n/, $@;
-	    my $msg ="$self->{path}/$self->{file}:\n$msgs[2]\n$msgs[3]";
-	    warn $msg;
-	    return $self->_err( $msg );
-	}
-    } else {
-
-    # Return here if file does not exist. 
-    open FH, "<$self->{path}/$self->{file}" or 
- 	return $self->_err( "Could not open $self->{path}/$self->{file}: $! ");
-
-    my $tag = "";
-    my $lang = "";
-    my $in_tag = 0;
-    my $in_lang = 0;
-    my $one_lang = 0;
-
-    my $kw_pattern = '[\w\.]';
-
-    while ( <FH> ) {
-
-	# One-line lang-tags
-	if ( s/^\s*<lang=(\w\w)\/>// and $lang = $1) {
-	    $in_lang=1;
-	    $one_lang=1;
-	}
-
-	# Start-tag
-	if ( /^<($kw_pattern+?)>$/ and $tag = $1 ) {
-	    $in_tag = 1;
-	    next;
-	}
-
-	# Start lang-tag
-	if ( /^\s*<lang=(\w\w)>$/ and $lang = $1 ) {
-	    $in_lang = 1;
-	    next;
-	}
-
-	# End-tag
-	if ( /^<\/($kw_pattern+?)>$/ and $1 eq $tag ) {
-	    chomp $self->{data}{$tag};
-	    $in_tag = 0;
-	    next;
-	}
-
-	# End lang-tag
-	if ( /^<\/(\w+)>$/ and $1 eq "lang" ) {
-	    chomp $self->{data}{$tag}{$lang};
-	    $in_lang = 0;
-	    next;
-	}
-
-
-	# Add data if we are in a lang-tag
-	if ( $in_lang && $in_tag )
-	{
-	    # If data exists for this key we append new data.
-	    # This is for multiline data in eg. fulltext.
-	    if ( defined $self->{data}{$tag}{$lang} ) {
-		$self->{data}{$tag}{$lang} .= $_;
-	    } else {
-		$self->{data}{$tag}{$lang} = $_;
-	    }
-	    if ( $one_lang ) {
-		chomp $self->{data}{$tag}{$lang};
-		$one_lang = 0;
-		$in_lang  = 0;
-	    }
-	} elsif ( $in_tag ) {
-	    
-	    # We have a tag without lang
-	    if ( defined $self->{data}{$tag} ) {
-		$self->{data}{$tag} .= $_; 
-	    } else {
-		$self->{data}{$tag} = $_;
-	    }
-	}
+    eval{$self->{data} = LoadFile( "$self->{path}/$self->{file}" );};
+    if ($@) { 
+	my @msgs = split /\n/, $@;
+	my $msg ="$self->{path}/$self->{file}:\n$msgs[2]\n$msgs[3]";
+	warn $msg;
+	return $self->_err( $msg );
     }
-
-
-    close FH;
-}
-
+    
     # Success
     return 1;
 }
