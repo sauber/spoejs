@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: w,v 1.11 2004/04/20 13:32:31 snicki Exp $
+%# $Id: w,v 1.12 2004/04/20 14:41:45 snicki Exp $
 %#
 %# Forward args to component 
 % if ( defined $box ) {
@@ -30,10 +30,8 @@ $ARGS{content} = $m->content if $m->has_content;
 
 my $content;
 if ( $sub ) {
-  warn "loading $sub";
   $content = $m->scomp( $sub, %ARGS, w => $comp );
  } else {
-  warn "no sub $comp";
   $content = $m->scomp( $comp, %ARGS );
 }
 </%init>

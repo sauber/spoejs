@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: l,v 1.8 2004/04/09 17:41:41 sauber Exp $
+%# $Id: l,v 1.9 2004/04/20 14:41:45 snicki Exp $
 %#
 %# Put input (available in $m->content) through Resource
 <% $spoejs{res_handle}->get( $m->content ) %>\
@@ -13,4 +13,8 @@
 <%init>
 $spoejs{error}{lang} = "Error in resource: $spoejs{res_handle}->{msg}" 
                                                  if $spoejs{res_handle}->{msg};
+#my $englang = new Spoejs::Lang( lang_order => ['en'] );
+#$spoejs{res_handle}->{lang} = $englang;
+#my $engstr = $spoejs{res_handle}->get( $m->content );
+#$spoejs{res_handle}->{lang} = $spoejs{lang_handle};
 </%init>
