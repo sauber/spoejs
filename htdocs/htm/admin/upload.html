@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: upload.html,v 1.22 2004/04/18 23:57:22 snicki Exp $
+%# $Id: upload.html,v 1.23 2004/05/10 05:51:33 snicki Exp $
 %#
 % return unless $m->comp( 'checkLogin.html' );
 <& /js/detectua.js &>
@@ -120,9 +120,9 @@ if ( $ARGS{upload} ) {
 }
 
 if ( $ARGS{server_add} ) {
-  my $A = new Spoejs::Archive();
+  my $A = new Spoejs::Archive( path => "$spoejs{channel_path}/$spoejs{p}{d}" );
   if ( -d $ARGS{server_path} ) {
-    $A->add_dir( $ARGS{server_path}, "$spoejs{channel_path}/$spoejs{p}{d}" )
+    $A->add_dir( $ARGS{server_path} )
       or $spoejs{error}{$m->current_comp->source_file} = $A->{msg};
   }
 }
