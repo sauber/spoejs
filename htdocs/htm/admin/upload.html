@@ -21,7 +21,7 @@ function addField ( fieldType, fieldName, onclick ) {
 
 function cr_table( tabbody ) {
   var tr = document.createElement("tr");
-  var t = "cr_table( document.getElementById('tb') );"
+  var t = "cr_table( document.getElementById(\'tb\') );";
   var td = document.createElement("td");
   td.appendChild( addField( 'file', 'files[]', t ) );
   tr.appendChild(td);
@@ -29,7 +29,7 @@ function cr_table( tabbody ) {
 }
 </SCRIPT>
 
-<h2>File upload for <% $spoejs{channel} %></h2>
+<h2>File upload for channel: <% $spoejs{channel} %></h2>
 <form name="files" method="post" action="" enctype="multipart/form-data">
 Story to add media to:<br/>
 <select name="story">
@@ -53,6 +53,28 @@ Media to add:<br/>
 <input type="submit" name="upload" value="Upload"><br/>
 </form>
 
+% if ($params{d}) {
+<h4>Current files:</h4>
+% my $ML = new Spoejs::MediaList( path=>"$spoejs{channel_path}/$params{d}" );
+<table width="100%">
+<tr><th>Filename</th><th>File size</th><th>Dimensions</th><th>File format</th></tr>
+% for ($ML->list()) {
+% my ($width, $height, $size, $format) = $_->ping();
+<tr>
+<td><% $_->{file}  %></td>
+<td align="right"><% $size %> bytes</td>
+<td align="center"><% $width %>x<% $height %></td>
+<td align="center"><% $format %></td>
+</tr>
+% }
+</table>
+%}
+<br/>
+<h4><&|/l&>media_man</&>:</h4>
+<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/rename.html", 
+                              d=>$params{d} &>">
+<&|/l&>edit</&>
+</a>
 <script>
   // Add first entry
   cr_table( document.getElementById('tb') );
@@ -77,16 +99,104 @@ if ( $ARGS{upload} ) {
     my $fn = $_->filename;
 
     # strip leading directories
-    $fn =~ s#^.*[\\/]##;
+    $fn = strip_leading($fn);#~ s#^.*[\\/]##;
 
     # Skip empty fields and zero-sized files
     next if ($fn eq '' or $_->size < 1);
-    next unless $fn =~ /\.(png|gif|jpg|mov|avi|mpg|wma)$/i;
+    next unless $fn =~ /\.(png|gif|jpg|mov|avi|mpg|zip|gz|tgz|tar)$/i;
     my $fh = $_->fh;
-    my $P = new Spoejs::Pic( path => "$spoejs{channel_path}/$ARGS{story}",
-                             file => $fn );
-    $P->save( $fh ) or warn $P->{msg};
+    if ( $fn =~  /\.(png|gif|jpg|mov|avi|mpg)$/i ) {
+      add_file( "$spoejs{channel_path}/$ARGS{story}", $fn, $fh );
+    } elsif ( $fn =~  /\.(zip|gz|tgz|tar)$/i ) {
+      add_archive( "$spoejs{channel_path}/$ARGS{story}", $fn, $fh );
+    }
  }
+}
+
+
+sub add_archive {
+  my ( $path, $fn, $fh ) = @_;
+
+  use File::Temp qw/ tempdir /;
+  use File::Path;
+  use Archive::Zip;
+  use Archive::Tar;
+
+  # Make temp-dir
+  # XXX: Unix specific
+  my $tmppath = $path . "XXXX";
+  $tmppath =~ s{/}{}g;
+  my $tempdir = tempdir ( $tmppath, TMPDIR => 1 );
+
+  # Store archive
+  open _FH, ">$tempdir/$fn" or print "Could not save archive";
+   binmode _FH;
+    while( <$fh> ){ print _FH $_ }
+  close _FH;
+
+  chomp(my $oldwd = `pwd`); # XXX: Only UNIX
+  chdir $tempdir;
+
+  if ( $fn =~ /\.zip/ ) {
+    # Open archive
+    my $zip = Archive::Zip->new( "$tempdir/$fn" ) or print "Could'nt open zip";
+
+    # Extract members
+    my @members = $zip->members();
+
+    for ( @members ) {
+      $zip->extractMemberWithoutPaths( $_ );
+    }
+
+  } elsif ( $fn =~ /\.(tar|gz|tgz)$/ ) {
+
+    use Archive::Tar;
+    my $tar = Archive::Tar->new;
+    $tar->read( "$tempdir/$fn" );
+    $tar->extract();
+
+  }
+
+  # Remove archive
+  unlink "$tempdir/$fn";
+
+  # Add unpacked files
+  add_dir( $tempdir, $path );
+
+  # Cleanup
+  chdir $oldwd;
+  rmtree $tempdir;
+}
+
+
+sub add_dir {
+  my ( $dir, $target ) = @_;
+
+  # XXX: Convert to File::Find to support nested dirs
+  opendir DH, $dir or print "Can't open $dir: $!";
+
+  while( my $file = readdir DH ) {
+    if ( -f "$dir/$file" ) {
+      my $fh = new IO::File( "$dir/$file", "r" );
+      add_file( $target, $file, $fh );
+    }
+  }
+
+  closedir DH;
+}
+
+
+sub add_file {
+  my ( $path, $fn, $fh ) = @_;
+  my $P = new Spoejs::Pic( path => $path, file => $fn );
+  $P->save( $fh ) or warn $P->{msg};
+}
+
+
+sub strip_leading {
+  my $fn = shift;
+  $fn =~ s#^.*[\\/]##;
+  return $fn;
 }
 </%init>
 <%args>

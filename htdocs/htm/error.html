@@ -1,4 +1,8 @@
+% if ( $spoejs{error} ) {
+<hr/>
+<h3>One or more errors has occured:</h3>
 % for (values %{$spoejs{error}} ) {
 <% $_ %><br/>
 % }
 % delete $spoejs{error};
+% }

@@ -5,7 +5,7 @@
   my $path = $spoejs{channel_path} . "/" .$d;
   my $ML = new Spoejs::MediaList( path => $path );
   my $img = $ML->get( $type );
-return unless $img;
+  return unless $img;
  # $img = $img->utf_filename() if $img;
 
 </%init>
