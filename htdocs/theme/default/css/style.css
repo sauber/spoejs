@@ -99,18 +99,18 @@ div.media {
   background-color: #EBEBFF;
 }
 
-div.right {
-  float: right;
-  width:170px;
-}
-
-div.center {
-  margin: 0 100px;
-}
-
 div.left {
   float: left;
   width:70px;
+}
+
+div.center {
+  margin: 0 0 0 100px;
+}
+
+div.right {
+  float: right;
+  width:170px;
 }
 
 div.bottom {
