@@ -3,15 +3,17 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract,v 1.4 2004/08/05 09:28:58 snicki Exp $
+%# $Id: abstract,v 1.5 2004/08/05 10:09:01 snicki Exp $
 %#
 <h3><% $title %></h3>
 <br/>
 <div class="center">
+% if ( $thumb_file ) {
 <span class="right">
     <& /w, w => 'media', d => $path, p => $thumb_file,
            m => 250, href=>$story_href, no_div=>1 &>
 </span>
+% }
 <span class="left">
      <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
 </span>
