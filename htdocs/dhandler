@@ -2,7 +2,7 @@
 my $doc =  "$ENV{DOCUMENT_ROOT}htm/$spoejs{url_noparam}";
 
 unless ( -d $spoejs{channel_path} ) {
-  print "The channel <b>$spoejs{channel}</b> doesn't exist!</body></html>";
+  print "The channel <b>$spoejs{channel_path}</b> doesn't exist!\n</body></html>";
   $m->abort;
 }
 
