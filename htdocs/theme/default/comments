@@ -1,10 +1,11 @@
-%# Show comments for story or media
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: comments,v 1.8 2004/06/08 08:57:21 snicki Exp $
-%#
+<%doc>
+Show comments for story or media
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: comments,v 1.9 2004/06/13 07:22:51 snicki Exp $
+</%doc>
 % if ( @$comments > 0 ) {
 <h2>**comments**</h2>
 %   #
@@ -26,46 +27,16 @@
 % #
 % # XXX: Extract username/email from cookie if possible
 <h2>**post_a_comment**</h2>
-% # Check for previous failures
-% if ( $session{formerror} ) {
-**adding_comments_failed_for_the_following_reasons**<br>
-%   for ( split /\t/, $session{formerror} ) {
-**error**: <% $_ %><br>
-%   }
-%   delete $session{formerror};
-% }
-<form method="post" action="<% $post_url %>">
-**name**: <input name="name" size="20" value="<% $na %>"/><br>
-**email**: <input name="email" size="20" value="<% $em %>"/> (optional)<br>
-**comments**: <input name="comment" size="60" value="<% $co %>"/><br>
+<&| /htm/admin/fill_in_form.mas, data => $spoejs{ARGS}, ignore => $ignore &>
+<form name="comments" method="post" action="">
+**name**: <input name="name" size="20"/><br>
+**email**: <input name="email" size="20"/> (optional)<br>
+**comments**: <input name="comment" size="60"/><br>
 <& /w, w => "humantest" &>
 <input type="submit" name="submit" value="**add_comment**"/>
 </form>
-<%init>
-my $co = '';
-if ( exists $session{formcomment} ) {
-  $co = $session{formcomment};
-  delete $session{formcomment};
-}
-
-my $na = '';
-if ( exists $session{formname} ) {
-  $na = $session{formname};
-  delete $session{formname};
-} elsif ( exists $session{humanemail} ) {
-  $na = $session{humanemail};
-}
-
-my $em = '';
-if ( exists $session{formemail} ) {
-  $em = $session{formemail};
-  delete $session{formemail};
-} elsif ( exists $session{humanemail} ) {
-  $em = $session{humanemail};
-}
-
-</%init>
+</&>
 <%args>
-  $comments   => undef
-  $post_url   => undef
+  $comments => undef
+  $ignore   => undef
 </%args>

@@ -1,25 +1,96 @@
-%# Generate data for comments
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: comments.sub,v 1.3 2004/06/08 09:40:25 snicki Exp $
-%#
+<%doc>
+Generate data for comments
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: comments.sub,v 1.4 2004/06/13 07:22:51 snicki Exp $
+</%doc>
 <& $w,
    comments => \@comments,
-   post_url => $post_url
+   ignore   => [ 'code', 'md5sum' ]
 &>
+<& /htm/debug.html &>
 <%init>
+# Get hold of comment object
+my $story_path = "$spoejs{channel_path}/$spoejs{p}{d}";
+my $C = new Spoejs::Comments( path => $story_path );
+my $object = $spoejs{p}{p} || $spoejs{p}{s} || 'story';
+
+# Process submitted data; $spoejs{ARGS} contains the top-level post data
+handle_submit( $C, $object ) if defined $spoejs{ARGS}->{submit};
+
 # The idea here is to get the name of the file holding comments,
 # and the object to extract the comments for.
 # $object is either the know keyword 'story' or a media filename.
 # The end result is a reference to a list of hashes
 
 # Read in the data like this
-my $story_path = "$spoejs{channel_path}/$spoejs{p}{d}";
-my $C = new Spoejs::Comments( path => $story_path );
-my $object = $spoejs{p}{p} || $spoejs{p}{s} || 'story';
 my $data = $C->get( $object );
+#my $data = random_comments();
+
+# After data is load from file, then parse it into a list of hashes
+my @comments = map {{ /^(\w+?)\s*=\s*(.+?)$/gm }}
+               split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $data;
+
+# XXX: Throw an error if there are no comments...
+
+# Fix dates to be human readable
+use POSIX qw(strftime);
+for ( @comments ) {
+  $_->{Date} = strftime "%F", localtime $_->{Date};
+}
+
+# Pick up name/email from session
+$spoejs{ARGS}->{name} = $session{humanname} if exists $session{humanname};
+$spoejs{ARGS}->{email} = $session{humanemail} if exists $session{humanemail};
+</%init>
+<%perl>
+sub handle_submit {
+my ( $C, $object ) = @_;
+my ( $name, $email, $comment, $code, $md5sum ) = 
+              @{$spoejs{ARGS}}{ 'name', 'email', 'comment', 'code', 'md5sum' };
+
+# Was human verification submitted?
+my $rr;
+if ( $code and $md5sum and $name ) {
+  $rr = $m->comp('/htm/humantest:response', $code, $md5sum, $name, $email);
+} 
+
+# Add humanname to ARGS for verification
+$spoejs{ARGS}->{humanname} = $session{humanname} if exists $session{humanname};
+my $herror = "**security_image_failed_verification**, **error_code** $rr\t";
+
+# Specify varibles to check and their conditions
+my $spec = { name      => { regexp => '.+',
+                            error  => '**name_missing**' },
+             comment   => { regexp => '.+',
+                            error  => '**comment_missing**' },
+	     humanname => { regexp => '.+',
+                            error  => $herror },
+           };
+
+# Check for errors
+my $form_error = $m->comp( '/htm/admin/error.mas:error_check', $spoejs{ARGS},
+	                   $spec, 'comments' );
+
+# Store data if there were no errors
+unless ( $form_error ) {
+  # render information to put into comments storage
+  my $block = sprintf "Name=%s\n", $name;
+  $block .= sprintf "Email=%s\n", $email if $email;
+  $block .= sprintf "Date=%d\n", time();
+  $block .= sprintf "Lang=%s\n", $spoejs{current_language};
+  $block .= sprintf "Comment=%s\n", $comment;
+  $block .= "\n";
+
+  # Insert into storage
+  $C->append( $object => $block );
+
+  # Clear comment in args
+  delete $spoejs{ARGS}->{comment};
+}
+}
 
 # For test generate random data
 sub random_comments {
@@ -46,26 +117,7 @@ sub random_comments {
 
   return $res;
 }
-#my $data = random_comments();
-
-# After data is load from file, then parse it into a list of hashes
-my @comments = map {{ /^(\w+?)\s*=\s*(.+?)$/gm }}
-               split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $data;
-
-# XXX: Throw an error if there are no comments...
-
-# Fix dates to be human readable
-use POSIX qw(strftime);
-for ( @comments ) {
-  $_->{Date} = strftime "%F", localtime $_->{Date};
-}
-
-my %post_opt;
-for ( qw ( d p s ) ) {
-  $post_opt{$_} = $spoejs{p}{$_} if defined $spoejs{p}{$_}; 
-}
-my $post_url = $m->scomp( '/htm/url:encode', "/$spoejs{channel}/comment.html", %post_opt );
-</%init>
+</%perl>
 <%args>
   $w      => undef
 </%args>
