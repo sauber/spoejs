@@ -23,7 +23,7 @@
                             );
 
      # Add errors on top of form
-     prepend_errors( \$filled ) if defined $data->{submit};
+     prepend_errors( \$filled ) if keys %$data;
 
      $m->print($filled);
 
