@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.49 2004/06/17 03:38:17 snicki Exp $
+%# $Id: index.html,v 1.50 2004/07/02 14:42:38 snicki Exp $
 %#
 <table width="100%">
 % if ( @{$remotes} > 0 ) {
@@ -54,10 +54,6 @@
 </td>
 %}
 </tr></table>
-<hr/>
-<a href="/htm/admin/siteconfig.html">
-**scf**
-</a>
 <%init>
 my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
                                   lang => $spoejs{lang_handle} );
