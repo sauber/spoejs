@@ -6,8 +6,8 @@ use Date::Manip;
 use Digest::MD5 qw(md5_hex);
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.20 2004/05/18 07:41:16 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.20 $';
+# $Id: ChannelList.pm,v 1.21 2004/05/22 14:14:28 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.21 $';
 
 
 # Constructor
@@ -40,12 +40,20 @@ sub search_channels {
     $p{password} = md5_hex( $p{password} ) if defined $p{password};
 
     my @all;
-    @all = $self->_list_from_filename( $self->{path}, $self->{file} )
+#    @all = $self->_list_from_filename( $self->{path}, $self->{file} )
+    @all = $self->_dirs_in_path( $self->{path} )
 	or return $self->_err( $self->{msg} );
     @all = () if $all[0] eq undef;
 
     my @chans;
     for my $ch ( @all ) {
+
+	# Prepend users/ path
+	$ch = "$self->{path}/$ch";
+
+        # Simple check if this is a channel dir
+	next unless -f "$ch/settings.txt";
+
 	my $CC = new Spoejs::ChannelConf( path => $ch, lang => $self->{lang} );
 	next if defined $CC->{msg};
 
@@ -88,7 +96,7 @@ sub new_channel {
     # Check for correct shortname
     return $self->_err( "$params{shortname} is not a valid shortname - must be"
 			 . " 4-10 characters [a-z]" ) 
-	unless $params{shortname} =~ /^[a-z]{4,10}$/;
+	unless $params{shortname} =~ /^[a-z]{4,16}$/;
 
     my @cur_dirs = $self->_dirs_in_path( $self->{path} );
 
