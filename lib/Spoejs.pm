@@ -1,9 +1,10 @@
 package Spoejs;
 
-# $Id: Spoejs.pm,v 1.3 2004/03/02 05:35:49 snicki Exp $
-$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.3 $';
+# $Id: Spoejs.pm,v 1.4 2004/03/04 07:26:42 sauber Exp $
+$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.4 $';
 
 # Constructor
+#
 sub new {
 
     my $invocant  = shift;
@@ -17,5 +18,13 @@ sub new {
 }
 
 # Default initializor
-
+#
 sub _initialize {}
+
+# Write error messages to $self->{msg} and return undef
+#
+sub _err {
+  my $self = shift;
+  $self->{msg} = shift;
+  return undef;
+}
