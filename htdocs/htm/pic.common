@@ -4,7 +4,7 @@ Common rendering functionality
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: pic.common,v 1.5 2004/08/08 16:12:09 snicki Exp $
+$Id: pic.common,v 1.6 2004/08/31 01:15:20 sauber Exp $
 </%doc>
 <% $$m_ref %>\
 % $m->abort();
@@ -46,4 +46,8 @@ $Id: pic.common,v 1.5 2004/08/08 16:12:09 snicki Exp $
     my $l = gmtime( time - $offset * 10 );
     $r->headers_out->add( "Expires" => $e );
     $r->headers_out->add( "Last-Modified" => $l );
+
+    # Update access statistics when thumb is specified as ANY
+    $spoejs{Stats}->access( $M->{file} ) if $spoejs{p}{p} eq 'ANY'
+                                        and defined $spoejs{Stats};
 </%init>
