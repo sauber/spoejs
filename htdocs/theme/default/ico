@@ -9,10 +9,10 @@
     $r->content_type('image/jpeg');
     # Caching
     my $offset = 60 * 60 * 24 * 60; # seconds * minutes * hours * days
-    my $e =  gmtime(time+$offset);
-    my $l =  gmtime(time-$offset*10);
-    $r->headers_out->add( "Expires"=>$e );
-    $r->headers_out->add( "Last-Modified"=>$l );
+    my $e = gmtime( time + $offset );
+    my $l = gmtime( time - $offset * 10 );
+    $r->headers_out->add( "Expires" => $e );
+    $r->headers_out->add( "Last-Modified" => $l );
 
 </%init>
 <%args>
