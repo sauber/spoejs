@@ -3,7 +3,7 @@ langchooser:<br/>
 <br/>
 <br/>
 login:<br/>
-<& /w, w => "login" &>
+<& /w, w => "login", action => '/html/login.html', ses_var => 'chanauth' &>
 <br/>
 <br/>
 categoryicon:<br/>
@@ -24,6 +24,10 @@ list:<br/>
 <br/>
 authorlist:<br/>
 <& /w, w => "authorlist" &>
+<br/>
+<br/>
+channelconf:<br/>
+<a href="/<%$session{user}%>/admin/channelform.html">Channel configuration</a>
 
 <& debug.html &>
 
