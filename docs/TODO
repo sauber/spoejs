@@ -43,6 +43,8 @@ Data:
  - Normalize UTF8 (get out of bytemode first)
  - Avoid to show stack trace on syntax error in ::Text
  - Userdefined fields (location, people...)
+ - Remove shortname from settings.txt
+ - Don't create annotations.txt, comments.txt etc. unless have content
 
 Channelconf:
  - default intro thumbnail select algorithm (first/random...)
@@ -85,6 +87,8 @@ Syndication:
 Annotations:
 
 Comments:
+ - Journal owner can delete comments
+ - Nicer design for displaying comments
 
 StoryList:
  - Sub channels or story-sequences.
@@ -116,6 +120,7 @@ Navigation:
     - next/prev story
     - by month/year
  - Slideshow
+ - Bug: http://server/user/ doesn't work. Only works with /index.html
 
 Media:
  - Crop, rotate, brightness, compress
@@ -124,6 +129,7 @@ Media:
  - ML->ignore( @ml ) for media=* functionality
  - Different sizes for inline and not inline album
  - media page should have themable picture size
+ - Bug: broken ANY thumb shows on stories without media
 
 Icons:
  - pregenerated icons (fx party)
