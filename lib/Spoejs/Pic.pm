@@ -1,8 +1,8 @@
 package Spoejs::Pic;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-# $Id: Pic.pm,v 1.3 2004/03/16 23:00:51 snicki Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.3 $';
+# $Id: Pic.pm,v 1.4 2004/03/17 10:57:24 snicki Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.4 $';
 
 # Initializor
 #
@@ -48,7 +48,7 @@ sub load {
   return \$self->{_blob};
 }
 
-# Get image in cercain size
+# Get image in certain size
 #
 sub get {
   my($self,%params) = @_;
