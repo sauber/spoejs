@@ -1,6 +1,6 @@
 %# Handle nonhtml-users (less than 4 or more than 10 chars) calls specially
-% if ( length $path < 4 or length $path > 10 ) {
-<& "/theme/$P{t}/$path", params => \%P &>
+% if ( length $chan_comp < 4 or length $chan_comp > 10 ) {
+<% $m->call_next %>
 % } else {
 %# Add header
 <& html/header.html &>
@@ -21,10 +21,6 @@ if ( 1 ) {
   use Spoejs::Icon;
 }
 
-  my $doc_root =  "$ENV{DOCUMENT_ROOT}html";
-
-  my ($req_uri, $path) = $m->comp( '/html/session/setupSession',  
-                                   req_uri => $ENV{REQUEST_URI} );
-
-  my %P = $m->comp( 'html/session/parseParams', url => $req_uri );
+  # The first part of the request is either the channel or a special component
+  $ENV{REQUEST_URI} =~ /\/(\w+)\// and my $chan_comp = $1;
 </%init>
