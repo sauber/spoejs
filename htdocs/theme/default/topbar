@@ -4,7 +4,7 @@ topbar of links on every page
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: topbar,v 1.16 2004/06/13 02:39:24 snicki Exp $
+$Id: topbar,v 1.17 2004/06/15 05:28:00 snicki Exp $
 </%doc>
 <div style="float:left;">
 <a href="/index.html">**home**</a>&nbsp;|
@@ -24,6 +24,16 @@ $Id: topbar,v 1.16 2004/06/13 02:39:24 snicki Exp $
 <div style="float:right; margin-left: 4px;">
 <& /w, w => "langchooser" &>
 </div>
+% if ( $signup_href ) { 
+<div style="float:right;">
+&nbsp;|&nbsp;<% $signup_href %>
+</div>
+%}
+% if ( $edit_href ) { 
+<div style="float:right;">
+&nbsp;|&nbsp;<% $edit_href %>
+</div>
+%}
 <div style="float:right;">
 % if ( defined $session{chanauth} ) {
 <form class="topbar" name="logoutform" method="post" action="/htm/login.html">
@@ -42,4 +52,6 @@ $Id: topbar,v 1.16 2004/06/13 02:39:24 snicki Exp $
   $story_title  => undef
   $new_href     => undef
   $about_href   => undef
+  $signup_href  => undef
+  $edit_href    => undef
 </%args>
