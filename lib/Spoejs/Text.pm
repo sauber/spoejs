@@ -8,8 +8,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use YAML qw( DumpFile LoadFile);
 
-# $Id: Text.pm,v 1.33 2004/08/08 10:34:22 sauber Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.33 $';
+# $Id: Text.pm,v 1.34 2004/08/08 10:53:07 sauber Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.34 $';
 
 
 # Constructor
@@ -233,12 +233,17 @@ sub _check_save {
     }
   }
 
-  # Otherwise attempt to create an empty file
-  open FH, ">$self->{path}/$self->{file}"
-    or return $self->_err( "Can't create $self->{path}/$self->{file}: $!" );
-  close FH;
-
-  $self->{is_savable} = 1;
+  # Otherwise check if dir exists and is writable
+  if ( -e $self->{path} ) {
+    if ( -w $self->{path} ) {
+      $self->{is_savable} = 1;
+      return 1;
+    } else {
+      return $self->_err( "$self->{path} is not writable" );
+    }
+  } else {
+    return $self->_err( "$self->{path} doesn't exist" );
+  }
 }
 
 
