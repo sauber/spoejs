@@ -44,6 +44,7 @@ Login:
 Register:
  - Check fields for valid data
  - Pop-down menus.
+ - Theme selector
 
 Session:
  - Session component to avoid masonhandler code
