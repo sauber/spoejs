@@ -25,6 +25,17 @@ if ( length $path > 3 and length $path < 11 ) {
   delete $spoejs{channel_path};
 }
 
+
+# Create div. objects in %spoejs
+
+# Should this be conditional on actual pages?
+if ( $spoejs{channel_path} ) {
+  $spoejs{SL} = new Spoejs::StoryList( path => $spoejs{channel_path},
+				       lang => $spoejs{lang_handle} );
+  $spoejs{error}{$m->current_comp->source_file} = $spoejs{SL}->{msg}
+    if $spoejs{SL}->{msg};
+}
+
 lang_setup();
 spoejs_setup();
 

@@ -8,8 +8,5 @@ Snicki style
 </table>
 
 <%init>
-  # Todo add div. parameters
-  my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
-	                          path => $spoejs{channel_path} );
-  my @stories = $SL->list_stories(); 
+  my @stories = $spoejs{SL}->list_stories(); 
 </%init>

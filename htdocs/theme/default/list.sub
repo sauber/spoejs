@@ -3,10 +3,6 @@
   navi_opt => \%navi_opt
 &>
 <%init>
-  # Todo add div. parameters
-  my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
-	                          path => $spoejs{channel_path} );
-$spoejs{error}{$m->current_comp->source_file} = $SL->{msg} if $SL->{msg};
   # XXX: Make ChannelConf or user selectable
 
 my $count = 5;
@@ -16,10 +12,10 @@ my %sl_opt = ( category  => $spoejs{p}{c},
 	       story_num => $start
 	     );
 
-my @stories = $SL->list_stories( %sl_opt );
+my @stories = $spoejs{SL}->list_stories( %sl_opt );
 
 my %navi_opt = ( url => "/$spoejs{channel}/index.html",
-		 count => $count, start => $start, list_ref => $SL );
+		 count => $count, start => $start, list_ref => $spoejs{SL} );
 </%init>
 <%args>
   $w => undef

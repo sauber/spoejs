@@ -95,11 +95,8 @@ Back to story
 
 use Spoejs::Archive;
 my @upl;
-my $SL = new Spoejs::StoryList( path => $spoejs{channel_path},
-                                lang => $spoejs{lang_handle} );
-$spoejs{error}{$m->current_comp->source_file} = $SL->{msg} if $SL->{msg};
 
-my @stories = $SL->list_stories();
+my @stories = $spoejs{SL}->list_stories();
 
 if ( $ARGS{upload} ) {
   my $A = new Spoejs::Archive();

@@ -4,8 +4,7 @@
 
 
 <%init>
+  # XXX: Is this an authorlist?
   # Todo add div. parameters
-  my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
-	                          path => $spoejs{channel_path} );
-  my %count = $SL->count_stories( by => 'author' ); 
+  my %count = $spoejs{SL}->count_stories( by => 'author' );
 </%init>

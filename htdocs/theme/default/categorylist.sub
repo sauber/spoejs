@@ -3,13 +3,11 @@
 &>
 <%init>
 # Todo add div. parameters
-my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
-				path => $spoejs{channel_path} );
-my %count = $SL->count_stories( by => 'category' ); 
+my %count = $spoejs{SL}->count_stories( by => 'category' );
 
 my @categories;
 for my $cat ( keys %count ) {
-  my $href = $m->scomp( '/htm/url:encode', "/$spoejs{channel}/index.html", 
+  my $href = $m->scomp( '/htm/url:encode', "/$spoejs{channel}/index.html",
 			c => $cat );
   push @categories, { href => $href, category => $cat, count => $count{$cat} };
 }

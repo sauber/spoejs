@@ -3,7 +3,7 @@
   <th><&|/l&>title</&></th>
   <th><&|/l&>date</&></th>
 </tr>
-% foreach my $story ( @stories ) {
+% foreach my $story ( $spoejs{SL}->list_stories() ) {
 % my $path = $story->story_path_from_full();
 <tr>
   <td><a href="<& /htm/url:encode, 'story.html', d => $path &>">
@@ -12,10 +12,3 @@
 </tr>
 % }
 </table>
-<%init>
-  # Todo add div. parameters
-  my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
-	                          path=> $spoejs{channel_path} );
-  my @stories = $SL->list_stories();
-
-</%init>

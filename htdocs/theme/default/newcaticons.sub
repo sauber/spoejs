@@ -3,10 +3,7 @@
    icon_size => 75
 &>
 <%init>
-my $SL = new Spoejs::StoryList( path => $spoejs{channel_path},
-                                lang => $spoejs{lang_handle} );
-
-my @stories = $SL->list_stories();
+my @stories = $spoejs{SL}->list_stories();
 
 my @cats;
 for ( @stories ) {
