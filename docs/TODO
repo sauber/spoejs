@@ -131,6 +131,7 @@ Media:
  - slow random rotation
  - gif+bmp
  - pregenerated icons (fx party)
+ - ML->ignore( @ml )
 
 Extras:
  - Calendar
