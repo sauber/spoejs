@@ -5,25 +5,26 @@
 package Spoejs::Text;
 use Storable qw( dclone );
 no Carp::Assert;
-use Spoejs::SiteConf;
+use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 
-# $Id: Text.pm,v 1.4 2004/02/26 05:32:23 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.4 $';
+# $Id: Text.pm,v 1.5 2004/02/27 05:12:20 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.5 $';
 
 
 # Constructor
 sub _initialize {
 
-    my $self = shift;
-    my %param     = (@_);
+    my $self  = shift;
+    my %param = (@_);
 
     # Get site_dir for current user
-    $param{path} =  Spoejs::SiteConf->site_dir();
+    $param{path} =  Spoejs::ChannelConf->channel_dir() ."/". $param{path};
 
     $self->{path}        = $param{path};
     $self->{file}        = $param{file};
     $self->{full_path}   = "$param{path}/$param{file}";
+    $self->{lang}        = $param{lang};
     $self->{is_loaded}   = 0;
     $self->{is_modified} = 0;
 
@@ -39,7 +40,7 @@ my $store_data = sub {
 
     my $self = shift;
     my %data = %{$self->{data}}; #grab data for easier access
-    open (FH, ">$self->{full_path}") or assert(0) if DEBUG;
+    open (FH, ">$self->{full_path}") or return undef;
 
     foreach $key ( keys( %data ) ) {
 	
@@ -189,7 +190,9 @@ sub get {
 	%res = %{ dclone( $self->{data} ) };
     }
 
-    return  %res;
+    return defined $self->{lang} 
+    ? $self->{lang}->tr( \%res )
+    : %res;
 }
 
 
