@@ -4,12 +4,14 @@
 <a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'title' ) %>
 </a><br/>
 % } }
+% if ( $policy eq 'ffa' or $policy eq 'signup' ) {
 <h2>
 <a href="/htm/admin/signup.html">
 Click here to sign up for a new spoejs channel
 </a>
 </h2>
 <br/>
+% }
 <hr/>
 Change language:<br/>
 <& /w, w => 'langchooser' &>
@@ -22,6 +24,9 @@ Site configuration
 <%init>
 my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
                                   lang => $spoejs{lang_handle} );
+my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
+                               lang => $spoejs{lang_handle} );
+my $policy = $SC->get( 'policy' );
 # Gives array of ChannelConf object refs
 my @channels = $CL->search_channels();
 </%init>

@@ -5,10 +5,12 @@
 <h2>Congratulations you are now signed up</h2>
 <a href="/<%$ARGS{shortname}%>/index.html">Click here to continue</a>
 % } else {
-%# !defined user, allows new signups, but not edits to existing
 % if ( defined $spoejs{channel} ) {
+%   # We are editing current channel check if we are permitted
 %   return unless $m->comp( 'checkLogin.html' );
-% }
+% } elsif (  $policy eq 'invite' and !$session{siteauth} ) { 
+%   # New channels can be made with siteauth creds or ffa/signup policy 
+%   return; } 
 <form method="post">
 <table>
 % foreach my $t ( @text_f ) {
@@ -26,8 +28,11 @@
   # XXX: Change 'input' types for 'public', 'language' etc.
 
 my @text_f = qw ( shortname title description language theme public username );
-my $CC;
-my %errs;
+  my $CC;
+  my %errs;
+  my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
+                                 lang => $spoejs{lang_handle} );
+  my $policy = $SC->get( 'policy' );
 
 # Load data if channel exists
 if ( -d $spoejs{channel_path} && !$ARGS{submit} )
@@ -45,6 +50,9 @@ if ( $ARGS{submit} ) {
   unless ( $ARGS{shortname} =~ /^[a-z]{4,10}$/ ) {
     $errs{shortname} = " Only 4-10 letters from a-z";
   }
+  if ( -d "$ENV{DOCUMENT_ROOT}users/$ARGS{shortname}" ) {
+    $errs{shortname} = " Channel already exists";
+  }
   unless ( $ARGS{language} =~ /^[a-z]{2}$/ ) {
     $errs{language} = " Only 2 letters (eg. 'da' or 'en')";
   }
@@ -55,11 +63,15 @@ if ( $ARGS{submit} ) {
     $errs{password} = $errs{password2} = " Passwords does not match";
   }
 
-  # Check if we are editing or creating new channel
-
-  # Create new channel if there were no errors
+  # Pick appropriate args from %ARGS
   my %cl_args;
   @cl_args{ @text_f, 'password' } = @ARGS{ @text_f, 'password' };
+
+  # Add 'active' based on site policy
+  $cl_args{active} = $policy eq 'signup' ? 'no' : 'yes';
+
+  # Create new channel if there were no errors
+
   if ( keys %errs == 0 && !$CC ) {
 
     my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
