@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.29 2004/06/12 03:40:02 snicki Exp $
+%# $Id: story-page,v 1.30 2004/06/15 00:54:49 snicki Exp $
 %#
 <h2><% $story_ref->get( 'title' ) %></h2>
 <&| /w, w => "box", heading => $story_ref->get( 'title' ) &>
@@ -38,6 +38,11 @@
 <a href="<% $edit_href %>">**edit**</a>
 % }
 </&>
+<%init>
+# Set thumbnail count (overridable in channelconf)
+my $thumbnail_count = 10;
+$navi_opt{count} = $thumbnail_count if $navi_opt{count} == -1;
+</%init>
 <%args>
   $story_dir  => undef
   $story_ref  => undef
