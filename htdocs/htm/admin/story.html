@@ -4,7 +4,7 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.36 2004/06/27 00:21:13 snicki Exp $
+$Id: story.html,v 1.37 2004/07/02 14:06:55 snicki Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
@@ -12,8 +12,10 @@ $Id: story.html,v 1.36 2004/06/27 00:21:13 snicki Exp $
 %}
 % if ( $ARGS{submit} ) {
 <h4>**storysave**.</h4>
+%# Redirect to story page
+% my $url = $m->scomp( '/htm/url:encode', "/$spoejs{channel}/story.html", d => $story_dir );
+<& timed_redirect.mas, url => $url, time => 3000 &>
 % return; }
-
 <h3>**edit_lang**: **<% $cur_lang %>**</h3>
 <fieldset><legend>**story_details**</legend>
 <form action="" method="post">
@@ -76,6 +78,7 @@ if ( defined $spoejs{Story} && !$ARGS{submit} ) {
   %ARGS = ( %ARGS, $spoejs{Story}->get() );
 
   # Join paragraphs of text
+  # This is copied to mixmedia.html, consider factoring out
   for my $k ( keys %ARGS ) {
     warn "read $k which is " . ref($ARGS{$k});
     if ( ref($ARGS{$k}) eq "ARRAY" ) {
