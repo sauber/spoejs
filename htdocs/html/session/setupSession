@@ -1,7 +1,7 @@
 <%perl>
 # Remove user path of URL
 $req_uri =~ s/\/(\w+)\/// and my $path = $1;
- 
+
 # Add user-path to session
 $session{user} = $path;
 
@@ -34,15 +34,11 @@ sub session_setup {
 sub spoejs_setup {
 
   # Set language object
-  unless ( $spoejs{lang_handle} ) {
-    $spoejs{lang_handle} = new Spoejs::Lang( lang_order =>
-                     [ $session{pref_lang}, @{ $session{browser_langs} } ] );
-  }
+  $spoejs{lang_handle} = new Spoejs::Lang( lang_order =>
+                         [ $session{pref_lang}, @{ $session{browser_langs} } ] );
 
   # Set resource object
-  unless ( $spoejs{res_handle} ) {
-    $spoejs{res_handle} = new Spoejs::Resource( lang => $spoejs{lang_handle} );
-  }
+  $spoejs{res_handle} = new Spoejs::Resource( lang => $spoejs{lang_handle} );
 }
 </%perl>
 <%args>
