@@ -6,13 +6,12 @@ use LWP::UserAgent;
 use Spoejs::ChannelList;
 use Spoejs::SiteConf;
 
-# $Id: Syndication.pm,v 1.17 2004/05/22 14:17:58 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.17 $';
+# $Id: Syndication.pm,v 1.18 2004/06/22 07:59:57 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.18 $';
 
 # Constructor
 sub _initialize {
     my $self  = shift;
-#    $self->SUPER::_initialize(@_, file => 'syndication.txt' );
     $self->{siteconf} = new Spoejs::SiteConf( path => $self->{path},
 					      lang => $self->{lang} );
     $self->{proxy} = $self->{siteconf}->get( 'proxy' );
