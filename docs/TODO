@@ -25,6 +25,7 @@ Code structure:
  - Debug on/off
  - Test UTF8
  - Error message when cookies missing
+ - remove html and jscript dirs from cvs
 
 Data:
  - Don't save text unless really changed
@@ -112,6 +113,7 @@ Media:
  - exif
  - caching headers
  - w/h for icons
+ - no channellist in icon names
 
 Extras:
  - Calendar
