@@ -1,11 +1,11 @@
 package Spoejs::Pic;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-# $Id: Pic.pm,v 1.16 2004/05/09 11:59:28 snicki Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.16 $';
+# $Id: Pic.pm,v 1.17 2004/06/21 12:59:40 sauber Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.17 $';
 
 # Supported extensions
-$Spoejs::Pic::EXTENSIONS = 'jpg|png|gif|bmp';
+$Spoejs::Pic::EXTENSIONS = 'jpg|jpeg|png|gif|bmp';
 
 # Initializor
 #

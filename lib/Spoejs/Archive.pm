@@ -4,8 +4,8 @@ use Spoejs::Pic;
 use Archive::Zip;
 use Archive::Tar;
 
-# $Id: Archive.pm,v 1.10 2004/05/08 05:06:18 snicki Exp $
-$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.10 $';
+# $Id: Archive.pm,v 1.11 2004/06/21 12:59:40 sauber Exp $
+$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.11 $';
 
 # Supported extensions
 $Spoejs::Archive::EXTENSIONS = 'tar|gz|tgz|zip';
@@ -28,7 +28,7 @@ sub _initialize {
 	      $self->_err( "Zero-sized file" );
       }
   } else {
-      return $self->_err( "Unsuported filetype" );
+      return $self->_err( "$self->{file}: Unsupported filetype" );
   }
 
 
