@@ -1,10 +1,10 @@
-<table>
+<table border="1">
 <tr>
-  <th>Abstract</th>
+  <th>Abstract list</th>
 </tr>
 % foreach my $story ( @stories ) {
 <tr>
-  <td><% $story->get( 'abstract' ) %></td>
+  <td><& abstract, storyref => $story &></td>
 </tr>
 % }
 </table>
@@ -13,7 +13,7 @@
 
 <%init>
   # Todo add div. parameters
-  my $L  = new Spoejs::Lang( 'en' );
+  my $L  = new Spoejs::Lang( $m->{session}{pref_lang} );
   my $SL = new Spoejs::StoryList( lang => $L );
   my @stories = $SL->list_stories(); 
 </%init>
