@@ -1,0 +1,52 @@
+%# Add comment
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: comment.html,v 1.1 2004/06/04 08:26:03 sauber Exp $
+%#
+<%init>
+# Is required information entered?
+unless ( $name and $comment ) {
+  # XXX: information missing error
+  #warn "information missing error";
+}
+
+# Was human verification submitted?
+if ( $code and $md5sum ) {
+  $m->comp('/htm/humantest:response', $code, $md5sum, $name, $email);
+  #warn "code=$code md5sum=$md5sum";
+} 
+
+# Did human test succeed?
+unless ( exists $session{humanname} ) {
+  # XXX: human test failed, stop
+  #warn "human test failed, stop";
+}
+
+# render information to put into comments storage
+my $block = sprintf "Name=%s\n", $name;
+$block .= sprintf "Email=%s\n", $email if $email;
+$block .= sprintf "Date=%d\n", time();
+# XXX: preferred lang is somewhere else
+$block .= sprintf "Lang=%s\n", $spoejs{lang_handle}->{lang_order}->[0];
+$block .= sprintf "Comment=%s\n", $comment;
+$block .= "\n";
+#warn $block;
+
+# Insert into storage
+# XXX: file and object
+# my $C = new Spoejs::Comment( file => $file );
+# $C->append( $object => $block );
+  
+# Go back to where we came from
+$m->redirect( $ENV{HTTP_REFERER} );
+
+</%init>
+<%args>
+$name    => undef
+$email   => undef
+$comment => undef
+$code    => undef
+$md5sum  => undef
+</%args>
