@@ -12,7 +12,8 @@ Story home<&|/l&>story_home</&></a>&nbsp;|
 <a href="/htm/admin/signup.html"><&|/l&>register</&></a>&nbsp;|
 % }
 <a href="/htm/about.html"><&|/l&>about</&></a>
-% if ( $session{chanauth} && $session{chanauth}{$spoejs{channel}} ) {
+% if ( defined $session{chanauth} && 
+%       defined $session{chanauth}{$spoejs{channel}} ) {
 &nbsp;|
 <a href="/<% $spoejs{channel} %>/admin/story.html"><&|/l&>new_story</&></a>
 % }
@@ -26,10 +27,6 @@ Story home<&|/l&>story_home</&></a>&nbsp;|
 </td>
 </tr>
 </table>
-%#<pre>
-%#<% Dumper %session %>
-%#<% Dumper %spoejs %>
-%#</pre>
 <hr/>
 <%init>
 my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",

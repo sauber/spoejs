@@ -1,5 +1,5 @@
 <form method="post" action="<%$action%>">
-% if ( $session{$ses_var} ) {
+% if ( defined $session{$ses_var} ) {
 <input type="submit" name="logout" value="<&|/l&>logout</&>"/>
 % } else {
 <table>

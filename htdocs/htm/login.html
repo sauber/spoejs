@@ -3,9 +3,11 @@ if ( $login ) {
 
   my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
                                     lang => $spoejs{lang_handle} );
+  $spoejs{error}{$m->current_comp->source_file} = $CL->{msg} if $CL->{msg};
 
   my @channels = $CL->search_channels( username => $username,
-	                               password => $password );
+	                               password => $password ) 
+    unless $CL->{msg};
 
   for ( @channels ) {
     my $sn = $_->get( 'shortname' );
