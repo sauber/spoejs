@@ -1,7 +1,7 @@
 <h1>Spoejs channels at this site:</h1>
 <& /w, w => 'langchooser' &>
 % foreach my $chan ( @channels ) {
-% if ( $chan->get( 'approved' ) eq 'yes' && $chan->get( 'public' ) eq 'yes' ) {
+% if ( $chan->get( 'active' ) eq 'yes' && $chan->get( 'public' ) eq 'yes' ) {
 <a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'title' ) %>
 </a><br/>
 % } }
