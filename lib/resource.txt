@@ -1,4 +1,5 @@
 <about>
+<lang=ar/>عن
 <lang=da/>Om Spoejs
 <lang=en/>About
 <lang=hu/>korulbelul?
@@ -6,11 +7,14 @@
 </about>
 
 <abstract>
+<lang=ar/>محتويات
 <lang=da/>Resume
 <lang=en/>Abstract
+<lang=zh/>摘要
 </abstract>
 
 <active>
+<lang=ar/>فعال
 <lang=da/>Aktiv
 <lang=en/>Active
 <lang=gr/>Ενεργό
@@ -18,6 +22,7 @@
 </active>
 
 <add>
+<lang=ar/>أضيق
 <lang=da/>Tilføj
 <lang=en/>Add
 <lang=gr/>Προσθήκη
@@ -25,7 +30,14 @@
 <lang=zh/>添加
 </add>
 
+<addfield>
+<lang=ar/>أضيف جدول
+<lang=en/>Add field
+<lang=zh/>添加项目
+</addfield>
+
 <addfilepc>
+<lang=ar/>أضيف ملف من الحاسوب
 <lang=da/>Tilføj filer fra PC
 <lang=en/>Add files from PC
 <lang=gr/>Προσθήκη αρχείων απο τον υπολογιστή σας
@@ -33,18 +45,27 @@
 </addfilepc>
 
 <addfileserver>
+<lang=ar/>أضيف ملف من السرفر
 <lang=da/>Tilføj filer fra server
 <lang=en/>Add files from server 
 <lang=zh/>从Server上引入文件
 </addfileserver>
 
+<addmediastory>
+<lang=ar/>أضيف المحقات للقصة
+<lang=en/>Add media to story
+<lang=zh/>给记事里加煤体
+</addmediastory>
+
 <addnewchannel>
+<lang=ar/>أضيف قناة سبوجي جديدة
 <lang=da/>Tilføj ny spoejs kanal
 <lang=en/>Add a new spoejs channel
 <lang=zh/>添加一个新的Spoejs网页
 </addnewchannel>
 
 <administration>
+<lang=ar/>الأدارة
 <lang=da/>Administration
 <lang=en/>Administration
 <lang=gr/>Διαχείριση
@@ -69,6 +90,7 @@
 </ar>
 
 <archive>
+<lang=ar/>الأرشيف
 <lang=da/>Arkiver
 <lang=en/>Archive
 <lang=gr/>Αρχείο
@@ -76,8 +98,10 @@
 </archive>
 
 <backtostory>
+<lang=ar/>الرجوع للقصة
 <lang=da/>Tilbage til historie
 <lang=en/>Back to story
+<lang=zh/>回到记事
 </backtostory>
 
 <bg>
@@ -97,6 +121,7 @@
 </bg>
 
 <blank_default>
+<lang=ar/>(اتركه فارغ أذا كانت القصة صحيحه)
 <lang=da/>(blank for dags dato)
 <lang=en/>(leave blank if story is current)
 <lang=hu/>hagyd uresen ha a tortenet mostani?
@@ -131,6 +156,7 @@
 </category>
 
 <categorylist>
+<lang=ar/>لأحة الختيرات
 <lang=da/>Kategori liste
 <lang=en/>Category list
 <lang=gr/>Λίστα κατηγοριών
@@ -138,6 +164,7 @@
 </categorylist>
 
 <chan_home>
+<lang=ar/>قناة البيت
 <lang=da/>Historie index
 <lang=en/>Channel home
 <lang=zh/>网页
@@ -160,12 +187,14 @@
 </change>
 
 <channelconf>
+<lang=ar/>تغير للقناة
 <lang=da/>Kannalkonfiguration
 <lang=en/>Channel Configuration
 <lang=zh/>网页构造
 </channelconf>
 
 <choose>
+<lang=ar/>أختار
 <lang=da/>Vælg
 <lang=en/>Choose
 <lang=gr/>Επιλογή
@@ -174,6 +203,7 @@
 </choose>
 
 <click_channel>
+<lang=ar/>أنقر هنا للذهاب الى القناه
 <lang=da/>Gå til kannal
 <lang=en/>Click here to go to channel
 <lang=gr/>Ακύρωση
@@ -181,6 +211,7 @@
 </click_channel>
 
 <click_continue>
+<lang=ar/>أقر هنا للأستمرار
 <lang=da/>Fortsæt
 <lang=en/>Click here to continue
 <lang=gr/>Συνέχεια
@@ -188,28 +219,35 @@
 </click_continue>
 
 <comment>
+<lang=ar/>أقترحات
 <lang=da/>Kommenter
 <lang=en/>Comment
+<lang=zh/>见解
 </comment>
 
 <congrat_changes>
+<lang=ar/>تغيراتك كانت ناجحة
 <lang=da/>Ændringer var successfulde
 <lang=en/>Congratulations your changes were successful
 <lang=zh/>祝贺你的更改成功了
 </congrat_changes>
 
 <congrat_signup>
+<lang=ar/>لقد نجحت في التسجيل
 <lang=da/>Tillykke du er nu oprettet
 <lang=en/>Congratulations you are now signed up
 <lang=zh/>祝贺你现在登录了
 </congrat_signup>
 
 <currentfile>
+<lang=ar/>الملفات المفتوحة
 <lang=da/>Nuværende filer
 <lang=en/>Current files
+<lang=zh/>现在的文件
 </currentfile>
 
 <currentfilename>
+<lang=ar/>أسماء المفات الحالية
 <lang=da/>Aktuelt filnavn
 <lang=en/>Current filename
 <lang=zh/>现在的文件名
@@ -264,6 +302,7 @@
 </de>
 
 <delete>
+<lang=ar/>أمحاء
 <lang=da/>Slet
 <lang=en/>Delete
 <lang=gr/>Διαγραφή
@@ -272,6 +311,7 @@
 </delete>
 
 <deletefile>
+<lang=ar/>أمحاء ملف
 <lang=da/>Slet fil
 <lang=en/>Delete file
 <lang=gr/>Διαγραφή αρχείου
@@ -293,12 +333,14 @@
 </description>
 
 <dimensions>
+<lang=ar/>حدود او مواصفات
 <lang=da/>Dimensioner
 <lang=en/>Dimentions
 <lang=gr/>Διαστάσεις
 </dimensions>
 
 <edit>
+<lang=ar/>تصحيح
 <lang=da/>Ret
 <lang=en/>Edit
 <lang=gr/>Επεξεργασία
@@ -307,6 +349,7 @@
 </edit>
 
 <edit_lang>
+<lang=ar/>تصحيح ملف
 <lang=da/>Retter for sproget
 <lang=en/>Editing language
 <lang=gr/>Επεξεργασία γλώσσας
@@ -341,10 +384,12 @@
 </es>
 
 <et>
+<lang=ar/>أستوني
 <lang=en/>Estonian
 </et>
 
 <fileformat>
+<lang=ar/>تغير نوع ملف
 <lang=da/>Filformat
 <lang=en/>File format
 <lang=gr/>Τύπος αρχείου
@@ -352,6 +397,7 @@
 </fileformat>
 
 <filename>
+<lang=ar/>أسم ملف
 <lang=da/>Filnavn
 <lang=en/>Filename
 <lang=gr/>Όνομα αρχείου
@@ -359,6 +405,7 @@
 </filename>
 
 <filesize>
+<lang=ar/>حجم ملف
 <lang=da/>Filstørrelse
 <lang=en/>Filesize
 <lang=gr/>Μέγεθος αρχείου
@@ -366,12 +413,14 @@
 </filesize>
 
 <fileupload>
+<lang=ar/>أدخال ملف للقصة
 <lang=da/>Filupload til historie
 <lang=en/>File upload for story
 <lang=zh/>文件上载
 </fileupload>
 
 <first>
+<lang=ar/>أول
 <lang=da/>Første
 <lang=en/>First
 <lang=hu/>elso
@@ -395,12 +444,14 @@
 </fr>
 
 <freeall>
+<lang=ar/>مجاناًَ للجميع
 <lang=da/>Fri-for-alle
 <lang=en/>Free-for-all
 <lang=zh/>完全自由
 </freeall>
 
 <full_story>
+<lang=ar/>كلمات القصة جميعاً
 <lang=da/>Hele historien
 <lang=en/>Full story text
 <lang=hu/>a tortenet teljes szovege
@@ -408,13 +459,17 @@
 </full_story>
 
 <fullpath>
+<lang=ar/>الطريق كاملة
 <lang=da/>Fuld sti
 <lang=en/>Full path
+<lang=zh/>全部地址
 </fullpath>
 
 <fulltext>
+<lang=ar/>جميع الكامات
 <lang=da/>Fuld tekst
 <lang=en/>Full text
+<lang=zh/>全部文章
 </fulltext>
 
 <gr>
@@ -434,6 +489,7 @@
 </gr>
 
 <hu>
+<lang=ar/>هنجاري
 <lang=da/>Ungarnsk
 <lang=en/>Hungarian
 <lang=hu/>magyar
@@ -441,6 +497,7 @@
 </hu>
 
 <inviteonly>
+<lang=ar/>معزوم فقط
 <lang=da/>Kun inviterede
 <lang=en/>Invite-only
 <lang=zh/>只邀请
@@ -478,6 +535,10 @@
 <lang=zh/>意大利语
 </it>
 
+<iw>
+<lang=en/>Hebrew
+</iw>
+
 <ja>
 <lang=ar/>ياباني
 <lang=bg/>Японски
@@ -508,6 +569,7 @@
 </language>
 
 <last>
+<lang=ar/>النهاية
 <lang=da/>Sidste
 <lang=en/>Last
 <lang=hu/>utolso
@@ -541,11 +603,14 @@
 </logout>
 
 <media>
+<lang=ar/>أعلام
 <lang=da/>Media
 <lang=en/>Media
+<lang=zh/>煤体
 </media>
 
 <media_man>
+<lang=ar/>   ادارة الاعلام
 <lang=da/>Medie håndtering
 <lang=en/>Media management
 <lang=hu/>media szervezes
@@ -568,11 +633,14 @@
 </mk>
 
 <more>
+<lang=ar/>مزيد
 <lang=da/>Mere
 <lang=en/>More
+<lang=zh/>更多
 </more>
 
 <new_story>
+<lang=ar/>قصة جديدة
 <lang=da/>Ny historie
 <lang=en/>New story
 <lang=hu/>uj tortenet
@@ -580,48 +648,56 @@
 </new_story>
 
 <new_username>
+<lang=ar/>عضو جديد
 <lang=da/>Nyt brugernavn
 <lang=en/>New username
 <lang=zh/>新的用户名
 </new_username>
 
 <newfilename>
+<lang=ar/>أسم ملف جديد
 <lang=da/>Nyt filnavn
 <lang=en/>New filename
 <lang=zh/>新的文件名
 </newfilename>
 
 <newpass>
+<lang=ar/>كلمة مرور جديدة
 <lang=da/>Nyt password
 <lang=en/>New Passward
 <lang=zh/>新的密码
 </newpass>
 
 <no_>
+<lang=ar/>لا
 <lang=da/>Nej
 <lang=en/>No
 <lang=zh/>否
 </no_>
 
 <no_stories>
+<lang=ar/>لا يوجد قصص
 <lang=da/>Ingen historier
 <lang=en/>No stories
 <lang=zh/>没有内容
 </no_stories>
 
 <oneerror_occur>
+<lang=ar/>حدث خطاء أو أكثر
 <lang=da/>En eller flere fejl er opstået i
 <lang=en/>One or more errors has occured in
 <lang=zh/>出现有一个或更多的错误
 </oneerror_occur>
 
 <or_add_newstory>
+<lang=ar/>أو هنا لأضافة قصة جديدة
 <lang=da/>eller her for at tilføje en ny historie
 <lang=en/>or here to add a new story
 <lang=zh/>或许按这儿添加新的记事
 </or_add_newstory>
 
 <or_new>
+<lang=ar/>أو جديد
 <lang=da/>eller ny
 <lang=en/>or new
 <lang=hu/>vagy uj
@@ -645,12 +721,14 @@
 </passwd>
 
 <please_fill_out_this_form>
+<lang=ar/>الرجاء أكمال هذا الجدول
 <lang=da/>Venligst udfyld denne formular
 <lang=en/>Please fill out this form
 <lang=zh/>请填写这张表
 </please_fill_out_this_form>
 
 <pleaselogin>
+<lang=ar/>الرجاء ادخال معلوماتك قبل الدخول
 <lang=da/>Log venligst ind før denne side tilgåes
 <lang=en/>Please Login before accessing this page
 <lang=zh/>进入此页之前请登录
@@ -672,6 +750,7 @@
 </posted_by>
 
 <preview>
+<lang=ar/>مراجعة
 <lang=da/>Udkast
 <lang=en/>Preview
 <lang=zh/>预现
@@ -691,6 +770,7 @@
 </public>
 
 <random>
+<lang=ar/>عشوائي
 <lang=da/>Tilfældig
 <lang=en/>Random
 <lang=hu/>veletlen
@@ -698,6 +778,7 @@
 </random>
 
 <register>
+<lang=ar/>تسجيل
 <lang=da/>Registrer
 <lang=en/>Register
 <lang=hu/>regisztral
@@ -705,7 +786,7 @@
 </register>
 
 <se>
-<lang=ar/>سودي
+<lang=ar/>سويدي
 <lang=bg/>Шведски
 <lang=da/>Svensk
 <lang=en/>Swedish
@@ -747,18 +828,21 @@
 </signup>
 
 <signup_approve>
+<lang=ar/>تم الموافقة 
 <lang=da/>Tilmeld-godkend
 <lang=en/>Signup Approve
 <lang=zh/>允许登记
 </signup_approve>
 
 <signup_newchannel>
+<lang=ar/>سجل الى قناة سبوجي جديدة
 <lang=da/>Tilmeld en ny spoejs kanal
 <lang=en/>Sign up for a new Spoejs channel
 <lang=zh/>登记新的网页
 </signup_newchannel>
 
 <site_home>
+<lang=ar/>العودة الى الصفحة الاولى
 <lang=da/>Kanal index
 <lang=en/>Site home
 <lang=hu/>eredeti hely?
@@ -766,6 +850,7 @@
 </site_home>
 
 <siteconf>
+<lang=ar/>تغيرات على الموقع
 <lang=da/>Site konfiguration
 <lang=en/>Site configuration
 <lang=hu/>hely konfiguracio
@@ -773,12 +858,14 @@
 </siteconf>
 
 <sitepolicy>
+<lang=ar/>قوانيين الموقع
 <lang=da/>Site politik
 <lang=en/>Site Policy
 <lang=zh/>本页特权
 </sitepolicy>
 
 <specific>
+<lang=ar/>خاص
 <lang=da/>Specifik
 <lang=en/>Specific
 <lang=hu/>specialis
@@ -786,18 +873,21 @@
 </specific>
 
 <spoejs_channels_at_this_site>
+<lang=ar/>يوجد قنوات سبوجي في هذا الموقع
 <lang=da/>Spoejs kanaler på dette site
 <lang=en/>Spoejs channels at this site
 <lang=zh/>Spoejs网页
 </spoejs_channels_at_this_site>
 
 <statuschannel>
+<lang=ar/>تحديد للقناوات في هذا الموقع
 <lang=da/>Status for kanaler på dette site
 <lang=en/>Status for channels at this site
 <lang=zh/>本网站网页的状况
 </statuschannel>
 
 <story_abstract>
+<lang=ar/>محتويات القصة
 <lang=da/>Historie abstrakt
 <lang=en/>Story abstract
 <lang=hu/>tortenet kivonat
@@ -805,11 +895,20 @@
 </story_abstract>
 
 <story_home>
+<lang=ar/>العودة للقصة
 <lang=da/>Historie
 <lang=en/>Story home
+<lang=zh/>记事本页
 </story_home>
 
+<storysave>
+<lang=ar/>تم حفظ القصة بنجاح
+<lang=en/>Story saved successfully
+<lang=zh/>保存记事成功
+</storysave>
+
 <storytitle>
+<lang=ar/>عنوان القصة
 <lang=da/>Historie titel
 <lang=en/>Story title
 <lang=hu/>tortenet cim
@@ -817,6 +916,7 @@
 </storytitle>
 
 <storytitlelist>
+<lang=ar/>جدول عناوين القصص
 <lang=da/>Historietitelliste
 <lang=en/>Story title list
 <lang=zh/>记事标题一览
@@ -835,7 +935,12 @@
 <lang=zh/>承诺
 </submit>
 
+<submit_query>
+<lang=en/>Submit Query
+</submit_query>
+
 <thechannel_notexit>
+<lang=ar/>هذة القناة غير موجودة
 <lang=da/>Kanalen eksisterer ikke!
 <lang=en/>The channel doesn't exist!
 <lang=zh/>这个网页不存在
@@ -855,6 +960,7 @@
 </theme>
 
 <thumbnail>
+<lang=ar/>الرموز
 <lang=da/>Ikon
 <lang=en/>Thumbnail
 <lang=hu/>huvelykujjkorom?
@@ -877,6 +983,12 @@
 <lang=zh/>标题
 </title>
 
+<upload>
+<lang=ar/>أدخال
+<lang=en/>Upload
+<lang=zh/>上载
+</upload>
+
 <username>
 <lang=ar/>أسم المستعمل
 <lang=bg/>Име на потребител
@@ -891,12 +1003,14 @@
 </username>
 
 <yes>
+<lang=ar/>نعم
 <lang=da/>Ja
 <lang=en/>Yes
 <lang=zh/>是
 </yes>
 
 <yourname>
+<lang=ar/>أسمك
 <lang=da/>Dit navn
 <lang=en/>Your name
 <lang=hu/>neve, neved?
@@ -904,7 +1018,7 @@
 </yourname>
 
 <zh>
-<lang=ar/>صينس
+<lang=ar/>صيني
 <lang=bg/>Китайски
 <lang=da/>Kinesisk
 <lang=en/>Chinese

@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: upload.html,v 1.20 2004/04/09 21:13:39 bottle18 Exp $
+%# $Id: upload.html,v 1.21 2004/04/13 21:09:39 bottle18 Exp $
 %#
 % return unless $m->comp( 'checkLogin.html' );
 <& /js/detectua.js &>
@@ -47,8 +47,8 @@ function cr_table( tabbody ) {
 <tbody id="tb" width="100%"></tbody>
 </table>
 </fieldset>
-<input type="submit" name="upload" value="Upload">
-<input type="button" onclick='cr_table( document.getElementById("tb") );' value="Add field"/>
+<input type="submit" name="upload" value="<&|/l&>upload</&>">
+<input type="button" onclick='cr_table( document.getElementById("tb") );' value="<&|/l&>addfield</&>"/>
 </form>
 <br/>
 % if ( defined $session{siteauth} ) {
@@ -78,7 +78,7 @@ function cr_table( tabbody ) {
 </table>
 <br/>
 <a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d=>$spoejs{p}{d} &>">
-Back to story
+<&|/l&>backtostory</&>
 </a>
 <br/>
 <br/>
