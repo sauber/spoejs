@@ -5,8 +5,8 @@ use Date::Manip;
 use LWP::UserAgent;
 use Spoejs::ChannelList;
 
-# $Id: Syndication.pm,v 1.3 2004/05/16 00:37:42 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.3 $';
+# $Id: Syndication.pm,v 1.4 2004/05/16 07:19:58 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.4 $';
 
 # Constructor
 sub _initialize {
@@ -18,20 +18,20 @@ sub _initialize {
 
 #
 #
-sub _remote_list {
+sub _fetch_url {
   my $self = shift;
   my $url  = shift;
 
   my $ua = LWP::UserAgent->new;
   my $res= $ua->get($url);
-  my ($list);
+  my ($content);
   if ($res->is_success) {
-    $list = $res->content;
+    $content = $res->content;
   } else {
     warn $res->status_line;
     return $self->_err('Could not fetch remote: $url');
   }
-  return $list;
+  return $content;
 }
 
 
@@ -41,15 +41,14 @@ sub _remote_list {
 #
 sub _parse_remote_list {
     my $self = shift;
-    my $site = shift;
-    my $list = shift; # As one string
+    my ($site, $url, $list ) = @_;
 
     my @sname_dates;
     my @lines = split /\n/, $list;
     for my $line ( @lines ) {
 	my ($sname, $date) = split /;/, $line;
         push @sname_dates, 
-             { site => $site, shortname => $sname, date => $date };
+            { site => $site, url => $url, shortname => $sname, date => $date };
     }
     return @sname_dates;
 }
@@ -57,14 +56,14 @@ sub _parse_remote_list {
 
 #
 #
-sub _fetch_remotes {
+sub _fetch_remote_lists {
   my $self  = shift;
   my $remotedoc = "/latest.html"; #XXX: Consider moving to new() call or config
   my %sites = $self->get();
 
   while ( my ( $site, $url ) = ( each %sites ) ) {
-      my $list = $self->_remote_list( $url . $remotedoc );
-      push @{$self->{globallist}}, $self->_parse_remote_list( $site, $list );
+      my $list = $self->_fetch_url( $url . $remotedoc );
+      push @{$self->{globallist}}, $self->_parse_remote_list( $site, $url, $list );
   }
 }
 
@@ -74,9 +73,21 @@ sub _fetch_remotes {
 sub _sort_globallist {
   my $self  = shift;
 
-    @{$self->{globallist}} = 
-                sort { $b->{date} <=> $a->{date} }
-                      @{$self->{globallist}};
+    @{$self->{globallist}} = sort { $b->{date} <=> $a->{date} }
+                             @{$self->{globallist}};
+}
+
+
+#
+#
+sub _fetch_summaries {
+    my $self  = shift;
+
+    for my $chan ( @{$self->{globallist}} ) {
+	my $url =  "$chan->{url}/$chan->{shortname}/intro.html";
+	$chan->{summary} = $self->_fetch_url( $url );
+    }
+
 }
 
 #### Public interface ####
@@ -115,11 +126,15 @@ sub newest_remotes {
   my $self  = shift;
 
   # Build globallist with all remotes
-  $self->_fetch_remotes();
+  $self->_fetch_remote_lists();
 
   # Sort on date of newest entry
   $self->_sort_globallist();
 
+  # Fetch newset summaries
+  $self->_fetch_summaries();
+
+  return $self->{globallist};
 }
 
 __END__
