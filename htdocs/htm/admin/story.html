@@ -3,37 +3,28 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.30 2004/06/13 05:07:11 snicki Exp $
+%# $Id: story.html,v 1.31 2004/06/16 12:55:11 snicki Exp $
 %#
 % return undef unless $m->comp( '/htm/login.html:check_login' );
-<& /js/confirm.js &>
+%if ( defined $spoejs{p}{d} ) {
+<& /htm/admin/story_tab.mas &>
+%}
 % if ( $ARGS{submit} ) {
 <h4>**storysave**.</h4>
-<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/upload.html", 
-                             d=>$story_dir &>">
-**addmediastory**.
-</a>
-% return; }
-
-% if ( $ARGS{delete} ) {
-<h4>Story deleted successfully.</h4>
-<a href="/<% $spoejs{channel} %>/index.html">
-Go to channel home.
-</a>
 % return; }
 
 <h3>**edit_lang**: **<% $cur_lang %>**</h3>
-<div style="float: left;">
-<table width="100%">
-<tr><td width="490">
+<fieldset><legend>**story_details**</legend>
 <form action="" method="post">
-<fieldset><legend>**please_fill_out_this_form**</legend>
 **yourname**:<br/>
 <input type="text" size="60" name="author" value="<%$ARGS{author}%>"/><br/>
+<br/>
 **storytitle**:<br/>
 <input type="text" size="60" name="title" value="<%$ARGS{title}%>"/><br/>
+<br/>
 **date**: **blank_default**<br/>
 <input type="text" size="60" name="date" value="<%$ARGS{date}%>"/><br/>
+<br/>
 **category**:<br/>
 <select name="category">
 <option value="">Please select</option>
@@ -44,11 +35,13 @@ Go to channel home.
 </select>
 **or_new**: 
 <input type="text" size="30" name="newcategory" value=""/><br/>
+<br/>
 **story_abstract**:<br/>
-<textarea name="abstract" rows="5" cols="60"><%$ARGS{abstract}%></textarea>
+<textarea name="abstract" rows="5" cols="80"><%$ARGS{abstract}%></textarea>
+<br/>
 <br/>
 **full_story**:<br/>
-<textarea name="fulltext" rows="20" cols="60" id="fulltext">
+<textarea name="fulltext" rows="20" cols="80" id="fulltext">
 <%$ARGS{fulltext}%></textarea>
 <br/>
 <br/>
@@ -69,36 +62,8 @@ Go to channel home.
 <br/>
 % }
 <input type="submit" name="submit" value="**submit**"/>&nbsp;
-<input type="submit" name="delete" value="**delete**" onclick="return confirmSubmit()"/>
-</fieldset>
 </form>
-% if ( defined $spoejs{Story} ) {
-<h4>**media_man**:</h4>
-<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/upload.html", 
-                             d =>$story_dir &>">
-**add**
-</a>
-&nbsp;&nbsp;
-<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/rename.html", 
-                              d=>$story_dir &>">
-**rename_delete**
-</a>
-&nbsp;&nbsp;
-<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/annotations.html", 
-                              d=>$story_dir &>">
-**annotations**
-</a>
-</td><td valign="top">
-<&| /w, w => 'box', heading => '**click_insert_image**' &>
-<iframe src="<& /htm/url:encode, "/$spoejs{channel}/admin/mediapicker.html", 
-        d=>$story_dir &>" width="100%" height="620" frameborder="1">
-[Your user agent does not support frames or is currently configured
-not to display frames.]
-</iframe>
-</&>
-</td></tr></table>
-</div>
-% }
+</fieldset>
 <%init>
 my @thumb = qw( first last random always_random specific );
 my $cur_lang = $spoejs{current_language};
@@ -153,9 +118,6 @@ if ( defined $ARGS{submit} ) {
     $S->set( %new_data );
   }
 }
-
-# Delete story if so told
-$spoejs{SL}->del_story( story => $story_dir ) if ( $ARGS{delete} );
 
 # Used for category chooser - counts ignored
 my %categories = $spoejs{SL}->count_stories( by => 'category' );
