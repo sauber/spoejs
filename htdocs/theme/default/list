@@ -1,7 +1,7 @@
 <table border="1">
 % foreach my $story ( @stories ) {
 <tr>
-  <td><& abstract, storyref => $story &></td>
+  <td><& /w, w => 'abstract', storyref => $story &></td>
 </tr>
 % }
 </table>

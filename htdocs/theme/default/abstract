@@ -8,7 +8,7 @@
   <td><&|/l&>category</&>: <%$storyref->get( 'category' )%></td>
 </tr>
 <tr>
-  <td><& categoryicon, category =>$storyref->get( 'category' ) &></td>
+  <td><& /w, w => 'categoryicon', category =>$storyref->get( 'category' ) &></td>
   <td><% $storyref->get( 'abstract' ) %></td>
 </tr>
 
