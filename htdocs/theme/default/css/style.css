@@ -121,6 +121,16 @@ div.media {
   background-color: #EBEBFF;
 }
 
+div.fixed-media {
+  float: left;
+  height: 180px;
+  width: 180px;
+#  max-height: 170px;
+#  max-width: 170px;
+#  width:expression(this.scrollWidth < 166? "166px" : "auto" );
+#  height:expression(this.scrollHeight < 166? "166px" : "auto" );
+}
+
 div.left {
   float: left;
   width:60px;
