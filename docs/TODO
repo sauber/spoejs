@@ -132,6 +132,7 @@ Media:
  - gif+bmp
  - pregenerated icons (fx party)
  - ML->ignore( @ml )
+ - Support .wmv
 
 Extras:
  - Calendar
