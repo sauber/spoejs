@@ -213,3 +213,27 @@
 <lang=en/>Logout
 <lang=da/>Log ud
 </logout>
+
+<shortname>
+<lang=en/>Shortname
+</shortname>
+
+<description>
+<lang=en/>Description
+</description>
+
+<language>
+<language=en/>Language
+</language>
+
+<theme>
+<lang=en/>Theme
+</theme>
+
+<public>
+<lang=en/>Public
+</public>
+
+<signup>
+<lang=en/>Sign up
+</signup>
