@@ -4,8 +4,8 @@ use Spoejs::Pic;
 use Archive::Zip;
 use Archive::Tar;
 
-# $Id: Archive.pm,v 1.4 2004/03/29 10:40:25 snicki Exp $
-$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.4 $';
+# $Id: Archive.pm,v 1.5 2004/03/31 10:01:40 snicki Exp $
+$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.5 $';
 
 #### Private helper functions ####
 
@@ -88,6 +88,9 @@ sub add_archive {
   # Cleanup
   chdir $oldwd;
   rmtree $tempdir;
+
+  # Sucess
+  return 1;
 }
 
 
@@ -125,5 +128,7 @@ sub add_file {
   } else {
       $P->delete();
   }
+  # Success
+  return 1;
 }
 
