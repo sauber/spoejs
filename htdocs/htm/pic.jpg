@@ -1,0 +1,22 @@
+<% $$picref %>
+% $m->abort();
+<%init>
+    use Spoejs::Pic;
+    my $path = "$ENV{DOCUMENT_ROOT}/users/$session{user}/$params{d}";
+
+    my $P = Spoejs::Pic->new( path => $path, file => $params{p} );
+    my $picref = $P->get( size => $params{m} );
+
+    # Make sure we only send out jpeg data
+    $m->clear_buffer();
+    $r->content_type('image/jpeg');
+    # Caching
+    my $offset = 60 * 60 * 24 * 60; # seconds * minutes * hours * days
+    my $e = gmtime( time + $offset );
+    my $l = gmtime( time - $offset * 10 );
+    $r->headers_out->add( "Expires" => $e );
+    $r->headers_out->add( "Last-Modified" => $l );
+</%init>
+<%args>
+ %params => undef    
+</%args>
