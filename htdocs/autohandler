@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: autohandler,v 1.17 2004/04/18 23:57:22 snicki Exp $
+%# $Id: autohandler,v 1.18 2004/04/22 06:40:06 snicki Exp $
 %#
 <& htm/header.html &>
 <body>
@@ -23,6 +23,7 @@ if ( 1 ) {
   use Spoejs::Icon;
   use Spoejs::Pic;
   use Spoejs::Movie;
+  use Spoejs::Archive;
   use Spoejs::SiteConf;
   use Bootstring;
 }

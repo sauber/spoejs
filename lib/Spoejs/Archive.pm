@@ -4,8 +4,8 @@ use Spoejs::Pic;
 use Archive::Zip;
 use Archive::Tar;
 
-# $Id: Archive.pm,v 1.8 2004/04/18 23:57:22 snicki Exp $
-$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.8 $';
+# $Id: Archive.pm,v 1.9 2004/04/22 06:40:11 snicki Exp $
+$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.9 $';
 
 
 # Initializor
@@ -14,9 +14,21 @@ sub _initialize {
   my($self) = shift;
   # Set supported extensions and call Media's initializor
   $self->{extensions} = 'tar|gz|tgz|zip';
-#  $self->_check_save();
 
-  $self->add_archive();
+#  Media::_check_save(); is copied here in modified form
+
+  # Check for supported extension and save if filehandle is given
+  if ( $self->{file} =~ /($self->{extensions})$/i ) {
+      if ( defined $self->{fh} ) {
+	  $self->add_archive();
+      } else {
+	  return -s "$self->{path}/$self->{file}" ? 1 : 
+	      $self->_err( "Zero-sized file" );
+      }
+  } else {
+      return $self->_err( "Unsuported filetype" );
+  }
+
 
 }
 

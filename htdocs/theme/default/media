@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.19 2004/04/18 23:57:22 snicki Exp $
+%# $Id: media,v 1.20 2004/04/22 06:40:11 snicki Exp $
 %#
 <center>\
 % unless ( $no_div ) {
@@ -29,11 +29,12 @@
   my $size = $spoejs{p}{m} || $ARGS{m};
 
   unless ( $html_wh ) {
-  my $P = new Spoejs::Media( path => "$spoejs{channel_path}/$ARGS{d}",
+  my $M = new Spoejs::Media( path => "$spoejs{channel_path}/$ARGS{d}",
                            file => $ARGS{p} );
-  $spoejs{error}{$m->current_comp->source_file} = $P->{msg} if $P->{msg};
+  $spoejs{error}{$m->current_comp->source_file} = $M->{msg} if defined $M->{msg};
+  return undef if defined $M->{msg};
 
-  $html_wh = $P->html_imgsize( size => $size );
+  $html_wh = $M->html_imgsize( size => $size );
 }
   my $ext;
   $ARGS{p} =~ /(...)$/ and $ext = lc $1;

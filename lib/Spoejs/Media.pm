@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.12 2004/04/20 14:36:43 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.12 $';
+# $Id: Media.pm,v 1.13 2004/04/22 06:40:11 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.13 $';
 
 
 # Initializor
@@ -30,6 +30,7 @@ sub _initialize {
   my $newobj = new Spoejs::Pic( %opt );
   $newobj = new Spoejs::Movie( %opt ) if defined $newobj->{msg};
   $newobj = new Spoejs::Archive( %opt ) if defined $newobj->{msg};
+  $newobj->{msg} = "Unsupported filetype" if defined $newobj->{msg};
   return $newobj;
 }
 
@@ -45,7 +46,8 @@ sub _check_save {
 	  $self->save( $self->{fh} );
 	  return $self->_check();
       } else {
-	  return 1;
+	  return -s "$self->{path}/$self->{file}" ? 1 : 
+	      $self->_err( "Zero-sized file" );
       }
   } else {
       return $self->_err( "Unsuported filetype" );
