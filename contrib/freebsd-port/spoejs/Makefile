@@ -17,9 +17,9 @@ MAINTAINER=	sauber@users.sourceforge.net
 COMMENT=	spoejs meta port
 
 RUN_DEPENDS+=	${LOCALBASE}/bin/mplayer:${PORTSDIR}/multimedia/mplayer
-RUN_DEPENDS+=	${SITE_PERL}/mod_perl.pm:${PORTSDIR}/www/mod_perl
+RUN_DEPENDS+=	${SITE_PERL}/mach/mod_perl.pm:${PORTSDIR}/www/mod_perl
 RUN_DEPENDS+=	${SITE_PERL}/HTML/Mason.pm:${PORTSDIR}/www/p5-HTML-Mason
-RUN_DEPENDS+=	${SITE_PERL}/Image/Magick.pm:${PORTSDIR}/graphics/ImageMagick
+RUN_DEPENDS+=	${SITE_PERL}/mach/Image/Magick.pm:${PORTSDIR}/graphics/ImageMagick
 RUN_DEPENDS+=	${SITE_PERL}/YAML.pm:${PORTSDIR}/textproc/p5-YAML
 RUN_DEPENDS+=	${SITE_PERL}/Apache/Session/File.pm:${PORTSDIR}/www/p5-Apache-Session
 RUN_DEPENDS+=	${SITE_PERL}/Image/Size.pm:${PORTSDIR}/graphics/p5-Image-Size
