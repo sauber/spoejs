@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.7 2004/03/01 09:53:22 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.7 $';
+# $Id: Text.pm,v 1.8 2004/03/02 05:48:59 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.8 $';
 
 
 # Constructor
@@ -20,10 +20,11 @@ sub _initialize {
     my %param = (@_);
 
     # Get site_dir for current user
-    $self->{path}        = Spoejs::ChannelConf->channel_dir() ."/$param{path}";
+    $self->{path}        = Spoejs::ChannelConf->channel_dir() ."/$param{path}"
+	if $param{path};
     $self->{story_path}  = $param{path};
     $self->{file}        = $param{file};
-    $self->{full_path}   = "$self->{path}/$param{file}";
+    $self->{full_path}   = "$self->{path}/$param{file}" if $param{file};
     $self->{full_path}   = $param{full_path} if $param{full_path};
     $self->{lang}        = $param{lang};
     $self->{is_loaded}   = 0;
@@ -191,11 +192,11 @@ sub get {
 	    $res{$_} = $self->{data}{$_[0]};
 	}
 	
- 	$self->{lang}->tr( \%res );
+ 	%res = $self->{lang}->tr( \%res );
  	return $res{$val};
     }
     elsif ( @_ > 1 ) {
-   warn Dumper( $self->{data} );
+
 	# Copy value for each argument
 	for (@_) {
 
