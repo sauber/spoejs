@@ -2,7 +2,7 @@
 
 # Find resources in use
 #
-find ../htdocs -type f -exec egrep '\*\*.*?\*\*' {} \; | perl -n -e '@a=m!\*\*(.*?)\*\*!g;print map{"$_\n"}@a' | sort | uniq > /tmp/.$$.inuse
+find ../htdocs \! -path '*users*' -type f -exec egrep '\*\*.*?\*\*' {} \; | perl -n -e '@a=m!\*\*(.*?)\*\*!g;print map{"$_\n"}@a' | sort | uniq > /tmp/.$$.inuse
 
 # Find resources available
 #
