@@ -82,6 +82,7 @@ StoryConf:
 Syndication:
  - Produce Channelconf + latest story
  - Central site for root index
+ - Parallel lwp fetch
 
 Annotations:
  - Specialize ::Text
