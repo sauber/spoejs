@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.19 2004/04/25 14:05:35 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.19 $';
+# $Id: MediaList.pm,v 1.18 2004/04/25 14:03:59 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.18 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -109,7 +109,7 @@ sub get {
     } elsif ( $type eq 'last' ) {
 	$i = 0;
 
-    } elsif ( $type eq 'random' or $type eq 'always_random' or $type eq '' ) {
+    } elsif ( $type eq 'random' or $type eq '' ) {
 
 	$i = int rand($#files + 1);
     } else {
