@@ -1163,7 +1163,7 @@ journal_security_description:
 journals_friends:
   da: Journaler på vennesider
   de: Ausgaben auf der Seite eines Freundes
-  en: Journals at friend's sites
+  en: Journals at Friends' Sites
   es: Diarios en sitios de amigos
   et: Sõprade albumid
   it: giornale di siti amici
