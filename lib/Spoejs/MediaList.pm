@@ -2,8 +2,8 @@ package Spoejs::MediaList;
 use base ( "Spoejs::List" );
 use File::Basename;
 
-# $Id: MediaList.pm,v 1.6 2004/03/27 14:08:05 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.6 $';
+# $Id: MediaList.pm,v 1.7 2004/03/29 04:25:20 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.7 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -15,6 +15,7 @@ sub _initialize {
 
 sub _next {
     my ( $self, $current, @media ) = @_;
+
     my $found;
     for ( @media ) {
 	if ($found) { $found = $_->{file}; last; }
@@ -90,7 +91,6 @@ sub get_picref {
 sub get {
     my ( $self, $type ) = @_;
 
-
     if ( $type eq 'first' ) {
 	my @all = $self->list();
 	return $all[0];
@@ -103,5 +103,4 @@ sub get {
 	my $i = int rand($#all + 1);
 	return $all[$i];
     }    
-
 }

@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.15 2004/03/12 07:13:37 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.15 $';
+# $Id: StoryList.pm,v 1.16 2004/03/29 04:25:20 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.16 $';
 
 sub _initialize {
     my $self = shift;
@@ -108,10 +108,12 @@ sub add_story {
     my ($month, $year) = Date::Manip::UnixDate( $date, "%m", "%Y" );
 
     # Make sure folder exist
-    mkdir "$path/$year" unless -d "$path/$year";
-    mkdir "$path/$year/$month" unless -d "$path/$year/month";
     $path = "$path/$year/$month";
-
+    eval { mkpath($path) };
+    if ($@) {
+	return $self->_err( "Couldn't create $dir: $@" );
+    }
+    
     # Get counter, if exists
     my @current_dirs = $self->_dirs_in_path( $path );
  
@@ -124,7 +126,7 @@ sub add_story {
     # Compose new path
     $new_dir = sprintf "%s/%0.2d", $path, $current_dirs[0] + 1;
 
-    mkdir $new_dir;
+    mkdir $new_dir or return $self->_err( "Could not create dir $p: $!" );
 
     # Remove channel part of dir
     $new_dir =~ s/$self->{path}\///;
@@ -141,7 +143,10 @@ sub del_story {
     my $root_path = $self->{path};
 
     # Remove given story-dir
-    rmtree "${root_path}/$in{story}";
+    my $res = rmtree "${root_path}/$in{story}";
+
+    # XXX: Enhance to trap  $SIG{__WARN__}
+    return $res > 0 ? $res : $self->_err( "Could not remove story" );
 }
 
 # XXX: Add counts by year/month
@@ -181,7 +186,7 @@ sub list_stories {
     my @res = $self->_sort_by_date( $self->_all_stories() );
 
     # Return all stories if no keyword/story is given
-    if ( keys %in == 0 ){ }
+    # if ( keys %in == 0 ){ }
 
     # Handle 'story' separately
     if ( $in{story} ) {

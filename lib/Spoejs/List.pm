@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.3 2004/03/22 07:09:00 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.3 $';
+# $Id: List.pm,v 1.4 2004/03/29 04:25:20 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.4 $';
 
 
 # Constructor
@@ -23,7 +23,9 @@ sub _initialize {
 sub _dirs_in_path {
     my ( $self, $path ) = @_;
 
-    opendir DH, "$path" or die $self->_err( "Can not open $path: $!");
+    return $self->_err( "Invalid or missing path: $path") unless $path;
+
+    opendir DH, "$path" or return $self->_err( "Cannot open $path: $!");
     my @res = reverse  sort
                        grep { -d "$path/$_" }
                        grep !/^\./,
@@ -39,6 +41,9 @@ sub _dirs_in_path {
 sub _list_from_filename {
 
     my ($self, $path, $file ) = @_;
+
+    return $self->_err( "Invalid or missing path: $path") unless $path;
+    return $self->_err( "Invalid or missing file: $file") unless $file;
 
     my @paths;
 
@@ -61,6 +66,10 @@ sub _list_from_filename {
 sub _list_from_file_pattern {
 
     my ($self, $pattern ) = @_;
+
+    return $self->_err( "Invalid or missing path: $self->{path}") 
+	unless $self->{path};
+    return $self->_err( "Invalid or missing file: $pattern") unless $pattern;
 
     my @files;
 

@@ -2,22 +2,15 @@ package Spoejs::Story;
 use base ( "Spoejs::Text" );
 use Spoejs::MediaList;
 
-# $Id: Story.pm,v 1.6 2004/03/22 07:09:00 snicki Exp $
-$Spoejs::Story::VERSION = $Spoejs::Story::VERSION = '$Revision: 1.6 $';
+# $Id: Story.pm,v 1.7 2004/03/29 04:25:20 snicki Exp $
+$Spoejs::Story::VERSION = $Spoejs::Story::VERSION = '$Revision: 1.7 $';
 
 sub _initialize {
     my $self = shift;
     $self->SUPER::_initialize( @_, file => 'data.txt' );
+    return $self->_err( "Missing or invalid path: $self->{path}" )
+	unless $self->{path};
     $self->{ML} = new Spoejs::MediaList( path => $self->{path} );
-}
-
-# Return a story's date
-# XXX: Add set functionality
-#
-sub date {
-    my $self = shift;
-    
-    return $self->get( "date" );
 }
 
 # Extract the story-path portion af the full path.

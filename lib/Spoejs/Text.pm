@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.18 2004/03/14 09:42:38 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.18 $';
+# $Id: Text.pm,v 1.19 2004/03/29 04:25:20 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.19 $';
 
 
 # Constructor
@@ -18,6 +18,18 @@ sub _initialize {
 
     my $self  = shift;
     %{$self} = ( %{$self}, @_ );
+
+    # Check file
+    if ( -f "$self->{path}/$self->{file}" ) {
+	$self->{msg} = "Can't write file $self->{path}/$self->{file}"
+	    unless -w "$self->{path}/$self->{file}";
+	$self->{msg} = "Can't read file $self->{path}/$self->{file}"
+	    unless -r "$self->{path}/$self->{file}";
+    } else {
+	open FH, ">$self->{path}/$self->{file}"
+	    or $self->{msg} = "Can't create $self->{path}/$self->{file}: $1";
+	close FH;
+    }
 }
 
 
@@ -31,8 +43,7 @@ sub _store_data {
     my $self = shift;
     my %data = %{$self->{data}}; #grab data for easier access
     open (FH, ">$self->{path}/$self->{file}") or
- 	return $self->_err( "Text::_store_data(): Could not open $self->{path}/$self->{file}: $! ");
-    #binmode( FH, ":utf8" );
+ 	return $self->_err( "Could not open $self->{path}/$self->{file}: $!");
 
     foreach $key ( sort keys( %data ) ) {
 	
@@ -72,15 +83,13 @@ sub _store_data {
 #
 # Todo: 
 # 1. Support single line: <anno><lang=dk>pic1.jpg: test</lang><anno>
-# 2. binmode utf8
-# 3. skip whitespace
+# 2. skip whitespace
 sub _read_data {
 
     my $self = shift;
     # Return here if file does not exist. 
     open FH, "<$self->{path}/$self->{file}" or 
- 	return $self->_err( "Text::_read_data(): Could not open $self->{path}/$self->{file}: $! ");
-    #binmode( FH, ":utf8" );
+ 	return $self->_err( "Could not open $self->{path}/$self->{file}: $! ");
 
     my $tag = "";
     my $lang = "";
@@ -157,11 +166,17 @@ sub _check_load {
     my $self = shift;
 
     unless ( $self->{is_loaded} ) {
-	if ( -f "$self->{path}/$self->{file}" ) {
+	if ( -w "$self->{path}/$self->{file}" ) {
 	    $self->_read_data() or return undef;
 	    $self->{is_loaded} = 1;
 	}
+	else {
+	    return $self->_err( "$self->{path}/$self->{file} is unwriteable" );
+	}
     }
+
+    # Success
+    return 1;
 }
 
 
@@ -174,7 +189,7 @@ sub get {
     my $self = shift;
     my %res;
 
-    $self->_check_load();
+    $self->_check_load() or return undef;
 
     return $self->_err( "No data set or loaded" ) unless $self->{data};
 
@@ -220,7 +235,7 @@ sub set {
 
     my $self = shift;
 
-    $self->_check_load();
+    $self->_check_load() or return undef;
 
     %in_data = @_;
 
@@ -240,8 +255,8 @@ sub set {
 	} else {
 	    # If this level contains nested elements they will be replaced
 	    # TODO: Check and report nested elements og make funktion recursive
-	    # TODO: Set is_modified only if something really changes.
 	    # to handle "unlimited" nesting.
+	    # TODO: Set is_modified only if something really changes.
 	    if( defined $self->{data}{$key} ) {
 		%{ $self->{data}{$key} } = ( %{ $self->{data}{$key} }, 
 					     %{ $in_data{$key} } );
@@ -271,6 +286,8 @@ sub del {
 
     delete $self->{is_loaded};
     delete $self->{is_modified};
+
+    return $msg > 0 ? 1 : $self->_err( "Could not delete file" );
 }
 
 

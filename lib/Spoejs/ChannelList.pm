@@ -3,8 +3,8 @@ use base ( "Spoejs::List", "Spoejs" );
 use Spoejs::ChannelConf;
 use File::Path;
 
-# $Id: ChannelList.pm,v 1.6 2004/03/15 11:38:20 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.6 $';
+# $Id: ChannelList.pm,v 1.7 2004/03/29 04:25:20 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.7 $';
 
 
 # Constructor
@@ -31,7 +31,8 @@ sub search_channels {
 
     my ($self, %p ) = @_;
 
-    my @all = $self->_list_from_filename( $self->{path}, $self->{file} );
+    my @all = $self->_list_from_filename( $self->{path}, $self->{file} )
+	or return $self->_err( "Could not get channel list" );
 
     my @chans;
     for ( @all ) {
@@ -103,7 +104,9 @@ sub delete_channel {
     # Remove given story-dir
     my $res = rmtree "$self->{path}/$channel";
     return $self->_err( "Could not delete channel: $!" ) unless $res > 0;
-    return 1;
+
+    # Success
+    return $res;
 }
 
 
@@ -118,5 +121,5 @@ sub archive_channel {
     `tar czf ${path}.tgz $path`;
     
     # Delete chan
-    $self->delete_channel( $channel );
+    return $self->delete_channel( $channel );
 }
