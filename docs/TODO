@@ -1,15 +1,16 @@
 Release 0.01 must-have's:
 -------------------------
 
- - Site admin
- - Channel register
- - Channel admin
- - New/edit story
+ - Site admin (OK)
+ - Channel register (OK)
+ - Channel admin (OK)
+ - New/edit story (OK)
  - Clean theme and clean widgets
- - utf8 input/upload
- - utf8 filename, category, titly, abstract etc.
- - Storylist
- - Picture with next/prev
+ - utf8 input/upload (OK)
+ - utf8 filename, category, title, abstract etc. (OK)
+ - Storylist (OK)
+ - Picture with next/prev (OK)
+ - Error check
  - Install doc
  - License tags
 
