@@ -35,6 +35,7 @@ Code structure:
  - Error message when cookies missing
  - abstract rename to summary/intro
  - More code in .subs
+ - replace %# with <%doc>
 
 Data:
  - Don't save text unless really changed
@@ -43,6 +44,7 @@ Data:
  - Normalize UTF8 (get out of bytemode first)
  - Avoid to show stack trace on syntax error in ::Text
  - Userdefined fields (location, people...)
+ - Deal with paragraphs in ::Text instead of mason
  - Remove shortname from settings.txt
  - Don't create annotations.txt, comments.txt etc. unless have content
 
