@@ -6,8 +6,8 @@ use LWP::UserAgent;
 use Spoejs::ChannelList;
 use Spoejs::SiteConf;
 
-# $Id: Syndication.pm,v 1.13 2004/05/16 11:47:26 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.13 $';
+# $Id: Syndication.pm,v 1.14 2004/05/16 12:18:09 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.14 $';
 
 # Constructor
 sub _initialize {
@@ -162,9 +162,9 @@ sub newest_remotes {
   $self->_sort_globallist();
 
   # Shrink array to 'count' elements
-  # XXX: What is the syntax for directly shrinking an array when you have ref
-  @list = @{$self->{globallist}}[0..$opt{count}-1];
-  @{$self->{globallist}} = @list;
+  if ( @{$self->{globallist}} > $opt{count} ) {
+      $#{$self->{globallist}} = $opt{count} - 1;
+  }
 
   # Fetch newset summaries
   $self->_fetch_summaries();
@@ -172,7 +172,7 @@ sub newest_remotes {
   # Rewrite urls so they are absolute
   $self->_rewrite_urls();
 
-  return \@list;
+  return $self->{globallist};
 }
 
 __END__
