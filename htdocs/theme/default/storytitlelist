@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: storytitlelist,v 1.24 2004/06/02 13:31:20 snicki Exp $
+%# $Id: storytitlelist,v 1.25 2004/06/04 11:46:24 snicki Exp $
 %#
 % use Date::Manip;
 <h2><&|/l&>stories</&></h2>
@@ -12,7 +12,7 @@
 % my $path = $story->story_path_from_full();
 <a href="<& /htm/url:encode, 'story.html', d => $path &>">
       <% $story->get( 'title' ) %></a>
-<br/>(<% UnixDate($story->get( 'date' ), "%d/%m/%y") %>)
+<br/>(<% UnixDate($story->get( 'date' ), "%Y-%m-%d") %>)
 <br/>
 <br/>
 % }
