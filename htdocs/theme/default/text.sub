@@ -1,0 +1,31 @@
+%# Split text into paragraphs and mark as text or block of media files
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: text.sub,v 1.1 2004/04/16 14:20:11 sauber Exp $
+%#
+<%args>
+$w=>undef
+$text=>undef
+</%args>
+<%init>
+# The idea is to look for  blank lines to split the text up into paragraphs
+# Paragraphs starting with Media= are medialists. All others are text.
+# Use ML to verify that the media files exist.
+
+my $ML = new Spoejs::MediaList( path => "$spoejs{channel_path}/$spoejs{p}{d}" );
+my @pgr;
+for my $p ( split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $text ) {
+  if ( $p =~ /^media\s*=/i ) {
+    my @files = $p =~ /^media\s*=\s*(.*?)\s*$/mig;
+    my @ml = $ML->get_picref( @files );
+    if ( @ml and $ml[0] ne undef ) {
+      push @pgr, { type=>'media',  content=>\@ml };
+    }
+  } else {
+    push @pgr, { type=>'text',  content=>$p };
+  }
+}
+</%init>
+<& $w, paragraphs=>\@pgr &>

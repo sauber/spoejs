@@ -3,29 +3,17 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: text,v 1.4 2004/04/16 13:49:49 snicki Exp $
+%# $Id: text,v 1.5 2004/04/16 14:20:11 sauber Exp $
 %#
 <%args>
-$text=>undef
+$paragraphs=>undef
 </%args>
-<%init>
-# The idea is to look for  blank lines to split the text up into paragraphs
-# Paragraphs starting with Media= are medialists. All others are text.
-my @paragraphs =
-   map { /^media\s*=/i and { type=>'media', content=>[ /^media\s*=\s*(.*?)\s*$/mig ] }
-                        or { type=>'text',  content=>$_ } }
-   split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $text;
-
-my $ML = new Spoejs::MediaList( path => "$spoejs{channel_path}/$spoejs{p}{d}" );
-my @ml;
-</%init>
-% for my $p ( @paragraphs ) {
+% for my $p ( @$paragraphs ) {
 %   if ( $p->{type} eq 'text' ) {
 <p align=justify><% $p->{content} %></p>
 %   } elsif ( $p->{type} eq 'media' ) {
 <br clear="all"/>
-%     @ml = $ML->get_picref( @{$p->{content}} );
-<& /w, w => 'album', ml => \@ml &>
+<& /w, w => 'album', ml => $p->{content} &>
 <br clear="all"/>
 %   }
 % }
