@@ -3,8 +3,8 @@ use base ( "Spoejs" );
 use utf8;
 use Data::Dumper;
 
-# $Id: Lang.pm,v 1.4 2004/03/02 06:10:21 snicki Exp $
-$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.4 $';
+# $Id: Lang.pm,v 1.5 2004/03/03 10:47:13 snicki Exp $
+$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.5 $';
 
 sub _initialize {
     my $self = shift;
@@ -54,18 +54,4 @@ sub tr {
     }
     
     return %{$data};
-}
-
-# Todo:
-# 1. Get resource.txt location automatically
-# 2. Get language list automatically
-# 
-sub lang_list {
-    my $self = shift;
-    my @twoletter = qw( en da de fr se jp zh gr ar it );
-    my $T = new Spoejs::Text(  lang=>$self, 
-	            full_path => '/usr/local/wwwdoc/spoejs/lib/resource.txt' );
-    my %langs = $T->get( @twoletter );
-
-    return %langs;
 }
