@@ -8,6 +8,10 @@
   # Default to configured, then 'default' theme if none is given in URL
   $res{t} ||= #$channelconf->get(theme) || 
             'default';
+
+  # Set theme in %spoejs
+  $spoejs{theme} = $res{t};
+
   return ( $url, %res );
 </%perl>
 <%args>
