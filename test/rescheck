@@ -11,7 +11,7 @@ find ../htdocs \! -path '*users*' -type f -exec egrep '\*\*.*?\*\*' {} \; | perl
 #
 cat ../lib/resource.txt | perl -n -e 'm/^(\w+):/ and $1=~/(...+)/ and print "$1\n"' > /tmp/.$$.avail
 
-echo "Keywords in use                         Keywords available"
+echo "Add to resource.txt                     Move to resource.txt.obsolete"
 echo "---------------                         ------------------"
 diff --side-by-side -W 72 /tmp/.$$.inuse /tmp/.$$.avail | egrep -v '\$' | egrep '<|>|\|'
 rm /tmp/.$$.*
