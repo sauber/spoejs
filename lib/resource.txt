@@ -1,19 +1,22 @@
 <about>
 <lang=da/>Om Spoejs
 <lang=en/>About
-<lang=zh/>大约
+<lang=hu/>korulbelul?
+<lang=zh/>关于
 </about>
-
-<administration>
-<lang=en/>Administration
-<lang=zh/>大约
-</administration>
 
 <add>
 <lang=da/>Tilføj
 <lang=en/>Add
+<lang=hu/>ad
 <lang=zh/>增加
 </add>
+
+<administration>
+<lang=en/>Administration
+<lang=hu/>adminisztracio
+<lang=zh/>系统管理
+</administration>
 
 <ar>
 <lang=ar/>عربي
@@ -22,6 +25,7 @@
 <lang=en/>Arabic
 <lang=fr/>Arabe
 <lang=gr/>Αραβικά
+<lang=hu/>arab
 <lang=is/>Arabíska
 <lang=it/>arabo
 <lang=ja/>アラビア語
@@ -37,6 +41,7 @@
 <lang=en/>Bulgarian
 <lang=fr/>Bulgare
 <lang=gr/>Βουλγαρικά
+<lang=hu/>bolgar
 <lang=is/>Búlgarska
 <lang=it/>bulgano
 <lang=ja/>ブルガリア語
@@ -48,7 +53,8 @@
 <blank_default>
 <lang=da/>(blank for dags dato)
 <lang=en/>(leave blank if story is current)
-<lang=zh/>(如果故事是当今的，留下空白)
+<lang=hu/>hagyd uresen ha a tortenet mostani?
+<lang=zh/>(如果故事是当今的，留下空癿)
 </blank_default>
 
 <bo>
@@ -57,9 +63,10 @@
 <lang=da/>Tibetansk
 <lang=en/>Tibetan
 <lang=fr/>Tibetain
+<lang=hu/>tibeti
 <lang=it/>tibetano
 <lang=mk/>Тибетски
-<lang=zh/>西藏语 
+<lang=zh/>西藏语
 </bo>
 
 <category>
@@ -69,6 +76,7 @@
 <lang=en/>Category
 <lang=fr/>Categorie
 <lang=gr/>Κατηγορία
+<lang=hu/>kategoria
 <lang=it/>categoria
 <lang=ja/>カテゴリー
 <lang=mk/>Категорија
@@ -79,7 +87,7 @@
 <chan_home>
 <lang=da/>Historie index
 <lang=en/>Channel home
-<lang=zh/>海峡家
+<lang=zh/>频道
 </chan_home>
 
 <change>
@@ -89,17 +97,19 @@
 <lang=en/>Change
 <lang=fr/>Change
 <lang=gr/>Αλλαγή
+<lang=hu/>valtozas
 <lang=is/>Breyting
 <lang=it/>cambio
 <lang=ja/>変更
 <lang=mk/>Промена
 <lang=se/>ändra
-<lang=zh/>改变
+<lang=zh/>更改
 </change>
 
 <choose>
 <lang=da/>Vælg
 <lang=en/>Choose
+<lang=hu/>valaszt
 <lang=zh/>选择
 </choose>
 
@@ -110,6 +120,7 @@
 <lang=en/>Danish
 <lang=fr/>Danois
 <lang=gr/>Δανικά
+<lang=hu/>dan
 <lang=is/>Danska
 <lang=it/>danese
 <lang=ja/>デンマーク語
@@ -125,6 +136,7 @@
 <lang=en/>Date
 <lang=fr/>Date
 <lang=gr/>Ημερομηνία
+<lang=hu/>datum
 <lang=is/>Dagsetning
 <lang=it/>data
 <lang=ja/>日付
@@ -140,6 +152,7 @@
 <lang=en/>German
 <lang=fr/>Allemand
 <lang=gr/>Γερμανικά
+<lang=hu/>nemet
 <lang=is/>Þýska
 <lang=it/>tedesco
 <lang=ja/>ドイツ語
@@ -151,6 +164,7 @@
 <delete>
 <lang=da/>Slet
 <lang=en/>Delete
+<lang=hu/>torol
 <lang=zh/>删去
 </delete>
 
@@ -160,6 +174,7 @@
 <lang=da/>Beskrivelse
 <lang=en/>Description
 <lang=fr/>Description
+<lang=hu/>leiras
 <lang=it/>descrizione
 <lang=ja/>記述
 <lang=mk/>Опис
@@ -169,12 +184,14 @@
 <edit>
 <lang=da/>Ret
 <lang=en/>Edit
+<lang=hu/>szerkeszt
 <lang=zh/>编辑
 </edit>
 
 <edit_lang>
 <lang=da/>Retter for sproget
 <lang=en/>Editing language
+<lang=hu/>nyelv-szerkesztes
 <lang=zh/>编辑语言
 </edit_lang>
 
@@ -185,6 +202,7 @@
 <lang=en/>English
 <lang=fr/>Anglais
 <lang=gr/>Αγγλικά
+<lang=hu/>angol
 <lang=is/>Enska
 <lang=it/>inglese
 <lang=ja/>英語
@@ -198,12 +216,14 @@
 <lang=bg/>Испански
 <lang=da/>Spansk
 <lang=en/>Spanish
+<lang=hu/>spanyol
 <lang=zh/>西班牙语
 </es>
 
 <first>
 <lang=da/>Første
 <lang=en/>First
+<lang=hu/>elso
 <lang=zh/>首先
 </first>
 
@@ -214,6 +234,7 @@
 <lang=en/>French
 <lang=fr/>Francais
 <lang=gr/>Γαλλικά
+<lang=hu/>francia
 <lang=is/>Franska
 <lang=it/>francese
 <lang=ja/>フランス語
@@ -225,6 +246,7 @@
 <full_story>
 <lang=da/>Hele historien
 <lang=en/>Full story text
+<lang=hu/>a tortenet teljes szovege
 <lang=zh/>全文报导正文
 </full_story>
 
@@ -235,6 +257,7 @@
 <lang=en/>Greek
 <lang=fr/>Grecque
 <lang=gr/>Ελληνικά
+<lang=hu/>gorog
 <lang=is/>Gríska
 <lang=it/>greco
 <lang=ja/>ギリシャ語
@@ -246,6 +269,8 @@
 <hu>
 <lang=da/>Ungarnsk
 <lang=en/>Hungarian
+<lang=hu/>magyar
+<lang=zh/>匈牙利语
 </hu>
 
 <is>
@@ -255,12 +280,13 @@
 <lang=en/>Icelandic
 <lang=fr/>Islandais
 <lang=gr/>Ισλανδικά
+<lang=hu/>izlandi
 <lang=is/>Íslenska
 <lang=it/>islandese
 <lang=ja/>アイスランド語
 <lang=mk/>Исландски
 <lang=se/>islandska
-<lang=zh/>冰岛人
+<lang=zh/>冰岛语
 </is>
 
 <it>
@@ -270,6 +296,7 @@
 <lang=en/>Italian
 <lang=fr/>Italien
 <lang=gr/>Ιταλικά
+<lang=hu/>olasz
 <lang=is/>Ítalska
 <lang=it/>italiano
 <lang=ja/>イタリア語
@@ -285,6 +312,7 @@
 <lang=en/>Japanese
 <lang=fr/>Japonais
 <lang=gr/>Ιαπωνικά
+<lang=hu/>japan
 <lang=is/>Japanska
 <lang=it/>giapponese
 <lang=ja/>日本語
@@ -299,6 +327,7 @@
 <lang=da/>Sprog
 <lang=en/>Language
 <lang=fr/>Language
+<lang=hu/>nyelv
 <lang=it/>lingua
 <lang=ja/>言語
 <lang=mk/>Јазик
@@ -308,6 +337,7 @@
 <last>
 <lang=da/>Sidste
 <lang=en/>Last
+<lang=hu/>utolso
 <lang=zh/>持续
 </last>
 
@@ -317,6 +347,7 @@
 <lang=da/>Log ind
 <lang=en/>Login
 <lang=fr/>Connection
+<lang=hu/>bejelentkezes
 <lang=it/>inizio attivita
 <lang=ja/>ログイン
 <lang=mk/>Логин (Влез)
@@ -329,6 +360,7 @@
 <lang=da/>Log ud
 <lang=en/>Logout
 <lang=fr/>Deconnection
+<lang=hu/>kijelentkezes
 <lang=it/>termine attivita
 <lang=ja/>ログアウト
 <lang=mk/>Логаут (Излез)
@@ -338,6 +370,7 @@
 <media_man>
 <lang=da/>Medie håndtering
 <lang=en/>Media management
+<lang=hu/>media szervezes
 <lang=zh/>媒体管理
 </media_man>
 
@@ -348,23 +381,36 @@
 <lang=en/>Macedonian
 <lang=fr/>Mecedonien
 <lang=gr/>Μακεδονικά
+<lang=hu/>makedon
 <lang=it/>mecedone
 <lang=ja/>マケドニア語
 <lang=mk/>Македонски
 <lang=se/>macedoniska
-<lang=zh/>马其顿
+<lang=zh/>马其顿语
 </mk>
 
 <new_story>
 <lang=da/>Ny historie
 <lang=en/>New story
+<lang=hu/>uj tortenet
 <lang=zh/>新的故事
 </new_story>
+
+<no>
+<lang=en/>No
+<lang=zh/>否
+</no>
+
+<no_stories>
+<lang=en/>No stories
+<lang=zh/>没有内容
+</no_stories>
 
 <or_new>
 <lang=da/>eller ny
 <lang=en/>or new
-<lang=zh/>或者新
+<lang=hu/>vagy uj
+<lang=zh/>或许新
 </or_new>
 
 <passwd>
@@ -374,13 +420,19 @@
 <lang=en/>Password
 <lang=fr/>Mot de passe
 <lang=gr/>Κωδικός
+<lang=hu/>jelszo
 <lang=is/>Lykilorð
 <lang=it/>parola d'acceso
 <lang=ja/>パスワード
 <lang=mk/>Клучен збор
 <lang=se/>passord
-<lang=zh/>口令
+<lang=zh/>密码
 </passwd>
+
+<please_fill_out_this_form>
+<lang=en/>Please fill out this form
+<lang=zh/>请填写这张表
+</please_fill_out_this_form>
 
 <posted_by>
 <lang=ar/>تحرير من 
@@ -389,6 +441,7 @@
 <lang=en/>Posted by
 <lang=fr/>Poster par
 <lang=gr/>Καταχώρηση από
+<lang=hu/>feladva ... altal?
 <lang=it/>inviato da
 <lang=ja/>記入される
 <lang=mk/>Испраќа
@@ -402,6 +455,7 @@
 <lang=da/>Offentlig
 <lang=en/>Public
 <lang=fr/>Publique
+<lang=hu/>nyilvanos
 <lang=it/>pubulico
 <lang=ja/>公共
 <lang=mk/>Јавен
@@ -411,14 +465,15 @@
 <random>
 <lang=da/>Tilfældig
 <lang=en/>Random
+<lang=hu/>veletlen
 <lang=zh/>随便
 </random>
 
-:1
 <register>
 <lang=da/>Registrer
 <lang=en/>Register
-<lang=zh/>记录
+<lang=hu/>regisztral
+<lang=zh/>登录
 </register>
 
 <se>
@@ -428,6 +483,7 @@
 <lang=en/>Swedish
 <lang=fr/>Suedois
 <lang=gr/>Σουηδικά
+<lang=hu/>sved
 <lang=is/>Sænska
 <lang=it/>svedese
 <lang=ja/>スウェーデン語
@@ -442,6 +498,7 @@
 <lang=da/>Kortnavn
 <lang=en/>Shortname
 <lang=fr/>Surnom
+<lang=hu/>rovid nev
 <lang=it/>nome corto
 <lang=ja/>ショートネーム
 <lang=mk/>Кратко име
@@ -454,38 +511,49 @@
 <lang=da/>Tilmeld
 <lang=en/>Sign up
 <lang=fr/>Subscription
+<lang=hu/>feliratkozik
 <lang=it/>firmi in (su)
 <lang=ja/>サインアップ
 <lang=mk/>Впиши
-<lang=zh/>搜索
+<lang=zh/>登记
 </signup>
-
-<siteconf>
-<lang=en/>Site configuration
-<lang=zh/>增加
-</siteconf>
 
 <site_home>
 <lang=da/>Kanal index
 <lang=en/>Site home
-<lang=zh/>场所家
+<lang=hu/>eredeti hely?
+<lang=zh/>本页
 </site_home>
+
+<siteconf>
+<lang=en/>Site configuration
+<lang=hu/>hely konfiguracio
+<lang=zh/>增加
+</siteconf>
 
 <specific>
 <lang=da/>Specifik
 <lang=en/>Specific
+<lang=hu/>specialis
 <lang=zh/>具体
 </specific>
+
+<spoejs_channels_at_this_site>
+<lang=en/>Spoejs channels at this site
+<lang=zh/>Spoejs网页
+</spoejs_channels_at_this_site>
 
 <story_abstract>
 <lang=da/>Historie abstrakt
 <lang=en/>Story abstract
+<lang=hu/>tortenet kivonat
 <lang=zh/>故事抽象
 </story_abstract>
 
 <storytitle>
 <lang=da/>Historie titel
 <lang=en/>Story title
+<lang=hu/>tortenet cim
 <lang=zh/>故事
 </storytitle>
 
@@ -495,6 +563,7 @@
 <lang=da/>Indsend
 <lang=en/>Submit
 <lang=fr/>Soumettre
+<lang=hu/>bead
 <lang=it/>presenti
 <lang=ja/>承諾
 <lang=mk/>Поднеси
@@ -507,16 +576,18 @@
 <lang=da/>Tema
 <lang=en/>Theme
 <lang=fr/>Theme
+<lang=hu/>tema
 <lang=it/>tema
 <lang=ja/>テーマ
 <lang=mk/>Тема
-<lang=zh/>故事标题
+<lang=zh/>主题
 </theme>
 
 <thumbnail>
 <lang=da/>Ikon
 <lang=en/>Thumbnail
-<lang=zh/>简略
+<lang=hu/>huvelykujjkorom?
+<lang=zh/>简要
 </thumbnail>
 
 <title>
@@ -526,6 +597,7 @@
 <lang=en/>Title
 <lang=fr/>Titre
 <lang=gr/>Τίτλος
+<lang=hu/>cim
 <lang=is/>Titill
 <lang=it/>titolo
 <lang=ja/>タイトル
@@ -540,16 +612,23 @@
 <lang=da/>Brugernavn
 <lang=en/>Username
 <lang=fr/>Nom d'Utilisateur
+<lang=hu/>felhasznaloi nev
 <lang=it/>nome di utente
 <lang=ja/>ユーザー名
 <lang=mk/>Корисничко име
 <lang=zh/>用户名
 </username>
 
+<yes>
+<lang=en/>Yes
+<lang=zh/>对
+</yes>
+
 <yourname>
 <lang=da/>Dit navn
 <lang=en/>Your name
-<lang=zh/>你的名
+<lang=hu/>neve, neved?
+<lang=zh/>你的名字
 </yourname>
 
 <zh>
@@ -559,11 +638,12 @@
 <lang=en/>Chinese
 <lang=fr/>Chinois
 <lang=gr/>Κινέζικα
+<lang=hu/>kinai
 <lang=is/>Kínverska
 <lang=it/>cinese
 <lang=ja/>中国語
 <lang=mk/>Кинески
 <lang=se/>kinesiska
-<lang=zh/>中国
+<lang=zh/>中文
 </zh>
 
