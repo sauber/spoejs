@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: list.sub,v 1.3 2004/04/10 07:21:08 sauber Exp $
+%# $Id: list.sub,v 1.4 2004/06/02 13:20:26 snicki Exp $
 %#
 <& $w,
   stories  => \@stories,
@@ -12,7 +12,7 @@
 <%init>
   # XXX: Make ChannelConf or user selectable
 
-my $count = 5;
+my $count = 10;
 my $start = $spoejs{p}{s} || 0;
 my %sl_opt = ( category  => $spoejs{p}{c},
 	       prev      => $count,
