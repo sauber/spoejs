@@ -3,8 +3,8 @@ use LWP::UserAgent;
 no Carp::Assert;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.1 2004/02/28 07:05:13 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.1 $';
+# $Id: Icon.pm,v 1.2 2004/02/29 07:17:38 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.2 $';
 
 #### Private interface ####
 
@@ -43,8 +43,13 @@ my $downloadicon = sub {
     $I[$n]{xyrt} = $s;
   }
 
-  # Did we get at least one picture?
-  return undef unless @I;
+  # Did we get at least one picture? Otherwise pass on Google's
+  # misspelling suggestion or unknown.
+  unless ( @I ) {
+    $index =~ m/Did you mean:.*?<i>(.*?)<\/i>/;
+    $self->{_didyoumean} = $1 || 'unknown';
+    return undef;
+  }
 
   # sort by squaredness
   @I = sort { $b->{xyrt} <=> $a->{xyrt} } @I;
@@ -62,12 +67,11 @@ my $downloadicon = sub {
 
 #### Public interface ####
 
-sub get  {
+sub get {
   my($self,%data) = @_;
 
-  return undef unless 0 < length $data{category};
-
-  my $blobref = $self->$downloadicon($data{category});
+  my $blobref = $self->$downloadicon($data{category})
+             || $self->$downloadicon($self->{_didyoumean});
   return undef unless $blobref;
 
   # If size is specified then convert to imagemagick object, scale, and
