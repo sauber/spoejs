@@ -5,8 +5,8 @@ use File::Path;
 use Date::Manip;
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.17 2004/04/09 17:18:39 sauber Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.17 $';
+# $Id: ChannelList.pm,v 1.18 2004/05/06 05:56:06 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.18 $';
 
 
 # Constructor
@@ -101,7 +101,7 @@ sub new_channel {
     # Create channel config, adding active='no' as default 
     # XXX: remove created dir if we _err here
     my $CC = new Spoejs::ChannelConf( path => $full_path );
-    $params{active} ||= "no";
+    $params{active} ||= "no_";
     $CC->set( %params ) or return $self->_err( "Could not set settings." );
 
     # Success

@@ -6,6 +6,10 @@ pass
 freeall
 </policy>
 
+<showtranslationoptions>
+no_
+</showtranslationoptions>
+
 <username>
 admin
 </username>

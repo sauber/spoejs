@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: setupSession,v 1.11 2004/04/19 02:44:20 snicki Exp $
+%# $Id: setupSession,v 1.12 2004/05/06 05:56:06 snicki Exp $
 %#
 <%perl>
 
@@ -18,32 +18,8 @@ writable";
     $m->abort;
 }
 
-# Remove user path of URL
-$ENV{REQUEST_URI} =~ /\/(\w+)\// and my $path = $1;
-
-# Add user-path to session
-if ( length $path > 3 and length $path < 11 ) {
-  $spoejs{channel} = $path;
-  $spoejs{channel_path} = "$ENV{DOCUMENT_ROOT}/users/$path";
-} else {
-# Keeps this as authorization might depend on non-channel data being
-# read when this is not set
-  delete $spoejs{channel};
-  delete $spoejs{channel_path};
-}
-
 lang_setup();
 spoejs_setup();
-
-# Create div. objects in %spoejs
-
-# Should this be conditional on actual pages?
-if ( $spoejs{channel_path} ) {
-  $spoejs{SL} = new Spoejs::StoryList( path => $spoejs{channel_path},
-				       lang => $spoejs{lang_handle} );
-  $spoejs{error}{$m->current_comp->source_file} = $spoejs{SL}->{msg}
-    if $spoejs{SL}->{msg};
-}
 
 sub lang_setup {
 
@@ -69,6 +45,21 @@ sub lang_setup {
 
 sub spoejs_setup {
 
+# Remove user path of URL
+$ENV{REQUEST_URI} =~ /\/(\w+)\// and my $path = $1;
+
+# Add user-path to session
+if ( length $path > 3 and length $path < 11 ) {
+  $spoejs{channel} = $path;
+  $spoejs{channel_path} = "$ENV{DOCUMENT_ROOT}/users/$path";
+} else {
+# Keeps this as authorization might depend on non-channel data being
+# read when this is not set
+  delete $spoejs{channel};
+  delete $spoejs{channel_path};
+}
+
+
   # Set language object
   $spoejs{lang_handle} = new Spoejs::Lang( lang_order =>
                  [ $session{pref_lang}, @{ $session{browser_langs} }, 'en' ] );
@@ -76,4 +67,18 @@ sub spoejs_setup {
   # Set resource object
   $spoejs{res_handle} = new Spoejs::Resource( lang => $spoejs{lang_handle} );
 }
+
+
+# Should this be conditional on actual pages?
+if ( $spoejs{channel_path} ) {
+  $spoejs{SL} = new Spoejs::StoryList( path => $spoejs{channel_path},
+				       lang => $spoejs{lang_handle} );
+  $spoejs{error}{$m->current_comp->source_file} = $spoejs{SL}->{msg}
+    if $spoejs{SL}->{msg};
+}
+
+# Get som siteconf vars
+my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
+                               lang => $spoejs{lang_handle} );
+$spoejs{showtranslationoptions} = $SC->get( 'showtranslationoptions' );
 </%perl>
