@@ -7,8 +7,9 @@ if ( $login ) {
 
   my @channels;
   @channels = $CL->search_channels( username => $username,
-	                               password => $password ) 
+	                            password => $password )
     unless $CL->{msg};
+  @channels = () if $channels[0] eq undef;
 
   for my $c ( @channels ) {
     my $sn = $c->get( 'shortname' );
