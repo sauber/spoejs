@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.28 2004/05/23 08:02:36 snicki Exp $
+%# $Id: media,v 1.29 2004/05/28 06:20:27 snicki Exp $
 %#
 % if ( $href ) {
 <a href="<% $href %>">\
@@ -14,19 +14,11 @@
 <img src="<& /htm/url:encode, "/$spoejs{channel}/pic.$ext", d=>$ARGS{d},
                               p=>$ARGS{p}, m=> $size &>" <% $html_wh
 			      %> alt="<% $ARGS{p} %>" />\
-%#Insert annotation here
-%my $annotation = $spoejs{Annotations}->get( $ARGS{p} ) 
-%	                                       if defined $spoejs{Annotations};
+% if ( $annotation && !defined $no_annotation ) {
 <div style="max-width: 130px;">
 <% $annotation %>
-% if ( undef ) {
-% my @words=qw(samba random word roppongi nudler flot s.p.o.e.j.s annotation home hehe);
-%# Edit annotations like this
-<% ucfirst $words[int rand @words] %>
-% for ( 0..1 + int rand 8 ) {
-<% $words[int rand @words] %>
-% }}
 </div>
+% }
 % unless ( $no_div ) {
 </button>
 % if ( $href ) {
@@ -54,9 +46,35 @@
   my $ext;
   $ARGS{p} =~ /(...)$/ and $ext = lc $1;
   $ext = 'jpg' if $ARGS{p} eq 'ANY';
+
+  # Get annotation
+  my $annotation;
+  $annotation = $spoejs{Annotations}->get( $ARGS{p} ) 
+	                                       if defined $spoejs{Annotations};
+
+  ## Comment in for random annotation
+  #$annotation = random_annotation();
+
+#### Temp random annotation generator
+sub random_annotation {
+  my @words=qw(samba random word roppongi nudler flot s.p.o.e.j.s annotation home hehe);
+  my $res;
+
+  $res .= ucfirst $words[int rand @words];
+
+  for ( 0..1 + int rand 8 ) {
+    $res .= $words[int rand @words];
+  }
+
+  return $res;
+}
+
+
+
 </%init>
 <%args>
  $href    => undef
  $html_wh => undef
  $no_div  => undef
+ $no_annotation => undef
 </%args>
