@@ -1,8 +1,8 @@
 <%init>
 my $doc =  "$ENV{DOCUMENT_ROOT}htm/$spoejs{url_noparam}";
 
-unless ( -f $spoejs{channel_path} ) {
-  print "The channel <b>$spoejs{channel}</b> doesn't exist!";
+unless ( -d $spoejs{channel_path} ) {
+  print "The channel <b>$spoejs{channel}</b> doesn't exist!</body></html>";
   $m->abort;
 }
 
