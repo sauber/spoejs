@@ -22,8 +22,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.6 2004/02/28 05:54:03 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.6 $';
+# $Id: StoryList.pm,v 1.7 2004/02/28 06:09:16 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.7 $';
 
 sub _initialize {
     my $self = shift;
@@ -165,7 +165,7 @@ sub count_stories {
 }
 
 sub ls_loop {
-    my ( $self, $count, $comp, $story_dir, @all ) = @_;
+    my ( $self, $count, $comp, @all ) = @_;
     
     my @new;
     foreach $story ( @all ) {
@@ -173,7 +173,7 @@ sub ls_loop {
 	my $path = $story->{story_path};
 	$path =~ s/\///g;
 	
-	if ( $comp->($path, $story_dir) ) {
+	if ( $comp->( $path ) ) {
 	    push @new, $story;
 	    last if --$count == 0;
 	}
@@ -202,32 +202,23 @@ sub list_stories {
     if ( keys %in == 0 ){ }
 
     # Handle 'story' separately
-    # XXX: Terribly in need of refactoring!
     if ( $in{story} ) {
 	my $story_dir = $in{story};
 	$story_dir =~ s/\///g;
-
-	my @new;
-	if ( $in{'prev'} ) {
-
-	    @res = $self->ls_loop( $in{'prev'}, 
-				   sub { return $_[0] < $_[1]; },
-				   $story_dir,
-				   @res ); 
-
-	} elsif ( $in{'next'} ) {
-
-	    @res = $self->ls_loop( $in{'next'}, 
-				   sub { return $_[0] > $_[1]; },
-				   $story_dir,
-				   reverse @res ); 
-	}
-
+	
+	@res = $self->ls_loop( $in{'prev'}, 
+			       sub { return $_[0] < $story_dir; },
+			       @res ) if $in{'prev'}; 
+	
+	@res = $self->ls_loop( $in{'next'}, 
+			       sub { return $_[0] > $story_dir; },
+			       reverse @res ) if $in{'next'};
+	
 	delete $in{'story'};
 	delete $in{'prev'};
 	delete $in{'next'};
     } 
-
+    
     # Handle "from-to" date range separately    
     if ( $in{from} or $in{to} ) {
 	my $from = $in{from} || 0;
@@ -236,27 +227,19 @@ sub list_stories {
 	my $to = $in{to} || 99991299;
 	$to =~ s/\///g;
 
-	my @new;
-	foreach $story ( @res ) {
-	    # XXX: make story_path function call in Story
-	    my $path = $story->{story_path};
-	    $path =~ s/\///g;
-	    if ( $path > $from and $path < $to ) {
-		push @new, $story;
-	    }
-	}
-
-	@res = @new;
-
+	@res = $self->ls_loop( -1,
+			       sub { return $_[0] >= $from and $_[0] <= $to; },
+			       @res ); 
+	
 	delete $in{from};
 	delete $in{to};
     } 
-
+    
     if ( keys %in > 0 ) {
 	# Filter by keyword, if given
 	my @kw = keys %in;
 	my $kw = $kw[0];
-
+	
 	my @new;
 	foreach $story ( @res ) {
 	    my %story_kw = $story->get( $kw );
