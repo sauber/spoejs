@@ -1,4 +1,4 @@
-# $Id: Bootstring.pm,v 1.2 2004/03/24 12:01:51 sauber Exp $
+# $Id: Bootstring.pm,v 1.3 2004/03/24 13:08:09 sauber Exp $
 # Encode and decode utf8 into a set of basic code points
 
 package Bootstring;
@@ -274,7 +274,9 @@ sub decode{
     $self->{trace} .= join(' ', map hex4($self->nchr($_)), @output) . "\n";
     $i++;
   }
-  return join '', map $self->nchr($_), @output;
+  my $res = pack("U*", map ord $self->nchr($_), @output);
+  return $res;
+
 }
 
 1;
