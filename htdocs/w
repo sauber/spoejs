@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: w,v 1.9 2004/04/10 03:49:15 snicki Exp $
+%# $Id: w,v 1.10 2004/04/10 06:45:58 snicki Exp $
 %#
 %# Forward args to component 
 % if ( $box ) {
@@ -24,6 +24,10 @@ my $sub = -f "$ENV{DOCUMENT_ROOT}/theme/default/$w.sub"
 my $boxc = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{p}{t}/box"
 	                                 ? "/theme/$spoejs{p}{t}/box"
 	                                 : "/theme/default/box";
+
+# Add $m->content to args if it is used (eg. we are called with <&|&>
+$ARGS{content} = $m->content if $m->content;
+
 my $content;
 if ( $sub ) {
   $content = $m->scomp( $sub, %ARGS, w => $comp );
