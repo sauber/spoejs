@@ -1,8 +1,8 @@
 package Spoejs::ChannelConf;
 use base ( "Spoejs", "Spoejs::Text" );
 
-# $Id: ChannelConf.pm,v 1.1 2004/02/26 05:43:26 snicki Exp $
-$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.1 $';
+# $Id: ChannelConf.pm,v 1.2 2004/02/27 06:51:26 snicki Exp $
+$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.2 $';
 
 sub _initialize {
     my $self = shift;
@@ -13,13 +13,18 @@ sub _initialize {
 # Static function - doesn't need initialized object
 # Text.pm pt. depends on that
 #
-sub site_dir
+sub channel_dir
 {
-    my $site_dir = $ENV{REQUEST_URI};
+    my $dir = $ENV{REQUEST_URI};
+    my $root = $ENV{DOCUMENT_ROOT};
 
-    $site_dir =~ s/(\/\w+\.html)$//;
+    # For testing purposes outside apache env.
+    $root ||= "/usr/local/wwwdoc/spoejs/htdocs/";
+    $dir  ||= "/test";
 
-    return $ENV{DOCUMENT_ROOT} . "users" . $site_dir;
+    $dir =~ s/(\/\w+\.html)$//;
+
+    return $root . "users" . $dir;
 }
 
 1;
