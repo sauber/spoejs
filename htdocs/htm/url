@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: url,v 1.11 2004/05/16 09:15:25 snicki Exp $
+%# $Id: url,v 1.12 2004/05/17 12:45:53 sauber Exp $
 %#
 <%shared>
   no strict;
@@ -15,6 +15,7 @@
 	INITIAL_BIAS => 32,
 	TMIN => 38,
 	DAMP => 40,
+        DELIMITER => '_',
  );
 </%shared>
 <%method encode>\
@@ -24,7 +25,7 @@
 
   while ( ($k,$v) = each %options ) {
     my $new_v = $BS->encode($v);
-    $r .= "_$k${new_v}";
+    $r .= "-$k${new_v}";
   }
   $link =~ s/(.*)\.(.*?)/$1$r.$2/;
 </%perl>
@@ -35,7 +36,7 @@
   my($link) = @_;
 
   my %O;
-  while ( $link =~ s/(_)(.)(.*?)(?=[_.])// ) {
+  while ( $link =~ s/(-)(.)(.*?)(?=[-.])// ) {
     $O{$2} = $BS->decode($3);
   }
 

@@ -13,7 +13,8 @@ my $BS = new Bootstring( BASIC => \@basic,
                          SKEW => 78,
                          INITIAL_BIAS => 32,
                          TMIN => 38,
-                         DAMP => 40 );
+                         DAMP => 40,
+                         DELIMITER => '_' );
 
 if ( 1 == @ARGV ) {
   print $BS->encode( $ARGV[0] );

@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.15 2004/05/08 13:53:35 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.15 $';
+# $Id: Media.pm,v 1.16 2004/05/17 12:45:55 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.16 $';
 
 
 # Initializor
@@ -69,6 +69,7 @@ sub valid_name {
 			     INITIAL_BIAS => 32,
 			     TMIN => 38,
 			     DAMP => 40,
+                             DELIMITER => '_',
 			     );
     $file = $BS->encode( $file );
     
@@ -127,6 +128,7 @@ sub _create_bs {
 			   INITIAL_BIAS => 32,
 			   TMIN => 38,
 			   DAMP => 40,
+                           DELIMITER => '_',
 			   );
 }
 
