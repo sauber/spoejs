@@ -1,0 +1,4 @@
+<% $img_list %>
+<%args>
+  $img_list => undef
+</%args>

@@ -1,0 +1,26 @@
+<& $w,
+   img_list => $img_list
+&>
+<%init>
+
+  my @ml = $media_list->list( start => $spoejs{p}{s},
+		              count => $count );
+
+# Create image ref/sources
+my $img_count = 0;
+my $img_list;
+for my $p ( @ml ) {
+  my $href = $m->scomp( '/htm/url:encode', 'media.html',
+                       d => $spoejs{p}{d}, s => $spoejs{p}{s} + $img_count++ );
+  $img_list .= $m->scomp( '/w', w => "media", d =>  $spoejs{p}{d}, 
+                          p => $p->{file}, m => 150, href => $href,
+			  html_wh => $p->html_imgsize( size => 150 ) );
+}
+
+</%init>
+<%args>
+  $w          => undef
+  $start      => undef
+  $count      => undef
+  $media_list => undef
+</%args>

@@ -3,16 +3,14 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.13 2004/04/09 17:56:20 sauber Exp $
+%# $Id: story.html,v 1.14 2004/04/10 07:39:12 snicki Exp $
 %#
 <& /w, w          => 'story-page',
        story_dir  => $spoejs{p}{d},
        story_ref  => $S,
        edit_href  => $a_edit,
-#       next_href  => $next_href,
-#       prev_href  => $prev_href,
        navi_opt   => \%navi_opt,
-       media_list => \@media_list
+       media_list => $S->{ML}
 &>
 <%init>
   # XXX: Make ChannelConf or user selectable
@@ -22,9 +20,6 @@
   my $S = new Spoejs::Story( path => $path,
                              lang => $spoejs{lang_handle} );
   $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
-
-  my @media_list = $S->{ML}->list( start => $spoejs{p}{s},
-				   count => $count );
 
 my $a_edit;
 if ( $session{chanauth} && $spoejs{channel} &&
