@@ -5,8 +5,7 @@
 <h2>Congratulations you are now signed up</h2>
 <a href="/<%$ARGS{shortname}%>/index.html">Click here to continue</a>
 % } else {
-<& /w, w => "login", action => '/html/login.html', ses_var => 'chanauth' &>
-% return unless ( $session{chanauth} );
+% return unless $m->comp( 'checkLogin.html' );
 <form method="post">
 <table>
 % foreach my $t ( @text_f ) {

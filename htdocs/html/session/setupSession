@@ -3,7 +3,9 @@
 $req_uri =~ s/\/(\w+)\/// and my $path = $1;
 
 # Add user-path to session
-$session{user} = $path;
+if ( length $path > 3 and length $path < 11 ) {
+  $session{user} = $path;
+}
 
 session_setup();
 spoejs_setup();

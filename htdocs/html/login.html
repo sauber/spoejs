@@ -6,7 +6,10 @@ if ( $login ) {
   my @channels = $CL->search_channels( username => $username,
 	                               password => $password );
 
-  $session{chanauth} = 1 if @channels > 0;
+  for ( @channels ) {
+    my $sn = $_->get( 'shortname' );
+    $session{chanauth}{$sn} = 1;
+  }
 
 } elsif ( $logout ) {
 

@@ -5,6 +5,7 @@
 %# Add header
 <& html/header.html &>
 <body>
+<& "html/topbar.html" &>
 <% $m->call_next %>
 </body>
 </html>

@@ -1,3 +1,4 @@
+% return unless $m->comp( 'checkLogin.html' );
 <SCRIPT language="JavaScript" type="text/javascript">
 function addField ( fieldType, fieldName, onclick ) {
   if (document.getElementById) {
@@ -33,7 +34,11 @@ function cr_table( tabbody ) {
 Story to add media to:<br/>
 <select name="story">
 %foreach my $story ( @stories ) {
-<option value="<% $story->story_path_from_full() %>">
+% my $arg_path = $params{d};
+% my $cur_path = $story->story_path_from_full();
+% $arg_path =~ s{(\d{4})(\d\d)(\d\d)}{$1/$2/$3}g if $arg_path;
+% my $selected = $arg_path eq $cur_path ? ' selected="selected"' : ''; 
+<option value="<% $cur_path %>"<%$selected%>>
 <% $story->get( 'title') %>
 (<% $story->get( 'date') %>)
 </option>
@@ -80,3 +85,6 @@ if ( $ARGS{upload} ) {
  }
 }
 </%init>
+<%args>
+ %params => undef
+</%args>

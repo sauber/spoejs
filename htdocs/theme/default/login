@@ -1,6 +1,6 @@
 <form method="post" action="<%$action%>">
 % if ( $session{$ses_var} ) {
-<input type="submit" name="logout" value="<&|/l&>logout</&>"/></td>
+<input type="submit" name="logout" value="<&|/l&>logout</&>"/>
 % } else {
 <table>
 <tr>
@@ -9,7 +9,6 @@
 </tr><tr>
   <td><&|/l&>passwd</&>:</td>
   <td><input type="password" name="password" /></td>
-</tr><tr>
   <td><input type="submit" name="login" value="<&|/l&>login</&>"/></td>
 </tr>
 </table>
