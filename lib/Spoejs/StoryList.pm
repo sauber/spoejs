@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.31 2004/07/07 09:55:42 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.31 $';
+# $Id: StoryList.pm,v 1.32 2004/07/07 10:38:52 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.32 $';
 
 sub _initialize {
     my $self = shift;
@@ -283,8 +283,15 @@ sub fix_dir_date {
     my $S = new Spoejs::Story( path => "$self->{path}/$story_path",
 			       lang => $self->{lang});
 
-    # Create new story dir structure
+    # Get story date
     my $date = $S->get( 'date' );
+
+    #Check if we need to change
+    my ($month, $year) = Date::Manip::UnixDate( $date, "%m", "%Y" );
+    return $story_path 
+	if ( substr("$year/$month",0,7) eq substr($story_path,0,7) );
+
+    # Create new story dir
     my $new_path = $self->add_story( date => $date );
     $new_path =~ s!/*?!!;
 
