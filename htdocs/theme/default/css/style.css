@@ -61,6 +61,14 @@ form.topbar {
     margin: 0 0 0 0;
 }
 
+button {
+vertical-align: top;
+text-align: center;
+    border: ridge;
+    margin: 5px; 
+    background-color: white;
+}
+
 input {
     color: black;
     text-decoration: none;
@@ -122,9 +130,12 @@ div.media {
 }
 
 div.fixed-media {
-  float: left;
-  height: 180px;
-  width: 180px;
+#vertical-align: bottom;
+#  float: left;
+#display: inline;
+# border: fieldBorder;
+#  height: 180px;
+#  width: 180px;
 #  max-height: 170px;
 #  max-width: 170px;
 #  width:expression(this.scrollWidth < 166? "166px" : "auto" );

@@ -3,15 +3,13 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: album,v 1.7 2004/05/20 10:50:06 snicki Exp $
+%# $Id: album,v 1.8 2004/05/23 08:02:36 snicki Exp $
 %#
 %for my $p ( @img_list ) {
-<div class="fixed-media">
 %  my $href = $m->scomp( '/htm/url:encode', 'media.html', d => $spoejs{p}{d},
 %                        s => $p->{file} );
   <& '/w', w => "media", d =>  $spoejs{p}{d}, p => $p->{file}, 
            m => $img_size, href => $href &>
-</div>
 %}
 <%args>
   @img_list  => undef

@@ -3,24 +3,21 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.27 2004/05/20 13:14:31 snicki Exp $
+%# $Id: media,v 1.28 2004/05/23 08:02:36 snicki Exp $
 %#
-% unless ( $no_div ) {
-<div class="media">
-% }
 % if ( $href ) {
 <a href="<% $href %>">\
 %}
+% unless ( $no_div ) {
+<button>
+% }
 <img src="<& /htm/url:encode, "/$spoejs{channel}/pic.$ext", d=>$ARGS{d},
                               p=>$ARGS{p}, m=> $size &>" <% $html_wh
 			      %> alt="<% $ARGS{p} %>" />\
-% if ( $href ) {
-</a>
-%}
 %#Insert annotation here
 %my $annotation = $spoejs{Annotations}->get( $ARGS{p} ) 
 %	                                       if defined $spoejs{Annotations};
-<div>
+<div style="max-width: 130px;">
 <% $annotation %>
 % if ( undef ) {
 % my @words=qw(samba random word roppongi nudler flot s.p.o.e.j.s annotation home hehe);
@@ -31,7 +28,10 @@
 % }}
 </div>
 % unless ( $no_div ) {
-</div>
+</button>
+% if ( $href ) {
+</a>
+%}
 % }
 <%init>
   # We need a picture to continue
