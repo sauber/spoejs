@@ -93,6 +93,7 @@ li {
 div.media {
   float: left;
   min-height: 150px;
+  min-width: 150px;
   padding:3px;
   border-style:ridge;
   margin: 5px;
