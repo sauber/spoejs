@@ -684,6 +684,15 @@ et:
   ja: 'エストニア語'
   mk: 'Естонски'
   ru: 'эстонский'
+extended_information:
+  da: Udvidet information
+  en: Extended information
+file_size:
+  da: Filstørrelse
+  en: File size
+file_type:
+  da: Filtype
+  en: File type
 fileformat:
   ar: 'ﺖﻐﻳﺭ ﻥﻮﻋ ﻢﻠﻓ'
   da: Filformat
@@ -824,6 +833,9 @@ fullpath:
   mk: 'Целосен пат'
   ru: 'полный путь'
   zh: '全部地址'
+fullscreen_slideshow:
+  da: Slideshow
+  en: Full screen slide show
 gr:
   ar: 'يوناني'
   bg: 'Гръцки'
@@ -1316,9 +1328,12 @@ media_annotations:
   it: Media annotazione
   ja: 'メディア注釈'
   mk: 'Забелешки за медиумите'
+media_information:
+  da: Medieinformation
+  en: Media information
 media_man:
   ar: '   ادارة الاعلام'
-  da: Medie håndtering
+  da: Mediehåndtering
   de: Medien Verwaltung
   en: Media management
   es: Gestión de medios
@@ -1463,7 +1478,8 @@ new_username:
   mk: 'Ново корисничко име'
   ru: 'новое имя пользователя'
   zh: '新的用户名'
-newest_story_at:
+newest_story:
+  da: Nyeste historie
   en: Newest story at
 newfilename:
   ar: 'أسم ملف جديد'
@@ -1512,6 +1528,9 @@ no_stories:
   mk: 'Нема приказни'
   ru: 'нет рассказов'
   zh: '没有内容'
+number_of_views:
+  da: Antal visninger
+  en: Number of views
 oneerror_occur:
   ar: 'حدث خطاء أو أكثر'
   da: En eller flere fejl er opstået i
@@ -1621,6 +1640,12 @@ password_mismatch:
   it: Password e sbaliato
   ja: 'パスワードが合いません'
   mk: 'Лозинките не се исти'
+past30days:
+  da: Sidste 30 dage
+  en: Past 30 days
+past7days:
+  da: Sidste 7 dage
+  en: Past 7 days
 peers:
   da: Venner
   de: Pier
@@ -2173,6 +2198,9 @@ title_description:
   it: il nome del giornal
   ja: 'ジャーナルの名前'
   mk: 'Име на списанието'
+total:
+  da: I alt
+  en: Total
 up_:
   da: Op
   en: Up
@@ -2234,6 +2262,9 @@ view:
   it: guarda
   ja: '表示'
   mk: 'Прегледај'
+views:
+  da: Visninger
+  en: Views
 wrong_user_or_pwd:
   da: Forkert brugernavn eller adgangskode
   de: falscher Benutzername oder falsches Kennwort
