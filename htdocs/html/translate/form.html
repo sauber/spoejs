@@ -1,0 +1,70 @@
+%# $Id: form.html,v 1.1 2004/03/14 11:40:53 sauber Exp $
+<%init>
+use Spoejs::Resource;
+my $R = new Spoejs::Resource;
+my @langs = $R->lang_list;
+my @keys = $R->keys;
+#my $lang = $ARGS{targetlanguage} || 'en';
+my $lang = $session{translator};
+# Check if translations have been provided.
+for ( @keys ) {
+  if ( $ARGS{$_} ){
+    $R->set( $_ => { $lang => $ARGS{$_} } );
+  }
+}
+#Check if new words have been added. Only for admins.
+if ( $session{wordadmin} ) {
+  for ( 1 ..5 ) {
+    if ( $ARGS{"newkey$_"} and $ARGS{"newword$_"} ) {
+     $R->set( $ARGS{"newkey$_"} => { 'en' => $ARGS{"newword$_"} } );
+    }
+  }
+}
+</%init>
+% unless ( $lang ) {
+No language specified.
+% } else {
+</form>
+<p>Translate words and phrases below to target language. Please note that
+translations will be used in Spoejs project.</p>
+<form method="post">
+<table border=1>
+<tr>
+<th>Source=<% $R->{data}{en}{$lang} || $R->{data}{en}{en}%></th>
+<th>Target=<% $R->{data}{$lang}{$lang} || $R->{data}{$lang}{en}%></th>
+</tr>
+%   for ( @keys ) {
+<tr>
+<td><% $R->{data}{$_}{en} %></td>
+<td><input name="<% $_ %>" value="<% $R->{data}{$_}{$lang} %>"/></td>
+</tr>
+%   }
+%   if ( $session{wordadmin} ) {
+<tr><th>New Keywords</th><th>English text</th></tr>
+%     for ( 1..5 ) {
+<tr>
+<td><input name="newkey<% $_ %>"></td>
+<td><input name="newword<% $_ %>"></td>
+</tr>
+%     }
+%   }
+</table>
+<input type="submit" value="Save Changes"/>
+</form>
+% }
+%# <hr/>
+%# Debug:<br/>
+%# <% Dumper(\%ARGS) %>
+%# <pre>
+%# % for ( @keys ) {
+%# %   if ( $ARGS{$_} ){
+%# $R->set( <% $_ %> => { <% $lang %> => "<% $ARGS{$_} %>" } );
+%# %   }
+%# % }
+%# % for ( 1 ..5 ) {
+%# %   if ( $ARGS{"newkey$_"} and $ARGS{"newword$_"} ) {
+%# $R->set( <% $ARGS{"newkey$_"} %> => { en => "<% $ARGS{"newword$_"} %>" } );
+%# %   }
+%# % }
+%# </pre>
+%# <hr/>

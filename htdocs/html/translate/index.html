@@ -1,50 +1,40 @@
+%# $Id: index.html,v 1.2 2004/03/14 11:40:53 sauber Exp $
+<%args>
+$username=>undef
+$password=>undef
+</%args>
 <%init>
-use Spoejs::Resource;
-my $R = new Spoejs::Resource;
-my @langs = $R->lang_list;
-my @keys = $R->keys;
-my $lang = $ARGS{targetlanguage} || 'en';
-for ( @keys ) {
-  if ( $ARGS{$_} ){
-    $R->set( $_ => { $lang => $ARGS{$_} } );
+#my($d);
+my($l,$u,$p,$e,$n);
+if ( $username and $password ) {
+  open FH, "$ENV{DOCUMENT_ROOT}/html/translate/people.txt";
+    while (<FH>) {
+      next if /^#/;
+      #$d .= $_;
+      ($l,$u,$p,$e,$n) = split ',';
+      last if $u eq $username and $p eq $password;
+      undef $l;
+    }
+  close FH;
+  if ( $l ) {
+    if ( $l eq 'admin' ) {
+      $session{translator} = 'en';
+      $session{wordadmin} = 1;
+    } else {
+      $session{translator} = $l;
+    }
   }
 }
 </%init>
-<form method="post">
-<select name="targetlanguage">
-% for ( @langs ) {
-% my $sel = $_ eq $lang ? ' selected="selected"' : ' ';
-<option value="<% $_ %>"<% $sel %>><% $R->{data}{$_}{en} %></option>
-% }
-</select>
-<input type="submit" value="Change"/>
+% if ( $session{translator} ) {
+<p>You are authorized to edit <% $session{translator} %> language.
+<a href=logout.html>Logout</a>.</p>
+<& form.html, %ARGS &>
+% } else {
+<p>Welcome translator. Please log in.</p>
+<form method="POST">
+Username: <input name="username"/><br/>
+Password: <input name="password" type=password/><br/>
+<input type=submit value="Login"/>
 </form>
-<p>Translate words and phrases below to target language</p>
-<form method="post">
-<table border=1>
-<tr>
-<th>Source=<% $R->{data}{en}{$lang} || $R->{data}{en}{en}%></th>
-<th>Target=<% $R->{data}{$lang}{$lang} || $R->{data}{$lang}{en}%></th>
-</tr>
-% for ( @keys ) {
-<tr>
-<td><% $R->{data}{$_}{en} %></td>
-<td><input name="<% $_ %>" value="<% $R->{data}{$_}{$lang} %>"></td>
-</tr>
 % }
-</table>
-<input type=hidden name=savechanges value=no>
-<input type=hidden name=targetlanguage value="<% $lang %>">
-<input type="submit" value="Change"/>
-</form>
-%# <hr/>
-%# Debug:<br/>
-%# <% Dumper(\%ARGS) %>
-%# <pre>
-%# % for ( @keys ) {
-%# %   if ( $ARGS{$_} ){
-%# $R->set( <% $_ %> => { <% $lang %> => "<% $ARGS{$_} %>" } );
-%# %   }
-%# % }
-%# </pre>
-%# <hr/>
