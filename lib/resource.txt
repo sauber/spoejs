@@ -1,4 +1,4 @@
---- #YAML:1.0
+---
 about:
   ar: 'عن'
   da: Om Spoejs
@@ -21,6 +21,7 @@ abstract:
   ru: 'аннотация'
   zh: '摘要'
 account_information:
+  da: Konto information
   en: Account Information
 account_signup:
   da: Journal information
@@ -50,6 +51,7 @@ add:
   ru: 'добавить'
   zh: '添加'
 add_comment:
+  da: Tilføj kommentar
   en: Add Comment
 addfield:
   ar: 'أضيف جدول'
@@ -117,9 +119,11 @@ administration:
   ru: 'администрация'
   zh: '系统管理'
 always_random:
+  da: Altid tilfældig
   en: Always Random
 annotations:
-  en: Annotations 
+  da: Billedbeskrivelser
+  en: Annotations
 ar:
   ar: 'عربي'
   bg: 'Арабски'
@@ -150,7 +154,8 @@ archive:
   ru: 'архив'
   zh: '完全控制'
 authorized_for:
-  en: Authorized for 
+  da: Adgang til
+  en: Authorized for
 backtostory:
   ar: 'الرجوع للقصة'
   da: Tilbage til historie
@@ -272,20 +277,24 @@ change:
   se: 'ändra'
   zh: '更改'
 change_deleted:
-  en: Change deleted 
+  da: Skift slettede
+  en: Change deleted
 change_journal_password:
-  en: Change journal password 
+  da: Skift journal password
+  en: Change journal password
 change_language:
   da: Skift sprog
   en: Change Language
   zh: '语言变换'
 changes_saved_successfully:
-  en: Changes saved successfully 
+  da: 'Ændringerne er gemt'
+  en: Changes saved successfully
 channel_deleted:
-  en: Channel deleted 
+  da: Journal er slettet
+  en: Channel deleted
 channelconf:
   ar: 'تغير للقناة'
-  da: Kannalkonfiguration
+  da: Journalkonfiguration
   de: Kanal konfigurieren
   en: Channel Configuration
   es: Configuración de canales
@@ -328,10 +337,11 @@ click_continue:
   ru: 'продолжить'
   zh: '按这里继续'
 click_insert_image:
-  en: Click and insert image 
+  da: Klik for at indsætte billede
+  en: Click and insert image
 comment:
   ar: 'أقترحات'
-  da: Kommenter
+  da: Kommentar
   de: Kommentar
   en: Comment
   es: Comentario
@@ -340,8 +350,10 @@ comment:
   ru: 'комментарий'
   zh: '见解'
 comment_missing:
+  da: Kommentar mangler
   en: Comments missing
 comments:
+  da: Kommentarer
   en: Comments
 congrat_changes:
   ar: 'تغيراتك كانت ناجحة'
@@ -455,7 +467,8 @@ delete:
   ru: 'удалить'
   zh: '删去'
 delete_journal:
-  en: Delete journal 
+  da: Slet journal
+  en: Delete journal
 deletefile:
   ar: 'أمحاء ملف'
   da: Slet fil
@@ -497,6 +510,7 @@ dimensions:
   ja: '寸法'
   ru: 'размерность'
 do_u_need_account:
+  da: New konto
   en: Do you need an account?
   zh: '新用户注册'
 edit:
@@ -512,7 +526,8 @@ edit:
   ru: 'редактирование'
   zh: '编辑'
 edit_annotations:
-  en: Editing Annotations 
+  da: Retter billedbeskrivelser
+  en: Editing Annotations
 edit_lang:
   ar: 'تصحيح ملف'
   da: Retter for sproget
@@ -526,7 +541,8 @@ edit_lang:
   ru: 'язык редактирования'
   zh: '编辑语言'
 email:
-  en: Email 
+  da: Email
+  en: Email
 en:
   ar: 'أنجليزي'
   bg: 'Английски'
@@ -723,6 +739,7 @@ hu:
   ru: 'венгерский'
   zh: '匈牙利语'
 image_code:
+  da: Billede kode
   en: Image Code
 invalid_description:
   da: Fejl i beskrivelsen
@@ -734,7 +751,8 @@ invalid_password:
   da: Det angivne password er for kort
   en: Password too short
 invalid_thumb_count:
-  en: 'Invalid thumbnail count'
+  da: Ugykdigt ikon antal
+  en: Invalid thumbnail count
 invalid_title:
   da: Fejl i tittel
   en: 'Invalid title '
@@ -814,8 +832,10 @@ ja:
   se: japanska
   zh: '日语'
 journal_config:
+  da: Journal konfiguration
   en: Journal Configure
 journal_exists:
+  da: Journalen eksisterer
   en: Journal exists
 journal_id:
   da: Journal-ID
@@ -826,9 +846,11 @@ journal_id_description:
   en: |-
     4 to 16 lowercase letters to identify journal in URL like this:
 journal_info:
-  en: Journal Information 
+  da: Journal information
+  en: Journal Information
 journal_layout:
-  en: Journal Layout 
+  da: Journal layout
+  en: Journal Layout
 journal_name:
   da: Journal navn
   en: Journal Name
@@ -876,8 +898,10 @@ localjournal:
   da: Lokale journaler
   en: Local Journals
 log_in:
+  da: Log ind
   en: Login
 log_out:
+  da: Log ud
   en: Logout
 login:
   ar: 'دخول'
@@ -958,15 +982,18 @@ more:
   ru: 'более'
   zh: '更多'
 name:
+  da: Navn
   en: Name
 name_missing:
+  da: Navn mangler
   en: Name missing
 new_account:
   da: Ny konto
   en: New account
   zh: '新用户注册'
 new_password:
-  en: New password 
+  da: Nyt kodeord
+  en: New password
 new_story:
   ar: 'قصة جديدة'
   da: Ny historie
@@ -1069,7 +1096,7 @@ or_new:
 passwd:
   ar: 'كلمة المرور'
   bg: 'Парола'
-  da: Kodeord
+  da: Adgangskode
   de: Passwort
   en: Password
   es: Contraseña
@@ -1085,23 +1112,24 @@ passwd:
   se: passord
   zh: '密码'
 passwd_again:
-  da: Indtast kodeord igen
+  da: Indtast adgangskode igen
   en: Please enter your password again
   zh: '请再次按入密码'
 passwd_description:
   da: |-
-    Et godt password er let at huske men svært at gætte
+    En god adgangskode er let at huske men svært at gætte
   en: Something easy to remember but hard to guess
 passwd_retype:
-  da: Skriv kodeord igen
+  da: Skriv adgangskoden igen
   en: Re-type password
 passwd_retype_description:
   da: Samme som ovenfor
   en: 'Same as above '
 password_mismatch:
-  da: Kodeordene var ikke ens
+  da: Adgangskoderne var ikke ens
   en: Passwords did not match
 peers:
+  da: Venner
   en: Peers
 please_fill_out_this_form:
   ar: 'الرجاء أكمال هذا الجدول'
@@ -1129,6 +1157,7 @@ pleaselogin:
     к этой странице
   zh: '进入此页之前请登录'
 post_a_comment:
+  da: Indsend kommentar
   en: Post a comment
 posted_by:
   ar: 'تحرير من '
@@ -1164,6 +1193,7 @@ probs_in_reg:
   da: 'Den indtastede information havde fejl:'
   en: 'The Journal Information you entered has problems:'
 proxy:
+  da: Proxy
   en: Proxy
 public:
   ar: 'عمومي '
@@ -1203,6 +1233,7 @@ register:
   ru: 'Зарегистрироваться'
   zh: '登录'
 rename_delete:
+  da: Omdøb Slet
   en: Rename Delete
 ru:
   da: Russisk
@@ -1210,8 +1241,10 @@ ru:
   ru: 'Русский'
   zh: '俄语'
 sat:
+  da: Site konfiguration
   en: Site configuration
 save_changes:
+  da: Gem ændringer
   en: Save Changes
 scf:
   ar: 'تغيرات على الموقع'
@@ -1243,9 +1276,11 @@ se:
   se: svenska
   zh: '瑞典语'
 security_image_failed_verification:
-  en: Security image failed verification 
+  da: Verificering af sikkerhedsbilledet fejlede
+  en: Security image failed verification
 set_password:
-  en: Set password 
+  da: Sæt kodeord
+  en: Set password
 shortname:
   ar: 'الاسم المستعار'
   bg: 'Кратко име'
@@ -1267,6 +1302,7 @@ shortname_description:
   en: |-
     4 to 16 lowercase letters to identify journal in URL like this:
 show_trans:
+  da: Vis engelske oversættelser
   en: Show translation options
 signup:
   ar: 'التسجيل'
@@ -1313,6 +1349,7 @@ signup_newjournal:
     family.
   zh: '注册新的杂记并与家人及朋友分享'
 signup_not_allowed:
+  da: Tilmelding er ikke tilladt
   en: Signup not allowed
 site_home:
   ar: 'العودة الى الصفحة الاولى'
@@ -1461,7 +1498,8 @@ summary:
 thanks:
   en: Thank you for good effort
 the_entered_information_contains_errors:
-  en: The entered information contains errors 
+  da: Den indtastede information har fejl
+  en: The entered information contains errors
 thechannel_notexit:
   ar: 'هذة القناة غير موجودة'
   da: Kanalen eksisterer ikke!
@@ -1488,14 +1526,17 @@ theme:
   ru: 'Тема'
   zh: '主题'
 theme_default:
-  en: Theme default 
+  da: Standard tema
+  en: Theme default
 theme_description:
   da: Journalens udseende
   en: Visual appearance of journal
 thumb_count:
-  en: thumb count 
+  da: Antal ikoner
+  en: thumb count
 thumb_count_description:
-  en: thumb count description 
+  da: Antal ikoner der vises på hver historie side
+  en: thumb count description
 thumbnail:
   ar: 'الرموز'
   da: Ikon
@@ -1539,6 +1580,7 @@ upload:
   ru: 'Загрузить'
   zh: '上载'
 user_login:
+  da: Bruger log ind
   en: User Login
 username:
   ar: 'أسم المستعمل'
@@ -1562,7 +1604,8 @@ view:
   da: Vis
   en: View
 wrong_user_or_pwd:
-  en: Wrong Username or password 
+  da: Forkert brugernavn eller adgangskode
+  en: Wrong Username or password
 yes:
   ar: 'نعم'
   da: Ja
@@ -1574,7 +1617,8 @@ yes:
   ru: 'Да'
   zh: '是'
 you_have_been_logged_out:
-  en: You have been logged out 
+  da: Du er nu logget ud
+  en: You have been logged out
 yourname:
   ar: 'أسمك'
   da: Dit navn
