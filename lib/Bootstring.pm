@@ -1,4 +1,4 @@
-# $Id: Bootstring.pm,v 1.1 2004/03/24 10:43:27 sauber Exp $
+# $Id: Bootstring.pm,v 1.2 2004/03/24 12:01:51 sauber Exp $
 # Encode and decode utf8 into a set of basic code points
 
 package Bootstring;
@@ -224,7 +224,9 @@ sub decode{
   my $i      = 0;
   my $bias   = $self->{INITIAL_BIAS};
   my $BasicRE = join'',@{$self->{BASIC}};
-  $BasicRE = qr/[$BasicRE]/;
+  #$BasicRE = qr/[$BasicRE]/;
+  #$BasicRE = qr/[join'',@{$self->{BASIC}}]/;
+
   my @output;
 
   $self->{trace} .= "n is $n, i is $i, bias = $bias\n"
@@ -235,7 +237,10 @@ sub decode{
     $self->{trace} .= 'literal portion is "' . $1 . $self->{DELIMITER}
                    .  '", so extended string starts as:' . "\n"
                    .  join(' ', map hex4($self->nchr($_)), @output) . "\n";
-    return _croak('non-basic code point') unless $1 =~ /^$BasicRE*$/o;
+    my $bas = join('',@{$self->{BASIC}});
+    for ( split //, $1 ) {
+      return _croak('non-basic code point' ) unless $bas =~ /$_/o;
+    }
   } else {
     $self->{trace} .=
            "there is no delimiter, so extended string starts empty\n";
@@ -270,10 +275,6 @@ sub decode{
     $i++;
   }
   return join '', map $self->nchr($_), @output;
-  #my $return = join '', map $self->nchr($_), @output;
-  #utf8::upgrade($return);
-  #return $return;
-
 }
 
 1;
