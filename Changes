@@ -6,12 +6,13 @@ Revision history for Spoejs.
   - Visual text+media mixing editor
   - Movie clip support
   - Syndication
-  - Encrypted passwords
+  - Unified auth for site/channel
   - Translator mode
   - Right and left columns
   Bug fixes:
   - Wording changes: Channel->Journal
   - Maxside->diagonal for scaling media
+  - Encrypted passwords
 
 0.01  Fri Apr  9 00:37:15 2004
   - Original version
