@@ -5,8 +5,8 @@ use Date::Manip;
 use LWP::UserAgent;
 use Spoejs::ChannelList;
 
-# $Id: Syndication.pm,v 1.4 2004/05/16 07:19:58 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.4 $';
+# $Id: Syndication.pm,v 1.5 2004/05/16 08:13:17 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.5 $';
 
 # Constructor
 sub _initialize {
@@ -124,6 +124,7 @@ sub local_channel_newestdate_list {
 #
 sub newest_remotes {
   my $self  = shift;
+  my %opt   = @_;
 
   # Build globallist with all remotes
   $self->_fetch_remote_lists();
@@ -134,7 +135,10 @@ sub newest_remotes {
   # Fetch newset summaries
   $self->_fetch_summaries();
 
-  return $self->{globallist};
+  # Shrink array to 'count' elements
+  @list = @{$self->{globallist}}[0..$opt{count}-1];
+
+  return \@list;
 }
 
 __END__
