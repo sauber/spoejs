@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.23 2004/06/27 13:46:16 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.23 $';
+# $Id: Media.pm,v 1.24 2004/07/15 12:41:47 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.24 $';
 
 
 # Initializor
@@ -137,16 +137,13 @@ sub _create_bs {
 sub _scaledxy {
   my($self,$x,$y,$s) = @_;
 
-  # Old method
-  # my($x,$y);
-  #if ( $w>$h ) { $x=$m; $y = int .5 + $m*$h/$w }
-  #        else { $y=$m; $x = int .5 + $m*$w/$h }
-
-  # New method (square pictures don't become too big compared to rectangles)
   return (0,0) if $y ==0 or $x == 0;
-  my $r = $y/$x;
-  $x = int .5 + sqrt( $s**2 / (1+$r**2) );
-  $y = int .5 + $x * $r;
+
+  # Sum of sides is constant to make all pictures look same size regardless
+  # of aspect ratio.
+  my $r = 1.4 * $s / ($y+$x);
+  $x = int .5 + $x * $r;
+  $y = int .5 + $y * $r;
   return ($x,$y);
 }
 
