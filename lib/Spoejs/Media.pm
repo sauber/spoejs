@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.19 2004/06/03 01:10:57 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.19 $';
+# $Id: Media.pm,v 1.20 2004/06/11 07:41:42 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.20 $';
 
 
 # Initializor
@@ -38,7 +38,7 @@ sub _initialize {
 #### Private helper functions ####
 
 sub _check_save {
-    my $self = shift;
+  my $self = shift;
 
   # Check for supported extension and save if filehandle is given
   if ( $self->{file} =~ /($self->{extensions})$/i ) {
@@ -82,7 +82,8 @@ sub valid_name {
 sub _check {
     my $self = shift;
 
-    unless ( $self->ping() ) { 
+    my @ret = $self->ping();
+    if ( $ret[0] eq undef ) { 
 	$self->delete();
 	return $self->_err( "Could not recognize filetype, file deleted." );
     }
@@ -254,7 +255,6 @@ sub ping {
     my ( $w,$h,$s,$f ) = $im->Ping( "$self->{path}/$self->{file}" );
     ($w,$h) = $self->_scaledxy( $w, $h, $params{scalem} ) 
 	if defined $params{scalem};
-
   return ( $w,$h,$f,$m );
 }
 
