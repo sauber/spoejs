@@ -3,9 +3,14 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.34 2004/05/16 11:10:26 snicki Exp $
+%# $Id: index.html,v 1.35 2004/05/16 11:58:27 snicki Exp $
 %#
-<table><tr><td width="50%" valign="top">
+<table><tr>
+% if ( $remotes ) {
+<td width="50%" valign="top">
+%} else {
+<td width="100%" valign="top">
+%}
 <h1>
 %#<&|/l&>spoejs_channels_at_this_site</&>
 *Local journals
@@ -27,15 +32,18 @@
 % }
 <br/>
 % }
-</td><td width="50%" valign="top">
-<h1>*Journals at friend's sites</h1>
+</td>
 % if ( $remotes ) {
+<td width="50%" valign="top">
+<h1>*Journals at friend's sites</h1>
 %for my $rem ( @{$remotes} ) {
 <h2><a href="<% $rem->{url} . '/' . $rem->{shortname} .'/index.html' %>">
 <%$rem->{shortname}%> at <% $rem->{url} %></a></h2>
 <% $rem->{summary} %><br/><br/>
-%}}
-</td></tr></table>
+%}
+</td>
+%}
+</tr></table>
 <hr/>
 <&|/l&>administration</&>
 <br/>
