@@ -1,0 +1,16 @@
+<form method="POST" action="/html/change_lang.html">
+<select name="language">
+% foreach my $lang ( sort keys %langs ) {
+<option name="<% $lang %>" value="<% $lang %>">
+<% $langs{$lang} %>
+</option>
+%}
+</select>
+<input type="submit" name="submit_button" value="<% $submit_text %>"/>
+</form>
+<%init>
+my $L = new Spoejs::Lang( $m->{session}{pref_lang} );
+my %langs = $L->lang_list();
+my $submit_text = 'Choose';
+
+</%init>
