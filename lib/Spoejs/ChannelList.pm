@@ -2,9 +2,10 @@ package Spoejs::ChannelList;
 use base ( "Spoejs::List", "Spoejs" );
 use Spoejs::ChannelConf;
 use File::Path;
+use Date::Manip;
 
-# $Id: ChannelList.pm,v 1.9 2004/04/02 08:48:33 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.9 $';
+# $Id: ChannelList.pm,v 1.10 2004/04/02 10:14:12 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.10 $';
 
 
 # Constructor
@@ -127,7 +128,40 @@ sub archive_channel {
     # Make archive
     my $path = "$self->{path}/${channel}";
     `tar czf ${path}.tgz $path`;
-    
+
     # Delete chan
     return $self->delete_channel( $channel );
+}
+
+
+# List of channels sorted by newest entry
+#
+sub newest_channels {
+  my ( $self, $count ) = @_;
+
+  # Gives array of ChannelConf object refs
+  my @channels;
+  @channels = $self->search_channels( public => 'yes' ) unless $self->{msg};
+  @channels = () if ( $channels[0] eq undef );
+
+  # Sort channels by date of newest entry
+  for my $c ( @channels ) {
+    my $SL = new Spoejs::StoryList( lang => $self->{lang},
+				    path => $c->{path} );
+    my @s = $SL->list_stories( count => 1 );
+
+    # Add date in seconds since epoch
+    $c->{newest_date} = $s[0] ? UnixDate($s[0]->get( 'date' ), "%s") : 0;
+
+    # Add story reference for later use
+    $c->{S} = $s[0] if $s[0];
+  }
+
+  # Sort based on date in seconds
+  @channels = sort { $b->{newest_date} <=> $a->{newest_date} } @channels;
+
+  # Shrinf if count is given
+  $#channels = $count - 1 if $count and @channels > $count;
+
+  return @channels;
 }
