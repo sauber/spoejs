@@ -3,10 +3,12 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.16 2004/04/10 07:21:08 sauber Exp $
+%# $Id: media,v 1.17 2004/04/10 13:33:26 snicki Exp $
 %#
 <center>\
+% unless ( $no_div ) {
 <div class="media">
+% }
 % if ( $href ) {
 <a href="<% $href %>">\
 %}
@@ -17,7 +19,9 @@
 </a>
 %}
 %#Insert annotation here
+% unless ( $no_div ) {
 </div>
+% }
 </center>\
 <%init>
   return unless defined $ARGS{p};
@@ -33,6 +37,7 @@
   $ARGS{p} =~ /(...)$/ and $ext = lc $1;
 </%init>
 <%args>
- $href => undef
+ $href    => undef
  $html_wh => undef
+ $no_div  => undef
 </%args>
