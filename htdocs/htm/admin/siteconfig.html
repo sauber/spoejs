@@ -4,12 +4,12 @@ Site configuration
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: siteconfig.html,v 1.22 2004/06/16 05:55:44 snicki Exp $
+$Id: siteconfig.html,v 1.23 2004/06/16 12:01:20 sauber Exp $
 </%doc>
 % unless ( defined $session{chanauth} && defined $session{chanauth}{'**scf**'} ) {
 **pleaselogin**
 % return; }
-<h1>**statuschannel**:</h1>
+<h1>**statusjournal**:</h1>
 <form method="post" action="">
 <table width="100%">
 <tr>
@@ -99,7 +99,7 @@ $Id: siteconfig.html,v 1.22 2004/06/16 05:55:44 snicki Exp $
 <input type="submit" name="submit" value="**submit**" />
 </form>
 <a href="/htm/admin/signup.html">
-**addnewchannel**
+**addnewjournal**
 </a>
 <%init>
 my $transopt = 'showtranslationoptions';

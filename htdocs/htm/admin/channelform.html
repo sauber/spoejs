@@ -4,7 +4,7 @@ Register channel or edit configuration
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: channelform.html,v 1.48 2004/06/15 04:29:21 snicki Exp $
+$Id: channelform.html,v 1.49 2004/06/16 12:03:55 sauber Exp $
 </%doc>
 <& /js/confirm.js &>
 <& journal_tab.mas &>
@@ -195,7 +195,7 @@ sub process_delete_channel_form {
   $CL->delete_channel( $spoejs{channel} ) or warn $CL->{msg};
   delete $session{chanauth}{$spoejs{channel}};
   delete $session{chanauth} unless keys %{$session{chanauth}};
-  $m->print( '<h2>**channel_deleted**</h2>' );
+  $m->print( '<h2>**journal_deleted**</h2>' );
   $m->abort;
 }
 </%perl>
