@@ -1,6 +1,7 @@
 # Todo:
 # Read/write files
 # Perhaps file size check
+# Use global BS object instead of creating every time.
 # Notes:
 # $self->{_im} is an ImageMagick object
 # $self->{_blob} is raw image
@@ -11,8 +12,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.25 2004/07/16 15:15:54 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.25 $';
+# $Id: Media.pm,v 1.26 2004/08/08 07:55:51 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.26 $';
 
 
 # Initializor
@@ -146,8 +147,7 @@ sub scale {
 
 
 sub _create_bs {
-    my @basic = eval "a..z, A..Z, 0..9";
-    return new Bootstring( BASIC => \@basic, 
+    return new Bootstring( BASIC => ["a".."z", "A".."Z", "0".."9"],
 			   TMAX => 53,
 			   SKEW => 78,
 			   INITIAL_BIAS => 32,
@@ -229,6 +229,20 @@ sub info {
   return $self->{_im}->Get('width','height','filesize','Magick');
 }
 
+# Count the number of entries in log files for filename
+# in both standard form and Bootstring encoded.
+sub logcount {
+  my($self,$logfilebase) = @_;
+
+  return undef unless $self->{file};
+
+  my $BS = _create_bs();
+  my $bs = $BS->encode($self->{file});
+  my $count = 0;
+  #$count += `egrep "$self->{file}|$bs" ${logfilebase}* | wc -l`;
+  return $count;
+}
+
 
 # Rotate 90 degrees clockwise (90) or counterclickwise (270)
 sub rotate {
@@ -274,7 +288,8 @@ sub rename {
     
     my $old_file = "$self->{path}/$self->{file}";
     
-    my $BS = _create_bs();
+    # This line seems not necessary.
+    #my $BS = _create_bs();
     
     $self->{file} = $new_file;
     $self->valid_name();
