@@ -4,28 +4,28 @@
 <h4>Story saved successfully.</h4>
 <a href="<& /htm/url:encode, "/$spoejs{channel}/admin/upload.html", 
                              d=>$story_dir &>">
-Click here to add media to story.
+Add media to story.
 </a>
 % return; }
 
 % if ( $ARGS{delete} ) {
 <h4>Story deleted successfully.</h4>
 <a href="/<% $spoejs{channel} %>/index.html">
-Click here to go to channel home.
+Go to channel home.
 </a>
 % return; }
 
 
-<h4>Editing for language: <% $cur_lang %></h4>
+<h4><&|/l&>edit_lang</&>: <&|/l&><% $cur_lang %></&></h4>
 
 <form action="" method="post">
-Your name:<br/>
+<&|/l&>yourname</&>:<br/>
 <input type="text" size="60" name="author" value="<%$ARGS{author}%>"/><br/>
-Story title:<br/>
+<&|/l&>storytitle</&>:<br/>
 <input type="text" size="60" name="title" value="<%$ARGS{title}%>"/><br/>
-Date: (leave blank if story is current)<br/>
+<&|/l&>date</&>: <&|/l&>blank_default</&><br/>
 <input type="text" size="60" name="date" value="<%$ARGS{date}%>"/><br/>
-Category:<br/>
+<&|/l&>category</&>:<br/>
 <select name="category">
 <option value="">Please select</option>
 % foreach my $cat ( sort keys %categories ) {
@@ -33,23 +33,25 @@ Category:<br/>
 <option value="<% $cat %>"<% $selected %>><% $cat %></option>
 % }
 </select>
-or new: 
+<&|/l&>or_new</&>: 
 <input type="text" size="30" name="newcategory" value=""/><br/>
-Story abstract:<br/>
+<&|/l&>story_abstract</&>:<br/>
 <textarea name="abstract" rows="5" cols="60"><%$ARGS{abstract}%></textarea>
 <br/>
-Full story text:<br/>
+<&|/l&>full_story</&>:<br/>
 <textarea name="fulltext" rows="20"
 cols="60"><%$ARGS{fulltext}%></textarea>
 <br/>
 <br/>
-Thumbnail:<br/>
+% if ( $story_dir ) {
+<&|/l&>thumbnail</&>:<br/>
+%# XXX: simplify %thumb to array as hash-keys is used as lang-key
 % for ( sort keys %thumb ) {
-<% $thumb{$_} %>: <input type="radio" name="thumbnail" value="<% $_
+<&|/l&><%$_%></&>: <input type="radio" name="thumbnail" value="<% $_
 %>" <% $checked{$_} %>/>
 % }
 <select name="thumbfile">
-  <option value="">Choose</option>
+  <option value=""><&|/l&>choose</&></option>
 % for ( $S->media_list() ) {
 % my $c = $checked_file eq $_->{file} ? ' selected="selected"' : '';
   <option value="<%$_->{file}%>"<% $c %>><% $_->utf_filename() %></option>
@@ -57,19 +59,22 @@ Thumbnail:<br/>
 </select>
 <br/>
 <br/>
-<input type="submit" name="submit" value="Submit"/>
-<input type="submit" name="delete" value="Delete"/>
+% }
+<input type="submit" name="submit" value="<&|/l&>submit</&>"/>
+<input type="submit" name="delete" value="<&|/l&>delete</&>"/>
 </form>
-
+% if ( $story_dir ) {
+<h4><&|/l&>media_man</&>:</h4>
 <a href="<& /htm/url:encode, "/$spoejs{channel}/admin/upload.html", 
                              d =>$story_dir &>">
-Add media to existing story.
-</a><br/>
+<&|/l&>add</&>
+</a>
+&nbsp;&nbsp;
 <a href="<& /htm/url:encode, "/$spoejs{channel}/admin/rename.html", 
                               d=>$story_dir &>">
-Edit media for existing story.
+<&|/l&>edit</&>
 </a>
-
+% }
 %#<pre>
 %#<% Dumper %params %>
 %#<% Dumper %ARGS %>

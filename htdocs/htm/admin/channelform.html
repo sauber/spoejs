@@ -33,7 +33,7 @@ No:<input type="radio" name="public" value="no"<% $nc %>>
 </form>
 %}
 <%init>
-  # XXX: Change 'input' types for 'public', 'language' etc.
+  my $cur_lang = $spoejs{lang_handle}->{lang_order}->[0];
 
   my @text_f = qw ( shortname title description theme username );
   my @non_text_f = qw( language password public );
@@ -59,7 +59,7 @@ if ( $ARGS{submit} ) {
 
   # Pick appropriate args from %ARGS
   my %cl_args;
-  @cl_args{ @text_f, @non_text_f } = @ARGS{ @text_f, @non_text_f };
+  $cl_args{$_}{$cur_lang} = $ARGS{$_} for ( @text_f, @non_text_f );
 
   # Add 'active' based on site policy
   $cl_args{active} = $policy eq 'signup' ? 'no' : 'yes';

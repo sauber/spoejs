@@ -1,16 +1,17 @@
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
 <th align="left">
-<a href="/index.html">Site Home</a>
+<a href="/index.html"><&|/l&>site_home</&></a>&nbsp;|
 % if ( defined $spoejs{channel} ) {
-<a href="/<% $spoejs{channel} %>/index.html">Channel Home</a>
+<a href="/<% $spoejs{channel} %>/index.html"><&|/l&>chan_home</&></a>&nbsp;|
 % } else {
 % if ( $policy eq 'ffa' or $policy eq 'signup' ) {
-<a href="/htm/admin/signup.html">Register</a>
+<a href="/htm/admin/signup.html"><&|/l&>register</&></a>&nbsp;|
 % } }
-<a href="/htm/about.html">About</a>
+<a href="/htm/about.html"><&|/l&>about</&></a>
 % if ( $session{chanauth} && $session{chanauth}{$spoejs{channel}} ) {
-<a href="/<% $spoejs{channel} %>/admin/story.html">New</a>
+&nbsp;|
+<a href="/<% $spoejs{channel} %>/admin/story.html"><&|/l&>new_story</&></a>
 % }
 &nbsp;
 </th>
