@@ -4,10 +4,10 @@ Show comments for story or media
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: comments,v 1.10 2004/06/15 02:06:05 snicki Exp $
+$Id: comments,v 1.11 2004/07/02 14:45:50 sauber Exp $
 </%doc>
 % if ( @$comments > 0 ) {
-<h2>**comments**</h2>
+<h3>**comments**</h3>
 %   #
 %   # Display all existing comments
 %   #
@@ -26,7 +26,7 @@ $Id: comments,v 1.10 2004/06/15 02:06:05 snicki Exp $
 % # Offer a form to input comments
 % #
 % # XXX: Extract username/email from cookie if possible
-<h2>**post_a_comment**</h2>
+<h4>**post_a_comment**</h4>
 <&| /htm/admin/fill_in_form.mas, data => $spoejs{ARGS}, ignore => $ignore &>
 <form name="comments" method="post" action="">
 **name**: <input name="name" size="20"/><br>

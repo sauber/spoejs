@@ -3,9 +3,10 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: categoryicon,v 1.12 2004/05/19 13:31:48 sauber Exp $
+%# $Id: categoryicon,v 1.13 2004/07/02 14:45:50 sauber Exp $
 %#
 <img src="<& /htm/url:encode, "/ico/ico.jpg", c=>$category, m=>$size&>" alt="<% $category %> icon"/>\
+%# XXX: It would be good to know the size of the icon, but currently impossible
 %#width="<%$size%>" height="<%$size%>"
 <%args>
     $category => undef
