@@ -19,15 +19,12 @@ Development todo list:
 ----------------------
 
 Developers:
- - Dev server
  - Dev jabber channel with logging (Net::Jabber + chatbot?)
 
 Code structure:
- - Handle form submissions
  - Debug on/off
  - Test UTF8
  - Error message when cookies missing
- - file objects to %spoejs
 
 Data:
  - Don't save text unless really changed
@@ -40,12 +37,12 @@ Data:
 ChannelList:
  - This site
  - Other sites
-
-Login:
+ - Next/prev page
+ - By latest update
+ - By alphabet sorted
 
 Register:
  - Check fields for valid data
- - Pop-down menus.
  - Theme selector
  - Encrypted passwords
 
@@ -58,12 +55,11 @@ URL parser:
  - Set all needed %spoejs variables (channel, story, picture...)
 
 Theme:
- - Page templates
- - Basic component set
  - css
- - Test non-default theme
- - What to put in theme/ and html/
- - Boxes
+ - Credits on About page
+ - Theme version match spoejs spoejs version
+ - Theme-selector
+ - Overall theme (top, bottom, left, right, main...)
 
 GUI Design:
  - Logo
@@ -92,14 +88,12 @@ StoryAdmin:
 SiteConf:
  - Paths, theme, lang
  - Neighborhood spoejs sites
- - Invite-only/register-confirm/free-for-all
  - Quota
- - Username/password set/change
  - Default settings.txt or create from empty
 
 Navigation:
  - StoryList
-    - next/prev page
+    - next/prev story
     - by category
     - by month/year
     - thumbnails
@@ -109,17 +103,15 @@ Navigation:
 
 Media:
  - First, last, chosen, random index media
- - Scale
+ - Random index media is default
  - Single frame of movie
  - Crop, rotate, brightness, compress
- - /chan/story/pic_m150.jpg url
- - Delete
  - utf8 category icon
- - windows filenames
  - remove dirs before / or \
  - utf8 filenames
  - exif
  - caching headers
+ - w/h for icons
 
 Extras:
  - Calendar
@@ -134,7 +126,6 @@ Extras:
 Translator:
  - Support parameters in translations,... %1 %2 ...
  - Return keyword if no text present
- - Bootstring optimal params
 
 Search:
  - Seach in channels and stories
