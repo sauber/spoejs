@@ -1,5 +1,27 @@
-<a href="<% $slash_d %>">
-<& /w, w => "media", d => $params{d}, p => $params{p}, m => 640 &>
+<center>
+<h4><% $S->get( 'title' ) %></h4>
+<a href="<% "$slash_d/$pic" %>">
+<& /w, w => "media", d => $params{d}, p => $params{p}, m => 480 &>
+</a>
+<br/>
+% if (  $ML->prev( $params{p} ) ) {
+<a href="media_d<% $params{d} %>_p<%  $ML->prev( $params{p} ) %>.html">
+<==
+</a>
+% } else {
+<==
+% }
+==
+% if (  $ML->next( $params{p} ) ) {
+<a href="media_d<% $params{d} %>_p<%  $ML->next( $params{p} ) %>.html">
+==>
+</a>
+% } else {
+==>
+% }
+</center>
+<a href="story_d<% $params{d} %>.html">
+Back to story
 </a>
 <%init>
   my $slash_d = $params{d};
@@ -8,7 +30,14 @@
   my $pic = $params{p};
   # Add '.' to filename
   $pic =~ s{(.*)(...)$}{$1\.$2}g;
-  $slash_d = "/users/$session{user}/$slash_d/$pic";
+  $slash_d = "/users/$session{user}/$slash_d";
+
+
+  my $path = "$ENV{DOCUMENT_ROOT}/$slash_d";
+  my $ML = new Spoejs::MediaList( path => $path );
+
+  my $S = new Spoejs::Story( path => $path, lang => $spoejs{lang_handle} );
+
 </%init>
 <%args>
  %params => undef
