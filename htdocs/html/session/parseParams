@@ -8,8 +8,7 @@
   # Default to configured, then 'default' theme if none is given in URL
   $res{t} ||= #$channelconf->get(theme) || 
             'default';
-warn Dumper( %res );
-  return %res;
+  return ( $url, %res );
 </%perl>
 <%args>
 $url => undef
