@@ -3,9 +3,8 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.20 2004/04/22 06:40:11 snicki Exp $
+%# $Id: media,v 1.21 2004/04/22 13:36:41 snicki Exp $
 %#
-<center>\
 % unless ( $no_div ) {
 <div class="media">
 % }
@@ -22,7 +21,6 @@
 % unless ( $no_div ) {
 </div>
 % }
-</center>\
 <%init>
   return unless defined $ARGS{p};
 

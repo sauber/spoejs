@@ -1,0 +1,41 @@
+% $m->clear_buffer;
+
+<script language="JavaScript" type="text/javascript">
+function add_media( media ) {
+
+var input = window.parent.document.getElementById( "fulltext" );
+var insText = "Media=" + media + "\n";
+
+input.focus();
+if( input.createTextRange ) {
+  document.selection.createRange().text += insText;
+} else if( input.setSelectionRange ) {
+  var len = input.selectionEnd;
+  input.value = input.value.substr( 0, len )
+    + insText + input.value.substr( len );
+  input.setSelectionRange(len+insText.length,len+insText.length);
+} else { 
+  input.value += insText; 
+}
+}
+</script>
+
+%for my $p ( $S->{ML}->list() ) {
+<a href="javascript:add_media('<%$p->{file}%>')">
+  <& '/w', w => "media", d =>  $spoejs{p}{d}, p => $p->{file}, 
+           m => $img_size, no_div => 1 &>
+</a>
+%#<% $count++ % 2 == 0 ? '<br/>' : '' %>
+%}
+<%init>
+  my $S = new Spoejs::Story( path => "$spoejs{channel_path}/$spoejs{p}{d}",
+                          lang => $spoejs{lang_handle} );
+  $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
+ 
+
+
+</%init>
+<%args>
+  $img_size => 75
+  $count    => 1
+</%args>

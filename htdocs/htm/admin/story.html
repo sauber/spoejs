@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.19 2004/04/13 21:09:38 bottle18 Exp $
+%# $Id: story.html,v 1.20 2004/04/22 13:36:36 snicki Exp $
 %#
 % return unless $m->comp( 'checkLogin.html' );
 <& /js/confirm.js &>
@@ -22,9 +22,8 @@ Go to channel home.
 </a>
 % return; }
 
-
 <h3><&|/l&>edit_lang</&>: <&|/l&><% $cur_lang %></&></h3>
-
+<div class="left">
 <form action="" method="post">
 <table width="500"><tr><td>
 <fieldset><legend><&|/l&>please_fill_out_this_form</&></legend>
@@ -48,16 +47,15 @@ Go to channel home.
 <textarea name="abstract" rows="5" cols="60"><%$ARGS{abstract}%></textarea>
 <br/>
 <&|/l&>full_story</&>:<br/>
-<textarea name="fulltext" rows="20"
-cols="60"><%$ARGS{fulltext}%></textarea>
+<textarea name="fulltext" rows="20" cols="60" id="fulltext">
+<%$ARGS{fulltext}%></textarea>
 <br/>
 <br/>
 % if ( $story_dir ) {
 <&|/l&>thumbnail</&>:<br/>
-%# XXX: simplify %thumb to array as hash-keys is used as lang-key
-% for ( sort keys %thumb ) {
-<&|/l&><%$_%></&>: <input type="radio" name="thumbnail" value="<% $_
-%>" <% $checked{$_} %>/>
+% for my $i ( @thumb ) {
+<&|/l&><%$i%></&>: <input type="radio" name="thumbnail" value="<% $i
+%>" <% $checked{$i} %>/>
 % }
 <select name="thumbfile">
   <option value=""><&|/l&>choose</&></option>
@@ -85,10 +83,19 @@ cols="60"><%$ARGS{fulltext}%></textarea>
                               d=>$story_dir &>">
 <&|/l&>edit</&>
 </a>
+</div>
+<div class="right">
+<h3>**Click on an image to insert it at the cursor position.**</h3>
+<IFRAME src="<& /htm/url:encode, "/$spoejs{channel}/admin/mediapicker.html", 
+        d=>$story_dir &>" width="300" height="600" frameborder="1">
+[Your user agent does not support frames or is currently configured
+not to display frames.]
+</IFRAME>
+</div>
+
 % }
 <%init>
-my %thumb = ( first => 'First', last => 'Last', random => 'Random',
-specific => 'Specific' );
+my @thumb = qw( first last random specific );
 my $cur_lang = $spoejs{lang_handle}->{lang_order}->[0];
 my @entries = qw( title date category abstract fulltext author thumbnail );
 
@@ -108,11 +115,13 @@ if ( $spoejs{p}{d} && -d "$spoejs{channel_path}/$spoejs{p}{d}" && !$ARGS{submit}
   %ARGS = ( %ARGS, $S->get() );
 
   # Find thumbtype for html 'checked'ing
-  for ( keys %thumb ) {
+  for ( @thumb ) {
     $checked{$_} = $_ eq $ARGS{thumbnail} ? ' checked="checked"' : '';
   }
-  $checked_file = $ARGS{thumbnail} if ! defined $thumb{$ARGS{thumbnail}};
-  $checked{specific} = ' checked="checked"' if ! defined $thumb{$ARGS{thumbnail}};
+  $checked_file = $ARGS{thumbnail} unless grep {$_ eq
+  $ARGS{thumbnail}} @thumb ;
+  $checked{specific} = ' checked="checked"'  unless grep {$_ eq
+  $ARGS{thumbnail}} @thumb ;
 
 }
 
