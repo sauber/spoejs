@@ -1,0 +1,23 @@
+#!/usr/bin/perl -I../lib
+
+# Encode and decode bootstring
+#
+# Examples:   bs 2004/05/13
+#             bs -u 20040513-Imc
+
+use Bootstring;
+
+my @basic = eval "a..z, A..Z, 0..9";
+my $BS = new Bootstring( BASIC => \@basic, 
+                         TMAX => 53,
+                         SKEW => 78,
+                         INITIAL_BIAS => 32,
+                         TMIN => 38,
+                         DAMP => 40 );
+
+if ( 1 == @ARGV ) {
+  print $BS->encode( $ARGV[0] );
+} else {
+  print $BS->decode( $ARGV[1] );
+}
+print "\n";
