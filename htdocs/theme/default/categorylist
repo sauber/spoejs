@@ -1,3 +1,4 @@
+<h2><&|/l&>categorylist</&></h2>
 % for my $info ( @cat_info ) {
 <a href="<% $$info{href} %>">
   <% $$info{category} %> (<% $$info{count} %>)<br/>
