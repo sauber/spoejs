@@ -4,7 +4,7 @@ login, authenticate, logout
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: login.html,v 1.15 2004/06/15 05:29:21 snicki Exp $
+$Id: login.html,v 1.16 2004/06/16 05:59:24 snicki Exp $
 </%doc>
 % if ( defined $session{chanauth} ) {
 %  # List authorized channels
@@ -37,10 +37,10 @@ if ( $login ) {
   }
 
   # Check site auth
-  # '**sa**' is not an allowed channel name so this should be safe
+  # '**scf**' is not an allowed channel name so this should be safe
   my $p = $spoejs{SiteConf}->get( 'password' );
   my $u = $spoejs{SiteConf}->get( 'username' );
-  $session{chanauth}{'**sa**'} = $username if $username eq $u and $password eq $p;
+  $session{chanauth}{'**scf**'} = $username if $username eq $u and $password eq $p;
 
   # Check translator auth; beware, this redirects directly to translate site
   check_translate( $username, $password ); 
@@ -61,7 +61,7 @@ my @authorized;
 if ( defined $session{chanauth} ) {
   my $siteconfig = '/htm/admin/siteconfig.html';
   for my $chan ( keys %{$session{chanauth}} ) {
-    if ( $chan =~ /^\*\*sa\*\*$/ ) {
+    if ( $chan =~ /^\*\*scf\*\*$/ ) {
        push @authorized, [ $chan, $siteconfig ];
     } else {
        push @authorized, [ $chan, "/$chan/index.html" ];
