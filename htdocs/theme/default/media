@@ -1,5 +1,14 @@
 <img src="/<% $session{user} %>/pic_d<% $ARGS{d}%>_p<%
-$ARGS{p} %>_m<% $ARGS{m} %>.jpg" />
+$ARGS{p} %>_m<% $ARGS{m} %>.jpg" 
+<% $P->html_imgsize( filename => $p, size => $ARGS{m} ) %>/>
+<%init>
+  my $path = "$ENV{DOCUMENT_ROOT}users/$session{user}";
+  my $d = $ARGS{d};
+  $d =~ s{(....)(..)(..)}{$1/$2/$3};
+  my $p = $ARGS{p};
+  $p =~ s{(.*)(...)$}{$1\.$2}g;
+  my $P = new Spoejs::Pic( path => "$path/$d" );
+</%init>
 <%args>
- $params => undef    
+ %params => undef    
 </%args>
