@@ -213,6 +213,11 @@
 <lang=en/>Sign up
 </signup>
 
+<submit>
+<lang=da/>Indsend
+<lang=en/>Submit
+</submit>
+
 <theme>
 <lang=en/>Theme
 </theme>
@@ -229,7 +234,7 @@
 </title>
 
 <username>
-<lang=da/>sauber
+<lang=da/>Brugernavn
 <lang=en/>Username
 </username>
 
