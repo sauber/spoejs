@@ -7,7 +7,7 @@
 
 PORTNAME=	spoejs
 PORTVERSION=	0.1
-#PORTREVISION=	1
+PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=   # none
 DISTFILES=      # none
@@ -29,6 +29,7 @@ RUN_DEPENDS+=	${SITE_PERL}/IO/Zlib.pm:${PORTSDIR}/archivers/p5-IO-Zlib
 RUN_DEPENDS+=	${SITE_PERL}/Archive/Tar.pm:${PORTSDIR}/archivers/p5-Archive-Tar
 RUN_DEPENDS+=	${SITE_PERL}/Archive/Zip.pm:${PORTSDIR}/archivers/p5-Archive-Zip
 RUN_DEPENDS+=	${SITE_PERL}/HTML/FillInForm.pm:${PORTSDIR}/www/p5-HTML-FillInForm
+RUN_DEPENDS+=	${SITE_PERL}/Authen/Captcha.pm:${PORTSDIR}/security/p5-Authen-Captcha
 
 NO_BUILD=	yes
 
