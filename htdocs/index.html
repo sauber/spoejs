@@ -3,12 +3,12 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.31 2004/05/16 07:37:30 snicki Exp $
+%# $Id: index.html,v 1.32 2004/05/16 08:13:46 snicki Exp $
 %#
 <table><tr><td width="50%" valign="top">
 <h1>
 %#<&|/l&>spoejs_channels_at_this_site</&>
-Local journals
+*Local journals
 </h1>
 % foreach my $chan ( @channels ) {
 <h2>
@@ -28,7 +28,7 @@ Local journals
 <br/>
 % }
 </td><td width="50%" valign="top">
-<h1>Journals at friend's sites</h1>
+<h1>*Journals at friend's sites</h1>
 %for my $rem ( @{$remotes} ) {
 <h2><a href=""><%$rem->{shortname}%> at <% $rem->{url} %></a></h2>
 <% $rem->{summary} %><br/><br/>
@@ -51,5 +51,5 @@ my @auth =  keys %{$session{chanauth}} if defined $session{chanauth};
 
 my $SYN = new Spoejs::Syndication( path => "$ENV{DOCUMENT_ROOT}/users/",
                                    lang => $spoejs{lang_handle} );
-my $remotes = $SYN->newest_remotes();
+my $remotes = $SYN->newest_remotes( count => 5 );
 </%init>
