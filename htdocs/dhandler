@@ -20,6 +20,7 @@
 if ( 1 ) {
   use Spoejs::Text;
   use Spoejs::ChannelConf;
+  use Spoejs::ChannelList;
   use Spoejs::Lang;
   use Spoejs::StoryList;
   use Spoejs::Resource;
