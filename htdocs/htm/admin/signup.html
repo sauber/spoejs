@@ -4,7 +4,7 @@ Offer to sign up
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: signup.html,v 1.10 2004/06/15 01:53:24 snicki Exp $
+$Id: signup.html,v 1.11 2004/06/15 03:48:50 snicki Exp $
 </%doc>
 % if ( defined $ARGS{signup_form} && !$error ) {
 <h2>**congrat_signup**</h2>
@@ -130,7 +130,7 @@ if ( defined $ARGS{signup_form} ) {
 
   # Check for errors
   $error = $m->comp( '/htm/admin/error.mas:error_check', \%ARGS, $spec, 
-                     'channelform' );
+                     'signup_form' );
 
   # Pick appropriate args from %ARGS and ad language where appropriate
   my %cl_args;
