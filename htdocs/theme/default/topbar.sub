@@ -1,0 +1,35 @@
+<& $w,
+   policy       => $policy,
+   channel_href => $channel_href,
+   story_href   => $story_href,
+   signup_href  => $signup_href,
+   new_href     => $new_href,
+&>
+<%init>
+my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
+                               lang => $spoejs{lang_handle} );
+my $policy = $SC->get( 'policy' );
+my $channel_href = "/$spoejs{channel}/index.html" if defined $spoejs{channel};
+
+my $story_href;
+if ( defined $spoejs{p}{d} and defined $spoejs{channel} ) {
+  $story_href = $m->scomp( '/htm/url:encode',
+			   "/$spoejs{channel}/story.html",
+			   d => $spoejs{p}{d} );
+}
+
+my $signup_href;
+if ( ( $policy eq 'ffa' or $policy eq 'signup') and 
+     !defined $spoejs{channel} ) {
+  $signup_href = "/htm/admin/signup.html";
+}
+
+my $new_href;
+if ( defined $session{chanauth} && 
+     defined $session{chanauth}{$spoejs{channel}} ) {
+  $new_href = "/$spoejs{channel}/admin/story.html";
+}
+</%init>
+<%args>
+  $w => undef
+</%args>
