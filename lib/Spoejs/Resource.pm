@@ -1,8 +1,8 @@
 package Spoejs::Resource;
 use base ( "Spoejs::Text" );
 
-# $Id: Resource.pm,v 1.6 2004/03/05 03:57:29 sauber Exp $
-$Spoejs::Resource::VERSION = $Spoejs::Resource::VERSION = '$Revision: 1.6 $';
+# $Id: Resource.pm,v 1.7 2004/03/07 10:51:05 sauber Exp $
+$Spoejs::Resource::VERSION = $Spoejs::Resource::VERSION = '$Revision: 1.7 $';
 
 # Set path and filename for resource file
 #
@@ -24,4 +24,15 @@ sub lang_list {
 
   # All two letter keys are languages.
   return sort grep /^..$/, keys %{$self->{data}};
+}
+
+# Return list of all keys
+#
+sub keys {
+  my($self) = @_;
+
+  # Read in resource file
+  $self->_check_load();
+
+  return sort keys %{$self->{data}};
 }
