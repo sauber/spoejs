@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.40 2004/10/28 12:52:43 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.40 $';
+# $Id: StoryList.pm,v 1.41 2005/03/18 05:30:05 sauber Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.41 $';
 
 sub _initialize {
     my $self = shift;
@@ -215,23 +215,23 @@ sub list_stories {
     # Filter inactive
     $in{active} = 'yes' unless $self->{show_inactive};
 
+    # Filter by away stories where keywords don't match
     if ( keys %in > 0 ) {
-	# Filter by keyword, if given
-	my @kw = keys %in;
-	my $kw = $kw[0];
-	if ( defined $in{$kw} ) {
-	    my @new;
-	    foreach $story ( @res ) {
-		my $story_kw = $story->get( $kw );
-		
-		# XXX: Special case for non-existing 'active'
-		$story_kw ||= 'yes' if $kw eq 'active';
- 
-		push @new, $story if ( $story_kw and $story_kw eq $in{$kw} );
-	    }
-	    
-	    @res = @new;
-	}
+      my @new;
+      foreach $story ( @res ) {
+        my $add = 1;
+        for $kw ( keys %in ) {
+          if ( defined $in{$kw} ) {
+            warn "Checking $kw in $story\n";
+	    my $story_kw = $story->get( $kw );
+	    $story_kw ||= 'yes' if $kw eq 'active'; # Special case
+            undef $add if $story_kw and $story_kw ne $in{$kw};
+            last unless $add;
+          }
+        }
+	push @new, $story if $add;
+      }
+      @res = @new;
     }
 
     # Handle 'story' separately
