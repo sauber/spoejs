@@ -1,14 +1,44 @@
-<&| /l &>title</&>
+<&| /l &>title</&>:
+<% $S->get( 'title' ) %>
+<br/>
+<&| /l &>date</&>:
+<% $S->get( 'date' ) %>
+<br/>
+<br/>
+Abstract:
 <br/>
 <% $S->get( 'abstract' ) %>
-%# XXX: User referer or similar - this is most often wrong!!
-<a href="/<% $session{user} %>/index.html">Back</a>
+<br/>
+<br/>
+Fulltext:
+<br/>
+<% $S->get( 'fulltext' ) %>
+<br/>
+<br/>
+Media:
+<br/>
+% for ( @media_list ) {
+% my @p = reverse split /\//, $_->{path};
+% $p[0] =~ s{\.}{};
+<& /w, w => "media", d => $no_slash_path, p => $p[0], m => 150, info
+=> $_->info() &>
+% }
+<br/>
+<br/>
+<br/>
+% if ( $session{chanauth} && $session{user} && 
+%      $session{chanauth}{$session{user}}) {
+<a href="/<%$session{user}%>/admin/story_d<%$no_slash_path%>.html">Edit</a>
+% }
 <%init>
-  my $path;
-  $params{d} =~ /(\d{4})(\d\d)(\d\d)/ and $path = "$1/$2/$3";
-  $path = "$ENV{DOCUMENT_ROOT}/users/$session{user}/$path";
+  my ($slash_path, $no_slash_path);
+  $params{d} =~ /(\d{4})(\d\d)(\d\d)/ and $slash_path = "$1/$2/$3",
+  $no_slash_path = "$1$2$3";
+  my $path = "$ENV{DOCUMENT_ROOT}users/$session{user}/$slash_path";
   my $S = new Spoejs::Story( path => $path,
                              lang => $spoejs{lang_handle} );
+
+  my @media_list = $S->media_list();
 </%init>
 <%args>
   %params => undef
