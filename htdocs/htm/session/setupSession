@@ -6,6 +6,11 @@ writable";
     $m->abort;
 }
 
+  unless ( -w "$ENV{DOCUMENT_ROOT}/../lib/settings.txt" ) {
+    print "Site not correctly configured: $ENV{DOCUMENT_ROOT}/../settings.txt is not writable";
+    $m->abort;
+}
+
 # Remove user path of URL
 $ENV{REQUEST_URI} =~ /\/(\w+)\// and my $path = $1;
 
