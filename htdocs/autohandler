@@ -4,7 +4,7 @@ topbar and .pm module loader
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: autohandler,v 1.32 2004/06/13 04:59:15 snicki Exp $
+$Id: autohandler,v 1.33 2004/08/12 12:23:28 snicki Exp $
 </%doc>
 <& htm/header.html &>
 <body>
@@ -24,6 +24,7 @@ $Id: autohandler,v 1.32 2004/06/13 04:59:15 snicki Exp $
 <%init>
 if ( 1 ) {
   use Bootstring;
+  use Spoejs;
   use Spoejs::Annotations;
   use Spoejs::Archive;
   use Spoejs::ChannelConf;
@@ -35,6 +36,7 @@ if ( 1 ) {
   use Spoejs::Pic;
   use Spoejs::Resource;
   use Spoejs::SiteConf;
+  use Spoejs::Stats;
   use Spoejs::StoryList;
   use Spoejs::Syndication;
   use Spoejs::Text;
