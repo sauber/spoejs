@@ -128,6 +128,7 @@ Navigation:
     - by month/year
  - Slideshow
  - Bug: http://server/user/ doesn't work. Only works with /index.html
+ - On intro, only Show link if fulltext or media exist
 
 Media:
  - Crop, rotate, brightness, compress
@@ -137,6 +138,7 @@ Media:
  - Different sizes for inline and not inline album
  - media page should have themable picture size
  - Bug: broken ANY thumb shows on stories without media
+ - Bug: On inline pages, all media appear twice
 
 Icons:
  - pregenerated icons (fx party)
