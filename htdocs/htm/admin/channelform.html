@@ -4,7 +4,7 @@ Register channel or edit configuration
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: channelform.html,v 1.54 2004/07/22 14:19:01 snicki Exp $
+$Id: channelform.html,v 1.55 2004/07/22 14:25:03 snicki Exp $
 </%doc>
 <& /js/confirm.js &>
 <& journal_tab.mas &>
@@ -137,6 +137,8 @@ return undef unless $m->comp( '/htm/login.html:check_login' );
                                 error       => '**invalid_journal_id**',
 	                        check       => $shortname_check,
                                 error_check => '**journal_exists**' },
+               name        => { regexp      => '.+',
+	                        error       => '**invalid_name**' },
                title       => { regexp      => '.+',
 	                        error       => '**invalid_title**' },
                description => { regexp      => '.+',
