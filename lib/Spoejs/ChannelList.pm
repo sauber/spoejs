@@ -3,8 +3,8 @@ use base ( "Spoejs::List", "Spoejs" );
 use Spoejs::ChannelConf;
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.4 2004/03/12 07:13:37 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.4 $';
+# $Id: ChannelList.pm,v 1.5 2004/03/14 10:19:43 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.5 $';
 
 
 # Constructor
@@ -35,7 +35,7 @@ sub search_channels {
 
     my @chans;
     for ( @all ) {
-	my $CC = new Spoejs::ChannelConf( path => $_ );
+	my $CC = new Spoejs::ChannelConf( path => $_, lang => $self->{lang} );
 
 	# Only get() if criterias are given; else we get all instead of none
 	my %c = $CC->get( keys %p ) if %p;
