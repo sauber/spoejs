@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index-page,v 1.10 2004/04/18 23:48:58 snicki Exp $
+%# $Id: index-page,v 1.11 2004/05/05 09:18:16 snicki Exp $
 %#
 <table width="100%">
 <tr>
@@ -20,13 +20,11 @@
 </td>
 </tr>
 </table>
+%#<br/>
+%#<br/>
 <& /w, w => "list" &>
-<br/>
-<& /w, w => "categorylist", box => 1 &>
-<br/>
-<& /w, w => "storytitlelist", box => 1 &>
 % if ( $edit_href ) {
-<br/>
+%#<br/>
 <a href="/<% $edit_href %>"><&|/l&>channelconf</&></a>
 % }
 <%init>

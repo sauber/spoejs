@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.11 2004/04/22 11:03:42 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.11 $';
+# $Id: List.pm,v 1.12 2004/05/05 09:18:16 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.12 $';
 
 
 # Constructor
@@ -94,7 +94,6 @@ sub _list_from_file_pattern {
 
 sub _index_of {
     my ( $self, $item, $list ) = @_;
-    warn Dumper $list;
 
     return $item unless $item =~ /(\D\D\D)$/;
 

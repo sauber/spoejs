@@ -107,6 +107,22 @@ div.left {
   width:70px;
 }
 
+div.left_index {
+  float: left;
+  width:90px;
+  margin: 115px 0 0 0;
+}
+
+div.center_index {
+  margin: 0 140px 0 110px;
+}
+
+div.right_index {
+  float: right;
+  width:120px;
+  margin: 115px 15px 0 0;
+}
+
 div.center {
   margin: 0 0 0 100px;
 }

@@ -3,20 +3,15 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: storytitlelist,v 1.17 2004/04/10 07:21:09 sauber Exp $
+%# $Id: storytitlelist,v 1.18 2004/05/05 09:18:16 snicki Exp $
 %#
+% use Date::Manip;
 <h2><&|/l&>storytitlelist</&></h2>
-<table width="300">
-<tr>
-  <th><&|/l&>title</&></th>
-  <th><&|/l&>date</&></th>
-</tr>
 % foreach my $story ( $spoejs{SL}->list_stories() ) {
 % my $path = $story->story_path_from_full();
-<tr>
-  <td><a href="<& /htm/url:encode, 'story.html', d => $path &>">
-      <% $story->get( 'title' ) %></a></td>
-  <td><% $story->get( 'date' ) %></td>
-</tr>
+<a href="<& /htm/url:encode, 'story.html', d => $path &>">
+      <% $story->get( 'title' ) %></a>
+<br/>(<% UnixDate($story->get( 'date' ), "%d/%m/%y") %>)
+<br/>
 % }
 </table>

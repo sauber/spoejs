@@ -3,12 +3,14 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: autohandler,v 1.18 2004/04/22 06:40:06 snicki Exp $
+%# $Id: autohandler,v 1.19 2004/05/05 09:18:15 snicki Exp $
 %#
 <& htm/header.html &>
 <body>
 <& /w, w=> "topbar" &>
-<% $m->call_next %>
+<& /w, w => "leftcolumn" &>
+<& /w, w => "rightcolumn" &>
+<div class="center_index"><% $m->call_next %></div>
 <& htm/error.html &>
 </body>
 </html>
