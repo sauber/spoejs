@@ -7,10 +7,11 @@ use Storable qw( dclone );
 use Carp::Assert;
 use Spoejs::ChannelConf;
 use base ( "Spoejs" );
-use Data::Dumper;
+#use Data::Dumper;
+use YAML ':all';
 
-# $Id: Text.pm,v 1.26 2004/06/04 11:43:07 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.26 $';
+# $Id: Text.pm,v 1.27 2004/06/08 02:38:12 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.27 $';
 
 
 # Constructor
@@ -44,6 +45,12 @@ sub _store_data {
     my %data = %{$self->{data}}; #grab data for easier access
     my $entry;
     my $subentry;
+    my $USE_LAML = undef;
+
+    if ( $USE_LAML  ) {
+      local $YAML::UseVersion = 0; # Avoid cluttering files with version info
+      DumpFile( "$self->{path}/$self->{file}", $self->{data} );
+    } else {
 
     open (FH, ">$self->{path}/$self->{file}") or
  	return $self->_err( "Could not open $self->{path}/$self->{file}: $!");
@@ -78,8 +85,8 @@ sub _store_data {
 
 	print FH $entry if length $subentry > 0;
     }
-
     close FH;
+}
 
     # Success
     return 1;
@@ -96,6 +103,19 @@ sub _store_data {
 sub _read_data {
 
     my $self = shift;
+
+    open FH, "<$self->{path}/$self->{file}" or 
+ 	return $self->_err( "Could not open $self->{path}/$self->{file}: $! ");
+    my $firstline = <FH>;
+    close FH;
+
+    # Simple detection of old file format
+    unless ( $firstline =~ /</g ) {
+
+	$self->{data} = LoadFile( "$self->{path}/$self->{file}" );
+
+    } else {
+
     # Return here if file does not exist. 
     open FH, "<$self->{path}/$self->{file}" or 
  	return $self->_err( "Could not open $self->{path}/$self->{file}: $! ");
@@ -168,7 +188,10 @@ sub _read_data {
 	    }
 	}
     }
+
+
     close FH;
+}
 
     # Success
     return 1;
