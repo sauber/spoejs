@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.33 2004/05/20 06:18:56 snicki Exp $
+%# $Id: channelform.html,v 1.34 2004/05/20 06:26:32 snicki Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2><&|/l&>congrat_changes</&></h2>
@@ -31,11 +31,19 @@
 <tr><td colspan="3" class="form_error">*fix_and_resubmit*</td></tr>
 <tr><td colspan="3" class="form_error"><hr/></td></tr>
 %}
+</table>
+<fieldset><legend>*login_details*</legend>
+<table>
 <% form_row( 'username',  'username', "text", $ARGS{'username'},
              $errs{'username'} ) %>
 <% form_row( "passwd", "password", "password", $ARGS{password},
              $errs{password} ) %> 
 <% form_row( "passwd_retype", "password2", "password", "", $errs{password2}) %>
+</table>
+</fieldset>
+<br/>
+<fieldset><legend>*journal_details*</legend>
+<table>
 <tr>
 % my $jour_err_class = defined $errs{shortname} ? ' class="form_error"' : '';
 <td<%$jour_err_class%>>*journal_id*:</td>
@@ -72,6 +80,7 @@
 <td class="form_desc">*journal_security_description*</td>
 </tr>
 </table>
+</fieldset>
 </fieldset>
 <br/>
 <input type="submit" name="submit" value="*submit*"/>
@@ -164,6 +173,9 @@ sub check_args {
   }
   unless ( $$ARGS{username} =~ /.{4,16}/ ) {
     $$errs{username} = "*invalid_username*";
+  }
+  unless ( length $$ARGS{password} > 3 ) {
+    $$errs{username} = "*invalid_password*";
   }
   unless ( $$ARGS{password} eq $$ARGS{password2} ) {
     $$errs{password} = " *password_mismatch*";
