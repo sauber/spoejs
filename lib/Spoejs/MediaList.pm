@@ -1,9 +1,10 @@
 package Spoejs::MediaList;
 use base ( "Spoejs::List" );
 use File::Basename;
+use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.8 2004/03/29 06:57:20 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.8 $';
+# $Id: MediaList.pm,v 1.9 2004/04/04 04:58:49 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.9 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -14,16 +15,19 @@ sub _initialize {
 #### Private helper functions ####
 
 sub _next {
-    my ( $self, $current, @media ) = @_;
-
-    my $found;
+    my ( $self, $current, $count, @media ) = @_;
+    my $found = undef;
+    my @res;
+    my $c = 0;
     for ( @media ) {
-	if ($found) { $found = $_->{file}; last; }
 	$found = 1 if ( $_->{file} =~ /$current/ );
+	if ($found) { 
+	    push @res, $_;
+	    $c++;
+	    last if $c >= $count;
+	}
     }
-
-    return undef if $found == 1;
-    return basename $found;
+    return @res;
 }
 
 sub _list {
@@ -61,16 +65,20 @@ sub list_unsorted {
 
 
 sub next {
-    my ( $self, $current ) = @_;
-
-    return $self->_next( $current, $self->list() );
+    my ( $self, %param ) = @_;
+    $param{count} ||= 1;
+    my @list = $self->list();
+    $param{current} ||= $list[0]->{file};
+    return $self->_next( $param{current}, $param{count}, @list );
 }
 
 
 sub prev {
-    my ( $self, $current ) = @_;
-
-    return $self->_next( $current, reverse $self->list() );
+    my ( $self, %param ) = @_;
+    $param{count} ||= 1;
+    my @list = reverse $self->list();
+    $param{current} ||= $list[0]->{file};
+    return $self->_next( $param{current}, $param{count}, @list );
 }
 
 sub get_picref {
