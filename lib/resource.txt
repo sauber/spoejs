@@ -31,6 +31,8 @@ active:
   mk: 'Активен'
   ru: 'активный'
   zh: '运行'
+add:
+  en: Add
   hu: ad
   is: Bæta við
   it: agguingere
