@@ -69,6 +69,12 @@ Navigation:
  - Picture
  - Slideshow
 
+Media:
+ - ANY (random) from album
+ - Scale
+ - Single frame of movie
+ - Crop, rotate, brightness, compress
+
 Extras:
  - Weather
  - News
@@ -84,6 +90,9 @@ Translator:
 
 Search:
  - Seach in channels and stories
+
+Caching:
+ - Mason caching, shared mem, squid
 
 Docs:
  - Website 'about spoejs'
