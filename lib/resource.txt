@@ -1,4 +1,5 @@
 <ar>
+<lang=se/>arabisk
 <lang=jp/>アラビア語
 <lang=is/>Arabíska
 <lang=mk/>Арапски
@@ -8,6 +9,7 @@
 </ar>
 
 <bg>
+<lang=se/>bulgarisk
 <lang=jp/>ブルガリア語
 <lang=is/>Búlgarska
 <lang=mk/>Бугарски
@@ -16,6 +18,7 @@
 </bg>
 
 <category>
+<lang=se/>kategori
 <lang=jp/>カテゴリー
 <lang=mk/>Категорија
 <lang=gr/>Κατηγορία
@@ -24,6 +27,7 @@
 </category>
 
 <change>
+<lang=se/>ändra
 <lang=jp/>変更
 <lang=is/>Breyting
 <lang=mk/>Промена
@@ -33,6 +37,7 @@
 </change>
 
 <da>
+<lang=se/>Danska
 <lang=jp/>デンマーク語
 <lang=is/>Danska
 <lang=mk/>Дански
@@ -42,6 +47,7 @@
 </da>
 
 <date>
+<lang=se/>datum
 <lang=jp/>日付
 <lang=mk/>Дата
 <lang=is/>Dagsetning
@@ -51,6 +57,7 @@
 </date>
 
 <de>
+<lang=se/>Tyska
 <lang=jp/>ドイツ語
 <lang=is/>Þýska
 <lang=mk/>Германски
@@ -60,6 +67,7 @@
 </de>
 
 <en>
+<lang=se/>Engelska
 <lang=jp/>英語
 <lang=is/>Enska
 <lang=mk/>Англиски
@@ -69,6 +77,7 @@
 </en>
 
 <fr>
+<lang=se/>Franska
 <lang=jp/>フランス語
 <lang=is/>Franska
 <lang=mk/>Француски
@@ -78,6 +87,7 @@
 </fr>
 
 <gr>
+<lang=se/>grekiska
 <lang=jp/>ギリシャ語
 <lang=is/>Gríska
 <lang=mk/>Грчки
@@ -87,6 +97,7 @@
 </gr>
 
 <is>
+<lang=se/>islandska
 <lang=jp/>アイスランド語
 <lang=is/>Íslenska
 <lang=mk/>Исландски
@@ -96,6 +107,7 @@
 </is>
 
 <it>
+<lang=se/>italiansk
 <lang=jp/>イタリア語
 <lang=is/>Ítalska
 <lang=mk/>Италијански
@@ -104,6 +116,7 @@
 </it>
 
 <jp>
+<lang=se/>japanska
 <lang=jp/>日本語
 <lang=is/>Japanska
 <lang=mk/>Јапонски
@@ -113,12 +126,14 @@
 </jp>
 
 <mk>
+<lang=se/>macedoniska
 <lang=mk/>Македонски
 <lang=en/>Macedonian
 <lang=gr/>Μακεδονικά
 </mk>
 
 <passwd>
+<lang=se/>passord
 <lang=jp/>パスワード
 <lang=is/>Lykilorð
 <lang=mk/>Клучен збор
@@ -127,6 +142,7 @@
 </passwd>
 
 <posted_by>
+<lang=se/>postat av
 <lang=jp/>記入される
 <lang=mk/>Испраќа
 <lang=gr/>Καταχώρηση από
@@ -135,6 +151,7 @@
 </posted_by>
 
 <se>
+<lang=se/>svenska
 <lang=jp/>スウェーデン語
 <lang=is/>Sænska
 <lang=mk/>Шведски
@@ -143,6 +160,7 @@
 </se>
 
 <title>
+<lang=se/>titel
 <lang=jp/>タイトル
 <lang=mk/>Наслов
 <lang=is/>Titill
@@ -152,6 +170,7 @@
 </title>
 
 <zh>
+<lang=se/>kinesiska
 <lang=jp/>中国語
 <lang=is/>Kínverska
 <lang=mk/>Кинески
