@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.5 2004/03/29 06:52:17 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.5 $';
+# $Id: List.pm,v 1.6 2004/04/04 01:47:16 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.6 $';
 
 
 # Constructor
@@ -59,14 +59,13 @@ sub _list_from_filename {
     my @paths;
 
     use File::Find;
-    find sub {
-	my $res = $File::Find::name if /$file$/;
-	return unless $res;
-	$res =~ s/\/$file//;      #Strip filename
-
-	push @paths, $res;
-    },
-    $path;
+    find ( { wanted => sub {
+        my $res = $File::Find::name if /$file$/;
+        return unless $res;
+        $res =~ s/\/$file//;      #Strip filename
+                                                                                                                                                                      
+        push @paths, $res;
+    }, follow_fast => 1 }, $path);
 
     return @paths;
 }
