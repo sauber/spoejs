@@ -33,15 +33,11 @@ value="<% $pic->utf_filename() %>">
 
     delete $ARGS{submit};
 
-    if ( defined $ARGS{delete} ) {
-      foreach my $file ( @{$ARGS{delete}} ) {
-	my $M = new Spoejs::Media( path => $user_path, file => $file );
-	$spoejs{error}{$m->current_comp->source_file} = $M->{msg} if $M->{msg};
-	$M->delete() or print "Could not delete file";
-	delete $ARGS{file};
-      }
+    foreach my $file ( @delete ) {
+      my $M = new Spoejs::Media( path => $user_path, file => $file );
+      $spoejs{error}{$m->current_comp->source_file} = $M->{msg} if $M->{msg};
+      $M->delete() or print "Could not delete file: $file";
     }
-    delete $ARGS{delete};
 
     while( my ( $k, $v ) = each %ARGS ) {
       my $M = new Spoejs::Media( path => $user_path, file => $k );
@@ -57,4 +53,5 @@ value="<% $pic->utf_filename() %>">
 </%init>
 <%args>
   %params => undef
+  @delete => undef
 </%args>
