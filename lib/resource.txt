@@ -1,8 +1,4 @@
 ---
-account_signup:
-  da: Journal information
-  en: Journal Information
-  zh: '用户注册'
 active:
   ar: 'فعال'
   da: Aktiv
