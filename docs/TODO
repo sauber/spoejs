@@ -1,0 +1,67 @@
+Development todo list:
+
+Code structure:
+ - Handle form submissions
+ - Debug on/off
+ - Test UTF8
+
+ChannelList:
+ - List channels on frontpage
+
+Register:
+ - Choose username/password/channelname
+ - Write ChannelConf
+ - Edit ChannelConf
+ - Change password
+ - Channel language
+ - Theme chooser
+
+Login:
+ - Login, verify username password
+ - Logout
+
+Session:
+ - Session component to avoid masonhandler code
+
+URL parser:
+ - Handle utf8 in _ parameters
+
+Theme:
+ - Page templates
+ - Basic component set
+ - css
+ - Test non-default theme
+
+StoryConf:
+ - Store GMT unixtime as well as user-entered date string
+ - Parse localized datestring to unixtime
+
+Syndication:
+ - Produce Channelconf + latest story
+ - Central site for root index
+
+Annotations:
+ - CVS checkin
+ - Component to render pictures+localized annotation
+
+StoryAdmin:
+ - New story
+ - Add pictures to story
+ - Add annotations to pictures
+ - Edit story/pictures/annotations
+ - Del story
+ - Guest comment on story
+
+Translator:
+ - Login
+ - Show all resources for one lang
+ - Allow submit translations
+
+Developers:
+ - Dev server
+ - Dev jabber channel with logging
+
+Docs:
+ - Website 'about spoejs'
+ - readme.txt
+ - install.txt
