@@ -1,6 +1,7 @@
-<& /w, w => 'index-page',
-       CC => $CC,
-       edit_href => $edit_href
+<& /w, w         => 'index-page',
+       CC        => $CC,
+       edit_href => $edit_href,
+       category  => $params{c}
 &>
 <%init>
 my $CC = new Spoejs::ChannelConf( path=> $spoejs{channel_path},
@@ -12,3 +13,6 @@ if ( $session{chanauth} ) {
   $edit_href="$spoejs{channel}/admin/channelform.html";
 }
 </%init>
+<%args>
+ %params => undef
+</%args>
