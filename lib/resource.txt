@@ -1,9 +1,13 @@
 ---
+access_statistics:
+  en: Access Statistics
 account_information:
   da: Opgørelse
   en: Account Information
   es: Información de la cuenta
-  et: Isiklikud seaded
+  et: Kasutaja tuvastus
+  gr: 'Στοιχεία Λογαριασμού'
+  hu: számla információ
   ja: 'アカウント情報'
   mk: 'Информации за сметката'
 active:
@@ -14,6 +18,7 @@ active:
   es: Activar
   et: Töös
   gr: 'Ενεργό'
+  hu: aktív
   it: attivo
   iw: 'פעיל'
   ja: 'アクティブ'
@@ -43,6 +48,7 @@ add_comment:
   es: Agregar comentario
   et: Lisa märkus
   gr: 'Προσθήκη σχολίου'
+  hu: megjegyzés
   it: agguniga un comment
   ja: 'コメントを追加'
   mk: 'Додај коментар'
@@ -55,6 +61,7 @@ addfield:
   es: Agregar campo
   et: Lisa veel mõni
   gr: 'Προσθήκη πεδίου'
+  hu: másik mező
   it: agguniga un campo
   iw: 'מוסיף שדה'
   ja: '分野を追加'
@@ -70,6 +77,7 @@ addfilepc:
   et: Lisa salvestis arvutist
   gr: |-
     Προσθήκη αρχείων απο τον υπολογιστή σας
+  hu: PCről fájl hozzáadása
   it: agguinga un documento da computer
   iw: 'הוטפת תיק מהמחשב אישי'
   ja: PCからファイルを追加
@@ -85,6 +93,7 @@ addfileserver:
   es: Agregar archivos desde servidor
   et: Lisa juba varem lehele pandud faile
   gr: 'Προσθήκη αρχείων απο το Server'
+  hu: Serverről fájl hozzáadása
   it: agguinga i documenti da servatore
   iw: 'הוטפת תיק סירבר'
   ja: 'サーバーからファイルを追加'
@@ -99,6 +108,7 @@ addmediastory:
   es: Agregar medio a artículo
   et: Lisa jutule kujundus
   gr: 'Προσθήκη media'
+  hu: Média hozzáadása a történethez
   it: agguinga mezzi di comminigcazione per la storia
   iw: 'הוטפת מידיא על הסיפוד'
   ja: 'ストーリーにメディアを追加'
@@ -113,6 +123,7 @@ addnewjournal:
   es: Agregar un nuevo diario de Spoejs
   et: Lisa uus album
   gr: 'Προσθήκη'
+  hu: adj hozzá egy új spoejs újságot
   it: agguinga un nuovo spoejs giornare
   ja: '新しいspoejsジャーナルを追加'
   mk: 'Додај ново списание'
@@ -123,6 +134,8 @@ all:
   en: All
   es: Todos
   et: Kõik
+  gr: '‘Ολα'
+  hu: minden
   it: tutto
   ja: '全て'
   mk: 'Се'
@@ -132,6 +145,8 @@ always_random:
   en: Always Random
   es: Siempre aleatorio
   et: Alati juhuslik
+  gr: 'Πάντα τυχαίο'
+  hu: mindig véletlen
   is: Alltaf tilviljanakennt
   it: sempre sensa senso
   ja: '常にランダム'
@@ -143,6 +158,7 @@ annotations:
   es: Anotaciones
   et: Märkmed
   gr: 'Σχόλια'
+  hu: rövidítés
   it: commenti
   ja: '注釈'
   mk: 'Забелешки'
@@ -173,6 +189,7 @@ archive:
   es: Archivo
   et: Ladu
   gr: 'Αρχείο'
+  hu: tárolt
   is: Safn
   it: documeto
   iw: 'ארכיון'
@@ -187,6 +204,7 @@ authorized_for:
   es: Autorizado para
   et: Lubatud
   gr: 'Εξουσιοδότηση'
+  hu: jogosult ... re
   it: avuto l'autorita
   ja: 'に委任しました。'
   mk: 'Со авторство на'
@@ -198,6 +216,7 @@ backtostory:
   es: Volver a la historia
   et: Jutu juurde tagasi
   gr: 'Επιστροφή'
+  hu: vissza a történethez
   it: torno la storia
   iw: 'חזרה בסיפור'
   ja: 'ストーリーに戻る'
@@ -267,6 +286,7 @@ categories:
   es: Categorías
   et: Jutulõngad
   gr: 'Κατηγορίες'
+  hu: kategóriák
   it: categorie
   ja: 'カテゴリー一覧'
   mk: 'Категории'
@@ -295,6 +315,8 @@ categorylist:
   en: Category list
   es: Lista de categorías
   et: Aineloend
+  gr: 'Λίστα κατηγοριών'
+  hu: kategória lista
   it: la lista di categorie
   ja: 'カテゴリーリスト'
   mk: 'Лист на категории'
@@ -306,6 +328,7 @@ change_journal_password:
   et: Vaheta salasõna
   gr: |-
     Αλλαγή κωδικού πρόσβασης ημερολογίου
+  hu: változtasd meg az újság jelszavát
   it: cambia il giornare sicurezza
   ja: 'ジャーナルのパスワードを変える'
   mk: |-
@@ -317,6 +340,7 @@ change_language:
   es: Cambiar idioma
   et: Vaheta keelt
   gr: 'Αλλαγή γλώσσας'
+  hu: változtass nyelvet
   it: cambia la lingua
   ja: '言語を変える'
   mk: 'Промени го јазикот'
@@ -329,6 +353,7 @@ changes_saved_successfully:
   et: Muutused salvestati
   gr: |-
     Αποθήκευση αλλαγών επιτυχής
+  hu: változtatás sikeresen elmentve
   is: Breytingar vistaðar
   it: cambiamento e tenuto sucesso
   ja: '変更は正常に処理されました'
@@ -341,7 +366,7 @@ choose:
   es: Elegir
   et: Vali
   gr: 'Επιλογή'
-  hu: valaszt
+  hu: választ
   is: Veldu
   it: scegliereq
   iw: 'בחירה'
@@ -356,6 +381,7 @@ click_insert_image:
   es: Haz clic para insertar imagen
   et: sisesta pilt klõpsates.
   gr: 'Εισαγωγή εικόνας'
+  hu: klikk és szúrd be a képet
   it: La click ici e introdurre  if imagio
   ja: 'クリックしてイメージを挿入'
   mk: 'Кликни и внеси слика'
@@ -365,6 +391,7 @@ click_journal:
   en: Click here to go to journal
   es: Pulsa aquí para ir al diario
   et: Albumisse saad siia klõpsates
+  hu: klikkelj ide és menj az újsághoz
   it: clika ici per andare per un viaggio
   ja: 'ここを押してジャーナルへ'
   mk: 'Кликни овде за списанието'
@@ -374,6 +401,8 @@ comment:
   en: Comment
   es: Comentario
   et: Märkus
+  gr: 'Σχόλιο'
+  hu: megjegyzés
   it: commento
   ja: 'コメント'
   mk: 'Коментар'
@@ -383,6 +412,8 @@ comment_missing:
   en: Comments missing
   es: No hay comentarios
   et: Märkused puuduvad
+  gr: 'Απαιτούνται σχόλια'
+  hu: megjegyzés hiányzik
   it: commenti unscessiva
   ja: 'コメントがありません'
   mk: 'Нема коментари'
@@ -393,6 +424,7 @@ comments:
   es: Comentarios
   et: Märkused
   gr: 'Σχόλια'
+  hu: megjegyzések
   it: Commeti
   ja: 'コメント'
   mk: 'Коментар'
@@ -403,6 +435,10 @@ congrat_signup:
   en: Congratulations you are now signed up
   es: Enhorabuena, ya estás inscrito
   et: Tubli! Nüüd oled arvele võetud.
+  gr: >-
+    Συγχαρητήρια! Ο λογαριασμός σας
+    δημιουργήθηκε
+  hu: gratulálunk mostmár be van léptetve
   it: Congrazioneno!avuto fatto la
   iw: 'אתה נרשםחדש'
   ja: |-
@@ -411,6 +447,8 @@ congrat_signup:
   ru: |-
     Мои позравления, Вы зарегистрированы
   zh: '祝贺你现在登录了'
+current_category:
+  en: Current Category 
 currentfile:
   ar: 'الملفات المفتوحة'
   da: Nuværende filer
@@ -418,6 +456,8 @@ currentfile:
   en: Current files
   es: Archivos actuales
   et: Valitud failid
+  gr: 'Τρέχοντα αρχεία'
+  hu: meglévő fájlok
   it: Ultima figlighi quand
   iw: 'התקירת המשומשות'
   ja: '現在のファイル'
@@ -431,6 +471,8 @@ currentfilename:
   en: Current filename
   es: Nombre del archivo actual
   et: Faili praegune nimi
+  gr: 'Τρέχον όνομα αρχείου'
+  hu: meglévő fájlnevek
   it: nuove fimaisl
   iw: 'שם התיק המשומש'
   ja: '現在のファイルネーム'
@@ -447,7 +489,7 @@ da:
   et: Taani
   fr: Danois
   gr: 'Δανικά'
-  hu: dan
+  hu: dán
   is: Danska
   it: danese
   iw: 'דינמרקית'
@@ -466,7 +508,7 @@ date:
   et: Kuupäev
   fr: Date
   gr: 'Ημερομηνία'
-  hu: datum
+  hu: dátum
   is: Dagsetning
   it: data
   iw: 'תאריך'
@@ -485,7 +527,7 @@ de:
   et: Saksa
   fr: Allemand
   gr: 'Γερμανικά'
-  hu: nemet
+  hu: német
   is: 'Þýska'
   it: tedesco
   iw: 'גרמנית'
@@ -502,13 +544,15 @@ delete:
   es: Eliminar
   et: Kustuta
   gr: 'Διαγραφή'
-  hu: torol
+  hu: töröl
   it: togliere
   iw: 'מחק'
   ja: '消去'
   mk: 'Избриши'
   ru: 'удалить'
   zh: '删去'
+delete_category:
+  en: Delete Category 
 delete_journal:
   da: Slet journal
   de: Ausgabe löschen
@@ -516,6 +560,7 @@ delete_journal:
   es: Eliminar diario
   et: Kustuta album
   gr: 'Διαγραφή ημερολογίου'
+  hu: töröld az újságot
   it: cancellare giornale
   ja: 'ジャーナルを消去'
   mk: 'Избриши го списанието'
@@ -525,6 +570,8 @@ delete_story:
   en: Delete Story
   es: Eliminar artículo
   et: Kustuta jutt
+  gr: 'Διαγραφή ιστορίας'
+  hu: töröld a történetet
   it: cancellare la storia
   ja: 'ストーリーを消去'
   mk: 'Избриши ја приказната'
@@ -536,6 +583,7 @@ deletefile:
   es: Eliminar archivo
   et: Kustuta fail
   gr: 'Διαγραφή αρχείου'
+  hu: töröld a fájlt
   it: cancellare il documeti
   iw: 'מחק אתתיק'
   ja: 'ファイルを消去'
@@ -549,10 +597,10 @@ description:
   de: Beschreibung
   en: Description
   es: Descripción
-  et: Kirjeldus
+  et: Tutvustus
   fr: Description
   gr: 'Περιγραφή'
-  hu: leiras
+  hu: leírás
   it: descrizione
   iw: 'תיאור'
   ja: '概要'
@@ -566,6 +614,7 @@ description_description:
   es: Describe el contenido del diario
   et: Kirjelda albumi sisu
   gr: 'Περιγραφή περιεχομένων'
+  hu: 'írd le az újság tartalmát'
   it: describere il contenuto di giornale
   ja: 'ジャーナルコンテンツ概要'
   mk: |-
@@ -578,6 +627,7 @@ dimensions:
   es: Dimensiones
   et: Mõõdud
   gr: 'Διαστάσεις'
+  hu: dimenziók
   it: dimensione
   iw: 'הטל'
   ja: '寸法'
@@ -605,6 +655,7 @@ edit_annotations:
   es: Editando anotaciones
   et: Märkuste muutmine
   gr: 'Επεξεργασία σχολίων'
+  hu: rövidítések szerkesztése
   it: redigere l'annotazione
   ja: '注釈の編集'
   mk: 'Едитирање на забелешките'
@@ -630,6 +681,7 @@ email:
   es: Correo electrónico
   et: e-post
   gr: Email
+  hu: email
   it: Email
   ja: Eメール
   mk: 'Електронска пошта'
@@ -658,6 +710,8 @@ error_code:
   en: Error Code
   es: Código del error
   et: Viga
+  gr: 'Κωδικός Λάθους'
+  hu: hiba kód
   it: codice di errore
   ja: 'エラーコード'
   mk: 'Погрешна шифра'
@@ -684,6 +738,7 @@ et:
   en: Estonian
   es: Estonio
   et: Eesti
+  hu: 'észt'
   it: estone
   iw: 'אוסטונית'
   ja: 'エストニア語'
@@ -692,12 +747,24 @@ et:
 extended_information:
   da: Udvidet information
   en: Extended information
+  es: Información ampliada
+  et: lisateave
+  hu: kiterjesztett információ
+  ja: '追加情報'
 file_size:
   da: Filstørrelse
   en: File size
+  es: Tamaño de archivo
+  et: Faili suurus
+  hu: fájl méret
+  ja: 'ファイルサイズ'
 file_type:
   da: Filtype
   en: File type
+  es: Tipo de archivo
+  et: Faili liik
+  hu: fájl típus
+  ja: 'ファイルタイプ'
 fileformat:
   ar: 'ﺖﻐﻳﺭ ﻥﻮﻋ ﻢﻠﻓ'
   da: Filformat
@@ -706,6 +773,7 @@ fileformat:
   es: Formato de archivo
   et: Faililaiend
   gr: 'Τύπος αρχείου'
+  hu: fájl  forma
   it: il modulo di documeto
   iw: 'פורמט קובץ'
   ja: 'ファイル　フォーマット'
@@ -720,6 +788,7 @@ filename:
   es: Nombre de archivo
   et: Faili nimi
   gr: 'Όνομα αρχείου'
+  hu: fájlnév
   it: il nome di documento
   iw: 'שם קובץ'
   ja: 'ファイルネーム'
@@ -734,6 +803,7 @@ filesize:
   es: Tamaño de archivo
   et: Faili suurus
   gr: 'Μέγεθος αρχείου'
+  hu: fájl méret
   it: la grandezza di documento
   iw: 'גודל הקובץ'
   ja: 'ファイルサイズ'
@@ -747,6 +817,7 @@ fileupload:
   en: File upload for story
   es: Cargar archivo para artículo
   et: Lisa fail jutule
+  hu: fájl feltöltése a történethez
   it: rinnvo il docomento per la storia
   iw: 'שמירת קובץ לסיפור'
   ja: |-
@@ -763,7 +834,7 @@ first:
   en: First
   es: Primero
   et: Esimene
-  hu: elso
+  hu: első
   it: la prima
   iw: 'הראשון'
   ja: '最初'
@@ -775,7 +846,8 @@ fix_and_resubmit:
   de: korrigieren und erneut absenden
   en: Fix and resubmit
   es: Corregir y volver a enviar
-  et: Paranda viga ja vajuta uuesti
+  et: Paranda viga ja katsu veel kord
+  hu: javít és újra elköld
   it: modifica e riproppore
   ja: '直して再提出'
   mk: 'Поправи и внеси повторно'
@@ -805,6 +877,7 @@ freeall:
   en: Free-for-all
   es: Gratis para todos
   et: Täiesti tasuta
+  hu: ingyenes mindenkinek
   it: gratuito per tutti
   iw: 'חינם'
   ja: '無料で開かれている'
@@ -818,7 +891,7 @@ full_story:
   en: Full story text
   es: Texto completo del artículo
   et: Kogu jutt
-  hu: a tortenet teljes szovege
+  hu: a törtenet teljes szövege
   it: il texto di tutta storia
   iw: 'טקסט מלא לסיפור'
   ja: 'フルストーリーテキスト'
@@ -832,6 +905,7 @@ fullpath:
   en: Full path
   es: Ruta completa
   et: Täieline aadress
+  hu: teljes út
   it: tutto passaggio
   iw: 'הדרך המלאה'
   ja: '全通路'
@@ -841,6 +915,10 @@ fullpath:
 fullscreen_slideshow:
   da: Slideshow
   en: Full screen slide show
+  es: Presentación a pantalla completa
+  et: Lai väljapanek
+  hu: teljes képernyős fólia bemutató
+  ja: '全画面スライドショー'
 gr:
   ar: 'يوناني'
   bg: 'Гръцки'
@@ -851,7 +929,7 @@ gr:
   et: Kreeka
   fr: Grecque
   gr: 'Ελληνικά'
-  hu: gorog
+  hu: görög
   is: Gríska
   it: greco
   iw: 'יוונית'
@@ -866,6 +944,7 @@ help:
   en: Help
   es: Ayuda
   et: Abi
+  hu: segítség
   it: aiuto
   ja: 'ヘルプ'
   mk: 'Помош'
@@ -876,6 +955,7 @@ home:
   en: Home
   es: Inicio
   et: Kodu
+  hu: otthon
   it: home
   ja: 'ホーム'
   mk: 'Дома'
@@ -895,12 +975,17 @@ hu:
   mk: 'Унгарски'
   ru: 'венгерский'
   zh: '匈牙利语'
+icon_admin:
+  en: Icon Admin
+icon_upload:
+  en: Icon Upload 
 image_code:
   da: Billedekode
   de: Bildcode
   en: Image Code
   es: Código de imagen
   et: Sisesta kiri pildilt
+  hu: kép kód
   it: il codice della immagine
   ja: 'イメージコード'
   mk: 'Код на сликата'
@@ -910,6 +995,7 @@ information:
   en: Information
   es: Información
   et: Teave
+  hu: információ
   it: informazioni
   ja: 'インフォメーション'
   mk: 'Информации'
@@ -919,6 +1005,7 @@ input_errors:
   en: Input errors
   es: Errores de entrada
   et: Sisestusvead
+  hu: beviteli hibák
   it: inscersi gli errori
   ja: 'エラーを入力'
   mk: 'Грешки во внесувањето'
@@ -928,6 +1015,7 @@ invalid_description:
   en: Invalid description
   es: Descripción incorrecta
   et: Kirjeldus on vigane
+  hu: 'érvénytelen leírás'
   it: la descripzione e invalido
   ja: '無効な説明'
   mk: 'Погрешен опис'
@@ -937,6 +1025,7 @@ invalid_journal_id:
   en: Invalid Journal-ID
   es: ID de diario incorrecta
   et: Albumi tähis on vigane
+  hu: 'érvénytelen újság-ID'
   it: giornare ID e invalido
   ja: '無効なジャーナルID'
   mk: >-
@@ -947,6 +1036,7 @@ invalid_name:
   en: Invalid Name
   es: Nombre incorrecto
   et: Kõlbmatu nimi
+  hu: 'érvénytelen név'
   ja: '無効な名前'
   mk: 'Погрешно име'
 invalid_password:
@@ -955,6 +1045,7 @@ invalid_password:
   en: Password too short
   es: La contraseña es demasiado corta
   et: Salasõna on liiga lühike
+  hu: a jelszó túl rövid
   is: Lykilorð of stutt
   it: password e corta
   ja: 'パスワードが短すぎます'
@@ -964,7 +1055,8 @@ invalid_thumb_count:
   de: falsche Anzahl der Thumbnails
   en: Invalid number of thumbnails
   es: Número incorrecto de imágenes en miniatura
-  et: Kujundusviitade arv on vigane
+  et: Sobimatu pisipiltide arv
+  hu: 'érvénytelen számú kiskép'
   it: il nombre invalido dello schizzo
   ja: '無効な数のサムネイル'
 invalid_title:
@@ -973,6 +1065,7 @@ invalid_title:
   en: Invalid title
   es: Título incorrecto
   et: Pealkiri on vigane
+  hu: 'érvénytelen cím'
   it: il titolo invalido
   ja: '無効なタイトル'
   mk: 'Погрешен наслов'
@@ -982,6 +1075,7 @@ invalid_username:
   en: Invalid username
   es: Nombre de usuario incorrecto
   et: Varjunimi on vigane
+  hu: 'érvénytelen felhasználói név'
   is: 'Ógilt notendanafn'
   it: Username invalido
   ja: '無効なユーザー名'
@@ -993,6 +1087,7 @@ inviteonly:
   en: Invite-only
   es: Sólo con invitación
   et: Ainult kutsega
+  hu: csak meghív
   it: Per gli inviati
   iw: 'רק עם הזמנה'
   ja: '招待のみ'
@@ -1043,6 +1138,7 @@ iw:
   en: Hebrew
   es: Hebreo
   et: Heebrea
+  hu: héber
   it: ebreo
   iw: 'עברית'
   ja: 'ヘブライ語'
@@ -1058,7 +1154,7 @@ ja:
   et: Jaapani
   fr: Japonais
   gr: 'Ιαπωνικά'
-  hu: japan
+  hu: japán
   is: Japanska
   it: giapponese
   iw: 'יפנית'
@@ -1073,6 +1169,7 @@ journal_admin:
   en: Journal Administrator
   es: Administrador del diario
   et: Albumi peremees
+  hu: 'újság adminisztrátor'
   it: giornale amministrazione
   ja: 'ジャーナル管理者'
   mk: |-
@@ -1083,6 +1180,7 @@ journal_config:
   en: Journal Configuration
   es: Configuración del diario
   et: Albumi seaded
+  hu: 'újság konfiguráció'
   it: il giornale configurazione
   ja: 'ジャーナル配置'
   mk: |-
@@ -1093,6 +1191,7 @@ journal_default:
   en: Journal default
   es: Diario predeterminado
   et: Albumi algseaded
+  hu: 'újság alapértelmezés'
   it: giornale scaduto
   ja: 'デフォルトのジャーナル'
   mk: 'Дефолт на списанието'
@@ -1102,6 +1201,7 @@ journal_deleted:
   en: Journal deleted
   es: Diario eliminado
   et: Album kustutati
+  hu: 'újság törölve'
   it: giornale cancellato
   ja: 'ジャーナルを消去しました'
   mk: 'Списанието е избришано'
@@ -1111,6 +1211,7 @@ journal_exists:
   en: Journal-ID already exists
   es: La ID del diario ya existe
   et: See tähistab juba olemasolevat albumit
+  hu: 'újság-ID már létezik'
   it: giornale ID e gia avuto
   ja: 'このジャーナルIDは既に存在します'
   mk: >-
@@ -1122,6 +1223,7 @@ journal_home:
   en: Journal Home
   es: Inicio del diario
   et: Koondalbum
+  hu: 'újság otthon'
   it: Giornale Home
   ja: 'ジャーナルホーム'
   mk: 'Дом на списанието'
@@ -1130,7 +1232,8 @@ journal_id:
   de: Ausgabenidentifizierung
   en: Journal-ID
   es: ID del diario
-  et: Albumi tähis
+  et: Tähis
+  hu: 'újság-ID'
   it: giornale ID
   ja: 'ジャーナルID'
   mk: |-
@@ -1146,6 +1249,9 @@ journal_id_description:
     Usa entre 4 y 16 letras minúsculas para identificar el diario en la URL:
   et: |-
     4 kuni 6 albumit aadressiribal märkivat väiketähte või numbrit näiteks:
+  hu: >-
+    újság azonosítására szolgáló, kisbetűs 4-től 16 hosszúságú
+    szavak a URL-ben mint:
   ja: >-
     このようなURLの中のジャーナルを識別する4〜16個の小文字:
   mk: ! >-
@@ -1157,7 +1263,8 @@ journal_info:
   de: Ausgaben-Information
   en: Journal Information
   es: Información del diario
-  et: Albumi selgituseks
+  et: Kasutaja andmed
+  hu: 'újság információ'
   it: Giornale informazioni
   ja: 'ジャーナルインフォメーション'
   mk: 'Информација за списанието'
@@ -1167,6 +1274,7 @@ journal_layout:
   en: Journal Layout
   es: Diseño del diario
   et: Albumi paigutus
+  hu: 'újságszerkezet'
   it: giornale impaginazione
   ja: 'ジャーナルレイアウト'
   mk: 'Изглед на списанието'
@@ -1176,6 +1284,7 @@ journal_name:
   en: Journal Name
   es: Nombre del diario
   et: Albumi nimi
+  hu: 'újságnév'
   it: il nome di giornale
   ja: 'ジャーナル名'
   mk: 'Име на списанието'
@@ -1186,6 +1295,7 @@ journal_security:
   en: Access
   es: Acceso
   et: Ligipääs
+  hu: elérés
   it: accesso
   ja: 'アクセス'
   mk: 'Пристап'
@@ -1198,6 +1308,8 @@ journal_security_description:
     Incluye el diario en la primera página del sitio, o mantenlo privado
   et: |-
     Kas su album lisatakse esilehele või hoiad selle endale?
+  hu: |-
+    tedd be az újságot az első oldalra, vagy tartsd titokban
   it: |-
     tenuto giornale a sito FRONT pagina o tenuto privata
   ja: >-
@@ -1212,6 +1324,7 @@ journals_friends:
   en: Journals at Friends' Sites
   es: Diarios en sitios de amigos
   et: Sõprade albumid
+  hu: 'újságok barátok lapján'
   it: giornale di siti amici
   ja: '友達のサイトのジャーナル'
   mk: |-
@@ -1222,6 +1335,7 @@ keyword:
   en: Keyword
   es: Palabra clave
   et: Märksõna
+  hu: kulcsszó
   it: Keyword
   ja: 'キーワード'
   mk: 'Клучен збор'
@@ -1247,6 +1361,7 @@ language_description:
   en: Primary language of journal content
   es: Idioma principal del contenido del diario
   et: Algupärandi keel
+  hu: az újság tartalmának elsődleges nyelve
   it: primo lingua di contenuto giornale
   ja: 'ジャーナル内容の第一言語'
   mk: >-
@@ -1259,7 +1374,7 @@ last:
   en: Last
   es: 'Último'
   et: Viimane
-  hu: utolso
+  hu: utolsó
   is: Síðasta
   it: ultimo
   iw: 'אחרון'
@@ -1273,6 +1388,7 @@ layout:
   en: Layout
   es: Diseño
   et: Paigutus
+  hu: szerkezet
   it: impaginazione
   ja: 'レイアウト'
   mk: 'Изглед'
@@ -1282,6 +1398,7 @@ localjournal:
   en: Local Journals
   es: Diarios locales
   et: Kohalikud albumid
+  hu: helyi újság
   it: Giornale di localita
   ja: 'ローカルジャーナル'
   mk: 'Локални списанија'
@@ -1294,7 +1411,7 @@ login:
   es: Inicio de sesión
   et: Sisene
   fr: Connection
-  hu: bejelentkezes
+  hu: bejelentkezés
   it: inizio attivita
   iw: 'כניטה'
   ja: 'ログイン'
@@ -1310,7 +1427,7 @@ logout:
   es: Final de sesión
   et: Lahku
   fr: Deconnection
-  hu: kijelentkezes
+  hu: kijelentkezés
   it: termine attivita
   iw: 'יציאה'
   ja: 'ログアウト'
@@ -1324,6 +1441,7 @@ media:
   en: Media
   es: Medios
   et: Kujundus
+  hu: média
   it: Media
   iw: 'מידיא'
   ja: 'メディア'
@@ -1335,13 +1453,18 @@ media_annotations:
   de: Anmerkungen zu Medien
   en: Media Annotations
   es: Anotaciones de medios
-  et: Salvestise kirjeldus
+  et: Salvestiste tähistamine
+  hu: média rövidítés
   it: Media annotazione
   ja: 'メディア注釈'
   mk: 'Забелешки за медиумите'
 media_information:
   da: Medieinformation
   en: Media information
+  es: Información de medios
+  et: Salvestise üksikasjad
+  hu: média információ
+  ja: 'メディアインフォメーション'
 media_man:
   ar: '   ادارة الاعلام'
   da: Mediehåndtering
@@ -1349,7 +1472,7 @@ media_man:
   en: Media management
   es: Gestión de medios
   et: Kujundushaldus
-  hu: media szervezes
+  hu: média szervezés
   it: Media gestire
   iw: '   ניהול מידיא'
   ja: 'メディアマネージメント'
@@ -1362,6 +1485,7 @@ media_mixing:
   en: Media mixing
   es: Mezcla de medios
   et: Salvestise lisamine jutule
+  hu: média keverés
   it: Media mescorare
   ja: 'メディアミックス'
   mk: 'Мешање на медиумите'
@@ -1371,6 +1495,7 @@ media_rename:
   en: Media rename
   es: Cambiar nombre de medio
   et: Salvestise kustutamine ja nime muutmine
+  hu: média újranevezése
   ja: 'メディアに再度名前をつける'
   mk: 'Преименување на медиумите'
 media_upload:
@@ -1379,6 +1504,7 @@ media_upload:
   en: Media upload
   es: Cargar medio
   et: Faili ületoomine
+  hu: média feltöltése
   it: media rinovo
   ja: 'メデイアアップロード'
   mk: 'Вчитување на медиумите'
@@ -1392,7 +1518,7 @@ mk:
   et: Makedoonia
   fr: Mecedonien
   gr: 'Μακεδονικά'
-  hu: makedon
+  hu: makedón
   it: mecedone
   iw: 'מסדונית'
   ja: 'マケドニア語'
@@ -1400,6 +1526,8 @@ mk:
   ru: 'македонский'
   se: macedoniska
   zh: '马其顿语'
+month_top5:
+  en: Month Top5
 more:
   ar: 'مزيد'
   da: Vis
@@ -1407,6 +1535,7 @@ more:
   en: More
   es: Más
   et: Veel
+  hu: több
   is: Meira
   it: un 'po di piu
   iw: 'ירתר'
@@ -1420,6 +1549,7 @@ name:
   en: Name
   es: Nombre
   et: Nimi
+  hu: név
   is: Nafn
   it: il nome
   ja: '名前'
@@ -1429,6 +1559,7 @@ name_description:
   en: Name Description
   es: Descripción del nombre
   et: Kirjanikunimi
+  hu: név leírása
   ja: '名前詳細'
   mk: 'Опис на името'
 name_missing:
@@ -1437,6 +1568,7 @@ name_missing:
   en: Name missing
   es: No hay nombre
   et: Puudub nimi
+  hu: a név hiányzik
   it: nome perduto
   ja: '名前が失われています。'
   mk: 'Недостасува име'
@@ -1445,18 +1577,23 @@ new_account:
   de: Neues Benutzerkonto
   en: New account
   es: Nueva cuenta
-  et: Uus konto
+  et: Uus kasutaja
+  hu: 'új folyószámla'
   it: nuovo accounto
   ja: '新しいアカウント'
   mk: 'Нова сметка'
   zh: '新用户注册'
+new_category:
+  en: New Category
 new_password:
   ar: 'كلمة مرور جديدة'
   da: Nyt password
+  de: Neues Benutzerkonto
   de: neues Passwort
   en: New Password
   es: Nueva contraseña
   et: Uus salasõna
+  hu: 'új jelszó'
   is: Nýtt lykilorð
   it: nuovo password
   iw: 'סיסמה חדשה'
@@ -1471,7 +1608,7 @@ new_story:
   en: New story
   es: Artículo nuevo
   et: Uus jutt
-  hu: uj tortenet
+  hu: 'új törtenet'
   is: Ný frásögn
   it: nuova storia
   iw: 'סיפור חדש'
@@ -1486,6 +1623,7 @@ new_username:
   en: New username
   es: Nuevo nombre de usuario
   et: Uus varjunimi
+  hu: 'új felhasználói név'
   is: Nýtt notendanafn
   it: nuono Username
   iw: 'שם משתמש חדש'
@@ -1493,11 +1631,12 @@ new_username:
   mk: 'Ново корисничко име'
   ru: 'новое имя пользователя'
   zh: '新的用户名'
-newest_story_at:
+newest_story:
   da: Nyeste historie
-  en: Newest story at
+  en: Newest story
   es: Artículo más reciente
   et: Viimane täiendus loole
+  hu: a legújabb történet ... nél
   ja: '最新のストーリー'
 newfilename:
   ar: 'أسم ملف جديد'
@@ -1506,6 +1645,7 @@ newfilename:
   en: New filename
   es: Nuevo nombre de archivo
   et: Faili uus nimi
+  hu: 'új fájlnév'
   is: Nýtt skráarnafn
   it: nuovo nome di documeto
   iw: 'שם קובץ חדש'
@@ -1518,6 +1658,7 @@ newpass:
   en: New Password
   es: Nueva contraseña
   et: Uus salasõna
+  hu: 'új jelszó'
   is: Nýtt lykilorð
   ja: '新しいパスワード'
   mk: 'Нова лозинка'
@@ -1528,6 +1669,7 @@ no_:
   en: No
   es: No
   et: Ei
+  hu: nem
   is: Nei
   it: no
   iw: 'לא'
@@ -1541,7 +1683,8 @@ no_stories:
   de: keine Geschichten
   en: No stories
   es: No hay artículos
-  et: Jutte pole
+  et: Tühi
+  hu: incsenek történetek
   it: non c'e la storia
   iw: 'בלי סיפורים'
   ja: 'ストーリーはありません'
@@ -1551,6 +1694,10 @@ no_stories:
 number_of_views:
   da: Antal visninger
   en: Number of views
+  es: Número de vistas
+  et: Vaadete arv
+  hu: a nézetek száma
+  ja: '表示数'
 oneerror_occur:
   ar: 'حدث خطاء أو أكثر'
   da: En eller flere fejl er opstået i
@@ -1558,6 +1705,7 @@ oneerror_occur:
   en: One or more errors has occured in
   es: Se han producido uno o más errores en
   et: Tekitas tõrke
+  hu: eyg vagy több hiba előfordult
   it: una o piu di erore e causato
   iw: 'נעשה יותר מטעות אחת'
   ja: |-
@@ -1573,6 +1721,7 @@ or_add_newstory:
   en: or here to add a new story
   es: o aquí para agregar un nuevo artículo
   et: Siin saad lisada uue jutu
+  hu: vagy itt adj hozzá egy új történetet
   it: o ici per agguingere una nuova storia
   iw: 'אוכאן כדי להוסיף סיפור חדש'
   ja: |-
@@ -1589,7 +1738,7 @@ or_new:
   en: or new
   es: o nuevo
   et: Või tee uus
-  hu: vagy uj
+  hu: vagy új
   is: eða nýtt
   it: o nuovo
   iw: 'או חדש'
@@ -1607,7 +1756,7 @@ passwd:
   et: Salasõna
   fr: Mot de passe
   gr: 'Κωδικός'
-  hu: jelszo
+  hu: jelszó
   is: Lykilorð
   it: parola d'acceso
   iw: 'סיסמה'
@@ -1625,6 +1774,8 @@ passwd_description:
     Algo que sea fácil de recordar pero difícil de adivinar
   et: |-
     ,mida endal oleks hea meelde jätta, kuid teistel raske arvata.
+  hu: |-
+    valami amire könnyű emlékezni de nehéz kitalálni
   is: |-
     Eitthvað sem er auðvelt adð muna enn erfitt að giska
   it: |-
@@ -1640,6 +1791,7 @@ passwd_retype:
   en: Re-type password
   es: Vuelve a escribir la contraseña
   et: Sisesta sama salasõna veel kord
+  hu: 'írd újra a jelszó'
   is: Sláðu lykilorð inn aftur
   it: Re-type Password
   ja: |-
@@ -1652,6 +1804,7 @@ passwd_retype_description:
   en: Same as above
   es: Igual que antes
   et: Sama salasõna, mis ülemises tekstiväljas.
+  hu: ugyanaz mint fent
   it: lo stesso di prima
   ja: '上に同じ'
   mk: 'Исто како погоре'
@@ -1661,6 +1814,7 @@ password_mismatch:
   en: Passwords did not match
   es: Las contraseñas no coinciden
   et: Salasõnad ei ühtinud
+  hu: a jelszavak nem egyeznek
   is: Lykilorð passar ekki
   it: Password e sbaliato
   ja: 'パスワードが合いません'
@@ -1668,14 +1822,26 @@ password_mismatch:
 past30days:
   da: Sidste 30 dage
   en: Past 30 days
+  es: 'Últimos 30 días'
+  et: Eelmised 30 päeva
+  hu: az elmúlt 30 nap
+  ja: '３０日後'
 past7days:
   da: Sidste 7 dage
   en: Past 7 days
+  es: 'Últimos 7 días'
+  et: Eelmised 7 päeva
+  hu: az elmúlt 7 nap
+  ja: '７日後'
+pause_play:
+  en: Pause Play
 peers:
   da: Venner
   de: Pier
   en: Peers
   es: Iguales
+  et: '???'
+  hu: osztálytársak
   it: per vedere
   ja: '仲間'
 please_fill_out_this_form:
@@ -1685,6 +1851,7 @@ please_fill_out_this_form:
   en: Please fill out this form
   es: Rellena este formulario
   et: Kirjuta siia lahtrisse! Vali pildile koht ja ...
+  hu: kérem töltse ki a nyomtatványt
   it: inscerisi questo form
   iw: 'בבקשה למליגאת הבקשה הבאה'
   ja: 'この用紙に記入して下さい。'
@@ -1701,6 +1868,7 @@ pleaselogin:
   en: Please Login before accessing this page
   es: Inicia una sesión antes de acceder a esta página
   et: Sellele lehele saab ainult oma salasõna abil
+  hu: kérem jelentkezzen be a lap elérése előtt
   it: Login prima di usare questa pagina
   iw: 'יש להרשם לפני הכניטה'
   ja: |-
@@ -1718,6 +1886,7 @@ post_a_comment:
   en: Post a comment
   es: Envíia un comentario
   et: Saada oma arvamus
+  hu: tegyen megjegyzést
   it: inviare un commento
   ja: 'コメントを書く'
   mk: 'Оставете коментар'
@@ -1731,7 +1900,7 @@ posted_by:
   et: Saatis
   fr: Poster par
   gr: 'Καταχώρηση από'
-  hu: feladva ... altal?
+  hu: feladva ... által?
   it: inviato da
   iw: 'באדיברת'
   ja: '記入者'
@@ -1746,6 +1915,7 @@ preview:
   en: Preview
   es: Vista preliminar
   et: Vaata üle
+  hu: megtekintés
   it: anteprima
   iw: 'חזרה'
   ja: 'プレビュー'
@@ -1758,6 +1928,7 @@ private:
   en: Private
   es: Privado
   et: Piiratud
+  hu: privát (titkos)
   it: privata
   ja: 'プライベート'
   mk: 'Приватно'
@@ -1767,6 +1938,7 @@ proxy:
   en: Proxy
   es: Proxy
   et: Vahendus
+  hu: elérés
   it: sostituzione
   ja: 'プロキシ'
   mk: 'Прокси'
@@ -1779,7 +1951,7 @@ public:
   es: Público
   et: Avalik
   fr: Publique
-  hu: nyilvanos
+  hu: nyilvános
   it: pubulico
   iw: 'פופלארי'
   ja: 'パブリック'
@@ -1793,19 +1965,13 @@ random:
   en: Random
   es: Aleatorio
   et: Juhuslik
-  hu: veletlen
+  hu: véletlen
   is: Tilviljanakennt
   iw: 'ראנדומאלי'
   ja: 'ランダム'
   mk: 'Случаен'
   ru: 'Случайный'
   zh: '随便'
-rename_delete:
-  da: Omdøb Slet
-  de: 'überschreiben'
-  en: Rename Delete
-  es: Cambiar nombre Eliminar
-  et: Tühista nimemuutus
   ja: '名前の変更を消去'
   mk: 'Преименувај Избриши'
 ru:
@@ -1814,6 +1980,7 @@ ru:
   en: Russian
   es: Ruso
   et: Vene
+  hu: orosz
   is: Rússneska
   it: russo
   ja: 'ロシア語'
@@ -1826,6 +1993,7 @@ save_changes:
   en: Save Changes
   es: Guardar cambios
   et: Säilita muudatused
+  hu: mentsd a változtatásokat
   it: tenere la cambiamento
   ja: '変更を保存する'
   mk: 'Сними ги промените'
@@ -1836,7 +2004,7 @@ scf:
   en: Site configuration
   es: Configuración del sitio
   et: Lehe seaded
-  hu: hely konfiguracio
+  hu: hely konfiguráció
   iw: 'דף שידרג'
   ja: 'サイト配置'
   mk: 'Конфигурација на сајтот'
@@ -1852,11 +2020,11 @@ se:
   et: Rootsi
   fr: Suedois
   gr: 'Σουηδικά'
-  hu: sved
+  hu: svéd
   is: Sænska
   it: svedese
   iw: 'שוודית'
-  ja: 'スェーデン語'
+  ja: 'スウェーデン語'
   mk: 'Шведски'
   ru: 'Шведский'
   se: svenska
@@ -1867,6 +2035,7 @@ security_image_failed_verification:
   en: Security image failed verification
   es: No se ha podido verificar la imagen de seguridad
   et: Turve ei võimaldanud tuvastada sellist pilti
+  hu: a biztonsági kép nem ment át az ellenőrzésen
   ja: |-
     セキュリティイメージは立証に失敗しました。
   mk: |-
@@ -1877,6 +2046,7 @@ set_password:
   en: Set password
   es: Definir contraseña
   et: Määra salasõna
+  hu: 'írj jelszót'
   it: metta Password
   ja: 'パスワードをセットする'
   mk: 'Постави лозинка'
@@ -1889,7 +2059,7 @@ shortname:
   es: Diminutivo
   et: Nimelühend
   fr: Surnom
-  hu: rovid nev
+  hu: rövid név
   it: nome corto
   iw: 'שם משתמש'
   ja: 'ショートネーム'
@@ -1901,6 +2071,7 @@ show_story:
   en: Show story
   es: Ver artículo
   et: Kas lugu näidata?
+  hu: mutasd a történetet
   ja: 'ストーリーを見せる'
   mk: 'Прика'
 show_trans:
@@ -1909,6 +2080,7 @@ show_trans:
   en: Show translation options
   es: Ver opciones de traducción
   et: Tõlkevõimalused
+  hu: mutass fordítási lehetőségeket
   it: Mostra translazione
   ja: '翻訳オプションを表示する'
   mk: |-
@@ -1920,6 +2092,7 @@ signup_approve:
   en: Signup Approve
   es: Aprobar inscripción
   et: Kinnita andmed
+  hu: beléptetés elfogadás
   it: Approva signup
   iw: 'ההרשמה התקבלה'
   ja: 'サインアップ承諾'
@@ -1938,9 +2111,14 @@ signup_newjournal:
   es: ! >-
     Inscríbete para un nuevo diario multimedia y comparte experiencias con tus
     amigos y familiares.
-  et: Telli uus album ja teata tuttavaile
+  et: ! >-
+    Pane ennast kirja! Siin võid jagada oma pilte ja muljeid pere ja
+    sõpradega.
+  hu: ! >-
+    jelentkezz fel egy új média újságra és osztd meg a tapasztalataidat
+    barátokkal és a családdal
   ja: >-
-    新しいメディアジャーナルの手続きをして、あなたの経験を友達や家族と共有してください。
+    新しいメディアジャーナルの手続きをして、あなたの経験を友達や家族と共有しましょう☆
   mk: >-
     Запишете се за ново медиско списание и
     поделете ги вашите искуства со
@@ -1952,6 +2130,7 @@ signup_not_allowed:
   en: Signup not allowed
   es: Inscripción no permitida
   et: Ei saa sind arvele võtta
+  hu: beléptetés nem engedélyezett
   it: signup e non permesso
   ja: |-
     サインアップは許可されませんでした。
@@ -1964,6 +2143,7 @@ sitepolicy:
   en: Site Policy
   es: Normas del sitio
   et: Meie põhimõtted
+  hu: hely szabályzat
   it: siti politica
   iw: 'כללים'
   ja: 'サイトポリシー'
@@ -1977,7 +2157,7 @@ specific:
   en: Specific
   es: Específico
   et: Eri
-  hu: specialis
+  hu: speciális
   it: specifico
   iw: 'ספציפי'
   ja: '詳細'
@@ -1990,6 +2170,7 @@ statusjournal:
   en: Status for journals on this site
   es: Estado de los diarios en este sitio
   et: Albumite seisund
+  hu: az újságok állapota ezen a helyen
   ja: |-
     このサイトでのジャーナルのステータス
   mk: |-
@@ -2000,6 +2181,7 @@ stories:
   en: Stories
   es: Artículos
   et: Jutud
+  hu: történetek
   it: le storie
   ja: 'ストーリー一覧'
   mk: 'Приказни'
@@ -2010,23 +2192,18 @@ story:
   en: Story
   es: Artículo
   et: Jutt
+  hu: történet
   it: la storia
   ja: 'ストーリー'
   mk: 'Приказна'
   zh: '记事'
-story_abstract:
-  da: Resumé
-  en: Story Abstract
-  es: Resumen del artículo
-  et: Kokkuvõte
-  ja: '抽象的なストーリー'
-  mk: 'Апстаркт на статијата'
 story_deleted:
   da: Historie slettet
   de: gelöschte Geschichten
   en: Story deleted
   es: Artículo eliminado
   et: See jutt kustutati
+  hu: történet törölve
   it: La stora e
   ja: 'ストーリーを消去'
   mk: 'Статијата е избришана'
@@ -2036,6 +2213,7 @@ story_details:
   en: Story details
   es: Datos del artículo
   et: Jutu juurde
+  hu: történet részletei
   it: piu di storia
   ja: 'ストーリーの詳細'
   mk: 'Детали за статијата'
@@ -2045,6 +2223,7 @@ story_edit:
   en: Story edit
   es: Edición del artículo
   et: Muuda juttu
+  hu: történet szerkesztés
   it: la storia redazione
   ja: 'ストーリーを編集'
   mk: 'Едитирање на статијата'
@@ -2055,7 +2234,7 @@ story_summary:
   en: Story summary
   es: Resumen del artículo
   et: Jutu kokkuvõte
-  hu: tortenet kivonat
+  hu: történet összefoglalása
   it: il compendio della storia
   iw: 'תוכך הסיפור'
   ja: '空想のストーリー'
@@ -2069,6 +2248,7 @@ storysave:
   en: Story saved successfully
   es: El artículo se ha guardado sin problemas
   et: Jutt salvestati
+  hu: a történet sikeresen elmentve
   it: la storia e servato riuscito
   iw: 'הסיפור נכמר בהצלחה'
   ja: 'ストーリーは正常に保存されました'
@@ -2082,7 +2262,7 @@ storytitle:
   en: Story title
   es: Título del artículo
   et: Jutu pealkiri
-  hu: tortenet cim
+  hu: történet címe
   it: il titolo della storia
   iw: 'כותרת הסיפור'
   ja: 'ストーリータイトル'
@@ -2095,6 +2275,7 @@ storytitlelist:
   en: Story title list
   es: Lista de títulos de artículos
   et: Pealkirjade loend
+  hu: a történet címlistája
   it: La tista di titolo della storia
   ja: 'ストーリータイトルのリスト'
   mk: 'Листа на имиња на статиите'
@@ -2120,6 +2301,7 @@ summary:
   en: Summary
   es: Resumen
   et: Kokkuvõte
+  hu: 'összefoglalás'
   it: copendio
   ja: 'サマリー'
   mk: 'Апстракт'
@@ -2129,6 +2311,8 @@ syndication:
   de: Syndikation
   en: Syndication
   es: Syndication
+  et: '???'
+  hu: szindikátus
   it: organizzazione
   ja: '再発行'
   mk: 'Синдикација'
@@ -2155,8 +2339,9 @@ theme_default:
   en: Theme default
   es: Tema predeterminado
   et: Meie määratud
+  hu: az alaptéma
   it: tema e scaduto
-  ja: 'でフォルトのテーマ'
+  ja: 'デフォルトのテーマ'
   mk: 'Дефолт на темата'
 theme_description:
   da: Journalens udseende
@@ -2164,6 +2349,7 @@ theme_description:
   en: Visual appearance of journal
   es: Aspecto visual del diario
   et: Albumi välisilme
+  hu: azújság vizuális megjelenése
   ja: 'ジャーナルの画像表示'
   mk: |-
     Визуелен изглед на списанието
@@ -2172,7 +2358,8 @@ thumb_count:
   de: Anzahl der Voransichten pro Seite
   en: Thumbnails per page
   es: Imágenes en miniatura por página
-  et: Kujundusviitade arv lehel
+  et: Pisipiltide arv lehel
+  hu: kisképek per oldal
   it: i schizzi per la pagina
   ja: 'ページごとのサムネール'
 thumb_count_description:
@@ -2182,7 +2369,8 @@ thumb_count_description:
   en: Number of media thumbnails per story page
   es: |-
     Número de imágenes en miniatura por página del artículo
-  et: 'Ühel lehel nähtavate kujundusviitade arv'
+  et: 'Ühel lehel nähtavate pisipiltide arv'
+  hu: történetlaponkénti kisképek száma
   it: i numeri di media schizzi per la pagina storia
   ja: |-
     ストーリーページの中のメディアサムネイルの数
@@ -2192,8 +2380,8 @@ thumbnail:
   de: Voransicht
   en: Thumbnail
   es: Imagen en miniatura
-  et: Näidatav kujundusviit
-  hu: huvelykujjkorom?
+  et: Näidatav pisipilt
+  hu: kiskép
   it: il schizzo
   iw: 'איקונם'
   ja: 'サムネイル'
@@ -2209,7 +2397,7 @@ title:
   et: Pealkiri
   fr: Titre
   gr: 'Τίτλος'
-  hu: cim
+  hu: cím
   is: Titill
   it: titolo
   iw: 'כותרת'
@@ -2224,17 +2412,25 @@ title_description:
   en: Name of journal
   es: Nombre del diario
   et: Albumi nimi
+  hu: az újság neve
   it: il nome del giornal
   ja: 'ジャーナルの名前'
   mk: 'Име на списанието'
+total_top5:
+  en: Total Top5
 total:
   da: I alt
   en: Total
+  es: Total
+  et: Kokku
+  hu: 'összeg'
+  ja: '全部'
 up_:
   da: Op
   en: Up
   es: Arriba
   et: 'Üles'
+  hu: fel
   is: Upp
   ja: '上へ'
   mk: 'Горе'
@@ -2245,6 +2441,7 @@ upload:
   en: Upload
   es: Cargar
   et: Salvesta lehele
+  hu: feltölt
   it: rinovo
   iw: 'שליפה'
   ja: 'アップロード'
@@ -2257,6 +2454,7 @@ user_login:
   en: User Login
   es: Inicio de sesión de usuario
   et: Kasutaja, sisene
+  hu: felhasználói bejelentkezés
   it: Uttente Login
   ja: 'ユーザーログイン'
   mk: 'Логирање на корисникот'
@@ -2269,7 +2467,7 @@ username:
   es: Nombre de usuario
   et: Varjunimi
   fr: Nom d'Utilisateur
-  hu: felhasznaloi nev
+  hu: felhasználói név
   is: Notendanafn
   it: nome di utente
   iw: 'שם משתמש'
@@ -2283,6 +2481,7 @@ username_description:
   en: 4 to 16 lowercase letters or numbers
   es: Entre 4 y 16 letras minúsculas o números
   et: 4 kuni 6 väiketähte või numbrit
+  hu: 'kisbetűs 4-től 16 hosszú szavak vagy számok '
   ja: 4〜16個の小文字あるいは数字
   mk: 4 до 16 мали букви или броеви
 view:
@@ -2291,6 +2490,7 @@ view:
   en: View
   es: Ver
   et: Vaata
+  hu: kép
   is: Skoða
   it: guarda
   ja: '表示'
@@ -2298,6 +2498,12 @@ view:
 views:
   da: Visninger
   en: Views
+  es: Vistas
+  et: Vaated
+  hu: képek
+  ja: '複数表示'
+week_top5:
+  en: Week Top5 
 wrong_user_or_pwd:
   da: Forkert brugernavn eller adgangskode
   de: falscher Benutzername oder falsches Kennwort
@@ -2305,6 +2511,7 @@ wrong_user_or_pwd:
   es: |-
     El nombre de usuario o la contraseña no son correctos
   et: Emb-kumb kas varjunimi või salasõna oli vigane
+  hu: rossz felhasználói név vagy jelszó
   it: Username o Password e invalido
   ja: |-
     無効なユーザーネーム、またはパスワードです
@@ -2317,6 +2524,7 @@ yes:
   en: Yes
   es: Sí
   et: Nõus
+  hu: igen
   is: Já
   it: si
   iw: 'כן'
@@ -2330,6 +2538,7 @@ you_have_been_logged_out:
   en: You have been logged out
   es: Tu sesión ha finalizado
   et: Oled hetkel juba mängust väljas
+  hu: kijelentkeztél
   it: Siete stati fuori
   ja: 'ログアウトされました'
   mk: 'Одлогирани сте'
@@ -2340,7 +2549,7 @@ yourname:
   en: Your name
   es: Tu nombre
   et: Sinu kirjanikunimi
-  hu: neve, neved?
+  hu: neve
   is: Nafn
   it: il tuo nome
   iw: 'השם שלך'
@@ -2358,7 +2567,7 @@ zh:
   et: Hiina
   fr: Chinois
   gr: 'Κινέζικα'
-  hu: kinai
+  hu: kínai
   is: Kínverska
   it: cinese
   iw: 'סיני'
