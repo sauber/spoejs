@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: text.sub,v 1.1 2004/04/16 14:20:11 sauber Exp $
+%# $Id: text.sub,v 1.2 2004/06/17 08:51:45 sauber Exp $
 %#
 <%args>
 $w=>undef
@@ -16,7 +16,9 @@ $text=>undef
 
 my $ML = new Spoejs::MediaList( path => "$spoejs{channel_path}/$spoejs{p}{d}" );
 my @pgr;
-for my $p ( split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $text ) {
+
+# $text might be a reference to an array of text paragraphs
+for my $p ( defined @$text ? @$text : split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $text ) {
   if ( $p =~ /^media\s*=/i ) {
     my @files = $p =~ /^media\s*=\s*(.*?)\s*$/mig;
     my @ml = $ML->get_picref( @files );
