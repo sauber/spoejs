@@ -4,7 +4,7 @@ login, authenticate, logout
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: login.html,v 1.18 2004/07/04 06:16:45 snicki Exp $
+$Id: login.html,v 1.19 2004/08/08 20:25:40 snicki Exp $
 </%doc>
 % if ( defined $session{chanauth} ) {
 %  # List authorized channels
@@ -54,6 +54,12 @@ if ( $login ) {
 
   delete $session{chanauth};
   $m->print( '**you_have_been_logged_out**' );
+
+  # Redirect refering page
+  my $url = $ENV{HTTP_REFERER};
+  $url = '/index.html' if $url =~ m!/admin/!;
+  $m->comp( '/htm/admin/timed_redirect.mas', url => $url, time => 3000 );
+  return;
 }
 
 # Prepare list of authorized channels
