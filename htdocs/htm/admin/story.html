@@ -143,5 +143,5 @@ if ( $ARGS{delete} ) {
 }
 
 # Used for category chooser - counts ignored
-my %categories = $SL->count_stories( by => 'category' );
+my %categories = $spoejs{SL}->count_stories( by => 'category' );
 </%init>
