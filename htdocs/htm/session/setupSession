@@ -1,4 +1,11 @@
 <%perl>
+
+  unless ( -w "$ENV{DOCUMENT_ROOT}/users" ) {
+    print "Site not correctly configured: $ENV{DOCUMENT_ROOT}/users is not
+writable";
+    $m->abort;
+}
+
 # Remove user path of URL
 $ENV{REQUEST_URI} =~ /\/(\w+)\// and my $path = $1;
 
@@ -13,10 +20,10 @@ if ( length $path > 3 and length $path < 11 ) {
   delete $spoejs{channel_path};
 }
 
-session_setup();
+lang_setup();
 spoejs_setup();
 
-sub session_setup {
+sub lang_setup {
 
   # Language
   # Does language extraction belong here?
