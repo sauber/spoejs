@@ -49,7 +49,7 @@ if ( $ARGS{login} ) {
 sub form_row {
   my ( $text, $name, $type, $val, $err ) = @_;
   $text = $m->comp( "/l", l=>$text );
-my $html = <<HTML;
+  return <<HTML;
 <tr>
   <td>$text:</td>
   <td><input value="$val" type="$type" name="$name">$err</td>
