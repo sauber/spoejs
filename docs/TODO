@@ -103,6 +103,7 @@ Comments:
 
 StoryList:
  - Sub channels or story-sequences.
+ - ==> in storytitlelist should skip two pages ahead
 
 StoryAdmin:
  - Del story with confirm
@@ -131,6 +132,8 @@ Media:
  - Send this picture as email
  - exif
  - ML->ignore( @ml ) for media=* functionality
+ - Different sizes for inline and not inline album
+ - media page should have themable picture size
 
 Icons:
  - pregenerated icons (fx party)
