@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: intro.html,v 1.2 2004/05/16 01:01:51 snicki Exp $
+%# $Id: intro.html,v 1.3 2004/05/16 11:13:11 snicki Exp $
 %#
 %if ( @s > 0 ) {
 <& /w, w => 'abstract', box => 1, storyref => $s[0] &>
@@ -17,4 +17,10 @@
     my @s = $SL->list_stories( count => 1 );
 
     $m->clear_buffer();
+# Caching
+my $offset = 60 * 30; # seconds * minutes
+my $e = gmtime( time + $offset );
+my $l = gmtime( time - $offset * 10 );
+$r->headers_out->add( "Expires" => $e );
+$r->headers_out->add( "Last-Modified" => $l );
 </%init>
