@@ -1,11 +1,21 @@
 %# Forward args to component 
+% if ( $box ) {
+%   my $content = $m->scomp($comp, %ARGS);
+<& $boxc, content=>$content &>
+% } else {
 <& $comp, %ARGS &>
+% }
 <%init>
 # Does component exist in required theme? Otherwise use default.
 my $comp = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{theme}/$w" 
 	                                 ? "/theme/$spoejs{theme}/$w" 
 	                                 : "/theme/default/$w";
+# Choose a box
+my $boxc = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{theme}/box" 
+	                                 ? "/theme/$spoejs{theme}/box" 
+	                                 : "/theme/default/box";
 </%init>
 <%args>
 $w => undef
+$box => undef
 </%args>	
