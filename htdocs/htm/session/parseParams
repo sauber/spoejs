@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: parseParams,v 1.9 2004/05/20 10:15:25 snicki Exp $
+%# $Id: parseParams,v 1.10 2004/06/13 01:03:07 snicki Exp $
 %#
 <%perl>
   my $url = $ENV{PATH_INFO};
@@ -17,11 +17,11 @@
   $spoejs{url_noparam} = $link;
 
   # Create Story and Annotations if _d is given
-  if ( defined $spoejs{p}{d} ) {
+  if ( defined $spoejs{p} && defined $spoejs{p}{d} ) {
 
     my $path = $spoejs{channel_path} . "/" .$spoejs{p}{d};
     $spoejs{Story} = new Spoejs::Story( path => $path,
-                                           lang => $spoejs{lang_handle} );
+                                        lang => $spoejs{lang_handle} );
     $spoejs{error}{$m->current_comp->source_file} = $spoejs{Story}->{msg} 
 						     if $spoejs{Story}->{msg};
 
@@ -29,5 +29,8 @@
                                                 lang => $spoejs{lang_handle} );
     $spoejs{error}{$m->current_comp->source_file} = 
 	$spoejs{Annotations}->{msg} if $spoejs{Annotations}->{msg};
+  } else {
+    delete $spoejs{Story};
+    delete $spoejs{Annotation};
   }
 </%perl>
