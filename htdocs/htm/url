@@ -1,0 +1,42 @@
+% # This module encodes and decodes url's
+% # $Id: url,v 1.1 2004/03/25 10:52:21 snicki Exp $
+% # Encode and decode url
+%
+<%shared>
+  no strict;
+  my @basic = eval "a..z, A..Z, 0..9";
+  use strict;
+  my $BS = new Bootstring( BASIC => \@basic, 
+	TMAX => 53,
+	SKEW => 78,
+	INITIAL_BIAS => 32,
+	TMIN => 38,
+	DAMP => 40,
+ );
+</%shared>
+<%method encode>
+<%perl>
+  my($link,%options) = @_;
+  my($r,$k,$v);
+
+  while ( ($k,$v) = each %options ) {
+    my $new_v = $BS->encode($v);
+    $r .= "_$k${new_v}";
+  }
+  $link =~ s/(.*)\.(.*?)/$1$r.$2/;
+</%perl>
+<% $link %>\
+</%method>
+
+<%method decode>
+<%perl>
+  my($link) = @_;
+
+  my %O;
+  while ( $link =~ s/(_)(.)(.*?)(?=[_.])// ) {
+    $O{$2} = $BS->decode($3);
+  }
+
+  return $link,\%O;
+</%perl>
+</%method> 
