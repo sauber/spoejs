@@ -1,8 +1,8 @@
 package Spoejs::Story;
-use base ( "Spoejs", "Spoejs::Text" );
+use base ( "Spoejs::Text" );
 
-# $Id: Story.pm,v 1.3 2004/02/28 07:35:24 snicki Exp $
-$Spoejs::Story::VERSION = $Spoejs::Story::VERSION = '$Revision: 1.3 $';
+# $Id: Story.pm,v 1.4 2004/02/29 00:00:34 snicki Exp $
+$Spoejs::Story::VERSION = $Spoejs::Story::VERSION = '$Revision: 1.4 $';
 
 sub _initialize {
     my $self = shift;
