@@ -1,4 +1,4 @@
-<fieldset><legend><% $title %></legend>
+<h3><% $title %></h3>
 <div class="left">
      <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
 <div class="bottom">
@@ -21,7 +21,6 @@
     <& /w, w => 'media', d => $path, p => $thumb_ref->{file},
            m => 150, href=>$story_href &>
 </div>
-</fieldset>
 <%args>
   $title      => undef
   $author     => undef
