@@ -1,21 +1,29 @@
-Release 0.01 must-have's:
+Release 0.02 (2004-05-22) must-have's:
+--------------------------------------
+
+ - Documentation
+ - Mix pic+txt
+ - Annotations
+ - Comments
+ - Movie-clips
+ - Nice theme
+ - Better navigation
+ - Link list
+ - Slow-random indexpic
+ - (Upload of non-story html pages)
+
+
+Release 0.03 must-have's:
 -------------------------
 
- - Site admin (OK)
- - Channel register (OK)
- - Channel admin (OK)
- - New/edit story (OK)
- - Clean theme and clean widgets (OK)
- - utf8 input/upload (OK)
- - utf8 filename, category, title, abstract etc. (OK)
- - Storylist (OK)
- - Picture with next/prev (OK)
- - Error check (OK)
- - Install doc (OK)
- - License tags (OK)
+ - Syndication
+ - Official Central Spoejs Site
+ - Demo site
+ - Accurate translations
+ - Theme credits/versioning
 
 
-Development todo list:
+Development to-do list:
 ----------------------
 
 Developers:
