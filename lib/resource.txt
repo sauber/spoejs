@@ -799,6 +799,10 @@
 <lang=en/>Invalid Journal-ID
 </invalid_journal_id>
 
+<invalid_password>
+<lang=en/>Password too short
+</invalid_password>
+
 <invalid_title>
 <lang=en/>Invalid title 
 </invalid_title>
@@ -1197,6 +1201,10 @@
 <lang=en/>Same as above 
 </passwd_retype_description>
 
+<password_mismatch>
+<lang=en/>Passwords did not match
+</password_mismatch>
+
 <please_fill_out_this_form>
 <lang=ar/>الرجاء أكمال هذا الجدول
 <lang=da/>Venligst udfyld denne formular
@@ -1573,6 +1581,10 @@
 <lang=en/>Summary
 <lang=zh/>摘要
 </summary>
+
+<thanks>
+<lang=en/>Thank you for good effort
+</thanks>
 
 <thechannel_notexit>
 <lang=ar/>هذة القناة غير موجودة
