@@ -96,17 +96,10 @@ div.weather {
 }
 
 fieldset {
-  margin: 0 90% 0 0%;
+#  margin: 0 90% 0 0%;
+#  width: 0%;
   padding: 1em .5em .5em .5em;
   border: 1px solid #000000;
-}
-fieldset.center
-{
-  margin: 0 10% 0 10%;
-}
-fieldset.full
-{
-  margin: 0 0% 0 0%;
 }
 
 legend {
