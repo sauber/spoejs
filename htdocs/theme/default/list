@@ -1,11 +1,6 @@
-<table border="1">
 % foreach my $story ( @stories ) {
-<tr>
-  <td><& /w, w => 'abstract', storyref => $story &></td>
-</tr>
+<& /w, w => 'abstract', storyref => $story &><br/>
 % }
-</table>
-
 <%init>
   # Todo add div. parameters
   my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
