@@ -2,8 +2,8 @@ package Spoejs::Icon;
 use LWP::UserAgent;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.11 2004/05/08 14:05:37 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.11 $';
+# $Id: Icon.pm,v 1.12 2004/05/08 14:51:01 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.12 $';
 
 #### Private interface ####
 
@@ -46,7 +46,7 @@ sub _downloadicon {
     my $s = $y/$x; $s = 1/$s if $s > 1;
     # Also consider size of picture if desired size is specified
     if ( $size ) {
-      my $xy = ( $x * $y ) / ( $size * $size ); $xy = 1/$xy if $xy > 1;
+      my $xy = $size / sqrt( $x**2 + $y**2 ); $xy = 1/$xy if $xy > 1;
       $s *= $xy;
     }
     $I[$n]{link} = $l[$n];
