@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.22 2004/04/19 11:40:46 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.22 $';
+# $Id: Text.pm,v 1.23 2004/05/20 10:12:20 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.23 $';
 
 
 # Constructor
@@ -97,6 +97,8 @@ sub _read_data {
     my $in_lang = 0;
     my $one_lang = 0;
 
+    my $kw_pattern = '[\w\.]';
+
     while ( <FH> ) {
 
 	chomp;
@@ -108,7 +110,7 @@ sub _read_data {
 	}
 
 	# Start-tag
-	if ( /^<(\w+)>$/ and $tag = $1 ) {
+	if ( /^<($kw_pattern+?)>$/ and $tag = $1 ) {
 	    $in_tag = 1;
 	    next;
 	}
@@ -120,7 +122,7 @@ sub _read_data {
 	}
 
 	# End-tag
-	if ( /^<\/(\w+)>$/ and $1 eq $tag ) {
+	if ( /^<\/($kw_pattern+?)>$/ and $1 eq $tag ) {
 	    $in_tag = 0;
 	    next;
 	}
