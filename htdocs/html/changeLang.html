@@ -1,11 +1,10 @@
 <%init>
   $session{pref_lang} = $language;
-  $session{lang_handle} = new Spoejs::Lang( lang_order => [$session{pref_lang},
+  $spoejs{lang_handle} = new Spoejs::Lang( lang_order => [$session{pref_lang},
 				            @{$session{browser_langs}}]
   );
 
-  $session{res_handle} = new Spoejs::Resource( lang => 
-                                                  $session{lang_handle} );
+  $spoejs{res_handle} = new Spoejs::Resource( lang => $spoejs{lang_handle} );
 	
   $m->redirect( $ENV{HTTP_REFERER} );
 </%init>

@@ -1,9 +1,9 @@
 <form method="post" action="/html/changeLang.html">
 <select name="language">
-% foreach my $lang ( $session{res_handle}->lang_list() ) {
+% foreach my $lang ( $spoejs{res_handle}->lang_list() ) {
 % my $sel = $session{pref_lang} eq $lang ? ' selected="selected"' : ' ';
 <option value="<% $lang %>"<% $sel %>>
-<% $session{res_handle}->get( $lang ) %>
+<% $spoejs{res_handle}->get( $lang ) %>
 </option>
 %}
 </select>
