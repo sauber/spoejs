@@ -16,6 +16,16 @@
 <& "/html/error.html" &>
 % }
 <%init>
+
+if ( 1 ) {
+  use Spoejs::Text;
+  use Spoejs::ChannelConf;
+  use Spoejs::Lang;
+  use Spoejs::StoryList;
+  use Spoejs::Resource;
+  use Spoejs::Icon;
+}
+
   my $doc_root =  "$ENV{DOCUMENT_ROOT}html";
 
   my ($req_uri, $path) = $m->comp( '/html/session/setupSession',  
