@@ -2,17 +2,23 @@
 % if ( $box ) {
 %   my $content = $m->scomp($comp, %ARGS);
 <& $boxc, content=>$content &>\
+% } elsif ( $sub ) {
+<& $sub, w=> $w, %ARGS &>\
 % } else {
 <& $comp, %ARGS &>\
 % }
 <%init>
 # Does component exist in required theme? Otherwise use default.
-my $comp = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{p}{t}/$w" 
-	                                 ? "/theme/$spoejs{p}{t}/$w" 
+my $comp = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{p}{t}/$w"
+	                                 ? "/theme/$spoejs{p}{t}/$w"
 	                                 : "/theme/default/$w";
+# Does a .sub exist for the component=
+my $sub = -f "$ENV{DOCUMENT_ROOT}/theme/default/$w.sub"
+                                         ? "/theme/default/$w.sub" : undef;
+
 # Choose a box
-my $boxc = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{p}{t}/box" 
-	                                 ? "/theme/$spoejs{p}{t}/box" 
+my $boxc = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{p}{t}/box"
+	                                 ? "/theme/$spoejs{p}{t}/box"
 	                                 : "/theme/default/box";
 </%init>
 <%args>
