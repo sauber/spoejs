@@ -1,0 +1,12 @@
+<table class="tab"><tr>
+%for ( @list ) {
+% if ( $_->[0] =~ /$caller$/ ) {
+<td class="tab_marked"><% $_->[1] %></td>
+% } else {
+<td class="tab"><a href="<% $_->[0] %>"><% $_->[1] %></a></td>
+%}}
+</tr></table>
+<%args>
+  @list => undef
+  $caller => undef
+</%args>
