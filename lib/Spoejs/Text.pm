@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.20 2004/04/09 17:18:39 sauber Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.20 $';
+# $Id: Text.pm,v 1.21 2004/04/19 02:51:39 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.21 $';
 
 
 # Constructor
@@ -165,7 +165,7 @@ sub _check_load {
 
     my $self = shift;
 
-    unless ( $self->{is_loaded} ) {
+    unless ( defined $self->{is_loaded} ) {
 	if ( -w "$self->{path}/$self->{file}" ) {
 	    $self->_read_data() or return undef;
 	    $self->{is_loaded} = 1;
@@ -191,7 +191,7 @@ sub get {
 
     $self->_check_load() or return undef;
 
-    return $self->_err( "No data set or loaded" ) unless $self->{data};
+    return $self->_err( "No data set or loaded" ) unless defined $self->{data};
 
     # Return only requested values if a list is supplied. dclone deep-copies
     if ( @_ == 1 ) {
@@ -210,12 +210,12 @@ sub get {
     elsif ( @_ > 1 ) {
 
 	# Copy value for each argument
-	for (@_) {
+	for my $kw (@_) {
 
-	    if ( ref $self->{data}{$_} ) {
-		$res{$_} = dclone( $self->{data}{$_} );
+	    if ( ref $self->{data}{$kw} ) {
+		$res{$_} = dclone( $self->{data}{$kw} );
 	    } else {
-		$res{$_} = $self->{data}{$_};
+		$res{$_} = $self->{data}{$kw};
 	    }
 	}
     } else {
@@ -225,7 +225,7 @@ sub get {
 
     return defined $self->{lang} 
     ? $self->{lang}->tr( \%res )
-    : %res;
+	: %res;
 }
 
 
@@ -274,7 +274,7 @@ sub set {
 }
 
 
-# Delete story by removing it from memory and disk.
+# Delete file by removing it from memory and disk.
 #
 sub del {
 
@@ -295,7 +295,7 @@ sub del {
 sub DESTROY {
 
     my $self = shift;
-    $self->_store_data( @_ ) if $self->{is_modified};
+    $self->_store_data( @_ ) if defined $self->{is_modified};
 }
 
 __END__
