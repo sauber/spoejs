@@ -1,0 +1,113 @@
+% return unless $m->comp( 'checkLogin.html' );
+
+% if ( $ARGS{submit} ) {
+<h4>Story saved successfully.</h4>
+<a href="<& /html/url:encode, "/$session{user}/admin/upload.html", d=>$story_dir &>">
+Click here to add media to story.
+</a>
+% return; }
+
+% if ( $ARGS{delete} ) {
+<h4>Story deleted successfully.</h4>
+<a href="/<% $session{user} %>/index.html">
+Click here to go to channel home.
+</a>
+% return; }
+
+
+<h4>Editing for language: <% $cur_lang %></h4>
+
+<form action="" method="post">
+Your name:<br/>
+<input type="text" size="60" name="author" value="<%$ARGS{author}%>"/><br/>
+Story title:<br/>
+<input type="text" size="60" name="title" value="<%$ARGS{title}%>"/><br/>
+Date: (leave blank if story is current)<br/>
+<input type="text" size="60" name="date" value="<%$ARGS{date}%>"/><br/>
+Category:<br/>
+<select name="category">
+<option value="">Please select</option>
+% foreach my $cat ( sort keys %categories ) {
+% my $selected = $cat eq $ARGS{category} ? ' selected="selected"' : '';
+<option value="<% $cat %>"<% $selected %>><% $cat %></option>
+% }
+</select>
+or new: 
+<input type="text" size="30" name="newcategory" value=""/><br/>
+Story abstract:<br/>
+<textarea name="abstract" rows="5" cols="60"><%$ARGS{abstract}%></textarea>
+<br/>
+Full story text:<br/>
+<textarea name="fulltext" rows="20"
+cols="60"><%$ARGS{fulltext}%></textarea>
+<br/>
+<input type="submit" name="submit" value="Submit"/>
+<input type="submit" name="delete" value="Delete"/>
+</form>
+
+<a href="<& /html/url:encode, "/$session{user}/admin/upload.html",
+d=>$story_dir &>">
+Click here to add media to existing story.
+</a>
+
+%#<pre>
+%#<% Dumper %params %>
+%#<% Dumper %ARGS %>
+%#<% Dumper $cur_lang %>
+%#</pre>
+<%init>
+
+my $cur_lang = $spoejs{lang_handle}->{lang_order}->[0];
+my @entries = qw( title date category abstract fulltext author );
+
+my $chan_path = "$ENV{DOCUMENT_ROOT}/users/$session{user}";
+
+my $SL = Spoejs::StoryList->new( path => $chan_path,
+                                 lang => $spoejs{lang_handle} );
+
+my $story_dir = $params{d} || undef;
+my $S;
+
+# Get data from existing story or create new story
+if ( $params{d} && -d "$chan_path/$params{d}" && !$ARGS{submit} ) {
+
+  $S = new Spoejs::Story( path => "$chan_path/$params{d}",
+                          lang => $spoejs{lang_handle} );
+
+  # Add data to args
+  %ARGS = ( %ARGS, $S->get() );
+}
+
+
+if ( $ARGS{submit} ) {
+
+  # Create new story if necessary
+  unless ( $story_dir && -d "$chan_path/$story_dir" ) {
+    $story_dir = $SL->add_story( date => $ARGS{date} );
+  }
+
+  $S = new Spoejs::Story( path => "$chan_path/$story_dir",
+                          lang => $spoejs{lang_handle} );
+
+  # XXX: Verify input
+  $ARGS{category} = $ARGS{newcategory} if $ARGS{newcategory};
+
+  # Save to story
+  my %new_data;
+  for ( @entries ) {
+    $new_data{$_}{$cur_lang} = $ARGS{$_};
+  }
+
+  $S->set( %new_data );
+}
+
+if ( $ARGS{delete} ) {
+  $SL->del_story( story => $story_dir );
+}
+
+# Used for category chooser - counts ignored
+my %categories = $SL->count_stories( by => 'category' );
+</%init>
+<%args>
+  %params => undef
+</%args>

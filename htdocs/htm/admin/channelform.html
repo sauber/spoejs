@@ -1,0 +1,84 @@
+%if ( $ARGS{submit} && keys %errs == 0 && !$CC ) {
+<h2>Congratulations your changes were successful</h2>
+<a href="/<%$ARGS{shortname}%>/index.html">Click here to continue</a>
+% } elsif ( $ARGS{submit} && keys %errs == 0 && $CC) {
+<h2>Congratulations you are now signed up</h2>
+<a href="/<%$ARGS{shortname}%>/index.html">Click here to continue</a>
+% } else {
+%# !defined user, allows new signups, but not edits to existing
+% return unless $m->comp( 'checkLogin.html' ) or !defined $session{user};
+<form method="post">
+<table>
+% foreach my $t ( @text_f ) {
+<% form_row( $t, $t, "text", $ARGS{$t}, $errs{$t} ) %>
+% }
+<% form_row( "passwd", "password", "password", $ARGS{password}, $errs{password} ) %> 
+<% form_row( "passwd", "password2", "password", "", $errs{password2} ) %> 
+<tr>
+  <td><input type="submit" name="submit" value="<&|/l&>submit</&>"/></td>
+</tr>
+</table>
+</form>
+%}
+<%init>
+  # XXX: Change 'input' types for 'public', 'language' etc.
+
+my @text_f = qw ( shortname title description language theme public username );
+my $CC;
+my %errs;
+
+# Load data if channel exists
+my $path = "$ENV{DOCUMENT_ROOT}users/$session{user}";
+if ( -d $path && !$ARGS{submit} )
+{
+  # XXX: What goes on when adding 'lang' here? (~nothing is returned in get()
+  $CC = new Spoejs::ChannelConf( path => $path );
+                                           #, lang => $spoejs{lang_handle} );
+
+  %ARGS = ( %ARGS, $CC->get() );
+}
+
+if ( $ARGS{submit} ) {
+
+  # XXX: Add checks on rest of input!!!
+  unless ( $ARGS{shortname} =~ /^[a-z]{4,10}$/ ) {
+    $errs{shortname} = " Only 4-10 letters from a-z";
+  }
+  unless ( $ARGS{language} =~ /^[a-z]{2}$/ ) {
+    $errs{language} = " Only 2 letters (eg. 'da' or 'en')";
+  }
+  unless ( $ARGS{public} =~ /^yes$|^no$/ ) {
+    $errs{public} = " Only yes/no";
+  }
+  unless ( $ARGS{password} eq $ARGS{password2} ) {
+    $errs{password} = $errs{password2} = " Passwords does not match";
+  }
+
+  # Check if we are editing or creating new channel
+
+  # Create new channel if there were no errors
+  my %cl_args;
+  @cl_args{ @text_f, 'password' } = @ARGS{ @text_f, 'password' };
+  if ( keys %errs == 0 && !$CC ) {
+
+    my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
+    my $res = $CL->new_channel( %cl_args );
+
+  } elsif (  keys %errs == 0 && $CC ) {
+
+    my $res = $CC->set( %cl_args );
+  }
+}
+
+sub form_row {
+  my ( $text, $name, $type, $val, $err ) = @_;
+  $text = $m->comp( "/l", l=>$text );
+  return <<HTML;
+<tr>
+  <td>$text:</td>
+  <td><input value="$val" type="$type" name="$name">$err</td>
+</tr>
+HTML
+}
+
+</%init>

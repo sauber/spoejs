@@ -1,0 +1,39 @@
+<form action="" method="post">
+<table>
+<tr>
+  <th>Current utf filename:</th>
+  <th>New filename:</th>
+</tr>
+% foreach my $pic ( @media ) {
+<tr>
+<td>
+<% $pic->utf_filename() %>
+</td>
+<td>
+<input type="text" size="40" name="<% $pic->{file} %>" \
+value="<% $pic->utf_filename() %>">
+</td>
+</tr>
+% }
+</table>
+<input type="submit" name="submit">
+</form>
+<%init>
+  my $user_path = "$ENV{DOCUMENT_ROOT}/users/$session{user}/$params{d}";
+
+  if ( defined $ARGS{submit} ) {
+
+    delete $ARGS{submit};
+    while( my ( $k, $v ) = each %ARGS ) {
+      my $M = new Spoejs::Media( path => $user_path, file => $k );
+      $M->rename( $v );
+    }
+  }
+
+  my $ML = new Spoejs::MediaList( path => $user_path );
+  my @media = $ML->list();
+
+</%init>
+<%args>
+  %params => undef
+</%args>

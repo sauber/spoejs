@@ -1,0 +1,44 @@
+<&| /l &>title</&>:
+<% $S->get( 'title' ) %>
+<br/>
+<&| /l &>date</&>:
+<% $S->get( 'date' ) %>
+<br/>
+<br/>
+Abstract:
+<br/>
+<% $S->get( 'abstract' ) %>
+<br/>
+<br/>
+Fulltext:
+<br/>
+<% $S->get( 'fulltext' ) %>
+<br/>
+<br/>
+Media:
+<br/>
+% for ( @media_list ) {
+% my $p = $_->{file};
+%# $p =~ s{\.}{};
+<a href="<& url:encode, 'media.html', d => $params{d}, p => $p &>">
+<& /w, w => "media", d => $params{d}, p => $p, m => 150, 
+info => $_->info() &>
+</a>
+% }
+<br/>
+<br/>
+<br/>
+% if ( $session{chanauth} && $session{user} && 
+%      $session{chanauth}{$session{user}}) {
+<a href="<& url:encode, "/$session{user}/admin/story.html", 
+                        d=>$params{d} &>">Edit</a>
+% }
+<%init>
+  my $path = $ENV{DOCUMENT_ROOT} . "users/" . $session{user} . "/" .$params{d};
+  my $S = new Spoejs::Story( path => $path,
+                             lang => $spoejs{lang_handle} );
+  my @media_list = $S->media_list();
+</%init>
+<%args>
+  %params => undef
+</%args>

@@ -1,0 +1,20 @@
+<%init>
+use Data::Dumper;
+</%init>
+
+<hr noshade="noshade"/>
+<h2>Debug info:</h2>
+Session:
+<pre>
+<% Dumper( \%session ) %>
+</pre>
+ENV:
+<pre>
+<% Dumper( \%ENV ) %>
+</pre>
+<hr noshade="noshade"/>
+spoejs:
+<pre>
+<% Dumper( \%spoejs ) %>
+</pre>
+<hr noshade="noshade"/>
