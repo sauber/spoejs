@@ -43,13 +43,11 @@ Data:
  - Userdefined fields (location, people...)
 
 ChannelList:
- - This site
- - Other sites
+ - Complete content page
  - Next/prev page
  - By latest update
  - By alphabet sorted
- - Javascript to have iframe fit content
- - How to handle links in iframes
+ - List of remote sites
 
 Register:
  - Check fields for valid data
@@ -61,15 +59,14 @@ Session:
  - Expire cookies
 
 URL parser:
- - Handle utf8 in _ parameters
  - Set all needed %spoejs variables (channel, story, picture...)
 
 Theme:
  - css
  - Credits on About page
- - Theme version match spoejs spoejs version
+ - Theme version match spoejs version
  - Theme-selector
- - Overall theme (top, bottom, left, right, main...)
+ - Document that summary-widgets needs to be stand-alone-renderable (or automate)
 
 GUI Design:
  - Logo
@@ -78,9 +75,10 @@ GUI Design:
 StoryConf:
  - Store GMT unixtime as well as user-entered date string
  - Parse localized datestring to unixtime
+ - Or something to handle dates better
+ - Perhaps verify page after submit
 
 Syndication:
- - Produce Channelconf + latest story
  - Central site for root index
  - Parallel lwp fetch
 
@@ -88,54 +86,45 @@ Annotations:
  - Specialize ::Text
  - Component to render pictures+localized annotation
 
+Comments:
+ - Specialize ::Text
+ - Comment to story
+ - Comment to media
+ - Component to input comments
+ - Component to render comments
+
 StoryList:
  - Sub channels or story-sequences.
 
 StoryAdmin:
- - Add annotations to pictures
- - Edit story/pictures/annotations
  - Del story with confirm
- - Guest comment on story
- - Write in more languages
+ - Revise Write in more languages (only copy changed fields)
  - Active/inactive story
  - Support Media=* anywhere in story
  - Media=* at end.
- - Don't show inline pictures at end
- - Limitting possible _m values
 
 SiteConf:
  - Paths, theme, lang
- - Neighborhood spoejs sites
  - Quota
- - Default settings.txt or create from empty
  - Change pw for user
+ - Limitting possible _m values
+ - Default settings.txt from empty
 
 Navigation:
  - StoryList
     - next/prev story
-    - by category
     - by month/year
-    - thumbnails
- - Story, report+thumbnails+annotations
- - Bigger picture+annotation+exif
  - Slideshow
 
 Media:
- - First, last, chosen, random index media
- - Random index media is default
- - Single frame of movie
  - Crop, rotate, brightness, compress
- - utf8 category icon
- - remove dirs before / or \
- - utf8 filenames
+ - Send this picture as email
  - exif
- - caching headers
- - w/h for icons
- - no channellist in icon names
- - caching of indexthumb, even for random
- - slow random rotation
+ - ML->ignore( @ml ) for media=* functionality
+
+Icons:
  - pregenerated icons (fx party)
- - ML->ignore( @ml )
+ - no channelname in icon path
 
 Extras:
  - Calendar
@@ -152,8 +141,7 @@ Extras:
 Translator:
  - Support parameters in translations,... %1 %2 ...
  - Return keyword if no text present
- - On/off of (english) in topbar
- - Siteconfig to have on/off button
+ - (english) on/off button in topbar
 
 Search:
  - Search in channels and stories
@@ -166,4 +154,3 @@ Docs:
  - Website 'about spoejs'
  - readme.txt
  - install.txt
- - Copyright/license in each file
