@@ -35,6 +35,17 @@ administration:
 always_random:
   da: Altid tilfældig
   en: Always Random
+categorylist:
+  ar: 'ﻸﺣﺓ ﺎﻠﺨﺘﻳﺭﺎﺗ'
+  da: Kategorier
+  de: Kategorienliste
+  en: Category list
+  es: Lista de categorías
+  gr: 'Λίστα κατηγοριών'
+  iw: 'רשימת הקטאגורית'
+  ja: 'カテゴリーリスト'
+  ru: 'список категорий'
+  zh: '一揽'
 chan_home:
   ar: 'ﻖﻧﺍﺓ ﺎﻠﺒﻴﺗ'
   da: Historie index
@@ -88,6 +99,16 @@ click_continue:
   ja: '続けるにはこちらをクリック'
   ru: 'продолжить'
   zh: '按这里继续'
+comment:
+  ar: 'ﺄﻘﺗﺮﺣﺎﺗ'
+  da: Kommentar
+  de: Kommentar
+  en: Comment
+  es: Comentario
+  iw: 'דעות'
+  ja: 'コメント'
+  ru: 'комментарий'
+  zh: '见解'
 congrat_changes:
   ar: 'ﺖﻐﻳﺭﺎﺘﻛ ﻙﺎﻨﺗ ﻥﺎﺠﺣﺓ'
   da: 'Ændringer var successfulde'
@@ -288,6 +309,17 @@ story_home:
   ja: 'ストーリーホーム'
   ru: 'Адрес рассказа'
   zh: '记事本页'
+storytitlelist:
+  ar: 'ﺝﺩﻮﻟ ﻊﻧﺍﻮﻴﻧ ﺎﻠﻘﺼﺻ'
+  da: Historier
+  de: Geschichtstitelliste
+  en: Story title list
+  es: Lista de títulos de artículos
+  iw: 'רשימת כרתרות'
+  ja: 'ストーリータイトルリスト'
+  ru: |-
+    Список заголовков рассказов
+  zh: '记事标题一览'
 submit_query:
   da: Indsend
   de: Abfrage abschicken

@@ -1,7 +1,4 @@
 ---
-account_information:
-  da: Konto information
-  en: Account Information
 account_signup:
   da: Journal information
   en: Journal Information
@@ -75,16 +72,8 @@ addmediastory:
   ru: |-
     добавить мультимедиа к рассказу
   zh: '给记事里加煤体'
-addnewchannel:
-  ar: 'أضيف قناة سبوجي جديدة'
-  da: Tilføj ny spoejs kanal
-  de: Neuen Spoejs Kanal hinzufügen
-  en: Add a new spoejs channel
-  es: Agregar un canal nuevo de Spoejs
-  iw: 'הוטפת עררץ סבוכי חדש'
-  ja: '新しいspoejsチャンネルを追加'
-  ru: 'добавить новый spoejs канал'
-  zh: '添加一个新的Spoejs网页'
+addnewjournal:
+  en: Add a new spoejs journal
 annotations:
   da: Billedbeskrivelser
   en: Annotations
@@ -200,17 +189,6 @@ category:
   ru: 'категория'
   se: kategori
   zh: '种类'
-categorylist:
-  ar: 'لأحة الختيرات'
-  da: Kategorier
-  de: Kategorienliste
-  en: Category list
-  es: Lista de categorías
-  gr: 'Λίστα κατηγοριών'
-  iw: 'רשימת הקטאגורית'
-  ja: 'カテゴリーリスト'
-  ru: 'список категорий'
-  zh: '一揽'
 change_journal_password:
   da: Skift journal password
   en: Change journal password
@@ -221,9 +199,6 @@ change_language:
 changes_saved_successfully:
   da: 'Ændringerne er gemt'
   en: Changes saved successfully
-channel_deleted:
-  da: Journal er slettet
-  en: Channel deleted
 choose:
   ar: 'أختار'
   da: Vælg
@@ -236,30 +211,11 @@ choose:
   ja: '選択'
   ru: 'выбрать'
   zh: '选择'
-click_channel:
-  ar: 'أنقر هنا للذهاب الى القناه'
-  da: Gå til kannal
-  de: anklicken um zu Kanal zu wechseln
-  en: Click here to go to channel
-  es: Pulse aquí apra ir al canal
-  gr: 'Ακύρωση'
-  iw: 'להקליק כאן כדי לעכורלערוץ'
-  ja: 'チャンネルへはこちらをクリック'
-  ru: 'переключиться на канал'
-  zh: '按这里进入网页'
 click_insert_image:
   da: Klik for at indsætte billede
   en: Click and insert image
-comment:
-  ar: 'أقترحات'
-  da: Kommentar
-  de: Kommentar
-  en: Comment
-  es: Comentario
-  iw: 'דעות'
-  ja: 'コメント'
-  ru: 'комментарий'
-  zh: '见解'
+click_journal:
+  en: Click here to go to journal
 comment_missing:
   da: Kommentar mangler
   en: Comments missing
@@ -690,6 +646,9 @@ ja:
 journal_config:
   da: Journal konfiguration
   en: Journal Configuration
+journal_deleted:
+  da: Journal er slettet
+  en: Journal deleted
 journal_exists:
   da: Journal-ID eksisterer allerede
   en: Journal-ID already exists
@@ -742,9 +701,6 @@ language_description:
 localjournal:
   da: Lokale journaler
   en: Local Journals
-log_out:
-  da: Log ud
-  en: Logout
 login:
   ar: 'دخول'
   bg: 'Вход'
@@ -1115,19 +1071,8 @@ sitepolicy:
   ja: 'サイトポリシー'
   ru: 'Политика сайта'
   zh: '本页特权'
-statuschannel:
-  ar: |-
-    تحديد للقناوات في هذا الموقع
-  da: Status for kanaler på dette site
-  de: Status des Kanals auf diesem Website
-  en: Status for channels at this site
-  es: Estado de los canales en este sitio
-  iw: 'מצב הערוצים בדף הזה'
-  ja: |-
-    このサイトのチャンネルのステータス
-  ru: |-
-    Состояние каналов на этом сайте
-  zh: '本网站网页的状况'
+statusjournal:
+  en: Status for journals on this site
 stories:
   da: Historier
   en: Stories
@@ -1168,17 +1113,6 @@ storytitle:
   ja: 'ストーリータイトル'
   ru: 'Заголовок рассказа'
   zh: '记事标题'
-storytitlelist:
-  ar: 'جدول عناوين القصص'
-  da: Historier
-  de: Geschichtstitelliste
-  en: Story title list
-  es: Lista de títulos de artículos
-  iw: 'רשימת כרתרות'
-  ja: 'ストーリータイトルリスト'
-  ru: |-
-    Список заголовков рассказов
-  zh: '记事标题一览'
 submit:
   ar: 'أرسال'
   bg: 'Приложи'
