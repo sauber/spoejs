@@ -94,11 +94,13 @@ div.media {
   float: left;
   min-height: 150px;
   min-width: 150px;
+#  max-width: 150px;
   padding:3px;
   border-style:ridge;
   margin:3px;
   background-color: #EBEBFF;
 }
+
 div.right {
   float: right;
   clear: right;
@@ -124,6 +126,9 @@ div.bottom {
 fieldset {
   padding: 1em .5em .5em .5em;
   border: 1px solid #000000;
+  float: left;
+  width: 98%;
+  margin: 5px;
 }
 
 legend {
