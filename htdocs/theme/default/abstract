@@ -1,0 +1,25 @@
+<table width="400">
+<tr>
+  <th class="abstract"><% $storyref->get( 'title' ) %></th>
+  <th class="abstract" align="right"><% $storyref->get( 'date' ) %></th>
+</tr>
+<tr>
+  <td colspan="2">Posted by: <% $author %></td>
+</tr>
+<tr>
+  <td colspan="2">Section: <%$storyref->get( 'category' )%></td>
+</tr>
+<tr>
+  <td><& categoryicon, category =>$storyref->get( 'category' ) &></td>
+  <td><% $storyref->get( 'abstract' ) %></td>
+</tr>
+
+</table>
+
+<%init>
+  my $author = $storyref->get( 'author' ) || 'Me';
+</%init>
+
+<%args>
+ $storyref => undef
+</%args>
