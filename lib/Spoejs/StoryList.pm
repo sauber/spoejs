@@ -22,8 +22,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.8 2004/02/28 06:11:31 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.8 $';
+# $Id: StoryList.pm,v 1.9 2004/02/28 07:34:05 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.9 $';
 
 sub _initialize {
     my $self = shift;
@@ -55,7 +55,8 @@ my $all_by_date = sub {
 
 	my $S = Spoejs::Story->new( path => $res, lang => $self->{lang} );
 
-	my %date = $S->get( "date" );
+	# XXX: Why is a get() necesary here?
+	$S->get( );
 
 	push @stories, $S;
     },
@@ -64,7 +65,7 @@ my $all_by_date = sub {
     @sorted_stories = map { $_->[0] } 
                       sort { $b->[1] <=> $a->[1] } 
                       map { [$_,
-			     Date::Manip::UnixDate( $_->date(), '%s') 
+			     Date::Manip::UnixDate( $_->get( 'date' ), '%s') 
 			     ] } 
                       @stories;
 
@@ -155,8 +156,7 @@ sub count_stories {
  
     if ( $in{by} eq 'category' or  $in{by} eq 'author' ) {
 	for ( @all ) {
-	    my %cath = $_->get( $in{by} );
-	    my $cat = $cath{ $in{by} };
+	    my $cat = $_->get( $in{by} );
 	    $counts{$cat}++;
 	}
 	return %counts;    
@@ -225,8 +225,8 @@ sub list_stories {
 	
 	my @new;
 	foreach $story ( @res ) {
-	    my %story_kw = $story->get( $kw );
-	    push @new, $story if ( $story_kw{$kw} eq $in{$kw} );
+	    my $story_kw = $story->get( $kw );
+	    push @new, $story if ( $story_kw eq $in{$kw} );
 	}
 
 	@res = @new;	
