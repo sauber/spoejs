@@ -1,8 +1,8 @@
 package Spoejs::Stats;
 use base ( "Spoejs" );
 
-# $Id: Stats.pm,v 1.4 2004/08/31 04:05:32 sauber Exp $
-$Spoejs::Stats::VERSION = $Spoejs::Stats::VERSION = '$Revision: 1.4 $';
+# $Id: Stats.pm,v 1.5 2004/08/31 06:09:36 sauber Exp $
+$Spoejs::Stats::VERSION = $Spoejs::Stats::VERSION = '$Revision: 1.5 $';
 
 # Constructor
 #
@@ -69,18 +69,22 @@ sub stats {
 
 # Return topN for total, month and week stats
 # Exclude story in counting
-# XXX: Not tested yet!
 #
 sub topN {
   my($self,$N) = @_;
 
-  my @V = ();
+  $self->_read_and_parse();
+  my %V = ();
   for my $k ( qw(total month week) ) {
-    push @V, [ (sort { $self->{_data_}{$a}{$k} <=> $self->{_data_}{$b}{$k} }
-               grep !/story/,
-               keys %{$self->{_data}})[0..$N-1] ];
+    $V{$k} = [ grep {$_ ne undef}
+               ( map {[ $_, $self->{_data}{$_}{$k} ]}
+                 sort { $self->{_data}{$b}{$k} <=> $self->{_data}{$a}{$k} }
+                 grep !/story/,
+                 keys %{$self->{_data}}
+               )[0..$N-1]
+             ];
   }
-  return \@V;
+  return \%V;
 }
 
 # Delay saving data to disk until object is destroyed
