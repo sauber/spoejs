@@ -32,7 +32,7 @@ $spoejs{error}{$m->current_comp->source_file} = $SC->{msg} if $SC->{msg};
 my $policy = $SC->get( 'policy' );
 
 # Gives array of ChannelConf object refs
-my @channels = $CL->search_channels();
+my @channels = $CL->search_channels() unless $CL->{msg};
 
 # Sort channels by date of newest entry
 for ( @channels ) {
@@ -47,6 +47,7 @@ for ( @channels ) {
   $_->{S} = $s[0] if $s[0];
 }
 
+warn Dumper @channels;
 # Sort based on date in seconds
 @channels = sort { $b->{newest_date} <=> $a->{newest_date} } @channels;
 </%init>
