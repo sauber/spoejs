@@ -1,5 +1,6 @@
-% $m->clear_buffer;
-
+%$m->clear_buffer;
+<& /htm/header.html &>
+<body>
 <script language="JavaScript" type="text/javascript">
 function add_media( media ) {
 
@@ -23,17 +24,15 @@ if( input.createTextRange ) {
 %for my $p ( $S->{ML}->list() ) {
 <a href="javascript:add_media('<%$p->{file}%>')">
   <& '/w', w => "media", d =>  $spoejs{p}{d}, p => $p->{file}, 
-           m => $img_size, no_div => 1 &>
+           m => $img_size, no_div => 1, no_annotation => 1 &>\
 </a>
-%#<% $count++ % 2 == 0 ? '<br/>' : '' %>
 %}
+</body>
+</html>
 <%init>
   my $S = new Spoejs::Story( path => "$spoejs{channel_path}/$spoejs{p}{d}",
                           lang => $spoejs{lang_handle} );
   $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
- 
-
-
 </%init>
 <%args>
   $img_size => 75
