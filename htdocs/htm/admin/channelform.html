@@ -11,7 +11,7 @@
 % return unless check_cred( $policy );
 <form method="post">
 <fieldset>
-<legend>Please fill out this form</legend>
+<legend><&|/l&>please_fill_out_this_form</&></legend>
 <table>
 % foreach my $t ( @text_f ) {
 <% form_row( $t, $t, "text", $ARGS{$t}, $errs{$t} ) %>
@@ -19,17 +19,17 @@
 <% form_row( "passwd", "password", "password", $ARGS{password}, $errs{password} ) %> 
 <% form_row( "passwd", "password2", "password", "", $errs{password2} ) %> 
 <tr>
-<td>Language:</td>
+<td><&|/l&>language</&>:</td>
 <td>
 <& /w, w => 'langselect' &>
 </td></tr>
 <tr>
-<td>Public:</td>
+<td><&|/l&>public</&></td>
 <td>
 % my $yc = $ARGS{public} eq 'yes' ? ' checked="checked"' : '';
 % my $nc = $ARGS{public} eq 'no' ? ' checked="checked"' : '';
-Yes:<input type="radio" name="public" value="yes"<% $yc %>>
-No:<input type="radio" name="public" value="no"<% $nc %>>
+<&|/l&>yes</&><input type="radio" name="public" value="yes"<% $yc %>>
+<&|/l&>no</&><input type="radio" name="public" value="no"<% $nc %>>
 </td></tr>
 </table>
 </fieldset>

@@ -9,7 +9,7 @@
 <lang=da/>Tilføj
 <lang=en/>Add
 <lang=hu/>ad
-<lang=zh/>增加
+<lang=zh/>添加
 </add>
 
 <administration>
@@ -54,7 +54,7 @@
 <lang=da/>(blank for dags dato)
 <lang=en/>(leave blank if story is current)
 <lang=hu/>hagyd uresen ha a tortenet mostani?
-<lang=zh/>(如果故事是当今的，留下空癿)
+<lang=zh/>(如果记事是当今的，留下空癿)
 </blank_default>
 
 <bo>
@@ -86,12 +86,13 @@
 
 <categorylist>
 <lang=en/>Category list
-</category>
+<lang=zh/>一揽
+</categorylist>
 
 <chan_home>
 <lang=da/>Historie index
 <lang=en/>Channel home
-<lang=zh/>频道
+<lang=zh/>网页
 </chan_home>
 
 <change>
@@ -556,18 +557,19 @@
 <lang=da/>Historie abstrakt
 <lang=en/>Story abstract
 <lang=hu/>tortenet kivonat
-<lang=zh/>故事抽象
+<lang=zh/>记事摘要
 </story_abstract>
 
 <storytitle>
 <lang=da/>Historie titel
 <lang=en/>Story title
 <lang=hu/>tortenet cim
-<lang=zh/>故事
-<storytitle>
+<lang=zh/>记事标题
+</storytitle>
 
 <storytitlelist>
 <lang=en/>Story title list
+<lang=zh/>记事标题一览
 </storytitlelist>
 
 <submit>
@@ -580,7 +582,7 @@
 <lang=it/>presenti
 <lang=ja/>承諾
 <lang=mk/>Поднеси
-<lang=zh/>结果标题
+<lang=zh/>承诺
 </submit>
 
 <theme>
@@ -595,6 +597,10 @@
 <lang=mk/>Тема
 <lang=zh/>主题
 </theme>
+
+<thechannel_notexit>
+<lang=en/>The channel doesn't exist!
+</thechannel_notexit>
 
 <thumbnail>
 <lang=da/>Ikon
@@ -634,7 +640,7 @@
 
 <yes>
 <lang=en/>Yes
-<lang=zh/>对
+<lang=zh/>是
 </yes>
 
 <yourname>

@@ -1,4 +1,6 @@
-<h1>Spoejs channels at this site:</h1>
+<h1>
+<&|/l&>spoejs_channels_at_this_site</&>
+</h1>
 % foreach my $chan ( @channels ) {
 <h2>
 <a href="/<% $chan->channel_dir() %>/index.html">
@@ -10,17 +12,17 @@
 % $spoejs{channel} = $chan->channel_dir();
 <& /w, w => 'abstract', storyref => $chan->{S} &>
 % } else {
-No stories.
+<&|/l&>no_stories</&>
 % }
 <br/>
 <br/>
 <br/>
 % }
 <hr/>
-Administration:
+<&|/l&>administration</&>
 <br/>
 <a href="/htm/admin/siteconfig.html">
-Site configuration
+<&|/l&>siteconf</&>
 </a>
 <%init>
 my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
