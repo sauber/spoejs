@@ -1,6 +1,7 @@
 ---
 account_information:
   en: Account Information
+  es: Información de la cuenta
 active:
   ar: 'فعال'
   da: Aktiv
@@ -94,8 +95,8 @@ addmediastory:
     добавить мультимедиа к рассказу
   zh: '给记事里加煤体'
 addnewjournal:
-  de: eine neue Rubrik hinzufügen
   da: Tilføj en ny spoejs journal
+  de: eine neue Rubrik hinzufügen
   en: Add a new spoejs journal
   es: Agregar un nuevo diario de Spoejs
   gr: 'Προσθήκη '
@@ -104,8 +105,8 @@ addnewjournal:
   mk: 'Додај ново списание'
   zh: '添加新的Spoejs杂记'
 all:
-  de: alles
   da: Alle
+  de: alles
   en: All
   es: Todos
   it: tutto
@@ -319,16 +320,16 @@ click_insert_image:
   ja: 'クリックしてイメージを挿入'
   mk: 'Кликни и внеси слика'
 click_journal:
-  de: Hier klicken um zur aktuellen Ausgabe zu kommen
   da: Gå til journal
+  de: Hier klicken um zur aktuellen Ausgabe zu kommen
   en: Click here to go to journal
   es: Pulsa aquí para ir al diario
   it: clika ici per andare per un viaggio
   ja: 'ここを押してジャーナルへ'
   mk: 'Кликни овде за списанието'
 comment:
-  de: Bezeichnung
   da: Kommentar
+  de: Bezeichnung
   en: Comment
   es: Comentario
   it: commento
@@ -466,8 +467,8 @@ delete_journal:
   ja: 'ジャーナルを消去'
   mk: 'Избриши го списанието'
 delete_story:
-  de: Story löschen
   da: Slet historie
+  de: Story löschen
   en: Delete Story
   es: Eliminar artículo
   it: cancellare la storia
@@ -587,8 +588,8 @@ en:
   se: Engelska
   zh: '英语'
 error_code:
-  de: Fehlercode
   da: Fejlkode
+  de: Fehlercode
   en: Error Code
   es: Código del error
   it: codice di errore
@@ -805,8 +806,8 @@ image_code:
   ja: 'イメージコード'
   mk: 'Код на сликата'
 information:
-  de: Information
   da: Information
+  de: Information
   en: Information
   es: Información
   it: informazioni
@@ -943,8 +944,8 @@ ja:
   se: japanska
   zh: '日语'
 journal_admin:
-  de: Ausgaben Administrator
   da: Journal Administrator
+  de: Ausgaben Administrator
   en: Journal Administrator
   es: Administrador del diario
   it: giornale amministrazione
@@ -959,8 +960,8 @@ journal_config:
   mk: |-
     Конфигурација на списанието
 journal_default:
-  de: Ausgaben-Voreinstellung
   da: Journal standars
+  de: Ausgaben-Voreinstellung
   en: Journal default
   es: Diario predeterminado
   it: giornale scaduto
@@ -984,8 +985,8 @@ journal_exists:
     Идентификацискиот број на списанието
     веќе постои
 journal_home:
-  de: Ausgabe-Home
   da: Journal hjem
+  de: Ausgabe-Home
   en: Journal Home
   es: Inicio del diario
   it: giornale Home
@@ -1071,8 +1072,8 @@ journals_friends:
   mk: |-
     Списанија на сајтови на пријатели
 keyword:
-  de: Passwort
   da: Nøgleord
+  de: Passwort
   en: Keyword
   es: Palabra clave
   it: Keyword
@@ -1115,8 +1116,8 @@ last:
   ru: 'прошлый'
   zh: '持续'
 layout:
-  de: Layout
   da: Layout
+  de: Layout
   en: Layout
   es: Diseño
   it: impaginazione
@@ -1245,7 +1246,8 @@ name:
   ja: '名前'
   mk: 'Име'
 name_description:
-  en: Name Description 
+  en: Name Description
+  es: Descripción del nombre
 name_missing:
   da: Navn mangler
   de: Name fehlt
@@ -1313,7 +1315,8 @@ newfilename:
   ru: 'новое имя файла'
   zh: '新的文件名'
 newpass:
-  en: New Passwrod 
+  en: New Passwrod
+  es: Nueva contraseña
 no_:
   ar: 'ﻻ'
   da: Nej
@@ -1739,7 +1742,8 @@ story:
   mk: 'Приказна'
   zh: '记事'
 story_abstract:
-  en: Story Abstract 
+  en: Story Abstract
+  es: Resumen del artículo
 story_deleted:
   de: gelöschte Geschichten
   en: Story deleted
@@ -1827,9 +1831,9 @@ summary:
   mk: 'Апстракт'
   zh: '摘要'
 syndication:
-  de: Sydikation
+  de: Syndikation
   en: Syndication
-  es: Sydication
+  es: Syndication
   it: organizzazione
   ja: '再発行'
 theme:
@@ -1919,6 +1923,7 @@ title_description:
 up_:
   da: Op
   en: Up
+  es: Arriba
 upload:
   ar: 'أدخال'
   da: Indsend
