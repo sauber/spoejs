@@ -15,11 +15,11 @@
 <tr>
 <td>
 % my $path = $storyref->story_path_from_full();
-<a href="<& /htm/url:encode, "/$session{user}/story.html", d=>$path&>">More</a>
+<a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d=>$path&>">More</a>
 <a href="">Comment</a>
-% if ( $session{chanauth} && $session{user} && 
-%      $session{chanauth}{$session{user}}) {
-<a href="<& /htm/url:encode, "/$session{user}/admin/story.html", d=>$path&>">Edit</a>
+% if ( $session{chanauth} && $spoejs{channel} && 
+%      $session{chanauth}{$spoejs{channel}}) {
+<a href="<& /htm/url:encode, "/$spoejs{channel}/admin/story.html", d=>$path&>">Edit</a>
 % }
 </td>
 </tr>

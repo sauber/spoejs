@@ -22,5 +22,5 @@ if ( 1 ) {
 
   # We need to call this here to have %spoejs available in pages that do 
   # not get through dhandler
-  $m->comp( '/htm/session/setupSession' );
+  $m->comp( '/htm/session/setupSession', req_uri => $ENV{REQUEST_URI} );
 </%init>

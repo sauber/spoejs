@@ -29,7 +29,7 @@ function cr_table( tabbody ) {
 }
 </SCRIPT>
 
-<h2>File upload for <% $session{user} %></h2>
+<h2>File upload for <% $spoejs{channel} %></h2>
 <form name="files" method="post" action="" enctype="multipart/form-data">
 Story to add media to:<br/>
 <select name="story">
@@ -67,7 +67,7 @@ Media to add:<br/>
 # XXX: Add support for multi-upload via zip-files
 
 my @upl;
-my $user_path = "$ENV{DOCUMENT_ROOT}/users/$session{user}";
+my $user_path = "$ENV{DOCUMENT_ROOT}/users/$spoejs{channel}";
 my $SL = new Spoejs::StoryList( path => $user_path, 
                                 lang => $spoejs{lang_handle} );
 my @stories = $SL->list_stories();

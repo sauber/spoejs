@@ -19,7 +19,7 @@ if ( 1 ) {
 }
 
   my $doc_root =  "$ENV{DOCUMENT_ROOT}htm";
-
+#warn "Requri: " . $ENV{REQUEST_URI};
   my ($req_uri, $path) = $m->comp( '/htm/session/setupSession',  
                                    req_uri => $ENV{REQUEST_URI} );
 

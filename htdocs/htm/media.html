@@ -25,7 +25,7 @@ Filename: <% $ML->get_picref($params{p})->utf_filename() %><br/>
 Back to story
 </a>
 <%init>
-  my $web_path = "/users/$session{user}/$params{d}";
+  my $web_path = "/users/$spoejs{channel}/$params{d}";
   my $path = "$ENV{DOCUMENT_ROOT}$web_path";
   my $ML = new Spoejs::MediaList( path => $path );
   my $S = new Spoejs::Story( path => $path, lang => $spoejs{lang_handle} );

@@ -1,4 +1,4 @@
-% unless ( $session{user} && $session{chanauth} &&
-%          $session{chanauth}{$session{user}} ) {
+% unless ( $spoejs{channel} && $session{chanauth} &&
+%          $session{chanauth}{$spoejs{channel}} ) {
 Please login before accesing this page
 % return undef; } else { return 1; }

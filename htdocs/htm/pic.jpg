@@ -2,7 +2,7 @@
 % $m->abort();
 <%init>
     use Spoejs::Pic;
-    my $path = "$ENV{DOCUMENT_ROOT}/users/$session{user}/$params{d}";
+    my $path = "$ENV{DOCUMENT_ROOT}/users/$spoejs{channel}/$params{d}";
 
     my $P = Spoejs::Pic->new( path => $path, file => $params{p} );
     my $picref = $P->get( size => $params{m} );

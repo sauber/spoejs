@@ -9,6 +9,6 @@
 <%init>
   # Todo add div. parameters
   my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
-	 path=>"$ENV{DOCUMENT_ROOT}/users/$session{user}" );
+	 path=>"$ENV{DOCUMENT_ROOT}/users/$spoejs{channel}" );
   my @stories = $SL->list_stories(); 
 </%init>

@@ -2,12 +2,12 @@
 <tr>
 <th>
 <a href="/index.html">Site Home</a>
-% if ( defined $session{user} ) {
-<a href="/<% $session{user} %>/index.html">Channel Home</a>
+% if ( defined $spoejs{channel} ) {
+<a href="/<% $spoejs{channel} %>/index.html">Channel Home</a>
 % }
 <a href="/htm/about.html">About</a>
-% if ( $session{chanauth} && $session{chanauth}{$session{user}} ) {
-<a href="/<%$session{user}%>/admin/story.html">New</a>
+% if ( $session{chanauth} && $session{chanauth}{$spoejs{channel}} ) {
+<a href="/<% $spoejs{channel} %>/admin/story.html">New</a>
 % }
 &nbsp;
 </th>

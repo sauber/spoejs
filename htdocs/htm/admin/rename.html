@@ -19,7 +19,7 @@ value="<% $pic->utf_filename() %>">
 <input type="submit" name="submit">
 </form>
 <%init>
-  my $user_path = "$ENV{DOCUMENT_ROOT}/users/$session{user}/$params{d}";
+  my $user_path = "$ENV{DOCUMENT_ROOT}/users/$spoejs{channel}/$params{d}";
 
   if ( defined $ARGS{submit} ) {
 

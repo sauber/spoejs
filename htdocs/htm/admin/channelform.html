@@ -6,7 +6,9 @@
 <a href="/<%$ARGS{shortname}%>/index.html">Click here to continue</a>
 % } else {
 %# !defined user, allows new signups, but not edits to existing
-% return unless $m->comp( 'checkLogin.html' ) or !defined $session{user};
+% if ( defined $spoejs{channel} ) {
+%   return unless $m->comp( 'checkLogin.html' );
+% }
 <form method="post">
 <table>
 % foreach my $t ( @text_f ) {
@@ -28,7 +30,7 @@ my $CC;
 my %errs;
 
 # Load data if channel exists
-my $path = "$ENV{DOCUMENT_ROOT}users/$session{user}";
+my $path = "$ENV{DOCUMENT_ROOT}users/$spoejs{channel}";
 if ( -d $path && !$ARGS{submit} )
 {
   # XXX: What goes on when adding 'lang' here? (~nothing is returned in get()
