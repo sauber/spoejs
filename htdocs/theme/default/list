@@ -1,0 +1,19 @@
+<table>
+<tr>
+  <th>Abstract</th>
+</tr>
+% foreach my $story ( @stories ) {
+<tr>
+  <td><% $story->get( 'abstract' ) %></td>
+</tr>
+% }
+</table>
+
+
+
+<%init>
+  # Todo add div. parameters
+  my $L  = new Spoejs::Lang( 'en' );
+  my $SL = new Spoejs::StoryList( lang => $L );
+  my @stories = $SL->list_stories(); 
+</%init>
