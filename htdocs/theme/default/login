@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: login,v 1.10 2004/05/18 07:40:46 snicki Exp $
+%# $Id: login,v 1.11 2004/05/19 09:35:11 bottle18 Exp $
 %#
 <form method="post" action="<%$action%>" class="topbar">
 % if ( defined $session{$ses_var} ) {
@@ -19,7 +19,7 @@
   <td><&|/l&>passwd</&>:</td>
   <td><input size="10" type="password" name="password" tabindex="2" /></td>
 %if ( $show_signup ) {
-   <td><a href="/htm/admin/signup.html"><font size="1"><&|/l&>do_u_need_account</&></font></a></td>
+  <td><a href="/htm/admin/signup.html"><font size="1"><&|/l&>new_account</&></font></a></td>
 % } else {
 <td>&nbsp;</td>
 %}
