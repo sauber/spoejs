@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.17 2004/03/12 13:20:00 sauber Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.17 $';
+# $Id: Text.pm,v 1.18 2004/03/14 09:42:38 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.18 $';
 
 
 # Constructor
@@ -185,7 +185,7 @@ sub get {
 	if ( ref $self->{data}{$val} ) {
 	    # $val contains langs, so deep-copy
 	    $res{$val} = dclone( $self->{data}{$val} );
-	    %res = $self->{lang}->tr( \%res );
+	    %res = defined $self->{lang} ? $self->{lang}->tr( \%res ) : %res;
 	    return $res{$val};
 	} else {
 	    # No langs so return value
