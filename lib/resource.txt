@@ -1588,7 +1588,6 @@ new_category:
 new_password:
   ar: 'كلمة مرور جديدة'
   da: Nyt password
-  de: Neues Benutzerkonto
   de: neues Passwort
   en: New Password
   es: Nueva contraseña
@@ -1968,8 +1967,6 @@ random:
   hu: véletlen
   is: Tilviljanakennt
   iw: 'ראנדומאלי'
-  ja: 'ランダム'
-  mk: 'Случаен'
   ru: 'Случайный'
   zh: '随便'
   ja: '名前の変更を消去'
