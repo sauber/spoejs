@@ -12,8 +12,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.29 2004/08/16 10:23:42 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.29 $';
+# $Id: Media.pm,v 1.30 2004/10/28 12:07:18 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.30 $';
 
 
 # Initializor
@@ -51,7 +51,7 @@ sub _check_save {
 	      $self->_err( "Zero-sized file" );
       }
   } else {
-      return $self->_err( "$self-.{file}: Unsupported filetype" );
+      return $self->_err( "$self->{file}: Unsupported filetype" );
   }
 }
 

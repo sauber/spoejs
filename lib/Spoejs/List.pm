@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.16 2004/07/04 02:48:44 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.16 $';
+# $Id: List.pm,v 1.17 2004/10/28 12:07:18 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.17 $';
 
 
 # Constructor
@@ -162,12 +162,12 @@ sub prev {
 __END__
 
 =head1 NAME
-                                                                                
+
 Spoejs::List - General list module for stories, channels, media, etc.
 
 =head1 LICENSE
-                                                                                
+
 Artistic License
 http://www.opensource.org/licenses/artistic-license.php
-                                                                                
+
 =cut
