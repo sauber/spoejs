@@ -17,6 +17,7 @@ if ( 1 ) {
   use Spoejs::StoryList;
   use Spoejs::Resource;
   use Spoejs::Icon;
+  use Spoejs::Pic;
   use Spoejs::SiteConf;
 }
 
