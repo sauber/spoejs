@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.8 2004/03/02 05:48:59 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.8 $';
+# $Id: Text.pm,v 1.9 2004/03/04 03:41:09 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.9 $';
 
 
 # Constructor
@@ -29,9 +29,6 @@ sub _initialize {
     $self->{lang}        = $param{lang};
     $self->{is_loaded}   = 0;
     $self->{is_modified} = 0;
-
-#    assert( $param{path} ne '' ) if DEBUG;
-#    assert( $param{file} ne '' ) if DEBUG;
 }
 
 
