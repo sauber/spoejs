@@ -8,7 +8,6 @@ my $S = new Spoejs::Stats( path => $path );
 
 $S->access($img) or print "Error: $S->{msg}\n";
 my($t,$m,$w) = $S->stats($img);
-print "Error: $S->{msg}\n" unless $t;
 print "Total for $img: $t\n";
 print "Month for $img: $m\n";
 print "Week  for $img: $w\n";

@@ -1,8 +1,8 @@
 package Spoejs::Stats;
 use base ( "Spoejs" );
 
-# $Id: Stats.pm,v 1.2 2004/08/11 12:03:36 sauber Exp $
-$Spoejs::Stats::VERSION = $Spoejs::Stats::VERSION = '$Revision: 1.2 $';
+# $Id: Stats.pm,v 1.3 2004/08/11 12:44:15 sauber Exp $
+$Spoejs::Stats::VERSION = $Spoejs::Stats::VERSION = '$Revision: 1.3 $';
 
 # Constructor
 #
@@ -19,13 +19,14 @@ sub _initialize {
 sub _read_and_parse {
   my $self = shift;
 
+  return 1 if $self->{is_read};
   $self->_check_save() or return undef;
+  $self->{is_read} = 1;
 
   # week = 604800 = 60*60*24*7
   # month = 2592000 = 60*60*24*30
   my $weekago = time-604800; my $monthago = time-2592000;
-  open LOG, "$self->{path}/$self->{file}" or return
-      $self->_err("Could not open $self->{path}/$self->{file} for appending");
+  open LOG, "$self->{path}/$self->{file}" or return 1;
     while (<LOG>) {
       chomp;
       my($timestamp,$entry) = split ';';
@@ -46,7 +47,23 @@ sub access {
 
   $self->_check_save() or return undef;
   $self->{is_modified} .= time.";$entry\n";
+  $self->{_data}{$entry}{total}++;
+  $self->{_data}{$entry}{month}++;
+  $self->{_data}{$entry}{week}++;
   return 1;
+}
+
+# Return total, month and week stats for filename
+#
+sub stats {
+  my($self,$entry) = @_;
+
+  $self->_read_and_parse();
+  my @a;
+  $a[0] = $self->{_data}{$entry}{total} || 0 ;
+  $a[1] = $self->{_data}{$entry}{month} || 0 ;
+  $a[2] = $self->{_data}{$entry}{week} || 0 ;
+  return @a;
 }
 
 # Delay saving data to disk until object is destroyed
@@ -59,19 +76,6 @@ sub DESTROY {
       print LOG $self->{is_modified};
     close LOG;
   } 
-}
-
-
-# Return total, month and week stats for filename
-#
-sub stats {
-  my($self,$entry) = @_;
-
-  $self->_read_and_parse() unless $self->{_data};
-  return undef unless $self->{_data};
-  return ( $self->{_data}{$entry}{'total'},
-           $self->{_data}{$entry}{'month'},
-           $self->{_data}{$entry}{'week'} );
 }
 
 __END__
