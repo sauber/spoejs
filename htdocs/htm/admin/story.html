@@ -4,7 +4,7 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.43 2004/07/26 12:22:59 snicki Exp $
+$Id: story.html,v 1.44 2004/08/08 19:07:09 snicki Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
@@ -149,7 +149,7 @@ if ( defined $ARGS{submit} ) {
       # Fix story placement if date is changed
       my $story_path = $spoejs{Story}->story_path_from_full();
       $spoejs{Story} = undef; # Make sure data is written
-      my $new_path = $spoejs{SL}->fix_dir_date( $story_path ) 
+      my $new_path = $spoejs{SL}->fix_dir_date( $story_path )
                                                   or warn $spoejs{SL}->{msg};
       $spoejs{Story} = new Spoejs::Story( path => $new_path,
                                           lang => $spoejs{lang_handle} );
@@ -169,7 +169,7 @@ if ( defined $ARGS{submit} ) {
 }
 
 # Pre-fill author if none is found in ARGS
-$ARGS{author} = $spoejs{ChannelConf}->get( 'name' ) 
+$ARGS{author} = $spoejs{ChannelConf}->get( 'name' )
                                                  unless defined $ARGS{author};
 
 # Used for category chooser - counts ignored
