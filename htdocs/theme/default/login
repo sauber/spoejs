@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: login,v 1.6 2004/04/10 07:21:08 sauber Exp $
+%# $Id: login,v 1.7 2004/05/17 14:37:00 snicki Exp $
 %#
 <form method="post" action="<%$action%>">
 % if ( defined $session{$ses_var} ) {
@@ -13,10 +13,16 @@
 <tr>
   <td><&|/l&>username</&>:</td>
   <td><input type="text" name="username" /></td>
-</tr><tr>
+  <td><input type="submit" name="login" value="<&|/l&>login</&>"/></td>
+</tr>
+<tr>
   <td><&|/l&>passwd</&>:</td>
   <td><input type="password" name="password" /></td>
-  <td><input type="submit" name="login" value="<&|/l&>login</&>"/></td>
+%if ( $show_signup ) {
+  <td><a href="/htm/admin/signup.html"><font size="1">Do you need an account?</font></a></td>
+% } else {
+<td>&nbsp;</td>
+%}
 </tr>
 </table>
 % }
@@ -25,3 +31,12 @@
  $action => undef
  $ses_var => undef
 </%args>
+<%init>
+my $policy = $spoejs{SiteConf}->get( 'policy' );
+my $show_signup;
+if ( ( $policy eq 'freeall' or $policy eq 'signup_approve')
+#     and !defined $spoejs{channel} 
+) {
+  $show_signup = 1;
+}
+</%init>
