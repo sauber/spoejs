@@ -1,14 +1,28 @@
 package Spoejs::ChannelConf;
 use base ( "Spoejs::Text" );
+use Digest::MD5 qw(md5_hex);
+use Data::Dumper;
 
-# $Id: ChannelConf.pm,v 1.6 2004/04/09 17:18:38 sauber Exp $
-$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.6 $';
+# $Id: ChannelConf.pm,v 1.7 2004/05/08 05:58:06 snicki Exp $
+$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.7 $';
 
 sub _initialize {
     my $self = shift;
     $self->SUPER::_initialize(@_, file => 'settings.txt' );
 }
 
+# "Intercept" and encrypt password
+sub set {
+    my $self = shift;
+    my %params = @_;
+
+    if ( defined $params{password} && ref $params{password} ) {
+	foreach my $k (keys %{$params{password}}) {
+	    $params{password}{$k} = md5_hex( $params{password}{$k} );
+	}
+    }
+    $self->SUPER::set( %params );
+}
 
 # 
 #

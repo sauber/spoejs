@@ -3,10 +3,11 @@ use base ( "Spoejs::List", "Spoejs" );
 use Spoejs::ChannelConf;
 use File::Path;
 use Date::Manip;
+use Digest::MD5 qw(md5_hex);
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.18 2004/05/06 05:56:06 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.18 $';
+# $Id: ChannelList.pm,v 1.19 2004/05/08 05:58:06 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.19 $';
 
 
 # Constructor
@@ -33,6 +34,9 @@ sub _initialize {
 sub search_channels {
 
     my ($self, %p ) = @_;
+
+    # Convert password to md5 for checking against stored version
+    $p{password} = md5_hex( $p{password} ) if defined $p{password};
 
     my @all;
     @all = $self->_list_from_filename( $self->{path}, $self->{file} )
