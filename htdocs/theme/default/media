@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.41 2004/06/03 01:21:26 snicki Exp $
+%# $Id: media,v 1.42 2004/06/04 11:20:20 snicki Exp $
 %#
 % unless ( $no_div ) {
 <div class="media" <% $styleh %>>
@@ -35,7 +35,7 @@
   my $size = $spoejs{p}{m} || $ARGS{m};
 
 # caching
-my $lang = $spoejs{lang_handle}->{lang_order}->[0];
+my $lang = $spoejs{current_language};
 my $ckey ="$spoejs{channel_path}-$ARGS{d}-$ARGS{p}-$size-$lang";
 return if $m->cache_self(key => $ckey, expires_in => '240 hours');
 

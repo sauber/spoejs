@@ -3,10 +3,11 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: comments.sub,v 1.1 2004/06/03 10:24:25 sauber Exp $
+%# $Id: comments.sub,v 1.2 2004/06/04 11:20:20 snicki Exp $
 %#
 <& $w,
-   comments => \@comments
+   comments => \@comments,
+   post_url => $post_url
 &>
 <%init>
 # The idea here is to get the name of the file holding comments,
@@ -15,8 +16,11 @@
 # The end result is a reference to a list of hashes
 
 # Read in the data like this
-#my $C = new Spoejs::Comments ( file=>$file );
-#my $data = $C->get( $object );
+my $story_path = "$spoejs{channel_path}/$spoejs{p}{d}";
+my $C = new Spoejs::Comments( path => $story_path );
+my $object = $spoejs{p}{p} || $spoejs{p}{s} || 'story';
+my $data = $C->get( $object );
+warn "Date from \"$object\": $data";
 
 # For test generate random data
 sub random_comments {
@@ -43,7 +47,7 @@ sub random_comments {
 
   return $res;
 }
-my $data = random_comments();
+#my $data = random_comments();
 
 # After data is load from file, then parse it into a list of hashes
 my @comments = map {{ /^(\w+?)\s*=\s*(.+?)$/gm }}
@@ -57,10 +61,12 @@ for ( @comments ) {
   $_->{Date} = strftime "%F", localtime $_->{Date};
 }
 
-
+my %post_opt;
+for ( qw ( d p s ) ) {
+  $post_opt{$_} = $spoejs{p}{$_} if defined $spoejs{p}{$_}; 
+}
+my $post_url = $m->scomp( '/htm/url:encode', "/$spoejs{channel}/comment.html", %post_opt );
 </%init>
 <%args>
   $w      => undef
-  $file   => undef
-  $object => undef
 </%args>

@@ -3,18 +3,18 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: comments,v 1.3 2004/06/04 08:24:13 sauber Exp $
+%# $Id: comments,v 1.4 2004/06/04 11:20:20 snicki Exp $
 %#
 <h2>**comments**</h2>
 % #
 % # Display all existing comments
 % #
 % for my $c ( @$comments ) {
-<p><% $c->{Text} %><p>
+<p><% $c->{Comment} %><p>
 % if ( $c->{Email} ) {
-**posted_by**: <a href="mailto:<% $c->{Email} %>"><% $c->{By} %></a>.
+**posted_by**: <a href="mailto:<% $c->{Email} %>"><% $c->{Name} %></a>.
 % } else {
-**posted_by**: <% $c->{By} %>.
+**posted_by**: <% $c->{Name} %>.
 % }
 **date**: <% $c->{Date} %>.
 <hr>
@@ -24,7 +24,7 @@
 % #
 %# XXX: Extract username/email from cookie if possible
 <h2>**post_a_comment**</h2>
-<form method="post" action="/htm/comment.html">
+<form method="post" action="<% $post_url %>">
 **name**: <input name="name" size="20">
 **email**: <input name="email" size="20"> (optional)<br>
 **comments**: <input name="comment" size="60"><br>
@@ -35,4 +35,5 @@
 </%init>
 <%args>
   $comments  => "No comment"
+  $post_url   => undef
 </%args>

@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: autohandler,v 1.28 2004/05/20 10:13:36 snicki Exp $
+%# $Id: autohandler,v 1.29 2004/06/04 11:20:20 snicki Exp $
 %#
 <& htm/header.html &>
 <body>
@@ -27,6 +27,7 @@ if ( 1 ) {
   use Spoejs::Archive;
   use Spoejs::ChannelConf;
   use Spoejs::ChannelList;
+  use Spoejs::Comments;
   use Spoejs::Icon;
   use Spoejs::Lang;
   use Spoejs::Movie;
