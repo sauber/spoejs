@@ -8,8 +8,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use YAML qw( DumpFile LoadFile);
 
-# $Id: Text.pm,v 1.30 2004/06/11 05:34:25 sauber Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.30 $';
+# $Id: Text.pm,v 1.31 2004/06/11 07:45:46 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.31 $';
 
 
 # Constructor
@@ -112,8 +112,13 @@ sub _read_data {
     # Simple detection of old file format
     unless ( $firstline =~ /</g ) {
 
-	$self->{data} = LoadFile( "$self->{path}/$self->{file}" );
-
+	eval{$self->{data} = LoadFile( "$self->{path}/$self->{file}" );};
+	if ($@) { 
+	    my @msgs = split /\n/, $@;
+	    my $msg ="$self->{path}/$self->{file}:\n$msgs[2]\n$msgs[3]";
+	    warn $msg;
+	    return $self->_err( $msg );
+	}
     } else {
 
     # Return here if file does not exist. 
