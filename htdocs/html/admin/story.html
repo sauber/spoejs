@@ -8,6 +8,14 @@ Click here to add media to story.
 </a>
 % return; }
 
+% if ( $ARGS{delete} ) {
+<h4>Story deleted successfully.</h4>
+<a href="/<% $session{user} %>/index.html">
+Click here to go to channel home.
+</a>
+% return; }
+
+
 <h4>Editing for language: <% $cur_lang %></h4>
 
 <form action="" method="post">
@@ -18,11 +26,14 @@ Story title:<br/>
 Date: (leave blank if story is current)<br/>
 <input type="text" size="60" name="date" value="<%$ARGS{date}%>"/><br/>
 Category:<br/>
-%#<select name="category">
-%#<option value="">Please select</option>
-%#</select>
-%#or new: 
-<input type="text" size="30" name="category" value=""/><br/>
+<select name="category">
+<option value="">Please select</option>
+% foreach my $cat ( sort keys %categories ) {
+<option value="<% $cat %>"><% $cat %></option>
+% }
+</select>
+or new: 
+<input type="text" size="30" name="newcategory" value=""/><br/>
 Story abstract:<br/>
 <textarea name="abstract" rows="5" cols="60"><%$ARGS{abstract}%></textarea>
 <br/>
@@ -31,6 +42,7 @@ Full story text:<br/>
 cols="60"><%$ARGS{fulltext}%></textarea>
 <br/>
 <input type="submit" name="submit" value="Submit"/>
+<input type="submit" name="delete" value="Delete"/>
 </form>
 
 <a href="/<% $session{user} %>/admin/upload_d<% $story_url %>.html">
@@ -77,16 +89,23 @@ if ( $ARGS{submit} ) {
   $S = new Spoejs::Story( path => "$chan_path/$story_dir",
                           lang => $spoejs{lang_handle} );
 
-# XXX: Verify input
+  # XXX: Verify input
+  $ARGS{category} = $ARGS{newcategory} if $ARGS{newcategory};
 
-# Save to story
-my %new_data;
-for ( @entries ) {
-  $new_data{$_}{$cur_lang} = $ARGS{$_};
+  # Save to story
+  my %new_data;
+  for ( @entries ) {
+    $new_data{$_}{$cur_lang} = $ARGS{$_};
+  }
+
+  $S->set( %new_data );
 }
 
-$S->set( %new_data );
+if ( $ARGS{delete} ) {
+  $SL->del_story( story => $story_dir );
 }
+
+my %categories = $SL->count_stories( by => 'category' );
 
 my $story_url = $story_dir;
 $story_url =~ s{/}{}g;
