@@ -4,7 +4,7 @@ Offer to sign up
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: signup.html,v 1.15 2004/07/04 03:42:35 snicki Exp $
+$Id: signup.html,v 1.16 2004/07/12 08:24:56 sauber Exp $
 </%doc>
 % if ( defined $ARGS{signup_form} && !$error ) {
 <& journal_tab.mas &>
@@ -24,7 +24,7 @@ $Id: signup.html,v 1.15 2004/07/04 03:42:35 snicki Exp $
 <legend>
 **journal_info**
 </legend>
-<&| /htm/admin/fill_in_form.mas, data => \%ARGS, spec => $spec &>
+<&| /htm/admin/fill_in_form.mas, data => \%ARGS, spec => $spec, ignore => ['code', 'md5sum'] &>
 <form name="signup_form" method="post" action="">
 <table>
 <tr>
@@ -51,6 +51,11 @@ $Id: signup.html,v 1.15 2004/07/04 03:42:35 snicki Exp $
   <td class="form_desc">
  **journal_id_description** http://<% $ENV{SERVER_NAME}%>/&lt;**journal_id**&gt;
   </td>
+</tr>
+<tr>
+  <td>**name**:</td>
+  <td><input type="text" name="name" size="30"/></td>
+  <td class="form_desc">**name_description**</td>
 </tr>
 <tr>
   <td>**title**:</td>
@@ -82,6 +87,7 @@ $Id: signup.html,v 1.15 2004/07/04 03:42:35 snicki Exp $
 </tr>
 </table>
 <br/>
+<& /w, w => "humantest" &><br/>
 <input type="submit" name="signup_form" value="**submit**"/>&nbsp;
 </form>
 </&>
@@ -102,6 +108,18 @@ my $shortname_check = sub { my $data = shift;
 my $password2_check = sub { my $data = shift; return ( $data->{password} eq
                                                       $data->{password2} ); };
 
+my($name,$code,$md5sum) = @{$spoejs{ARGS}}{ 'name', 'code', 'md5sum' };
+
+# Was human verification submitted?
+my $rr;
+if ( $code and $md5sum and $name ) {
+  $rr = $m->comp('/htm/humantest:response', $code, $md5sum, $name);
+}
+
+# Add humanname to ARGS for verification
+$ARGS{humanname} = $session{humanname} if exists $session{humanname};
+my $herror = "**security_image_failed_verification**, **error_code** $rr\t";
+
 my $spec = { username    => { regexp      => '^.{4,16}$',
                               error       => '**invalid_username**' },
              shortname   => { regexp      => '^[a-z]{4,16}$',
@@ -116,6 +134,8 @@ my $spec = { username    => { regexp      => '^.{4,16}$',
                               error_check => '**password_mismatch**' },
              description => { regexp      => '.+',
                               error       => '**invalid_description**' },
+             humanname   => { regexp => '.+',
+                              error  => $herror },
             };
 
 # Define which variables can be localized 
