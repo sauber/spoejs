@@ -1,3 +1,10 @@
+%# Map localization keywords to translated phrases
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: l,v 1.8 2004/04/09 17:41:41 sauber Exp $
+%#
 %# Put input (available in $m->content) through Resource
 <% $spoejs{res_handle}->get( $m->content ) %>\
 <%perl>
