@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.32 2004/07/07 10:38:52 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.32 $';
+# $Id: StoryList.pm,v 1.33 2004/07/16 15:15:54 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.33 $';
 
 sub _initialize {
     my $self = shift;
@@ -88,6 +88,7 @@ sub _ls_loop {
     return @new;
 };
 
+
 #### Public interface ####
 
 # Add story - creates dir-structure for new story
@@ -149,24 +150,36 @@ sub del_story {
     return $res > 0 ? $res : $self->_err( "Could not remove story" );
 }
 
+
 # XXX: Add counts by year/month
 #
 sub count_stories {
-    my $self = shift;
-    my %in = @_;
-    my %counts;
+  my $self = shift;
+  my %in = @_;
+  my %counts;
 
-    # Load story array
-    $self->_all_stories();
+  # Load story array
+  $self->_all_stories();
 
-    if ( $in{by} eq 'category' or  $in{by} eq 'author' ) {
-	for my $s ( @{$self->{stories}} ) {
-	    my $cat = $s->get( $in{by} );
-	    $counts{$cat}++;
-	}
-	return %counts;    
+  if ( $in{by} eq 'category' or  $in{by} eq 'author' ) {
+    for my $s ( @{$self->{stories}} ) {
+      my $cat = $s->get( $in{by} );
+      $counts{$cat}++;
     }
-    
+    return %counts;    
+  }
+}
+
+
+sub hide_inactive {
+   my $self = shift;
+   $self->{show_inactive} = undef;
+}
+
+
+sub show_inactive {
+   my $self = shift;
+   $self->{show_inactive} = 1;
 }
 
 
@@ -184,7 +197,7 @@ sub list_stories {
 
     # Get story array
     $self->_all_stories(); # Load story array
-    $self->_sort_by_date( );
+    $self->_sort_by_date();
 
     my @res = @{$self->{stories}};
 
@@ -206,6 +219,9 @@ sub list_stories {
     delete $in{from};
     my $to = $in{to};
     delete $in{to};
+
+    # Filter inactive
+    $in{active} = 'yes' unless $self->{show_inactive};
 
     if ( keys %in > 0 ) {
 	# Filter by keyword, if given
@@ -261,6 +277,7 @@ sub list_stories {
 
     return @res;
 }
+
 
 sub list {
     my $self = shift;

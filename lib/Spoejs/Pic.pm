@@ -1,8 +1,8 @@
 package Spoejs::Pic;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-# $Id: Pic.pm,v 1.17 2004/06/21 12:59:40 sauber Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.17 $';
+# $Id: Pic.pm,v 1.18 2004/07/16 15:15:54 snicki Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.18 $';
 
 # Supported extensions
 $Spoejs::Pic::EXTENSIONS = 'jpg|jpeg|png|gif|bmp';
@@ -52,6 +52,7 @@ sub html_imgsize {
 
   return "width=\"$x\" height=\"$y\"";
 }
+
 
 __END__
 

@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: setupSession,v 1.17 2004/06/13 05:07:11 snicki Exp $
+%# $Id: setupSession,v 1.18 2004/07/16 15:16:11 snicki Exp $
 %#
 <%perl>
   unless ( -w "$ENV{DOCUMENT_ROOT}/users/" ) {
@@ -67,14 +67,18 @@ if ( length $path > 3 and length $path < 11 ) {
   # Set resource object
   $spoejs{res_handle} = new Spoejs::Resource( lang => $spoejs{lang_handle} );
 
-
-
 # Should this be conditional on actual pages?
 if ( $spoejs{channel_path} ) {
   $spoejs{SL} = new Spoejs::StoryList( path => $spoejs{channel_path},
 				       lang => $spoejs{lang_handle} );
   $spoejs{error}{$m->current_comp->source_file} = $spoejs{SL}->{msg}
     if $spoejs{SL}->{msg};
+
+  # Show inactive stories if logged in
+  if (  defined $session{chanauth} &&
+        defined $session{chanauth}{$spoejs{channel}} ) {
+    $spoejs{SL}->show_inactive();
+  }
 
   $spoejs{ChannelConf} = new Spoejs::ChannelConf( path => $spoejs{channel_path},
 				       lang => $spoejs{lang_handle} );

@@ -4,7 +4,7 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.41 2004/07/14 06:53:48 snicki Exp $
+$Id: story.html,v 1.42 2004/07/16 15:16:10 snicki Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
@@ -63,16 +63,24 @@ $Id: story.html,v 1.41 2004/07/14 06:53:48 snicki Exp $
 <br/>
 <br/>
 % }
+**show_story**:<br/>
+**yes**: <input type="radio" name="active" 
+                value="yes"<% $checked{active_yes}%>/> 
+**no_**: <input type="radio" name="active" 
+                value="no"<% $checked{active_no}%>/> 
+<br/>
+<br/>
 <input type="submit" name="submit" value="**submit**"/>&nbsp;
 </form>
 </fieldset>
 <%init>
 my $cur_lang = $spoejs{current_language};
-my @entries = qw( title date category abstract fulltext author thumbnail );
+my @entries = qw( title date category abstract fulltext author thumbnail active );
 
 my $story_dir = $spoejs{p}{d} || undef;
 my %checked;
 my $checked_file;
+
 
 # Get data from existing story or create new story
 if ( defined $spoejs{Story} && !$ARGS{submit} ) {
@@ -98,6 +106,13 @@ if ( defined $spoejs{Story} && !$ARGS{submit} ) {
     $checked{specific} = ' checked="checked"';
   } else {
     $checked{default} =  ' checked="checked"';
+  }
+
+  # HTML check'ing of 'active'
+  if ( $ARGS{active} eq 'no' ) {
+    $checked{active_no} = ' checked="checked"';
+  } else {
+    $checked{active_yes} = ' checked="checked"';
   }
 }
 

@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.24 2004/07/15 12:41:47 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.24 $';
+# $Id: Media.pm,v 1.25 2004/07/16 15:15:54 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.25 $';
 
 
 # Initializor
@@ -93,6 +93,29 @@ sub _check {
 }
 
 
+# Create IM object from blob
+#
+sub _blob_to_im {
+  my $self = shift;
+
+  return undef unless $self->{_blob};
+
+  $self->{_im} = Image::Magick->new();
+  $self->{_im}->BlobToImage($self->{_blob});
+}
+
+
+# Create blob from IM
+#
+sub _im_to_blob {
+  my $self = shift;
+
+  return undef unless $self->{_im};
+
+  $self->{_blob} = $self->{_im}->ImageToBlob();
+}
+
+
 # Scale current image magick object to specified maxside
 #
 sub scale {
@@ -103,8 +126,9 @@ sub scale {
   # Convert from blob to im first ?
   my($blob);
   unless ( $self->{_im} ) {
-    $self->{_im} = Image::Magick->new();
-    $self->{_im}->BlobToImage($self->{_blob});
+    $self->_blob_to_im();
+#    $self->{_im} = Image::Magick->new();
+#    $self->{_im}->BlobToImage($self->{_blob});
     $blob = not undef;
   }
 
@@ -115,7 +139,7 @@ sub scale {
 
   # Convert back to blob?
   if ( $blob ) {
-    $self->{_blob} = $self->{_im}->ImageToBlob();
+    $self->_im_to_blob();
     undef $self->{_im};
   }
 };
@@ -208,16 +232,28 @@ sub info {
 
 # Rotate 90 degrees clockwise (90) or counterclickwise (270)
 sub rotate {
-  my($self,$degrees) = @_;
+  my( $self, $degrees ) = @_;
 
   # XXX: Load object into image magick object
-  #return undef unless $self->{file};
-  #$self->load() or return undef;
+  return undef unless $self->{file};
+  $self->load() or return undef;
+  $self->_blob_to_im();
 
   # And then rotate it
-  $self->{_im}->Rotate(degrees=>$degrees)
+  $self->{_im}->Rotate( degrees => $degrees );
 
   # XXX: And now save image... but save requires filehandle instead of blob?
+  $self->_im_to_blob();
+
+  open _PIC, ">$self->{path}/$self->{file}" or 
+         return $self->_err( "Could not open $self->{path}/$self->{file}: $!");
+    binmode _PIC;
+    print _PIC $self->{_blob};
+  close _PIC;
+
+#  $self->save( \$self->{_blob} );
+
+  warn "Image rotated";
 }
 
 
