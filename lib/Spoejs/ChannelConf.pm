@@ -3,8 +3,8 @@ use base ( "Spoejs::Text" );
 use Digest::MD5 qw(md5_hex);
 use Data::Dumper;
 
-# $Id: ChannelConf.pm,v 1.9 2004/07/04 06:16:56 snicki Exp $
-$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.9 $';
+# $Id: ChannelConf.pm,v 1.10 2004/08/08 12:04:03 snicki Exp $
+$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.10 $';
 
 sub _initialize {
     my $self = shift;
@@ -35,7 +35,9 @@ sub set {
 	warn 'Setting/changing of shortname is not allowed!';
     }
 
-    $self->SUPER::set( %params );
+    $self->SUPER::set( %params ) or return undef;
+
+    return 1;
 }
 
 # 
