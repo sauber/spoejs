@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.43 2004/06/25 05:07:59 sauber Exp $
+%# $Id: media,v 1.44 2004/07/14 07:04:27 snicki Exp $
 %#
 % unless ( $no_div ) {
 <div class="media" <% $styleh %>>
@@ -35,12 +35,12 @@
   my $size = $spoejs{p}{m} || $ARGS{m};
 
 # caching
-my $lang = $spoejs{current_language};
-my $ckey ="$spoejs{channel_path}-$ARGS{d}-$ARGS{p}-$size-$lang";
-return if $m->cache_self(key => $ckey, expires_in => '240 hours');
+my $ckey ="$spoejs{channel_path}-$ARGS{d}-$ARGS{p}-$size";
 
-  # get width/height for html
-  unless ( $html_wh or $ARGS{p} eq 'ANY' ) {
+# get width/height for html
+unless ( $html_wh or $ARGS{p} eq 'ANY' ) {
+  $html_wh = $m->cache->get($ckey);
+  if ( !defined $html_wh  ) {
     my $M = new Spoejs::Media( path => "$spoejs{channel_path}/$ARGS{d}",
                                file => $ARGS{p} );
     $spoejs{error}{$m->current_comp->source_file} = "$M->{msg}: $ARGS{p}"
@@ -48,7 +48,9 @@ return if $m->cache_self(key => $ckey, expires_in => '240 hours');
     return undef if defined $M->{msg};
 
     $html_wh = $M->html_imgsize( size => $size );
+    $m->cache->set($ckey, $html_wh);
   }
+}
 
   # Find correct extension, ANY is specialcase, and always jpg
   my $ext;
