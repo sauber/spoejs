@@ -9,6 +9,6 @@
   # Todo add div. parameters
   # XXX: better path handling
   my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
-        	                  path=>$spoejs{channel_path} );
+        	                  path => $spoejs{channel_path} );
   my %count = $SL->count_stories( by => 'category' ); 
 </%init>
