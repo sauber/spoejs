@@ -4,7 +4,7 @@ Show comments for story or media
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: comments,v 1.9 2004/06/13 07:22:51 snicki Exp $
+$Id: comments,v 1.10 2004/06/15 02:06:05 snicki Exp $
 </%doc>
 % if ( @$comments > 0 ) {
 <h2>**comments**</h2>
@@ -33,7 +33,7 @@ $Id: comments,v 1.9 2004/06/13 07:22:51 snicki Exp $
 **email**: <input name="email" size="20"/> (optional)<br>
 **comments**: <input name="comment" size="60"/><br>
 <& /w, w => "humantest" &>
-<input type="submit" name="submit" value="**add_comment**"/>
+<input type="submit" name="comments" value="**add_comment**"/>
 </form>
 </&>
 <%args>

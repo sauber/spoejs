@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index-page,v 1.14 2004/06/11 03:46:57 sauber Exp $
+%# $Id: index-page,v 1.15 2004/06/15 02:06:05 snicki Exp $
 %#
 <table>
 <tr>
@@ -24,7 +24,7 @@
 <& /w, w => "list" &>
 % if ( $edit_href ) {
 %#<br/>
-<a href="/<% $edit_href %>">**channelconf**</a>
+<a href="/<% $edit_href %>">**journal_config**</a>
 % }
 <%init>
 </%init>

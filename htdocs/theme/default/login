@@ -4,13 +4,13 @@ Login and logout buttons
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: login,v 1.17 2004/06/13 07:55:21 snicki Exp $
+$Id: login,v 1.18 2004/06/15 02:06:05 snicki Exp $
 </%doc>
 <h2>**user_login**</h2>
 <&| /htm/admin/fill_in_form.mas, data => $spoejs{ARGS} &>
 <form name="login_form" method="post" action="" class="topbar">
 % if ( defined $session{$ses_var} ) {
-<input type="submit" name="logout" value="**logout**"/>
+<input type="submit" name="login_form" value="**logout**"/>
 % } else {
 **username**: <input size="10" type="text" name="username" tabindex="1" />
 <br/>
@@ -18,7 +18,7 @@ $Id: login,v 1.17 2004/06/13 07:55:21 snicki Exp $
 **passwd**: <input size="10" type="password" name="password" tabindex="2" />
 <br/>
 <br/>
-<input type="submit" name="login" value="**login**" tabindex="3"/>
+<input type="submit" name="login_form" value="**login**" tabindex="3"/>
 % }
 </form>
 </&>

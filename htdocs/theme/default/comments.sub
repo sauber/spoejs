@@ -4,7 +4,7 @@ Generate data for comments
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: comments.sub,v 1.5 2004/06/13 07:25:39 snicki Exp $
+$Id: comments.sub,v 1.6 2004/06/15 02:06:05 snicki Exp $
 </%doc>
 <& $w,
    comments => \@comments,
@@ -17,7 +17,7 @@ my $C = new Spoejs::Comments( path => $story_path );
 my $object = $spoejs{p}{p} || $spoejs{p}{s} || 'story';
 
 # Process submitted data; $spoejs{ARGS} contains the top-level post data
-handle_submit( $C, $object ) if defined $spoejs{ARGS}->{submit};
+handle_submit( $C, $object ) if defined $spoejs{ARGS}->{comments};
 
 # The idea here is to get the name of the file holding comments,
 # and the object to extract the comments for.
