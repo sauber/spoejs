@@ -104,6 +104,10 @@ fieldset.center
 {
   margin: 0 10% 0 10%;
 }
+fieldset.full
+{
+  margin: 0 0% 0 0%;
+}
 
 legend {
   padding: .2em;
