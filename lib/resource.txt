@@ -5,15 +5,21 @@
 <lang=zh/>关于
 </about>
 
+<abstract>
+<lang=en/>Abstract
+</abstract>
+
 <active>
 <lang=da/>Aktiv
 <lang=en/>Active
+<lang=gr/>Ενεργό
 <lang=zh/>运行
 </active>
 
 <add>
 <lang=da/>Tilføj
 <lang=en/>Add
+<lang=gr/>Προσθήκη
 <lang=hu/>ad
 <lang=zh/>添加
 </add>
@@ -21,11 +27,14 @@
 <addfilepc>
 <lang=da/>Tilføj filer fra PC
 <lang=en/>Add files from PC
+<lang=gr/>Προσθήκη αρχείων απο τον υπολογιστή σας
+<lang=zh/>从PC上引入文件
 </addfilepc>
 
 <addfileserver>
 <lang=da/>Tilføj filer fra server
 <lang=en/>Add files from server 
+<lang=zh/>从Server上引入文件
 </addfileserver>
 
 <addnewchannel>
@@ -37,6 +46,7 @@
 <administration>
 <lang=da/>Administration
 <lang=en/>Administration
+<lang=gr/>Διαχείριση
 <lang=hu/>adminisztracio
 <lang=zh/>系统管理
 </administration>
@@ -60,8 +70,13 @@
 <archive>
 <lang=da/>Arkiver
 <lang=en/>Archive
+<lang=gr/>Αρχείο
 <lang=zh/>完全控制
 </archive>
+
+<backtostory>
+<lang=en/>Back to story
+</backtostory>
 
 <bg>
 <lang=ar/>بلغاري
@@ -116,6 +131,7 @@
 <categorylist>
 <lang=da/>Kategori liste
 <lang=en/>Category list
+<lang=gr/>Λίστα κατηγοριών
 <lang=zh/>一揽
 </categorylist>
 
@@ -150,6 +166,7 @@
 <choose>
 <lang=da/>Vælg
 <lang=en/>Choose
+<lang=gr/>Επιλογή
 <lang=hu/>valaszt
 <lang=zh/>选择
 </choose>
@@ -157,12 +174,14 @@
 <click_channel>
 <lang=da/>Gå til kannal
 <lang=en/>Click here to go to channel
+<lang=gr/>Ακύρωση
 <lang=zh/>按这里进入网页
 </click_channel>
 
 <click_continue>
 <lang=da/>Fortsæt
 <lang=en/>Click here to continue
+<lang=gr/>Συνέχεια
 <lang=zh/>按这里继续
 </click_continue>
 
@@ -184,13 +203,13 @@
 </congrat_signup>
 
 <currentfile>
-<lang=da/>Nuværende filer
 <lang=en/>Current files
 </currentfile>
 
 <currentfilename>
 <lang=da/>Aktuelt filnavn
 <lang=en/>Current filename
+<lang=zh/>现在的文件名
 </currentfilename>
 
 <da>
@@ -244,6 +263,7 @@
 <delete>
 <lang=da/>Slet
 <lang=en/>Delete
+<lang=gr/>Διαγραφή
 <lang=hu/>torol
 <lang=zh/>删去
 </delete>
@@ -251,6 +271,8 @@
 <deletefile>
 <lang=da/>Slet fil
 <lang=en/>Delete file
+<lang=gr/>Διαγραφή αρχείου
+<lang=zh/>删去文件
 </deletefile>
 
 <description>
@@ -259,6 +281,7 @@
 <lang=da/>Beskrivelse
 <lang=en/>Description
 <lang=fr/>Description
+<lang=gr/>Περιγραφή
 <lang=hu/>leiras
 <lang=it/>descrizione
 <lang=ja/>記述
@@ -269,11 +292,13 @@
 <dimensions>
 <lang=da/>Dimensioner
 <lang=en/>Dimentions
+<lang=gr/>Διαστάσεις
 </dimensions>
 
 <edit>
 <lang=da/>Ret
 <lang=en/>Edit
+<lang=gr/>Επεξεργασία
 <lang=hu/>szerkeszt
 <lang=zh/>编辑
 </edit>
@@ -281,6 +306,7 @@
 <edit_lang>
 <lang=da/>Retter for sproget
 <lang=en/>Editing language
+<lang=gr/>Επεξεργασία γλώσσας
 <lang=hu/>nyelv-szerkesztes
 <lang=zh/>编辑语言
 </edit_lang>
@@ -306,6 +332,7 @@
 <lang=bg/>Испански
 <lang=da/>Spansk
 <lang=en/>Spanish
+<lang=gr/>Ισπανικά
 <lang=hu/>spanyol
 <lang=zh/>西班牙语
 </es>
@@ -313,21 +340,28 @@
 <fileformat>
 <lang=da/>Filformat
 <lang=en/>File format
+<lang=gr/>Τύπος αρχείου
+<lang=zh/>文件格式
 </fileformat>
 
 <filename>
 <lang=da/>Filnavn
 <lang=en/>Filename
+<lang=gr/>Όνομα αρχείου
+<lang=zh/>文件名
 </filename>
 
 <filesize>
 <lang=da/>Filstørrelse
 <lang=en/>Filesize
+<lang=gr/>Μέγεθος αρχείου
+<lang=zh/>文件大小
 </filesize>
 
 <fileupload>
 <lang=da/>Filupload til historie
 <lang=en/>File upload for story
+<lang=zh/>文件上载
 </fileupload>
 
 <first>
@@ -365,6 +399,10 @@
 <lang=hu/>a tortenet teljes szovege
 <lang=zh/>全文报导正文
 </full_story>
+
+<fulltext>
+<lang=en/>Full text
+</fulltext>
 
 <fullpath>
 <lang=da/>Fuld sti
@@ -494,6 +532,10 @@
 <lang=zh/>注销
 </logout>
 
+<media>
+<lang=en/>Media
+</media>
+
 <media_man>
 <lang=da/>Medie håndtering
 <lang=en/>Media management
@@ -537,6 +579,7 @@
 <newfilename>
 <lang=da/>Nyt filnavn
 <lang=en/>New filename
+<lang=zh/>新的文件名
 </newfilename>
 
 <newpass>
@@ -545,11 +588,11 @@
 <lang=zh/>新的密码
 </newpass>
 
-<no>
+<no_>
 <lang=da/>Nej
 <lang=en/>No
 <lang=zh/>否
-</no>
+</no_>
 
 <no_stories>
 <lang=da/>Ingen historier
@@ -621,6 +664,7 @@
 
 <preview>
 <lang=en/>Preview
+<lang=zh/>预现
 </preview>
 
 <public>
@@ -749,6 +793,10 @@
 <lang=hu/>tortenet kivonat
 <lang=zh/>记事摘要
 </story_abstract>
+
+<story_home>
+<lang=en/>Story home
+</story_home>
 
 <storytitle>
 <lang=da/>Historie titel
