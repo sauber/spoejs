@@ -1,7 +1,8 @@
 <%init>
 if ( $login ) {
 
-  my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
+  my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
+                                    lang => $spoejs{lang_handle} );
 
   my @channels = $CL->search_channels( username => $username,
 	                               password => $password );
