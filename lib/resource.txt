@@ -28,6 +28,7 @@ add:
   et: Lisa
   gr: 'Προσθήκη'
   hu: ad
+  is: Bæta við
   it: agguingere
   iw: 'מוסיף'
   ja: '追加'
@@ -228,8 +229,7 @@ blank_default:
   en: '(leave blank if story is current)'
   es: |-
     (déjalo en blanco si el artículo ya está seleccionado)
-  et: |-
-    (Kui lugu on pooleli, siis jäta tühjaks)
+  et: '(Kui lugu on pooleli, siis jäta tühjaks)'
   hu: hagyd uresen ha a tortenet mostani?
   it: lasccia spazio se la storia e coretto
   iw: |-2
@@ -731,8 +731,8 @@ fileupload:
   da: Filupload til historie
   de: Datei für Geschichte laden
   en: File upload for story
-  et: Lisa jutule fail
   es: Cargar archivo para artículo
+  et: Lisa jutule fail
   it: rinnvo il docomento per la storia
   iw: 'שמירת קובץ לסיפור'
   ja: |-
@@ -925,6 +925,7 @@ invalid_journal_id:
     Погрешен идентификациски број на
     списанието
 invalid_name:
+  da: Ugyldigt navn
   en: Invalid Name
   es: Nombre incorrecto
   ja: '無効な名前'
@@ -1298,8 +1299,8 @@ media:
   da: Media
   de: Medien
   en: Media
-  et: Kujundus
   es: Medios
+  et: Kujundus
   it: Media
   iw: 'מידיא'
   ja: 'メディア'
@@ -1441,6 +1442,7 @@ new_story:
   es: Artículo nuevo
   et: Uus jutt
   hu: uj tortenet
+  is: Ný frásögn
   it: nuova storia
   iw: 'סיפור חדש'
   ja: '新しいストーリー'
@@ -1454,12 +1456,15 @@ new_username:
   en: New username
   es: Nuevo nombre de usuario
   et: Uus varjunimi
+  is: Nýtt notendanafn
   it: nuono Username
   iw: 'שם משתמש חדש'
   ja: '新しいユーザーネーム'
   mk: 'Ново корисничко име'
   ru: 'новое имя пользователя'
   zh: '新的用户名'
+newest_story_at:
+  en: Newest story at
 newfilename:
   ar: 'أسم ملف جديد'
   da: Nyt filnavn
@@ -1487,6 +1492,7 @@ no_:
   en: No
   es: No
   et: Ei
+  is: Nei
   it: no
   iw: 'לא'
   ja: 'いいえ'
@@ -1577,7 +1583,8 @@ passwd_description:
   en: Something easy to remember but hard to guess
   es: |-
     Algo que sea fácil de recordar pero difícil de adivinar
-  et: Mida endal oleks hea meelde jätta, kuid teistel raske arvata
+  et: |-
+    Mida endal oleks hea meelde jätta, kuid teistel raske arvata
   it: |-
     qualcosa facile di ricordare ma difficile per trovare
   ja: |-
@@ -1737,6 +1744,7 @@ random:
   es: Aleatorio
   et: Juhuslik
   hu: veletlen
+  is: Tilviljanakennt
   iw: 'ראנדומאלי'
   ja: 'ランダム'
   mk: 'Случаен'
@@ -1838,6 +1846,7 @@ shortname:
   ru: 'Сокращенное имя'
   zh: '短名'
 show_story:
+  da: Vis historie
   en: Show story
   es: Ver artículo
   ja: 'ストーリーを見せる'
@@ -2109,8 +2118,7 @@ thumb_count:
   de: Anzahl der Voransichten pro Seite
   en: Thumbnails per page
   es: Imágenes en miniatura por página
-  et: |-
-    Ühe lehe kujundusviitade arv
+  et: 'Ühe lehe kujundusviitade arv'
   it: i schizzi per la pagina
   ja: 'ページごとのサムネール'
 thumb_count_description:
@@ -2120,8 +2128,7 @@ thumb_count_description:
   en: Number of media thumbnails per story page
   es: |-
     Número de imágenes en miniatura por página del artículo
-  et: |-
-    Ühel lehele pandud kujundusviitade arv
+  et: 'Ühel lehele pandud kujundusviitade arv'
   it: i numeri di media schizzi per la pagina storia
   ja: |-
     ストーリーページの中のメディアサムネイルの数
@@ -2246,6 +2253,7 @@ yes:
   en: Yes
   es: Sí
   et: Nõus
+  is: Já
   it: si
   iw: 'כן'
   ja: 'はい'
@@ -2269,6 +2277,7 @@ yourname:
   es: Tu nombre
   et: Su nimi
   hu: neve, neved?
+  is: Nafn
   it: il tuo nome
   iw: 'השם שלך'
   ja: 'あなたのお名前'
