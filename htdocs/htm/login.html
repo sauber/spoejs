@@ -4,7 +4,7 @@ login, authenticate, logout
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: login.html,v 1.14 2004/06/13 07:09:27 snicki Exp $
+$Id: login.html,v 1.15 2004/06/15 05:29:21 snicki Exp $
 </%doc>
 % if ( defined $session{chanauth} ) {
 %  # List authorized channels
@@ -18,10 +18,6 @@ $Id: login.html,v 1.14 2004/06/13 07:09:27 snicki Exp $
 <br/>
 % }
 <& /w, w => "login", ses_var => 'chanauth', box => 1 &>
-%unless ( defined $session{chanauth} ) {
-%if ( $show_signup ) {
-<br/><a href="/htm/admin/signup.html">**new_account**</a>
-% }}
 <%init>
 if ( $login ) {
 
@@ -74,12 +70,6 @@ if ( defined $session{chanauth} ) {
 
   # Go directly to page if we are authorized for only one "function"
   $m->redirect( $authorized[0]->[1] ) if @authorized == 1 && $login;
-}
-
-my $policy = $spoejs{SiteConf}->get( 'policy' );
-my $show_signup;
-if ( ( $policy eq 'freeall' or $policy eq 'signup_approve') ) {
-  $show_signup = 1;
 }
 </%init>
 <%method check_login>
