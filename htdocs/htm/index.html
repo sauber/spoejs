@@ -1,22 +1,14 @@
-<h2><% $CC->get( 'title' ) %></h2>
-<h4><% $CC->get( 'description' ) %></h4>
-<center>
-<& /w, w => "list" &>
-</center>
-categorylist:<br/>
-<& /w, w => "categorylist" &>
-<br/>
-storytitlelist:<br/>
-<& /w, w => "storytitlelist" &>
-<br/>
-% if ( $session{chanauth} ) {
-<a href="/<%$spoejs{channel}%>/admin/channelform.html">Channel configuration</a>
-% }
+<& /w, w => 'index',
+       CC => $CC,
+       edit_href => $edit_href
+&>
 <%init>
 my $CC = new Spoejs::ChannelConf( path=> $spoejs{channel_path},
                                   lang => $spoejs{lang_handle} );
 $spoejs{error}{$m->current_comp->source_file} = $CC->{msg} if $CC->{msg};
+
+my $edit_href;
+if ( $session{chanauth} ) {
+  $edit_href="$spoejs{channel}/admin/channelform.html";
+}
 </%init>
-<%args>
- $params => undef
-</%args>

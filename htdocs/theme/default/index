@@ -1,0 +1,23 @@
+<h2><% $CC->get( 'title' ) %></h2>
+<h4><% $CC->get( 'description' ) %></h4>
+<center>
+<& /w, w => "list" &>
+</center>
+<br/>
+<fieldset><legend>Category list</legend>
+<& /w, w => "categorylist" &>
+</fieldset>
+<br/>
+<fieldset><legend>Story title list</legend>
+<& /w, w => "storytitlelist" &>
+</fieldset>
+% if ( $edit_href ) {
+<br/>
+<a href="/<% $edit_href %>">Channel configuration</a>
+% }
+<%init>
+</%init>
+<%args>
+ $CC        => undef
+ $edit_href => undef
+</%args>
