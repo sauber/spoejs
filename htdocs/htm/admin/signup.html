@@ -4,7 +4,7 @@ Offer to sign up
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: signup.html,v 1.16 2004/07/12 08:24:56 sauber Exp $
+$Id: signup.html,v 1.17 2004/07/22 14:18:24 snicki Exp $
 </%doc>
 % if ( defined $ARGS{signup_form} && !$error ) {
 <& journal_tab.mas &>
@@ -126,6 +126,8 @@ my $spec = { username    => { regexp      => '^.{4,16}$',
                               error       => '**invalid_journal_id**',
                               check       => $shortname_check,
                               error_check => '**journal_exists**' },
+             name        => { regexp      => '.+',
+                              error       => '**invalid_name**' },
              title       => { regexp      => '.+',
                               error       => '**invalid_title**' },
 	     password    => { regexp      => '...+',
@@ -140,7 +142,7 @@ my $spec = { username    => { regexp      => '^.{4,16}$',
 
 # Define which variables can be localized 
 my @localize = qw ( title description );
-my @no_local = qw( username shortname language password public );
+my @no_local = qw( username shortname name language password public );
 
 # Get site signup policy
 my $policy = $spoejs{SiteConf}->get( 'policy' );

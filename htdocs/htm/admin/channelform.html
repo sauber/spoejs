@@ -4,7 +4,7 @@ Register channel or edit configuration
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: channelform.html,v 1.53 2004/07/14 06:12:36 snicki Exp $
+$Id: channelform.html,v 1.54 2004/07/22 14:19:01 snicki Exp $
 </%doc>
 <& /js/confirm.js &>
 <& journal_tab.mas &>
@@ -53,6 +53,11 @@ $Id: channelform.html,v 1.53 2004/07/14 06:12:36 snicki Exp $
 <td class="form_desc">
  **journal_id_description** http://<% $ENV{SERVER_NAME}%>/&lt;**journal_id**&gt;
   </td>
+</tr>
+<tr>
+  <td>**name**:</td>
+  <td><input type="text" name="name" size="30"/></td>
+  <td class="form_desc">**name_description**</td>
 </tr>
 <tr>
   <td>**title**:</td>
@@ -183,7 +188,7 @@ sub process_journal_info_form {
 
   # Define which variables can be localized 
   my @localize = qw ( title description );
-  my @no_local = qw( shortname language public theme );
+  my @no_local = qw( shortname name language public theme );
 
   # Pick appropriate args from %ARGS and ad language where appropriate
   my $cur_lang = $spoejs{current_language};
