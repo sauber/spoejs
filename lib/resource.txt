@@ -4,6 +4,16 @@
 <lang=zh/>大约
 </about>
 
+<administration>
+<lang=en/>Administration
+<lang=zh/>大约
+</administration>
+
+<siteconf>
+<lang=en/>Site configuration
+<lang=zh/>增加
+</siteconf>
+
 <add>
 <lang=da/>Tilføj
 <lang=en/>Add
