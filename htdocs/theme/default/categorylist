@@ -1,14 +1,8 @@
-% foreach my $cat ( keys %count ) {
-<a href="<& /htm/url:encode, "/$spoejs{channel}/index.html", c => $cat &>">
-  <% $cat %> (<% $count{$cat} %>)<br/>
+% for my $info ( @cat_info ) {
+<a href="<% $$info{href} %>">
+  <% $$info{category} %> (<% $$info{count} %>)<br/>
 </a>
 % }
-
-
-<%init>
-  # Todo add div. parameters
-  # XXX: better path handling
-  my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
-        	                  path => $spoejs{channel_path} );
-  my %count = $SL->count_stories( by => 'category' ); 
-</%init>
+<%args>
+  @cat_info => undef
+</%args>
