@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.18 2004/06/03 01:08:28 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.18 $';
+# $Id: Media.pm,v 1.19 2004/06/03 01:10:57 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.19 $';
 
 
 # Initializor
@@ -252,7 +252,7 @@ sub ping {
     my $im = Image::Magick->new();
 
     my ( $w,$h,$s,$f ) = $im->Ping( "$self->{path}/$self->{file}" );
-    ($x,$y) = $self->_scaledxy( $x, $y, $params{scalem} ) 
+    ($w,$h) = $self->_scaledxy( $w, $h, $params{scalem} ) 
 	if defined $params{scalem};
 
   return ( $w,$h,$f,$m );
