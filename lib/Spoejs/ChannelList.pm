@@ -5,8 +5,8 @@ use File::Path;
 use Date::Manip;
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.11 2004/04/02 13:20:02 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.11 $';
+# $Id: ChannelList.pm,v 1.12 2004/04/02 23:53:28 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.12 $';
 
 
 # Constructor
@@ -155,6 +155,8 @@ sub newest_channels {
   }
 
   @channels = ( @channels,  @authchans ) unless ( $authchans[0] eq undef );
+
+  @channels = grep { ! $seen{$_->get('shortname')} ++ } @channels; # Uniqify
 
   # Sort channels by date of newest entry
   for my $c ( @channels ) {
