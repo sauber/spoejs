@@ -8,13 +8,17 @@ Code structure:
  - Handle form submissions
  - Debug on/off
  - Test UTF8
+ - Error message when cookies missing
 
 Data:
  - Don't save text unless really changed
  - File locks
 
 ChannelList:
- - List channels on frontpage
+   (List channels on frontpage, done)
+ - Signup
+ - Langchooser
+ - Other sites
 
 Login:
  - Login, verify username password
@@ -30,6 +34,7 @@ Register:
 
 Session:
  - Session component to avoid masonhandler code
+ - Expire cookies
 
 URL parser:
  - Handle utf8 in _ parameters
@@ -40,6 +45,10 @@ Theme:
  - css
  - Use specified theme or fall back to default
  - Test non-default theme
+
+GUI Design:
+ - Logo
+ - Page top
 
 StoryConf:
  - Store GMT unixtime as well as user-entered date string
@@ -91,6 +100,8 @@ Translator:
  - Login
  - Show all resources for one lang
  - Allow submit translations
+ - Support parameters in translations,... %1 %2 ...
+ - da vs. dk, ja vs. jp
 
 Search:
  - Seach in channels and stories
