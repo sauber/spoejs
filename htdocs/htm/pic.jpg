@@ -1,9 +1,9 @@
-#% Render a jpg picture
+%# Render a jpg picture
 %#
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: pic.jpg,v 1.5 2004/04/09 17:56:19 sauber Exp $
+%# $Id: pic.jpg,v 1.6 2004/04/10 00:27:38 snicki Exp $
 %#
 <% $$picref %>
 % $m->abort();
