@@ -3,9 +3,16 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: dhandler,v 1.28 2004/04/09 17:41:41 sauber Exp $
+%# $Id: dhandler,v 1.29 2004/05/19 13:31:32 sauber Exp $
 %#
 <%init>
+
+# Handle icons
+if ( $spoejs{url_noparam} =~ /ico.jpg/ ) {
+  $m->comp( "/htm/ico.jpg", %ARGS );
+  $m->abort;
+}
+
 my $doc =  "$ENV{DOCUMENT_ROOT}/htm/$spoejs{url_noparam}";
 
 unless ( -d $spoejs{channel_path} ) {

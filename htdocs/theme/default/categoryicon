@@ -3,9 +3,9 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: categoryicon,v 1.11 2004/05/09 03:09:24 snicki Exp $
+%# $Id: categoryicon,v 1.12 2004/05/19 13:31:48 sauber Exp $
 %#
-<img src="<& /htm/url:encode, "/$spoejs{channel}/ico.jpg", c=>$category, m=>$size&>" alt="<% $category %> icon"/>\
+<img src="<& /htm/url:encode, "/ico/ico.jpg", c=>$category, m=>$size&>" alt="<% $category %> icon"/>\
 %#width="<%$size%>" height="<%$size%>"
 <%args>
     $category => undef
