@@ -2,8 +2,8 @@ package Spoejs::Movie;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
 
-# $Id: Movie.pm,v 1.12 2004/06/23 06:44:11 sauber Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.12 $';
+# $Id: Movie.pm,v 1.13 2004/06/24 07:34:50 sauber Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.13 $';
 
 # Supported extensions
 $Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov|qt|mpeg|mpe';
@@ -69,9 +69,14 @@ sub ping {
   my($self, %params) = @_;
 
   my $file = "$self->{path}/$self->{file}";
-  my $info = `mplayer -nosound -vc null -ac null -ao null -vo null -frames 0 -identify $file | grep VIDEO:`;
+  my $info = `mplayer -nosound -vc null -ac null -ao null -vo null -frames 0 -identify $file | grep VIDEO`;
   my $size = -s $file;
-  my($format,$width,$height) = $info =~ /VIDEO:\s+(.*?)\s+(\d+)x(\d+)/;
+  my($format,$width,$height);
+  ($format,$width,$height) = $info =~ /VIDEO:\s+(.*?)\s+(\d+)x(\d+)/m;
+  unless ($width > 0 and $height > 0 ) {
+    ($format,$width,$height) = $info =~
+           /VIDEO_FORMAT=(\w+).*VIDEO_WIDTH=(\d+).*VIDEO_HEIGHT=(\d+)/s;
+  }
 
   ($width,$height) = $self->_scaledxy( $width, $height, $params{scalem} ) 
 	if defined $params{scalem};
