@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.24 2004/04/19 02:53:32 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.24 $';
+# $Id: StoryList.pm,v 1.25 2004/06/03 01:48:43 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.25 $';
 
 sub _initialize {
     my $self = shift;
@@ -192,36 +192,16 @@ sub list_stories {
     $in{story} = $in{story}->story_path_from_full() if defined $in{story};
     delete $in{story_num};
 
-    # Handle 'story' separately
-    if ( $in{story} ) {
-	my $story_dir = $in{story};
-	$story_dir =~ s/\///g;
-
-	@res = $self->_ls_loop( $in{'prev'}, 
-			       sub { return $_[0] <= $story_dir; },
-			       \@res ) if $in{'prev'}; 
-	
-	@res = $self->_ls_loop( $in{'next'}, 
-			       sub { return $_[0] >= $story_dir; },
-			       reverse \@res ) if $in{'next'};
-    } 
+    # Extract other params
+    my $story = $in{story};
     delete $in{'story'};
+    my $prev = $in{'prev'};
     delete $in{'prev'};
+    my $next = $in{'next'};
     delete $in{'next'};
-
-    # Handle "from-to" date range separately    
-    if ( $in{from} or $in{to} ) {
-	my $from = $in{from} || 0;
-	$from =~ s/\///g;
-	# XXX: What happens after 99 stories in december 9999?
-	my $to = $in{to} || 99991299;
-	$to =~ s/\///g;
-
-	@res = $self->_ls_loop( -1,
-			       sub { return $_[0] >= $from and $_[0] <= $to; },
-			       \@res ); 
-    } 
+    my $from = $in{from};
     delete $in{from};
+    my = $to = $in{to};
     delete $in{to};
 
     if ( keys %in > 0 ) {
@@ -238,6 +218,34 @@ sub list_stories {
 	    @res = @new;
 	}
     }
+
+    # Handle 'story' separately
+    if ( $story ) {
+	my $story_dir = $story;
+	$story_dir =~ s/\///g;
+
+	@res = $self->_ls_loop( $prev, 
+			       sub { return $_[0] <= $story_dir; },
+			       \@res ) if $prev; 
+	
+	@res = $self->_ls_loop( $next, 
+			       sub { return $_[0] >= $story_dir; },
+			       reverse \@res ) if $next;
+    } 
+
+    # Handle "from-to" date range separately    
+    if ( $from or $to ) {
+	my $froml = $from || 0;
+	$froml =~ s/\///g;
+	# XXX: What happens after 99 stories in december 9999?
+	my $tol = $to || 99991299;
+	$tol =~ s/\///g;
+
+	@res = $self->_ls_loop( -1,
+			     sub { return $_[0] >= $froml and $_[0] <= $tol; },
+			       \@res ); 
+    } 
+
     # Shrink array to 'count' elements
     $#res = $list_count - 1 if $list_count and @res > $list_count;
 
