@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.9 2004/03/04 03:41:09 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.9 $';
+# $Id: Text.pm,v 1.10 2004/03/04 05:29:03 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.10 $';
 
 
 # Constructor
@@ -37,7 +37,7 @@ sub _initialize {
 # Save report hash to file
 # Todo: binmode utf8
 #
-my $store_data = sub {
+sub _store_data {
 
     my $self = shift;
     my %data = %{$self->{data}}; #grab data for easier access
@@ -80,7 +80,7 @@ my $store_data = sub {
 # 1. Support single line: <anno><lang=dk>pic1.jpg: test</lang><anno>
 # 2. binmode utf8
 # 3. skip whitespace
-my $read_data = sub {
+sub _read_data {
 
     my $self = shift;
 
@@ -154,12 +154,12 @@ my $read_data = sub {
 
 # Read file from disk if it is not already in memory 
 #
-my $check_load = sub {
+sub _check_load {
 
     my $self = shift;
 
     if ( $self->{is_loaded} == 0 ) {
-	$self->$read_data();
+	$self->_read_data();
 	$self->{is_loaded} = 1;
     }
 
@@ -175,7 +175,7 @@ sub get {
     my $self = shift;
     my %res;
 
-    $self->$check_load();
+    $self->_check_load();
 
     # Return only requested values if a list is supplied. dclone deep-copies
     if ( @_ == 1 ) {
@@ -220,7 +220,7 @@ sub set {
 
     my $self = shift;
 
-    $self->$check_load();
+    $self->_check_load();
 
     %in_data = @_;
 
@@ -269,7 +269,7 @@ sub del {
 sub DESTROY {
 
     my $self = shift;
-    $self->$store_data( @_ ) if $self->{is_modified};
+    $self->_store_data( @_ ) if $self->{is_modified};
 }
 
 1;

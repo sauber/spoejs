@@ -22,8 +22,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.9 2004/02/28 07:34:05 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.9 $';
+# $Id: StoryList.pm,v 1.10 2004/03/04 05:29:03 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.10 $';
 
 sub _initialize {
     my $self = shift;
@@ -39,7 +39,7 @@ sub _initialize {
 
 # Return references to all stories, sorted by date
 #
-my $all_by_date = sub {
+sub _all_by_date {
 
     my $self = shift;
     my @stories;
@@ -73,7 +73,7 @@ my $all_by_date = sub {
 };
 
 
-my $ls_loop = sub {
+sub _ls_loop {
     my ( $self, $count, $comp, @all ) = @_;
     
     my @new;
@@ -152,7 +152,7 @@ sub count_stories {
     my %counts;
 
     # Get story array
-    @all = $self->$all_by_date();
+    @all = $self->_all_by_date();
  
     if ( $in{by} eq 'category' or  $in{by} eq 'author' ) {
 	for ( @all ) {
@@ -179,7 +179,7 @@ sub list_stories {
     delete $in{count};
 
     # Get story array
-    @res = $self->$all_by_date();
+    @res = $self->_all_by_date();
 
     # Return all stories if no keyword/story is given
     if ( keys %in == 0 ){ }
@@ -189,11 +189,11 @@ sub list_stories {
 	my $story_dir = $in{story};
 	$story_dir =~ s/\///g;
 	
-	@res = $self->$ls_loop( $in{'prev'}, 
+	@res = $self->_ls_loop( $in{'prev'}, 
 			       sub { return $_[0] < $story_dir; },
 			       @res ) if $in{'prev'}; 
 	
-	@res = $self->$ls_loop( $in{'next'}, 
+	@res = $self->_ls_loop( $in{'next'}, 
 			       sub { return $_[0] > $story_dir; },
 			       reverse @res ) if $in{'next'};
 	
@@ -210,7 +210,7 @@ sub list_stories {
 	my $to = $in{to} || 99991299;
 	$to =~ s/\///g;
 
-	@res = $self->$ls_loop( -1,
+	@res = $self->_ls_loop( -1,
 			       sub { return $_[0] >= $from and $_[0] <= $to; },
 			       @res ); 
 	

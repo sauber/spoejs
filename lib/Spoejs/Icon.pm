@@ -3,14 +3,14 @@ use LWP::UserAgent;
 no Carp::Assert;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.3 2004/02/29 08:56:55 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.3 $';
+# $Id: Icon.pm,v 1.4 2004/03/04 05:29:03 snicki Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.4 $';
 
 #### Private interface ####
 
 # Search on google and download the most square icon
 #
-my $downloadicon = sub {
+sub _downloadicon {
   my($self,$category) = @_;
 
   my $ua = LWP::UserAgent->new;
@@ -70,8 +70,8 @@ my $downloadicon = sub {
 sub get {
   my($self,%data) = @_;
 
-  $self->$downloadicon($data{category})
-    || $self->$downloadicon($self->{_didyoumean});
+  $self->_downloadicon($data{category})
+    || $self->_downloadicon($self->{_didyoumean});
   return undef unless $self->{_blob};
 
   # If size is specified then convert to imagemagick object, scale, and
