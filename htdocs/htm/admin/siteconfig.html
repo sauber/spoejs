@@ -17,8 +17,8 @@
 <td align="center">
 <select name="<% $chan->get( 'shortname' ) %>">
 % while ( my ( $k, $v ) = each %yn ) {
-<option value="<% $k %>"<% $chan->get( 'active' ) eq $k ? 
-                                               ' selected="selected">' : '>' %>
+<option value="<% $k %>"\
+<% $chan->get( 'active' ) eq $k ? ' selected="selected">' : '>' %>
 <%$v %>
 </option>
 % }
@@ -39,11 +39,23 @@
 Site policy:
 <select name="policy">
 % foreach my $pol ( sort keys %policy ) {
- <option value="<% $pol %>"<% $SC->get( 'policy' ) eq $pol ? 
-                              ' selected="selected">' : '>' %>
+ <option value="<% $pol %>"\
+<% $SC->get( 'policy' ) eq $pol ? ' selected="selected">' : '>' %>\
 <%$policy{$pol}%></option>
 % }
 </select>
+<br/>
+<br/>
+New username:
+<input type="text" name="newusername" value="<%$session{siteauth}%>"/>
+<br/>
+<br/>
+New password:
+<input type="password" name="newpassword1"/>
+% # Add password verification
+%#<br/>
+%#<br/>
+%#<input type="text" name="newpassword2"/>
 <br/>
 <br/>
 <input type="submit" name="submit" value="Submit" />
@@ -63,7 +75,8 @@ if ( $ARGS{login} ) {
 
   my $p = $SC->get( 'password' );
   my $u = $SC->get( 'username' );
-  $session{siteauth} = 1 if $ARGS{username} eq $u and $ARGS{password} eq $p;
+  $session{siteauth} = $ARGS{username} 
+                            if $ARGS{username} eq $u and $ARGS{password} eq $p;
 
 } elsif ( $ARGS{logout} ) {
 
@@ -96,5 +109,9 @@ if ( $ARGS{submit} ) {
 
   # Set new policy
   $SC->set( policy => $ARGS{policy} ) or warn $SC->{msg};
+
+  # Set new user/pass
+  $SC->set( username => $ARGS{newusername} ) if $ARGS{newusername};
+  $SC->set( password => $ARGS{newpassword1} ) if $ARGS{newpassword1};
 } 
 </%init>
