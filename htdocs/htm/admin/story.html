@@ -4,7 +4,7 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.38 2004/07/02 15:49:36 sauber Exp $
+$Id: story.html,v 1.39 2004/07/07 09:56:41 snicki Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
@@ -13,7 +13,8 @@ $Id: story.html,v 1.38 2004/07/02 15:49:36 sauber Exp $
 % if ( $ARGS{submit} ) {
 <h4>**storysave**.</h4>
 %# Redirect to story page
-% my $url = $m->scomp( '/htm/url:encode', "/$spoejs{channel}/story.html", d => $story_dir );
+% my $url = $m->scomp( '/htm/url:encode',
+%                     "/$spoejs{channel}/story.html", d => $story_dir );
 <& timed_redirect.mas, url => $url, time => 3000 &>
 % return; }
 <h3>**edit_lang**: **<% $cur_lang %>**</h3>
@@ -80,7 +81,6 @@ if ( defined $spoejs{Story} && !$ARGS{submit} ) {
   # Join paragraphs of text
   # This is copied to mixmedia.html, consider factoring out
   for my $k ( keys %ARGS ) {
-    #warn "read $k which is " . ref($ARGS{$k});
     if ( ref($ARGS{$k}) eq "ARRAY" ) {
       $ARGS{$k} = join "\n\n", @{$ARGS{$k}};
     }
@@ -125,6 +125,17 @@ if ( defined $ARGS{submit} ) {
   # Create new story if necessary
   if ( defined $spoejs{Story} ) {
     $spoejs{Story}->set( %new_data );
+
+    if ( defined $new_data{date} ) {
+      # Fix story placement if date is changed
+      my $story_path = $spoejs{Story}->story_path_from_full();
+      $spoejs{Story} = undef; # Make sure data is written
+      my $new_path = $spoejs{SL}->fix_dir_date( $story_path ) 
+                                                  or warn $spoejs{SL}->{msg};
+      $spoejs{Story} = new Spoejs::Story( path => $new_path,
+                                          lang => $spoejs{lang_handle} );
+      $story_dir = $new_path; # Used for redirect
+    }
   } else {
     use POSIX qw(strftime);
     $new_data{date}{$cur_lang} ||= strftime "%F", localtime time();
@@ -135,6 +146,7 @@ if ( defined $ARGS{submit} ) {
     $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
     $S->set( %new_data );
   }
+
 }
 
 # Used for category chooser - counts ignored
