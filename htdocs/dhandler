@@ -1,11 +1,16 @@
-%# Handle non-users (less than 4 or more than 10 chars) calls specially
+%# Handle nonhtml-users (less than 4 or more than 10 chars) calls specially
 % if ( @path < 4 or @path > 10 ) {
 <& "/theme/$P{t}/ico", params => \%P &>
-%
+%#
 %# If requested page exists call it with given params; else show error
 % } elsif ( -e "${doc_root}/$req_uri" ) {
+%# Add header
+<& html/header.html &>
 %
+<body>
 <& "/html/$req_uri", params => \%P &>
+</body>
+</html>
 % } else {
 <& "/html/error.html" &>
 % }
@@ -29,4 +34,19 @@
   $P{t} ||= #$channelconf->get(theme) || 
             'default';
 
+  # Language
+  # Does language extraction belong here?
+  #
+  unless( $m->{session}{browser_langs} ) {
+    my @lang = split /,/, $ENV{HTTP_ACCEPT_LANGUAGE};    
+    $_ = substr( $_, 0, 2 ) for( @lang ); # Remove dialekt and quality
+    my %seen = ();
+    @lang = grep { ! $seen{$_} ++ } @lang; # Uniqify
+    # Set langs in session
+    $m->{session}{browser_langs} = [@lang];
+  }
+  # Set prefered language
+  unless ( $m->{session}{pref_lang} ) {
+    $m->{session}{pref_lang} = $m->{session}{browser_langs}[0];
+  }
 </%init>
