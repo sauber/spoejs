@@ -1,25 +1,9 @@
-% for ( @cats ) {
-<a href="<& /htm/url:encode, "/$spoejs{channel}/index.html", c => $_ &>">\
-<& /w, w => 'categoryicon', category => $_, size => 75 &>\
+% for my $icon ( @cat_icons ) {
+<a href="<% $$icon{href} %>">\
+<& /w, w => 'categoryicon', category => $$icon{category}, size => $icon_size &>\
 </a>
 % }
-<%init>
-my $SL = new Spoejs::StoryList( path => $spoejs{channel_path},
-                                lang => $spoejs{lang_handle} );
-
-my @stories = $SL->list_stories();
-
-my @cats;
-for ( @stories ) {
-  push @cats, $_->get( 'category' );
-}
-
-my %seen = ();
-@cats = grep { ! $seen{$_} ++ } @cats; # Uniqify
-
-# Shrink array to 'count' elements
-$#cats = $numcats - 1 if $numcats and @cats > $numcats;
-</%init>
 <%args>
-  $numcats => 5
+  @cat_icons => undef
+  $icon_size => undef
 </%args>
