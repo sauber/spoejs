@@ -1,24 +1,25 @@
-%# $Id: form.html,v 1.1 2004/03/14 11:40:53 sauber Exp $
+%# $Id: form.html,v 1.2 2004/03/15 04:08:12 sauber Exp $
 <%init>
 use Spoejs::Resource;
 my $R = new Spoejs::Resource;
-my @langs = $R->lang_list;
 my @keys = $R->keys;
-#my $lang = $ARGS{targetlanguage} || 'en';
 my $lang = $session{translator};
+
 # Check if translations have been provided.
 for ( @keys ) {
   if ( $ARGS{$_} ){
     $R->set( $_ => { $lang => $ARGS{$_} } );
   }
 }
+
 #Check if new words have been added. Only for admins.
 if ( $session{wordadmin} ) {
   for ( 1 ..5 ) {
     if ( $ARGS{"newkey$_"} and $ARGS{"newword$_"} ) {
-     $R->set( $ARGS{"newkey$_"} => { 'en' => $ARGS{"newword$_"} } );
+      $R->set( $ARGS{"newkey$_"} => { 'en' => $ARGS{"newword$_"} } );
     }
   }
+  my @keys = $R->keys;
 }
 </%init>
 % unless ( $lang ) {
