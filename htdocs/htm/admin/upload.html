@@ -44,12 +44,14 @@ function cr_table( tabbody ) {
 <input type="button" onclick='cr_table( document.getElementById("tb") );' value="Add field"/>
 </form>
 <br/>
+% if ( defined $session{siteauth} ) {
 <fieldset><legend>Add files from server</legend>
 <form method="post" action="">
 Full path: <input type="text" name="server_path" /><br/>
 <input type="submit" name="server_add" value="Add" />
 </form>
 </fieldset>
+% }
 <br/>
 <h4>Current files:</h4>
 % my $ML = new Spoejs::MediaList( path=>"$spoejs{channel_path}/$spoejs{p}{d}" );
