@@ -2,21 +2,26 @@ package Spoejs::Icon;
 use LWP::UserAgent;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.8 2004/04/02 11:35:07 snicki Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.8 $';
+# $Id: Icon.pm,v 1.9 2004/04/07 09:22:46 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.9 $';
 
 #### Private interface ####
 
 # Search on google and download the most square icon
 #
 sub _downloadicon {
-  my($self,$category,$size) = @_;
+  my($self,$category,$size,$sizeset) = @_;
 
   my $ua = LWP::UserAgent->new;
   $ua->agent('Lynx/2.8.4rel.1 libwww-FM/2.14');
 
   # Perform the search
-  my $r= $ua->get("http://images.google.com/images?q=%22$category%22&imgsz=small");
+  $category =~ s/([\W])/"%".uc(sprintf("%2.2x",ord($1)))/eg;
+  $category =~ s/%20/+/g;
+  my $url = 'http://images.google.com/images?ie=UTF-8&oe=UTF-8&q='
+          . $category;
+  $url .= "&imgsz=$sizeset" if $sizeset;
+  my $r= $ua->get($url);
   my ($index);
   if ($r->is_success) {
     $index = $r->content;
@@ -74,8 +79,10 @@ sub _downloadicon {
 sub get {
   my($self,%data) = @_;
 
-  $self->_downloadicon($data{category},$data{size})
-    || $self->_downloadicon($self->{_didyoumean});
+  $self->_downloadicon($data{category},$data{size},'small')
+    || $self->_downloadicon($self->{_didyoumean},$data{size},'small')
+    || $self->_downloadicon($data{category},$data{size})
+    || $self->_downloadicon($self->{_didyoumean},$data{size});
   return $self->_err('No picture downloaded') unless $self->{_blob};
 
   # If size is specified then convert to imagemagick object, scale, and
