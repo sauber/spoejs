@@ -1,3 +1,10 @@
+%# Global data for page and session
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: setupSession,v 1.10 2004/04/09 18:23:52 sauber Exp $
+%#
 <%perl>
 
   unless ( -w "$ENV{DOCUMENT_ROOT}/users/" ) {
