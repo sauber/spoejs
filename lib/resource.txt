@@ -1,5 +1,6 @@
 ---
 account_information:
+  da: Opgørelse
   en: Account Information
   es: Información de la cuenta
 active:
@@ -260,6 +261,7 @@ category:
   se: kategori
   zh: '种类'
 categorylist:
+  da: Kategoriliste
   de: Themenliste
   en: Category list
   es: Lista de categorías
@@ -611,7 +613,7 @@ es:
   zh: '西班牙语'
 et:
   ar: 'أستوني'
-  da: Estonsk
+  da: Estisk
   de: Estnisch
   en: Estonian
   es: Estonio
@@ -786,7 +788,7 @@ home:
   zh: '本页'
 hu:
   ar: 'هنجاري'
-  da: Ungarnsk
+  da: Ungarsk
   de: Ungarisch
   en: Hungarian
   es: Húngaro
@@ -798,7 +800,7 @@ hu:
   ru: 'венгерский'
   zh: '匈牙利语'
 image_code:
-  da: Billede kode
+  da: Billedekode
   de: Bildcode
   en: Image Code
   es: Código de imagen
@@ -838,6 +840,8 @@ invalid_journal_id:
   mk: >-
     Погрешен идентификациски број на
     списанието
+invalid_name:
+  en: Invalid Name 
 invalid_password:
   da: Det angivne password er for kort
   de: Passwort hat zu wenig Zeichen
@@ -854,7 +858,7 @@ invalid_thumb_count:
   it: il nombre invalido dello schizzo
   ja: '無効な数のサムネイル'
 invalid_title:
-  da: Fejl i tittel
+  da: Fejl i titel
   de: falscher Titel
   en: 'Invalid title '
   es: Título incorrecto
@@ -960,7 +964,7 @@ journal_config:
   mk: |-
     Конфигурација на списанието
 journal_default:
-  da: Journal standars
+  da: Journal standard
   de: Ausgaben-Voreinstellung
   en: Journal default
   es: Diario predeterminado
@@ -1173,6 +1177,7 @@ media:
   ru: 'мультимедиа'
   zh: '煤体'
 media_annotations:
+  da: Mediekommentar
   de: Anmerkungen zu Medien
   en: Media Annotations
   es: Anotaciones de medios
@@ -1192,17 +1197,20 @@ media_man:
   ru: 'управление мультимедиа'
   zh: '媒体管理'
 media_mixing:
+  da: Medieblanding
   de: Medienverknüpfung
   en: Media mixing
   es: Mezcla de medios
   it: Media mescorare
   ja: 'メディアミックス'
 media_rename:
+  da: Omdøb medie
   de: geänderte Bezeichnung von Medien
   en: Media rename
   es: Cambiar nombre de medio
   ja: 'メディアに再度名前をつける'
 media_upload:
+  da: Upload medie
   de: Medienübertragung
   en: Media upload
   es: Cargar medio
@@ -1246,6 +1254,7 @@ name:
   ja: '名前'
   mk: 'Име'
 name_description:
+  da: Navnebeskrivelse
   en: Name Description
   es: Descripción del nombre
 name_missing:
@@ -1315,6 +1324,7 @@ newfilename:
   ru: 'новое имя файла'
   zh: '新的文件名'
 newpass:
+  da: Ny adgangskode
   en: New Passwrod
   es: Nueva contraseña
 no_:
@@ -1643,6 +1653,8 @@ shortname:
   mk: 'Кратко име'
   ru: 'Сокращенное имя'
   zh: '短名'
+show_story:
+  en: Show story 
 show_trans:
   da: Vis engelske oversættelser
   de: 'Übersetzungsmöglichkeiten anzeigen'
@@ -1716,6 +1728,7 @@ specific:
   ru: 'Определенный'
   zh: '具体'
 statusjournal:
+  da: Status for journaler på denne side
   de: Verwendung von Ausgaben auf dieser Seite
   en: Status for journals on this site
   es: Estado de los diarios en este sitio
@@ -1742,21 +1755,25 @@ story:
   mk: 'Приказна'
   zh: '记事'
 story_abstract:
+  da: Resumé
   en: Story Abstract
   es: Resumen del artículo
 story_deleted:
+  da: Historie slettet
   de: gelöschte Geschichten
   en: Story deleted
   es: Artículo eliminado
   it: 'la stora e '
   ja: 'ストーリーを消去'
 story_details:
+  da: Detaljer fra historien
   de: komplette Geschichte
   en: Story details
   es: Datos del artículo
   it: piu di storia
   ja: 'ストーリーの詳細'
 story_edit:
+  da: 'Ændre historie'
   de: zusammengefasste Geschichte
   en: Story edit
   es: Edición del artículo
@@ -1801,6 +1818,7 @@ storytitle:
   ru: 'Заголовок рассказа'
   zh: '记事标题'
 storytitlelist:
+  da: Overskrift
   de: Themenüberblick für Geschichten
   en: Story title list
   es: Lista de títulos de artículos
@@ -1831,6 +1849,7 @@ summary:
   mk: 'Апстракт'
   zh: '摘要'
 syndication:
+  da: Sammenslutning
   de: Syndikation
   en: Syndication
   es: Syndication
@@ -1867,6 +1886,7 @@ theme_description:
   mk: |-
     Визуелен изглед на списанието
 thumb_count:
+  da: Markeringer pr. side
   de: Anzahl der Voransichten pro Seite
   en: Thumbnails per page
   es: Imágenes en miniatura por página
