@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract,v 1.24 2004/04/12 05:42:25 snicki Exp $
+%# $Id: abstract,v 1.25 2004/04/16 13:17:21 sauber Exp $
 %#
 <h3><% $title %></h3>
 <br/>
@@ -27,7 +27,7 @@
 <b><&|/l&>posted_by</&>:</b> <% $author %><br/>
 <b><&|/l&>category</&>:</b> <% $category %><br/>
 <br/>
-<% $abstract %>
+<& /w, w => "text", text=>$abstract &>
 </div>
 <%args>
   $title      => undef
