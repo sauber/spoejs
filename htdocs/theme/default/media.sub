@@ -1,0 +1,79 @@
+<%doc>
+Show scaled picture or movie
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: media.sub,v 1.1 2004/08/12 11:07:21 snicki Exp $
+</%doc>
+<& $w,
+ href          => $href,
+ imgsrc        => $imgsrc,
+ no_div        => $no_div,
+ annotation    => $annotation,
+ styleh        => $styleh,
+ stylew        => $stylew,
+&>
+<%init> 
+
+ # We need a picture to continue
+  return unless defined $ARGS{p};
+
+  # Let size (m) be overridable in url 
+  my $size = $spoejs{p}{m} || $ARGS{m};
+
+# caching
+my $ckey ="$spoejs{channel_path}-$ARGS{d}-$ARGS{p}-$size";
+
+# get width/height for html
+unless ( $html_wh or $ARGS{p} eq 'ANY' ) {
+  $html_wh = $m->cache->get($ckey);
+  if ( !defined $html_wh  ) {
+    my $M = new Spoejs::Media( path => "$spoejs{channel_path}/$ARGS{d}",
+                               file => $ARGS{p} );
+    $spoejs{error}{$m->current_comp->source_file} = "$M->{msg}: $ARGS{p}"
+	 if defined $M->{msg};
+    return undef if defined $M->{msg};
+
+    $html_wh = $M->html_imgsize( size => $size );
+    $m->cache->set($ckey, $html_wh);
+  }
+}
+
+  # Find correct extension, ANY is specialcase, and always jpg
+  my $ext;
+  $ARGS{p} =~ /(...)$/ and $ext = lc $1;
+  $ext = 'jpg' if $ARGS{p} eq 'ANY';
+
+  # Get annotation
+  my $annotation;
+  $annotation = $spoejs{Annotations}->get( $ARGS{p} ) 
+	                                       if defined $spoejs{Annotations};
+  $annotation = undef if $no_annotation;
+
+my $styleh;
+# Add size for annotation
+$box_height += 40 if $box_height; 
+$styleh = "style=\"height: ${box_height}px;\"" if $box_height;
+my ( $width, $stylew );
+if ( $html_wh ) {
+ $html_wh =~ /width="(\d+?)"/ and $width = $1; 
+ $stylew = 'style="width: ' . $width . 'px;"';
+} else {
+ $stylew = 'style="width: ' . $size . 'px;"';
+}
+
+# img src
+my $src = $m->scomp( '/htm/url:encode', "/$spoejs{channel}/pic.$ext", 
+                      d=>$ARGS{d}, p=>$ARGS{p}, m=> $size );
+my $imgsrc = "<img src=\"$src\" $html_wh alt=\"$ARGS{p}\" />";
+
+</%init>
+<%args>
+ $w => undef
+ $href    => undef
+ $html_wh => undef
+ $no_div  => undef
+ $no_annotation => undef
+ $box_height => undef
+</%args>
