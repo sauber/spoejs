@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.39 2004/07/02 17:04:37 snicki Exp $
+%# $Id: story-page,v 1.40 2004/08/31 02:18:29 sauber Exp $
 %#
 <& /htm/admin/story_tab.mas &>
 <h2><% $story_ref->get( 'title' ) %></h2>
@@ -57,6 +57,9 @@
 # Set thumbnail count (overridable in channelconf)
 my $thumbnail_count = 10;
 $navi_opt{count} = $thumbnail_count if $navi_opt{count} == -1;
+
+# Update access stats
+$spoejs{Stats}->access('story');
 </%init>
 <%args>
   $story_dir  => undef

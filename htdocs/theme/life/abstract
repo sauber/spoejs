@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract,v 1.5 2004/08/05 10:09:01 snicki Exp $
+%# $Id: abstract,v 1.6 2004/08/31 02:18:31 sauber Exp $
 %#
 <h3><% $title %></h3>
 <br/>
@@ -17,8 +17,10 @@
 <span class="left">
      <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
 </span>
-<b>**posted_by**:</b> <% $author %> <b>**date**:</b> <% $date %>
+<b>**posted_by**:</b> <% $author %>
+<b>**date**:</b> <% $date %>
 <b>**category**:</b> <% $category %>
+<b>**views**:</b> <% $views %>
 <& /w, w => "text", text=>$abstract &>
 <a href="<% $story_href %>">**view**</a>
 % if ( $edit_href ) {

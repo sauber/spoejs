@@ -4,7 +4,7 @@ generate data for abstract
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: abstract.sub,v 1.9 2004/08/08 16:01:48 snicki Exp $
+$Id: abstract.sub,v 1.10 2004/08/31 02:18:29 sauber Exp $
 </%doc>
 <& $w,
    title      => $storyref->get( 'title' ),
@@ -17,6 +17,7 @@ $Id: abstract.sub,v 1.9 2004/08/08 16:01:48 snicki Exp $
    path       => $path,
    edit_href  => $edit_href,
    thumb_file => $thumb_fn,
+   views      => $views,
 &>
 <%init>
 my $author = $storyref->get( 'author' );
@@ -46,6 +47,11 @@ if ( $storyref->{ML}->get() ) {
   my $img  = $storyref->{ML}->get( $type );
   $thumb_fn = $type eq 'random' ? 'ANY' : $img->{file};
 }
+
+# Access stats:
+my($views);
+my $stat = new Spoejs::Stats( path => $storyref->{path} );
+($views) = $stat->stats( 'story' );
 </%init>
 <%args>
  $storyref => undef
