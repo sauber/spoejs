@@ -2,8 +2,8 @@ package Spoejs::Movie;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
 
-# $Id: Movie.pm,v 1.8 2004/05/22 15:00:32 sauber Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.8 $';
+# $Id: Movie.pm,v 1.9 2004/06/04 07:51:35 snicki Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.9 $';
 
 # Supported extensions
 $Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov|qt|mpeg|mpe';
@@ -66,12 +66,16 @@ sub load {
 # get geometry, size and format by using mplayer
 #
 sub ping {
-  my($self) = shift;
+  my($self, %params) = @_;
 
   my $file = "$self->{path}/$self->{file}";
   my $info = `mplayer -identify $file | grep VIDEO:`;
   my $size = -s $file;
   my($format,$width,$height) = $info =~ /VIDEO:\s+(.*?)\s+(\d+)x(\d+)/;
+
+  ($width,$height) = $self->_scaledxy( $width, $height, $params{scalem} ) 
+	if defined $params{scalem};
+
   return ($width,$height,$size,$format);
 }
 
