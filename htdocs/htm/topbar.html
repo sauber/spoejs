@@ -4,7 +4,10 @@
 <a href="/index.html">Site Home</a>
 % if ( defined $spoejs{channel} ) {
 <a href="/<% $spoejs{channel} %>/index.html">Channel Home</a>
-% }
+% } else {
+% if ( $policy eq 'ffa' or $policy eq 'signup' ) {
+<a href="/htm/admin/signup.html">Register</a>
+% } }
 <a href="/htm/about.html">About</a>
 % if ( $session{chanauth} && $session{chanauth}{$spoejs{channel}} ) {
 <a href="/<% $spoejs{channel} %>/admin/story.html">New</a>
@@ -24,3 +27,8 @@
 %#<% Dumper %spoejs %>
 %#</pre>
 <hr/>
+<%init>
+my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
+                               lang => $spoejs{lang_handle} );
+my $policy = $SC->get( 'policy' );
+</%init>
