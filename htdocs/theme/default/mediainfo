@@ -4,7 +4,7 @@ Show information about media files
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: mediainfo,v 1.2 2004/08/12 12:23:47 snicki Exp $
+$Id: mediainfo,v 1.3 2004/08/12 12:48:36 snicki Exp $
 </%doc>
 <h3>**media_information**</h3>
 **dimentions**: <% "$w x $h" %><br/>
@@ -24,7 +24,6 @@ my $picref = ($spoejs{Story}->{ML}->list( start => $spoejs{p}{s}, count => 1 ))[
 my ( $w, $h, $s, $f ) = $picref->ping();
 
 # Get access stats for this image
-my $stats = new Spoejs::Stats( path => $path );
-my ( $total, $month, $week ) = $stats->stats( $picref->{file} );
+my ( $total, $month, $week ) = $spoejs{Stats}->stats( $picref->{file} );
 
 </%init>
