@@ -2,8 +2,8 @@ package Spoejs::Lang;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Lang.pm,v 1.11 2004/04/09 17:18:39 sauber Exp $
-$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.11 $';
+# $Id: Lang.pm,v 1.12 2004/04/18 23:57:23 snicki Exp $
+$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.12 $';
 
 sub _initialize { }
 
@@ -21,9 +21,9 @@ sub tr {
 	if ( ref( $val ) eq 'HASH' ) {
 
 	    # Find desired lang in subhash and move one level up
-	    for ( @{ $self->{lang_order} } ) {
-		if ( defined $data->{$key}->{$_} ) {
-		    $data->{$key} = $data->{$key}->{$_};
+	    for my $l ( @{ $self->{lang_order} } ) {
+		if ( defined $data->{$key}->{$l} ) {
+		    $data->{$key} = $data->{$key}->{$l};
 		    last;
 		}
 	    } 
@@ -41,8 +41,8 @@ sub tr {
 	    next unless $key =~ /^..$/;
 
 	    # Single value - find desired lang
-	    for ( @{ $self->{lang_order} } ) {
-		return $data->{$_} if defined $data->{$_};
+	    for my $l ( @{ $self->{lang_order} } ) {
+		return $data->{$l} if defined $data->{$l};
 	    }
 	    
 	    # If no desired lang available, return first

@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.14 2004/04/16 09:50:14 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.14 $';
+# $Id: MediaList.pm,v 1.15 2004/04/18 23:57:23 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.15 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -42,7 +42,8 @@ sub _list {
     my @items;
     for ( @files ) {
 	@d{ 'file', 'path' } = fileparse $_;
-	push @items, new Spoejs::Pic( %d );
+	# XXX: Make objekt tpy automatic
+	push @items, new Spoejs::Media( %d );
     }
 
     # Shrink array to 'count' elements
@@ -57,7 +58,7 @@ sub list {
     my $self = shift;
     my %opt  = @_;
 # XXX: What pattern should be used here?
-    my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG|gif|GIF|avi|AVI|mpg|MPG)$' );
+    my @files = $self->_list_from_file_pattern( '(jpg|png|gif|avi|mpg)$' );
     return $self->_list( $opt{start}, $opt{count}, sort @files );
 }
 
@@ -66,7 +67,7 @@ sub list_unsorted {
     my $self = shift;
     my %opt  = @_;
 # XXX: What pattern should be used here?
-    my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG|gif|GIF|avi|AVI|mpg|MPG)$' );
+    my @files = $self->_list_from_file_pattern( '(jpg|png|gif|avi|mpg)$' );
     return $self->_list( $opt{start}, $opt{count}, @files );
 }
 

@@ -4,8 +4,22 @@ use Spoejs::Pic;
 use Archive::Zip;
 use Archive::Tar;
 
-# $Id: Archive.pm,v 1.7 2004/04/09 17:18:38 sauber Exp $
-$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.7 $';
+# $Id: Archive.pm,v 1.8 2004/04/18 23:57:22 snicki Exp $
+$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.8 $';
+
+
+# Initializor
+#
+sub _initialize {
+  my($self) = shift;
+  # Set supported extensions and call Media's initializor
+  $self->{extensions} = 'tar|gz|tgz|zip';
+#  $self->_check_save();
+
+  $self->add_archive();
+
+}
+
 
 #### Private helper functions ####
 
@@ -13,7 +27,7 @@ sub _disk_space {
   my ( $self, $dir ) =@_;
 
   $dir ||= '.';
-$_ = `df -k $dir`;
+  $_ = `df -k $dir`;
   my @fields = split;
   if( @fields < 11 ){
     return $self->_err( "bad return from df" );
@@ -23,7 +37,7 @@ $_ = `df -k $dir`;
 #### Public interface ####
 
 sub add_archive {
-  my ( $self, $path, $fn, $fh, $size ) = @_;
+  my $self = shift;
 
   use File::Temp qw/ tempdir /;
   use File::Path;
@@ -32,12 +46,12 @@ sub add_archive {
   my %tries;
   # Check available space
   # XXX: Unix specific
-  foreach my $t ( qw( /tmp /var/tmp ), "$path/../../../../../../data" ) {
-
+  foreach my $t ( qw( /tmp /var/tmp ), "$self->{path}/../../../../../../data" )
+  {
       my $free = $self->_disk_space( $t );
       $tries{$t} = $free;
       # We need atleast double the diskspace for extraction
-      if ( 2*$size < $free ) {
+      if ( 2 * $self->{size} < $free ) {
 	  $tempdir = $t;
 	  last;
       }
@@ -54,37 +68,38 @@ sub add_archive {
   chdir $tempdir;
 
   # Store archive
-  open _FH, ">$tempdir/$fn" 
-      or return $self->_err( "Could not save archive to $tempdir/$fn: $!" );
+  open _FH, ">$tempdir/$self->{file}" 
+      or return $self->_err( "Could not save archive to $tempdir/$self->{file}: $!" );
    binmode _FH;
+    my $fh = $self->{fh};
     while( <$fh> ){ print _FH $_ }
   close _FH;
 
-  if ( $fn =~ /\.zip/ ) {
+  if ( $self->{file} =~ /\.zip/ ) {
     # Open archive
-    my $zip = Archive::Zip->new( "$tempdir/$fn" ) 
+    my $zip = Archive::Zip->new( "$tempdir/$self->{file}" ) 
 	or return $self->_err( "Couldn't open zip" );
 
     # Extract members
     my @members = $zip->members();
 
-    for ( @members ) {
-      $zip->extractMemberWithoutPaths( $_ );
+    for my $mem ( @members ) {
+      $zip->extractMemberWithoutPaths( $mem );
     }
 
-  } elsif ( $fn =~ /\.(tar|gz|tgz)$/ ) {
+  } elsif ( $self->{file} =~ /\.(tar|gz|tgz)$/ ) {
 
     my $tar = Archive::Tar->new;
-    $tar->read( "$tempdir/$fn" );
+    $tar->read( "$tempdir/$self->{file}" );
     $tar->extract();
 
   }
 
   # Remove archive
-  unlink "$tempdir/$fn";
+  unlink "$tempdir/$self->{file}";
 
   # Add unpacked files
-  $self->add_dir( $tempdir, $path );
+  $self->add_dir( $tempdir );
 
   # Cleanup
   chdir $oldwd;
@@ -96,7 +111,7 @@ sub add_archive {
 
 
 sub add_dir {
-  my ( $self, $dir, $target ) = @_;
+  my ( $self, $dir ) = @_;
 
   # XXX: Convert to File::Find to support nested dirs
   opendir DH, $dir or return $self->_err( "Can't open $dir: $!" );
@@ -104,7 +119,7 @@ sub add_dir {
   while( my $file = readdir DH ) {
     if ( -f "$dir/$file" ) {
       my $fh = new IO::File( "$dir/$file", "r" );
-      $self->add_file( $target, $file, $fh );
+      new Spoejs::Media( path => $self->{path}, file => $file, fh => $fh );
     }
   }
 
@@ -112,36 +127,15 @@ sub add_dir {
 }
 
 
-sub add_file {
-  my ( $self, $path, $fn, $fh ) = @_;
-  return $self->_err( "Unknown file type" ) unless $fn =~ /(jpg|png|gif)$/i;
-  my $P = new Spoejs::Pic( path => $path, file => $fn );
-  return $self->_err( $P->{msg} ) if $P->{msg};
-  $P->save( $fh ) or return $self->_err( $P->{msg} );
-
-  # Check if file is ok and rotate
-  if ( $P->ping() ) {
-      # XXX: Not-portable
-      my $fp = "$P->{path}/$P->{file}";
-      my $jh = `which jhead`;
-      chomp $jh;
-      `jhead -autorot $fp` if -f $jh;
-  } else {
-      $P->delete();
-  }
-  # Success
-  return 1;
-}
-
 __END__
 
 =head1 NAME
-                                                                                
+
 Spoejs::Archive - Archival of channels
 
 =head1 LICENSE
-                                                                                
+
 Artistic License
 http://www.opensource.org/licenses/artistic-license.php
-                                                                                
+
 =cut

@@ -10,11 +10,43 @@ use Image::Magick;
 use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
+use Data::Dumper;
+# $Id: Media.pm,v 1.11 2004/04/18 23:57:23 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.11 $';
 
-# $Id: Media.pm,v 1.10 2004/04/09 17:18:39 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.10 $';
+
+# Initializor
+#
+sub _initialize {
+  my($self) = shift;
+
+  $self->{path} ||= '.';
+  return $self->_err( "Must give file to new" ) unless $self->{file};
+
+  my @attrib = qw ( path file fh size );
+  my %opt;
+  @opt{ @attrib } = @{$self}{@attrib};
+
+  my $newobj = new Spoejs::Pic( %opt );
+  $newobj = new Spoejs::Movie( %opt ) if defined $newobj->{msg};
+  $newobj = new Spoejs::Archive( %opt ) if defined $newobj->{msg};
+  return $newobj;
+}
+
 
 #### Private helper functions ####
+
+sub _check_save {
+    my $self = shift;
+
+  # Check for supported extension and save if filehandle is given
+  if ( $self->{file} =~ /($self->{extensions})$/i ) {
+      $self->save( $self->{fh} ) if defined $self->{fh};
+      return $self->_check();
+  } else {
+      return $self->_err( "Unsuported filetype" );
+  }
+}
 
 # strip illegal chars from filename
 #
@@ -37,6 +69,22 @@ sub valid_name {
     $self->{file} = "$file.$ext";
 };
 
+
+# Check file for validity, delete if not valid
+#
+sub _check {
+    my $self = shift;
+
+    unless ( $self->ping() ) { 
+	$self->delete();
+	return $self->_err( "Could not recognize filetype, file deleted." );
+    }
+
+    # Success
+    return 1;
+}
+
+
 # Scale current image magick object to specified maxside
 #
 sub scale {
@@ -53,7 +101,6 @@ sub scale {
   }
 
   my($w,$h) = $self->info();
-  warn "Got zero width or height: w: $w, h: $h" if $w == 0 or $h == 0;
   return $self->_err( "Got zero width or height" ) if $w == 0 or $h == 0;
   if ( $w>$h ) { $x=$m; $y = int .5 + $m*$h/$w }
           else { $y=$m; $x = int .5 + $m*$w/$h }
@@ -65,6 +112,7 @@ sub scale {
     undef $self->{_im};
   }
 };
+
 
 sub _create_bs {
     my @basic = eval "a..z, A..Z, 0..9";
@@ -79,6 +127,53 @@ sub _create_bs {
 
 #### Public interface ####
 
+# Get blob data from file handle and save as filename
+#
+sub save {
+  my($self,$fh) = @_;
+
+  $self->valid_name(); # Validate member filename
+
+  open _PIC, ">$self->{path}/$self->{file}" or 
+         return $self->_err( "Could not open $self->{path}/$self->{file}: $!");
+    binmode _PIC;
+    while( <$fh> ){ print _PIC $_ }
+  close _PIC;
+
+  return  $self->{file};
+}
+
+
+# Load file as blob reference
+#
+sub load {
+  my($self) = shift;
+
+  my $tmpslash = $/;
+  undef $/;
+  open _PIC, "$self->{path}/$self->{file}" or return undef;
+    binmode _PIC;
+    $self->{_blob} = <_PIC>;
+  close _PIC;
+  $/ = $tmpslash;
+  return \$self->{_blob};
+}
+
+
+# Get image in certain size
+#
+sub get {
+  my($self,%params) = @_;
+
+  return undef unless $self->{file};
+  $self->load() or return undef;
+  if ( $params{size} ) {
+    $self->scale( $params{size} );
+  }
+  return \$self->{_blob};
+}
+
+
 # Get size etc about current image magick object
 sub info {
   my($self) = @_;
@@ -86,6 +181,7 @@ sub info {
   return undef unless $self->{_im};
   return $self->{_im}->Get('width','height','filesize','Magick');
 }
+
 
 sub utf_filename {
     my($self) = @_;
@@ -119,6 +215,7 @@ sub delete {
     return unlink "$self->{path}/$self->{file}";
 }
 
+
 # Get info (IM->Ping) about pic
 #
 sub ping {
@@ -131,15 +228,16 @@ sub ping {
     return $im->Ping( "$self->{path}/$self->{file}" );
 }
 
+
 __END__
 
 =head1 NAME
-                                                                                
+
 Spoejs::Media - General media module for pictures, movies and icons
 
 =head1 LICENSE
-                                                                                
+
 Artistic License
 http://www.opensource.org/licenses/artistic-license.php
-                                                                                
+
 =cut
