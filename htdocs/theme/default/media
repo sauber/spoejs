@@ -1,11 +1,28 @@
+<div class="media">
+% if ( $href ) {
+<a href="<% $href %>">\
+%}
+<center>\
 <img src="<& /htm/url:encode, "/$spoejs{channel}/pic.$ext", d=>$ARGS{d},
-                              p=>$ARGS{p}, m=> $ARGS{m}&>" \
-<% $P->html_imgsize( size => $ARGS{m} ) %>/>\
+                              p=>$ARGS{p}, m=> $ARGS{m}&>" <% $html_wh %>>\
+</center>\
+% if ( $href ) {
+</a>
+%}
+%#Insert annotation here
+</div>
 <%init>
+  unless ( $html_wh ) {
   my $P = new Spoejs::Pic( path => "$spoejs{channel_path}/$ARGS{d}",
                            file => $ARGS{p} );
   $spoejs{error}{$m->current_comp->source_file} = $P->{msg} if $P->{msg};
 
+  $html_wh = $P->html_imgsize( size => $ARGS{m} );
+}
   my $ext;
   $ARGS{p} =~ /(...)$/ and $ext = lc $1;
 </%init>
+<%args>
+ $href => undef
+ $html_wh => undef
+</%args>
