@@ -93,12 +93,18 @@ li {
 div.weather {
  	position: relative; 
 	left: -15px;
-	}
+}
+
 fieldset {
-  margin: 0 20% 0 20%;
+  margin: 0 90% 0 0%;
   padding: 1em .5em .5em .5em;
   border: 1px solid #000000;
 }
+fieldset.center
+{
+  margin: 0 30% 0 30%;
+}
+
 legend {
   padding: .2em;
   background-color: #EBEBFF;
