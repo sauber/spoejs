@@ -33,6 +33,7 @@ my $policy = $SC->get( 'policy' );
 
 # Gives array of ChannelConf object refs
 my @channels = $CL->search_channels() unless $CL->{msg};
+@channels = () if ( $channels[0] eq undef );
 
 # Sort channels by date of newest entry
 for ( @channels ) {
