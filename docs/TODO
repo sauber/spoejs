@@ -1,5 +1,9 @@
 Development todo list:
 
+Developers:
+ - Dev server
+ - Dev jabber channel with logging (Net::Jabber + chatbot?)
+
 Code structure:
  - Handle form submissions
  - Debug on/off
@@ -8,6 +12,10 @@ Code structure:
 ChannelList:
  - List channels on frontpage
 
+Login:
+ - Login, verify username password
+ - Logout
+
 Register:
  - Choose username/password/channelname
  - Write ChannelConf
@@ -15,10 +23,6 @@ Register:
  - Change password
  - Channel language
  - Theme chooser
-
-Login:
- - Login, verify username password
- - Logout
 
 Session:
  - Session component to avoid masonhandler code
@@ -30,6 +34,7 @@ Theme:
  - Page templates
  - Basic component set
  - css
+ - Use specified theme or fall back to default
  - Test non-default theme
 
 StoryConf:
@@ -52,14 +57,33 @@ StoryAdmin:
  - Del story
  - Guest comment on story
 
+SiteConf:
+ - Paths, theme, lang
+ - Neighborhood spoejs sites
+ - Invite-only/register-confirm
+ - Quota
+
+Navigation:
+ - StoryList
+ - Story, report+pictures+annotations
+ - Picture
+ - Slideshow
+
+Extras:
+ - Weather
+ - News
+ - Favorite Links
+ - Favorite Spoejs Channels
+ - own html code
+ - Voting
+
 Translator:
  - Login
  - Show all resources for one lang
  - Allow submit translations
 
-Developers:
- - Dev server
- - Dev jabber channel with logging
+Search:
+ - Seach in channels and stories
 
 Docs:
  - Website 'about spoejs'
