@@ -2,6 +2,9 @@
 
 # Find resources in use
 #
+# Soren's recipe
+#find ../htdocs -type f -exec egrep '\*\*.*?\*\*' {} \; | egrep -v '^%#' | perl -n -e '@a=m!\*\*(.*?)\*\*!g;print map{"$_\n"}@a' | sort | uniq > /tmp/.$$.inuse
+# Snicki's recipe
 find ../htdocs \! -path '*users*' -type f -exec egrep '\*\*.*?\*\*' {} \; | perl -n -e '@a=m!\*\*(.*?)\*\*!g;print map{"$_\n"}@a' | sort | uniq > /tmp/.$$.inuse
 
 # Find resources available
