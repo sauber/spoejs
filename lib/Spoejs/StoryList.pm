@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.36 2004/07/28 08:11:48 sauber Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.36 $';
+# $Id: StoryList.pm,v 1.37 2004/08/05 08:34:34 sauber Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.37 $';
 
 sub _initialize {
     my $self = shift;
@@ -141,7 +141,7 @@ sub del_story {
 
     # Check given path
     return $self->_err( "Invalid path: $in{story}" ) 
-	unless $in{story} =~ m!/\d+/\d+/\d+$!;
+	unless $in{story} =~ m!\d+/\d+/\d+$!;
 
     # Remove given story-dir
     my $res = rmtree "${root_path}/$in{story}";
