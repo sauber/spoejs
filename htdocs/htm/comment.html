@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: comment.html,v 1.2 2004/06/04 11:20:20 snicki Exp $
+%# $Id: comment.html,v 1.3 2004/06/04 11:40:51 snicki Exp $
 %#
 <%init>
 # Is required information entered?
@@ -30,7 +30,7 @@ $block .= sprintf "Email=%s\n", $email if $email;
 $block .= sprintf "Date=%d\n", time();
 $block .= sprintf "Lang=%s\n", $spoejs{current_language};
 $block .= sprintf "Comment=%s\n", $comment;
-$block .= "\n\n"; # Two \n because we chomp one in Text
+$block .= "\n";
 
 # Insert into storage
 # XXX: file and object
