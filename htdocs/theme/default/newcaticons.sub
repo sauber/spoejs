@@ -3,14 +3,27 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: newcaticons.sub,v 1.5 2004/05/09 03:09:24 snicki Exp $
+%# $Id: newcaticons.sub,v 1.6 2004/07/04 05:21:16 snicki Exp $
 %#
 <& $w,
    cat_icons => \@cat_icons,
    icon_size => 105
 &>
 <%init>
-my @stories = $spoejs{SL}->list_stories();
+my $count = 10;
+my $start = $spoejs{p}{s} || 0;
+my %sl_opt = ( category  => $spoejs{p}{c},
+	       prev      => $count,
+	       story_num => $start
+	     );
+
+# Special case for start = story dir
+if ( $start =~ m|\d+/\d+/\d+| ) {
+  $sl_opt{story} = $start;
+  delete $sl_opt{story_num};
+}
+
+my @stories = $spoejs{SL}->list_stories( %sl_opt );
 
 my @cats;
 for my $story ( @stories ) {
