@@ -1,7 +1,7 @@
-<form method="POST" action="/html/change_lang.html">
+<form method="post" action="/html/change_lang.html">
 <select name="language">
 % foreach my $lang ( sort keys %langs ) {
-<option name="<% $lang %>" value="<% $lang %>">
+<option value="<% $lang %>">
 <% $langs{$lang} %>
 </option>
 %}
