@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.9 2004/04/04 04:58:49 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.9 $';
+# $Id: MediaList.pm,v 1.10 2004/04/05 23:11:25 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.10 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -16,6 +16,8 @@ sub _initialize {
 
 sub _next {
     my ( $self, $current, $count, @media ) = @_;
+    $count ||= 1;
+    $current ||= $media[0]->{file};
     my $found = undef;
     my @res;
     my $c = 0;
@@ -66,18 +68,14 @@ sub list_unsorted {
 
 sub next {
     my ( $self, %param ) = @_;
-    $param{count} ||= 1;
     my @list = $self->list();
-    $param{current} ||= $list[0]->{file};
     return $self->_next( $param{current}, $param{count}, @list );
 }
 
 
 sub prev {
     my ( $self, %param ) = @_;
-    $param{count} ||= 1;
     my @list = reverse $self->list();
-    $param{current} ||= $list[0]->{file};
     return $self->_next( $param{current}, $param{count}, @list );
 }
 
