@@ -911,7 +911,7 @@
 </journal_id>
 
 <journal_id_description>
-<lang=da/>4-16 små bogstaver til at identificeres din journal, fx:
+<lang=da/>4-16 små bogstaver til at identificeres din journal i URL'en, ex:
 <lang=en/>4 to 16 lowercase letters to identify journal in URL like this:
 </journal_id_description>
 
@@ -927,6 +927,7 @@
 </journal_security>
 
 <journal_security_description>
+<lang=da/>Vis journalen på forsiden eller hold den privat
 <lang=en/>Include journal on site front page, or keep private 
 </journal_security_description>
 
