@@ -4,8 +4,8 @@ use Spoejs::Pic;
 use Archive::Zip;
 use Archive::Tar;
 
-# $Id: Archive.pm,v 1.5 2004/03/31 10:01:40 snicki Exp $
-$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.5 $';
+# $Id: Archive.pm,v 1.6 2004/04/05 03:43:56 snicki Exp $
+$Spoejs::Archive::VERSION = $Spoejs::Archive::VERSION = '$Revision: 1.6 $';
 
 #### Private helper functions ####
 
@@ -36,7 +36,8 @@ sub add_archive {
 
       my $free = $self->_disk_space( $t );
       $tries{$t} = $free;
-      if ( $size < $free ) {
+      # We need atleast double the diskspace for extraction
+      if ( 2*$size < $free ) {
 	  $tempdir = $t;
 	  last;
       }
