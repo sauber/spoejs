@@ -3,16 +3,13 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: w,v 1.8 2004/04/09 17:41:41 sauber Exp $
+%# $Id: w,v 1.9 2004/04/10 03:49:15 snicki Exp $
 %#
 %# Forward args to component 
 % if ( $box ) {
-%   my $content = $m->scomp($comp, %ARGS);
-<& $boxc, content=>$content &>\
-% } elsif ( $sub ) {
-<& $sub, %ARGS, w => $comp &>\
+<& $boxc, content => $content &>\
 % } else {
-<& $comp, %ARGS &>\
+<% $content %>\
 % }
 <%init>
 # Does component exist in required theme? Otherwise use default.
@@ -27,6 +24,12 @@ my $sub = -f "$ENV{DOCUMENT_ROOT}/theme/default/$w.sub"
 my $boxc = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{p}{t}/box"
 	                                 ? "/theme/$spoejs{p}{t}/box"
 	                                 : "/theme/default/box";
+my $content;
+if ( $sub ) {
+  $content = $m->scomp( $sub, %ARGS, w => $comp );
+ } else {
+  $content = $m->scomp( $comp, %ARGS );
+}
 </%init>
 <%args>
 $w => undef
