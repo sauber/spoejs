@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.26 2004/04/10 08:56:27 snicki Exp $
+%# $Id: index.html,v 1.27 2004/04/10 10:29:19 snicki Exp $
 %#
 <h1>
 <&|/l&>spoejs_channels_at_this_site</&>
@@ -18,6 +18,7 @@
 % $spoejs{channel_path} = $chan->{path};
 % $spoejs{channel} = $chan->channel_dir();
 <& /w, w => 'abstract', box => 1, storyref => $chan->{S} &>
+<br clear="all"/>
 % } else {
 <&|/l&>no_stories</&>
 % }
