@@ -3,8 +3,6 @@
 
 % if ( $ARGS{submit} ) {
 <h4>Story saved successfully.</h4>
-% my $story_url = $story_dir;
-% $story_url =~ s{/}{}g;
 <a href="/<% $session{user} %>/admin/upload_d<% $story_url %>.html">
 Click here to add media to story.
 </a>
@@ -13,15 +11,18 @@ Click here to add media to story.
 <h4>Editing for language: <% $cur_lang %></h4>
 
 <form action="" method="post">
+Your name:<br/>
+<input type="text" size="60" name="author" value="<%$ARGS{author}%>"/><br/>
 Story title:<br/>
 <input type="text" size="60" name="title" value="<%$ARGS{title}%>"/><br/>
 Date: (leave blank if story is current)<br/>
 <input type="text" size="60" name="date" value="<%$ARGS{date}%>"/><br/>
 Category:<br/>
-<select name="category">
-<option value="">Please select</option>
-</select>
-or new: <input type="text" size="30" name="newcategory" value=""/><br/>
+%#<select name="category">
+%#<option value="">Please select</option>
+%#</select>
+%#or new: 
+<input type="text" size="30" name="category" value=""/><br/>
 Story abstract:<br/>
 <textarea name="abstract" rows="5" cols="60"><%$ARGS{abstract}%></textarea>
 <br/>
@@ -32,6 +33,10 @@ cols="60"><%$ARGS{fulltext}%></textarea>
 <input type="submit" name="submit" value="Submit"/>
 </form>
 
+<a href="/<% $session{user} %>/admin/upload_d<% $story_url %>.html">
+Click here to add media to existing story.
+</a>
+
 %#<pre>
 %#<% Dumper %params %>
 %#<% Dumper %ARGS %>
@@ -40,7 +45,7 @@ cols="60"><%$ARGS{fulltext}%></textarea>
 <%init>
 
 my $cur_lang = $spoejs{lang_handle}->{lang_order}->[0];
-my @entries = qw( title date category abstract fulltext );
+my @entries = qw( title date category abstract fulltext author );
 
 my $chan_path = "$ENV{DOCUMENT_ROOT}/users/$session{user}";
 $params{d} =~ s{(\d{4})(\d\d)(\d\d)}{$1/$2/$3}g if $params{d};
@@ -82,7 +87,9 @@ for ( @entries ) {
 
 $S->set( %new_data );
 }
-  
+
+my $story_url = $story_dir;
+$story_url =~ s{/}{}g;
 </%init>
 <%args>
   %params => undef
