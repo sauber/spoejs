@@ -1,5 +1,5 @@
 % foreach my $story ( @stories ) {
-<& /w, w => 'abstract', box => 'y', storyref => $story &><br/>
+<& /w, w => 'abstract', box => 1, storyref => $story &><br/>
 % }
 <& /w, w => 'navi', %navi_opt &>
 <%args>
