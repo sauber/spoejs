@@ -3,11 +3,11 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: ico,v 1.5 2004/04/10 07:21:08 sauber Exp $
+%# $Id: ico,v 1.6 2004/06/03 13:21:48 sauber Exp $
 %#
-<% $$iconref %>
-%# XXX: Is it more correct to abort() here?
-%# $m->abort();
+<% $$iconref %>\
+%# XXX: Is it correct to abort() here?
+$m->abort();
 <%init>
     use Spoejs::Icon;
     my $I = Spoejs::Icon->new();
