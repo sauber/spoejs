@@ -4,7 +4,7 @@ Edit layout of channel
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: layout.html,v 1.9 2004/06/16 11:23:18 sauber Exp $
+$Id: layout.html,v 1.10 2004/06/17 01:29:54 snicki Exp $
 </%doc>
 <& journal_tab.mas &>
 <br/>
@@ -18,7 +18,7 @@ $Id: layout.html,v 1.9 2004/06/16 11:23:18 sauber Exp $
 **thumb_count**:
 <select name="thumb_count">
 
-%for my $opt ( @thum_count_options ) {
+%for my $opt ( @thumb_count_options ) {
 
 <option value="<% $opt->[0] %>"><% $opt->[1] %></option>
 
@@ -26,6 +26,13 @@ $Id: layout.html,v 1.9 2004/06/16 11:23:18 sauber Exp $
 
 </select>
 **thumb_count_description**
+<br/>
+<br/>
+**thumbnail**:<br/>
+% for my $i ( @thumb ) {
+**<% $i %>**: <input type="radio" name="thumbnail" value="<% $i
+%>" <% $checked{$i} %>/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+% }
 <br/>
 <br/>
 <input type="submit" name="submit" value="**submit**">
@@ -36,9 +43,11 @@ $Id: layout.html,v 1.9 2004/06/16 11:23:18 sauber Exp $
 # Check authorization
 return undef unless $m->comp( '/htm/login.html:check_login' );
 
-my @attributes = qw( thumb_count );
+my $thumb_options = '**first** **last** **random** **always_random**';
+my @thumb = $thumb_options =~ m/\*\*(\w+)\*\*/g;
+my @attributes = qw( thumb_count thumbnail );
 
-my @thum_count_options = ( [ -1, '**theme_default**' ], [ 0, '**all**' ],
+my @thumb_count_options = ( [ -1, '**theme_default**' ], [ 0, '**all**' ],
                            [ 10, 10 ],  [ 20, 20 ], [ 50, 50 ] );
 
 my $error;
@@ -67,5 +76,11 @@ if ( defined $spoejs{ChannelConf} )
   for my $attrib ( @attributes ) {
     $ARGS{$attrib} = $spoejs{ChannelConf}->get( $attrib );
   }
+}
+
+# Find thumbtype for html 'checked'ing
+my %checked;
+for ( @thumb ) {
+  $checked{$_} = $_ eq $ARGS{thumbnail} ? ' checked="checked"' : '';
 }
 </%init>
