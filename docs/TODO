@@ -47,6 +47,7 @@ Data:
  - Deal with paragraphs in ::Text instead of mason
  - Remove shortname from settings.txt
  - Don't create annotations.txt, comments.txt etc. unless have content
+ - year/month dir must be corrected when changing date
 
 Channelconf:
  - default intro thumbnail select algorithm (first/random...)
