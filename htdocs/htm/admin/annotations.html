@@ -1,0 +1,43 @@
+<&| /w, w => 'box', heading => '**edit_annotations**' &>
+<h2><% $success %></h2>
+<form method="post" action="">
+%for my $p ( $S->{ML}->list() ) {
+<div style="width:160px; height: 100px; float:left; text-align:center;">
+  <& '/w', w => "media", d =>  $spoejs{p}{d}, p => $p->{file}, 
+           m => $img_size, no_div => 1, no_annotation => 1 &>\
+<br/>
+<input type="text" size="20" name="<%$p->{file}%>" \
+value="<%$local_anno{$p->{file}}%>">
+</div>
+%}
+<br clear="all"/>
+<input type="submit" name="submit" value="**save_changes**">
+</form>
+</&>
+<%init>
+  my $S = new Spoejs::Story( path => "$spoejs{channel_path}/$spoejs{p}{d}",
+                          lang => $spoejs{lang_handle} );
+  $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
+
+  my $current_language = $spoejs{lang_handle}->{lang_order}->[0];
+
+  my $success = '';
+  if ( defined $ARGS{submit} ) {
+    delete $ARGS{submit};
+
+    my %new_anno;
+    while ( my ( $k, $v ) = each %ARGS ) {
+      $new_anno{$k}{$current_language} = $v;
+    } 
+
+    $spoejs{Annotations}->set( %new_anno );
+
+    $success = '**changes_saved_successfully**'
+  }
+
+  my %local_anno = $spoejs{Annotations}->get();
+
+</%init>
+<%args>
+  $img_size => 100
+</%args>
