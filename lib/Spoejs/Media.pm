@@ -12,8 +12,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.28 2004/08/14 07:48:27 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.28 $';
+# $Id: Media.pm,v 1.29 2004/08/16 10:23:42 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.29 $';
 
 
 # Initializor
@@ -63,17 +63,8 @@ sub valid_name {
     my ($file, $ext);
     $file = $self->{file};
     $file =~ s/(.*)(\.)(....?)$/$1/ and $ext = lc $3;
-    my @basic = eval "a..z, A..Z, 0..9";
-    my $BS = new Bootstring( BASIC => \@basic,
-			     TMAX => 53,
-			     SKEW => 78,
-			     INITIAL_BIAS => 32,
-			     TMIN => 38,
-			     DAMP => 40,
-                             DELIMITER => '_',
-			     );
-    $file = $BS->encode( $file );
-    
+    $self->_create_bs();
+    $file = $self->{_BS}->encode( $file );
     $self->{file} = "$file.$ext";
 };
 
@@ -148,19 +139,8 @@ sub scale {
   }
 };
 
-
-sub _create_bs {
-    return new Bootstring( BASIC => ["a".."z", "A".."Z", "0".."9"],
-			   TMAX => 53,
-			   SKEW => 78,
-			   INITIAL_BIAS => 32,
-			   TMIN => 38,
-			   DAMP => 40,
-                           DELIMITER => '_',
-			   );
-}
-
 # Calculate x,y of scaled image
+#
 sub _scaledxy {
   my($self,$x,$y,$s) = @_;
 
@@ -262,11 +242,11 @@ sub rotate {
 sub utf_filename {
     my($self) = @_;
 
-    my $BS = _create_bs();
     my ($file, $ext);
     $file = $self->{file};
     $file =~ s/(.*)\.(...)$/$1/ and $ext = $2;
-    $file = $BS->decode( $file );
+    $self->_create_bs();
+    $file = $self->{_BS}->decode( $file );
     return $file . '.' . $ext;
 }
 
@@ -275,9 +255,6 @@ sub rename {
     my ( $self, $new_file ) = @_;
     
     my $old_file = "$self->{path}/$self->{file}";
-    
-    # This line seems not necessary.
-    #my $BS = _create_bs();
     
     $self->{file} = $new_file;
     $self->valid_name();
