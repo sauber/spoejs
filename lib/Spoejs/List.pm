@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.10 2004/04/18 23:57:23 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.10 $';
+# $Id: List.pm,v 1.11 2004/04/22 11:03:42 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.11 $';
 
 
 # Constructor
@@ -92,6 +92,26 @@ sub _list_from_file_pattern {
     return @files;
 }
 
+sub _index_of {
+    my ( $self, $item, $list ) = @_;
+    warn Dumper $list;
+
+    return $item unless $item =~ /(\D\D\D)$/;
+
+    my $count = 0;
+    for my $i ( @$list ) {
+	# Handle list of objects by using file member
+	$i = $i->{file} if defined $i->{file};
+	return $count if $i =~ /$item$/;
+	$count++;
+    }
+}
+
+sub _item_of {
+    my ( $self, $item, $list ) = @_;
+    return $$list[$item];
+}
+
 #### Public interface ####
 
 # Return array of all elements in list (without args)
@@ -104,6 +124,8 @@ sub list { }
 sub next {
     my ( $self, %param ) = @_;
 
+    $param{start} = $self->_index_of( $param{start}, $param{list} );
+
     return undef if $param{start} >= $param{end};
     my $index = $param{start} + $param{count};
     return undef if $index > $param{end};
@@ -115,6 +137,8 @@ sub next {
 #
 sub prev {
     my ( $self, %param ) = @_;
+
+    $param{start} = $self->_index_of( $param{start}, $param{list} );
 
     return undef if $param{start} <= 0;
     my $index = $param{start} - $param{count};

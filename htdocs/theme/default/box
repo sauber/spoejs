@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: box,v 1.4 2004/04/10 07:21:08 sauber Exp $
+%# $Id: box,v 1.5 2004/04/22 11:03:42 snicki Exp $
 %#
 <%args>
 $content => undef
@@ -13,6 +13,8 @@ $heading => undef
 unless ( $heading ) {
   $content =~ s!^<h.>(.*?)</h.>$!!im and $heading = $1;
 }
+# Avoid empty boxes
+return unless $content =~ /\w/;
 </%init>
 <fieldset>
 <legend><% $heading %></legend>\

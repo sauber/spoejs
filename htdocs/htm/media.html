@@ -3,10 +3,10 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media.html,v 1.11 2004/04/09 17:56:19 sauber Exp $
+%# $Id: media.html,v 1.12 2004/04/22 11:03:40 snicki Exp $
 %#
 <& /w, w => 'media-page',
-      ML => $ML,
+      ML => $S->{ML},
       S  => $S,
       back_href => $back_href,
       img_href  => $img_href,
@@ -18,14 +18,12 @@
 my $web_path = "/users/$spoejs{channel}/$spoejs{p}{d}";
 my $path = "$ENV{DOCUMENT_ROOT}$web_path";
 
-my $ML = new Spoejs::MediaList( path => $path );
-$spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
-
 my $S = new Spoejs::Story( path => $path, lang => $spoejs{lang_handle} );
 $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
 
-my $picref    = ($ML->list())[$spoejs{p}{s}]
-  or $spoejs{error}{$m->current_comp->source_file} = $ML->{msg};
+#my $picref    = ($S->{ML}->list())[$spoejs{p}{s}]
+my $picref    = ($S->{ML}->list( start => $spoejs{p}{s}, count => 1 ))[0]
+  or $spoejs{error}{$m->current_comp->source_file} = $S->{ML}->{msg};
 
 my $back_href = $m->scomp( "url:encode", 'story.html', d => $spoejs{p}{d} );
 my $img_href  = "$web_path/$picref->{file}";
@@ -38,6 +36,6 @@ my $filename  = $picref->utf_filename();
 my %navi_opt = ( url => "/$spoejs{channel}/media.html",
 		 count => 1,
 		 start => $spoejs{p}{s},
-		 list_ref => $ML );
+		 list_ref => $S->{ML} );
 
 </%init>

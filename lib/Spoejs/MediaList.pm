@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.16 2004/04/20 14:17:29 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.16 $';
+# $Id: MediaList.pm,v 1.17 2004/04/22 11:03:43 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.17 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -32,9 +32,15 @@ sub _next {
     return @res;
 }
 
+
 sub _list {
 
     my ($self, $start, $count, @files) = @_;
+
+    # Get index of 'start' if it is a filename
+    if ( $start =~ /(\D\D\D)$/ ) {
+	$start = $self->_index_of( $start, \@files );
+    }
 
     # Remove 'start' elements
     @files = @files[$start..$#files] if $start;
@@ -42,7 +48,6 @@ sub _list {
     my @items;
     for ( @files ) {
 	@d{ 'file', 'path' } = fileparse $_;
-	# XXX: Make objekt tpy automatic
 	push @items, new Spoejs::Media( %d );
     }
 
