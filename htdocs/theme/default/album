@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: album,v 1.10 2004/06/03 01:01:49 snicki Exp $
+%# $Id: album,v 1.11 2004/06/03 01:04:02 snicki Exp $
 %#
 %for my $p ( @img_list ) {
 %  my $href = $m->scomp( '/htm/url:encode', 'media.html', d => $spoejs{p}{d},
@@ -16,6 +16,7 @@
 my $max_height;
 for my $p ( @img_list ) {
   my ($width, $height, @rest) = $p->info( $img_size ); 
+warn "$width : $height";
   $p->{html_wh} = "width=\"$width\" height=\"$height\"";
   $max_height = $height if $height > $max_height;
 }
