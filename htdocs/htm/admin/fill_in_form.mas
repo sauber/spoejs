@@ -15,21 +15,22 @@
 
  if ( $data || $object ) {
 
-     my $filled = $fif->fill( scalarref => \$form,
-                              fdat      => $data,
-                              fobject   => $object,
-                              fill_password => $fill_password,
-			      ignore_fields => $ignore,
-                            );
+   my $filled = $fif->fill( scalarref => \$form,
+                            fdat      => $data,
+                            fobject   => $object,
+                            fill_password => $fill_password,
+                            ignore_fields => $ignore,
+                           );
 
-     # Add errors on top of form
-     prepend_errors( \$filled ) if keys %{$spoejs{ARGS}};
+   # Add errors on top of form
+   my $formname =  form_name( \$filled );
+   prepend_errors( \$filled, $formname ) if defined $spoejs{ARGS}->{$formname};
 
-     $m->print($filled);
+   $m->print($filled);
 
  } else {
 
-     $m->print($form);
+   $m->print($form);
  }
 
  return;
@@ -47,8 +48,7 @@ sub form_name {
 # Add list of errors before form
 #
 sub prepend_errors {
-  my ( $form ) = @_;
-  my $formname =  form_name( $form );
+  my ( $form, $formname ) = @_;
 
   return unless defined $session{form_error};
   return unless defined $session{form_error}{$formname};
