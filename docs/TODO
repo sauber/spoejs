@@ -110,6 +110,7 @@ StoryAdmin:
  - Or something to handle dates better
  - Perhaps verify page after submit
  - Bug: Stack trace on invalid date
+ - Use journalownername for new story when logged in
 
 SiteConf:
  - Paths, theme, lang
