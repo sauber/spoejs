@@ -3,18 +3,57 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.29 2004/05/11 05:41:51 snicki Exp $
+%# $Id: index.html,v 1.30 2004/05/11 10:30:32 snicki Exp $
 %#
+<& /js/detectua.js &>
+<script language="JavaScript">
+<!--
+function calcHeightIE(frame_id)
+{
+//find the height of the internal page
+ var the_height=document.getElementById(frame_id).contentWindow.document.body.scrollHeight;
+
+//document.writeln(the_height);
+
+ //change the height of the iframe
+ document.getElementById(frame_id).style.height=the_height;
+}
+
+function calcHeightNS(frame_id)
+{
+//find the height of the internal page
+ var the_height=document.getElementById(frame_id).contentDocument.body.offsetHeight;
+//confirm(the_height);
+
+ //change the height of the iframe
+ document.getElementById(frame_id).height=the_height+10;
+}
+
+function calcHeight(frame_id)
+{
+if (is_ie4up) {
+  calcHeightIE(frame_id);
+} else {
+  calcHeightNS(frame_id);
+}
+}
+//-->
+</script>
 <h1>
 <&|/l&>spoejs_channels_at_this_site</&>
 </h1>
+% my $count = 0;
 % foreach my $chan ( @channels ) {
 <h2>
 <a href="/<% $chan->channel_dir() %>/index.html">
 <% $chan->get( 'title' ) %>
 </a>
 </h2>
-<iframe src="/<% $chan->channel_dir() %>/intro.html" width="100%" height="250" frameborder="0">
+<iframe id="<% "the_iframe" . $count %>"
+ onload="calcHeight('<% "the_iframe" . $count++ %>');" src="/<%
+ $chan->channel_dir() %>/intro.html" height="240"
+ frameborder="0" vspace="0" hspace="0" scrolling="NO"
+ style="overflow:invisible; width:100%;">
 </iframe>
 <br/>
 <br/>
