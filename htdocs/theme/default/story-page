@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.36 2004/07/02 16:28:37 snicki Exp $
+%# $Id: story-page,v 1.37 2004/07/02 16:52:20 snicki Exp $
 %#
 <& /htm/admin/story_tab.mas &>
 <h2><% $story_ref->get( 'title' ) %></h2>
@@ -13,7 +13,7 @@
 <a href="<% $next_href %>">&lt;==</a>
 % }
 % if ( $up_href ) {
-<a href="<% $up_href %>">**up**</a>
+<a href="<% $up_href %>">**up_**</a>
 % }
 % if ( $prev_href ) {
 <a href="<% $prev_href %>">==&gt;</a>
