@@ -22,8 +22,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.5 2004/02/28 05:15:36 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.5 $';
+# $Id: StoryList.pm,v 1.6 2004/02/28 05:54:03 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.6 $';
 
 sub _initialize {
     my $self = shift;
@@ -164,6 +164,24 @@ sub count_stories {
     
 }
 
+sub ls_loop {
+    my ( $self, $count, $comp, $story_dir, @all ) = @_;
+    
+    my @new;
+    foreach $story ( @all ) {
+	# XXX: make story_path function call in Story
+	my $path = $story->{story_path};
+	$path =~ s/\///g;
+	
+	if ( $comp->($path, $story_dir) ) {
+	    push @new, $story;
+	    last if --$count == 0;
+	}
+    }
+    return @new;
+}
+
+
 # List stories based on given keywords
 # Overall ideas is to get full list and remove based on given criterias
 #
@@ -191,38 +209,19 @@ sub list_stories {
 
 	my @new;
 	if ( $in{'prev'} ) {
-	    my $count = $in{'prev'};
 
-	    foreach $story ( @res ) {
-		# XXX: make story_path function call in Story
-		my $path = $story->{story_path};
-		$path =~ s/\///g;
-
-		if ( $path < $story_dir ) {
-		    push @new, $story;
-		    last if --$count <= 0;
-		}
-	    }
-
-	    @res = @new;
+	    @res = $self->ls_loop( $in{'prev'}, 
+				   sub { return $_[0] < $_[1]; },
+				   $story_dir,
+				   @res ); 
 
 	} elsif ( $in{'next'} ) {
-	    my $count = $in{'next'};
 
-	    foreach $story ( reverse @res ) {
-		# XXX: make story_path function call in Story
-		my $path = $story->{story_path};
-		$path =~ s/\///g;
-
-		if ( $path > $story_dir ) {
-		    push @new, $story;
-		    last if --$count <= 0;
-		}
-	    }
-
-	    @res = reverse @new;
+	    @res = $self->ls_loop( $in{'next'}, 
+				   sub { return $_[0] > $_[1]; },
+				   $story_dir,
+				   reverse @res ); 
 	}
-
 
 	delete $in{'story'};
 	delete $in{'prev'};
@@ -242,8 +241,9 @@ sub list_stories {
 	    # XXX: make story_path function call in Story
 	    my $path = $story->{story_path};
 	    $path =~ s/\///g;
-
-	    push @new, $story if $path > $from and $path < $to; 
+	    if ( $path > $from and $path < $to ) {
+		push @new, $story;
+	    }
 	}
 
 	@res = @new;
