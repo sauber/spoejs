@@ -13,7 +13,9 @@
 </&>
 <br/>
 <br/>
-<& /w, w => 'box', content => $media_list &>
+<&| /w, w => 'box', heading => 'Media' &>
+<%  $media_list %>
+</&>
 <& /w, w => 'navi', %navi_opt &>
 <br/>
 <br/>
