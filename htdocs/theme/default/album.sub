@@ -3,27 +3,14 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: album.sub,v 1.2 2004/04/10 07:40:24 snicki Exp $
+%# $Id: album.sub,v 1.3 2004/04/10 07:54:57 snicki Exp $
 %#
 <& $w,
-   img_list => $img_list
+   img_list  => \@ml
+   img_count => $spoejs{p}{s}
 &>
 <%init>
-
-  my @ml = $media_list->list( start => $spoejs{p}{s},
-		              count => $count );
-
-# Create image ref/sources
-my $img_count = 0;
-my $img_list;
-for my $p ( @ml ) {
-  my $href = $m->scomp( '/htm/url:encode', 'media.html',
-                       d => $spoejs{p}{d}, s => $spoejs{p}{s} + $img_count++ );
-  $img_list .= $m->scomp( '/w', w => "media", d =>  $spoejs{p}{d}, 
-                          p => $p->{file}, m => 150, href => $href,
-			  html_wh => $p->html_imgsize( size => 150 ) );
-}
-
+  my @ml = $media_list->list( start => $spoejs{p}{s}, count => $count );
 </%init>
 <%args>
   $w          => undef
