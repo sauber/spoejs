@@ -2,6 +2,8 @@
 
 # generates and icon file in jpg format by using Spoejs::Icon
 
+# $Id: icon.pl,v 1.2 2004/03/04 07:23:36 sauber Exp $
+
 use Spoejs::Icon;
 
 my $I = Spoejs::Icon->new();
