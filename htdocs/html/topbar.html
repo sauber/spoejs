@@ -2,8 +2,9 @@
 <tr>
 <th>
 <a href="/index.html">Site Home</a>
+% if ( defined $session{user} ) {
 <a href="/<% $session{user} %>/index.html">Channel Home</a>
-<a href="/html/admin/signup.html">Sign Up</a>
+% }
 <a href="/html/about.html">About</a>
 % if ( $session{chanauth} && $session{chanauth}{$session{user}} ) {
 <a href="/<%$session{user}%>/admin/story.html">New</a>
@@ -15,7 +16,6 @@
 </td>
 </tr>
 </table>
-
 %#<pre>
 %#<% Dumper %session %>
 %#<% Dumper %spoejs %>

@@ -4,11 +4,16 @@
 <a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'title' ) %>
 </a><br/>
 % } }
+<h2>
+<a href="/html/admin/signup.html">
+Click here to sign up for a new spoejs channel
+</a>
+</h2>
 <br/>
+<hr/>
 Change language:<br/>
 <& /w, w => 'langchooser' &>
 <br/>
-<hr/>
 Administration:
 <br/>
 <a href="/html/admin/siteconfig.html">
