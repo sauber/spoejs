@@ -1,4 +1,4 @@
-<img src="/ico/icon_c<%$category%>_m<%$size%>.jpg">
+<img src="/ico/icon_c<%$category%>_m<%$size%>.jpg" alt="<% $category %> icon"/>
 <%args>
     $category => undef
     $size => undef
