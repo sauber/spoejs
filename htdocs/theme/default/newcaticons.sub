@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: newcaticons.sub,v 1.6 2004/07/04 05:21:16 snicki Exp $
+%# $Id: newcaticons.sub,v 1.7 2004/08/08 20:34:03 snicki Exp $
 %#
 <& $w,
    cat_icons => \@cat_icons,
@@ -38,10 +38,7 @@ $#cats = $numcats - 1 if $numcats and @cats > $numcats;
 
 my @cat_icons;
 for my $c ( @cats ) {
-  my $href= $m->scomp( "/htm/url:encode",
-		       "/$spoejs{channel}/index.html",
-		       c => $c );
-  push @cat_icons, { href => $href, category => $c };
+  push @cat_icons, $c;
 }
 </%init>
 <%args>
