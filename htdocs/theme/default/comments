@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: comments,v 1.2 2004/06/03 14:11:52 sauber Exp $
+%# $Id: comments,v 1.3 2004/06/04 08:24:13 sauber Exp $
 %#
 <h2>**comments**</h2>
 % #
@@ -24,10 +24,12 @@
 % #
 %# XXX: Extract username/email from cookie if possible
 <h2>**post_a_comment**</h2>
-<form>
-**name**: <input size=20> **email**: <input size=20><br>
-**comments**: <input size=60><br>
+<form method="post" action="/htm/comment.html">
+**name**: <input name="name" size="20">
+**email**: <input name="email" size="20"> (optional)<br>
+**comments**: <input name="comment" size="60"><br>
 <& /w, w => "humantest" &>
+<input type="submit">
 </form>
 <%init>
 </%init>
