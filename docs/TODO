@@ -72,6 +72,8 @@ Theme:
 GUI Design:
  - Spoejs Logo
  - Page top
+ - Lists with stripes in different colors.
+ - Divider or spacing between local/remote columns
 
 StoryConf:
  - Store GMT unixtime as well as user-entered date string
