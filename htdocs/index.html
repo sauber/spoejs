@@ -16,8 +16,10 @@ Site configuration
 <%init>
 my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
                                   lang => $spoejs{lang_handle} );
+$spoejs{error}{$m->current_comp->source_file} = $CL->{msg} if $CL->{msg};
 my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
                                lang => $spoejs{lang_handle} );
+$spoejs{error}{$m->current_comp->source_file} = $SC->{msg} if $SC->{msg};
 my $policy = $SC->get( 'policy' );
 # Gives array of ChannelConf object refs
 my @channels = $CL->search_channels();

@@ -29,6 +29,7 @@ Back to story
   my $path = "$ENV{DOCUMENT_ROOT}$web_path";
   my $ML = new Spoejs::MediaList( path => $path );
   my $S = new Spoejs::Story( path => $path, lang => $spoejs{lang_handle} );
+  $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
 </%init>
 <%args>
  %params => undef

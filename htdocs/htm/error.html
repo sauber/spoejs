@@ -1,8 +1,8 @@
 % if ( $spoejs{error} ) {
 <hr/>
-<h3>One or more errors has occured:</h3>
-% for (values %{$spoejs{error}} ) {
-<% $_ %><br/>
+<h3>One or more errors has occured in:</h3>
+% while ( my ($k, $v ) = each %{$spoejs{error}} ) {
+<% $k . ": " . $v %><br/>
 % }
 % delete $spoejs{error};
 % }

@@ -56,6 +56,8 @@ Media to add:<br/>
 % if ($params{d}) {
 <h4>Current files:</h4>
 % my $ML = new Spoejs::MediaList( path=>"$spoejs{channel_path}/$params{d}" );
+% $spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
+
 <table width="100%">
 <tr><th>Filename</th><th>File size</th><th>Dimensions</th><th>File format</th></tr>
 % for ($ML->list()) {
@@ -91,6 +93,8 @@ Media to add:<br/>
 my @upl;
 my $SL = new Spoejs::StoryList( path => $spoejs{channel_path}, 
                                 lang => $spoejs{lang_handle} );
+$spoejs{error}{$m->current_comp->source_file} = $SL->{msg} if $SL->{msg};
+
 my @stories = $SL->list_stories();
 
 if ( $ARGS{upload} ) {
@@ -188,7 +192,8 @@ sub add_dir {
 sub add_file {
   my ( $path, $fn, $fh ) = @_;
   my $P = new Spoejs::Pic( path => $path, file => $fn );
-  $P->save( $fh ) or warn $P->{msg};
+  $spoejs{error}{$m->current_comp->source_file} = $P->{msg} if $P->{msg};
+  $P->save( $fh ) or $spoejs{error}{$m->current_comp->source_file} = $P->{msg};
 }
 
 

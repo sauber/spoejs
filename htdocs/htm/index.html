@@ -12,10 +12,10 @@ storytitlelist:<br/>
 % if ( $session{chanauth} ) {
 <a href="/<%$spoejs{channel}%>/admin/channelform.html">Channel configuration</a>
 % }
-%#<& debug.html &>
 <%init>
 my $CC = new Spoejs::ChannelConf( path=> $spoejs{channel_path},
                                   lang => $spoejs{lang_handle} );
+$spoejs{error}{$m->current_comp->source_file} = $CC->{msg} if $CC->{msg};
 </%init>
 <%args>
  $params => undef

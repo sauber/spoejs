@@ -40,6 +40,8 @@ No:<input type="radio" name="public" value="no"<% $nc %>>
   my %errs;
   my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
                                  lang => $spoejs{lang_handle} );
+  $spoejs{error}{$m->current_comp->source_file} = $SC->{msg} if $SC->{msg};
+
   my $policy = $SC->get( 'policy' );
 
 # Load data if channel exists
@@ -48,6 +50,7 @@ if ( -d $spoejs{channel_path} && !$ARGS{submit} )
   # XXX: What goes on when adding 'lang' here? (~nothing is returned in get()
   my $CC = new Spoejs::ChannelConf( path => $spoejs{channel_path},
                                     lang => $spoejs{lang_handle} );
+  $spoejs{error}{$m->current_comp->source_file} = $CC->{msg} if $CC->{msg};
 
   %ARGS = ( %ARGS, $CC->get() );
 }
@@ -82,6 +85,7 @@ if ( $ARGS{submit} ) {
 
     my $CC = new Spoejs::ChannelConf( path => $spoejs{channel_path},
                                       lang => $spoejs{lang_handle} );
+    $spoejs{error}{$m->current_comp->source_file} = $CC->{msg} if $CC->{msg};
 
     my $res = $CC->set( %cl_args );
   }
@@ -103,7 +107,7 @@ HTML
 
 sub check_args {
   my ( $ARGS, $errs ) = @_;
- 
+
   # XXX: Add checks on rest of input!!!
   unless ( $$ARGS{shortname} =~ /^[a-z]{4,10}$/ ) {
     $$errs{shortname} = " Only 4-10 letters from a-z";
@@ -129,12 +133,12 @@ sub check_cred {
    # We are editing current channel check if we are permitted
    return undef unless $m->comp( 'checkLogin.html' );
 
- } elsif (  $policy eq 'invite' and !$session{siteauth} ) { 
+ } elsif (  $policy eq 'invite' and !$session{siteauth} ) {
 
    # New channels can be made with siteauth creds or ffa/signup policy 
    return undef;
  }
 
-  return 1; 
+  return 1;
 }
 </%perl>

@@ -3,3 +3,7 @@
 <%perl>
   return $spoejs{res_handle}->get( $ARGS{l} );
 </%perl>
+<%init>
+$spoejs{error}{lang} = "Error in resource: $spoejs{res_handle}->{msg}" 
+                                                 if $spoejs{res_handle}->{msg};
+</%init>

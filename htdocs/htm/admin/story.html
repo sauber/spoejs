@@ -88,6 +88,7 @@ my @entries = qw( title date category abstract fulltext author thumbnail );
 
 my $SL = Spoejs::StoryList->new( path => $spoejs{channel_path},
                                  lang => $spoejs{lang_handle} );
+$spoejs{error}{$m->current_comp->source_file} = $SL->{msg} if $SL->{msg};
 
 my $story_dir = $params{d} || undef;
 my $S;
@@ -99,6 +100,7 @@ if ( $params{d} && -d "$spoejs{channel_path}/$params{d}" && !$ARGS{submit} ) {
 
   $S = new Spoejs::Story( path => "$spoejs{channel_path}/$params{d}",
                           lang => $spoejs{lang_handle} );
+  $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
 
   # Add data to args
   %ARGS = ( %ARGS, $S->get() );
@@ -127,6 +129,7 @@ if ( $ARGS{submit} ) {
 
   $S = new Spoejs::Story( path => "$spoejs{channel_path}/$story_dir",
                           lang => $spoejs{lang_handle} );
+  $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
 
   # XXX: Verify input
   $ARGS{category} = $ARGS{newcategory} if $ARGS{newcategory};

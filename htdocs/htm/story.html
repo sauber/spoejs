@@ -37,6 +37,7 @@ info => $_->info() &>
   my $path = $spoejs{channel_path} . "/" .$params{d};
   my $S = new Spoejs::Story( path => $path,
                              lang => $spoejs{lang_handle} );
+  $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
   my @media_list = $S->media_list();
 </%init>
 <%args>
