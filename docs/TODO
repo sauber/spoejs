@@ -14,6 +14,8 @@ Data:
  - Don't save text unless really changed
  - File locks
  - Undo, revisions
+ - Normalize UTF8
+ - Stack trace on syntax error in ::Text
 
 ChannelList:
    (List channels on frontpage, done)
@@ -105,6 +107,7 @@ Translator:
  - Support parameters in translations,... %1 %2 ...
  - da vs. dk, ja vs. jp
  - Add keywords/text
+ - Return keyword if no text present
 
 Search:
  - Seach in channels and stories
