@@ -20,6 +20,8 @@ abstract:
   ja: '空想'
   ru: 'аннотация'
   zh: '摘要'
+account_information:
+  en: Account Information
 account_signup:
   da: Journal information
   en: Journal Information
@@ -47,6 +49,8 @@ add:
   ja: '追加'
   ru: 'добавить'
   zh: '添加'
+add_comment:
+  en: Add Comment
 addfield:
   ar: 'أضيف جدول'
   da: Tilføj felt
@@ -112,6 +116,10 @@ administration:
   ja: '管理'
   ru: 'администрация'
   zh: '系统管理'
+always_random:
+  en: Always Random
+annotations:
+  en: Annotations 
 ar:
   ar: 'عربي'
   bg: 'Арабски'
@@ -141,6 +149,8 @@ archive:
   ja: '古文書'
   ru: 'архив'
   zh: '完全控制'
+authorized_for:
+  en: Authorized for 
 backtostory:
   ar: 'الرجوع للقصة'
   da: Tilbage til historie
@@ -261,10 +271,18 @@ change:
   ru: 'изменить '
   se: 'ändra'
   zh: '更改'
+change_deleted:
+  en: Change deleted 
+change_journal_password:
+  en: Change journal password 
 change_language:
   da: Skift sprog
   en: Change Language
   zh: '语言变换'
+changes_saved_successfully:
+  en: Changes saved successfully 
+channel_deleted:
+  en: Channel deleted 
 channelconf:
   ar: 'تغير للقناة'
   da: Kannalkonfiguration
@@ -309,6 +327,8 @@ click_continue:
   ja: '続けるにはこちらをクリック'
   ru: 'продолжить'
   zh: '按这里继续'
+click_insert_image:
+  en: Click and insert image 
 comment:
   ar: 'أقترحات'
   da: Kommenter
@@ -319,6 +339,10 @@ comment:
   ja: 'コメント'
   ru: 'комментарий'
   zh: '见解'
+comment_missing:
+  en: Comments missing
+comments:
+  en: Comments
 congrat_changes:
   ar: 'تغيراتك كانت ناجحة'
   da: 'Ændringer var successfulde'
@@ -430,6 +454,8 @@ delete:
   ja: '消去'
   ru: 'удалить'
   zh: '删去'
+delete_journal:
+  en: Delete journal 
 deletefile:
   ar: 'أمحاء ملف'
   da: Slet fil
@@ -485,6 +511,8 @@ edit:
   ja: '編集'
   ru: 'редактирование'
   zh: '编辑'
+edit_annotations:
+  en: Editing Annotations 
 edit_lang:
   ar: 'تصحيح ملف'
   da: Retter for sproget
@@ -497,6 +525,8 @@ edit_lang:
   ja: '編集用語'
   ru: 'язык редактирования'
   zh: '编辑语言'
+email:
+  en: Email 
 en:
   ar: 'أنجليزي'
   bg: 'Английски'
@@ -692,6 +722,8 @@ hu:
   ja: 'ハンガリー語'
   ru: 'венгерский'
   zh: '匈牙利语'
+image_code:
+  en: Image Code
 invalid_description:
   da: Fejl i beskrivelsen
   en: 'Invalid description '
@@ -701,6 +733,8 @@ invalid_journal_id:
 invalid_password:
   da: Det angivne password er for kort
   en: Password too short
+invalid_thumb_count:
+  en: 'Invalid thumbnail count'
 invalid_title:
   da: Fejl i tittel
   en: 'Invalid title '
@@ -779,6 +813,10 @@ ja:
   ru: 'японский'
   se: japanska
   zh: '日语'
+journal_config:
+  en: Journal Configure
+journal_exists:
+  en: Journal exists
 journal_id:
   da: Journal-ID
   en: Journal-ID
@@ -787,6 +825,10 @@ journal_id_description:
     4-16 små bogstaver til at identificeres din journal i URL'en, ex:
   en: |-
     4 to 16 lowercase letters to identify journal in URL like this:
+journal_info:
+  en: Journal Information 
+journal_layout:
+  en: Journal Layout 
 journal_name:
   da: Journal navn
   en: Journal Name
@@ -833,6 +875,10 @@ last:
 localjournal:
   da: Lokale journaler
   en: Local Journals
+log_in:
+  en: Login
+log_out:
+  en: Logout
 login:
   ar: 'دخول'
   bg: 'Вход'
@@ -911,10 +957,16 @@ more:
   ja: '以上'
   ru: 'более'
   zh: '更多'
+name:
+  en: Name
+name_missing:
+  en: Name missing
 new_account:
   da: Ny konto
   en: New account
   zh: '新用户注册'
+new_password:
+  en: New password 
 new_story:
   ar: 'قصة جديدة'
   da: Ny historie
@@ -1049,6 +1101,8 @@ passwd_retype_description:
 password_mismatch:
   da: Kodeordene var ikke ens
   en: Passwords did not match
+peers:
+  en: Peers
 please_fill_out_this_form:
   ar: 'الرجاء أكمال هذا الجدول'
   da: Venligst udfyld denne formular
@@ -1074,6 +1128,8 @@ pleaselogin:
     Пожалуйста, войдите в систему для доступа
     к этой странице
   zh: '进入此页之前请登录'
+post_a_comment:
+  en: Post a comment
 posted_by:
   ar: 'تحرير من '
   bg: 'Автор'
@@ -1107,6 +1163,8 @@ private:
 probs_in_reg:
   da: 'Den indtastede information havde fejl:'
   en: 'The Journal Information you entered has problems:'
+proxy:
+  en: Proxy
 public:
   ar: 'عمومي '
   bg: 'Публичен'
@@ -1144,11 +1202,17 @@ register:
   ja: '登録'
   ru: 'Зарегистрироваться'
   zh: '登录'
+rename_delete:
+  en: Rename Delete
 ru:
   da: Russisk
   en: Russian
   ru: 'Русский'
   zh: '俄语'
+sat:
+  en: Site configuration
+save_changes:
+  en: Save Changes
 se:
   ar: 'سويدي'
   bg: 'Шведски'
@@ -1167,6 +1231,10 @@ se:
   ru: 'Шведский'
   se: svenska
   zh: '瑞典语'
+security_image_failed_verification:
+  en: Security image failed verification 
+set_password:
+  en: Set password 
 shortname:
   ar: 'الاسم المستعار'
   bg: 'Кратко име'
@@ -1231,6 +1299,8 @@ signup_newjournal:
     Sign up for a new media journal and share your experiences with friends and
     family.
   zh: '注册新的杂记并与家人及朋友分享'
+signup_not_allowed:
+  en: Signup not allowed
 site_home:
   ar: 'العودة الى الصفحة الاولى'
   da: Kanal index
@@ -1242,7 +1312,7 @@ site_home:
   ja: 'サイトのホーム'
   ru: 'Адрес сайта'
   zh: '本页'
-siteconf:
+scf:
   ar: 'تغيرات على الموقع'
   da: Site konfiguration
   de: Website Konfiguration
@@ -1388,6 +1458,8 @@ summary:
   zh: '摘要'
 thanks:
   en: Thank you for good effort
+the_entered_information_contains_errors:
+  en: The entered information contains errors 
 thechannel_notexit:
   ar: 'هذة القناة غير موجودة'
   da: Kanalen eksisterer ikke!
@@ -1413,9 +1485,15 @@ theme:
   mk: 'Тема'
   ru: 'Тема'
   zh: '主题'
+theme_default:
+  en: Theme default 
 theme_description:
   da: Journalens udseende
   en: Visual appearance of journal
+thumb_count:
+  en: thumb count 
+thumb_count_description:
+  en: thumb count description 
 thumbnail:
   ar: 'الرموز'
   da: Ikon
@@ -1458,6 +1536,8 @@ upload:
   ja: 'アップロード'
   ru: 'Загрузить'
   zh: '上载'
+user_login:
+  en: User Login
 username:
   ar: 'أسم المستعمل'
   bg: 'Име на потребител'
@@ -1479,6 +1559,8 @@ username_description:
 view:
   da: Vis
   en: View
+wrong_user_or_pwd:
+  en: Wrong Username or password 
 yes:
   ar: 'نعم'
   da: Ja
@@ -1489,6 +1571,8 @@ yes:
   ja: 'はい'
   ru: 'Да'
   zh: '是'
+you_have_been_logged_out:
+  en: You have been logged out 
 yourname:
   ar: 'أسمك'
   da: Dit navn
