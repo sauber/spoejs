@@ -15,7 +15,7 @@ Story home<&|/l&>story_home</&></a>&nbsp;|
 <a href="/htm/about.html"><&|/l&>about</&></a>
 % if ( $new_href ) {
 &nbsp;|
-<a href="/<% $new_href %>"><&|/l&>new_story</&></a>
+<a href="<% $new_href %>"><&|/l&>new_story</&></a>
 % }
 &nbsp;
 </th>
