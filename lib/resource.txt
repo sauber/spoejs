@@ -43,6 +43,7 @@
 <blank_default>
 <lang=da/>(blank for dags dato)
 <lang=en/>(leave blank if story is current)
+<lang=zh/>(如果故事是当今的，留下空白)
 </blank_default>
 
 <bo>
@@ -353,6 +354,7 @@
 <or_new>
 <lang=da/>eller ny
 <lang=en/>or new
+<lang=zh/>或者新
 </or_new>
 
 <passwd>
@@ -381,6 +383,7 @@
 <lang=ja/>記入される
 <lang=mk/>Испраќа
 <lang=se/>postat av
+<lang=zh/>邮寄
 </posted_by>
 
 <public>
@@ -431,6 +434,7 @@
 <lang=it/>nome corto
 <lang=ja/>ショートネーム
 <lang=mk/>Кратко име
+<lang=zh/>短名
 </shortname>
 
 <signup>
@@ -466,6 +470,7 @@
 <storytitle>
 <lang=da/>Historie titel
 <lang=en/>Story title
+<lang=zh/>故事
 </storytitle>
 
 <submit>
@@ -477,7 +482,7 @@
 <lang=it/>presenti
 <lang=ja/>承諾
 <lang=mk/>Поднеси
-<lang=zh/>结果
+<lang=zh/>结果标题
 </submit>
 
 <theme>
@@ -528,6 +533,7 @@
 <yourname>
 <lang=da/>Dit navn
 <lang=en/>Your name
+<lang=zh/>你的名
 </yourname>
 
 <zh>
