@@ -4,7 +4,7 @@ login, authenticate, logout
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: login.html,v 1.11 2004/06/13 05:12:32 snicki Exp $
+$Id: login.html,v 1.12 2004/06/13 06:50:30 snicki Exp $
 </%doc>
 % if ( defined $session{chanauth} ) {
 %  # List authorized channels
@@ -22,6 +22,7 @@ $Id: login.html,v 1.11 2004/06/13 05:12:32 snicki Exp $
 %if ( $show_signup ) {
 <br/><a href="/htm/admin/signup.html">**new_account**</a>
 % }}
+<& /htm/debug.html &>
 <%init>
 if ( $login ) {
 
@@ -46,6 +47,11 @@ if ( $login ) {
   my $u = $spoejs{SiteConf}->get( 'username' );
   $session{chanauth}{'**sa**'} = $username if $username eq $u and $password eq $p;
 
+# Prepare error for fill_in_form
+ delete $session{form_error}{login_form};
+ unless ( defined $session{chanauth} ) {
+   $session{form_error}{login_form}{username} = '**wrong_user_or_pwd**';
+ }
 } elsif ( $logout ) {
 
   delete $session{chanauth};
@@ -63,8 +69,9 @@ if ( defined $session{chanauth} ) {
        push @authorized, [ $chan, "/$chan/index.html" ];
     }
   }
+
   # Go directly to page if we are authorized for only one "function"
-  $m->redirect( $authorized[0]->[1] ) if @authorized == 1;
+  $m->redirect( $authorized[0]->[1] ) if @authorized == 1 && $login;
 }
 
 my $policy = $spoejs{SiteConf}->get( 'policy' );
