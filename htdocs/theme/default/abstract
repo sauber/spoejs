@@ -2,10 +2,10 @@
 <div class="left">
      <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
 <div class="bottom">
-<a href="<% $story_href %>">More</a>
-<a href="">Comment</a>
+<a href="<% $story_href %>"><&|/l&>more</&></a>
+<a href=""><&|/l&>comment</&></a>
 % if ( $edit_href ) {
-<a href="<% $edit_href %>">Edit</a>
+<a href="<% $edit_href %>"><&|/l&>edit</&></a>
 % }
 </div>
 </div>
