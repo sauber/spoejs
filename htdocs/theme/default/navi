@@ -1,0 +1,21 @@
+<center>
+% if ( $left_href ) {
+<a href="<% $left_href %>">
+<==
+</a>
+% } else {
+<==
+% }
+==
+% if ( $right_href ) {
+<a href="<% $right_href %>">
+==>
+</a>
+% } else {
+==>
+% }
+</center>
+<%args>
+  $left_href  => undef
+  $right_href  => undef
+</%args>
