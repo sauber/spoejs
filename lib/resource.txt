@@ -1,6 +1,12 @@
 ---
+(optional):
+  en: (Optional)
 access_statistics:
+  da: Adgangsstatistik
   en: Access Statistics
+  es: Estadísticas de acceso
+  ru: 'статистика доступа'
+  zh: '运行统计'
 account_information:
   da: Opgørelse
   en: Account Information
@@ -10,6 +16,8 @@ account_information:
   hu: számla információ
   ja: 'アカウント情報'
   mk: 'Информации за сметката'
+  ru: 'Регистрационные данные'
+  zh: '帐号情况'
 active:
   ar: 'فعال'
   da: Aktiv
@@ -25,14 +33,6 @@ active:
   mk: 'Активен'
   ru: 'активный'
   zh: '运行'
-add:
-  ar: 'أضيق'
-  da: Tilføj
-  de: hinzufügen
-  en: Add
-  es: Agregar
-  et: Lisa
-  gr: 'Προσθήκη'
   hu: ad
   is: Bæta við
   it: agguingere
@@ -52,6 +52,7 @@ add_comment:
   it: agguniga un comment
   ja: 'コメントを追加'
   mk: 'Додај коментар'
+  ru: 'добавить комментарий'
   zh: '添加注解'
 addfield:
   ar: 'أضيف جدول'
@@ -100,22 +101,6 @@ addfileserver:
   mk: 'Додај фајлови од сервер'
   ru: 'добавить файлы с сервера'
   zh: '从Server上引入文件'
-addmediastory:
-  ar: 'أضيف المحقات للقصة'
-  da: Tilføj medier til historie
-  de: Medien der Geschichte hinzufügen
-  en: Add media to story
-  es: Agregar medio a artículo
-  et: Lisa jutule kujundus
-  gr: 'Προσθήκη media'
-  hu: Média hozzáadása a történethez
-  it: agguinga mezzi di comminigcazione per la storia
-  iw: 'הוטפת מידיא על הסיפוד'
-  ja: 'ストーリーにメディアを追加'
-  mk: 'Додај медиум на приказната'
-  ru: |-
-    добавить мультимедиа к рассказу
-  zh: '给记事里加煤体'
 addnewjournal:
   da: Tilføj en ny spoejs journal
   de: eine neue Rubrik hinzufügen
@@ -127,6 +112,7 @@ addnewjournal:
   it: agguinga un nuovo spoejs giornare
   ja: '新しいspoejsジャーナルを追加'
   mk: 'Додај ново списание'
+  ru: 'добавить новый spoejs журнал'
   zh: '添加新的Spoejs杂记'
 all:
   da: Alle
@@ -139,6 +125,8 @@ all:
   it: tutto
   ja: '全て'
   mk: 'Се'
+  ru: 'все'
+  zh: '全部'
 always_random:
   da: Altid tilfældig
   de: immer zufällig
@@ -151,17 +139,7 @@ always_random:
   it: sempre sensa senso
   ja: '常にランダム'
   mk: 'Секогаш случаен'
-annotations:
-  da: Billedbeskrivelser
-  de: Anmerkungen
-  en: Annotations
-  es: Anotaciones
-  et: Märkmed
-  gr: 'Σχόλια'
-  hu: rövidítés
-  it: commenti
-  ja: '注釈'
-  mk: 'Забелешки'
+  ru: 'всегда случайно'
 ar:
   ar: 'عربي'
   bg: 'Арабски'
@@ -208,6 +186,7 @@ authorized_for:
   it: avuto l'autorita
   ja: 'に委任しました。'
   mk: 'Со авторство на'
+  ru: 'авторизованно для'
 backtostory:
   ar: 'الرجوع للقصة'
   da: Tilbage til historie
@@ -290,6 +269,7 @@ categories:
   it: categorie
   ja: 'カテゴリー一覧'
   mk: 'Категории'
+  ru: 'категории'
   zh: '种类'
 category:
   ar: 'فيئة'
@@ -320,6 +300,8 @@ categorylist:
   it: la lista di categorie
   ja: 'カテゴリーリスト'
   mk: 'Лист на категории'
+  ru: 'список категорий'
+  zh: '种类'
 change_journal_password:
   da: Skift journal password
   de: Passwort ändern
@@ -333,6 +315,7 @@ change_journal_password:
   ja: 'ジャーナルのパスワードを変える'
   mk: |-
     Промени ја лозинката на списанието
+  ru: 'изменить пароль журнала'
 change_language:
   da: Skift sprog
   de: Sprache wechseln
@@ -344,6 +327,7 @@ change_language:
   it: cambia la lingua
   ja: '言語を変える'
   mk: 'Промени го јазикот'
+  ru: 'изменить язык'
   zh: '语言变换'
 changes_saved_successfully:
   da: 'Ændringerne er gemt'
@@ -358,6 +342,8 @@ changes_saved_successfully:
   it: cambiamento e tenuto sucesso
   ja: '変更は正常に処理されました'
   mk: 'Промените се снимени'
+  ru: |-
+    изменения успешно сохранены
 choose:
   ar: 'أختار'
   da: Vælg
@@ -385,6 +371,7 @@ click_insert_image:
   it: La click ici e introdurre  if imagio
   ja: 'クリックしてイメージを挿入'
   mk: 'Кликни и внеси слика'
+  ru: 'кликнуть и вставить образ'
 click_journal:
   da: Gå til journal
   de: Hier klicken um zur aktuellen Ausgabe zu kommen
@@ -395,17 +382,8 @@ click_journal:
   it: clika ici per andare per un viaggio
   ja: 'ここを押してジャーナルへ'
   mk: 'Кликни овде за списанието'
-comment:
-  da: Kommentar
-  de: Bezeichnung
-  en: Comment
-  es: Comentario
-  et: Märkus
-  gr: 'Σχόλιο'
-  hu: megjegyzés
-  it: commento
-  ja: 'コメント'
-  mk: 'Коментар'
+  ru: |-
+    кликнуть здесь для перехода в журнал
 comment_missing:
   da: Kommentar mangler
   de: Bezeichnungen fehlen
@@ -417,6 +395,7 @@ comment_missing:
   it: commenti unscessiva
   ja: 'コメントがありません'
   mk: 'Нема коментари'
+  ru: 'комментарий отсутствует'
 comments:
   da: Kommentarer
   de: Bezeichnungen
@@ -428,6 +407,8 @@ comments:
   it: Commeti
   ja: 'コメント'
   mk: 'Коментар'
+  ru: 'комментарии'
+  zh: '注释'
 congrat_signup:
   ar: 'لقد نجحت في التسجيل'
   da: Tillykke du er nu oprettet
@@ -448,7 +429,10 @@ congrat_signup:
     Мои позравления, Вы зарегистрированы
   zh: '祝贺你现在登录了'
 current_category:
-  en: Current Category 
+  da: Nuværende kategori
+  en: Current Category
+  es: Categoría actual
+  ru: 'текущая категория'
 currentfile:
   ar: 'الملفات المفتوحة'
   da: Nuværende filer
@@ -552,7 +536,11 @@ delete:
   ru: 'удалить'
   zh: '删去'
 delete_category:
-  en: Delete Category 
+  da: Slet kategori
+  en: Delete Category
+  es: Eliminar categoría
+  ru: 'удалить категорию'
+  zh: '删去种类'
 delete_journal:
   da: Slet journal
   de: Ausgabe löschen
@@ -564,6 +552,7 @@ delete_journal:
   it: cancellare giornale
   ja: 'ジャーナルを消去'
   mk: 'Избриши го списанието'
+  ru: 'удалить журнал'
 delete_story:
   da: Slet historie
   de: Story löschen
@@ -575,6 +564,7 @@ delete_story:
   it: cancellare la storia
   ja: 'ストーリーを消去'
   mk: 'Избриши ја приказната'
+  ru: 'удалить историю'
 deletefile:
   ar: 'أمحاء ملف'
   da: Slet fil
@@ -619,6 +609,7 @@ description_description:
   ja: 'ジャーナルコンテンツ概要'
   mk: |-
     Опиши ја содржината на списанието
+  ru: 'описать содержиние журнала'
 dimensions:
   ar: 'ﺡﺩﻭﺩ ﺍﻭ ﻡﻭﺎﺼﻓﺎﺗ'
   da: Dimensioner
@@ -659,6 +650,7 @@ edit_annotations:
   it: redigere l'annotazione
   ja: '注釈の編集'
   mk: 'Едитирање на забелешките'
+  ru: 'редактируемые аннотации'
 edit_lang:
   ar: 'تصحيح ملف'
   da: Retter for sproget
@@ -685,6 +677,8 @@ email:
   it: Email
   ja: Eメール
   mk: 'Електронска пошта'
+  ru: 'электронная почта'
+  zh: '电子邮件'
 en:
   ar: 'أنجليزي'
   bg: 'Английски'
@@ -715,6 +709,7 @@ error_code:
   it: codice di errore
   ja: 'エラーコード'
   mk: 'Погрешна шифра'
+  ru: 'код ошибки'
 es:
   ar: 'أسباني'
   bg: 'Испански'
@@ -751,6 +746,7 @@ extended_information:
   et: lisateave
   hu: kiterjesztett információ
   ja: '追加情報'
+  ru: 'расширенная информация'
 file_size:
   da: Filstørrelse
   en: File size
@@ -758,6 +754,7 @@ file_size:
   et: Faili suurus
   hu: fájl méret
   ja: 'ファイルサイズ'
+  ru: 'размер файла'
 file_type:
   da: Filtype
   en: File type
@@ -765,6 +762,7 @@ file_type:
   et: Faili liik
   hu: fájl típus
   ja: 'ファイルタイプ'
+  ru: 'тип файла'
 fileformat:
   ar: 'ﺖﻐﻳﺭ ﻥﻮﻋ ﻢﻠﻓ'
   da: Filformat
@@ -851,6 +849,8 @@ fix_and_resubmit:
   it: modifica e riproppore
   ja: '直して再提出'
   mk: 'Поправи и внеси повторно'
+  ru: |-
+    исправить и представить еще раз
 fr:
   ar: 'فرنسي'
   bg: 'Френски'
@@ -919,6 +919,7 @@ fullscreen_slideshow:
   et: Lai väljapanek
   hu: teljes képernyős fólia bemutató
   ja: '全画面スライドショー'
+  ru: 'полноэкранное слайд-шоу '
 gr:
   ar: 'يوناني'
   bg: 'Гръцки'
@@ -948,6 +949,7 @@ help:
   it: aiuto
   ja: 'ヘルプ'
   mk: 'Помош'
+  ru: 'помощь'
   zh: '帮助'
 home:
   da: Hjem
@@ -959,6 +961,7 @@ home:
   it: home
   ja: 'ホーム'
   mk: 'Дома'
+  ru: 'домой'
   zh: '本页'
 hu:
   ar: 'هنجاري'
@@ -976,9 +979,13 @@ hu:
   ru: 'венгерский'
   zh: '匈牙利语'
 icon_admin:
+  da: Administrér billede
   en: Icon Admin
+  es: Administración de iconos
 icon_upload:
-  en: Icon Upload 
+  da: Upload billede
+  en: Icon Upload
+  es: Cargar icono
 image_code:
   da: Billedekode
   de: Bildcode
@@ -989,6 +996,7 @@ image_code:
   it: il codice della immagine
   ja: 'イメージコード'
   mk: 'Код на сликата'
+  ru: 'код изображения'
 information:
   da: Information
   de: Information
@@ -999,6 +1007,8 @@ information:
   it: informazioni
   ja: 'インフォメーション'
   mk: 'Информации'
+  ru: 'информация'
+  zh: '情报'
 input_errors:
   da: Indtastningsfejl
   de: Eingabefehler
@@ -1009,6 +1019,8 @@ input_errors:
   it: inscersi gli errori
   ja: 'エラーを入力'
   mk: 'Грешки во внесувањето'
+  ru: 'входные ошибки'
+  zh: '输入错误'
 invalid_description:
   da: Fejl i beskrivelsen
   de: falsche Beschreibung
@@ -1019,6 +1031,7 @@ invalid_description:
   it: la descripzione e invalido
   ja: '無効な説明'
   mk: 'Погрешен опис'
+  ru: 'неправильное описание'
 invalid_journal_id:
   da: Fejl i Journal-ID
   de: ungültige Ausgabenidentifizierung
@@ -1031,6 +1044,7 @@ invalid_journal_id:
   mk: >-
     Погрешен идентификациски број на
     списанието
+  ru: 'неправильный ID журнала'
 invalid_name:
   da: Ugyldigt navn
   en: Invalid Name
@@ -1039,6 +1053,8 @@ invalid_name:
   hu: 'érvénytelen név'
   ja: '無効な名前'
   mk: 'Погрешно име'
+  ru: 'неправильное имя'
+  zh: '不合格的'
 invalid_password:
   da: Det angivne password er for kort
   de: Passwort hat zu wenig Zeichen
@@ -1050,6 +1066,8 @@ invalid_password:
   it: password e corta
   ja: 'パスワードが短すぎます'
   mk: 'Лозинката е премногу куса'
+  ru: 'пароль слишком короткий'
+  zh: '密码太短'
 invalid_thumb_count:
   da: Ugyldigt antal miniaturebilleder
   de: falsche Anzahl der Thumbnails
@@ -1069,6 +1087,8 @@ invalid_title:
   it: il titolo invalido
   ja: '無効なタイトル'
   mk: 'Погрешен наслов'
+  ru: 'непрравильный заголовок'
+  zh: '不合格的题目'
 invalid_username:
   da: Fejl i brugernavn
   de: falscher Benutzername
@@ -1080,6 +1100,9 @@ invalid_username:
   it: Username invalido
   ja: '無効なユーザー名'
   mk: 'Погрешно корисничко име'
+  ru: |-
+    неправильное имя пользователя
+  zh: '不合格的用户名'
 inviteonly:
   ar: 'ﻢﻋﺯﻮﻣ ﻒﻘﻃ'
   da: Kun inviterede
@@ -1174,6 +1197,7 @@ journal_admin:
   ja: 'ジャーナル管理者'
   mk: |-
     Администратор на списанието
+  ru: 'администратор журнала'
 journal_config:
   da: Journal konfiguration
   de: Ausgaben-Einstellung
@@ -1185,6 +1209,7 @@ journal_config:
   ja: 'ジャーナル配置'
   mk: |-
     Конфигурација на списанието
+  ru: 'конфигурация журнала'
 journal_default:
   da: Journal standard
   de: Ausgaben-Voreinstellung
@@ -1195,6 +1220,7 @@ journal_default:
   it: giornale scaduto
   ja: 'デフォルトのジャーナル'
   mk: 'Дефолт на списанието'
+  ru: 'журнал по умолчанию'
 journal_deleted:
   da: Journal er slettet
   de: gelöschte Ausgabe
@@ -1205,6 +1231,7 @@ journal_deleted:
   it: giornale cancellato
   ja: 'ジャーナルを消去しました'
   mk: 'Списанието е избришано'
+  ru: 'журнал удален'
 journal_exists:
   da: Journal-ID eksisterer allerede
   de: Ausgabenidentifizierung existiert bereits
@@ -1217,6 +1244,7 @@ journal_exists:
   mk: >-
     Идентификацискиот број на списанието
     веќе постои
+  ru: ID журнала уже существует
 journal_home:
   da: Journal hjem
   de: Ausgabe-Home
@@ -1227,6 +1255,7 @@ journal_home:
   it: Giornale Home
   ja: 'ジャーナルホーム'
   mk: 'Дом на списанието'
+  ru: 'домашний журнал'
 journal_id:
   da: Journal-ID
   de: Ausgabenidentifizierung
@@ -1238,6 +1267,7 @@ journal_id:
   ja: 'ジャーナルID'
   mk: |-
     Идентификациски број на списанието
+  ru: ID журнала
 journal_id_description:
   da: |-
     4-16 små bogstaver til at identificeres din journal i URL'en, ex:
@@ -1258,6 +1288,9 @@ journal_id_description:
     4 до 16 мали букви кои што ќе го
     идентификуваат списанието според УРЛ,
     како на пример
+  ru: >-
+    от 4 до 16 прописных букв, чтобы
+    идентифицировать журнал на URL, например: 
 journal_info:
   da: Journal information
   de: Ausgaben-Information
@@ -1268,6 +1301,7 @@ journal_info:
   it: Giornale informazioni
   ja: 'ジャーナルインフォメーション'
   mk: 'Информација за списанието'
+  ru: 'нформация журнала'
 journal_layout:
   da: Journal layout
   de: Ausgaben-Layout
@@ -1527,22 +1561,9 @@ mk:
   se: macedoniska
   zh: '马其顿语'
 month_top5:
+  da: Månedens top 5
   en: Month Top5
-more:
-  ar: 'مزيد'
-  da: Vis
-  de: mehr
-  en: More
-  es: Más
-  et: Veel
-  hu: több
-  is: Meira
-  it: un 'po di piu
-  iw: 'ירתר'
-  ja: 'より'
-  mk: 'Повеќе'
-  ru: 'более'
-  zh: '更多'
+  es: Top 5 del mes
 name:
   da: Navn
   de: Name
@@ -1584,11 +1605,17 @@ new_account:
   mk: 'Нова сметка'
   zh: '新用户注册'
 new_category:
+  da: Ny kategori
   en: New Category
+  es: Nueva categoría
 new_password:
   ar: 'كلمة مرور جديدة'
   da: Nyt password
+<<<<<<< resource.txt
+  de: Neues Benutzerkonto
+=======
   de: neues Passwort
+>>>>>>> 1.84
   en: New Password
   es: Nueva contraseña
   et: Uus salasõna
@@ -1637,6 +1664,7 @@ newest_story:
   et: Viimane täiendus loole
   hu: a legújabb történet ... nél
   ja: '最新のストーリー'
+  zh: '最新的故事'
 newfilename:
   ar: 'أسم ملف جديد'
   da: Nyt filnavn
@@ -1661,6 +1689,7 @@ newpass:
   is: Nýtt lykilorð
   ja: '新しいパスワード'
   mk: 'Нова лозинка'
+  zh: '新的密码'
 no_:
   ar: 'ﻻ'
   da: Nej
@@ -1690,13 +1719,6 @@ no_stories:
   mk: 'Нема приказни'
   ru: 'нет рассказов'
   zh: '没有内容'
-number_of_views:
-  da: Antal visninger
-  en: Number of views
-  es: Número de vistas
-  et: Vaadete arv
-  hu: a nézetek száma
-  ja: '表示数'
 oneerror_occur:
   ar: 'حدث خطاء أو أكثر'
   da: En eller flere fejl er opstået i
@@ -1713,23 +1735,6 @@ oneerror_occur:
     Една или повеќе грешки се појавија во
   ru: 'одна или более ошибок в'
   zh: '出现有一个或更多的错误'
-or_add_newstory:
-  ar: 'أو هنا لأضافة قصة جديدة'
-  da: eller her for at tilføje en ny historie
-  de: oder hier um eine neue Geschichte hinzuzufügen
-  en: or here to add a new story
-  es: o aquí para agregar un nuevo artículo
-  et: Siin saad lisada uue jutu
-  hu: vagy itt adj hozzá egy új történetet
-  it: o ici per agguingere una nuova storia
-  iw: 'אוכאן כדי להוסיף סיפור חדש'
-  ja: |-
-    またはここから新しいストーリーを追加して下さい
-  mk: |-
-    или тука за да додадете нова приказна
-  ru: |-
-    или здесь добавить новый рассказ
-  zh: '或许按这儿添加新的记事'
 or_new:
   ar: 'أو جديد'
   da: eller ny
@@ -1784,6 +1789,9 @@ passwd_description:
   mk: >-
     Нешто што лесно се памети, но тешко се
     погодува
+  ru: >-
+    что-нибуть что легко запомнить, но трудно
+    угадать
 passwd_retype:
   da: Skriv adgangskoden igen
   de: Passwort wiederholen
@@ -1797,6 +1805,7 @@ passwd_retype:
     もう一度パスワードを入力して下さい
   mk: |-
     Внесете ја лозинката повторно
+  ru: 'Повтори пароль'
 passwd_retype_description:
   da: Samme som ovenfor
   de: gleich wie oben
@@ -1807,6 +1816,7 @@ passwd_retype_description:
   it: lo stesso di prima
   ja: '上に同じ'
   mk: 'Исто како погоре'
+  ru: 'также как выше'
 password_mismatch:
   da: Adgangskoderne var ikke ens
   de: falsches Passwort
@@ -1818,6 +1828,7 @@ password_mismatch:
   it: Password e sbaliato
   ja: 'パスワードが合いません'
   mk: 'Лозинките не се исти'
+  ru: 'пароли не совпадают'
 past30days:
   da: Sidste 30 dage
   en: Past 30 days
@@ -1825,6 +1836,7 @@ past30days:
   et: Eelmised 30 päeva
   hu: az elmúlt 30 nap
   ja: '３０日後'
+  ru: 'после 30 дней'
 past7days:
   da: Sidste 7 dage
   en: Past 7 days
@@ -1832,8 +1844,12 @@ past7days:
   et: Eelmised 7 päeva
   hu: az elmúlt 7 nap
   ja: '７日後'
+  ru: 'после 7 дней'
 pause_play:
+  da: Hold pause
   en: Pause Play
+  es: Detener reproducción
+  ru: 'пауза'
 peers:
   da: Venner
   de: Pier
@@ -1883,12 +1899,13 @@ post_a_comment:
   da: Indsend kommentar
   de: ein Kommentar
   en: Post a comment
-  es: Envíia un comentario
+  es: Envía un comentario
   et: Saada oma arvamus
   hu: tegyen megjegyzést
   it: inviare un commento
   ja: 'コメントを書く'
   mk: 'Оставете коментар'
+  ru: 'разместить комментарий'
 posted_by:
   ar: 'تحرير من'
   bg: 'Автор'
@@ -1931,6 +1948,7 @@ private:
   it: privata
   ja: 'プライベート'
   mk: 'Приватно'
+  ru: 'частный'
 proxy:
   da: Proxy
   de: Proxy
@@ -1941,6 +1959,7 @@ proxy:
   it: sostituzione
   ja: 'プロキシ'
   mk: 'Прокси'
+  ru: proxy
 public:
   ar: 'عمومي'
   bg: 'Публичен'
@@ -1969,8 +1988,6 @@ random:
   iw: 'ראנדומאלי'
   ru: 'Случайный'
   zh: '随便'
-  ja: '名前の変更を消去'
-  mk: 'Преименувај Избриши'
 ru:
   da: Russisk
   de: russisch
@@ -1994,6 +2011,7 @@ save_changes:
   it: tenere la cambiamento
   ja: '変更を保存する'
   mk: 'Сними ги промените'
+  ru: 'Сохранить изменения'
 scf:
   ar: 'تغيرات على الموقع'
   da: Site konfiguration
@@ -2047,6 +2065,7 @@ set_password:
   it: metta Password
   ja: 'パスワードをセットする'
   mk: 'Постави лозинка'
+  ru: 'установить пароль'
 shortname:
   ar: 'الاسم المستعار'
   bg: 'Кратко име'
@@ -2071,6 +2090,7 @@ show_story:
   hu: mutasd a történetet
   ja: 'ストーリーを見せる'
   mk: 'Прика'
+  ru: 'показать историю'
 show_trans:
   da: Vis engelske oversættelser
   de: 'Übersetzungsmöglichkeiten anzeigen'
@@ -2082,6 +2102,7 @@ show_trans:
   ja: '翻訳オプションを表示する'
   mk: |-
     Прикажи ги опциите за превод
+  ru: 'показать опции перевода'
 signup_approve:
   ar: 'ﺖﻣ ﺎﻠﻣﻭﺎﻔﻗﺓ'
   da: Tilmeld-godkend
@@ -2120,6 +2141,9 @@ signup_newjournal:
     Запишете се за ново медиско списание и
     поделете ги вашите искуства со
     пријателите и семејството
+  ru: >-
+    подпишись на новый мультимедиа журнал и
+    поделись своим опытом с друзьями и семьей
   zh: '注册新的杂记并与家人及朋友分享'
 signup_not_allowed:
   da: Tilmelding er ikke tilladt
@@ -2133,6 +2157,7 @@ signup_not_allowed:
     サインアップは許可されませんでした。
   mk: |-
     Запишувањето не е дозволено
+  ru: 'подписка не разрешена'
 sitepolicy:
   ar: 'قوانيين الموقع'
   da: Site politik
@@ -2172,6 +2197,8 @@ statusjournal:
     このサイトでのジャーナルのステータス
   mk: |-
     Статус на списанијата на овој сајт
+  ru: |-
+    состояние журналов на этом сайте
 stories:
   da: Historier
   de: Geschichten
@@ -2182,6 +2209,7 @@ stories:
   it: le storie
   ja: 'ストーリー一覧'
   mk: 'Приказни'
+  ru: 'истории'
   zh: '记事'
 story:
   da: Historie
@@ -2193,6 +2221,7 @@ story:
   it: la storia
   ja: 'ストーリー'
   mk: 'Приказна'
+  ru: 'история'
   zh: '记事'
 story_deleted:
   da: Historie slettet
@@ -2204,6 +2233,7 @@ story_deleted:
   it: La stora e
   ja: 'ストーリーを消去'
   mk: 'Статијата е избришана'
+  ru: 'история удалена'
 story_details:
   da: Detaljer fra historien
   de: komplette Geschichte
@@ -2214,6 +2244,7 @@ story_details:
   it: piu di storia
   ja: 'ストーリーの詳細'
   mk: 'Детали за статијата'
+  ru: 'детали истории'
 story_edit:
   da: 'Ændre historie'
   de: zusammengefasste Geschichte
@@ -2224,6 +2255,7 @@ story_edit:
   it: la storia redazione
   ja: 'ストーリーを編集'
   mk: 'Едитирање на статијата'
+  ru: 'редактирование истории'
 story_summary:
   ar: 'محتويات القصة'
   da: Historie abstrakt
@@ -2340,6 +2372,7 @@ theme_default:
   it: tema e scaduto
   ja: 'デフォルトのテーマ'
   mk: 'Дефолт на темата'
+  ru: 'Тема по умолчанию'
 theme_description:
   da: Journalens udseende
   de: Erscheinungsbild der Ausgabe
@@ -2350,6 +2383,7 @@ theme_description:
   ja: 'ジャーナルの画像表示'
   mk: |-
     Визуелен изглед на списанието
+  ru: 'Визульный вид журнала'
 thumb_count:
   da: Markeringer pr. side
   de: Anzahl der Voransichten pro Seite
@@ -2359,6 +2393,7 @@ thumb_count:
   hu: kisképek per oldal
   it: i schizzi per la pagina
   ja: 'ページごとのサムネール'
+  ru: 'Пиктограмм на страницу'
 thumb_count_description:
   da: |-
     Antal miniaturebilleder der vises på hver historie side
@@ -2371,6 +2406,9 @@ thumb_count_description:
   it: i numeri di media schizzi per la pagina storia
   ja: |-
     ストーリーページの中のメディアサムネイルの数
+  ru: >-
+    Число пиктограмм мультимедиа на страницу
+    истории
 thumbnail:
   ar: 'الرموز'
   da: Miniaturebillede
@@ -2413,8 +2451,8 @@ title_description:
   it: il nome del giornal
   ja: 'ジャーナルの名前'
   mk: 'Име на списанието'
-total_top5:
-  en: Total Top5
+  ru: 'имя журнала'
+  zh: '记事名'
 total:
   da: I alt
   en: Total
@@ -2422,6 +2460,14 @@ total:
   et: Kokku
   hu: 'összeg'
   ja: '全部'
+  ru: 'Всего'
+  zh: '全部'
+total_top5:
+  da: Total top 5
+  en: Total Top5
+  es: Top 5 totales
+  ru: Top 5  за все время
+  zh: '占全部的前五位'
 up_:
   da: Op
   en: Up
@@ -2431,6 +2477,8 @@ up_:
   is: Upp
   ja: '上へ'
   mk: 'Горе'
+  ru: 'вверх'
+  zh: '向上'
 upload:
   ar: 'أدخال'
   da: Indsend
@@ -2455,6 +2503,7 @@ user_login:
   it: Uttente Login
   ja: 'ユーザーログイン'
   mk: 'Логирање на корисникот'
+  zh: '用户登记'
 username:
   ar: 'أسم المستعمل'
   bg: 'Име на потребител'
@@ -2481,6 +2530,9 @@ username_description:
   hu: 'kisbetűs 4-től 16 hosszú szavak vagy számok '
   ja: 4〜16個の小文字あるいは数字
   mk: 4 до 16 мали букви или броеви
+  ru: |-
+    от 4 до 6 прописных букв или цифр
+  zh: 4到16位的小写字母或数字
 view:
   da: Vis
   de: Anzeige
@@ -2492,6 +2544,8 @@ view:
   it: guarda
   ja: '表示'
   mk: 'Прегледај'
+  ru: 'вид'
+  zh: '一览'
 views:
   da: Visninger
   en: Views
@@ -2499,8 +2553,14 @@ views:
   et: Vaated
   hu: képek
   ja: '複数表示'
+  ru: 'виды'
+  zh: '一览'
 week_top5:
-  en: Week Top5 
+  da: Denne uges top 5
+  en: Week Top5
+  es: Top 5 de la semana
+  ru: Top 5 за неделю
+  zh: '占每星期的前五位'
 wrong_user_or_pwd:
   da: Forkert brugernavn eller adgangskode
   de: falscher Benutzername oder falsches Kennwort
@@ -2514,6 +2574,9 @@ wrong_user_or_pwd:
     無効なユーザーネーム、またはパスワードです
   mk: |-
     Погрешно корисничко име или лозинка
+  ru: |-
+    неправильное имя пользователя или пароль
+  zh: '错误的用户名或密码'
 yes:
   ar: 'ﻦﻌﻣ'
   da: Ja
@@ -2539,6 +2602,8 @@ you_have_been_logged_out:
   it: Siete stati fuori
   ja: 'ログアウトされました'
   mk: 'Одлогирани сте'
+  ru: 'Вы вышли из системы'
+  zh: '你已经退出'
 yourname:
   ar: 'أسمك'
   da: Dit navn
