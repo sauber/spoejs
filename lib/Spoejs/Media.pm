@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.17 2004/06/03 00:40:14 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.17 $';
+# $Id: Media.pm,v 1.18 2004/06/03 01:08:28 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.18 $';
 
 
 # Initializor
@@ -204,11 +204,7 @@ sub info {
 
   return undef unless $self->{_im};
 
-  my ( $w,$h,$f,$m ) = $self->{_im}->Get('width','height','filesize','Magick');
-
-  ($x,$y) = $self->_scaledxy( $x, $y, $scalem ) if $scalem;
-
-  return ( $w,$h,$f,$m );
+  return $self->{_im}->Get('width','height','filesize','Magick');
 }
 
 
@@ -254,7 +250,12 @@ sub ping {
     
     # Use Image:Magick's ping to get resolution of image
     my $im = Image::Magick->new();
-    return $im->Ping( "$self->{path}/$self->{file}" );
+
+    my ( $w,$h,$s,$f ) = $im->Ping( "$self->{path}/$self->{file}" );
+    ($x,$y) = $self->_scaledxy( $x, $y, $params{scalem} ) 
+	if defined $params{scalem};
+
+  return ( $w,$h,$f,$m );
 }
 
 # List of supported extensions seperated by |
