@@ -105,10 +105,11 @@ if ( $ARGS{delete} ) {
   $SL->del_story( story => $story_dir );
 }
 
+# Used for category chooser - counts ignored
 my %categories = $SL->count_stories( by => 'category' );
 
 my $story_url = $story_dir;
-$story_url =~ s{/}{}g;
+$story_url =~ s{/}{}g; # Remove '/' for use in url
 </%init>
 <%args>
   %params => undef
