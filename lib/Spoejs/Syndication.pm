@@ -6,8 +6,8 @@ use LWP::UserAgent;
 use Spoejs::ChannelList;
 use Spoejs::SiteConf;
 
-# $Id: Syndication.pm,v 1.12 2004/05/16 11:45:04 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.12 $';
+# $Id: Syndication.pm,v 1.13 2004/05/16 11:47:26 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.13 $';
 
 # Constructor
 sub _initialize {
@@ -77,7 +77,7 @@ sub _fetch_remote_lists {
   my @peers = $self->_remotes_from_conf();
 
   for my $url ( @peers ) {
-      my $list = $self->_fetch_url( $url . $remotedoc );
+      my $list = $self->_fetch_url( $url . $remotedoc ) if length $url > 10;
       push @{$self->{globallist}}, $self->_parse_remote_list( $url, $list );
   }
 }
