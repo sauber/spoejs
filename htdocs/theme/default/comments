@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: comments,v 1.5 2004/06/05 10:16:38 sauber Exp $
+%# $Id: comments,v 1.6 2004/06/08 08:46:46 sauber Exp $
 %#
 % if ( @$comments > 0 ) {
 <h2>**comments**</h2>
@@ -26,18 +26,46 @@
 % #
 % # XXX: Extract username/email from cookie if possible
 <h2>**post_a_comment**</h2>
+% # Check for previous failures
+% if ( $session{formerror} ) {
+**adding_comments_failed_for_the_following_reasons**<br>
+%   for ( split /\t/, $session{formerror} ) {
+**error**: <% $_ %><br>
+%   }
+%   delete $session{formerror};
+% }
 <form method="post" action="<% $post_url %>">
-**name**: <input name="name" size="20"<% $na %>>
-**email**: <input name="email" size="20"<% $em %>> (optional)<br>
-**comments**: <input name="comment" size="60"><br>
+**name**: <input name="name" size="20" value="<% $na %>"><br>
+**email**: <input name="email" size="20" value="<% $em %>"> (optional)<br>
+**comments**: <input name="comment" size="60" value="<% $co %>"><br>
 <& /w, w => "humantest" &>
 <input type="submit">
 </form>
 <%init>
-my $na = exists $session{humanname} ? " value=\"$session{humanname}\"" : '';
-my $em = exists $session{humanemail} ? " value=\"$session{humanemail}\"" : '';
+my $co = '';
+if ( exists $session{formcomment} ) {
+  $co = $session{formcomment};
+  delete $session{formcomment};
+}
+
+my $na = '';
+if ( exists $session{formname} ) {
+  $na = $session{formname};
+  delete $session{formname};
+} elsif ( exists $session{humanemail} ) {
+  $na = $session{humanemail};
+}
+
+my $em = '';
+if ( exists $session{formemail} ) {
+  $em = $session{formemail};
+  delete $session{formemail};
+} elsif ( exists $session{humanemail} ) {
+  $em = $session{humanemail};
+}
+
 </%init>
 <%args>
-  $comments  => "No comment"
+  $comments   => undef
   $post_url   => undef
 </%args>
