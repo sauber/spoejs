@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.23 2004/04/18 14:57:46 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.23 $';
+# $Id: StoryList.pm,v 1.24 2004/04/19 02:53:32 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.24 $';
 
 sub _initialize {
     my $self = shift;
@@ -41,22 +41,20 @@ sub _initialize {
 sub _all_stories {
 
     my $self = shift;
+
+    # Already loaded
+    return if ( defined $self->{stories} );
+
     my $file = $self->{file};
     my $root_path = $self->{path};
 
     my @paths = $self->_list_from_filename( $root_path, $file );
 
-    my @stories;
     for my $p ( @paths ) {
- 	my $S = Spoejs::Story->new( path => $p, lang => $self->{lang} );
+	my $story = Spoejs::Story->new( path => $p, lang => $self->{lang} );
 
- 	# XXX: Why is a get() necesary here?
- 	$S->get( );
-
- 	push @stories, $S;
+ 	push  @{$self->{stories}}, $story;
     }
-
-    return \@stories;
 };
 
 
@@ -64,24 +62,24 @@ sub _all_stories {
 #
 sub _sort_by_date {
 
-    my ( $self, $stories ) = @_;
-
-    @sorted_stories = map { $_->[0] } 
-                      sort { $b->[1] <=> $a->[1] } 
-                      map { [$_,
-			     Date::Manip::UnixDate( $_->get( 'date' ), '%s') 
-			     ] } 
-                      @$stories;
-
-    return @sorted_stories;
+    my ( $self ) = @_;
+# XXX: Revisit do-statement
+    @{$self->{stories}} = map { $_->[0] } 
+                sort { $b->[1] <=> $a->[1] } 
+                map { [ $_,
+		        Date::Manip::UnixDate(
+	             do{my $tmp = $_;my $t= $tmp->get( 'date' ); $_ = $tmp;$t},
+		             '%s') 
+		       ] } 
+                      @{$self->{stories}};
 }
 
 
 sub _ls_loop {
-    my ( $self, $count, $comp, @all ) = @_;
+    my ( $self, $count, $comp, $all ) = @_;
     
     my @new;
-    foreach my $story ( @all ) {
+    foreach my $story ( @$all ) {
 
 	my $path = $story->story_path_from_full();
 	$path =~ s/\///g;
@@ -157,11 +155,11 @@ sub count_stories {
     my %in = @_;
     my %counts;
 
-    # Get story array
-    $all = $self->_all_stories();
+    # Load story array
+    $self->_all_stories();
 
     if ( $in{by} eq 'category' or  $in{by} eq 'author' ) {
-	for my $s ( @{$all} ) {
+	for my $s ( @{$self->{stories}} ) {
 	    my $cat = $s->get( $in{by} );
 	    $counts{$cat}++;
 	}
@@ -184,7 +182,10 @@ sub list_stories {
     delete $in{count};
 
     # Get story array
-    my @res = $self->_sort_by_date( $self->_all_stories() );
+    $self->_all_stories(); # Load story array
+    $self->_sort_by_date( );
+
+    my @res = @{$self->{stories}};
 
     # Convert story_num to story
     $in{story} = $res[$in{story_num}] if defined $in{story_num};
@@ -198,11 +199,11 @@ sub list_stories {
 
 	@res = $self->_ls_loop( $in{'prev'}, 
 			       sub { return $_[0] <= $story_dir; },
-			       @res ) if $in{'prev'}; 
+			       \@res ) if $in{'prev'}; 
 	
 	@res = $self->_ls_loop( $in{'next'}, 
 			       sub { return $_[0] >= $story_dir; },
-			       reverse @res ) if $in{'next'};
+			       reverse \@res ) if $in{'next'};
     } 
     delete $in{'story'};
     delete $in{'prev'};
@@ -218,7 +219,7 @@ sub list_stories {
 
 	@res = $self->_ls_loop( -1,
 			       sub { return $_[0] >= $from and $_[0] <= $to; },
-			       @res ); 
+			       \@res ); 
     } 
     delete $in{from};
     delete $in{to};
@@ -247,6 +248,7 @@ sub list {
     my $self = shift;
     return $self->list_stories();
 }
+
 
 __END__
                                                                                 
