@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.13 2004/07/02 16:29:21 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.13 $';
+# $Id: List.pm,v 1.14 2004/07/02 16:29:44 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.14 $';
 
 
 # Constructor
@@ -103,7 +103,6 @@ sub _index_of {
     my ( $self, $item, $list ) = @_;
 
     if ( $item =~ m|\d+/\d+/\d+| ) {
-	warn Dumper $list;
 	my $count = 0;
 	for my $i ( @$list ) {
 	    my $path = $i->story_path_from_full();
