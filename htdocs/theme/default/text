@@ -1,8 +1,15 @@
+%# Render paragraphs of text
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: text,v 1.2 2004/04/10 07:21:09 sauber Exp $
+%#
 <%args>
 $text=>undef
 </%args>
 <%init>
-# The idea is to look for newlines to split the text up into paragraphs
+# The idea is to look for  blank lines to split the text up into paragraphs
 #my @blocks = split /[\n\r]+[\n\r]+/, $text;
 my @blocks = split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $text;
 </%init>

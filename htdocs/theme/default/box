@@ -1,3 +1,10 @@
+%# put html output inside a box
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: box,v 1.4 2004/04/10 07:21:08 sauber Exp $
+%#
 <%args>
 $content => undef
 $heading => undef

@@ -1,3 +1,10 @@
+%# Login and logout buttons
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: login,v 1.6 2004/04/10 07:21:08 sauber Exp $
+%#
 <form method="post" action="<%$action%>">
 % if ( defined $session{$ses_var} ) {
 <input type="submit" name="logout" value="<&|/l&>logout</&>"/>

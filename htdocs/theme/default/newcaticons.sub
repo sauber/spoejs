@@ -1,3 +1,10 @@
+%# Data for 5 newest categories
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: newcaticons.sub,v 1.3 2004/04/10 07:21:09 sauber Exp $
+%#
 <& $w,
    cat_icons => \@cat_icons,
    icon_size => 75

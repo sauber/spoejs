@@ -1,3 +1,10 @@
+%# List of story titles
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: storytitlelist,v 1.17 2004/04/10 07:21:09 sauber Exp $
+%#
 <h2><&|/l&>storytitlelist</&></h2>
 <table width="300">
 <tr>

@@ -1,10 +1,17 @@
+%# Display icon
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: ico,v 1.5 2004/04/10 07:21:08 sauber Exp $
+%#
 <% $$iconref %>
 %# XXX: Is it more correct to abort() here?
 %# $m->abort();
 <%init>
     use Spoejs::Icon;
     my $I = Spoejs::Icon->new();
-    my $iconref = $I->get( category => $$spoejs{p}{c}, size => $$spoejs{p}{m} );
+    my $iconref = $I->get( category => $spoejs{p}{c}, size => $spoejs{p}{m} );
 
     $r->content_type('image/jpeg');
     # Caching
@@ -15,6 +22,3 @@
     $r->headers_out->add( "Last-Modified" => $l );
 
 </%init>
-<%args>
- $params => undef    
-</%args>

@@ -1,3 +1,10 @@
+%# 5 newest icons
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: newcaticons,v 1.5 2004/04/10 07:21:09 sauber Exp $
+%#
 % for my $icon ( @cat_icons ) {
 <a href="<% $$icon{href} %>">\
 <& /w, w => 'categoryicon', category => $$icon{category}, size => $icon_size &>\

@@ -1,3 +1,10 @@
+%# Next and prev buttons
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: navi,v 1.4 2004/04/10 07:21:08 sauber Exp $
+%#
 <center>
 % if ( $prev_href ) {
 <a href="<% $prev_href %>">

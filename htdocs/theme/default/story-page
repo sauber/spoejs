@@ -1,3 +1,11 @@
+%# Show a story with all it's details and media
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: story-page,v 1.15 2004/04/10 07:21:09 sauber Exp $
+%#
+<h2><% $story_ref->get( 'title' ) %></h2>
 <&| /w, w => "box", heading => $story_ref->get( 'title' ) &>
 <&| /l &>date</&>:
 <% $story_ref->get( 'date' ) %>

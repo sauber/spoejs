@@ -1,3 +1,10 @@
+%# Select new language
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: langchooser,v 1.11 2004/04/10 07:21:08 sauber Exp $
+%#
 <form method="post" action="/htm/changeLang.html">
 <& langselect &>
 <input type="submit" value="<&|/l&>change</&>"/>

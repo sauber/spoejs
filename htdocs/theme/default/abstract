@@ -1,3 +1,10 @@
+%# title, icon, indexthumb, etc. for a story
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: abstract,v 1.22 2004/04/10 07:21:08 sauber Exp $
+%#
 <h3><% $title %></h3>
 <div class="abstract">
 <div class="left">

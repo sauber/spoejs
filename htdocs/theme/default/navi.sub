@@ -1,3 +1,10 @@
+%# Generate data for next/prev buttons
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: navi.sub,v 1.2 2004/04/10 07:21:08 sauber Exp $
+%#
 <& $w,
    next_href => $next_href,
    prev_href => $prev_href

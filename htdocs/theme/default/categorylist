@@ -1,3 +1,10 @@
+%# List of story categories
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: categorylist,v 1.14 2004/04/10 07:21:08 sauber Exp $
+%#
 <h2><&|/l&>categorylist</&></h2>
 % for my $info ( @cat_info ) {
 <a href="<% $$info{href} %>">
