@@ -4,7 +4,7 @@ Generate data for comments
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: comments.sub,v 1.6 2004/06/15 02:06:05 snicki Exp $
+$Id: comments.sub,v 1.7 2004/08/31 06:18:10 sauber Exp $
 </%doc>
 <& $w,
    comments => \@comments,
@@ -26,7 +26,6 @@ handle_submit( $C, $object ) if defined $spoejs{ARGS}->{comments};
 
 # Read in the data like this
 my $data = $C->get( $object );
-#my $data = random_comments();
 
 # After data is load from file, then parse it into a list of hashes
 my @comments = map {{ /^(\w+?)\s*=\s*(.+?)$/gm }}
@@ -89,32 +88,6 @@ unless ( $form_error ) {
   # Clear comment in args
   delete $spoejs{ARGS}->{comment};
 }
-}
-
-# For test generate random data
-sub random_comments {
-  my @words=qw(that's interesting it actually reinforced my initial feeling);
-  my @authors=qw(tom john phil maria anna elizabeth anonymous);
-  my @langs=qw(en da de zh jp);
-
-  my $res;
-  # Number of comments
-  for my $n ( 0..1 + int rand 7 ) {
-    $res .= sprintf "By=%s\n", ucfirst $authors[int rand @authors];
-    $res .= sprintf "Date=%d\n", 800000000 + int rand 285815078;
-    if ( 0.5 > rand 1 ) {
-      $res .= sprintf "Email=%s\@email.com\n", $authors[int rand @authors];
-    }
-    $res .= sprintf "Lang=%s\n", $langs[int rand @langs];
-    my $t = ucfirst $words[int rand @words];
-    for ( 0..1 + int rand 25 ) {
-      $t .= " $words[int rand @words]";
-    }
-    $res .= sprintf "Text=%s.\n", $t;
-    $res .= "\n";
-  }
-
-  return $res;
 }
 </%perl>
 <%args>

@@ -1,0 +1,35 @@
+<%doc>
+Show access statistics for media of story
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: stats,v 1.1 2004/08/31 06:18:13 sauber Exp $
+</%doc>
+<h3>**access_statistics**</h3>
+<h4>**total_top5**</h4>
+<ol>
+% for my $v ( @{$V->{total}} ) {
+<li><strong><% $v->[0] %></strong> (<% $v->[1] %>)</li>
+% }
+</ol>
+<h4>**month_top5**</h4>
+<ol>
+% for my $v ( @{$V->{month}} ) {
+<li><strong><% $v->[0] %></strong> (<% $v->[1] %>)</li>
+% }
+</ol>
+<h4>**week_top5**</h4>
+<ol>
+% for my $v ( @{$V->{week}} ) {
+<li><strong><% $v->[0] %></strong> (<% $v->[1] %>)</li>
+% }
+</ol>
+<%init>
+my $S = new Spoejs::Stats( path=>$storyref->{path} );
+my $V = $S->topN(5);
+</%init>
+<%args>
+ $storyref => undef
+ $w        => undef
+</%args>

@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.40 2004/08/31 02:18:29 sauber Exp $
+%# $Id: story-page,v 1.41 2004/08/31 06:18:13 sauber Exp $
 %#
 <& /htm/admin/story_tab.mas &>
 <h2><% $story_ref->get( 'title' ) %></h2>
@@ -46,6 +46,9 @@
 <br/>
 <br/>
 <& /w, w => 'comments', box => 1 &>
+<br/>
+<br/>
+<& /w, w => 'stats', box => 1, storyref => $story_ref &>
 <br/>
 <br/>
 <br/>
