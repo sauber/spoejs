@@ -2,13 +2,13 @@
 <h2><% $success %></h2>
 <form method="post" action="">
 %for my $p ( $S->{ML}->list() ) {
-<div style="width:160px; height: 100px; float:left; text-align:center;">
+<table style="display:inline;"><tr><td align="center">
   <& '/w', w => "media", d =>  $spoejs{p}{d}, p => $p->{file}, 
            m => $img_size, no_div => 1, no_annotation => 1 &>\
-<br/>
+</td></tr><tr><td>
 <input type="text" size="20" name="<%$p->{file}%>" \
 value="<%$local_anno{$p->{file}}%>">
-</div>
+</td></tr></table>
 %}
 <br clear="all"/>
 <input type="submit" name="submit" value="**save_changes**">
