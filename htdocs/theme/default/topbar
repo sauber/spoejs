@@ -4,7 +4,7 @@ topbar of links on every page
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: topbar,v 1.18 2004/06/16 12:26:26 sauber Exp $
+$Id: topbar,v 1.19 2004/08/08 20:08:16 snicki Exp $
 </%doc>
 <div style="float:left;">
 <a href="/index.html">**home**</a>&nbsp;|
@@ -15,9 +15,10 @@ $Id: topbar,v 1.18 2004/06/16 12:26:26 sauber Exp $
 <a href="<% $story_href %>"><% $story_title %></a>&nbsp;|
 % }
 <a href="<% $about_href %>">**help**</a>
-% if ( $new_href ) {
 &nbsp;|
+% if ( $new_href ) {
 <a href="<% $new_href %>">**new_story**</a>
+&nbsp;|
 % }
 &nbsp;
 </div>
