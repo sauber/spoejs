@@ -1,7 +1,9 @@
-<& /w, w => 'story-page',
-       story_dir => $spoejs{p}{d},
-       story_ref => $S,
-       edit_href => $a_edit,
+<& /w, w          => 'story-page',
+       story_dir  => $spoejs{p}{d},
+       story_ref  => $S,
+       edit_href  => $a_edit,
+       next_href  => $next_href,
+       prev_href  => $prev_href,
        media_list => \@media_list
 &>
 <%init>
@@ -9,16 +11,36 @@
   my $S = new Spoejs::Story( path => $path,
                              lang => $spoejs{lang_handle} );
   $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
-  my @media_list = $S->media_list();
+
+  my @media_list = $S->{ML}->next( current => $spoejs{p}{q},
+				   count => ($spoejs{p}{n} || 20)+1 );
+
+  my @prev_list = $S->{ML}->prev( current => $spoejs{p}{q},
+				   count => ($spoejs{p}{n} || 20)+1 );
+
+my $nextpic = pop @media_list;
+my $prevpic = pop @prev_list;
 
 my $a_edit = '';
 if ( $session{chanauth} && $spoejs{channel} &&
      $session{chanauth}{$spoejs{channel}} ) {
 
-  $a_edit = '<a href="';
+  $a_edit  = '<a href="';
   $a_edit .= $m->scomp( '/htm/url:encode',
 			"/$spoejs{channel}/admin/story.html",
 			d => $spoejs{p}{d} );
   $a_edit .= '">Edit</a>';
 }
+my $prev_href;
+$prev_href = $m->scomp( '/htm/url:encode',
+			"/$spoejs{channel}/story.html",
+			d => $spoejs{p}{d},
+			q => $prevpic->{file}
+		      );
+my $next_href;
+$next_href = $m->scomp( '/htm/url:encode',
+			"/$spoejs{channel}/story.html",
+			d => $spoejs{p}{d},
+			q => $nextpic->{file}
+		      );
 </%init>
