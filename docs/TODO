@@ -18,22 +18,13 @@ Data:
  - Stack trace on syntax error in ::Text
 
 ChannelList:
-   (List channels on frontpage, done)
- - Signup
- - Langchooser
  - Other sites
 
 Login:
- - Login, verify username password
- - Logout
 
 Register:
- - Choose username/password/channelname
- - Write ChannelConf
- - Edit ChannelConf
- - Change password
- - Channel language
- - Theme chooser
+ - Check fields for valid data
+ - Pop-down menus.
 
 Session:
  - Session component to avoid masonhandler code
@@ -46,8 +37,8 @@ Theme:
  - Page templates
  - Basic component set
  - css
- - Use specified theme or fall back to default
  - Test non-default theme
+ - What to put in theme/ and html/
 
 GUI Design:
  - Logo
@@ -62,36 +53,43 @@ Syndication:
  - Central site for root index
 
 Annotations:
- - CVS checkin
+ - Specialize ::Text
  - Component to render pictures+localized annotation
 
 StoryAdmin:
- - New story
- - Add pictures to story
  - Add annotations to pictures
  - Edit story/pictures/annotations
  - Del story
  - Guest comment on story
+ - Write in more languages
+ - Active/inactive story
 
 SiteConf:
  - Paths, theme, lang
  - Neighborhood spoejs sites
- - Invite-only/register-confirm
+ - Invite-only/register-confirm/free-for-all
  - Quota
 
 Navigation:
  - StoryList
- - Story, report+pictures+annotations
- - Picture
+    - next/prev page
+    - by category
+    - by month/year
+ - Story, report+thumbnails+annotations
+ - Bigger picture+annotation+exif
  - Slideshow
 
 Media:
- - ANY (random) from album
+ - First, last, chosen, random index media
+ - Preview x+y sizes
  - Scale
  - Single frame of movie
  - Crop, rotate, brightness, compress
+ - utf8 filenames
+ - Delete
 
 Extras:
+ - Calendar
  - Weather
  - News
  - Favorite Links
@@ -101,12 +99,7 @@ Extras:
  - Picture viewing statistics
 
 Translator:
- - Login
- - Show all resources for one lang
- - Allow submit translations
  - Support parameters in translations,... %1 %2 ...
- - da vs. dk, ja vs. jp
- - Add keywords/text
  - Return keyword if no text present
 
 Search:
