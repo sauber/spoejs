@@ -4,7 +4,7 @@ Show comments for story or media
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: comments,v 1.12 2004/10/11 14:35:59 sauber Exp $
+$Id: comments,v 1.13 2005/03/20 14:06:14 snicki Exp $
 </%doc>
 % if ( @$comments > 0 ) {
 <h3>**comments**</h3>
@@ -29,11 +29,13 @@ $Id: comments,v 1.12 2004/10/11 14:35:59 sauber Exp $
 <h4>**post_a_comment**</h4>
 <&| /htm/admin/fill_in_form.mas, data => $spoejs{ARGS}, ignore => $ignore &>
 <form name="comments" method="post" action="">
-**name**: <input name="name" size="20"/><br>
-**email**: <input name="email" size="20"/> **(optional)**<br>
-**comments**: <input name="comment" size="60"/><br>
-<& /w, w => "humantest" &>
-<input type="submit" name="comments" value="**add_comment**"/>
+<table>
+<tr><td>**name**:</td><td><input name="name" size="20"/></td></tr>
+<tr><td>**email**:</td><td><input name="email" size="20"/> (**optional**)</td></tr>
+<tr><td>**comments**:</td><td><input name="comment" size="60"/></td></tr>
+<tr><td colspan="2"><& /w, w => "humantest" &></td></tr>
+<tr><td colspan="2"><input type="submit" name="comments" value="**add_comment**"/></td></tr>
+</table>
 </form>
 </&>
 <%args>
