@@ -8,10 +8,16 @@ Revision history for Spoejs.
   - Syndication
   - Translator mode
   - Right and left columns
+  - Annotations
+  - Comments
+  - Humantest
+  - YAML for text storage
+  - Tabbed configuration pages for site, journal and story
   Bug fixes:
   - Wording changes: Channel->Journal
   - Maxside->diagonal for scaling media
   - Encrypted passwords
+  - Sorting by date
 
 0.01  Fri Apr  9 00:37:15 2004
   - Original version
