@@ -3,15 +3,22 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: pic.common,v 1.1 2004/04/23 08:16:47 snicki Exp $
+%# $Id: pic.common,v 1.2 2004/04/25 14:03:58 snicki Exp $
 %#
-<% $$picref %>
+<% $$m_ref %>
 % $m->abort();
 <%init>
     my $path = "$spoejs{channel_path}/$spoejs{p}{d}";
 
-    my $P = Spoejs::Media->new( path => $path, file => $spoejs{p}{p} );
-    my $picref = $P->get( size => $spoejs{p}{m} );
+    my $M;
+    if ( $spoejs{p}{p} eq 'ANY' ) {
+       my $ML = Spoejs::MediaList->new( path => $path );
+       $M = $ML->get( 'random' );
+    } else {
+       $M = Spoejs::Media->new( path => $path, file => $spoejs{p}{p} );
+    }
+    my $m_ref = $M->get( size => $spoejs{p}{m} );
+
 
     # Make sure we only send out jpeg data
     $m->clear_buffer();

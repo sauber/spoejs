@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract,v 1.25 2004/04/16 13:17:21 sauber Exp $
+%# $Id: abstract,v 1.26 2004/04/25 14:03:59 snicki Exp $
 %#
 <h3><% $title %></h3>
 <br/>
@@ -19,7 +19,7 @@
 </div>
 </div>
 <div class="right">
-    <& /w, w => 'media', d => $path, p => $thumb_ref->{file},
+    <& /w, w => 'media', d => $path, p => $thumb_file,
            m => 150, href=>$story_href &>
 </div>
 <div class="center">
@@ -39,5 +39,5 @@
   $story_href => undef
   $path       => undef
   $edit_href  => undef
-  $thumb_ref  => undef
+  $thumb_file => undef
 </%args>

@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.17 2004/04/22 11:03:43 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.17 $';
+# $Id: MediaList.pm,v 1.19 2004/04/25 14:05:35 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.19 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -99,17 +99,22 @@ sub get {
 
     # XXX: This ads duplicated code, but is fatser than using list();
     my @files = $self->_list_from_file_pattern( '(jpg|png|gif|avi|mpg)$' );
-    return unless @files > 0;
+    return undef unless @files > 0;
     my $i;
 
     if ( $type eq 'first' ) {
+
 	@files = sort @files;
 	$i = 0;
     } elsif ( $type eq 'last' ) {
 	$i = 0;
-    }
-    else {
+
+    } elsif ( $type eq 'random' or $type eq 'always_random' or $type eq '' ) {
+
 	$i = int rand($#files + 1);
+    } else {
+
+	return new Spoejs::Media( path => $self->{path}, file => $type );
     }    
 
     @d{ 'file', 'path' } = fileparse $files[$i];
