@@ -1,6 +1,6 @@
 <%perl>
 # Remove user path of URL
-$req_uri =~ s/\/(\w+)\/// and my $path = $1;
+$ENV{REQUEST_URI} =~ /\/(\w+)\// and my $path = $1;
 
 # Add user-path to session
 if ( length $path > 3 and length $path < 11 ) {
@@ -15,8 +15,6 @@ if ( length $path > 3 and length $path < 11 ) {
 
 session_setup();
 spoejs_setup();
-
-return ($req_uri, $path);
 
 sub session_setup {
 
@@ -50,6 +48,3 @@ sub spoejs_setup {
   $spoejs{res_handle} = new Spoejs::Resource( lang => $spoejs{lang_handle} );
 }
 </%perl>
-<%args>
-$req_uri => undef
-</%args>

@@ -1,4 +1,5 @@
 <%perl>
+  my $url = $ENV{PATH_INFO};
   my ( $link, $options ) = $m->comp('/htm/url:decode', $url );
 
   # Default to configured, then 'default' theme if none is given in URL
@@ -7,9 +8,7 @@
 
   # Set theme in %spoejs
   $spoejs{theme} = $$options{t};
+  $spoejs{p} = $options;
+  $spoejs{url_noparam} = $link;
 
-  return ( $link, %$options );
 </%perl>
-<%args>
-$url => undef
-</%args>
