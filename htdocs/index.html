@@ -28,5 +28,7 @@ $spoejs{error}{$m->current_comp->source_file} = $CL->{msg} if $CL->{msg};
 
 # Gives array of ChannelConf object refs
 my @channels;
-@channels = $CL->newest_channels() unless $CL->{msg};
+my @auth =  keys %{$session{chanauth}} if defined $session{chanauth};
+@channels = $CL->newest_channels( auth => \@auth )
+  unless $CL->{msg};
 </%init>
