@@ -91,6 +91,7 @@ addmediastory:
     добавить мультимедиа к рассказу
   zh: '给记事里加煤体'
 addnewjournal:
+  da: Tilføj en ny spoejs journal
   en: Add a new spoejs journal
   es: Agregar un nuevo diario de Spoejs
   gr: 'Προσθήκη '
@@ -99,6 +100,7 @@ addnewjournal:
   mk: 'Додај ново списание'
   zh: '添加新的Spoejs杂记'
 all:
+  da: Alle
   en: All
   es: Todos
   it: tutto
@@ -303,12 +305,14 @@ click_insert_image:
   ja: 'クリックしてイメージを挿入'
   mk: 'Кликни и внеси слика'
 click_journal:
+  da: Gå til journal
   en: Click here to go to journal
   es: Pulsa aquí para ir al diario
   it: clika ici per andare per un viaggio
   ja: 'ここを押してジャーナルへ'
   mk: 'Кликни овде за списанието'
 comment:
+  da: Kommentar
   en: Comment
   es: Comentario
   it: commento
@@ -443,6 +447,7 @@ delete_journal:
   ja: 'ジャーナルを消去'
   mk: 'Избриши го списанието'
 delete_story:
+  da: Slet historie
   en: Delete Story
   es: Eliminar artículo
   it: cancellare la storia
@@ -559,6 +564,7 @@ en:
   se: Engelska
   zh: '英语'
 error_code:
+  da: Fejlkode
   en: Error Code
   es: Código del error
   it: codice di errore
@@ -771,6 +777,7 @@ image_code:
   ja: 'イメージコード'
   mk: 'Код на сликата'
 information:
+  da: Information
   en: Information
   es: Información
   it: informazioni
@@ -900,6 +907,7 @@ ja:
   se: japanska
   zh: '日语'
 journal_admin:
+  da: Journal Administrator
   en: Journal Administrator
   es: Administrador del diario
   it: giornale amministrazione
@@ -913,6 +921,7 @@ journal_config:
   mk: |-
     Конфигурација на списанието
 journal_default:
+  da: Journal standars
   en: Journal default
   es: Diario predeterminado
   it: giornale scaduto
@@ -934,6 +943,7 @@ journal_exists:
     Идентификацискиот број на списанието
     веќе постои
 journal_home:
+  da: Journal hjem
   en: Journal Home
   es: Inicio del diario
   it: giornale Home
@@ -1010,6 +1020,7 @@ journals_friends:
   mk: |-
     Списанија на сајтови на пријатели
 keyword:
+  da: Nøgleord
   en: Keyword
   es: Palabra clave
   it: Keyword
@@ -1051,6 +1062,7 @@ last:
   ru: 'прошлый'
   zh: '持续'
 layout:
+  da: Layout
   en: Layout
   es: Diseño
   it: impaginazione
@@ -1804,6 +1816,9 @@ title_description:
   it: il nome del giornal
   ja: 'ジャーナルの名前'
   mk: 'Име на списанието'
+up_:
+  da: Op
+  en: Up
 upload:
   ar: 'أدخال'
   da: Indsend
