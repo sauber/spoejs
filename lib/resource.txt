@@ -5,8 +5,7 @@
 <lang=es/>Acerca de
 <lang=hu/>korulbelul?
 <lang=iw/>על
-<lang=jp/>およそ
-<lang=zh/>关于
+<lang=jp/>情報
 </about>
 
 <abstract>
