@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: latest.html,v 1.1 2004/05/15 09:28:22 snicki Exp $
+%# $Id: latest.html,v 1.2 2004/05/16 00:35:57 snicki Exp $
 %#
 % foreach my $chaninfo ( @sns ) {
 <%$chaninfo->{shortname} . ';' . $chaninfo->{date} %>
@@ -13,7 +13,7 @@
 use  Spoejs::Syndication;
 my $SYN = new Spoejs::Syndication( path => "$ENV{DOCUMENT_ROOT}/users/",
                                    lang => $spoejs{lang_handle} );
-my @sns = $SYN->channel_newestdate_list();
+my @sns = $SYN->local_channel_newestdate_list();
 $m->clear_buffer;
 $r->content_type('text/plain');
 </%init>
