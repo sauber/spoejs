@@ -2,8 +2,8 @@ package Spoejs::Icon;
 use LWP::UserAgent;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.10 2004/04/09 17:18:39 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.10 $';
+# $Id: Icon.pm,v 1.11 2004/05/08 14:05:37 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.11 $';
 
 #### Private interface ####
 
@@ -12,6 +12,7 @@ $Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.10 $';
 sub _downloadicon {
   my($self,$category,$size,$sizeset) = @_;
 
+  # Google only accept well know agents
   my $ua = LWP::UserAgent->new;
   $ua->agent('Lynx/2.8.4rel.1 libwww-FM/2.14');
 
@@ -43,7 +44,7 @@ sub _downloadicon {
   for $n ( 0 .. $#p ) {
     my($x,$y) = $p[$n] =~ m/\d+/g;
     my $s = $y/$x; $s = 1/$s if $s > 1;
-    # Also consider size of picture if size desired size is specified
+    # Also consider size of picture if desired size is specified
     if ( $size ) {
       my $xy = ( $x * $y ) / ( $size * $size ); $xy = 1/$xy if $xy > 1;
       $s *= $xy;
@@ -53,10 +54,10 @@ sub _downloadicon {
   }
 
   # Did we get at least one picture? Otherwise pass on Google's
-  # misspelling suggestion or unknown.
+  # misspelling suggestion or any icon.
   unless ( @I ) {
     $index =~ m/Did you mean:.*?<i>(.*?)<\/i>/;
-    $self->{_didyoumean} = $1 || 'unknown';
+    $self->{_didyoumean} = $1 || 'icon';
     return $self->_err('No mathing pictures. Try alternative.');
   }
 
@@ -79,14 +80,14 @@ sub _downloadicon {
 sub get {
   my($self,%data) = @_;
 
+  # Try several times to get an icon
   $self->_downloadicon($data{category},$data{size},'small')
     || $self->_downloadicon($self->{_didyoumean},$data{size},'small')
     || $self->_downloadicon($data{category},$data{size})
     || $self->_downloadicon($self->{_didyoumean},$data{size});
   return $self->_err('No picture downloaded') unless $self->{_blob};
 
-  # If size is specified then convert to imagemagick object, scale, and
-  # convert back to jpeg again.
+  # If size is specified then scale
   if ( $data{size} ) {
     $self->scale($data{size});
   }
