@@ -115,6 +115,9 @@ Media:
  - Delete
  - utf8 category icon
  - windows filenames
+ - remove dirs before / or \
+ - utf8 filenames
+ - exif
 
 Extras:
  - Calendar
