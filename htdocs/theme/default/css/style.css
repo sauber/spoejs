@@ -94,6 +94,8 @@ div.media {
   float: left;
   min-height: 150px;
   min-width: 150px;
+  width:expression(this.scrollWidth < 166? "166px" : "auto" );
+  height:expression(this.scrollHeight < 166? "166px" : "auto" );
   padding:3px;
   border-style:ridge;
   margin: 5px;
