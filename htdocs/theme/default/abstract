@@ -4,10 +4,7 @@
   <th class="abstract" align="right"><% $storyref->get( 'date' ) %></th>
 </tr>
 <tr>
-  <td colspan="2">Posted by: <% $author %></td>
-</tr>
-<tr>
-  <td colspan="2">Section: <%$storyref->get( 'category' )%></td>
+  <td colspan="2">Posted by <% $author %> in section <%$storyref->get( 'category' )%></td>
 </tr>
 <tr>
   <td><& categoryicon, category =>$storyref->get( 'category' ) &></td>
