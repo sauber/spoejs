@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.17 2004/10/28 12:07:18 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.17 $';
+# $Id: List.pm,v 1.18 2004/10/28 12:39:49 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.18 $';
 
 
 # Constructor
@@ -137,6 +137,7 @@ sub next {
     my ( $self, %param ) = @_;
 
     $param{start} = $self->_index_of( $param{start}, $param{list} );
+    $param{end} = $#{$param{list}};
 
     return undef if $param{start} >= $param{end};
     my $index = $param{start} + $param{count};
@@ -151,6 +152,7 @@ sub prev {
     my ( $self, %param ) = @_;
 
     $param{start} = $self->_index_of( $param{start}, $param{list} );
+    $param{end} = $#{$param{list}};
 
     return undef if $param{start} <= 0;
     my $index = $param{start} - $param{count};
