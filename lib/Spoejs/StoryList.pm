@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.14 2004/03/06 09:11:37 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.14 $';
+# $Id: StoryList.pm,v 1.15 2004/03/12 07:13:37 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.15 $';
 
 sub _initialize {
     my $self = shift;
@@ -92,20 +92,6 @@ sub _ls_loop {
     }
     return @new;
 };
-
-
-sub _dirs_in_path {
-    my ( $self, $path ) = @_;
-
-    opendir DH, "$path" or die $self->_err( "Can not open $path: $!");
-    my @res = sort { $b <=> $a }
-                       grep { -d "$path/$_" }
-                       grep !/^\./,
-                       readdir DH;
-    closedir DH;
-
-   return @res;
-}
 
 
 #### Public interface ####

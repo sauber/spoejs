@@ -3,8 +3,8 @@ use base ( "Spoejs::List", "Spoejs" );
 use Spoejs::ChannelConf;
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.3 2004/03/11 09:33:04 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.3 $';
+# $Id: ChannelList.pm,v 1.4 2004/03/12 07:13:37 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.4 $';
 
 
 # Constructor
@@ -83,9 +83,10 @@ sub new_channel {
 	return $self->_err( "Could not create directory " . 
 			    " $full_path: $!" );
 
-    # Create channel config
+    # Create channel config, adding approved='no' as default 
     # XXX: remove created dir if we _err here
     my $CC = new Spoejs::ChannelConf( path => $full_path );
+    $params{approved} ||= "no";
     $CC->set( %params ) or return $self->_err( "Could not set settings." );
 
     # Success

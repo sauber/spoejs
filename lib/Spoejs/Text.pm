@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.15 2004/03/09 01:39:05 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.15 $';
+# $Id: Text.pm,v 1.16 2004/03/12 07:13:37 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.16 $';
 
 
 # Constructor
@@ -231,7 +231,8 @@ sub set {
 	if ( $type eq "" ) {
 	    # If SCALAR, ref is false - add/overwrite directly
 
-	    unless( $self->{data}{$key} eq $in_data{$key} ) {
+	    unless( $self->{data}{$key} && 
+		    $self->{data}{$key} eq $in_data{$key} ) {
 		$self->{data}{$key} = $in_data{$key};
 		$self->{is_modified} = 1;
 	    }
@@ -252,6 +253,9 @@ sub set {
 	    }
 	}
     }
+
+    # Success
+    return 1;
 }
 
 
