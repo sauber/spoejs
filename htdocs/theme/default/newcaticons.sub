@@ -3,11 +3,11 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: newcaticons.sub,v 1.4 2004/04/19 02:54:46 snicki Exp $
+%# $Id: newcaticons.sub,v 1.5 2004/05/09 03:09:24 snicki Exp $
 %#
 <& $w,
    cat_icons => \@cat_icons,
-   icon_size => 75
+   icon_size => 105
 &>
 <%init>
 my @stories = $spoejs{SL}->list_stories();

@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract.sub,v 1.4 2004/04/25 14:03:59 snicki Exp $
+%# $Id: abstract.sub,v 1.5 2004/05/09 03:09:24 snicki Exp $
 %#
 <& $w,
    title      => $storyref->get( 'title' ),
@@ -11,7 +11,7 @@
    category   => $storyref->get( 'category' ),
    date       => $storyref->get( 'date' ),
    abstract   => $storyref->get( 'abstract' ),
-   icon_size  => 75,
+   icon_size  => 105,
    story_href => $story_href,
    path       => $path,
    edit_href  => $edit_href,
