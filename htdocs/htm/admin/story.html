@@ -4,7 +4,7 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.44 2004/08/08 19:07:09 snicki Exp $
+$Id: story.html,v 1.45 2004/08/16 10:49:52 sauber Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
@@ -174,4 +174,9 @@ $ARGS{author} = $spoejs{ChannelConf}->get( 'name' )
 
 # Used for category chooser - counts ignored
 my %categories = $spoejs{SL}->count_stories( by => 'category' );
+
+# Add categories local to site
+# XXX: Should read icon path from SiteConfig
+my $I = new Spoejs::Icon();
+map { $categories{$_}++ } $I->list();
 </%init>
