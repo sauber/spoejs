@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.27 2004/06/22 07:58:41 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.27 $';
+# $Id: StoryList.pm,v 1.28 2004/07/02 15:16:06 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.28 $';
 
 sub _initialize {
     my $self = shift;
@@ -186,9 +186,11 @@ sub list_stories {
     my @res = @{$self->{stories}};
 
     # Convert story_num to story
-    $in{story} = $res[$in{story_num}] if defined $in{story_num};
-    $in{story} = $in{story}->story_path_from_full() if defined $in{story};
-    delete $in{story_num};
+    if ( defined $in{story_num} ) {
+      $in{story} = $res[$in{story_num}];
+      $in{story} = $in{story}->story_path_from_full() if defined $in{story};
+      delete $in{story_num};
+    }
 
     # Extract other params
     my $story = $in{story};
