@@ -3,9 +3,9 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index-page,v 1.17 2004/07/04 02:57:11 snicki Exp $
+%# $Id: index-page,v 1.18 2004/08/08 20:27:36 snicki Exp $
 %#
-<table>
+<table width="100%">
 <tr>
 <td>
 <h2><% $CC->get( 'title' ) %></h2>
