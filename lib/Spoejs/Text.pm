@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.21 2004/04/19 02:51:39 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.21 $';
+# $Id: Text.pm,v 1.22 2004/04/19 11:40:46 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.22 $';
 
 
 # Constructor
@@ -213,9 +213,9 @@ sub get {
 	for my $kw (@_) {
 
 	    if ( ref $self->{data}{$kw} ) {
-		$res{$_} = dclone( $self->{data}{$kw} );
+		$res{$kw} = dclone( $self->{data}{$kw} );
 	    } else {
-		$res{$_} = $self->{data}{$kw};
+		$res{$kw} = $self->{data}{$kw};
 	    }
 	}
     } else {
