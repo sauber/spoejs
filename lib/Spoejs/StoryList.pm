@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.26 2004/06/03 01:49:49 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.26 $';
+# $Id: StoryList.pm,v 1.27 2004/06/22 07:58:41 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.27 $';
 
 sub _initialize {
     my $self = shift;
@@ -53,6 +53,10 @@ sub _all_stories {
     for my $p ( @paths ) {
 	my $story = Spoejs::Story->new( path => $p, lang => $self->{lang} );
 
+	# Generate index
+	$story->{sortkey} = Date::Manip::ParseDate( $story->get( 'date' ) ) .
+	                    '-' . $story->story_path_from_full();
+
  	push  @{$self->{stories}}, $story;
     }
 };
@@ -63,28 +67,20 @@ sub _all_stories {
 sub _sort_by_date {
 
     my ( $self ) = @_;
-# XXX: Revisit do-statement
-    @{$self->{stories}} = map { $_->[0] } 
-                sort { $b->[1] <=> $a->[1] } 
-                map { [ $_,
-		        Date::Manip::UnixDate(
-	             do{my $tmp = $_;my $t= $tmp->get( 'date' ); $_ = $tmp;$t},
-		             '%s') 
-		       ] } 
+    @{$self->{stories}} = sort { $b->{sortkey} <=> $a->{sortkey} } 
                       @{$self->{stories}};
 }
 
 
+# Filter stories based given comparison criteria
+#
 sub _ls_loop {
     my ( $self, $count, $comp, $all ) = @_;
     
     my @new;
     foreach my $story ( @$all ) {
 
-	my $path = $story->story_path_from_full();
-	$path =~ s/\///g;
-
-	if ( $comp->( $path ) ) {
+	if ( $comp->( $story->{sortkey} ) ) {
 	    push @new, $story;
 	    last if --$count == 0;
 	}
@@ -135,6 +131,8 @@ sub add_story {
 }
 
 
+# Delete a story including all datafiles and media files
+#
 sub del_story {
 
     my $self = shift;
@@ -224,12 +222,19 @@ sub list_stories {
 	my $story_dir = $story;
 	$story_dir =~ s/\///g;
 
+        # Get story date
+        my $S = new Spoejs::Story( path => "$self->{path}/$story", 
+				   lang => $self->{lang} );
+
+	my $sortkey = Date::Manip::ParseDate( $S->get( 'date' ) ) .
+	              '-' . $story;
+
 	@res = $self->_ls_loop( $prev, 
-			       sub { return $_[0] <= $story_dir; },
+			       sub { return $_[0] <= $sortkey; },
 			       \@res ) if $prev; 
 	
 	@res = $self->_ls_loop( $next, 
-			       sub { return $_[0] >= $story_dir; },
+			       sub { return $_->{sortkey} >= $sortkey; },
 			       reverse \@res ) if $next;
     } 
 
@@ -259,14 +264,14 @@ sub list {
 
 
 __END__
-                                                                                
+
 =head1 NAME
-                                                                                
+
 Spoejs::StoryList - List, insert, edit or delete stories
 
 =head1 LICENSE
-                                                                                
+
 Artistic License
 http://www.opensource.org/licenses/artistic-license.php
-                                                                                
+
 =cut
