@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: album,v 1.14 2004/06/25 05:07:59 sauber Exp $
+%# $Id: album,v 1.15 2004/07/02 14:34:11 snicki Exp $
 %#
 %for my $p ( @img_list ) {
 %  my $href = $m->scomp( '/htm/url:encode', 'media.html', d => $spoejs{p}{d},
@@ -11,6 +11,10 @@
   <& '/w', w => "media", d =>  $spoejs{p}{d}, p => $p->{file}, m => $img_size,
           href => $href, box_height => $max_height, html_wh => $p->{html_wh} &>
 %}
+% if ( defined $navi_opt{list_ref} ) {
+<br clear="all">
+<& /w, w => 'navi', %navi_opt &>
+% }
 <%init>
 # Find largest height
 my $max_height;
@@ -24,4 +28,5 @@ for my $p ( @img_list ) {
   @img_list  => undef
   $img_count => undef
   $img_size  => 150
+  %navi_opt  => undef
 </%args>
