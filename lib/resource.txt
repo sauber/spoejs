@@ -1,5 +1,6 @@
 <ar>
 <lang=jp/>アラビア語
+<lang=is/>Arabíska
 <lang=mk/>Арапски
 <lang=en/>Arabic
 <lang=gr/>Αραβικά
@@ -8,6 +9,7 @@
 
 <bg>
 <lang=jp/>ブルガリア語
+<lang=is/>Búlgarska
 <lang=mk/>Бугарски
 <lang=en/>Bulgarian
 <lang=gr/>Βουλγαρικά
@@ -16,13 +18,14 @@
 <category>
 <lang=jp/>カテゴリー
 <lang=mk/>Категорија
-<lang=en/>Category
 <lang=gr/>Κατηγορία
+<lang=en/>Category
 <lang=da/>Kategori
 </category>
 
 <change>
 <lang=jp/>変更
+<lang=is/>Breyting
 <lang=mk/>Промена
 <lang=en/>Change
 <lang=gr/>Αλλαγή
@@ -31,6 +34,7 @@
 
 <da>
 <lang=jp/>デンマーク語
+<lang=is/>Danska
 <lang=mk/>Дански
 <lang=en/>Danish
 <lang=gr/>Δανικά
@@ -48,6 +52,7 @@
 
 <de>
 <lang=jp/>ドイツ語
+<lang=is/>Þýska
 <lang=mk/>Германски
 <lang=en/>German
 <lang=gr/>Γερμανικά
@@ -56,6 +61,7 @@
 
 <en>
 <lang=jp/>英語
+<lang=is/>Enska
 <lang=mk/>Англиски
 <lang=en/>English
 <lang=gr/>Αγγλικά
@@ -64,6 +70,7 @@
 
 <fr>
 <lang=jp/>フランス語
+<lang=is/>Franska
 <lang=mk/>Француски
 <lang=en/>French
 <lang=gr/>Γαλλικά
@@ -72,6 +79,7 @@
 
 <gr>
 <lang=jp/>ギリシャ語
+<lang=is/>Gríska
 <lang=mk/>Грчки
 <lang=en/>Greek
 <lang=gr/>Ελληνικά
@@ -80,6 +88,7 @@
 
 <is>
 <lang=jp/>アイスランド語
+<lang=is/>Íslenska
 <lang=mk/>Исландски
 <lang=en/>Icelandic
 <lang=gr/>Ισλανδικά
@@ -88,6 +97,7 @@
 
 <it>
 <lang=jp/>イタリア語
+<lang=is/>Ítalska
 <lang=mk/>Италијански
 <lang=en/>Italian
 <lang=gr/>Ιταλικά
@@ -95,6 +105,7 @@
 
 <jp>
 <lang=jp/>日本語
+<lang=is/>Japanska
 <lang=mk/>Јапонски
 <lang=en/>Japanese
 <lang=gr/>Ιαπωνικά
@@ -103,12 +114,13 @@
 
 <mk>
 <lang=mk/>Македонски
-<lang=gr/>Μακεδονικά
 <lang=en/>Macedonian
+<lang=gr/>Μακεδονικά
 </mk>
 
 <passwd>
 <lang=jp/>パスワード
+<lang=is/>Lykilorð
 <lang=mk/>Клучен збор
 <lang=gr/>Κωδικός
 <lang=en/>Password
@@ -117,13 +129,14 @@
 <posted_by>
 <lang=jp/>記入される
 <lang=mk/>Испраќа
-<lang=en/>Posted by
 <lang=gr/>Καταχώρηση από
+<lang=en/>Posted by
 <lang=da/>Af
 </posted_by>
 
 <se>
 <lang=jp/>スウェーデン語
+<lang=is/>Sænska
 <lang=mk/>Шведски
 <lang=en/>Swedish
 <lang=gr/>Σουηδικά
@@ -140,6 +153,7 @@
 
 <zh>
 <lang=jp/>中国語
+<lang=is/>Kínverska
 <lang=mk/>Кинески
 <lang=en/>Chinese
 <lang=gr/>Κινέζικα
