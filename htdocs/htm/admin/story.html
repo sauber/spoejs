@@ -3,15 +3,15 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.24 2004/06/04 07:30:29 snicki Exp $
+%# $Id: story.html,v 1.25 2004/06/11 03:46:57 sauber Exp $
 %#
 % return unless $m->comp( 'checkLogin.html' );
 <& /js/confirm.js &>
 % if ( $ARGS{submit} ) {
-<h4><&|/l&>storysave</&>.</h4>
+<h4>**storysave**.</h4>
 <a href="<& /htm/url:encode, "/$spoejs{channel}/admin/upload.html", 
                              d=>$story_dir &>">
-<&|/l&>addmediastory</&>.
+**addmediastory**.
 </a>
 % return; }
 
@@ -22,19 +22,19 @@ Go to channel home.
 </a>
 % return; }
 
-<h3><&|/l&>edit_lang</&>: <&|/l&><% $cur_lang %></&></h3>
+<h3>**edit_lang**: **<% $cur_lang %>**</h3>
 <div style="float: left;">
 <table width="100%">
 <tr><td width="490">
 <form action="" method="post">
 <fieldset><legend>**please_fill_out_this_form**</legend>
-<&|/l&>yourname</&>:<br/>
+**yourname**:<br/>
 <input type="text" size="60" name="author" value="<%$ARGS{author}%>"/><br/>
-<&|/l&>storytitle</&>:<br/>
+**storytitle**:<br/>
 <input type="text" size="60" name="title" value="<%$ARGS{title}%>"/><br/>
-<&|/l&>date</&>: <&|/l&>blank_default</&><br/>
+**date**: **blank_default**<br/>
 <input type="text" size="60" name="date" value="<%$ARGS{date}%>"/><br/>
-<&|/l&>category</&>:<br/>
+**category**:<br/>
 <select name="category">
 <option value="">Please select</option>
 % foreach my $cat ( sort keys %categories ) {
@@ -42,12 +42,12 @@ Go to channel home.
 <option value="<% $cat %>"<% $selected %>><% $cat %></option>
 % }
 </select>
-<&|/l&>or_new</&>: 
+**or_new**: 
 <input type="text" size="30" name="newcategory" value=""/><br/>
-<&|/l&>story_abstract</&>:<br/>
+**story_abstract**:<br/>
 <textarea name="abstract" rows="5" cols="60"><%$ARGS{abstract}%></textarea>
 <br/>
-<&|/l&>full_story</&>:<br/>
+**full_story**:<br/>
 <textarea name="fulltext" rows="20" cols="60" id="fulltext">
 <%$ARGS{fulltext}%></textarea>
 <br/>
@@ -59,7 +59,7 @@ Go to channel home.
 %>" <% $checked{$i} %>/> 
 % }
 <select name="thumbfile">
-  <option value=""><&|/l&>choose</&></option>
+  <option value="">**choose**</option>
 % for ( $S->media_list() ) {
 % my $c = $checked_file eq $_->{file} ? ' selected="selected"' : '';
   <option value="<%$_->{file}%>"<% $c %>><% $_->utf_filename() %></option>
@@ -69,25 +69,25 @@ Go to channel home.
 <br/>
 % }
 </fieldset>
-<input type="submit" name="submit" value="<&|/l&>submit</&>"/>
-<input type="submit" name="delete" value="<&|/l&>delete</&>" onclick="return confirmSubmit()"/>
+<input type="submit" name="submit" value="**submit**"/>
+<input type="submit" name="delete" value="**delete**" onclick="return confirmSubmit()"/>
 %#
 </form>
 % if ( $story_dir ) {
-<h4><&|/l&>media_man</&>:</h4>
+<h4>**media_man**:</h4>
 <a href="<& /htm/url:encode, "/$spoejs{channel}/admin/upload.html", 
                              d =>$story_dir &>">
-<&|/l&>add</&>
+**add**
 </a>
 &nbsp;&nbsp;
 <a href="<& /htm/url:encode, "/$spoejs{channel}/admin/rename.html", 
                               d=>$story_dir &>">
-<&|/l&>rename_delete</&>
+**rename_delete**
 </a>
 &nbsp;&nbsp;
 <a href="<& /htm/url:encode, "/$spoejs{channel}/admin/annotations.html", 
                               d=>$story_dir &>">
-<&|/l&>annotations</&>
+**annotations**
 </a>
 %#</div>
 </td><td valign="top">

@@ -3,10 +3,10 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: categorylist,v 1.16 2004/05/18 02:10:30 bottle18 Exp $
+%# $Id: categorylist,v 1.17 2004/06/11 03:46:57 sauber Exp $
 %#
-%#<&|/l&>categorylist</&>
-<h2><&|/l&>categories</&></h2>
+%#**categorylist**
+<h2>**categories**</h2>
 % for my $info ( @cat_info ) {
 <a href="<% $$info{href} %>">
   <% $$info{category} %> (<% $$info{count} %>)<br/>

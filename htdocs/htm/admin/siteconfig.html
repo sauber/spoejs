@@ -3,16 +3,16 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: siteconfig.html,v 1.18 2004/06/04 08:40:02 snicki Exp $
+%# $Id: siteconfig.html,v 1.19 2004/06/11 03:46:57 sauber Exp $
 %#
-<h1><&|/l&>statuschannel</&>:</h1>
+<h1>**statuschannel**:</h1>
 <& /w, w => "login", action => '', ses_var => 'siteauth' &>
 % return unless ( $session{siteauth} );
 <form method="post" action="">
 <table width="100%">
 <tr>
-<th><&|/l&>shortname</&></th><th>Title</th><th><&|/l&>public</&></th>
-<th><&|/l&>active</&></th><th><&|/l&>archive</&></th><th><&|/l&>delete</&></th>
+<th>**shortname**</th><th>Title</th><th>**public**</th>
+<th>**active**</th><th>**archive**</th><th>**delete**</th>
 </tr>
 % foreach my $chan ( @channels ) {
 <tr>
@@ -26,7 +26,7 @@
 % for my $k ( qw( yes no_ ) ) {
 <option value="<% $k %>"\
 <% $chan->get( 'active' ) eq $k ? ' selected="selected">' : '>' %>
-<&|/l&><% $k %></&>
+**<% $k %>**
 </option>
 % }
 </select>
@@ -52,21 +52,21 @@
 </fieldset>
 <br/>
 <br/>
-<&|/l&>sitepolicy</&>:
+**sitepolicy**:
 <select name="policy">
 % foreach my $pol ( @policy ) {
  <option value="<% $pol %>"\
 <% $SC->get( 'policy' ) eq $pol ? ' selected="selected">' : '>' %>\
-<&|/l&><%$pol%></&></option>
+**<%$pol%>**</option>
 % }
 </select>
 <br/>
 <br/>
-<&|/l&>new_username</&>:
+**new_username**:
 <input type="text" name="newusername" value="<%$session{siteauth}%>"/>
 <br/>
 <br/>
-<&|/l&>newpass</&>:
+**newpass**:
 <input type="password" name="newpassword1"/>
 % # Add password verification
 %#<br/>
@@ -79,7 +79,7 @@
 % for my $k ( qw( yes no_ ) ) {
 <option value="<% $k %>"\
 <% $SC->get( $transopt ) eq $k ? ' selected="selected">' : '>' %>
-<&|/l&><% $k %></&>
+**<% $k %>**
 </option>
 % }
 </select>
@@ -93,10 +93,10 @@
 **proxy**_<br/>
 <input type="text" name="proxy" size="40" value="<% $SC->get('proxy') %>"/>
 <br/>
-<input type="submit" name="submit" value="<&|/l&>submit</&>" />
+<input type="submit" name="submit" value="**submit**" />
 </form>
 <a href="/htm/admin/signup.html">
-<&|/l&>addnewchannel</&>
+**addnewchannel**
 </a>
 <%init>
 my $transopt = 'showtranslationoptions';

@@ -3,17 +3,17 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: rename.html,v 1.15 2004/04/16 10:30:58 snicki Exp $
+%# $Id: rename.html,v 1.16 2004/06/11 03:46:57 sauber Exp $
 %#
 % return unless $m->comp( 'checkLogin.html' );
 <& /js/confirm.js &>
 <form action="" method="post" onsubmit="return confirmSubmit()">
 <table width="100%">
 <tr>
-  <th><&|/l&>currentfilename</&>:</th>
-  <th><&|/l&>newfilename</&>:</th>
-  <th><&|/l&>deletefile</&></th>
-  <th><&|/l&>preview</&></th>
+  <th>**currentfilename**:</th>
+  <th>**newfilename**:</th>
+  <th>**deletefile**</th>
+  <th>**preview**</th>
 </tr>
 % foreach my $pic ( @media ) {
 <tr>

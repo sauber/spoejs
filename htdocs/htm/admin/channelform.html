@@ -3,28 +3,28 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.37 2004/06/04 08:40:18 snicki Exp $
+%# $Id: channelform.html,v 1.38 2004/06/11 03:46:57 sauber Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
-<h2><&|/l&>congrat_changes</&></h2>
-<a href="/<%$ARGS{shortname}%>/index.html"><&|/l&>click_continue</&></a>
+<h2>**congrat_changes**</h2>
+<a href="/<%$ARGS{shortname}%>/index.html">**click_continue**</a>
 % } elsif ( $ARGS{submit} && keys %errs == 0 ) {
-<h2><&|/l&>congrat_signup</&></h2>
-<h3><a href="/<%$ARGS{shortname}%>/index.html"><&|/l&>click_channel</&></a>
+<h2>**congrat_signup**</h2>
+<h3><a href="/<%$ARGS{shortname}%>/index.html">**click_channel**</a>
 <br/>
-<a href="/<%$ARGS{shortname}%>/admin/story.html"><&|/l&>or_add_newstory</&></a>
+<a href="/<%$ARGS{shortname}%>/admin/story.html">**or_add_newstory**</a>
 </h3>
 % } else {
 % return unless check_cred( $policy );
 % unless ( defined $spoejs{channel} ) {
 <h2>
-<&|/l&>signup_newjournal</&>
+**signup_newjournal**
 </h2>
 % }
 <form method="post">
 <fieldset>
 <legend>
-<&|/l&>account_signup</&>
+**account_signup**
 </legend>
 <table>
 %if ( keys %errs > 0 ) {

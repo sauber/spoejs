@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index-page,v 1.13 2004/05/28 03:57:37 snicki Exp $
+%# $Id: index-page,v 1.14 2004/06/11 03:46:57 sauber Exp $
 %#
 <table>
 <tr>
@@ -13,7 +13,7 @@
 </td>
 <td align="right">
 % if ( defined $spoejs{p}{c} ) {
-<h3><&|/l&>category</&>: <%  $spoejs{p}{c} %></h3>
+<h3>**category**: <%  $spoejs{p}{c} %></h3>
 % } else {
 <& /w, w => 'newcaticons' &>
 % }
@@ -24,7 +24,7 @@
 <& /w, w => "list" &>
 % if ( $edit_href ) {
 %#<br/>
-<a href="/<% $edit_href %>"><&|/l&>channelconf</&></a>
+<a href="/<% $edit_href %>">**channelconf**</a>
 % }
 <%init>
 </%init>

@@ -3,11 +3,11 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.27 2004/06/08 09:41:13 snicki Exp $
+%# $Id: story-page,v 1.28 2004/06/11 03:46:57 sauber Exp $
 %#
 <h2><% $story_ref->get( 'title' ) %></h2>
 <&| /w, w => "box", heading => $story_ref->get( 'title' ) &>
-<&| /l &>date</&>:
+**date**:
 <% $story_ref->get( 'date' ) %>
 <br/>
 <br/>
@@ -23,7 +23,7 @@
 % unless ( $text =~ /media=/ig ) { #XXX: Consider other ways...
 <br/>
 <br/>
-<&| /w, w => 'box', heading => $m->comp( '/l', l => 'media' ) &>
+<&| /w, w => 'box', heading => '**media**' &>
 <& /w, w => 'album', media_list => $media_list, %navi_opt &>
 </&>
 <& /w, w => 'navi', %navi_opt &>
@@ -37,7 +37,7 @@
 <br/>
 <br/>
 % if ( $edit_href ) {
-<a href="<% $edit_href %>"><&|/l&>edit</&></a>
+<a href="<% $edit_href %>">**edit**</a>
 % }
 </&>
 <%args>

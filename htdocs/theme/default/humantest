@@ -3,14 +3,14 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: humantest,v 1.2 2004/06/04 08:24:13 sauber Exp $
+%# $Id: humantest,v 1.3 2004/06/11 03:46:57 sauber Exp $
 %#
 <& '/htm/humantest:challenge' &>
 %# XXX: Only show security image until typed in
 % if ( exists $session{humanname} ) {
 %   # Nothing to do
 % } else {
-**enter_characters_from_image**: <input name="code" size=10><input type="hidden" name="md5sum" value="<% $session{humantest} %>">
+**image_code**: <input name="code" size=10><input type="hidden" name="md5sum" value="<% $session{humantest} %>">
 <img src="<& /htm/url:encode, "/cap/cap.png", c=>$session{humantest} &>" alt="human verification image"/>\
 % }
 <%init>

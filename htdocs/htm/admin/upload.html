@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: upload.html,v 1.23 2004/05/10 05:51:33 snicki Exp $
+%# $Id: upload.html,v 1.24 2004/06/11 03:46:57 sauber Exp $
 %#
 % return unless $m->comp( 'checkLogin.html' );
 <& /js/detectua.js &>
@@ -39,33 +39,33 @@ function cr_table( tabbody ) {
 }
 </script>
 
-<h2><&|/l&>fileupload</&>: <% "$spoejs{channel}/$spoejs{p}{d}" %></h2>
+<h2>**fileupload**: <% "$spoejs{channel}/$spoejs{p}{d}" %></h2>
 <form name="files" method="post" action="" enctype="multipart/form-data">
 <br/>
-<fieldset><legend><&|/l&>addfilepc</&></legend>
+<fieldset><legend>**addfilepc**</legend>
 <table>
 <tbody id="tb" width="100%"></tbody>
 </table>
 </fieldset>
-<input type="submit" name="upload" value="<&|/l&>upload</&>">
-<input type="button" onclick='cr_table( document.getElementById("tb") );' value="<&|/l&>addfield</&>"/>
+<input type="submit" name="upload" value="**upload**">
+<input type="button" onclick='cr_table( document.getElementById("tb") );' value="**addfield**"/>
 </form>
 <br/>
 % if ( defined $session{siteauth} ) {
-<fieldset><legend><&|/l&>addfileserver</&></legend>
+<fieldset><legend>**addfileserver**</legend>
 <form method="post" action="">
-<&|/l&>fullpath</&>: <input type="text" name="server_path" /><br/>
+**fullpath**: <input type="text" name="server_path" /><br/>
 <input type="submit" name="server_add" value="Add" />
 </form>
 </fieldset>
 % }
 <br/>
-<h4><&|/l&>currentfile</&>:</h4>
+<h4>**currentfile**:</h4>
 % my $ML = new Spoejs::MediaList( path=>"$spoejs{channel_path}/$spoejs{p}{d}" );
 % $spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
 
 <table width="100%">
-<tr><th><&|/l&>filename</&></th><th><&|/l&>filesize</&></th><th><&|/l&>dimensions</&></th><th><&|/l&>fileformat</&></th></tr>
+<tr><th>**filename**</th><th>**filesize**</th><th>**dimensions**</th><th>**fileformat**</th></tr>
 % for my $med ( $ML->list()) {
 % my ($width, $height, $size, $format) = $med->ping();
 <tr>
@@ -78,14 +78,14 @@ function cr_table( tabbody ) {
 </table>
 <br/>
 <a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d=>$spoejs{p}{d} &>">
-<&|/l&>backtostory</&>
+**backtostory**
 </a>
 <br/>
 <br/>
-<h4><&|/l&>media_man</&>:</h4>
+<h4>**media_man**:</h4>
 <a href="<& /htm/url:encode, "/$spoejs{channel}/admin/rename.html", 
                               d=>$spoejs{p}{d} &>">
-<&|/l&>edit</&>
+**edit**
 </a>
 <script>
   // Add first entry

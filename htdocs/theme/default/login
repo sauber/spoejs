@@ -3,23 +3,23 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: login,v 1.12 2004/06/04 08:52:41 snicki Exp $
+%# $Id: login,v 1.13 2004/06/11 03:46:57 sauber Exp $
 %#
 <form method="post" action="<%$action%>" class="topbar">
 % if ( defined $session{$ses_var} ) {
-<input type="submit" name="logout" value="<&|/l&>logout</&>"/>
+<input type="submit" name="logout" value="**logout**"/>
 % } else {
 <table cellspacing="0" border="0">
 <tr>
-  <td><&|/l&>username</&>:</td>
+  <td>**username**:</td>
   <td><input size="10" type="text" name="username" tabindex="1" /></td>
-  <td><input type="submit" name="login" value="<&|/l&>login</&>" tabindex="3"/></td>
+  <td><input type="submit" name="login" value="**login**" tabindex="3"/></td>
 </tr>
 <tr>
-  <td><&|/l&>passwd</&>:</td>
+  <td>**passwd**:</td>
   <td><input size="10" type="password" name="password" tabindex="2" /></td>
 %if ( $show_signup ) {
-  <td><a href="/htm/admin/signup.html"><font size="1"><&|/l&>new_account</&></font></a></td>
+  <td><a href="/htm/admin/signup.html"><font size="1">**new_account**</font></a></td>
 % } else {
 <td>&nbsp;</td>
 %}

@@ -3,18 +3,18 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract,v 1.28 2004/05/18 02:10:30 bottle18 Exp $
+%# $Id: abstract,v 1.29 2004/06/11 03:46:57 sauber Exp $
 %#
 <h3><% $title %></h3>
 <br/>
 <div class="left">
      <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
 <div class="bottom">
-<a href="<% $story_href %>"><&|/l&>view</&></a>
+<a href="<% $story_href %>">**view**</a>
 %# XXX: Not yet implemented
-%# <a href=""><&|/l&>comment</&></a>
+%# <a href="">**comment**</a>
 % if ( $edit_href ) {
-<a href="<% $edit_href %>"><&|/l&>edit</&></a>
+<a href="<% $edit_href %>">**edit**</a>
 % }
 </div>
 </div>
@@ -23,9 +23,9 @@
            m => 150, href=>$story_href &>
 </div>
 <div class="center">
-<b><&|/l&>date</&>:</b> <% $date %><br/>
-<b><&|/l&>posted_by</&>:</b> <% $author %><br/>
-<b><&|/l&>category</&>:</b> <% $category %><br/>
+<b>**date**:</b> <% $date %><br/>
+<b>**posted_by**:</b> <% $author %><br/>
+<b>**category**:</b> <% $category %><br/>
 <br/>
 <& /w, w => "text", text=>$abstract &>
 </div>
