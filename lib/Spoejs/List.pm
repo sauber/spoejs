@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.2 2004/03/11 09:30:08 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.2 $';
+# $Id: List.pm,v 1.3 2004/03/22 07:09:00 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.3 $';
 
 
 # Constructor
@@ -53,4 +53,23 @@ sub _list_from_filename {
     $path;
 
     return @paths;
+}
+
+
+# List of files matching (in the end) pattern
+#
+sub _list_from_file_pattern {
+
+    my ($self, $pattern ) = @_;
+
+    my @files;
+
+    use File::Find;
+    find sub {
+	my $res = $File::Find::name if /$pattern$/;
+	push @files, $res if $res;
+    },
+    $self->{path};
+
+    return @files;
 }

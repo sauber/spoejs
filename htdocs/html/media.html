@@ -1,0 +1,15 @@
+<a href="<% $slash_d %>">
+<& /w, w => "media", d => $params{d}, p => $params{p}, m => 640 &>
+</a>
+<%init>
+  my $slash_d = $params{d};
+  # Split dir string
+  $slash_d =~ s{(....)(..)(..)}{$1/$2/$3}g;
+  my $pic = $params{p};
+  # Add '.' to filename
+  $pic =~ s{(.*)(...)$}{$1\.$2}g;
+  $slash_d = "/users/$session{user}/$slash_d/$pic";
+</%init>
+<%args>
+ %params => undef
+</%args>
