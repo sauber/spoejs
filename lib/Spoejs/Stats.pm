@@ -1,8 +1,8 @@
 package Spoejs::Stats;
 use base ( "Spoejs" );
 
-# $Id: Stats.pm,v 1.1 2004/08/11 11:32:44 sauber Exp $
-$Spoejs::Stats::VERSION = $Spoejs::Stats::VERSION = '$Revision: 1.1 $';
+# $Id: Stats.pm,v 1.2 2004/08/11 12:03:36 sauber Exp $
+$Spoejs::Stats::VERSION = $Spoejs::Stats::VERSION = '$Revision: 1.2 $';
 
 # Constructor
 #
@@ -45,12 +45,22 @@ sub access {
   my($self,$entry) = @_;
 
   $self->_check_save() or return undef;
-  open LOG, ">>$self->{path}/$self->{file}" or return
-      $self->_err("Could not open $self->{path}/$self->{file} for appending");
-    print LOG time.";$entry\n";
-  close LOG;
+  $self->{is_modified} .= time.";$entry\n";
   return 1;
 }
+
+# Delay saving data to disk until object is destroyed
+#
+sub DESTROY {
+  my $self = shift;
+
+  if ( defined $self->{is_modified} ) {
+    open LOG, ">>$self->{path}/$self->{file}";
+      print LOG $self->{is_modified};
+    close LOG;
+  } 
+}
+
 
 # Return total, month and week stats for filename
 #
