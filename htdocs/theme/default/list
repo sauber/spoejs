@@ -1,17 +1,65 @@
 % foreach my $story ( @stories ) {
 <& /w, w => 'abstract', storyref => $story &><br/>
 % }
+<center>
+% if ( $newer_href ) {
+<a href="<% $newer_href %>">
+<== newer
+</a>
+% } else {
+<== newer
+% }
+==
+% if ( $older_href ) {
+<a href="<% $older_href %>">
+older ==>
+</a>
+% } else {
+older ==>
+%}
+</center>
 <%init>
   # Todo add div. parameters
   my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
 	                          path => $spoejs{channel_path} );
-  $spoejs{error}{$m->current_comp->source_file} = $SL->{msg} if $SL->{msg};
-  my @stories;
-if ( $category ) {
-  @stories = $SL->list_stories( category => $category );
-} else {
-  @stories = $SL->list_stories();
+$spoejs{error}{$m->current_comp->source_file} = $SL->{msg} if $SL->{msg};
+my @stories;
+
+my $count = $spoejs{p}{n} || 4;
+
+my %sl_opt = ( category => $spoejs{p}{c},
+	       count    => $count,
+	       prev     => $count,
+	       story    => $spoejs{p}{d}
+	     );
+@stories = $SL->list_stories( %sl_opt );
+my $older_story = pop @stories if @stories > $count-1;
+delete $sl_opt{prev};
+delete $sl_opt{count};
+my @newer_stories =  $SL->list_stories( %sl_opt, next => $count+1 );
+my $newer_href;
+unless ( $newer_stories[0] eq undef ) {
+  my $ns = (reverse @newer_stories)[0]->story_path_from_full();
+  unless ( $ns eq $spoejs{p}{d} ) {
+    my %nh_opt = ( n => $count,
+		   d => $ns
+		 );
+    $newer_href = $m->scomp( '/htm/url:encode',
+			     "/$spoejs{channel}/index.html",
+			     %nh_opt
+			   );
+  }
 }
+my $older_href;
+unless ( $older_story eq undef ) {
+  my %oh_opt = ( n => $count,
+		 d => $older_story->story_path_from_full(),
+	       );
+  $older_href = $m->scomp( '/htm/url:encode', "/$spoejs{channel}/index.html",
+			   %oh_opt
+			 );
+}
+
 </%init>
 <%args>
  $category => undef
