@@ -93,17 +93,15 @@ li {
 div.media {
   float: left;
   min-height: 150px;
-  min-width: 150px;
-#  max-width: 150px;
+#  min-width: 150px;
   padding:3px;
   border-style:ridge;
-  margin:3px;
+  margin:10px;
   background-color: #EBEBFF;
 }
 
 div.right {
   float: right;
-  clear: right;
 }
 
 div.center {
@@ -115,10 +113,9 @@ div.abstract {
 }
 
 div.left {
-  clear: left;
   float: left;
   padding:3px;
-  margin:3px;
+  margin:10px;
 }
 div.bottom {
   margin-top: 70%;
