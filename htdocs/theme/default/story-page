@@ -3,16 +3,22 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.35 2004/07/02 15:20:31 snicki Exp $
+%# $Id: story-page,v 1.36 2004/07/02 16:28:37 snicki Exp $
 %#
 <& /htm/admin/story_tab.mas &>
 <h2><% $story_ref->get( 'title' ) %></h2>
 %# Story navigation
 <center>
+% if ( $next_href ) {
+<a href="<% $next_href %>">&lt;==</a>
+% }
 % if ( $up_href ) {
 <a href="<% $up_href %>">**up**</a>
-<br/><br/>
 % }
+% if ( $prev_href ) {
+<a href="<% $prev_href %>">==&gt;</a>
+% }
+<br/><br/>
 </center>
 <&| /w, w => "box", heading => $story_ref->get( 'title' ) &>
 **date**:
@@ -54,7 +60,9 @@ $navi_opt{count} = $thumbnail_count if $navi_opt{count} == -1;
   $story_dir  => undef
   $story_ref  => undef
   $edit_href  => undef
-  $up_href  => undef
+  $up_href    => undef
+  $prev_href  => undef
+  $next_href  => undef
   %navi_opt   => undef
   $media_list => undef
 </%args>

@@ -3,13 +3,15 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.20 2004/07/02 15:20:46 snicki Exp $
+%# $Id: story.html,v 1.21 2004/07/02 16:29:06 snicki Exp $
 %#
 <& /w, w          => 'story-page',
        story_dir  => $spoejs{p}{d},
        story_ref  => $spoejs{Story},
        edit_href  => $a_edit,
        up_href    => $up_href,
+       prev_href    => $prev_href,
+       next_href    => $next_href,
        navi_opt   => \%navi_opt,
        media_list => $spoejs{Story}->{ML}
 &>
@@ -33,4 +35,21 @@ my %navi_opt = ( url => "/$spoejs{channel}/story.html",
 
 # Story navigation
 my $up_href = $m->scomp( '/htm/url:encode', 'index.html', s => $spoejs{p}{d} );
+
+# Find prev / next story
+my @all = $spoejs{SL}->list();
+my $start_i =  $spoejs{SL}->_index_of($spoejs{p}{d});
+my %opt = ( count => 1, start => $start_i,
+            end => $#all, list => \@all );
+my @cmp = ( "/htm/url:encode", 'story.html' );
+push @cmp, (c => $spoejs{p}{c}) if defined $spoejs{p}{c};
+
+my $ps = $all[$spoejs{SL}->prev( %opt )];
+my $prev_href = $m->scomp( @cmp, d => $ps->story_path_from_full() ) 
+                                                              if defined $ps;
+
+my $ns = $all[$spoejs{SL}->next( %opt )];
+my $next_href = $m->scomp( @cmp, d => $ns->story_path_from_full() )
+                                                              if defined $ns;
+
 </%init>
