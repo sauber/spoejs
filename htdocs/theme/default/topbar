@@ -1,15 +1,14 @@
-%# topbar of links on every page
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: topbar,v 1.15 2004/06/13 02:38:33 snicki Exp $
-%#
+<%doc>
+topbar of links on every page
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: topbar,v 1.16 2004/06/13 02:39:24 snicki Exp $
+</%doc>
 <div style="float:left;">
 <a href="/index.html">**home**</a>&nbsp;|
 % if ( $channel_href ) {
-%#<a href="<% $channel_href %>">**chan_home**</a>&nbsp;|
-%#<a href="<% $channel_href %>"><% $spoejs{channel} %></a>&nbsp;|
 <a href="<% $channel_href %>"><% $channel_name %></a>&nbsp;|
 % }
 % if ( $story_href ) {
