@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.4 2004/03/29 04:25:20 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.4 $';
+# $Id: List.pm,v 1.5 2004/03/29 06:52:17 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.5 $';
 
 
 # Constructor
@@ -17,6 +17,17 @@ sub _initialize {
 }
 
 #### Private helper functions ####
+
+# Checks the given path for existence and readability
+#
+sub _check_dir {
+    my $self  = shift;
+
+    $self->{msg} = "Path doesn't exist: $self->{path}"
+	unless -d "$self->{path}";
+    $self->{msg} = "Can't read path $self->{path}"
+	unless -r "$self->{path}";
+}
 
 # Give list of dirs in given path
 #
