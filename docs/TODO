@@ -34,7 +34,6 @@ Code structure:
  - Debug on/off (-D_ option on each page)
  - Error message when cookies missing
  - abstract rename to summary/intro
- - More code in .subs
  - replace %# with <%doc>
 
 Data:
@@ -46,7 +45,6 @@ Data:
  - Userdefined fields (location, people...)
  - Deal with paragraphs in ::Text instead of mason
  - Remove shortname from settings.txt
- - Don't create annotations.txt, comments.txt etc. unless have content
  - year/month dir must be corrected when changing date
 
 Channelconf:
@@ -90,7 +88,7 @@ Comments:
  - Nicer design for displaying comments
 
 Story:
- - Show big instead of thumb if only media for story
+ - Show big instead of thumb if only one media for story
 
 StoryList:
  - Sub channels or story-sequences.
