@@ -3,11 +3,12 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: album.sub,v 1.7 2004/04/16 13:53:02 snicki Exp $
+%# $Id: album.sub,v 1.8 2004/07/02 14:36:28 snicki Exp $
 %#
 <& $w,
    img_list  => \@ml,
    img_count => $spoejs{p}{s},
+   navi_opt  => \%navi_opt
 &>
 <%init>
 if ( $ml[0] eq undef ) {
@@ -20,4 +21,5 @@ if ( $ml[0] eq undef ) {
   $count      => undef
   $media_list => undef
   @ml         => undef
+  %navi_opt   => undef
 </%args>
