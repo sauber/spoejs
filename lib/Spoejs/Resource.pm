@@ -1,13 +1,14 @@
 package Spoejs::Resource;
 use base ( "Spoejs::Text" );
 
-# $Id: Resource.pm,v 1.2 2004/03/03 08:26:25 sauber Exp $
-$Spoejs::Resource::VERSION = $Spoejs::Resource::VERSION = '$Revision: 1.2 $';
+# $Id: Resource.pm,v 1.3 2004/03/04 03:43:26 snicki Exp $
+$Spoejs::Resource::VERSION = $Spoejs::Resource::VERSION = '$Revision: 1.3 $';
 
 sub _initialize {
     my $self = shift;
-    $self->SUPER::_initialize(@_, 
-		      full_path => "$ENV{DOCUMENT_ROOT}/../lib/resource.txt" );
+    my $path = $ENV{DOCUMENT_ROOT} || '';
+    $self->SUPER::_initialize( @_, 
+			       full_path => "$path../lib/resource.txt" );
 }
 
 # Generate list of languages.
@@ -20,4 +21,3 @@ sub lang_list {
   # All two letter keys are languages.
   return sort grep /^..$/, keys %{$self->{data}};
 }
-
