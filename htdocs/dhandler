@@ -1,8 +1,14 @@
 <%init>
 my $doc =  "$ENV{DOCUMENT_ROOT}htm/$spoejs{url_noparam}";
+
+unless ( -f $spoejs{channel_path} ) {
+  print "The channel <b>$spoejs{channel}</b> doesn't exist!";
+  $m->abort;
+}
+
 if ( -f $doc ) {
   $m->comp( "/htm/$spoejs{url_noparam}", %ARGS );
 } else {
-  $spoejs{error}{not_found} = "File doesn't exist!";
+  $spoejs{error}{$m->current_comp->source_file} = "File/path doesn't exist!";
 }
 </%init>
