@@ -1,5 +1,6 @@
-<& /w, w => 'tabs',
-       list => \@urls,
+<& /w, w     => 'tabs',
+       list  => \@urls,
+       label => '**story_edit**'
 &>
 <%init>
 my $path = $m->caller()->path();
