@@ -1,19 +1,27 @@
 <h1>Spoejs channels at this site:</h1>
-% foreach my $chan ( @channels ) {
-% if ( $chan->get( 'active' ) eq 'yes' && $chan->get( 'public' ) eq 'yes' ) {
-<a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'title' ) %>
-</a><br/>
+<a href="/<% $chan->channel_dir() %>/index.html">
+<h2><% $chan->get( 'title' ) %></h2>
+</a>
+
+% if ( $chan->{S} ) {
+% $spoejs{channel_path} = $chan->{path};
+% $spoejs{channel} = $chan->channel_dir();
+<& /w, w => 'abstract', storyref => $chan->{S} &>
+% } else {
+No stories.
+% }
+<br/>
+<br/>
+<br/>
 % } }
 <hr/>
-Change language:<br/>
-<& /w, w => 'langchooser' &>
-<br/>
 Administration:
 <br/>
 <a href="/htm/admin/siteconfig.html">
 Site configuration
 </a>
 <%init>
+use Date::Manip;
 my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
                                   lang => $spoejs{lang_handle} );
 $spoejs{error}{$m->current_comp->source_file} = $CL->{msg} if $CL->{msg};
@@ -21,6 +29,23 @@ my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
                                lang => $spoejs{lang_handle} );
 $spoejs{error}{$m->current_comp->source_file} = $SC->{msg} if $SC->{msg};
 my $policy = $SC->get( 'policy' );
+
 # Gives array of ChannelConf object refs
 my @channels = $CL->search_channels();
+
+# Sort channels by date of newest entry
+for ( @channels ) {
+  my $SLL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
+                                  path => $_->{path} );
+  my @s = $SLL->list_stories( count => 1 );
+
+  # Add date in seconds since epoch
+  $_->{newest_date} = $s[0] ? UnixDate($s[0]->get( 'date' ), "%s") : 0;
+
+  # Add story reference for later use
+  $_->{S} = $s[0] if $s[0];
+}
+
+# Sort based on date in seconds
+@channels = sort { $b->{newest_date} <=> $a->{newest_date} } @channels;
 </%init>
