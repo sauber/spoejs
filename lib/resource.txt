@@ -412,18 +412,11 @@
 <lang=en/>Full path
 </fullpath>
 
-<<<<<<< resource.txt
-<fulltext>
-<lang=en/>Full text
-</fulltext>
-
-=======
 <fulltext>
 <lang=da/>Fuld tekst
 <lang=en/>Full text
 </fulltext>
 
->>>>>>> 1.38
 <gr>
 <lang=ar/>يوناني
 <lang=bg/>Гръцки
