@@ -1,4 +1,21 @@
+Release 0.01 must-have's:
+-------------------------
+
+ - Site admin
+ - Channel register
+ - Channel admin
+ - New/edit story
+ - Clean theme and clean widgets
+ - utf8 input/upload
+ - utf8 filename, category, titly, abstract etc.
+ - Storylist
+ - Picture with next/prev
+ - Install doc
+ - License tags
+
+
 Development todo list:
+----------------------
 
 Developers:
  - Dev server
@@ -16,8 +33,10 @@ Data:
  - Undo, revisions
  - Normalize UTF8
  - Stack trace on syntax error in ::Text
+ - Userdefined fields (location, people...)
 
 ChannelList:
+ - This site
  - Other sites
 
 Login:
@@ -32,6 +51,7 @@ Session:
 
 URL parser:
  - Handle utf8 in _ parameters
+ - Set all needed %spoejs variables (channel, story, picture...)
 
 Theme:
  - Page templates
@@ -39,6 +59,7 @@ Theme:
  - css
  - Test non-default theme
  - What to put in theme/ and html/
+ - Boxes
 
 GUI Design:
  - Logo
@@ -75,19 +96,19 @@ Navigation:
     - next/prev page
     - by category
     - by month/year
+    - thumbnails
  - Story, report+thumbnails+annotations
  - Bigger picture+annotation+exif
  - Slideshow
 
 Media:
  - First, last, chosen, random index media
- - Preview x+y sizes
  - Scale
  - Single frame of movie
  - Crop, rotate, brightness, compress
  - /chan/story/pic_m150.jpg url
- - utf8 filenames
  - Delete
+ - utf8 category icon
 
 Extras:
  - Calendar
@@ -102,6 +123,7 @@ Extras:
 Translator:
  - Support parameters in translations,... %1 %2 ...
  - Return keyword if no text present
+ - Bootstring optimal params
 
 Search:
  - Seach in channels and stories
