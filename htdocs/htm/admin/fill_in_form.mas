@@ -1,0 +1,63 @@
+<%once>
+ use HTML::FillInForm;
+ my $fif = HTML::FillInForm->new;
+</%once>
+
+<%args>
+ $data   => undef
+ $object => undef
+ $fill_password => 0
+</%args>
+
+<%init>
+ my $form = $m->content;
+
+ if ( $data || $object ) {
+
+     my $filled = $fif->fill( scalarref => \$form,
+                              fdat      => $data,
+                              fobject   => $object,
+                              fill_password => $fill_password,
+                            );
+
+     # Add errors on top of form
+     prepend_errors( \$filled ) if defined $data->{submit};
+
+     $m->print($filled);
+
+ } else {
+
+     $m->print($form);
+ }
+
+ return;
+</%init>
+<%perl>
+# Extract name of form from HTML
+#
+sub form_name {
+  my $form = shift;
+  my $name;
+  $$form =~ /<form(.*?)name="(.*?)"/i and $name = $2;
+  return $name || 'default';
+}
+
+# Add list of errors before form
+#
+sub prepend_errors {
+  my ( $form ) = @_;
+  my $formname =  form_name( $form );
+
+  return unless defined $session{form_error};
+  return unless defined $session{form_error}{$formname};
+
+  $$form = "</ul><span class=\"form_error\">**fix_and_resubmit**</span><br/><br/>" . $$form;
+
+  for my $err (values %{$session{form_error}{$formname}} ) {
+    $$form = "<li class=\"form_error\">$err</li>" . $$form;
+  }
+
+  $$form = "<span class=\"form_error\">**the_entered_information_contains_errors**</span><br/><ul>" . $$form;
+
+}
+</%perl>
