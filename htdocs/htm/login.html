@@ -9,8 +9,8 @@ if ( $login ) {
 	                               password => $password ) 
     unless $CL->{msg};
 
-  for ( @channels ) {
-    my $sn = $_->get( 'shortname' );
+  for my $c ( @channels ) {
+    my $sn = $c->get( 'shortname' );
     $session{chanauth}{$sn} = 1;
   }
 
