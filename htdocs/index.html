@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.37 2004/05/16 12:23:26 snicki Exp $
+%# $Id: index.html,v 1.38 2004/05/17 12:20:10 snicki Exp $
 %#
 <table><tr>
 % if ( @{$remotes} > 0 ) {
@@ -30,6 +30,9 @@
 % } else {
 <&|/l&>no_stories</&>
 % }
+%# Cleanup above assigmnets
+% delete $spoejs{channel_path};
+% delete $spoejs{channel};
 <br/>
 % }
 </td>
