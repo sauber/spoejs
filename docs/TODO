@@ -95,6 +95,9 @@ StoryAdmin:
  - Guest comment on story
  - Write in more languages
  - Active/inactive story
+ - Support Media=* anywhere in story
+ - Media=* at end.
+ - Don't show inline pictures at end
 
 SiteConf:
  - Paths, theme, lang
@@ -128,7 +131,6 @@ Media:
  - slow random rotation
  - gif+bmp
  - pregenerated icons (fx party)
- - Medialist takes list of files as argument
 
 Extras:
  - Calendar
