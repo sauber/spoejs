@@ -1,8 +1,8 @@
 package Spoejs::Stats;
 use base ( "Spoejs" );
 
-# $Id: Stats.pm,v 1.3 2004/08/11 12:44:15 sauber Exp $
-$Spoejs::Stats::VERSION = $Spoejs::Stats::VERSION = '$Revision: 1.3 $';
+# $Id: Stats.pm,v 1.4 2004/08/31 04:05:32 sauber Exp $
+$Spoejs::Stats::VERSION = $Spoejs::Stats::VERSION = '$Revision: 1.4 $';
 
 # Constructor
 #
@@ -19,6 +19,7 @@ sub _initialize {
 sub _read_and_parse {
   my $self = shift;
 
+  # Don't read data twice
   return 1 if $self->{is_read};
   $self->_check_save() or return undef;
   $self->{is_read} = 1;
@@ -64,6 +65,22 @@ sub stats {
   $a[1] = $self->{_data}{$entry}{month} || 0 ;
   $a[2] = $self->{_data}{$entry}{week} || 0 ;
   return @a;
+}
+
+# Return topN for total, month and week stats
+# Exclude story in counting
+# XXX: Not tested yet!
+#
+sub topN {
+  my($self,$N) = @_;
+
+  my @V = ();
+  for my $k ( qw(total month week) ) {
+    push @V, [ (sort { $self->{_data_}{$a}{$k} <=> $self->{_data_}{$b}{$k} }
+               grep !/story/,
+               keys %{$self->{_data}})[0..$N-1] ];
+  }
+  return \@V;
 }
 
 # Delay saving data to disk until object is destroyed
