@@ -26,6 +26,7 @@ Code structure:
  - Debug on/off
  - Test UTF8
  - Error message when cookies missing
+ - file objects to %spoejs
 
 Data:
  - Don't save text unless really changed
@@ -92,6 +93,7 @@ SiteConf:
  - Invite-only/register-confirm/free-for-all
  - Quota
  - Username/password set/change
+ - Default settings.txt or create from empty
 
 Navigation:
  - StoryList
