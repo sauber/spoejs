@@ -3,8 +3,11 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: setupSession,v 1.18 2004/07/16 15:16:11 snicki Exp $
+%# $Id: setupSession,v 1.19 2004/10/28 07:52:00 sauber Exp $
 %#
+<%once>
+  my $resourcecache;
+</%once>
 <%perl>
   unless ( -w "$ENV{DOCUMENT_ROOT}/users/" ) {
     print "Site not correctly configured: $ENV{DOCUMENT_ROOT}/users is not
@@ -65,7 +68,10 @@ if ( length $path > 3 and length $path < 11 ) {
   $spoejs{current_language} = $spoejs{lang_handle}->{lang_order}->[0];
 
   # Set resource object
-  $spoejs{res_handle} = new Spoejs::Resource( lang => $spoejs{lang_handle} );
+  # XXX: Detect updates to data file
+  $resourcecache ||= new Spoejs::Resource();
+  $resourcecache->{lang} = $spoejs{lang_handle};
+  $spoejs{res_handle} = $resourcecache;
 
 # Should this be conditional on actual pages?
 if ( $spoejs{channel_path} ) {
