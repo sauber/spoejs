@@ -4,8 +4,8 @@
   <th class="abstract" align="right"><% $storyref->get( 'date' ) %></th>
 </tr>
 <tr>
-  <td colspan="2">Posted by <% $author %> in section 
-                  <%$storyref->get( 'category' )%></td>
+  <td><&|/l&>posted_by</&>: <% $author %></td>
+  <td><&|/l&>category</&>: <%$storyref->get( 'category' )%></td>
 </tr>
 <tr>
   <td><& categoryicon, category =>$storyref->get( 'category' ) &></td>
@@ -15,7 +15,7 @@
 </table>
 
 <%init>
-  my $author = $storyref->get( 'author' ) || 'Me';
+  my $author = $storyref->get( 'author' );
 </%init>
 
 <%args>
