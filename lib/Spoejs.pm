@@ -5,11 +5,12 @@ our $VERSION = '0.01';
 use 5.006001;
 use strict;
 use warnings;
+use Bootstring;
 
 require Exporter;
 
-# $Id: Spoejs.pm,v 1.10 2004/08/16 10:06:38 sauber Exp $
-$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.10 $';
+# $Id: Spoejs.pm,v 1.11 2004/10/13 14:37:55 sauber Exp $
+$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.11 $';
 
 # Constructor
 #
