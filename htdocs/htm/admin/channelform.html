@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.36 2004/06/04 07:30:41 snicki Exp $
+%# $Id: channelform.html,v 1.37 2004/06/04 08:40:18 snicki Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2><&|/l&>congrat_changes</&></h2>
@@ -90,8 +90,8 @@ $errs{password}, 16) %>
 <%init>
   my $cur_lang = $spoejs{current_language};
 
-  my @text_f = qw ( username shortname title description );
-  my @non_text_f = qw( language password public );
+  my @localize = qw ( title description );
+  my @no_local = qw( username shortname language password public );
   my %errs;
   my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
                                  lang => $spoejs{lang_handle} );
@@ -116,10 +116,9 @@ if ( $ARGS{submit} ) {
 
   # Pick appropriate args from %ARGS
   my %cl_args;
-  $cl_args{$_}{$cur_lang} = $ARGS{$_} for ( @text_f, @non_text_f );
-
-  # Overwrite 'shortname'
-  $cl_args{shortname} = $ARGS{shortname};
+  # No localization for these
+  $cl_args{$_} = $ARGS{$_} for ( @no_local );
+  $cl_args{$_}{$cur_lang} = $ARGS{$_} for ( @localize );
 
   # Add 'active' based on site policy
   $cl_args{active} = $policy eq 'signup_approve' ? 'no_' : 'yes';

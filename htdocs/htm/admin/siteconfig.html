@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: siteconfig.html,v 1.17 2004/05/20 10:14:15 snicki Exp $
+%# $Id: siteconfig.html,v 1.18 2004/06/04 08:40:02 snicki Exp $
 %#
 <h1><&|/l&>statuschannel</&>:</h1>
 <& /w, w => "login", action => '', ses_var => 'siteauth' &>
@@ -146,7 +146,7 @@ if ( $ARGS{submit} ) {
   }
 
   # Set new policy
-  $SC->set( policy => $ARGS{policy} ) or warn $SC->{msg};
+  $SC->set( policy => $ARGS{policy} );
 
   # Set new user/pass
   $SC->set( username => $ARGS{newusername} ) if $ARGS{newusername};
@@ -156,14 +156,15 @@ if ( $ARGS{submit} ) {
   $SC->set( $transopt => $ARGS{$transopt} );
 
   # Set peers
-  $SC->set( peers => { en => $ARGS{peers}} );
+  $SC->set( peers => $ARGS{peers} );
 
   #Set proxy
-  $SC->set( proxy => { en => $ARGS{proxy}} );
+  $SC->set( proxy => $ARGS{proxy} );
 
+  warn $SC->{msg} if defined $SC->{msg};
 }
 if ( $ARGS{change_chan_pw} ) {
   $channels[$ARGS{channel}]->set( password => undef );
-  $channels[$ARGS{channel}]->set( password => {en => $ARGS{channel_password}});
+  $channels[$ARGS{channel}]->set( password => $ARGS{channel_password});
 }
 </%init>
