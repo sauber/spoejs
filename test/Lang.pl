@@ -12,10 +12,10 @@ my $L = new Spoejs::Lang( $cookie_lang, @browser_langs, $channel_lang );
 
 
 my $category = $L->tr( { en=>'handball', dk=>'haandbold' } );
-print $category . "\n";
+print "Category: " . $category . "\n";
 
-my %D = $L->tr( { abstract=>{ en=>'something about'},
-		  category=>{ en=>'handball', dk=>'haandbold' } 
+my %D = $L->tr( { abstract => 'something about',
+		  category => 'handball' 
 	      } );
 
-print Dumper(%D);
+print "Dumping %D;\n" . Dumper(\%D);
