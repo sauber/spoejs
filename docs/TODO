@@ -90,6 +90,9 @@ Comments:
  - Journal owner can delete comments
  - Nicer design for displaying comments
 
+Story:
+ - Show big instead of thumb if only media for story
+
 StoryList:
  - Sub channels or story-sequences.
  - ==> in storytitlelist should skip two pages ahead
@@ -114,6 +117,7 @@ SiteConf:
  - encrypt site pw
  - Site conf tabs
  - Siteconf link in topbar if admin is logged in
+ - Unarchive
 
 Navigation:
  - StoryList
@@ -159,6 +163,7 @@ Performance:
  - Only read resource.txt once per httpd
  - Remove small blue lines
  - Code it sluggish. Optimize performance.
+ - Cachable pictures but not cachable pages
 
 Docs:
  - Website 'about spoejs'
