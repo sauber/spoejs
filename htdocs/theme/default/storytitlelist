@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: storytitlelist,v 1.23 2004/06/02 13:19:18 snicki Exp $
+%# $Id: storytitlelist,v 1.24 2004/06/02 13:31:20 snicki Exp $
 %#
 % use Date::Manip;
 <h2><&|/l&>stories</&></h2>
@@ -20,7 +20,7 @@
 <%init>
 
 my $count = 10;
-my $start = $spoejs{p}{s} || 0;
+my $start = $spoejs{p}{s} + $count;
 my %sl_opt = ( category  => $spoejs{p}{c},
 	       prev      => $count,
 	       story_num => $start
