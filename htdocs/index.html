@@ -1,6 +1,6 @@
 <h1>Spoejs channels at this site:</h1>
-% for ( @channels ) {
-<a href="/<% $_->channel_dir() %>/index.html"><% $_->get( 'title' ) %></a><br/>
+% foreach my $chan ( @channels ) {
+<a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'title' ) %></a><br/>
 % }
 
 <%init>
