@@ -4,7 +4,7 @@ Edit layout of channel
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: layout.html,v 1.8 2004/06/15 04:28:36 snicki Exp $
+$Id: layout.html,v 1.9 2004/06/16 11:23:18 sauber Exp $
 </%doc>
 <& journal_tab.mas &>
 <br/>
@@ -38,7 +38,7 @@ return undef unless $m->comp( '/htm/login.html:check_login' );
 
 my @attributes = qw( thumb_count );
 
-my @thum_count_options = ( [ -1, '**theme_default**' ], [ 0, '*all*' ],
+my @thum_count_options = ( [ -1, '**theme_default**' ], [ 0, '**all**' ],
                            [ 10, 10 ],  [ 20, 20 ], [ 50, 50 ] );
 
 my $error;
