@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.19 2004/04/10 13:15:28 snicki Exp $
+%# $Id: story-page,v 1.20 2004/04/23 06:06:14 snicki Exp $
 %#
 <h2><% $story_ref->get( 'title' ) %></h2>
 <&| /w, w => "box", heading => $story_ref->get( 'title' ) &>
@@ -16,15 +16,18 @@
 </&>
 <br/>
 <br/>
+% my $text = $story_ref->get( 'fulltext' );
 <&| /w, w => "box", heading => $m->comp( '/l', l => 'fulltext' ) &>
-<& /w, w => "text", text=>$story_ref->get( 'fulltext' ) &>
+<& /w, w => "text", text => $text &>
 </&>
+% unless ( $text =~ /media=/ig ) { #XXX: Consider other ways...
 <br/>
 <br/>
 <&| /w, w => 'box', heading => $m->comp( '/l', l => 'media' ) &>
 <& /w, w => 'album', media_list => $media_list, %navi_opt &>
 </&>
 <& /w, w => 'navi', %navi_opt &>
+% }	
 <br/>
 <br/>
 <br/>
