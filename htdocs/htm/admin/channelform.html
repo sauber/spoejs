@@ -4,7 +4,7 @@ Register channel or edit configuration
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: channelform.html,v 1.52 2004/07/04 06:16:47 snicki Exp $
+$Id: channelform.html,v 1.53 2004/07/14 06:12:36 snicki Exp $
 </%doc>
 <& /js/confirm.js &>
 <& journal_tab.mas &>
@@ -47,8 +47,10 @@ $Id: channelform.html,v 1.52 2004/07/04 06:16:47 snicki Exp $
 <table>
 <tr>
 <td>**journal_id**:</td>
-  <td><input type="text" name="shortname" size="16" maxlength="16" disabled="1"/></td>
-  <td class="form_desc">
+<td>
+    <input type="text" disabled="1" value="<% $ARGS{shortname} %>"/>
+    <input type="hidden" name="shortname"/></td></td>
+<td class="form_desc">
  **journal_id_description** http://<% $ENV{SERVER_NAME}%>/&lt;**journal_id**&gt;
   </td>
 </tr>
