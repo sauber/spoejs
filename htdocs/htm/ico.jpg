@@ -1,10 +1,11 @@
-%# Show icon
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: ico.jpg,v 1.4 2004/05/19 13:31:34 sauber Exp $
-%#
+<%doc>
+Show icon
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: ico.jpg,v 1.5 2004/08/08 16:12:09 snicki Exp $
+</%doc>
 <% $$iconref %>\
 % $m->abort();
 <%init>

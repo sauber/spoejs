@@ -1,10 +1,11 @@
-%# Display captcha image
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: cap.png,v 1.1 2004/06/03 14:11:52 sauber Exp $
-%#
+<%doc>
+Display captcha image
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: cap.png,v 1.2 2004/08/08 16:12:08 snicki Exp $
+</%doc>
 <% $blob %>\
 % $m->abort();
 <%init>

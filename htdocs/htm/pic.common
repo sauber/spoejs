@@ -1,10 +1,11 @@
-%# Common rendering functionality
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: pic.common,v 1.4 2004/05/08 15:29:36 sauber Exp $
-%#
+<%doc>
+Common rendering functionality
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: pic.common,v 1.5 2004/08/08 16:12:09 snicki Exp $
+</%doc>
 <% $$m_ref %>\
 % $m->abort();
 <%init>

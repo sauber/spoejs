@@ -1,10 +1,11 @@
-%# front page
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: index.html,v 1.50 2004/07/02 14:42:38 snicki Exp $
-%#
+<%doc>
+front page
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: index.html,v 1.51 2004/08/08 16:12:08 snicki Exp $
+</%doc>
 <table width="100%">
 % if ( @{$remotes} > 0 ) {
 <tr><td width="50%">
@@ -47,8 +48,8 @@
 <td valign="top" style="border: dashed gray 1px;"></td>
 <td valign="top" style="padding-left: 8px;">
 %for my $rem ( @{$remotes} ) {
-<h2><a href="<% $rem->{url} . '/' . $rem->{shortname} .'/index.html' %>">
-<%$rem->{shortname}%> at <% $rem->{url} %></a></h2>
+<h2><a href="<% $rem->{url} . '/' . $rem->{shortname} . '/index.html' %>">
+<% $rem->{shortname} %> at <% $rem->{url} %></a></h2>
 <% $rem->{summary} %><br/><br/>
 %}
 </td>

@@ -1,10 +1,11 @@
-%# Change preferred language
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: changeLang.html,v 1.3 2004/06/04 07:30:01 snicki Exp $
-%#
+<%doc>
+Change preferred language
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: changeLang.html,v 1.4 2004/08/08 16:12:08 snicki Exp $
+</%doc>
 <%init>
   $session{pref_lang} = $language;
   $spoejs{lang_handle} = new Spoejs::Lang( lang_order => [$session{pref_lang},
@@ -12,7 +13,7 @@
   $spoejs{current_language} = $spoejs{lang_handle}->{lang_order}->[0];
 
   $spoejs{res_handle} = new Spoejs::Resource( lang => $spoejs{lang_handle} );
-	
+
   $m->redirect( $ENV{HTTP_REFERER} );
 </%init>
 <%args>

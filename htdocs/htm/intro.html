@@ -1,10 +1,11 @@
-%# Show a single intro
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: intro.html,v 1.4 2004/06/11 03:46:35 sauber Exp $
-%#
+<%doc>
+Show a single intro
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: intro.html,v 1.5 2004/08/08 16:12:09 snicki Exp $
+</%doc>
 %if ( @s > 0 ) {
 <& /w, w => 'abstract', box => 1, storyref => $s[0] &>
 % } else {
