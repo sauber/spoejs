@@ -1,5 +1,5 @@
 % return unless $m->comp( 'checkLogin.html' );
-
+<& /js/confirm.js &>
 % if ( $ARGS{submit} ) {
 <h4>Story saved successfully.</h4>
 <a href="<& /htm/url:encode, "/$spoejs{channel}/admin/upload.html", 
@@ -64,7 +64,7 @@ cols="60"><%$ARGS{fulltext}%></textarea>
 % }
 </fieldset>
 <input type="submit" name="submit" value="<&|/l&>submit</&>"/>
-<input type="submit" name="delete" value="<&|/l&>delete</&>"/>
+<input type="submit" name="delete" value="<&|/l&>delete</&>" onclick="return confirmSubmit()"/>
 </td></tr></table>
 </form>
 % if ( $story_dir ) {
