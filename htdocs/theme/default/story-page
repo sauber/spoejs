@@ -17,7 +17,7 @@
 % for ( @media_list ) {
 % my $p = $_->{file};
 %# XXX: Consider moving generation of these links to caller
-<div style="float:left; padding:3px; border-style:ridge; margin:3px; background-color:yellow">
+<div style="float:left; min-height: 150px; padding:3px; border-style:ridge; margin:3px; background-color:yellow">
 <a href="<& /htm/url:encode, 'media.html', d => $story_dir, p => $p &>">\
 <& /w, w => "media", d => $story_dir, p => $p, m => 150, info => $_->info() &>\
 </a><br>
@@ -25,6 +25,15 @@
 </div>
 % }
 </fieldset>
+<center>
+<a href="<% $prev_href %>">
+<==
+</a>
+==
+<a href="<% $next_href %>">
+==>
+</a>
+</center>
 </fieldset>
 <br/>
 <br/>
@@ -34,5 +43,7 @@
   $story_dir  => undef
   $story_ref      => undef
   $edit_href  => undef
+  $next_href  => undef
+  $prev_href  => undef
   @media_list => undef
 </%args>
