@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.25 2004/06/04 11:17:20 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.25 $';
+# $Id: Text.pm,v 1.26 2004/06/04 11:43:07 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.26 $';
 
 
 # Constructor
@@ -72,7 +72,7 @@ sub _store_data {
 	}
 	
 	# If not a hash, add variable directly
-	$subentry .= "$data{$key}" unless ref $data{$key};
+	$subentry .= "$data{$key}\n" unless ref $data{$key};
 	
 	$entry .= $subentry . "</$key>\n\n";
 
