@@ -15,9 +15,9 @@
 </table>
 <& /w, w => "list" &>
 <br/>
-<& /w, w => "categorylist", box => 'y' &>
+<& /w, w => "categorylist", box => 1 &>
 <br/>
-<& /w, w => "storytitlelist", box => 'y' &>
+<& /w, w => "storytitlelist", box => 1 &>
 % if ( $edit_href ) {
 <br/>
 <a href="/<% $edit_href %>"><&|/l&>channelconf</&></a>
