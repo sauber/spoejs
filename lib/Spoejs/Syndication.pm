@@ -1,17 +1,17 @@
 package Spoejs::Syndication;
-use base ( "Spoejs" );
+use base ( "Spoejs::Text" );
 use Data::Dumper;
 use Date::Manip;
 use LWP::UserAgent;
 use Spoejs::ChannelList;
 
-# $Id: Syndication.pm,v 1.1 2004/05/15 09:28:20 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.1 $';
+# $Id: Syndication.pm,v 1.2 2004/05/16 00:33:49 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.2 $';
 
 # Constructor
 sub _initialize {
     my $self  = shift;
-
+    $self->SUPER::_initialize(@_, file => 'syndication.txt' );
 }
 
 #### Private helper functions ####
@@ -19,8 +19,8 @@ sub _initialize {
 #
 #
 sub _remote_list {
-  my $self  = shift;
-  my $url = shift;
+  my $self = shift;
+  my $url  = shift;
 
   my $ua = LWP::UserAgent->new;
   my $res= $ua->get($url);
@@ -35,11 +35,55 @@ sub _remote_list {
 }
 
 
+# Parse remote lists. Format is:
+# 1. Channels separated by newline
+# 2. Channelname (shortname) and date of newest entry is ;-separated
+#
+sub _parse_remote_list {
+    my $self = shift;
+    my $site = shift;
+    my $list = shift; # As one string
+
+    my @sname_dates;
+    my @lines = split /\n/, $list;
+    for my $line ( @lines ) {
+	my ($sname, $date) = split /;/, $line;
+        push @sname_dates, 
+             { site => $site, shortname => $sname, date => $date };
+    }
+    return @sname_dates;
+}
+
+
+#
+#
+sub _fetch_remotes {
+  my $self  = shift;
+  my $remotedoc = "/latest.html"; #XXX: Consider moving to new() call or config
+  my %sites = $self->get();
+
+  while ( my ( $site, $url ) = ( each %sites ) ) {
+      my $list = $self->_remote_list( $url . $remotedoc );
+      push @{$self->{globallist}}, $self->_parse_remote_list( $site, $list );
+  }
+}
+
+
+#
+#
+sub _sort_globallist {
+  my $self  = shift;
+
+    @{$self->{globallist}} = 
+                sort { $b->{date} <=> $a->{date} }
+                      @{$self->{globallist}};
+}
+
 #### Public interface ####
 
 # Get simple text list of channels and date of their newest story
 #
-sub channel_newestdate_list {
+sub local_channel_newestdate_list {
     my $self  = shift;
  
     my $CL = new Spoejs::ChannelList( path => $self->{path},
@@ -56,7 +100,7 @@ sub channel_newestdate_list {
 	@s = $SL->list_stories( count => 1 );
 	unless ($s[0] eq undef) {
             my $story = $s[0];
-            my $date = UnixDate($story->get( 'date' ), "%d/%m/%y");
+            my $date = UnixDate($story->get( 'date' ), "%y%m%d");
 	    push @sns, { shortname => $chan->get('shortname'), date => $date};
 	}
     }
@@ -64,6 +108,19 @@ sub channel_newestdate_list {
     return @sns;
 }
 
+
+#
+#
+sub newest_remotes {
+  my $self  = shift;
+
+  # Build globallist with all remotes
+  $self->_fetch_remotes();
+
+  # Sort on date of newest entry
+  $self->_sort_globallist();
+
+}
 
 __END__
                                                                                
