@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.13 2004/04/09 17:18:39 sauber Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.13 $';
+# $Id: MediaList.pm,v 1.14 2004/04/16 09:50:14 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.14 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -57,7 +57,7 @@ sub list {
     my $self = shift;
     my %opt  = @_;
 # XXX: What pattern should be used here?
-    my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG|gif|GIF)$' );
+    my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG|gif|GIF|avi|AVI|mpg|MPG)$' );
     return $self->_list( $opt{start}, $opt{count}, sort @files );
 }
 
@@ -66,20 +66,23 @@ sub list_unsorted {
     my $self = shift;
     my %opt  = @_;
 # XXX: What pattern should be used here?
-    my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG|gif|GIF)$' );
+    my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG|gif|GIF|avi|AVI|mpg|MPG)$' );
     return $self->_list( $opt{start}, $opt{count}, @files );
 }
 
 sub get_picref {
-    my ( $self, $current ) = @_;
+    my ( $self, @wanted ) = @_;
     
     my @all = $self->list();
 
-    for ( @all ) {
-	return $_ if ( $_->{file} eq $current );
+    my @res;
+    for my $a ( @all ) {
+	for my $w ( @wanted ) {
+	    push @res, $a if ( $a->{file} eq $w );
+	}
     }
 
-    return undef;
+    return @res;
 }
 
 
