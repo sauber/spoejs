@@ -675,6 +675,10 @@
 <lang=zh/>首先
 </first>
 
+<fix_and_resubmit>
+<lang=en/>Fix and Resubmit
+</fix_and_resubmit>
+
 <fr>
 <lang=ar/>فرنسي
 <lang=bg/>Френски
@@ -786,6 +790,22 @@
 <lang=ru/>венгерский
 <lang=zh/>匈牙利语
 </hu>
+
+<invalid_description>
+<lang=en/>Invalid description 
+</invalid_description>
+
+<invalid_journal_id>
+<lang=en/>Invalid Journal-ID
+</invalid_journal_id>
+
+<invalid_title>
+<lang=en/>Invalid title 
+</invalid_title>
+
+<invalid_username>
+<lang=en/>Invalid Username 
+</invalid_username>
 
 <inviteonly>
 <lang=ar/>معزوم فقط
@@ -1232,6 +1252,10 @@
 <lang=zh/>预现
 </preview>
 
+<probs_in_reg>
+<lang=en/>The Journal Information you entered has problems:
+</probs_in_reg>
+
 <private>
 <lang=en/>Private
 </private>
@@ -1368,7 +1392,7 @@
 </signup_newchannel>
 
 <signup_newjournal>
-<lang=en/>Sign up for a new media journal and share your experiences with friends family.
+<lang=en/>Sign up for a new media journal and share your experiences with friends and family.
 <lang=zh/>注册新的杂记并与家人及朋友分享
 </signup_newjournal>
 
