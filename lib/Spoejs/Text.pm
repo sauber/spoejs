@@ -8,8 +8,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use YAML qw( DumpFile LoadFile);
 
-# $Id: Text.pm,v 1.29 2004/06/08 09:36:53 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.29 $';
+# $Id: Text.pm,v 1.30 2004/06/11 05:34:25 sauber Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.30 $';
 
 
 # Constructor
@@ -43,7 +43,7 @@ sub _store_data {
     my %data = %{$self->{data}}; #grab data for easier access
     my $entry;
     my $subentry;
-    my $USE_YAML = undef;
+    my $USE_YAML = 1;
 
     if ( $USE_YAML  ) {
 
