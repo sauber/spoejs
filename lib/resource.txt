@@ -3,6 +3,8 @@ account_information:
   da: Opgørelse
   en: Account Information
   es: Información de la cuenta
+  ja: 'アカウント情報'
+  mk: 'Информации за сметката'
 active:
   ar: 'فعال'
   da: Aktiv
@@ -121,6 +123,7 @@ all:
   et: Kõik
   it: tutto
   ja: '全て'
+  mk: 'Се'
 always_random:
   da: Altid tilfældig
   de: immer zufällig
@@ -129,6 +132,7 @@ always_random:
   et: Alati juhuslik
   it: sempre sensa senso
   ja: '常にランダム'
+  mk: 'Секогаш случаен'
 annotations:
   da: Billedbeskrivelser
   de: Anmerkungen
@@ -138,6 +142,7 @@ annotations:
   gr: 'Σχόλια'
   it: commenti
   ja: '注釈'
+  mk: 'Забелешки'
 ar:
   ar: 'عربي'
   bg: 'Арабски'
@@ -289,6 +294,7 @@ categorylist:
   et: Alajaotuste loend
   it: la lista di categorie
   ja: 'カテゴリーリスト'
+  mk: 'Лист на категории'
 change_journal_password:
   da: Skift journal password
   de: Passwort ändern
@@ -365,6 +371,7 @@ comment:
   et: Märkus
   it: commento
   ja: 'コメント'
+  mk: 'Коментар'
 comment_missing:
   da: Kommentar mangler
   de: Bezeichnungen fehlen
@@ -515,6 +522,7 @@ delete_story:
   et: Kustuta jutt
   it: cancellare la storia
   ja: 'ストーリーを消去'
+  mk: 'Избриши ја приказната'
 deletefile:
   ar: 'أمحاء ملف'
   da: Slet fil
@@ -594,6 +602,7 @@ edit_annotations:
   gr: 'Επεξεργασία σχολίων'
   it: redigere l'annotazione
   ja: '注釈の編集'
+  mk: 'Едитирање на забелешките'
 edit_lang:
   ar: 'تصحيح ملف'
   da: Retter for sproget
@@ -646,6 +655,7 @@ error_code:
   et: Viga
   it: codice di errore
   ja: 'エラーコード'
+  mk: 'Погрешна шифра'
 es:
   ar: 'أسباني'
   bg: 'Испански'
@@ -743,6 +753,7 @@ first:
   it: la prima
   iw: 'הראשון'
   ja: '最初'
+  mk: 'Прв'
   ru: 'первый'
   zh: '首先'
 fix_and_resubmit:
@@ -783,6 +794,7 @@ freeall:
   it: gratuito per tutti
   iw: 'חינם'
   ja: '無料で開かれている'
+  mk: 'Бесплатно за секого'
   ru: 'бесплатно для всех'
   zh: '完全自由'
 full_story:
@@ -882,6 +894,7 @@ information:
   et: Teave
   it: informazioni
   ja: 'インフォメーション'
+  mk: 'Информации'
 input_errors:
   da: Indtastningsfejl
   de: Eingabefehler
@@ -912,7 +925,10 @@ invalid_journal_id:
     Погрешен идентификациски број на
     списанието
 invalid_name:
-  en: Invalid Name 
+  en: Invalid Name
+  es: Nombre incorrecto
+  ja: '無効な名前'
+  mk: 'Погрешно име'
 invalid_password:
   da: Det angivne password er for kort
   de: Passwort hat zu wenig Zeichen
@@ -947,6 +963,7 @@ invalid_username:
   et: Varjunimi on vigane
   it: Username invalido
   ja: '無効なユーザー名'
+  mk: 'Погрешно корисничко име'
 inviteonly:
   ar: 'ﻢﻋﺯﻮﻣ ﻒﻘﻃ'
   da: Kun inviterede
@@ -957,6 +974,7 @@ inviteonly:
   it: Per gli inviati
   iw: 'רק עם הזמנה'
   ja: '招待のみ'
+  mk: 'Само по покана'
   ru: 'пригласить только'
   zh: '只邀请'
 is:
@@ -1035,6 +1053,8 @@ journal_admin:
   et: Albumi peremees
   it: giornale amministrazione
   ja: 'ジャーナル管理者'
+  mk: |-
+    Администратор на списанието
 journal_config:
   da: Journal konfiguration
   de: Ausgaben-Einstellung
@@ -1053,6 +1073,7 @@ journal_default:
   et: Albumi algseaded
   it: giornale scaduto
   ja: 'デフォルトのジャーナル'
+  mk: 'Дефолт на списанието'
 journal_deleted:
   da: Journal er slettet
   de: gelöschte Ausgabe
@@ -1081,6 +1102,7 @@ journal_home:
   et: Koondalbum
   it: Giornale Home
   ja: 'ジャーナルホーム'
+  mk: 'Дом на списанието'
 journal_id:
   da: Journal-ID
   de: Ausgabenidentifizierung
@@ -1125,6 +1147,7 @@ journal_layout:
   et: Albumi paigutus
   it: giornale impaginazione
   ja: 'ジャーナルレイアウト'
+  mk: 'Изглед на списанието'
 journal_name:
   da: Journal navn
   de: Ausgaben-Name
@@ -1178,6 +1201,7 @@ keyword:
   et: Märksõna
   it: Keyword
   ja: 'キーワード'
+  mk: 'Клучен збор'
 language:
   ar: 'لغة'
   bg: 'Език'
@@ -1216,6 +1240,7 @@ last:
   it: ultimo
   iw: 'אחרון'
   ja: '最後'
+  mk: 'Последен'
   ru: 'прошлый'
   zh: '持续'
 layout:
@@ -1226,6 +1251,7 @@ layout:
   et: Paigutus
   it: impaginazione
   ja: 'レイアウト'
+  mk: 'Изглед'
 localjournal:
   da: Lokale journaler
   de: lokale Ausgaben
@@ -1288,6 +1314,7 @@ media_annotations:
   et: Kujunduse kirjeldus
   it: Media annotazione
   ja: 'メディア注釈'
+  mk: 'Забелешки за медиумите'
 media_man:
   ar: '   ادارة الاعلام'
   da: Medie håndtering
@@ -1310,6 +1337,7 @@ media_mixing:
   et: Kujunduse loomine
   it: Media mescorare
   ja: 'メディアミックス'
+  mk: 'Мешање на медиумите'
 media_rename:
   da: Omdøb medie
   de: geänderte Bezeichnung von Medien
@@ -1317,6 +1345,7 @@ media_rename:
   es: Cambiar nombre de medio
   et: Pane kujundusele uus nimi
   ja: 'メディアに再度名前をつける'
+  mk: 'Преименување на медиумите'
 media_upload:
   da: Upload medie
   de: Medienübertragung
@@ -1325,6 +1354,7 @@ media_upload:
   et: Lisa kujundus
   it: media rinovo
   ja: 'メデイアアップロード'
+  mk: 'Вчитување на медиумите'
 mk:
   ar: 'ماسادوني'
   bg: 'Македонски'
@@ -1369,6 +1399,8 @@ name_description:
   da: Navnebeskrivelse
   en: Name Description
   es: Descripción del nombre
+  ja: '名前詳細'
+  mk: 'Опис на името'
 name_missing:
   da: Navn mangler
   de: Name fehlt
@@ -1446,6 +1478,8 @@ newpass:
   en: New Password
   es: Nueva contraseña
   et: Uus salasõna
+  ja: '新しいパスワード'
+  mk: 'Нова лозинка'
 no_:
   ar: 'ﻻ'
   da: Nej
@@ -1456,6 +1490,7 @@ no_:
   it: no
   iw: 'לא'
   ja: 'いいえ'
+  mk: 'Не'
   ru: 'нет'
   zh: '否'
 no_stories:
@@ -1704,6 +1739,7 @@ random:
   hu: veletlen
   iw: 'ראנדומאלי'
   ja: 'ランダム'
+  mk: 'Случаен'
   ru: 'Случайный'
   zh: '随便'
 rename_delete:
@@ -1774,6 +1810,8 @@ security_image_failed_verification:
   et: Turve ei võimaldanud tuvastada sellist pilti
   ja: |-
     セキュリティイメージは立証に失敗しました。
+  mk: |-
+    Сликата за сигурност не одговара
 set_password:
   da: Sæt kodeord
   de: Passwort definieren
@@ -1800,7 +1838,10 @@ shortname:
   ru: 'Сокращенное имя'
   zh: '短名'
 show_story:
-  en: Show story 
+  en: Show story
+  es: Ver artículo
+  ja: 'ストーリーを見せる'
+  mk: 'Прика'
 show_trans:
   da: Vis engelske oversættelser
   de: 'Übersetzungsmöglichkeiten anzeigen'
@@ -1821,6 +1862,7 @@ signup_approve:
   it: Approva signup
   iw: 'ההרשמה התקבלה'
   ja: 'サインアップ承諾'
+  mk: 'Запишувањето е одобрено'
   ru: 'Подтвердить подписку'
   zh: '允许登记'
 signup_newjournal:
@@ -1864,6 +1906,7 @@ sitepolicy:
   it: siti politica
   iw: 'כללים'
   ja: 'サイトポリシー'
+  mk: 'Регулатива на сајтот'
   ru: 'Политика сайта'
   zh: '本页特权'
 specific:
@@ -1877,6 +1920,7 @@ specific:
   it: specifico
   iw: 'ספציפי'
   ja: '詳細'
+  mk: 'Специфичен'
   ru: 'Определенный'
   zh: '具体'
 statusjournal:
@@ -1913,6 +1957,8 @@ story_abstract:
   da: Resumé
   en: Story Abstract
   es: Resumen del artículo
+  ja: '抽象的なストーリー'
+  mk: 'Апстаркт на статијата'
 story_deleted:
   da: Historie slettet
   de: gelöschte Geschichten
@@ -1921,6 +1967,7 @@ story_deleted:
   et: See jutt kustutati
   it: La stora e
   ja: 'ストーリーを消去'
+  mk: 'Статијата е избришана'
 story_details:
   da: Detaljer fra historien
   de: komplette Geschichte
@@ -1929,6 +1976,7 @@ story_details:
   et: Jutu üksikasjad
   it: piu di storia
   ja: 'ストーリーの詳細'
+  mk: 'Детали за статијата'
 story_edit:
   da: 'Ændre historie'
   de: zusammengefasste Geschichte
@@ -1937,6 +1985,7 @@ story_edit:
   et: Muuda juttu
   it: la storia redazione
   ja: 'ストーリーを編集'
+  mk: 'Едитирање на статијата'
 story_summary:
   ar: 'محتويات القصة'
   da: Historie abstrakt
@@ -1986,6 +2035,7 @@ storytitlelist:
   et: Pealkirjade loend
   it: La tista di titolo della storia
   ja: 'ストーリータイトルのリスト'
+  mk: 'Листа на имиња на статиите'
 submit:
   ar: 'أرسال'
   bg: 'Приложи'
@@ -2019,6 +2069,7 @@ syndication:
   es: Syndication
   it: organizzazione
   ja: '再発行'
+  mk: 'Синдикација'
 theme:
   ar: 'ميزة'
   bg: 'Тема'
@@ -2043,6 +2094,7 @@ theme_default:
   et: Etteantud valdkond
   it: tema e scaduto
   ja: 'でフォルトのテーマ'
+  mk: 'Дефолт на темата'
 theme_description:
   da: Journalens udseende
   de: Erscheinungsbild der Ausgabe
@@ -2118,6 +2170,8 @@ up_:
   da: Op
   en: Up
   es: Arriba
+  ja: '上へ'
+  mk: 'Горе'
 upload:
   ar: 'أدخال'
   da: Indsend
@@ -2195,6 +2249,7 @@ yes:
   it: si
   iw: 'כן'
   ja: 'はい'
+  mk: 'Да'
   ru: 'Да'
   zh: '是'
 you_have_been_logged_out:
