@@ -27,15 +27,7 @@
 </div>
 % }
 </fieldset>
-<center>
-<a href="<% $prev_href %>">
-<==
-</a>
-==
-<a href="<% $next_href %>">
-==>
-</a>
-</center>
+<& /w, w => 'navi', right_href => $next_href, left_href => $prev_href &>
 </fieldset>
 <br/>
 <br/>
