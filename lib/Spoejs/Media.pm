@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.16 2004/05/17 12:45:55 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.16 $';
+# $Id: Media.pm,v 1.17 2004/06/03 00:40:14 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.17 $';
 
 
 # Initializor
@@ -200,10 +200,15 @@ sub get {
 
 # Get size etc about current image magick object
 sub info {
-  my($self) = @_;
+  my($self, $scalem ) = @_;
 
   return undef unless $self->{_im};
-  return $self->{_im}->Get('width','height','filesize','Magick');
+
+  my ( $w,$h,$f,$m ) = $self->{_im}->Get('width','height','filesize','Magick');
+
+  ($x,$y) = $self->_scaledxy( $x, $y, $scalem ) if $scalem;
+
+  return ( $w,$h,$f,$m );
 }
 
 
