@@ -123,6 +123,10 @@ Media:
  - Bug: On inline pages, all media appear twice
  - Support movie clips in zip files
 
+Stats:
+ - Count thumbs shown on site and journal index
+ - Count direct access to media (fx with autohandler?)
+
 Icons:
  - pregenerated icons (fx party)
 
