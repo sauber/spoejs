@@ -4,14 +4,14 @@ Show information about media files
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: mediainfo,v 1.5 2004/08/13 06:33:25 sauber Exp $
+$Id: mediainfo,v 1.6 2004/08/31 02:20:48 sauber Exp $
 </%doc>
 <table border=0>
 <tr><th colspan=3 align=left>**media_information**:</th></tr>
 <tr><td align=right>**dimensions**<td> : </td><td align=left><% "$w x $h" %></td></tr>
 <tr><td align=right>**file_size**<td> : </td><td align=left><% $s %> bytes</td></tr>
 <tr><td align=right>**file_type**<td> : </td><td align=left><% $f %></td></tr>
-<tr><th colspan=3 align=left>**number_of_views**: </th></tr>
+<tr><th colspan=3 align=left>**views**: </th></tr>
 <tr><td align=right>**past7days**<td> : </td><td align=left><% $week %></td></tr>
 <tr><td align=right>**past30days**<td> : </td><td align=left><% $month %></td></tr>
 <tr><td align=right>**total**<td> : </td><td align=left><% $total %></td></tr>
