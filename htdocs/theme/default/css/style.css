@@ -101,8 +101,19 @@ div.media {
 }
 div.right {
   float: right;
+  clear: right;
 }
+
+div.center {
+  float: left;
+}
+
+div.abstract {
+  height: 170px;
+}
+
 div.left {
+  clear: left;
   float: left;
   padding:3px;
   margin:3px;
