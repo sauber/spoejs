@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.12 2004/03/06 00:41:16 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.12 $';
+# $Id: Text.pm,v 1.13 2004/03/06 02:10:38 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.13 $';
 
 
 # Constructor
@@ -31,7 +31,7 @@ sub _store_data {
     my $self = shift;
     my %data = %{$self->{data}}; #grab data for easier access
     open (FH, ">$self->{path}/$self->{file}") or
- 	return $self->_err( "_store_data: Could not open $self->{path}/$self->{file}: $! ");
+ 	return $self->_err( "Text::_store_data(): Could not open $self->{path}/$self->{file}: $! ");
     binmode( FH, ":utf8" );
 
     foreach $key ( keys( %data ) ) {
@@ -77,7 +77,9 @@ sub _store_data {
 sub _read_data {
 
     my $self = shift;
-    open FH, "<$self->{path}/$self->{file}" or return 1;
+    # Return here if file does not exist. 
+    open FH, "<$self->{path}/$self->{file}" or 
+ 	return $self->_err( "Text::_read_data(): Could not open $self->{path}/$self->{file}: $! ");
     binmode( FH, ":utf8" );
 
     my $tag = "";
@@ -155,8 +157,10 @@ sub _check_load {
     my $self = shift;
 
     unless ( $self->{is_loaded} ) {
-	$self->_read_data();
-	$self->{is_loaded} = 1;
+	if ( -f "$self->{path}/$self->{file}" ) {
+	    $self->_read_data() or return undef;
+	    $self->{is_loaded} = 1;
+	}
     }
 }
 
