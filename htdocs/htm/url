@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: url,v 1.14 2004/06/05 04:28:25 sauber Exp $
+%# $Id: url,v 1.15 2004/06/07 14:06:48 snicki Exp $
 %#
 <%once>
   # The Bootstring encode object has high start up overhead,
@@ -21,7 +21,7 @@
       DELIMITER => '_',
   );
 </%once>
-<%method encode>
+<%method encode>\
 <%perl>
   my($link,%options) = @_;
   my($r,$k,$v);
