@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.28 2004/06/13 02:43:24 snicki Exp $
+%# $Id: story.html,v 1.29 2004/06/13 02:44:15 snicki Exp $
 %#
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 <& /js/confirm.js &>
@@ -99,11 +99,6 @@ not to display frames.]
 </td></tr></table>
 </div>
 % }
-<br clear="all"/>
-<pre>
-<% Dumper $spoejs{ARGS} %>
-<% Dumper \%session %>
-</pre>
 <%init>
 my @thumb = qw( first last random always_random specific );
 my $cur_lang = $spoejs{current_language};
