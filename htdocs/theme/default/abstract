@@ -1,4 +1,5 @@
 <h3><% $title %></h3>
+<div class="abstract">
 <div class="left">
      <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
 <div class="bottom">
@@ -10,7 +11,7 @@
 % }
 </div>
 </div>
-<div class="left">
+<div class="center">
 <b><&|/l&>date</&>:</b> <% $date %><br/>
 <b><&|/l&>posted_by</&>:</b> <% $author %><br/>
 <b><&|/l&>category</&>:</b> <% $category %><br/>
@@ -20,6 +21,7 @@
 <div class="right">
     <& /w, w => 'media', d => $path, p => $thumb_ref->{file},
            m => 150, href=>$story_href &>
+</div>
 </div>
 <%args>
   $title      => undef
