@@ -637,10 +637,10 @@
 <lang=zh/>短名
 </shortname>
 
-<sigenup_approve>
+<signup_approve>
 <lang=en/>Signup Approve
 <lang=zh/>允许登记
-</sigenup_approve>
+</signup_approve>
 
 <signup>
 <lang=ar/>التسجيل
