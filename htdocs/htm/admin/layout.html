@@ -4,7 +4,7 @@ Edit layout of channel
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: layout.html,v 1.5 2004/06/13 08:27:42 snicki Exp $
+$Id: layout.html,v 1.6 2004/06/15 00:58:41 snicki Exp $
 </%doc>
 <a href="/<%$spoejs{channel}%>/admin/channelform.html">**account_signup**</a><br/><br/>
 <fieldset>
@@ -13,7 +13,18 @@ $Id: layout.html,v 1.5 2004/06/13 08:27:42 snicki Exp $
 </legend>
 <&| /htm/admin/fill_in_form.mas, data => \%ARGS, spec => $spec &>
 <form name="layout_form" method="post" action="">
-**thumb_count**: <input type="text" name="thumb_count" size="3">**thumb_count_description**
+
+**thumb_count**:
+<select name="thumb_count">
+
+%for my $opt ( @thum_count_options ) {
+
+<option value="<% $opt->[0] %>"><% $opt->[1] %></option>
+
+% }
+
+</select>
+**thumb_count_description**
 <br/>
 <br/>
 <input type="submit" name="submit" value="**submit**">
@@ -22,8 +33,12 @@ $Id: layout.html,v 1.5 2004/06/13 08:27:42 snicki Exp $
 </fieldset>
 <%init>
 my @attributes = qw( thumb_count );
+
+my @thum_count_options = ( [ -1, '**theme_default**' ], [ 0, '*all*' ],
+                           [ 10, 10 ],  [ 20, 20 ], [ 50, 50 ] );
+
 my $error;
-my $spec = { thumb_count => { regexp      => '\d+',
+my $spec = { thumb_count => { regexp      => '^-?\d+$',
                               error       => '**invalid_thumb_count**' },
            };
 
