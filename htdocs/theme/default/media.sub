@@ -4,7 +4,7 @@ Show scaled picture or movie
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: media.sub,v 1.1 2004/08/12 11:07:21 snicki Exp $
+$Id: media.sub,v 1.2 2004/08/12 12:40:50 snicki Exp $
 </%doc>
 <& $w,
  href          => $href,
@@ -67,6 +67,11 @@ if ( $html_wh ) {
 my $src = $m->scomp( '/htm/url:encode', "/$spoejs{channel}/pic.$ext", 
                       d=>$ARGS{d}, p=>$ARGS{p}, m=> $size );
 my $imgsrc = "<img src=\"$src\" $html_wh alt=\"$ARGS{p}\" />";
+
+
+# Update stats for this image
+my $stats = new Spoejs::Stats( path => "$spoejs{channel_path}/$spoejs{p}{d}" );
+$stats->access( $ARGS{p} );
 
 </%init>
 <%args>
