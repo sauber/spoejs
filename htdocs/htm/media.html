@@ -4,7 +4,7 @@ List of media for story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: media.html,v 1.16 2004/08/12 12:48:17 snicki Exp $
+$Id: media.html,v 1.17 2004/08/12 12:54:23 snicki Exp $
 </%doc>
 <& /w, w => 'media-page',
       ML => $spoejs{Story}->{ML},
@@ -21,9 +21,6 @@ my $path = "$ENV{DOCUMENT_ROOT}$web_path";
 my $picref    = ($spoejs{Story}->{ML}->list( start => $spoejs{p}{s},
 					     count => 1 ))[0]
   or $spoejs{error}{$m->current_comp->source_file} = $spoejs{Story}->{ML}->{msg};
-
-# Update stats for this image
-$spoejs{Stats}->access( $picref->{file} );
 
 my $back_href = $m->scomp( "url:encode", 'story.html', d => $spoejs{p}{d} );
 my $img_href  = "$web_path/$picref->{file}";
