@@ -47,8 +47,7 @@ if ( -d $spoejs{channel_path} && !$ARGS{submit} )
 {
   # XXX: What goes on when adding 'lang' here? (~nothing is returned in get()
   my $CC = new Spoejs::ChannelConf( path => $spoejs{channel_path},
-                                    lang => $spoejs{lang_handle}
- );
+                                    lang => $spoejs{lang_handle} );
 
   %ARGS = ( %ARGS, $CC->get() );
 }
@@ -61,6 +60,9 @@ if ( $ARGS{submit} ) {
   my %cl_args;
   $cl_args{$_}{$cur_lang} = $ARGS{$_} for ( @text_f, @non_text_f );
 
+  # Overwrite 'shortname'
+  $cl_args{shortname} = $ARGS{shortname};
+
   # Add 'active' based on site policy
   $cl_args{active} = $policy eq 'signup' ? 'no' : 'yes';
 
@@ -69,7 +71,10 @@ if ( $ARGS{submit} ) {
   if ( keys %errs == 0 && !$spoejs{channel} ) {
 
     my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
+    print Dumper %cl_args;
+
     my $res = $CL->new_channel( %cl_args );
+    print "Error: $CL->{msg}" unless $res;
 
     # Start as logged in when you have just signed up
     $session{chanauth}{$cl_args{shortname}} = 1;
