@@ -4,9 +4,10 @@ use Spoejs::StoryList;
 use Spoejs::Lang;
 use Data::Dumper;
 
-my $L = Spoejs::Lang->new( 'en' );
+my $L = Spoejs::Lang->new( lang_order => ['en'] );
 
-my $SL = Spoejs::StoryList->new( lang => $L );
+my $path = '/usr/local/wwwdoc/spoejs/htdocs/users/test/';
+my $SL = Spoejs::StoryList->new( path => $path, lang => $L );
 
 my $dir = $SL->add_story();
 
