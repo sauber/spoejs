@@ -8,8 +8,8 @@ no Carp::Assert;
 use Spoejs::SiteConf;
 use base ( "Spoejs" );
 
-# $Id: Text.pm,v 1.2 2004/02/26 03:32:35 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::Auth::VERSION = '$Revision: 1.2 $';
+# $Id: Text.pm,v 1.3 2004/02/26 04:30:50 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.3 $';
 
 
 # Constructor
@@ -249,11 +249,6 @@ sub DESTROY {
 
     my $self = shift;
     $self->$store_data( @_ ) if $self->{is_modified};
-}
-
-sub site_dir {
-    my $self = shift;
-    return $self->{path};
 }
 
 1;
