@@ -3,8 +3,8 @@ use base ( "Spoejs::Media" );
 use Data::Dumper;
 use Video::Info;
 
-# $Id: Movie.pm,v 1.5 2004/05/09 10:57:21 sauber Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.5 $';
+# $Id: Movie.pm,v 1.6 2004/05/09 12:35:07 snicki Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.6 $';
 
 # Supported extensions
 $Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov|qt|mpeg|mpe';
@@ -36,7 +36,7 @@ sub load {
   my $tmpdir = "/tmp/.spoejstmp.$$";
   my $tmpfile = $tmpdir . "/00000002.jpg";
   system("mkdir $tmpdir");
-  system("mplayer -really-quiet -ss $randomstart -frames 2 -vo jpeg -jpeg outdir=$tmpdir -nosound $mov");
+  system("mplayer -osdlevel 0 -really-quiet -ss $randomstart -frames 2 -vo jpeg -jpeg outdir=$tmpdir -nosound $mov");
 
   my $tmpslash = $/;
   undef $/;
