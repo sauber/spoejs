@@ -1,1782 +1,1520 @@
-<about>
-<lang=ar/>عن
-<lang=da/>Om Spoejs
-<lang=de/>über
-<lang=en/>About
-<lang=es/>Acerca de
-<lang=hu/>korulbelul?
-<lang=iw/>על
-<lang=ja/>情報
-<lang=ru/>о
-<lang=zh/>有关内容
-</about>
-
-<abstract>
-<lang=ar/>محتويات
-<lang=da/>Resume
-<lang=de/>Zusammenfassung
-<lang=en/>Abstract
-<lang=es/>Resumen
-<lang=iw/>תוכן
-<lang=ja/>空想
-<lang=ru/>аннотация
-<lang=zh/>摘要
-</abstract>
-
-<account_signup>
-<lang=da/>Journal information
-<lang=en/>Journal Information
-<lang=zh/>用户注册
-</account_signup>
-
-<active>
-<lang=ar/>فعال
-<lang=da/>Aktiv
-<lang=de/>aktiv
-<lang=en/>Active
-<lang=es/>Activar
-<lang=gr/>Ενεργό
-<lang=iw/>פעיל
-<lang=ja/>アクティブ
-<lang=ru/>активный
-<lang=zh/>运行
-</active>
-
-<add>
-<lang=ar/>أضيق
-<lang=da/>Tilføj
-<lang=de/>hinzufügen
-<lang=en/>Add
-<lang=es/>Agregar
-<lang=gr/>Προσθήκη
-<lang=hu/>ad
-<lang=iw/>מוסיף
-<lang=ja/>追加
-<lang=ru/>добавить
-<lang=zh/>添加
-</add>
-
-<addfield>
-<lang=ar/>أضيف جدول
-<lang=da/>Tilføj felt
-<lang=de/>Feld hinzufügen
-<lang=en/>Add field
-<lang=es/>Agregar campo
-<lang=iw/>מוסיף שדה
-<lang=ja/>分野を追加
-<lang=ru/>добавить поле
-<lang=zh/>添加项目
-</addfield>
-
-<addfilepc>
-<lang=ar/>أضيف ملف من الحاسوب
-<lang=da/>Tilføj filer fra PC
-<lang=de/>Dateien von PC hinzufügen
-<lang=en/>Add files from PC
-<lang=es/>Agregar archivos desde PC
-<lang=gr/>Προσθήκη αρχείων απο τον υπολογιστή σας
-<lang=iw/>הוטפת תיק מהמחשב אישי
-<lang=ja/>PCからファイルを追加
-<lang=ru/>добавить файлы из PC
-<lang=zh/>从PC上引入文件
-</addfilepc>
-
-<addfileserver>
-<lang=ar/>أضيف ملف من السرفر
-<lang=da/>Tilføj filer fra server
-<lang=de/>Dateien von Server hinzufügen
-<lang=en/>Add files from server 
-<lang=es/>Agregar archivos desde servidor
-<lang=iw/>הוטפת תיק סירבר
-<lang=ja/>サーバーからファイルを追加
-<lang=ru/>добавить файлы с сервера
-<lang=zh/>从Server上引入文件
-</addfileserver>
-
-<addmediastory>
-<lang=ar/>أضيف المحقات للقصة
-<lang=da/>Tilføj medier til historie
-<lang=de/>Medien der Geschichte hinzufügen
-<lang=en/>Add media to story
-<lang=es/>Agregar medio a artículo
-<lang=iw/>הוטפת מידיא על הסיפוד
-<lang=ja/>ストーリーにメディアを追加
-<lang=ru/>добавить мультимедиа к рассказу
-<lang=zh/>给记事里加煤体
-</addmediastory>
-
-<addnewchannel>
-<lang=ar/>أضيف قناة سبوجي جديدة
-<lang=da/>Tilføj ny spoejs kanal
-<lang=de/>Neuen Spoejs Kanal hinzufügen
-<lang=en/>Add a new spoejs channel
-<lang=es/>Agregar un canal nuevo de Spoejs
-<lang=iw/>הוטפת עררץ סבוכי חדש
-<lang=ja/>新しいspoejsチャンネルを追加
-<lang=ru/>добавить новый spoejs канал
-<lang=zh/>添加一个新的Spoejs网页
-</addnewchannel>
-
-<administration>
-<lang=ar/>الأدارة
-<lang=da/>Administration
-<lang=de/>Verwaltung
-<lang=en/>Administration
-<lang=es/>Administración
-<lang=gr/>Διαχείριση
-<lang=hu/>adminisztracio
-<lang=iw/>הכהלה
-<lang=ja/>管理
-<lang=ru/>администрация
-<lang=zh/>系统管理
-</administration>
-
-<ar>
-<lang=ar/>عربي
-<lang=bg/>Арабски
-<lang=da/>Arabisk
-<lang=de/>Arabisch
-<lang=en/>Arabic
-<lang=es/>Árabe
-<lang=fr/>Arabe
-<lang=gr/>Αραβικά
-<lang=hu/>arab
-<lang=is/>Arabíska
-<lang=it/>arabo
-<lang=iw/>ערבית
-<lang=ja/>アラビア語
-<lang=mk/>Арапски
-<lang=ru/>арабский
-<lang=se/>arabisk
-<lang=zh/>阿拉伯语
-</ar>
-
-<archive>
-<lang=ar/>الأرشيف
-<lang=da/>Arkiver
-<lang=de/>Archiv
-<lang=en/>Archive
-<lang=es/>Archivo
-<lang=gr/>Αρχείο
-<lang=iw/>ארכיון
-<lang=ja/>古文書
-<lang=ru/>архив
-<lang=zh/>完全控制
-</archive>
-
-<backtostory>
-<lang=ar/>الرجوع للقصة
-<lang=da/>Tilbage til historie
-<lang=de/>Zurück zur Geschichte
-<lang=en/>Back to story
-<lang=es/>Volver a la historia
-<lang=iw/>חזרה בסיפור
-<lang=ja/>ストーリーに戻る
-<lang=ru/>вернуться к рассказу
-<lang=zh/>回到记事
-</backtostory>
-
-<bg>
-<lang=ar/>بلغاري
-<lang=bg/>Български
-<lang=da/>Bulgarsk
-<lang=de/>Bulgarisch
-<lang=en/>Bulgarian
-<lang=es/>Búlgaro
-<lang=fr/>Bulgare
-<lang=gr/>Βουλγαρικά
-<lang=hu/>bolgar
-<lang=is/>Búlgarska
-<lang=it/>bulgano
-<lang=iw/>בולגרית
-<lang=ja/>ブルガリア語
-<lang=mk/>Бугарски
-<lang=ru/>болгарский
-<lang=se/>bulgarisk
-<lang=zh/>保加利亚语
-</bg>
-
-<blank_default>
-<lang=ar/>(اتركه فارغ أذا كانت القصة صحيحه)
-<lang=da/>(blank for dags dato)
-<lang=de/>(bei aktueller Geschichte leer lassen)
-<lang=en/>(leave blank if story is current)
-<lang=es/>(déjelo en blanco si el artículo ya está seleccionado)
-<lang=hu/>hagyd uresen ha a tortenet mostani?
-<lang=iw/> לעזב את השדה ריק אם הסיפורנכרן
-<lang=ja/>（ストーリーが現在のものであれば空白にする）
-<lang=ru/>(не заполнять, если рассказ текущий)
-<lang=zh/>(如果记事是当今的，留下空癿)
-</blank_default>
-
-<bo>
-<lang=ar/>تبتي
-<lang=bg/>Тибетски
-<lang=da/>Tibetansk
-<lang=de/>Tibetisch
-<lang=en/>Tibetan
-<lang=es/>Tibetano
-<lang=fr/>Tibetain
-<lang=hu/>tibeti
-<lang=it/>tibetano
-<lang=iw/>תיבתית
-<lang=ja/>チベット語
-<lang=mk/>Тибетски
-<lang=ru/>тибетский
-<lang=zh/>西藏语
-</bo>
-
-<categories>
-<lang=da/>Kategorier
-<lang=en/>Categories
-<lang=zh/>种类
-</categories>
-
-<category>
-<lang=ar/>فيئة
-<lang=bg/>Категория
-<lang=da/>Kategori
-<lang=de/>Kategorie
-<lang=en/>Category
-<lang=es/>Categoría
-<lang=fr/>Categorie
-<lang=gr/>Κατηγορία
-<lang=hu/>kategoria
-<lang=it/>categoria
-<lang=iw/>קטאגורית
-<lang=ja/>カテゴリー
-<lang=mk/>Категорија
-<lang=ru/>категория
-<lang=se/>kategori
-<lang=zh/>种类
-</category>
-
-<categorylist>
-<lang=ar/>لأحة الختيرات
-<lang=da/>Kategorier
-<lang=de/>Kategorienliste
-<lang=en/>Category list
-<lang=es/>Lista de categorías
-<lang=gr/>Λίστα κατηγοριών
-<lang=iw/>רשימת הקטאגורית
-<lang=ja/>カテゴリーリスト
-<lang=ru/>список категорий
-<lang=zh/>一揽
-</categorylist>
-
-<chan_home>
-<lang=ar/>قناة البيت
-<lang=da/>Historie index
-<lang=de/>Kanalstartseite
-<lang=en/>Channel home
-<lang=es/>Inicio del canal
-<lang=iw/>ערוץ הבית
-<lang=ja/>チャンネルホーム
-<lang=ru/>домашний канал? (it is not clear w/o context)
-<lang=zh/>网页
-</chan_home>
-
-<change>
-<lang=ar/>تغير
-<lang=bg/>Промени
-<lang=da/>Skift
-<lang=de/>wechseln
-<lang=en/>Change
-<lang=es/>Cambiar
-<lang=fr/>Change
-<lang=gr/>Αλλαγή
-<lang=hu/>valtozas
-<lang=is/>Breyting
-<lang=it/>cambio
-<lang=iw/>שינוי
-<lang=ja/>変える
-<lang=mk/>Промена
-<lang=ru/>изменить 
-<lang=se/>ändra
-<lang=zh/>更改
-</change>
-
-<change_language>
-<lang=da/>Skift sprog
-<lang=en/>Change Language
-<lang=zh/>语言变换
-</change_language>
-
-<channelconf>
-<lang=ar/>تغير للقناة
-<lang=da/>Kannalkonfiguration
-<lang=de/>Kanal konfigurieren
-<lang=en/>Channel Configuration
-<lang=es/>Configuración de canales
-<lang=iw/>שידרוג הערוץ
-<lang=ja/>チャンネル配置
-<lang=ru/>конфигурация канала
-<lang=zh/>网页构造
-</channelconf>
-
-<choose>
-<lang=ar/>أختار
-<lang=da/>Vælg
-<lang=de/>wählen
-<lang=en/>Choose
-<lang=es/>Elegir
-<lang=gr/>Επιλογή
-<lang=hu/>valaszt
-<lang=iw/>בחירה
-<lang=ja/>選択
-<lang=ru/>выбрать
-<lang=zh/>选择
-</choose>
-
-<click_channel>
-<lang=ar/>أنقر هنا للذهاب الى القناه
-<lang=da/>Gå til kannal
-<lang=de/>anklicken um zu Kanal zu wechseln
-<lang=en/>Click here to go to channel
-<lang=es/>Pulse aquí apra ir al canal
-<lang=gr/>Ακύρωση
-<lang=iw/>להקליק כאן כדי לעכורלערוץ
-<lang=ja/>チャンネルへはこちらをクリック
-<lang=ru/>переключиться на канал
-<lang=zh/>按这里进入网页
-</click_channel>
-
-<click_continue>
-<lang=ar/>أقر هنا للأستمرار
-<lang=da/>Fortsæt
-<lang=de/>anklicken zum Fortsetzen
-<lang=en/>Click here to continue
-<lang=es/>Pulse aquí para continuar
-<lang=gr/>Συνέχεια
-<lang=iw/>להקליק כאן כדי להמשיךן
-<lang=ja/>続けるにはこちらをクリック
-<lang=ru/>продолжить
-<lang=zh/>按这里继续
-</click_continue>
-
-<comment>
-<lang=ar/>أقترحات
-<lang=da/>Kommenter
-<lang=de/>Kommentar
-<lang=en/>Comment
-<lang=es/>Comentario
-<lang=iw/>דעות
-<lang=ja/>コメント
-<lang=ru/>комментарий
-<lang=zh/>见解
-</comment>
-
-<congrat_changes>
-<lang=ar/>تغيراتك كانت ناجحة
-<lang=da/>Ændringer var successfulde
-<lang=de/>Gratulation, Ihre Änderungen waren erfolgreich
-<lang=en/>Congratulations your changes were successful
-<lang=es/>Enhorabuena, sus cambios se han realizado sin problemas
-<lang=iw/>השינוי שלך היה נכון
-<lang=ja/>おめでとうございます。変更は正常に処理されました。
-<lang=ru/>Мои позравления, ваши изменения успешны
-<lang=zh/>祝贺你的更改成功了
-</congrat_changes>
-
-<congrat_signup>
-<lang=ar/>لقد نجحت في التسجيل
-<lang=da/>Tillykke du er nu oprettet
-<lang=de/>Gratulation, Sie sind jetzt angemeldet
-<lang=en/>Congratulations you are now signed up
-<lang=es/>Enhorabuena, ya está inscrito
-<lang=iw/>אתה נרשםחדש
-<lang=ja/>おめでとうございます。サインアップが完了しました。
-<lang=ru/>Мои позравления, Вы зарегистрированы
-<lang=zh/>祝贺你现在登录了
-</congrat_signup>
-
-<currentfile>
-<lang=ar/>الملفات المفتوحة
-<lang=da/>Nuværende filer
-<lang=de/>Aktuelle Dateien
-<lang=en/>Current files
-<lang=es/>Archivos actuales
-<lang=iw/>התקירת המשומשות
-<lang=ja/>現在のファイル
-<lang=ru/>Текущие файлы
-<lang=zh/>现在的文件
-</currentfile>
-
-<currentfilename>
-<lang=ar/>أسماء المفات الحالية
-<lang=da/>Aktuelt filnavn
-<lang=de/>Aktueller Dateiname
-<lang=en/>Current filename
-<lang=es/>Nombre del archivo actual
-<lang=iw/>שם התיק המשומש
-<lang=ja/>現在のファイルネーム
-<lang=ru/>Текущие имя файла
-<lang=zh/>现在的文件名
-</currentfilename>
-
-<da>
-<lang=ar/>دنماركي
-<lang=bg/>Датски
-<lang=da/>Dansk
-<lang=de/>Dänisch
-<lang=en/>Danish
-<lang=es/>Danés
-<lang=fr/>Danois
-<lang=gr/>Δανικά
-<lang=hu/>dan
-<lang=is/>Danska
-<lang=it/>danese
-<lang=iw/>דינמרקית
-<lang=ja/>デンマーク語
-<lang=mk/>Дански
-<lang=ru/>датский
-<lang=se/>Danska
-<lang=zh/>丹麦语
-</da>
-
-<date>
-<lang=ar/>تاريخ
-<lang=bg/>Дата
-<lang=da/>Dato
-<lang=de/>Datum
-<lang=en/>Date
-<lang=es/>Fecha
-<lang=fr/>Date
-<lang=gr/>Ημερομηνία
-<lang=hu/>datum
-<lang=is/>Dagsetning
-<lang=it/>data
-<lang=iw/>תאריך
-<lang=ja/>日付
-<lang=mk/>Дата
-<lang=ru/>дата
-<lang=se/>datum
-<lang=zh/>日期
-</date>
-
-<de>
-<lang=ar/>الماني
-<lang=bg/>Германски
-<lang=da/>Tysk
-<lang=de/>Deutsch
-<lang=en/>German
-<lang=es/>Alemán
-<lang=fr/>Allemand
-<lang=gr/>Γερμανικά
-<lang=hu/>nemet
-<lang=is/>Þýska
-<lang=it/>tedesco
-<lang=iw/>גרמנית
-<lang=ja/>ドイツ語
-<lang=mk/>Германски
-<lang=ru/>немецкий
-<lang=se/>Tyska
-<lang=zh/>德语
-</de>
-
-<delete>
-<lang=ar/>أمحاء
-<lang=da/>Slet
-<lang=de/>Löschen
-<lang=en/>Delete
-<lang=es/>Eliminar
-<lang=gr/>Διαγραφή
-<lang=hu/>torol
-<lang=iw/>מחק
-<lang=ja/>消去
-<lang=ru/>удалить
-<lang=zh/>删去
-</delete>
-
-<deletefile>
-<lang=ar/>أمحاء ملف
-<lang=da/>Slet fil
-<lang=de/>Datei löschen
-<lang=en/>Delete file
-<lang=es/>Eliminar archivo
-<lang=gr/>Διαγραφή αρχείου
-<lang=iw/>מחק אתתיק
-<lang=ja/>ファイルを消去
-<lang=ru/>удалить файл
-<lang=zh/>删去文件
-</deletefile>
-
-<description>
-<lang=ar/>وصف
-<lang=bg/>Описание
-<lang=da/>Beskrivelse
-<lang=de/>Beschreibung
-<lang=en/>Description
-<lang=es/>Descripción
-<lang=fr/>Description
-<lang=gr/>Περιγραφή
-<lang=hu/>leiras
-<lang=it/>descrizione
-<lang=iw/>תיאור
-<lang=ja/>概要
-<lang=mk/>Опис
-<lang=ru/>описание
-<lang=zh/>描述 
-</description>
-
-<description_description>
-<lang=da/>Beskrivelse af journalens indhold
-<lang=en/>Describe content of journal 
-</description_description>
-
-<dimensions>
-<lang=ar/>حدود او مواصفات
-<lang=da/>Dimensioner
-<lang=de/>Dimension
-<lang=en/>Dimentions
-<lang=es/>Dimensiones
-<lang=gr/>Διαστάσεις
-<lang=iw/>הטל
-<lang=ja/>寸法
-<lang=ru/>размерность
-</dimensions>
-
-<do_u_need_account>
-<lang=en/>Do you need an account?
-<lang=zh/>新用户注册
-</do_u_need_account>
-
-<edit>
-<lang=ar/>تصحيح
-<lang=da/>Ret
-<lang=de/>Bearbeiten
-<lang=en/>Edit
-<lang=es/>Editar
-<lang=gr/>Επεξεργασία
-<lang=hu/>szerkeszt
-<lang=iw/>עריכה
-<lang=ja/>編集
-<lang=ru/>редактирование
-<lang=zh/>编辑
-</edit>
-
-<edit_lang>
-<lang=ar/>تصحيح ملف
-<lang=da/>Retter for sproget
-<lang=de/>Sprache bearbeiten
-<lang=en/>Editing language
-<lang=es/>Idioma de edición
-<lang=gr/>Επεξεργασία γλώσσας
-<lang=hu/>nyelv-szerkesztes
-<lang=iw/>שפת עריכה
-<lang=ja/>編集用語
-<lang=ru/>язык редактирования
-<lang=zh/>编辑语言
-</edit_lang>
-
-<en>
-<lang=ar/>أنجليزي
-<lang=bg/>Английски
-<lang=da/>Engelsk
-<lang=de/>Englisch
-<lang=en/>English
-<lang=es/>Inglés
-<lang=fr/>Anglais
-<lang=gr/>Αγγλικά
-<lang=hu/>angol
-<lang=is/>Enska
-<lang=it/>inglese
-<lang=iw/>אנגלית
-<lang=ja/>英語
-<lang=mk/>Англиски
-<lang=ru/>английский
-<lang=se/>Engelska
-<lang=zh/>英语
-</en>
-
-<es>
-<lang=ar/>أسباني
-<lang=bg/>Испански
-<lang=da/>Spansk
-<lang=de/>Spanisch
-<lang=en/>Spanish
-<lang=es/>Español
-<lang=gr/>Ισπανικά
-<lang=hu/>spanyol
-<lang=iw/>ספרדית
-<lang=ja/>スペイン語
-<lang=ru/>испанский
-<lang=zh/>西班牙语
-</es>
-
-<et>
-<lang=ar/>أستوني
-<lang=da/>Estonsk
-<lang=de/>Estnisch
-<lang=en/>Estonian
-<lang=es/>Estonio
-<lang=iw/>אוסטונית
-<lang=ja/>エストニア語
-<lang=ru/>эстонский
-</et>
-
-<fileformat>
-<lang=ar/>تغير نوع ملف
-<lang=da/>Filformat
-<lang=de/>Dateiformat
-<lang=en/>File format
-<lang=es/>Formato de archivo
-<lang=gr/>Τύπος αρχείου
-<lang=iw/>פורמט קובץ
-<lang=ja/>ファイル　フォーマット
-<lang=ru/>формат файла
-<lang=zh/>文件格式
-</fileformat>
-
-<filename>
-<lang=ar/>أسم ملف
-<lang=da/>Filnavn
-<lang=de/>Dateiname
-<lang=en/>Filename
-<lang=es/>Nombre de archivo
-<lang=gr/>Όνομα αρχείου
-<lang=iw/>שם קובץ
-<lang=ja/>ファイルネーム
-<lang=ru/>имя файла
-<lang=zh/>文件名
-</filename>
-
-<filesize>
-<lang=ar/>حجم ملف
-<lang=da/>Filstørrelse
-<lang=de/>Dateigröße
-<lang=en/>Filesize
-<lang=es/>Tamaño de archivo
-<lang=gr/>Μέγεθος αρχείου
-<lang=iw/>גודל הקובץ
-<lang=ja/>ファイルサイズ
-<lang=ru/>размер файла
-<lang=zh/>文件大小
-</filesize>
-
-<fileupload>
-<lang=ar/>أدخال ملف للقصة
-<lang=da/>Filupload til historie
-<lang=de/>Datei für Geschichte laden
-<lang=en/>File upload for story
-<lang=es/>Cargar archivo para artículo
-<lang=iw/>שמירת קובץ לסיפור
-<lang=ja/>ストーリー用のファイルアップロード
-<lang=ru/>загрузить файл для рассказа
-<lang=zh/>文件上载
-</fileupload>
-
-<first>
-<lang=ar/>أول
-<lang=da/>Første
-<lang=de/>zu erst
-<lang=en/>First
-<lang=es/>Primero
-<lang=hu/>elso
-<lang=iw/>הראשון
-<lang=ja/>最初
-<lang=ru/>первый
-<lang=zh/>首先
-</first>
-
-<fix_and_resubmit>
-<lang=da/>Ret og indsend igen
-<lang=en/>Fix and Resubmit
-</fix_and_resubmit>
-
-<fr>
-<lang=ar/>فرنسي
-<lang=bg/>Френски
-<lang=da/>Fransk
-<lang=de/>Französisch
-<lang=en/>French
-<lang=es/>Francés
-<lang=fr/>Francais
-<lang=gr/>Γαλλικά
-<lang=hu/>francia
-<lang=is/>Franska
-<lang=it/>francese
-<lang=iw/>צרפתית
-<lang=ja/>フランス語
-<lang=mk/>Француски
-<lang=ru/>французский
-<lang=se/>Franska
-<lang=zh/>法语
-</fr>
-
-<freeall>
-<lang=ar/>مجاناًَ للجميع
-<lang=da/>Fri-for-alle
-<lang=de/>allgemein zugänglich
-<lang=en/>Free-for-all
-<lang=es/>Gratis para todos
-<lang=iw/>חינם
-<lang=ja/>無料で開かれている
-<lang=ru/>бесплатно для всех
-<lang=zh/>完全自由
-</freeall>
-
-<full_story>
-<lang=ar/>كلمات القصة جميعاً
-<lang=da/>Hele historien
-<lang=de/>Geschichte voller Text
-<lang=en/>Full story text
-<lang=es/>Texto completo del artículo
-<lang=hu/>a tortenet teljes szovege
-<lang=iw/>טקסט מלא לסיפור
-<lang=ja/>フルストーリーテキスト
-<lang=ru/>полный техт рассказа
-<lang=zh/>全文报导正文
-</full_story>
-
-<fullpath>
-<lang=ar/>الطريق كاملة
-<lang=da/>Fuld sti
-<lang=de/>voller Pfad
-<lang=en/>Full path
-<lang=es/>Ruta completa
-<lang=iw/>הדרך המלאה
-<lang=ja/>全通路
-<lang=ru/>полный путь
-<lang=zh/>全部地址
-</fullpath>
-
-<fulltext>
-<lang=ar/>جميع الكامات
-<lang=da/>Fuld tekst
-<lang=de/>voller Text
-<lang=en/>Full text
-<lang=es/>Texto completo
-<lang=iw/>טקסט מליג
-<lang=ja/>全テキスト
-<lang=ru/>полный текст
-<lang=zh/>全部文章
-</fulltext>
-
-<gr>
-<lang=ar/>يوناني
-<lang=bg/>Гръцки
-<lang=da/>Græsk
-<lang=de/>Griechisch
-<lang=en/>Greek
-<lang=es/>Griego
-<lang=fr/>Grecque
-<lang=gr/>Ελληνικά
-<lang=hu/>gorog
-<lang=is/>Gríska
-<lang=it/>greco
-<lang=iw/>יוונית
-<lang=ja/>ギリシャ語
-<lang=mk/>Грчки
-<lang=ru/>греческий
-<lang=se/>grekiska
-<lang=zh/>希腊
-</gr>
-
-<help>
-<lang=da/>Hjælp
-<lang=en/>Help
-<lang=zh/>帮助
-</help>
-
-<home>
-<lang=da/>Hjem
-<lang=en/>Home
-<lang=zh/>本页
-</home>
-
-<hu>
-<lang=ar/>هنجاري
-<lang=da/>Ungarnsk
-<lang=de/>Ungarisch
-<lang=en/>Hungarian
-<lang=es/>Húngaro
-<lang=hu/>magyar
-<lang=iw/>הונגרית
-<lang=ja/>ハンガリー語
-<lang=ru/>венгерский
-<lang=zh/>匈牙利语
-</hu>
-
-<invalid_description>
-<lang=da/>Fejl i beskrivelsen
-<lang=en/>Invalid description 
-</invalid_description>
-
-<invalid_journal_id>
-<lang=da/>Fejl i Journal-ID
-<lang=en/>Invalid Journal-ID
-</invalid_journal_id>
-
-<invalid_password>
-<lang=da/>Det angivne password er for kort
-<lang=en/>Password too short
-</invalid_password>
-
-<invalid_title>
-<lang=da/>Fejl i tittel
-<lang=en/>Invalid title 
-</invalid_title>
-
-<invalid_username>
-<lang=da/>Fejl i brugernavn
-<lang=en/>Invalid Username 
-</invalid_username>
-
-<inviteonly>
-<lang=ar/>معزوم فقط
-<lang=da/>Kun inviterede
-<lang=de/>nur auf Einladung
-<lang=en/>Invite-only
-<lang=es/>Sólo con invitación
-<lang=iw/>רק עם הזמנה
-<lang=ja/>招待のみ
-<lang=ru/>пригласить только
-<lang=zh/>只邀请
-</inviteonly>
-
-<is>
-<lang=ar/>أسلندي
-<lang=bg/>Исландски
-<lang=da/>Islandsk
-<lang=de/>Isländisch
-<lang=en/>Icelandic
-<lang=es/>Islandés
-<lang=fr/>Islandais
-<lang=gr/>Ισλανδικά
-<lang=hu/>izlandi
-<lang=is/>Íslenska
-<lang=it/>islandese
-<lang=iw/>איסלדית
-<lang=ja/>アイスランド語
-<lang=mk/>Исландски
-<lang=ru/>исландский
-<lang=se/>islandska
-<lang=zh/>冰岛语
-</is>
-
-<it>
-<lang=ar/>اتالي
-<lang=bg/>Италиански
-<lang=da/>Italiensk
-<lang=de/>Italienisch
-<lang=en/>Italian
-<lang=es/>Italiano
-<lang=fr/>Italien
-<lang=gr/>Ιταλικά
-<lang=hu/>olasz
-<lang=is/>Ítalska
-<lang=it/>italiano
-<lang=iw/>איטלקית
-<lang=ja/>イタリア語
-<lang=mk/>Италијански
-<lang=ru/>итальянский
-<lang=se/>italiansk
-<lang=zh/>意大利语
-</it>
-
-<iw>
-<lang=da/>Hebræisk
-<lang=de/>Hebräisch
-<lang=en/>Hebrew
-<lang=es/>Hebreo
-<lang=iw/>עברית
-<lang=ja/>ヘブライ語
-<lang=ru/>иврит
-</iw>
-
-<ja>
-<lang=ar/>ياباني
-<lang=bg/>Японски
-<lang=da/>Japansk
-<lang=de/>Japanisch
-<lang=en/>Japanese
-<lang=es/>Japonés
-<lang=fr/>Japonais
-<lang=gr/>Ιαπωνικά
-<lang=hu/>japan
-<lang=is/>Japanska
-<lang=it/>giapponese
-<lang=iw/>יפנית
-<lang=ja/>日本語
-<lang=mk/>Јапонски
-<lang=ru/>японский
-<lang=se/>japanska
-<lang=zh/>日语
-</ja>
-
-<journal_id>
-<lang=da/>Journal-ID
-<lang=en/>Journal-ID
-</journal_id>
-
-<journal_id_description>
-<lang=da/>4-16 små bogstaver til at identificeres din journal i URL'en, ex:
-<lang=en/>4 to 16 lowercase letters to identify journal in URL like this:
-</journal_id_description>
-
-<journal_name>
-<lang=da/>Journal navn
-<lang=en/>Journal Name
-<lang=zh/>杂记名
-</journal_name>
-
-<journal_security>
-<lang=da/>Tilgængelighed
-<lang=en/>Access
-</journal_security>
-
-<journal_security_description>
-<lang=da/>Vis journalen på forsiden eller hold den privat
-<lang=en/>Include journal on site front page, or keep private 
-</journal_security_description>
-
-<journals_friends>
-<lang=da/>Journaler på vennesider
-<lang=en/>Journals at friend's sites
-</journals_friends>
-
-<language>
-<lang=ar/>لغة
-<lang=bg/>Език
-<lang=da/>Sprog
-<lang=de/>Sprache 
-<lang=en/>Language
-<lang=es/>Idioma
-<lang=fr/>Language
-<lang=hu/>nyelv
-<lang=it/>lingua
-<lang=iw/>שפה
-<lang=ja/>言語
-<lang=mk/>Јазик
-<lang=ru/>язык
-<lang=zh/>语言
-</language>
-
-<language_description>
-<lang=da/>Det primære sprog for journal indhold
-<lang=en/>Primary language of journal content
-</language_description>
-
-<last>
-<lang=ar/>النهاية
-<lang=da/>Sidste
-<lang=de/>zu letzt
-<lang=en/>Last
-<lang=es/>Último
-<lang=hu/>utolso
-<lang=iw/>אחרון
-<lang=ja/>最後
-<lang=ru/>прошлый
-<lang=zh/>持续
-</last>
-
-<localjournal>
-<lang=da/>Lokale journaler
-<lang=en/>Local Journals
-</localjournal>
-
-<login>
-<lang=ar/>دخول
-<lang=bg/>Вход
-<lang=da/>Log ind
-<lang=de/>Einloggen
-<lang=en/>Login
-<lang=es/>Inicio de sesión
-<lang=fr/>Connection
-<lang=hu/>bejelentkezes
-<lang=it/>inizio attivita
-<lang=iw/>כניטה
-<lang=ja/>ログイン
-<lang=mk/>Логин (Влез)
-<lang=ru/>вход в систему
-<lang=zh/>登录
-</login>
-
-<logout>
-<lang=ar/>خروج
-<lang=bg/>Изход
-<lang=da/>Log ud
-<lang=de/>Ausloggen
-<lang=en/>Logout
-<lang=es/>Final de sesión
-<lang=fr/>Deconnection
-<lang=hu/>kijelentkezes
-<lang=it/>termine attivita
-<lang=iw/>יציאה
-<lang=ja/>ログアウト
-<lang=mk/>Логаут (Излез)
-<lang=ru/>выход из системы
-<lang=zh/>注销
-</logout>
-
-<media>
-<lang=ar/>أعلام
-<lang=da/>Media
-<lang=de/>Medien
-<lang=en/>Media
-<lang=es/>Medios
-<lang=iw/>מידיא
-<lang=ja/>メディア
-<lang=ru/>мультимедиа
-<lang=zh/>煤体
-</media>
-
-<media_man>
-<lang=ar/>   ادارة الاعلام
-<lang=da/>Medie håndtering
-<lang=de/>Medien Verwaltung
-<lang=en/>Media management
-<lang=es/>Gestión de medios
-<lang=hu/>media szervezes
-<lang=iw/>   ניהול מידיא
-<lang=ja/>メディアマネージメント
-<lang=ru/>управление мультимедиа
-<lang=zh/>媒体管理
-</media_man>
-
-<mk>
-<lang=ar/>ماسادوني
-<lang=bg/>Македонски
-<lang=da/>Makedonsk
-<lang=de/>Mazedonisch
-<lang=en/>Macedonian
-<lang=es/>Macedonio
-<lang=fr/>Mecedonien
-<lang=gr/>Μακεδονικά
-<lang=hu/>makedon
-<lang=it/>mecedone
-<lang=iw/>מסדונית
-<lang=ja/>マケドニア語
-<lang=mk/>Македонски
-<lang=ru/>македонский
-<lang=se/>macedoniska
-<lang=zh/>马其顿语
-</mk>
-
-<more>
-<lang=ar/>مزيد
-<lang=da/>Vis
-<lang=de/>mehr
-<lang=en/>More
-<lang=es/>Más
-<lang=iw/>ירתר
-<lang=ja/>以上
-<lang=ru/>более
-<lang=zh/>更多
-</more>
-
-<new_account>
-<lang=da/>Ny konto
-<lang=en/>New account
-<lang=zh/>新用户注册
-</new_account>
-
-<new_story>
-<lang=ar/>قصة جديدة
-<lang=da/>Ny historie
-<lang=de/>neu Geschichte 
-<lang=en/>New story
-<lang=es/>Artículo nuevo
-<lang=hu/>uj tortenet
-<lang=iw/>סיפור חדש
-<lang=ja/>新しいストーリー
-<lang=ru/>новый рассказ
-<lang=zh/>新的故事
-</new_story>
-
-<new_username>
-<lang=ar/>عضو جديد
-<lang=da/>Nyt brugernavn
-<lang=de/>neuer Benutzername
-<lang=en/>New username
-<lang=es/>Nuevo nombre de usuario
-<lang=iw/>שם משתמש חדש
-<lang=ja/>新しいユーザーネーム
-<lang=ru/>новое имя пользователя
-<lang=zh/>新的用户名
-</new_username>
-
-<newfilename>
-<lang=ar/>أسم ملف جديد
-<lang=da/>Nyt filnavn
-<lang=de/>neuer Dateiname
-<lang=en/>New filename
-<lang=es/>Nuevo nombre de archivo
-<lang=iw/>שם קובץ חדש
-<lang=ja/>新しいファイルネーム
-<lang=ru/>новое имя файла
-<lang=zh/>新的文件名
-</newfilename>
-
-<newpass>
-<lang=ar/>كلمة مرور جديدة
-<lang=da/>Nyt password
-<lang=de/>neues Passwort
-<lang=en/>New Passward
-<lang=es/>Nueva contraseña
-<lang=iw/>סיסמה חדשה
-<lang=ja/>新しいパスワード
-<lang=ru/>новый пароль
-<lang=zh/>新的密码
-</newpass>
-
-<no_>
-<lang=ar/>لا
-<lang=da/>Nej
-<lang=de/>Nein
-<lang=en/>No
-<lang=es/>No
-<lang=iw/>לא
-<lang=ja/>いいえ
-<lang=ru/>нет
-<lang=zh/>否
-</no_>
-
-<no_stories>
-<lang=ar/>لا يوجد قصص
-<lang=da/>Ingen historier
-<lang=de/>keine Geschichten
-<lang=en/>No stories
-<lang=es/>No hay artículos
-<lang=iw/>בלי סיפורים
-<lang=ja/>ストーリーはありません
-<lang=ru/>нет рассказов
-<lang=zh/>没有内容
-</no_stories>
-
-<oneerror_occur>
-<lang=ar/>حدث خطاء أو أكثر
-<lang=da/>En eller flere fejl er opstået i
-<lang=de/>ein oder mehrere Fehler sind aufgetreten
-<lang=en/>One or more errors has occured in
-<lang=es/>Se han producido uno o más errores en
-<lang=iw/>נעשה יותר מטעות אחת
-<lang=ja/>の中で一つまたはそれ以上のエラーが起きました。
-<lang=ru/>одна или более ошибок в
-<lang=zh/>出现有一个或更多的错误
-</oneerror_occur>
-
-<open_public>
-<lang=da/>Åben for alle
-<lang=en/>Open to public
-<lang=zh/>对外公开
-</open_public>
-
-<or_add_newstory>
-<lang=ar/>أو هنا لأضافة قصة جديدة
-<lang=da/>eller her for at tilføje en ny historie
-<lang=de/>oder hier um eine neue Geschichte hinzuzufügen
-<lang=en/>or here to add a new story
-<lang=es/>o aquí para agregar un nuevo artículo
-<lang=iw/>אוכאן כדי להוסיף סיפור חדש
-<lang=ja/>またはここから新しいストーリーを追加して下さい
-<lang=ru/>или здесь добавить новый рассказ
-<lang=zh/>或许按这儿添加新的记事
-</or_add_newstory>
-
-<or_new>
-<lang=ar/>أو جديد
-<lang=da/>eller ny
-<lang=de/>oder neu
-<lang=en/>or new
-<lang=es/>o nuevo
-<lang=hu/>vagy uj
-<lang=iw/>או חדש
-<lang=ja/>または新しい
-<lang=ru/>или новый
-<lang=zh/>或许新
-</or_new>
-
-<passwd>
-<lang=ar/>كلمة المرور
-<lang=bg/>Парола
-<lang=da/>Kodeord
-<lang=de/>Passwort
-<lang=en/>Password
-<lang=es/>Contraseña
-<lang=fr/>Mot de passe
-<lang=gr/>Κωδικός
-<lang=hu/>jelszo
-<lang=is/>Lykilorð
-<lang=it/>parola d'acceso
-<lang=iw/>סיסמה
-<lang=ja/>パスワード
-<lang=mk/>Клучен збор
-<lang=ru/>пароль
-<lang=se/>passord
-<lang=zh/>密码
-</passwd>
-
-<passwd_again>
-<lang=da/>Indtast kodeord igen
-<lang=en/>Please enter your password again
-<lang=zh/>请再次按入密码
-</passwd_again>
-
-<passwd_description>
-<lang=da/>Et godt password er let at huske men svært at gætte
-<lang=en/>Something easy to remember but hard to guess
-</passwd_description>
-
-<passwd_retype>
-<lang=da/>Skriv kodeord igen
-<lang=en/>Re-type password
-</passwd_retype>
-
-<passwd_retype_description>
-<lang=da/>Samme som ovenfor
-<lang=en/>Same as above 
-</passwd_retype_description>
-
-<password_mismatch>
-<lang=da/>Kodeordene var ikke ens
-<lang=en/>Passwords did not match
-</password_mismatch>
-
-<please_fill_out_this_form>
-<lang=ar/>الرجاء أكمال هذا الجدول
-<lang=da/>Venligst udfyld denne formular
-<lang=de/>bitte dieses Formular ausfüllen 
-<lang=en/>Please fill out this form
-<lang=es/>Rellene este formulario
-<lang=iw/>בבקשה למליגאת הבקשה הבאה
-<lang=ja/>この用紙に記入して下さい。
-<lang=ru/>Пожалуйста, заполните эту форму
-<lang=zh/>请填写这张表
-</please_fill_out_this_form>
-
-<pleaselogin>
-<lang=ar/>الرجاء ادخال معلوماتك قبل الدخول
-<lang=da/>Log venligst ind før denne side tilgåes
-<lang=de/>bitte vor Zugang auf diese Seite einloggen
-<lang=en/>Please Login before accessing this page
-<lang=es/>Inicie una sesión antes de acceder a esta página
-<lang=iw/>יש להרשם לפני הכניטה
-<lang=ja/>このページにアクセスするにはログインが必要です。
-<lang=ru/>Пожалуйста, войдите в систему для доступа к этой странице
-<lang=zh/>进入此页之前请登录
-</pleaselogin>
-
-<posted_by>
-<lang=ar/>تحرير من 
-<lang=bg/>Автор
-<lang=da/>Af
-<lang=de/>verschickt von
-<lang=en/>Posted by
-<lang=es/>Enviado por
-<lang=fr/>Poster par
-<lang=gr/>Καταχώρηση από
-<lang=hu/>feladva ... altal?
-<lang=it/>inviato da
-<lang=iw/>באדיברת
-<lang=ja/>からのお知らせ
-<lang=mk/>Испраќа
-<lang=ru/>Представлено
-<lang=se/>postat av
-<lang=zh/>邮寄人
-</posted_by>
-
-<preview>
-<lang=ar/>مراجعة
-<lang=da/>Udkast
-<lang=de/>Vorschau
-<lang=en/>Preview
-<lang=es/>Vista preliminar
-<lang=iw/>חזרה
-<lang=ja/>プレビュー
-<lang=ru/>Просмотр
-<lang=zh/>预现
-</preview>
-
-<private>
-<lang=da/>Privat
-<lang=en/>Private
-</private>
-
-<probs_in_reg>
-<lang=da/>Den indtastede information havde fejl:
-<lang=en/>The Journal Information you entered has problems:
-</probs_in_reg>
-
-<public>
-<lang=ar/>عمومي 
-<lang=bg/>Публичен
-<lang=da/>Offentlig
-<lang=de/>öffentlich
-<lang=en/>Public
-<lang=es/>Público
-<lang=fr/>Publique
-<lang=hu/>nyilvanos
-<lang=it/>pubulico
-<lang=iw/>פופלארי
-<lang=ja/>パブリック
-<lang=mk/>Јавен
-<lang=ru/>Публичный
-<lang=zh/>公众
-</public>
-
-<random>
-<lang=ar/>عشوائي
-<lang=da/>Tilfældig
-<lang=de/>zufällig
-<lang=en/>Random
-<lang=es/>Aleatorio
-<lang=hu/>veletlen
-<lang=iw/>ראנדומאלי
-<lang=ja/>ランダム
-<lang=ru/>Случайный
-<lang=zh/>随便
-</random>
-
-<register>
-<lang=ar/>تسجيل
-<lang=da/>Registrer
-<lang=de/>einschreiben
-<lang=en/>Register
-<lang=es/>Registrarse
-<lang=hu/>regisztral
-<lang=iw/>הרשמה
-<lang=ja/>登録
-<lang=ru/>Зарегистрироваться
-<lang=zh/>登录
-</register>
-
-<ru>
-<lang=da/>Russisk
-<lang=en/>Russian
-<lang=ru/>Русский
-<lang=zh/>俄语
-</ru>
-
-<se>
-<lang=ar/>سويدي
-<lang=bg/>Шведски
-<lang=da/>Svensk
-<lang=de/>Schwedisch
-<lang=en/>Swedish
-<lang=es/>Sueco
-<lang=fr/>Suedois
-<lang=gr/>Σουηδικά
-<lang=hu/>sved
-<lang=is/>Sænska
-<lang=it/>svedese
-<lang=iw/>שוודית
-<lang=ja/>スェーデン語
-<lang=mk/>Шведски
-<lang=ru/>Шведский
-<lang=se/>svenska
-<lang=zh/>瑞典语
-</se>
-
-<shortname>
-<lang=ar/>الاسم المستعار
-<lang=bg/>Кратко име
-<lang=da/>Kortnavn
-<lang=de/>Kurzname
-<lang=en/>Shortname
-<lang=es/>Diminutivo
-<lang=fr/>Surnom
-<lang=hu/>rovid nev
-<lang=it/>nome corto
-<lang=iw/>שם משתמש
-<lang=ja/>ショートネーム
-<lang=mk/>Кратко име
-<lang=ru/>Сокращенное имя
-<lang=zh/>短名
-</shortname>
-
-<shortname_description>
-<lang=da/>4-16 små bogstaver til at identificeres din journal, fx:
-<lang=en/>4 to 16 lowercase letters to identify journal in URL like this:
-</shortname_description>
-
-<signup>
-<lang=ar/>التسجيل
-<lang=bg/>Абонамент
-<lang=da/>Tilmeld
-<lang=de/>anmelden
-<lang=en/>Sign up
-<lang=es/>Inscribirse
-<lang=fr/>Subscription
-<lang=hu/>feliratkozik
-<lang=it/>firmi in (su)
-<lang=iw/>הרשמה
-<lang=ja/>サインアップ
-<lang=mk/>Впиши
-<lang=ru/>Подписаться
-<lang=zh/>登记
-</signup>
-
-<signup_approve>
-<lang=ar/>تم الموافقة 
-<lang=da/>Tilmeld-godkend
-<lang=de/>Anmeldung bestätigt
-<lang=en/>Signup Approve
-<lang=es/>Aprobar inscripción
-<lang=iw/>ההרשמה התקבלה
-<lang=ja/>サインアップ承諾
-<lang=ru/>Подтвердить подписку
-<lang=zh/>允许登记
-</signup_approve>
-
-<signup_newchannel>
-<lang=ar/>سجل الى قناة سبوجي جديدة
-<lang=da/>Tilmeld en ny spoejs kanal
-<lang=de/>für einen neuen Spoejs Kanal anmelden
-<lang=en/>Sign up for a new Spoejs channel
-<lang=es/>Inscríbase en un nuevo canal de Spoejs
-<lang=iw/>ההרשמה לערוץ סבוכי חדש
-<lang=ja/>新しいSpoejsチャンネルへサインアップする
-<lang=ru/>Подписаться на новый Spoejs канал
-<lang=zh/>登记新的网页
-</signup_newchannel>
-
-<signup_newjournal>
-<lang=da/>Opret en ny journal og del dine oplevelser med venner og familie.
-<lang=en/>Sign up for a new media journal and share your experiences with friends and family.
-<lang=zh/>注册新的杂记并与家人及朋友分享
-</signup_newjournal>
-
-<site_home>
-<lang=ar/>العودة الى الصفحة الاولى
-<lang=da/>Kanal index
-<lang=de/>Startseite
-<lang=en/>Site home
-<lang=es/>Página de inicio del sitio
-<lang=hu/>eredeti hely?
-<lang=iw/>דף בית
-<lang=ja/>サイトのホーム
-<lang=ru/>Адрес сайта
-<lang=zh/>本页
-</site_home>
-
-<siteconf>
-<lang=ar/>تغيرات على الموقع
-<lang=da/>Site konfiguration
-<lang=de/>Website Konfiguration
-<lang=en/>Site configuration
-<lang=es/>Configuración del sitio
-<lang=hu/>hely konfiguracio
-<lang=iw/>דף שידרג
-<lang=ja/>サイト配置
-<lang=ru/>Конфигурация сайта
-<lang=zh/>网页结构
-</siteconf>
-
-<sitepolicy>
-<lang=ar/>قوانيين الموقع
-<lang=da/>Site politik
-<lang=de/>Website Grundsätze
-<lang=en/>Site Policy
-<lang=es/>Normas del sitio
-<lang=iw/>כללים
-<lang=ja/>サイトポリシー
-<lang=ru/>Политика сайта
-<lang=zh/>本页特权
-</sitepolicy>
-
-<specific>
-<lang=ar/>خاص
-<lang=da/>Specifik
-<lang=de/>speziell
-<lang=en/>Specific
-<lang=es/>Específico
-<lang=hu/>specialis
-<lang=iw/>ספציפי
-<lang=ja/>詳細
-<lang=ru/>Определенный
-<lang=zh/>具体
-</specific>
-
-<spoejs_channels_at_this_site>
-<lang=ar/>يوجد قنوات سبوجي في هذا الموقع
-<lang=da/>Spoejs kanaler på dette site
-<lang=de/>Spoejs Kanäle auf diesem Website
-<lang=en/>Spoejs channels at this site
-<lang=es/>Canales de Spoejs en este sitio
-<lang=iw/>קישור עם ערוץסבוכי
-<lang=ja/>このサイトのSpoejsチャンネル
-<lang=ru/>Каналы Spoejs на этом сайте
-<lang=zh/>Spoejs网页
-</spoejs_channels_at_this_site>
-
-<statuschannel>
-<lang=ar/>تحديد للقناوات في هذا الموقع
-<lang=da/>Status for kanaler på dette site
-<lang=de/>Status des Kanals auf diesem Website
-<lang=en/>Status for channels at this site
-<lang=es/>Estado de los canales en este sitio
-<lang=iw/>מצב הערוצים בדף הזה
-<lang=ja/>このサイトのチャンネルのステータス
-<lang=ru/>Состояние каналов на этом сайте
-<lang=zh/>本网站网页的状况
-</statuschannel>
-
-<stories>
-<lang=da/>Historier
-<lang=en/>Stories
-<lang=zh/>记事
-</stories>
-
-<story>
-<lang=da/>Historie
-<lang=en/>Story
-<lang=zh/>记事
-</story>
-
-<story_abstract>
-<lang=ar/>محتويات القصة
-<lang=da/>Historie abstrakt
-<lang=de/>Zusammenfassung der Geschichte
-<lang=en/>Story abstract
-<lang=es/>Resumen del artículo
-<lang=hu/>tortenet kivonat
-<lang=iw/>תוכך הסיפור
-<lang=ja/>空想のストーリー
-<lang=ru/>Аннотация рассказа
-<lang=zh/>记事摘要
-</story_abstract>
-
-<story_home>
-<lang=ar/>العودة للقصة
-<lang=da/>Historie
-<lang=de/>Start der Geschichte
-<lang=en/>Story home
-<lang=es/>Inicio del artículo
-<lang=iw/>התחלת הסיפור
-<lang=ja/>ストーリーホーム
-<lang=ru/>Адрес рассказа
-<lang=zh/>记事本页
-</story_home>
-
-<storysave>
-<lang=ar/>تم حفظ القصة بنجاح
-<lang=da/>Historien er gemt korrekt
-<lang=de/>Die Geschichte wurde erfolgreich gespeichert
-<lang=en/>Story saved successfully
-<lang=es/>El artículo se ha guardado sin problemas
-<lang=iw/>הסיפור נכמר בהצלחה
-<lang=ja/>ストーリーは正常に保存されました
-<lang=ru/>Расказ успешно сохранен
-<lang=zh/>保存记事成功
-</storysave>
-
-<storytitle>
-<lang=ar/>عنوان القصة
-<lang=da/>Historie titel
-<lang=de/>Titel der Geschichte
-<lang=en/>Story title
-<lang=es/>Título del artículo
-<lang=hu/>tortenet cim
-<lang=iw/>כותרת הסיפור
-<lang=ja/>ストーリータイトル
-<lang=ru/>Заголовок рассказа
-<lang=zh/>记事标题
-</storytitle>
-
-<storytitlelist>
-<lang=ar/>جدول عناوين القصص
-<lang=da/>Historier
-<lang=de/>Geschichtstitelliste
-<lang=en/>Story title list
-<lang=es/>Lista de títulos de artículos
-<lang=iw/>רשימת כרתרות
-<lang=ja/>ストーリータイトルリスト
-<lang=ru/>Список заголовков рассказов
-<lang=zh/>记事标题一览
-</storytitlelist>
-
-<submit>
-<lang=ar/>أرسال
-<lang=bg/>Приложи
-<lang=da/>Indsend
-<lang=de/>Abschicken
-<lang=en/>Submit
-<lang=es/>Enviar
-<lang=fr/>Soumettre
-<lang=hu/>bead
-<lang=it/>presenti
-<lang=iw/>שליחה
-<lang=ja/>提出
-<lang=mk/>Поднеси
-<lang=ru/>представить
-<lang=zh/>承诺
-</submit>
-
-<submit_query>
-<lang=da/>Indsend
-<lang=de/>Abfrage abschicken
-<lang=en/>Submit Query
-<lang=es/>Enviar consulta
-<lang=iw/>שליחת ההמלצה
-<lang=ja/>クエリーを提出
-<lang=ru/>представить запрос
-</submit_query>
-
-<summary>
-<lang=da/>Resume
-<lang=en/>Summary
-<lang=zh/>摘要
-</summary>
-
-<thanks>
-<lang=en/>Thank you for good effort
-</thanks>
-
-<thechannel_notexit>
-<lang=ar/>هذة القناة غير موجودة
-<lang=da/>Kanalen eksisterer ikke!
-<lang=de/>der Kanal existiert nicht
-<lang=en/>The channel doesn't exist!
-<lang=es/>¡Ese canal no existe!
-<lang=iw/>הערוץ לא כמצא
-<lang=ja/>このチャンネルは存在しません
-<lang=ru/>Канал не существует!
-<lang=zh/>这个网页不存在
-</thechannel_notexit>
-
-<theme>
-<lang=ar/>ميزة
-<lang=bg/>Тема
-<lang=da/>Tema
-<lang=de/>Thema
-<lang=en/>Theme
-<lang=es/>Tema
-<lang=fr/>Theme
-<lang=hu/>tema
-<lang=it/>tema
-<lang=iw/>תכונה
-<lang=ja/>テーマ
-<lang=mk/>Тема
-<lang=ru/>Тема
-<lang=zh/>主题
-</theme>
-
-<theme_description>
-<lang=da/>Journalens udseende
-<lang=en/>Visual appearance of journal
-</theme_description>
-
-<thumbnail>
-<lang=ar/>الرموز
-<lang=da/>Ikon
-<lang=de/>Miniaturbild
-<lang=en/>Thumbnail
-<lang=es/>Vista en miniatura
-<lang=hu/>huvelykujjkorom?
-<lang=iw/>איקונם
-<lang=ja/>サムネイル
-<lang=ru/>Пиктограмма
-<lang=zh/>简要
-</thumbnail>
-
-<title>
-<lang=ar/>عنوان
-<lang=bg/>Заглавие
-<lang=da/>Titel
-<lang=de/>Titel
-<lang=en/>Title
-<lang=es/>Título
-<lang=fr/>Titre
-<lang=gr/>Τίτλος
-<lang=hu/>cim
-<lang=is/>Titill
-<lang=it/>titolo
-<lang=iw/>כותרת
-<lang=ja/>タイトル
-<lang=mk/>Наслов
-<lang=ru/>Заголовок
-<lang=se/>titel
-<lang=zh/>标题
-</title>
-
-<title_description>
-<lang=da/>Journalens navn
-<lang=en/>Name of journal
-</title_description>
-
-<upload>
-<lang=ar/>أدخال
-<lang=da/>Indsend
-<lang=de/>heraufladen
-<lang=en/>Upload
-<lang=es/>Cargar
-<lang=iw/>שליפה
-<lang=ja/>アップロード
-<lang=ru/>Загрузить
-<lang=zh/>上载
-</upload>
-
-<username>
-<lang=ar/>أسم المستعمل
-<lang=bg/>Име на потребител
-<lang=da/>Brugernavn
-<lang=de/>Benutzername
-<lang=en/>Username
-<lang=es/>Nombre de usuario
-<lang=fr/>Nom d'Utilisateur
-<lang=hu/>felhasznaloi nev
-<lang=it/>nome di utente
-<lang=iw/>שם משתמש
-<lang=ja/>ユーザーネーム
-<lang=mk/>Корисничко име
-<lang=ru/>Имя пользователя
-<lang=zh/>用户名
-</username>
-
-<username_description>
-<lang=da/>4-16 små bogstaver og tal
-<lang=en/>4 to 16 lowercase letters or numbers
-</username_description>
-
-<view>
-<lang=da/>Vis
-<lang=en/>View
-</view>
-
-<yes>
-<lang=ar/>نعم
-<lang=da/>Ja
-<lang=de/>Ja
-<lang=en/>Yes
-<lang=es/>Sí
-<lang=iw/>כן
-<lang=ja/>はい
-<lang=ru/>Да
-<lang=zh/>是
-</yes>
-
-<yourname>
-<lang=ar/>أسمك
-<lang=da/>Dit navn
-<lang=de/>Ihr Name
-<lang=en/>Your name
-<lang=es/>Su nombre
-<lang=hu/>neve, neved?
-<lang=iw/>השם שלך
-<lang=ja/>あなたのお名前
-<lang=ru/>Ваше имя
-<lang=zh/>你的名字
-</yourname>
-
-<zh>
-<lang=ar/>صيني
-<lang=bg/>Китайски
-<lang=da/>Kinesisk
-<lang=de/>Chinesisch
-<lang=en/>Chinese
-<lang=es/>Chino
-<lang=fr/>Chinois
-<lang=gr/>Κινέζικα
-<lang=hu/>kinai
-<lang=is/>Kínverska
-<lang=it/>cinese
-<lang=iw/>סיני
-<lang=ja/>中国語
-<lang=mk/>Кинески
-<lang=ru/>Китайский
-<lang=se/>kinesiska
-<lang=zh/>中文
-</zh>
-
+--- #YAML:1.0
+about:
+  ar: 'عن'
+  da: Om Spoejs
+  de: 'über'
+  en: About
+  es: Acerca de
+  hu: korulbelul?
+  iw: 'על'
+  ja: '情報'
+  ru: 'о'
+  zh: '有关内容'
+abstract:
+  ar: 'محتويات'
+  da: Resume
+  de: Zusammenfassung
+  en: Abstract
+  es: Resumen
+  iw: 'תוכן'
+  ja: '空想'
+  ru: 'аннотация'
+  zh: '摘要'
+account_signup:
+  da: Journal information
+  en: Journal Information
+  zh: '用户注册'
+active:
+  ar: 'فعال'
+  da: Aktiv
+  de: aktiv
+  en: Active
+  es: Activar
+  gr: 'Ενεργό'
+  iw: 'פעיל'
+  ja: 'アクティブ'
+  ru: 'активный'
+  zh: '运行'
+add:
+  ar: 'أضيق'
+  da: Tilføj
+  de: hinzufügen
+  en: Add
+  es: Agregar
+  gr: 'Προσθήκη'
+  hu: ad
+  iw: 'מוסיף'
+  ja: '追加'
+  ru: 'добавить'
+  zh: '添加'
+addfield:
+  ar: 'أضيف جدول'
+  da: Tilføj felt
+  de: Feld hinzufügen
+  en: Add field
+  es: Agregar campo
+  iw: 'מוסיף שדה'
+  ja: '分野を追加'
+  ru: 'добавить поле'
+  zh: '添加项目'
+addfilepc:
+  ar: 'أضيف ملف من الحاسوب'
+  da: Tilføj filer fra PC
+  de: Dateien von PC hinzufügen
+  en: Add files from PC
+  es: Agregar archivos desde PC
+  gr: |-
+    Προσθήκη αρχείων απο τον υπολογιστή σας
+  iw: 'הוטפת תיק מהמחשב אישי'
+  ja: PCからファイルを追加
+  ru: 'добавить файлы из PC'
+  zh: '从PC上引入文件'
+addfileserver:
+  ar: 'أضيف ملف من السرفر'
+  da: Tilføj filer fra server
+  de: Dateien von Server hinzufügen
+  en: 'Add files from server '
+  es: Agregar archivos desde servidor
+  iw: 'הוטפת תיק סירבר'
+  ja: 'サーバーからファイルを追加'
+  ru: 'добавить файлы с сервера'
+  zh: '从Server上引入文件'
+addmediastory:
+  ar: 'أضيف المحقات للقصة'
+  da: Tilføj medier til historie
+  de: Medien der Geschichte hinzufügen
+  en: Add media to story
+  es: Agregar medio a artículo
+  iw: 'הוטפת מידיא על הסיפוד'
+  ja: 'ストーリーにメディアを追加'
+  ru: |-
+    добавить мультимедиа к рассказу
+  zh: '给记事里加煤体'
+addnewchannel:
+  ar: 'أضيف قناة سبوجي جديدة'
+  da: Tilføj ny spoejs kanal
+  de: Neuen Spoejs Kanal hinzufügen
+  en: Add a new spoejs channel
+  es: Agregar un canal nuevo de Spoejs
+  iw: 'הוטפת עררץ סבוכי חדש'
+  ja: '新しいspoejsチャンネルを追加'
+  ru: 'добавить новый spoejs канал'
+  zh: '添加一个新的Spoejs网页'
+administration:
+  ar: 'الأدارة'
+  da: Administration
+  de: Verwaltung
+  en: Administration
+  es: Administración
+  gr: 'Διαχείριση'
+  hu: adminisztracio
+  iw: 'הכהלה'
+  ja: '管理'
+  ru: 'администрация'
+  zh: '系统管理'
+ar:
+  ar: 'عربي'
+  bg: 'Арабски'
+  da: Arabisk
+  de: Arabisch
+  en: Arabic
+  es: 'Árabe'
+  fr: Arabe
+  gr: 'Αραβικά'
+  hu: arab
+  is: Arabíska
+  it: arabo
+  iw: 'ערבית'
+  ja: 'アラビア語'
+  mk: 'Арапски'
+  ru: 'арабский'
+  se: arabisk
+  zh: '阿拉伯语'
+archive:
+  ar: 'الأرشيف'
+  da: Arkiver
+  de: Archiv
+  en: Archive
+  es: Archivo
+  gr: 'Αρχείο'
+  iw: 'ארכיון'
+  ja: '古文書'
+  ru: 'архив'
+  zh: '完全控制'
+backtostory:
+  ar: 'الرجوع للقصة'
+  da: Tilbage til historie
+  de: Zurück zur Geschichte
+  en: Back to story
+  es: Volver a la historia
+  iw: 'חזרה בסיפור'
+  ja: 'ストーリーに戻る'
+  ru: 'вернуться к рассказу'
+  zh: '回到记事'
+bg:
+  ar: 'بلغاري'
+  bg: 'Български'
+  da: Bulgarsk
+  de: Bulgarisch
+  en: Bulgarian
+  es: Búlgaro
+  fr: Bulgare
+  gr: 'Βουλγαρικά'
+  hu: bolgar
+  is: Búlgarska
+  it: bulgano
+  iw: 'בולגרית'
+  ja: 'ブルガリア語'
+  mk: 'Бугарски'
+  ru: 'болгарский'
+  se: bulgarisk
+  zh: '保加利亚语'
+blank_default:
+  ar: |-
+    (اتركه فارغ أذا كانت القصة صحيحه)
+  da: '(blank for dags dato)'
+  de: '(bei aktueller Geschichte leer lassen)'
+  en: '(leave blank if story is current)'
+  es: |-
+    (déjelo en blanco si el artículo ya está seleccionado)
+  hu: hagyd uresen ha a tortenet mostani?
+  iw: |-2
+     לעזב את השדה ריק אם הסיפורנכרן
+  ja: |-
+    （ストーリーが現在のものであれば空白にする）
+  ru: |-
+    (не заполнять, если рассказ текущий)
+  zh: '(如果记事是当今的，留下空癿)'
+bo:
+  ar: 'تبتي'
+  bg: 'Тибетски'
+  da: Tibetansk
+  de: Tibetisch
+  en: Tibetan
+  es: Tibetano
+  fr: Tibetain
+  hu: tibeti
+  it: tibetano
+  iw: 'תיבתית'
+  ja: 'チベット語'
+  mk: 'Тибетски'
+  ru: 'тибетский'
+  zh: '西藏语'
+categories:
+  da: Kategorier
+  en: Categories
+  zh: '种类'
+category:
+  ar: 'فيئة'
+  bg: 'Категория'
+  da: Kategori
+  de: Kategorie
+  en: Category
+  es: Categoría
+  fr: Categorie
+  gr: 'Κατηγορία'
+  hu: kategoria
+  it: categoria
+  iw: 'קטאגורית'
+  ja: 'カテゴリー'
+  mk: 'Категорија'
+  ru: 'категория'
+  se: kategori
+  zh: '种类'
+categorylist:
+  ar: 'لأحة الختيرات'
+  da: Kategorier
+  de: Kategorienliste
+  en: Category list
+  es: Lista de categorías
+  gr: 'Λίστα κατηγοριών'
+  iw: 'רשימת הקטאגורית'
+  ja: 'カテゴリーリスト'
+  ru: 'список категорий'
+  zh: '一揽'
+chan_home:
+  ar: 'قناة البيت'
+  da: Historie index
+  de: Kanalstartseite
+  en: Channel home
+  es: Inicio del canal
+  iw: 'ערוץ הבית'
+  ja: 'チャンネルホーム'
+  ru: |-
+    домашний канал? (it is not clear w/o context)
+  zh: '网页'
+change:
+  ar: 'تغير'
+  bg: 'Промени'
+  da: Skift
+  de: wechseln
+  en: Change
+  es: Cambiar
+  fr: Change
+  gr: 'Αλλαγή'
+  hu: valtozas
+  is: Breyting
+  it: cambio
+  iw: 'שינוי'
+  ja: '変える'
+  mk: 'Промена'
+  ru: 'изменить '
+  se: 'ändra'
+  zh: '更改'
+change_language:
+  da: Skift sprog
+  en: Change Language
+  zh: '语言变换'
+channelconf:
+  ar: 'تغير للقناة'
+  da: Kannalkonfiguration
+  de: Kanal konfigurieren
+  en: Channel Configuration
+  es: Configuración de canales
+  iw: 'שידרוג הערוץ'
+  ja: 'チャンネル配置'
+  ru: 'конфигурация канала'
+  zh: '网页构造'
+choose:
+  ar: 'أختار'
+  da: Vælg
+  de: wählen
+  en: Choose
+  es: Elegir
+  gr: 'Επιλογή'
+  hu: valaszt
+  iw: 'בחירה'
+  ja: '選択'
+  ru: 'выбрать'
+  zh: '选择'
+click_channel:
+  ar: 'أنقر هنا للذهاب الى القناه'
+  da: Gå til kannal
+  de: anklicken um zu Kanal zu wechseln
+  en: Click here to go to channel
+  es: Pulse aquí apra ir al canal
+  gr: 'Ακύρωση'
+  iw: 'להקליק כאן כדי לעכורלערוץ'
+  ja: 'チャンネルへはこちらをクリック'
+  ru: 'переключиться на канал'
+  zh: '按这里进入网页'
+click_continue:
+  ar: 'أقر هنا للأستمرار'
+  da: Fortsæt
+  de: anklicken zum Fortsetzen
+  en: Click here to continue
+  es: Pulse aquí para continuar
+  gr: 'Συνέχεια'
+  iw: 'להקליק כאן כדי להמשיךן'
+  ja: '続けるにはこちらをクリック'
+  ru: 'продолжить'
+  zh: '按这里继续'
+comment:
+  ar: 'أقترحات'
+  da: Kommenter
+  de: Kommentar
+  en: Comment
+  es: Comentario
+  iw: 'דעות'
+  ja: 'コメント'
+  ru: 'комментарий'
+  zh: '见解'
+congrat_changes:
+  ar: 'تغيراتك كانت ناجحة'
+  da: 'Ændringer var successfulde'
+  de: Gratulation, Ihre Änderungen waren erfolgreich
+  en: Congratulations your changes were successful
+  es: |-
+    Enhorabuena, sus cambios se han realizado sin problemas
+  iw: 'השינוי שלך היה נכון'
+  ja: |-
+    おめでとうございます。変更は正常に処理されました。
+  ru: |-
+    Мои позравления, ваши изменения успешны
+  zh: '祝贺你的更改成功了'
+congrat_signup:
+  ar: 'لقد نجحت في التسجيل'
+  da: Tillykke du er nu oprettet
+  de: Gratulation, Sie sind jetzt angemeldet
+  en: Congratulations you are now signed up
+  es: Enhorabuena, ya está inscrito
+  iw: 'אתה נרשםחדש'
+  ja: |-
+    おめでとうございます。サインアップが完了しました。
+  ru: |-
+    Мои позравления, Вы зарегистрированы
+  zh: '祝贺你现在登录了'
+currentfile:
+  ar: 'الملفات المفتوحة'
+  da: Nuværende filer
+  de: Aktuelle Dateien
+  en: Current files
+  es: Archivos actuales
+  iw: 'התקירת המשומשות'
+  ja: '現在のファイル'
+  ru: 'Текущие файлы'
+  zh: '现在的文件'
+currentfilename:
+  ar: 'أسماء المفات الحالية'
+  da: Aktuelt filnavn
+  de: Aktueller Dateiname
+  en: Current filename
+  es: Nombre del archivo actual
+  iw: 'שם התיק המשומש'
+  ja: '現在のファイルネーム'
+  ru: 'Текущие имя файла'
+  zh: '现在的文件名'
+da:
+  ar: 'دنماركي'
+  bg: 'Датски'
+  da: Dansk
+  de: Dänisch
+  en: Danish
+  es: Danés
+  fr: Danois
+  gr: 'Δανικά'
+  hu: dan
+  is: Danska
+  it: danese
+  iw: 'דינמרקית'
+  ja: 'デンマーク語'
+  mk: 'Дански'
+  ru: 'датский'
+  se: Danska
+  zh: '丹麦语'
+date:
+  ar: 'تاريخ'
+  bg: 'Дата'
+  da: Dato
+  de: Datum
+  en: Date
+  es: Fecha
+  fr: Date
+  gr: 'Ημερομηνία'
+  hu: datum
+  is: Dagsetning
+  it: data
+  iw: 'תאריך'
+  ja: '日付'
+  mk: 'Дата'
+  ru: 'дата'
+  se: datum
+  zh: '日期'
+de:
+  ar: 'الماني'
+  bg: 'Германски'
+  da: Tysk
+  de: Deutsch
+  en: German
+  es: Alemán
+  fr: Allemand
+  gr: 'Γερμανικά'
+  hu: nemet
+  is: 'Þýska'
+  it: tedesco
+  iw: 'גרמנית'
+  ja: 'ドイツ語'
+  mk: 'Германски'
+  ru: 'немецкий'
+  se: Tyska
+  zh: '德语'
+delete:
+  ar: 'أمحاء'
+  da: Slet
+  de: Löschen
+  en: Delete
+  es: Eliminar
+  gr: 'Διαγραφή'
+  hu: torol
+  iw: 'מחק'
+  ja: '消去'
+  ru: 'удалить'
+  zh: '删去'
+deletefile:
+  ar: 'أمحاء ملف'
+  da: Slet fil
+  de: Datei löschen
+  en: Delete file
+  es: Eliminar archivo
+  gr: 'Διαγραφή αρχείου'
+  iw: 'מחק אתתיק'
+  ja: 'ファイルを消去'
+  ru: 'удалить файл'
+  zh: '删去文件'
+description:
+  ar: 'وصف'
+  bg: 'Описание'
+  da: Beskrivelse
+  de: Beschreibung
+  en: Description
+  es: Descripción
+  fr: Description
+  gr: 'Περιγραφή'
+  hu: leiras
+  it: descrizione
+  iw: 'תיאור'
+  ja: '概要'
+  mk: 'Опис'
+  ru: 'описание'
+  zh: '描述 '
+description_description:
+  da: Beskrivelse af journalens indhold
+  en: 'Describe content of journal '
+dimensions:
+  ar: 'حدود او مواصفات'
+  da: Dimensioner
+  de: Dimension
+  en: Dimentions
+  es: Dimensiones
+  gr: 'Διαστάσεις'
+  iw: 'הטל'
+  ja: '寸法'
+  ru: 'размерность'
+do_u_need_account:
+  en: Do you need an account?
+  zh: '新用户注册'
+edit:
+  ar: 'تصحيح'
+  da: Ret
+  de: Bearbeiten
+  en: Edit
+  es: Editar
+  gr: 'Επεξεργασία'
+  hu: szerkeszt
+  iw: 'עריכה'
+  ja: '編集'
+  ru: 'редактирование'
+  zh: '编辑'
+edit_lang:
+  ar: 'تصحيح ملف'
+  da: Retter for sproget
+  de: Sprache bearbeiten
+  en: Editing language
+  es: Idioma de edición
+  gr: 'Επεξεργασία γλώσσας'
+  hu: nyelv-szerkesztes
+  iw: 'שפת עריכה'
+  ja: '編集用語'
+  ru: 'язык редактирования'
+  zh: '编辑语言'
+en:
+  ar: 'أنجليزي'
+  bg: 'Английски'
+  da: Engelsk
+  de: Englisch
+  en: English
+  es: Inglés
+  fr: Anglais
+  gr: 'Αγγλικά'
+  hu: angol
+  is: Enska
+  it: inglese
+  iw: 'אנגלית'
+  ja: '英語'
+  mk: 'Англиски'
+  ru: 'английский'
+  se: Engelska
+  zh: '英语'
+es:
+  ar: 'أسباني'
+  bg: 'Испански'
+  da: Spansk
+  de: Spanisch
+  en: Spanish
+  es: Español
+  gr: 'Ισπανικά'
+  hu: spanyol
+  iw: 'ספרדית'
+  ja: 'スペイン語'
+  ru: 'испанский'
+  zh: '西班牙语'
+et:
+  ar: 'أستوني'
+  da: Estonsk
+  de: Estnisch
+  en: Estonian
+  es: Estonio
+  iw: 'אוסטונית'
+  ja: 'エストニア語'
+  ru: 'эстонский'
+fileformat:
+  ar: 'تغير نوع ملف'
+  da: Filformat
+  de: Dateiformat
+  en: File format
+  es: Formato de archivo
+  gr: 'Τύπος αρχείου'
+  iw: 'פורמט קובץ'
+  ja: 'ファイル　フォーマット'
+  ru: 'формат файла'
+  zh: '文件格式'
+filename:
+  ar: 'أسم ملف'
+  da: Filnavn
+  de: Dateiname
+  en: Filename
+  es: Nombre de archivo
+  gr: 'Όνομα αρχείου'
+  iw: 'שם קובץ'
+  ja: 'ファイルネーム'
+  ru: 'имя файла'
+  zh: '文件名'
+filesize:
+  ar: 'حجم ملف'
+  da: Filstørrelse
+  de: Dateigröße
+  en: Filesize
+  es: Tamaño de archivo
+  gr: 'Μέγεθος αρχείου'
+  iw: 'גודל הקובץ'
+  ja: 'ファイルサイズ'
+  ru: 'размер файла'
+  zh: '文件大小'
+fileupload:
+  ar: 'أدخال ملف للقصة'
+  da: Filupload til historie
+  de: Datei für Geschichte laden
+  en: File upload for story
+  es: Cargar archivo para artículo
+  iw: 'שמירת קובץ לסיפור'
+  ja: |-
+    ストーリー用のファイルアップロード
+  ru: |-
+    загрузить файл для рассказа
+  zh: '文件上载'
+first:
+  ar: 'أول'
+  da: Første
+  de: zu erst
+  en: First
+  es: Primero
+  hu: elso
+  iw: 'הראשון'
+  ja: '最初'
+  ru: 'первый'
+  zh: '首先'
+fix_and_resubmit:
+  da: Ret og indsend igen
+  en: Fix and Resubmit
+fr:
+  ar: 'فرنسي'
+  bg: 'Френски'
+  da: Fransk
+  de: Französisch
+  en: French
+  es: Francés
+  fr: Francais
+  gr: 'Γαλλικά'
+  hu: francia
+  is: Franska
+  it: francese
+  iw: 'צרפתית'
+  ja: 'フランス語'
+  mk: 'Француски'
+  ru: 'французский'
+  se: Franska
+  zh: '法语'
+freeall:
+  ar: 'مجاناًَ للجميع'
+  da: Fri-for-alle
+  de: allgemein zugänglich
+  en: Free-for-all
+  es: Gratis para todos
+  iw: 'חינם'
+  ja: '無料で開かれている'
+  ru: 'бесплатно для всех'
+  zh: '完全自由'
+full_story:
+  ar: 'كلمات القصة جميعاً'
+  da: Hele historien
+  de: Geschichte voller Text
+  en: Full story text
+  es: Texto completo del artículo
+  hu: a tortenet teljes szovege
+  iw: 'טקסט מלא לסיפור'
+  ja: 'フルストーリーテキスト'
+  ru: 'полный техт рассказа'
+  zh: '全文报导正文'
+fullpath:
+  ar: 'الطريق كاملة'
+  da: Fuld sti
+  de: voller Pfad
+  en: Full path
+  es: Ruta completa
+  iw: 'הדרך המלאה'
+  ja: '全通路'
+  ru: 'полный путь'
+  zh: '全部地址'
+fulltext:
+  ar: 'جميع الكامات'
+  da: Fuld tekst
+  de: voller Text
+  en: Full text
+  es: Texto completo
+  iw: 'טקסט מליג'
+  ja: '全テキスト'
+  ru: 'полный текст'
+  zh: '全部文章'
+gr:
+  ar: 'يوناني'
+  bg: 'Гръцки'
+  da: Græsk
+  de: Griechisch
+  en: Greek
+  es: Griego
+  fr: Grecque
+  gr: 'Ελληνικά'
+  hu: gorog
+  is: Gríska
+  it: greco
+  iw: 'יוונית'
+  ja: 'ギリシャ語'
+  mk: 'Грчки'
+  ru: 'греческий'
+  se: grekiska
+  zh: '希腊'
+help:
+  da: Hjælp
+  en: Help
+  zh: '帮助'
+home:
+  da: Hjem
+  en: Home
+  zh: '本页'
+hu:
+  ar: 'هنجاري'
+  da: Ungarnsk
+  de: Ungarisch
+  en: Hungarian
+  es: Húngaro
+  hu: magyar
+  iw: 'הונגרית'
+  ja: 'ハンガリー語'
+  ru: 'венгерский'
+  zh: '匈牙利语'
+invalid_description:
+  da: Fejl i beskrivelsen
+  en: 'Invalid description '
+invalid_journal_id:
+  da: Fejl i Journal-ID
+  en: Invalid Journal-ID
+invalid_password:
+  da: Det angivne password er for kort
+  en: Password too short
+invalid_title:
+  da: Fejl i tittel
+  en: 'Invalid title '
+invalid_username:
+  da: Fejl i brugernavn
+  en: 'Invalid Username '
+inviteonly:
+  ar: 'معزوم فقط'
+  da: Kun inviterede
+  de: nur auf Einladung
+  en: Invite-only
+  es: Sólo con invitación
+  iw: 'רק עם הזמנה'
+  ja: '招待のみ'
+  ru: 'пригласить только'
+  zh: '只邀请'
+is:
+  ar: 'أسلندي'
+  bg: 'Исландски'
+  da: Islandsk
+  de: Isländisch
+  en: Icelandic
+  es: Islandés
+  fr: Islandais
+  gr: 'Ισλανδικά'
+  hu: izlandi
+  is: 'Íslenska'
+  it: islandese
+  iw: 'איסלדית'
+  ja: 'アイスランド語'
+  mk: 'Исландски'
+  ru: 'исландский'
+  se: islandska
+  zh: '冰岛语'
+it:
+  ar: 'اتالي'
+  bg: 'Италиански'
+  da: Italiensk
+  de: Italienisch
+  en: Italian
+  es: Italiano
+  fr: Italien
+  gr: 'Ιταλικά'
+  hu: olasz
+  is: 'Ítalska'
+  it: italiano
+  iw: 'איטלקית'
+  ja: 'イタリア語'
+  mk: 'Италијански'
+  ru: 'итальянский'
+  se: italiansk
+  zh: '意大利语'
+iw:
+  da: Hebræisk
+  de: Hebräisch
+  en: Hebrew
+  es: Hebreo
+  iw: 'עברית'
+  ja: 'ヘブライ語'
+  ru: 'иврит'
+ja:
+  ar: 'ياباني'
+  bg: 'Японски'
+  da: Japansk
+  de: Japanisch
+  en: Japanese
+  es: Japonés
+  fr: Japonais
+  gr: 'Ιαπωνικά'
+  hu: japan
+  is: Japanska
+  it: giapponese
+  iw: 'יפנית'
+  ja: '日本語'
+  mk: 'Јапонски'
+  ru: 'японский'
+  se: japanska
+  zh: '日语'
+journal_id:
+  da: Journal-ID
+  en: Journal-ID
+journal_id_description:
+  da: |-
+    4-16 små bogstaver til at identificeres din journal i URL'en, ex:
+  en: |-
+    4 to 16 lowercase letters to identify journal in URL like this:
+journal_name:
+  da: Journal navn
+  en: Journal Name
+  zh: '杂记名'
+journal_security:
+  da: Tilgængelighed
+  en: Access
+journal_security_description:
+  da: Vis journalen på forsiden eller hold den privat
+  en: |-
+    Include journal on site front page, or keep private 
+journals_friends:
+  da: Journaler på vennesider
+  en: Journals at friend's sites
+language:
+  ar: 'لغة'
+  bg: 'Език'
+  da: Sprog
+  de: 'Sprache '
+  en: Language
+  es: Idioma
+  fr: Language
+  hu: nyelv
+  it: lingua
+  iw: 'שפה'
+  ja: '言語'
+  mk: 'Јазик'
+  ru: 'язык'
+  zh: '语言'
+language_description:
+  da: Det primære sprog for journal indhold
+  en: Primary language of journal content
+last:
+  ar: 'النهاية'
+  da: Sidste
+  de: zu letzt
+  en: Last
+  es: 'Último'
+  hu: utolso
+  iw: 'אחרון'
+  ja: '最後'
+  ru: 'прошлый'
+  zh: '持续'
+localjournal:
+  da: Lokale journaler
+  en: Local Journals
+login:
+  ar: 'دخول'
+  bg: 'Вход'
+  da: Log ind
+  de: Einloggen
+  en: Login
+  es: Inicio de sesión
+  fr: Connection
+  hu: bejelentkezes
+  it: inizio attivita
+  iw: 'כניטה'
+  ja: 'ログイン'
+  mk: 'Логин (Влез)'
+  ru: 'вход в систему'
+  zh: '登录'
+logout:
+  ar: 'خروج'
+  bg: 'Изход'
+  da: Log ud
+  de: Ausloggen
+  en: Logout
+  es: Final de sesión
+  fr: Deconnection
+  hu: kijelentkezes
+  it: termine attivita
+  iw: 'יציאה'
+  ja: 'ログアウト'
+  mk: 'Логаут (Излез)'
+  ru: 'выход из системы'
+  zh: '注销'
+media:
+  ar: 'أعلام'
+  da: Media
+  de: Medien
+  en: Media
+  es: Medios
+  iw: 'מידיא'
+  ja: 'メディア'
+  ru: 'мультимедиа'
+  zh: '煤体'
+media_man:
+  ar: '   ادارة الاعلام'
+  da: Medie håndtering
+  de: Medien Verwaltung
+  en: Media management
+  es: Gestión de medios
+  hu: media szervezes
+  iw: '   ניהול מידיא'
+  ja: 'メディアマネージメント'
+  ru: 'управление мультимедиа'
+  zh: '媒体管理'
+mk:
+  ar: 'ماسادوني'
+  bg: 'Македонски'
+  da: Makedonsk
+  de: Mazedonisch
+  en: Macedonian
+  es: Macedonio
+  fr: Mecedonien
+  gr: 'Μακεδονικά'
+  hu: makedon
+  it: mecedone
+  iw: 'מסדונית'
+  ja: 'マケドニア語'
+  mk: 'Македонски'
+  ru: 'македонский'
+  se: macedoniska
+  zh: '马其顿语'
+more:
+  ar: 'مزيد'
+  da: Vis
+  de: mehr
+  en: More
+  es: Más
+  iw: 'ירתר'
+  ja: '以上'
+  ru: 'более'
+  zh: '更多'
+new_account:
+  da: Ny konto
+  en: New account
+  zh: '新用户注册'
+new_story:
+  ar: 'قصة جديدة'
+  da: Ny historie
+  de: 'neu Geschichte '
+  en: New story
+  es: Artículo nuevo
+  hu: uj tortenet
+  iw: 'סיפור חדש'
+  ja: '新しいストーリー'
+  ru: 'новый рассказ'
+  zh: '新的故事'
+new_username:
+  ar: 'عضو جديد'
+  da: Nyt brugernavn
+  de: neuer Benutzername
+  en: New username
+  es: Nuevo nombre de usuario
+  iw: 'שם משתמש חדש'
+  ja: '新しいユーザーネーム'
+  ru: 'новое имя пользователя'
+  zh: '新的用户名'
+newfilename:
+  ar: 'أسم ملف جديد'
+  da: Nyt filnavn
+  de: neuer Dateiname
+  en: New filename
+  es: Nuevo nombre de archivo
+  iw: 'שם קובץ חדש'
+  ja: '新しいファイルネーム'
+  ru: 'новое имя файла'
+  zh: '新的文件名'
+newpass:
+  ar: 'كلمة مرور جديدة'
+  da: Nyt password
+  de: neues Passwort
+  en: New Passward
+  es: Nueva contraseña
+  iw: 'סיסמה חדשה'
+  ja: '新しいパスワード'
+  ru: 'новый пароль'
+  zh: '新的密码'
+no_:
+  ar: 'لا'
+  da: Nej
+  de: Nein
+  en: No
+  es: No
+  iw: 'לא'
+  ja: 'いいえ'
+  ru: 'нет'
+  zh: '否'
+no_stories:
+  ar: 'لا يوجد قصص'
+  da: Ingen historier
+  de: keine Geschichten
+  en: No stories
+  es: No hay artículos
+  iw: 'בלי סיפורים'
+  ja: 'ストーリーはありません'
+  ru: 'нет рассказов'
+  zh: '没有内容'
+oneerror_occur:
+  ar: 'حدث خطاء أو أكثر'
+  da: En eller flere fejl er opstået i
+  de: ein oder mehrere Fehler sind aufgetreten
+  en: One or more errors has occured in
+  es: Se han producido uno o más errores en
+  iw: 'נעשה יותר מטעות אחת'
+  ja: |-
+    の中で一つまたはそれ以上のエラーが起きました。
+  ru: 'одна или более ошибок в'
+  zh: '出现有一个或更多的错误'
+open_public:
+  da: 'Åben for alle'
+  en: Open to public
+  zh: '对外公开'
+or_add_newstory:
+  ar: 'أو هنا لأضافة قصة جديدة'
+  da: eller her for at tilføje en ny historie
+  de: oder hier um eine neue Geschichte hinzuzufügen
+  en: or here to add a new story
+  es: o aquí para agregar un nuevo artículo
+  iw: 'אוכאן כדי להוסיף סיפור חדש'
+  ja: |-
+    またはここから新しいストーリーを追加して下さい
+  ru: |-
+    или здесь добавить новый рассказ
+  zh: '或许按这儿添加新的记事'
+or_new:
+  ar: 'أو جديد'
+  da: eller ny
+  de: oder neu
+  en: or new
+  es: o nuevo
+  hu: vagy uj
+  iw: 'או חדש'
+  ja: 'または新しい'
+  ru: 'или новый'
+  zh: '或许新'
+passwd:
+  ar: 'كلمة المرور'
+  bg: 'Парола'
+  da: Kodeord
+  de: Passwort
+  en: Password
+  es: Contraseña
+  fr: Mot de passe
+  gr: 'Κωδικός'
+  hu: jelszo
+  is: Lykilorð
+  it: parola d'acceso
+  iw: 'סיסמה'
+  ja: 'パスワード'
+  mk: 'Клучен збор'
+  ru: 'пароль'
+  se: passord
+  zh: '密码'
+passwd_again:
+  da: Indtast kodeord igen
+  en: Please enter your password again
+  zh: '请再次按入密码'
+passwd_description:
+  da: |-
+    Et godt password er let at huske men svært at gætte
+  en: Something easy to remember but hard to guess
+passwd_retype:
+  da: Skriv kodeord igen
+  en: Re-type password
+passwd_retype_description:
+  da: Samme som ovenfor
+  en: 'Same as above '
+password_mismatch:
+  da: Kodeordene var ikke ens
+  en: Passwords did not match
+please_fill_out_this_form:
+  ar: 'الرجاء أكمال هذا الجدول'
+  da: Venligst udfyld denne formular
+  de: 'bitte dieses Formular ausfüllen '
+  en: Please fill out this form
+  es: Rellene este formulario
+  iw: 'בבקשה למליגאת הבקשה הבאה'
+  ja: 'この用紙に記入して下さい。'
+  ru: |-
+    Пожалуйста, заполните эту форму
+  zh: '请填写这张表'
+pleaselogin:
+  ar: |-
+    الرجاء ادخال معلوماتك قبل الدخول
+  da: Log venligst ind før denne side tilgåes
+  de: bitte vor Zugang auf diese Seite einloggen
+  en: Please Login before accessing this page
+  es: Inicie una sesión antes de acceder a esta página
+  iw: 'יש להרשם לפני הכניטה'
+  ja: |-
+    このページにアクセスするにはログインが必要です。
+  ru: >-
+    Пожалуйста, войдите в систему для доступа
+    к этой странице
+  zh: '进入此页之前请登录'
+posted_by:
+  ar: 'تحرير من '
+  bg: 'Автор'
+  da: Af
+  de: verschickt von
+  en: Posted by
+  es: Enviado por
+  fr: Poster par
+  gr: 'Καταχώρηση από'
+  hu: feladva ... altal?
+  it: inviato da
+  iw: 'באדיברת'
+  ja: 'からのお知らせ'
+  mk: 'Испраќа'
+  ru: 'Представлено'
+  se: postat av
+  zh: '邮寄人'
+preview:
+  ar: 'مراجعة'
+  da: Udkast
+  de: Vorschau
+  en: Preview
+  es: Vista preliminar
+  iw: 'חזרה'
+  ja: 'プレビュー'
+  ru: 'Просмотр'
+  zh: '预现'
+private:
+  da: Privat
+  en: Private
+probs_in_reg:
+  da: 'Den indtastede information havde fejl:'
+  en: 'The Journal Information you entered has problems:'
+public:
+  ar: 'عمومي '
+  bg: 'Публичен'
+  da: Offentlig
+  de: 'öffentlich'
+  en: Public
+  es: Público
+  fr: Publique
+  hu: nyilvanos
+  it: pubulico
+  iw: 'פופלארי'
+  ja: 'パブリック'
+  mk: 'Јавен'
+  ru: 'Публичный'
+  zh: '公众'
+random:
+  ar: 'عشوائي'
+  da: Tilfældig
+  de: zufällig
+  en: Random
+  es: Aleatorio
+  hu: veletlen
+  iw: 'ראנדומאלי'
+  ja: 'ランダム'
+  ru: 'Случайный'
+  zh: '随便'
+register:
+  ar: 'تسجيل'
+  da: Registrer
+  de: einschreiben
+  en: Register
+  es: Registrarse
+  hu: regisztral
+  iw: 'הרשמה'
+  ja: '登録'
+  ru: 'Зарегистрироваться'
+  zh: '登录'
+ru:
+  da: Russisk
+  en: Russian
+  ru: 'Русский'
+  zh: '俄语'
+se:
+  ar: 'سويدي'
+  bg: 'Шведски'
+  da: Svensk
+  de: Schwedisch
+  en: Swedish
+  es: Sueco
+  fr: Suedois
+  gr: 'Σουηδικά'
+  hu: sved
+  is: Sænska
+  it: svedese
+  iw: 'שוודית'
+  ja: 'スェーデン語'
+  mk: 'Шведски'
+  ru: 'Шведский'
+  se: svenska
+  zh: '瑞典语'
+shortname:
+  ar: 'الاسم المستعار'
+  bg: 'Кратко име'
+  da: Kortnavn
+  de: Kurzname
+  en: Shortname
+  es: Diminutivo
+  fr: Surnom
+  hu: rovid nev
+  it: nome corto
+  iw: 'שם משתמש'
+  ja: 'ショートネーム'
+  mk: 'Кратко име'
+  ru: 'Сокращенное имя'
+  zh: '短名'
+shortname_description:
+  da: |-
+    4-16 små bogstaver til at identificeres din journal, fx:
+  en: |-
+    4 to 16 lowercase letters to identify journal in URL like this:
+signup:
+  ar: 'التسجيل'
+  bg: 'Абонамент'
+  da: Tilmeld
+  de: anmelden
+  en: Sign up
+  es: Inscribirse
+  fr: Subscription
+  hu: feliratkozik
+  it: firmi in (su)
+  iw: 'הרשמה'
+  ja: 'サインアップ'
+  mk: 'Впиши'
+  ru: 'Подписаться'
+  zh: '登记'
+signup_approve:
+  ar: 'تم الموافقة '
+  da: Tilmeld-godkend
+  de: Anmeldung bestätigt
+  en: Signup Approve
+  es: Aprobar inscripción
+  iw: 'ההרשמה התקבלה'
+  ja: 'サインアップ承諾'
+  ru: 'Подтвердить подписку'
+  zh: '允许登记'
+signup_newchannel:
+  ar: 'سجل الى قناة سبوجي جديدة'
+  da: Tilmeld en ny spoejs kanal
+  de: für einen neuen Spoejs Kanal anmelden
+  en: Sign up for a new Spoejs channel
+  es: Inscríbase en un nuevo canal de Spoejs
+  iw: 'ההרשמה לערוץ סבוכי חדש'
+  ja: |-
+    新しいSpoejsチャンネルへサインアップする
+  ru: |-
+    Подписаться на новый Spoejs канал
+  zh: '登记新的网页'
+signup_newjournal:
+  da: |-
+    Opret en ny journal og del dine oplevelser med venner og familie.
+  en: ! >-
+    Sign up for a new media journal and share your experiences with friends and
+    family.
+  zh: '注册新的杂记并与家人及朋友分享'
+site_home:
+  ar: 'العودة الى الصفحة الاولى'
+  da: Kanal index
+  de: Startseite
+  en: Site home
+  es: Página de inicio del sitio
+  hu: eredeti hely?
+  iw: 'דף בית'
+  ja: 'サイトのホーム'
+  ru: 'Адрес сайта'
+  zh: '本页'
+siteconf:
+  ar: 'تغيرات على الموقع'
+  da: Site konfiguration
+  de: Website Konfiguration
+  en: Site configuration
+  es: Configuración del sitio
+  hu: hely konfiguracio
+  iw: 'דף שידרג'
+  ja: 'サイト配置'
+  ru: 'Конфигурация сайта'
+  zh: '网页结构'
+sitepolicy:
+  ar: 'قوانيين الموقع'
+  da: Site politik
+  de: Website Grundsätze
+  en: Site Policy
+  es: Normas del sitio
+  iw: 'כללים'
+  ja: 'サイトポリシー'
+  ru: 'Политика сайта'
+  zh: '本页特权'
+specific:
+  ar: 'خاص'
+  da: Specifik
+  de: speziell
+  en: Specific
+  es: Específico
+  hu: specialis
+  iw: 'ספציפי'
+  ja: '詳細'
+  ru: 'Определенный'
+  zh: '具体'
+spoejs_channels_at_this_site:
+  ar: |-
+    يوجد قنوات سبوجي في هذا الموقع
+  da: Spoejs kanaler på dette site
+  de: Spoejs Kanäle auf diesem Website
+  en: Spoejs channels at this site
+  es: Canales de Spoejs en este sitio
+  iw: 'קישור עם ערוץסבוכי'
+  ja: 'このサイトのSpoejsチャンネル'
+  ru: 'Каналы Spoejs на этом сайте'
+  zh: Spoejs网页
+statuschannel:
+  ar: |-
+    تحديد للقناوات في هذا الموقع
+  da: Status for kanaler på dette site
+  de: Status des Kanals auf diesem Website
+  en: Status for channels at this site
+  es: Estado de los canales en este sitio
+  iw: 'מצב הערוצים בדף הזה'
+  ja: |-
+    このサイトのチャンネルのステータス
+  ru: |-
+    Состояние каналов на этом сайте
+  zh: '本网站网页的状况'
+stories:
+  da: Historier
+  en: Stories
+  zh: '记事'
+story:
+  da: Historie
+  en: Story
+  zh: '记事'
+story_abstract:
+  ar: 'محتويات القصة'
+  da: Historie abstrakt
+  de: Zusammenfassung der Geschichte
+  en: Story abstract
+  es: Resumen del artículo
+  hu: tortenet kivonat
+  iw: 'תוכך הסיפור'
+  ja: '空想のストーリー'
+  ru: 'Аннотация рассказа'
+  zh: '记事摘要'
+story_home:
+  ar: 'العودة للقصة'
+  da: Historie
+  de: Start der Geschichte
+  en: Story home
+  es: Inicio del artículo
+  iw: 'התחלת הסיפור'
+  ja: 'ストーリーホーム'
+  ru: 'Адрес рассказа'
+  zh: '记事本页'
+storysave:
+  ar: 'تم حفظ القصة بنجاح'
+  da: Historien er gemt korrekt
+  de: Die Geschichte wurde erfolgreich gespeichert
+  en: Story saved successfully
+  es: El artículo se ha guardado sin problemas
+  iw: 'הסיפור נכמר בהצלחה'
+  ja: 'ストーリーは正常に保存されました'
+  ru: 'Расказ успешно сохранен'
+  zh: '保存记事成功'
+storytitle:
+  ar: 'عنوان القصة'
+  da: Historie titel
+  de: Titel der Geschichte
+  en: Story title
+  es: Título del artículo
+  hu: tortenet cim
+  iw: 'כותרת הסיפור'
+  ja: 'ストーリータイトル'
+  ru: 'Заголовок рассказа'
+  zh: '记事标题'
+storytitlelist:
+  ar: 'جدول عناوين القصص'
+  da: Historier
+  de: Geschichtstitelliste
+  en: Story title list
+  es: Lista de títulos de artículos
+  iw: 'רשימת כרתרות'
+  ja: 'ストーリータイトルリスト'
+  ru: |-
+    Список заголовков рассказов
+  zh: '记事标题一览'
+submit:
+  ar: 'أرسال'
+  bg: 'Приложи'
+  da: Indsend
+  de: Abschicken
+  en: Submit
+  es: Enviar
+  fr: Soumettre
+  hu: bead
+  it: presenti
+  iw: 'שליחה'
+  ja: '提出'
+  mk: 'Поднеси'
+  ru: 'представить'
+  zh: '承诺'
+submit_query:
+  da: Indsend
+  de: Abfrage abschicken
+  en: Submit Query
+  es: Enviar consulta
+  iw: 'שליחת ההמלצה'
+  ja: 'クエリーを提出'
+  ru: 'представить запрос'
+summary:
+  da: Resume
+  en: Summary
+  zh: '摘要'
+thanks:
+  en: Thank you for good effort
+thechannel_notexit:
+  ar: 'هذة القناة غير موجودة'
+  da: Kanalen eksisterer ikke!
+  de: der Kanal existiert nicht
+  en: The channel doesn't exist!
+  es: '¡Ese canal no existe!'
+  iw: 'הערוץ לא כמצא'
+  ja: 'このチャンネルは存在しません'
+  ru: 'Канал не существует!'
+  zh: '这个网页不存在'
+theme:
+  ar: 'ميزة'
+  bg: 'Тема'
+  da: Tema
+  de: Thema
+  en: Theme
+  es: Tema
+  fr: Theme
+  hu: tema
+  it: tema
+  iw: 'תכונה'
+  ja: 'テーマ'
+  mk: 'Тема'
+  ru: 'Тема'
+  zh: '主题'
+theme_description:
+  da: Journalens udseende
+  en: Visual appearance of journal
+thumbnail:
+  ar: 'الرموز'
+  da: Ikon
+  de: Miniaturbild
+  en: Thumbnail
+  es: Vista en miniatura
+  hu: huvelykujjkorom?
+  iw: 'איקונם'
+  ja: 'サムネイル'
+  ru: 'Пиктограмма'
+  zh: '简要'
+title:
+  ar: 'عنوان'
+  bg: 'Заглавие'
+  da: Titel
+  de: Titel
+  en: Title
+  es: Título
+  fr: Titre
+  gr: 'Τίτλος'
+  hu: cim
+  is: Titill
+  it: titolo
+  iw: 'כותרת'
+  ja: 'タイトル'
+  mk: 'Наслов'
+  ru: 'Заголовок'
+  se: titel
+  zh: '标题'
+title_description:
+  da: Journalens navn
+  en: Name of journal
+upload:
+  ar: 'أدخال'
+  da: Indsend
+  de: heraufladen
+  en: Upload
+  es: Cargar
+  iw: 'שליפה'
+  ja: 'アップロード'
+  ru: 'Загрузить'
+  zh: '上载'
+username:
+  ar: 'أسم المستعمل'
+  bg: 'Име на потребител'
+  da: Brugernavn
+  de: Benutzername
+  en: Username
+  es: Nombre de usuario
+  fr: Nom d'Utilisateur
+  hu: felhasznaloi nev
+  it: nome di utente
+  iw: 'שם משתמש'
+  ja: 'ユーザーネーム'
+  mk: 'Корисничко име'
+  ru: 'Имя пользователя'
+  zh: '用户名'
+username_description:
+  da: 4-16 små bogstaver og tal
+  en: 4 to 16 lowercase letters or numbers
+view:
+  da: Vis
+  en: View
+yes:
+  ar: 'نعم'
+  da: Ja
+  de: Ja
+  en: Yes
+  es: Sí
+  iw: 'כן'
+  ja: 'はい'
+  ru: 'Да'
+  zh: '是'
+yourname:
+  ar: 'أسمك'
+  da: Dit navn
+  de: Ihr Name
+  en: Your name
+  es: Su nombre
+  hu: neve, neved?
+  iw: 'השם שלך'
+  ja: 'あなたのお名前'
+  ru: 'Ваше имя'
+  zh: '你的名字'
+zh:
+  ar: 'صيني'
+  bg: 'Китайски'
+  da: Kinesisk
+  de: Chinesisch
+  en: Chinese
+  es: Chino
+  fr: Chinois
+  gr: 'Κινέζικα'
+  hu: kinai
+  is: Kínverska
+  it: cinese
+  iw: 'סיני'
+  ja: '中国語'
+  mk: 'Кинески'
+  ru: 'Китайский'
+  se: kinesiska
+  zh: '中文'
