@@ -11,6 +11,7 @@
 <%init>
 my $L = new Spoejs::Lang( $m->{session}{pref_lang} );
 my %langs = $L->lang_list();
+# XXX: Localize
 my $submit_text = 'Choose';
 
 </%init>
