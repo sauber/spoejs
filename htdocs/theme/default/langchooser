@@ -10,5 +10,5 @@
 <input type="submit" value="<&|/l&>change</&>"/>
 </form>
 <%init>
-  my %langs = $session{lang_handle}->lang_list();
+  my %langs = $session{res_handle}->lang_list();
 </%init>
