@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.17 2004/04/10 13:33:26 snicki Exp $
+%# $Id: media,v 1.18 2004/04/16 10:40:50 snicki Exp $
 %#
 <center>\
 % unless ( $no_div ) {
@@ -13,7 +13,7 @@
 <a href="<% $href %>">\
 %}
 <img src="<& /htm/url:encode, "/$spoejs{channel}/pic.$ext", d=>$ARGS{d},
-                              p=>$ARGS{p}, m=> $ARGS{m}&>" <% $html_wh
+                              p=>$ARGS{p}, m=> $size &>" <% $html_wh
 			      %> alt="<% $ARGS{p} %>" />\
 % if ( $href ) {
 </a>
@@ -26,12 +26,14 @@
 <%init>
   return unless defined $ARGS{p};
 
+  my $size = $spoejs{p}{m} || $ARGS{m};
+
   unless ( $html_wh ) {
   my $P = new Spoejs::Pic( path => "$spoejs{channel_path}/$ARGS{d}",
                            file => $ARGS{p} );
   $spoejs{error}{$m->current_comp->source_file} = $P->{msg} if $P->{msg};
 
-  $html_wh = $P->html_imgsize( size => $ARGS{m} );
+  $html_wh = $P->html_imgsize( size => $size );
 }
   my $ext;
   $ARGS{p} =~ /(...)$/ and $ext = lc $1;
