@@ -3,15 +3,25 @@ use base ( "Spoejs::Text" );
 use Digest::MD5 qw(md5_hex);
 use Data::Dumper;
 
-# $Id: ChannelConf.pm,v 1.8 2004/06/04 11:33:46 snicki Exp $
-$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.8 $';
+# $Id: ChannelConf.pm,v 1.9 2004/07/04 06:16:56 snicki Exp $
+$Spoejs::ChannelConf::VERSION = $Spoejs::ChannelConf::VERSION = '$Revision: 1.9 $';
 
 sub _initialize {
     my $self = shift;
     $self->SUPER::_initialize(@_, file => 'settings.txt' );
 }
 
-# "Intercept" and encrypt password
+# Make special processing on various attributes
+sub shortname {
+    my $self = shift;
+
+    my $sn;
+    $self->{path} =~ m|/(\w+?)/?$| and $sn = $1;
+    return $sn;
+}
+
+
+# Make special processing on various attributes
 sub set {
     my $self = shift;
     my %params = @_;
@@ -19,6 +29,12 @@ sub set {
     if ( defined $params{password} ) {
 	$params{password} = md5_hex( $params{password} );
     }
+
+    if ( defined $params{shortname} ) {
+	delete $params{shortname};
+	warn 'Setting/changing of shortname is not allowed!';
+    }
+
     $self->SUPER::set( %params );
 }
 

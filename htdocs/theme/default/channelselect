@@ -3,13 +3,13 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelselect,v 1.1 2004/05/19 11:45:51 snicki Exp $
+%# $Id: channelselect,v 1.2 2004/07/04 06:16:48 snicki Exp $
 %#
 <select name="channel">
 % my $count = 0;
 % for my $chan ( @$channels ) {
 <option value="<% $count++ %>">\
-<% $chan->get( 'shortname' ) %>\
+<% $chan->shortname() %>\
 </option>
 % }
 </select>

@@ -6,8 +6,8 @@ use LWP::UserAgent;
 use Spoejs::ChannelList;
 use Spoejs::SiteConf;
 
-# $Id: Syndication.pm,v 1.18 2004/06/22 07:59:57 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.18 $';
+# $Id: Syndication.pm,v 1.19 2004/07/04 06:16:56 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.19 $';
 
 # Constructor
 sub _initialize {
@@ -144,7 +144,7 @@ sub local_channel_newestdate_list {
 	unless ($s[0] eq undef) {
             my $story = $s[0];
             my $date = UnixDate($story->get( 'date' ), "%Y%m%d");
-	    push @sns, { shortname => $chan->get('shortname'), date => $date};
+	    push @sns, { shortname => $chan->shortname(), date => $date};
 	}
     }
     

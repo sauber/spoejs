@@ -6,8 +6,8 @@ use Date::Manip;
 use Digest::MD5 qw(md5_hex);
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.22 2004/06/04 11:42:03 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.22 $';
+# $Id: ChannelList.pm,v 1.23 2004/07/04 06:16:56 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.23 $';
 
 
 # Constructor
@@ -107,6 +107,8 @@ sub new_channel {
 
     # Create dir
     my $full_path = "$self->{path}/$params{shortname}";
+    delete $params{shortname}; #Not needed in settings file
+
     mkdir $full_path or 
 	return $self->_err( "Could not create directory " . 
 			    " $full_path: $!" );
@@ -174,7 +176,7 @@ sub newest_channels {
   @channels = ( @channels,  @authchans ) unless ( $authchans[0] eq undef );
 
   my %seen = ();
-  @channels = grep { ! $seen{$_->get('shortname')} ++ } @channels; # Uniqify
+  @channels = grep { ! $seen{$_->shortname()} ++ } @channels; # Uniqify
 
   # Sort channels by date of newest entry
   for my $c ( @channels ) {

@@ -4,7 +4,7 @@ login, authenticate, logout
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: login.html,v 1.17 2004/06/16 12:56:34 snicki Exp $
+$Id: login.html,v 1.18 2004/07/04 06:16:45 snicki Exp $
 </%doc>
 % if ( defined $session{chanauth} ) {
 %  # List authorized channels
@@ -32,7 +32,7 @@ if ( $login ) {
   @channels = () if $channels[0] eq undef;
 
   for my $c ( @channels ) {
-    my $sn = $c->get( 'shortname' );
+    my $sn = $c->shortname();
     $session{chanauth}{$sn} = 1;
   }
 

@@ -4,7 +4,7 @@ Journal management
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: journal_admin.html,v 1.1 2004/06/17 02:42:22 snicki Exp $
+$Id: journal_admin.html,v 1.2 2004/07/04 06:16:47 snicki Exp $
 </%doc>
 <& /htm/admin/site_tab.mas &>
 <br/>
@@ -17,13 +17,13 @@ $Id: journal_admin.html,v 1.1 2004/06/17 02:42:22 snicki Exp $
 </tr>
 % foreach my $chan ( @channels ) {
 <tr>
-<td><% $chan->get( 'shortname' ) %></td>
+<td><% $chan->shortname() %></td>
 <td><a href="/<% $chan->channel_dir() %>/index.html">
 <% $chan->get( 'title' ) %></a>
 </td>
 <td align="center"><% $chan->get( 'public' ) %></td>
 <td align="center">
-<select name="<% $chan->get( 'shortname' ) %>">
+<select name="<% $chan->shortname() %>">
 % for my $k ( qw( yes no_ ) ) {
 <option value="<% $k %>"\
 <% $chan->get( 'active' ) eq $k ? ' selected="selected">' : '>' %>
@@ -34,11 +34,11 @@ $Id: journal_admin.html,v 1.1 2004/06/17 02:42:22 snicki Exp $
 </td>
 %# Archive
 <td>
-<input type="submit" name="archive" value="<% $chan->get( 'shortname' ) %>"/>
+<input type="submit" name="archive" value="<% $chan->shortname() %>"/>
 </td>
 %# Delete
 <td>
-<input type="submit" name="delete" value="<% $chan->get( 'shortname' ) %>"/>
+<input type="submit" name="delete" value="<% $chan->shortname() %>"/>
 </td>
 </tr>
 % }
@@ -87,7 +87,7 @@ my @channels;
 if ( $ARGS{submit} ) {
 
   foreach my $chan ( @channels ) {
-    $chan->set( active => $ARGS{$chan->get('shortname')} );
+    $chan->set( active => $ARGS{$chan->shortname()} );
   }
 
 }
