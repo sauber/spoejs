@@ -1,52 +1,80 @@
-<en>
-  <lang=en/>English
-  <lang=da/>Engelsk
-</en>
-<da>
-  <lang=en/>Danish
-  <lang=da/>Dansk
-</da>
-<de>
-  <lang=en/>German
-</de>
-<fr>
-  <lang=en/>French
-</fr>
-<se>
-  <lang=en/>Swedish
-</se>
-<jp>
-  <lang=en/>Japanese
-</jp>
-<zh>
-  <lang=en/>Chinese
-</zh>
-<gr>
-  <lang=en/>Greece
-</gr>
 <ar>
-  <lang=en/>Arabic
+<lang=en/>Arabic
+<lang=da/>Arabisk
 </ar>
-<it>
-  <lang=en/>Italian
-</it>
-<title>
-  <lang=en/>Title
-  <lang=da/>Titel
-</title>
-<date>
-  <lang=en/>Date
-  <lang=da/>Dato
-</date>
-<posted_by>
-  <lang=en/>Posted by
-  <lang=da/>Af
-</posted_by>
+
 <category>
-  <lang=en/>Category
-  <lang=da/>Kategori
+<lang=en/>Category
+<lang=da/>Kategori
 </category>
+
 <change>
-  <lang=en/>Change
-  <lang=da/>Skift
+<lang=en/>Change
+<lang=da/>Skift
 </change>
+
+<da>
+<lang=en/>Danish
+<lang=da/>Dansk
+</da>
+
+<date>
+<lang=en/>Date
+<lang=da/>Dato
+</date>
+
+<de>
+<lang=en/>German
+<lang=da/>Tysk
+</de>
+
+<en>
+<lang=jp/>英語
+<lang=en/>English
+<lang=da/>Engelsk
+</en>
+
+<fr>
+<lang=en/>French
+<lang=da/>Fransk
+</fr>
+
+<gr>
+<lang=en/>Greece
+<lang=da/>Græsk
+</gr>
+
+<is>
+<lang=en/>Icelandic
+<lang=da/>Islandsk
+</is>
+
+<it>
+<lang=en/>Italian
+</it>
+
+<jp>
+<lang=jp/>日本語
+<lang=en/>Japanese
+<lang=da/>Japansk
+</jp>
+
+<posted_by>
+<lang=en/>Posted by
+<lang=da/>Af
+</posted_by>
+
+<se>
+<lang=en/>Swedish
+</se>
+
+<title>
+<lang=en/>Title
+<lang=da/>Titel
+</title>
+
+<zh>
+<lang=en/>Chinese
+<lang=da/>Kinesisk
+</zh>
+
