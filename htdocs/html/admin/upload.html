@@ -1,0 +1,82 @@
+<SCRIPT language="JavaScript" type="text/javascript">
+function addField ( fieldType, fieldName, onclick ) {
+  if (document.getElementById) {
+    var input = document.createElement('INPUT');
+      if (document.all) { // what follows should work 
+                          // with NN6 but doesn't in M14
+        input.type = fieldType;
+        input.name = fieldName;
+	input.onclick = onclick;
+      }
+      else if (document.getElementById) { // so here is the
+                                          // NN6 workaround
+        input.setAttribute('type', fieldType);
+        input.setAttribute('name', fieldName);
+        input.setAttribute('onclick', onclick );
+      }
+    return input;
+  }
+}
+
+function cr_table( tabbody ) {
+  var tr = document.createElement("tr");
+  var t = "cr_table( document.getElementById('tb') );"
+  var td = document.createElement("td");
+  td.appendChild( addField( 'file', 'files[]', t ) );
+  tr.appendChild(td);
+  tabbody.appendChild(tr);
+}
+</SCRIPT>
+
+<h2>File upload for <% $session{user} %></h2>
+<form name="files" method="post" action="" enctype="multipart/form-data">
+Story to add media to:<br/>
+<select name="story">
+%foreach my $story ( @stories ) {
+<option value="<% $story->story_path_from_full() %>">
+<% $story->get( 'title') %>
+(<% $story->get( 'date') %>)
+</option>
+%}
+</select>
+<br/>
+<br/>
+Media to add:<br/>
+<table>
+<tbody id="tb" width="100%"></tbody>
+</table>
+<input type="submit" name="upload" value="Upload"><br/>
+</form>
+
+<script>
+  // Add first entry
+  cr_table( document.getElementById('tb') );
+</script>
+%#<hr/>
+%#<% Dumper %ARGS %>
+%#<hr/>
+
+<%init>
+# XXX: Use different Spoejs objects for different file type
+# XXX: Check and only process handled file types
+# XXX: Store original filename somehow
+# XXX: Add support for multi-upload via zip-files
+
+my @upl;
+my $user_path = "$ENV{DOCUMENT_ROOT}/users/$session{user}";
+my $SL = new Spoejs::StoryList( path => $user_path, 
+                                lang => $spoejs{lang_handle} );
+my @stories = $SL->list_stories();
+
+if ( $ARGS{upload} ) {
+  @upl = $r->upload;
+  for ( @upl ) {
+    my $fn = $_->filename;
+    # Skip empty fields and zero-sized files
+    next if ($fn eq '' or $_->size < 1);
+    my $fh = $_->fh;
+    my $P = new Spoejs::Pic( path => "$user_path/$ARGS{story}" );
+    $P->save( $fh, $fn ) or warn $P->{msg};
+ }
+}
+</%init>
