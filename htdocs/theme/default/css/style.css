@@ -1,6 +1,5 @@
 a {
   text-decoration: none;
-  font-size: 12px;
 }
 a:link {
   color: #486591;
@@ -16,13 +15,12 @@ body {
   background-color: #ffffff;
   text-decoration: none;
   font-family: Verdana,Helvetica,sans-serif;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: normal;
 }
 font {
   text-decoration: none;
   font-family: Verdana,Helvetica,sans-serif;
-  font-size: 11px;
   font-weight: normal;
 }
 h1 {
@@ -101,12 +99,16 @@ table.tab {
 }
 
 td.tab {
+   border: outset 2px;
+   padding-left: 4px;
+   padding-right: 4px;
 }
 
 
 td.tab_marked {
-   background-color: #bbbbbb;
-}
+   border: inset 2px;
+   padding-left: 4px;
+   padding-right: 4px;}
 
 
 
