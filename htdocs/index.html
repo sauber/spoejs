@@ -3,10 +3,10 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.36 2004/05/16 12:20:03 snicki Exp $
+%# $Id: index.html,v 1.37 2004/05/16 12:23:26 snicki Exp $
 %#
 <table><tr>
-% if ( $remotes ) {
+% if ( @{$remotes} > 0 ) {
 <td width="50%" valign="top">
 %} else {
 <td width="100%" valign="top">
@@ -33,7 +33,7 @@
 <br/>
 % }
 </td>
-% if ( $remotes ) {
+% if ( @{$remotes} > 0 ) {
 <td width="50%" valign="top">
 <h1>*Journals at friend's sites</h1>
 %for my $rem ( @{$remotes} ) {
