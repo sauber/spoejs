@@ -2,8 +2,8 @@ package Spoejs::Pic;
 use Image::Size;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-# $Id: Pic.pm,v 1.6 2004/03/23 07:41:16 snicki Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.6 $';
+# $Id: Pic.pm,v 1.7 2004/03/23 07:47:12 snicki Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.7 $';
 
 # Initializor
 #
@@ -23,7 +23,7 @@ sub _initialize {
 # Get blob data from file handle and save as filename
 #
 sub save {
-  my($self,$fh,$filename) = @_;
+  my($self,$fh) = @_;
 
   $self->valid_name(); # Validate member filename
 
@@ -39,7 +39,7 @@ sub save {
 # Load file as blob reference
 #
 sub load {
-  my($self,$filename) = @_;
+  my($self) = @_;
 
   my $tmpslash = $/;
   undef $/;
