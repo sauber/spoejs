@@ -1,4 +1,4 @@
-%# $Id: index.html,v 1.4 2004/06/13 07:01:53 snicki Exp $
+%# $Id: index.html,v 1.5 2004/06/16 06:23:04 snicki Exp $
 <%args>
 $_username=>undef
 $_password=>undef
@@ -27,6 +27,8 @@ if ( ( $_username and $_password ) or ( $username and $password ) ) {
   }
 }
 </%init>
+<& /htm/header.html &>
+<body>
 % if ( $session{translator} ) {
 <p>Translate words below.
 <a href=logout.html>Logout</a>.</p>
@@ -39,3 +41,5 @@ Password: <input name="_password" type="password"/><br/>
 <input type="submit" value="Login"/>
 </form>
 % }
+</body>
+</html>
