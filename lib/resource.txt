@@ -1,28 +1,33 @@
 <ar>
 <lang=jp/>アラビア語
+<lang=gr/>Αραβικά
 <lang=en/>Arabic
 <lang=da/>Arabisk
 </ar>
 
 <bg>
 <lang=jp/>ブルガリア語
+<lang=gr/>Βουλγάρικα
 <lang=en/>Bulgarian
 </bg>
 
 <category>
 <lang=jp/>カテゴリー
+<lang=gr/>Κατηγορία
 <lang=en/>Category
 <lang=da/>Kategori
 </category>
 
 <change>
 <lang=jp/>変更
+<lang=gr/>Αλλαγή
 <lang=en/>Change
 <lang=da/>Skift
 </change>
 
 <da>
 <lang=jp/>デンマーク語
+<lang=gr/>Δανικά
 <lang=en/>Danish
 <lang=da/>Dansk
 </da>
@@ -30,77 +35,95 @@
 <date>
 <lang=jp/>日付
 <lang=is/>Dagsetning
+<lang=gr/>Ημερομηνία
 <lang=en/>Date
 <lang=da/>Dato
 </date>
 
 <de>
 <lang=jp/>ドイツ語
+<lang=gr/>Γερμανικά
 <lang=en/>German
 <lang=da/>Tysk
 </de>
 
 <en>
 <lang=jp/>英語
+<lang=gr/>Αγγλικά
 <lang=en/>English
 <lang=da/>Engelsk
 </en>
 
 <fr>
 <lang=jp/>フランス語
+<lang=gr/>Γαλλικά
 <lang=en/>French
 <lang=da/>Fransk
 </fr>
 
 <gr>
 <lang=jp/>ギリシャ語
+<lang=gr/>Ελληνικά
 <lang=en/>Greek
 <lang=da/>Græsk
 </gr>
 
 <is>
 <lang=jp/>アイスランド語
+<lang=gr/>Ισλανδικά
 <lang=en/>Icelandic
 <lang=da/>Islandsk
 </is>
 
 <it>
 <lang=jp/>イタリア語
+<lang=gr/>Ιταλικά
 <lang=en/>Italian
 </it>
 
 <jp>
 <lang=jp/>日本語
+<lang=gr/>Ιαπωνικά
 <lang=en/>Japanese
 <lang=da/>Japansk
 </jp>
 
+<mk>
+<lang=mk/>hello
+<lang=gr/>Μακεδονικά
+<lang=en/>Macedonian
+</mk>
+
 <passwd>
 <lang=jp/>パスワード
 <lang=en/>Password
-<lang=gr/>κωδικός
+<lang=gr/>Κωδικός
 </passwd>
 
 <posted_by>
 <lang=jp/>記入される
+<lang=gr/>Καταχώρηση από
 <lang=en/>Posted by
 <lang=da/>Af
 </posted_by>
 
 <se>
 <lang=jp/>スウェーデン語
+<lang=gr/>Σουηδικά
 <lang=en/>Swedish
 </se>
 
 <title>
 <lang=jp/>タイトル
 <lang=is/>Titill
+<lang=gr/>Τίτλος
 <lang=en/>Title
 <lang=da/>Titel
 </title>
 
 <zh>
 <lang=jp/>中国語
+<lang=gr/>Κινέζικα
 <lang=en/>Chinese
 <lang=da/>Kinesisk
 </zh>
