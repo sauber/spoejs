@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.27 2004/06/12 14:34:06 snicki Exp $
+%# $Id: story.html,v 1.28 2004/06/13 02:43:24 snicki Exp $
 %#
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 <& /js/confirm.js &>
@@ -68,10 +68,9 @@ Go to channel home.
 <br/>
 <br/>
 % }
-</fieldset>
-<input type="submit" name="submit" value="**submit**"/>
+<input type="submit" name="submit" value="**submit**"/>&nbsp;
 <input type="submit" name="delete" value="**delete**" onclick="return confirmSubmit()"/>
-%#
+</fieldset>
 </form>
 % if ( defined $spoejs{Story} ) {
 <h4>**media_man**:</h4>
@@ -89,19 +88,22 @@ Go to channel home.
                               d=>$story_dir &>">
 **annotations**
 </a>
-%#</div>
 </td><td valign="top">
-%#<div style="padding: 10px; float:left;">
 <&| /w, w => 'box', heading => '**click_insert_image**' &>
-<IFRAME src="<& /htm/url:encode, "/$spoejs{channel}/admin/mediapicker.html", 
+<iframe src="<& /htm/url:encode, "/$spoejs{channel}/admin/mediapicker.html", 
         d=>$story_dir &>" width="100%" height="620" frameborder="1">
 [Your user agent does not support frames or is currently configured
 not to display frames.]
-</IFRAME>
+</iframe>
 </&>
 </td></tr></table>
 </div>
 % }
+<br clear="all"/>
+<pre>
+<% Dumper $spoejs{ARGS} %>
+<% Dumper \%session %>
+</pre>
 <%init>
 my @thumb = qw( first last random always_random specific );
 my $cur_lang = $spoejs{current_language};
