@@ -4,7 +4,7 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.37 2004/07/02 14:06:55 snicki Exp $
+$Id: story.html,v 1.38 2004/07/02 15:49:36 sauber Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
@@ -80,7 +80,7 @@ if ( defined $spoejs{Story} && !$ARGS{submit} ) {
   # Join paragraphs of text
   # This is copied to mixmedia.html, consider factoring out
   for my $k ( keys %ARGS ) {
-    warn "read $k which is " . ref($ARGS{$k});
+    #warn "read $k which is " . ref($ARGS{$k});
     if ( ref($ARGS{$k}) eq "ARRAY" ) {
       $ARGS{$k} = join "\n\n", @{$ARGS{$k}};
     }
