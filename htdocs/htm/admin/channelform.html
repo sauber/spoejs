@@ -4,9 +4,13 @@ Register channel or edit configuration
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: channelform.html,v 1.40 2004/06/12 09:24:33 snicki Exp $
+$Id: channelform.html,v 1.41 2004/06/13 05:33:23 snicki Exp $
 </%doc>
-%if ( $ARGS{submit} && !$error && $spoejs{channel} ) {
+%if ( defined $ARGS{delete} ) {
+<h2>**channel_deleted**</h2>
+%return;
+% }
+%if ( defined $ARGS{submit} && !$error && $spoejs{channel} ) {
 <h2>**congrat_changes**</h2>
 <a href="/<%$ARGS{shortname}%>/index.html">**click_continue**</a>
 % } elsif ( $ARGS{submit} && !$error ) {
@@ -17,6 +21,7 @@ $Id: channelform.html,v 1.40 2004/06/12 09:24:33 snicki Exp $
 </h3>
 % } else {
 % return unless check_cred( $policy );  # Check unless authorized
+<& /js/confirm.js &>
 % unless ( defined $spoejs{channel} ) { # Are we editing existing channel
 <h2>
 **signup_newjournal**
@@ -51,7 +56,7 @@ $Id: channelform.html,v 1.40 2004/06/12 09:24:33 snicki Exp $
 <td>**journal_id**:</td>
   <td><input type="text" name="shortname" size="16" maxlength="16"/></td>
   <td class="form_desc">
- **journal_id_description** http://% $ENV{SERVER_NAME}%>/&lt;**journal_id**&gt;
+ **journal_id_description** http://<% $ENV{SERVER_NAME}%>/&lt;**journal_id**&gt;
   </td>
 </tr>
 <tr>
@@ -91,7 +96,8 @@ $Id: channelform.html,v 1.40 2004/06/12 09:24:33 snicki Exp $
 </tr>
 </table>
 <br/>
-<input type="submit" name="submit" value="**submit**"/>
+<input type="submit" name="submit" value="**submit**"/>&nbsp;
+<input type="submit" name="delete" value="**delete**" onclick="return confirmSubmit()"/>
 </form>
 </&>
 </fieldset>
@@ -139,7 +145,7 @@ if ( -d $spoejs{channel_path} && !$ARGS{submit} )
 }
 
 # Process submission
-if ( $ARGS{submit} ) {
+if ( defined $ARGS{submit} ) {
 
   # Check for errors
   $error = $m->comp( '/htm/admin/error.mas:error_check', \%ARGS, $spec, 
@@ -169,6 +175,12 @@ if ( $ARGS{submit} ) {
     my $res = $spoejs{ChannelConf}->set( %cl_args );
   }
 }
+
+if ( defined $ARGS{delete} && defined $spoejs{channel} ) {
+  my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
+  $CL->delete_channel( $spoejs{channel} ) or warn $CL->{msg};
+}
+
 </%init>
 <%perl>
 sub check_cred {
