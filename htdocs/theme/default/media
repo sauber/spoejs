@@ -3,12 +3,11 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.26 2004/05/20 10:49:40 snicki Exp $
+%# $Id: media,v 1.27 2004/05/20 13:14:31 snicki Exp $
 %#
 % unless ( $no_div ) {
 <div class="media">
 % }
-<center>
 % if ( $href ) {
 <a href="<% $href %>">\
 %}
@@ -18,7 +17,6 @@
 % if ( $href ) {
 </a>
 %}
-</center>
 %#Insert annotation here
 %my $annotation = $spoejs{Annotations}->get( $ARGS{p} ) 
 %	                                       if defined $spoejs{Annotations};
