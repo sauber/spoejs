@@ -968,6 +968,9 @@ help:
   mk: 'Помош'
   ru: 'помощь'
   zh: '帮助'
+hide:
+  da: Skjul
+  en: Hide
 home:
   da: Hjem
   de: Home
@@ -2130,6 +2133,9 @@ shortname:
   mk: 'Кратко име'
   ru: 'Сокращенное имя'
   zh: '短名'
+show:
+  da: Vis
+  en: Show
 show_story:
   da: Vis historie
   en: Show story
