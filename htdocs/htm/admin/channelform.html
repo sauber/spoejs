@@ -3,7 +3,10 @@
 <a href="/<%$ARGS{shortname}%>/index.html">Click here to continue</a>
 % } elsif ( $ARGS{submit} && keys %errs == 0 ) {
 <h2>Congratulations you are now signed up</h2>
-<a href="/<%$ARGS{shortname}%>/index.html">Click here to continue</a>
+<h3><a href="/<%$ARGS{shortname}%>/index.html">Click here to go to channel</a>
+<br/>
+<a href="/<%$ARGS{shortname}%>/admin/story.html">or here to add a new story</a>
+</h3>
 % } else {
 % return unless check_cred( $policy );
 <form method="post">
@@ -11,9 +14,7 @@
 <legend>Please fill out this form</legend>
 <table>
 % foreach my $t ( @text_f ) {
-%# Disable some controls when editing story
-% my $dis = defined $spoejs{channel} && $t eq 'shortname' ? 'disabled="disabled"' : '';
-<% form_row( $t, $t, "text", $ARGS{$t}, $errs{$t}, $dis ) %>
+<% form_row( $t, $t, "text", $ARGS{$t}, $errs{$t} ) %>
 % }
 <% form_row( "passwd", "password", "password", $ARGS{password}, $errs{password} ) %> 
 <% form_row( "passwd", "password2", "password", "", $errs{password2} ) %> 
@@ -99,12 +100,12 @@ if ( $ARGS{submit} ) {
 </%init>
 <%perl>
 sub form_row {
-  my ( $text, $name, $type, $val, $err, $dis ) = @_;
+  my ( $text, $name, $type, $val, $err ) = @_;
   $text = $m->comp( "/l", l => $text );
   return <<HTML;
 <tr>
   <td>$text:</td>
-  <td><input value="$val" type="$type" name="$name"$dis>$err</td>
+  <td><input value="$val" type="$type" name="$name">$err</td>
 </tr>
 HTML
 }
