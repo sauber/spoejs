@@ -4,7 +4,7 @@ topbar and .pm module loader
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: autohandler,v 1.31 2004/06/13 00:53:05 snicki Exp $
+$Id: autohandler,v 1.32 2004/06/13 04:59:15 snicki Exp $
 </%doc>
 <& htm/header.html &>
 <body>
@@ -46,7 +46,7 @@ $m->comp( '/htm/session/parseParams' );
 # Get hold of top-level post data, for easier use in subcomponents
 $spoejs{ARGS} = %ARGS ? \%ARGS : undef;
 
-$SIG{__WARN__} = sub { push @{$session{errors}}, $_[0] };
+#$SIG{__WARN__} = sub { push @{$session{errors}}, $_[0] };
 
 # Generate picture immediately to avoid generations of page header etc.
 $m->call_next if ( $spoejs{url_noparam} =~ /pic\.common/ );
@@ -58,4 +58,7 @@ if ( $spoejs{showtranslationoptions} eq 'yes' ) {
 }else{
   s{\*\*(\w+?)\*\*}{$spoejs{res_handle}->get( $1 )||"**$1**"}gex;
 }
+
+# Cleanup
+%spoejs = undef;
 </%filter>
