@@ -4,7 +4,7 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.32 2004/06/17 01:37:14 snicki Exp $
+$Id: story.html,v 1.33 2004/06/17 01:48:44 snicki Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
@@ -81,9 +81,12 @@ if ( defined $spoejs{Story} && !$ARGS{submit} ) {
   for ( qw( default specific ) ) {
     $checked{$_} = $_ eq $ARGS{thumbnail} ? ' checked="checked"' : '';
   }
-  unless ( $ARGS{thumbnail} eq 'default') {
+
+  if ( defined $ARGS{thumbnail} and !($ARGS{thumbnail} eq 'default')) {
     $checked_file = $ARGS{thumbnail};
     $checked{specific} = ' checked="checked"';
+  } else {
+    $checked{default} =  ' checked="checked"';
   }
 }
 
