@@ -1,5 +1,5 @@
 package Spoejs::StoryList;
-use base ( "Spoejs" );
+use base ( "Spoejs::List", "Spoejs" );
 use Spoejs::ChannelConf;
 use Spoejs::Story;
 no Carp::Assert;
@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.13 2004/03/06 06:48:42 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.13 $';
+# $Id: StoryList.pm,v 1.14 2004/03/06 09:11:37 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.14 $';
 
 sub _initialize {
     my $self = shift;
@@ -40,29 +40,27 @@ sub _initialize {
 sub _all_stories {
 
     my $self = shift;
-    my @stories;
     my $file = $self->{file};
     my $root_path = $self->{path};
 
-    use File::Find;
-    find sub {
-	my $res = $File::Find::name if /$file$/;
-	return unless $res;
-	$res =~ s/\/$file//;      #Strip filename
+    my @paths = $self->_list_from_filename( $root_path, $file );
 
-	my $S = Spoejs::Story->new( path => $res, lang => $self->{lang} );
+    my @stories;
+    for ( @paths ) {
+ 	my $S = Spoejs::Story->new( path => $_, lang => $self->{lang} );
 
-	# XXX: Why is a get() necesary here?
-	$S->get( );
+ 	# XXX: Why is a get() necesary here?
+ 	$S->get( );
 
-	push @stories, $S;
-    },
-    $root_path;
+ 	push @stories, $S;
+    }
 
     return @stories;
 };
 
 
+# Sort list of Storie objekts according to date
+#
 sub _sort_by_date {
 
     my ( $self, @stories ) = @_;
@@ -76,6 +74,7 @@ sub _sort_by_date {
 
     return @sorted_stories;
 }
+
 
 sub _ls_loop {
     my ( $self, $count, $comp, @all ) = @_;
@@ -93,6 +92,20 @@ sub _ls_loop {
     }
     return @new;
 };
+
+
+sub _dirs_in_path {
+    my ( $self, $path ) = @_;
+
+    opendir DH, "$path" or die $self->_err( "Can not open $path: $!");
+    my @res = sort { $b <=> $a }
+                       grep { -d "$path/$_" }
+                       grep !/^\./,
+                       readdir DH;
+    closedir DH;
+
+   return @res;
+}
 
 
 #### Public interface ####
@@ -114,18 +127,15 @@ sub add_story {
     $path = "$path/$year/$month";
 
     # Get counter, if exists
-    opendir DH, "$path";
-    my @current_dirs = sort { $b <=> $a }
-                       grep { -d "$path/$_" }
-                       grep !/^\./,
-                       readdir DH;
-    closedir DH;
-
+    my @current_dirs = $self->_dirs_in_path( $path );
+ 
     # Start from 0 if no dirs exist
     $current_dirs[0] ||= 0;    
 
-    return undef if $current_dirs[0] > 98;
+    # Check overflow
+    return $self->_err( "Too many stories in $path" ) if $current_dirs[0] > 98;
 
+    # Compose new path
     $new_dir = sprintf "%s/%0.2d", $path, $current_dirs[0] + 1;
 
     mkdir $new_dir;
