@@ -11,7 +11,9 @@ storytitlelist:<br/>
 <br/>
 langchooser:<br/>
 <& /w, w => "langchooser" &>
-
+% if ( $session{chanauth} ) {
+<a href="/<%$spoejs{channel}%>/admin/channelform.html">Channel configuration</a>
+% }
 %#<& debug.html &>
 <%init>
 my $CC = new Spoejs::ChannelConf( path=> $spoejs{channel_path},

@@ -1,0 +1,8 @@
+<select name="language">
+% foreach my $lang ( $spoejs{res_handle}->lang_list() ) {
+% my $sel = $session{pref_lang} eq $lang ? ' selected="selected"' : ' ';
+<option value="<% $lang %>"<% $sel %>>
+<% $spoejs{res_handle}->get( $lang ) %>
+</option>
+%}
+</select>

@@ -1,16 +1,11 @@
-%if ( $ARGS{submit} && keys %errs == 0 && !$CC ) {
+%if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2>Congratulations your changes were successful</h2>
 <a href="/<%$ARGS{shortname}%>/index.html">Click here to continue</a>
-% } elsif ( $ARGS{submit} && keys %errs == 0 && $CC) {
+% } elsif ( $ARGS{submit} && keys %errs == 0 ) {
 <h2>Congratulations you are now signed up</h2>
 <a href="/<%$ARGS{shortname}%>/index.html">Click here to continue</a>
 % } else {
-% if ( defined $spoejs{channel} ) {
-%   # We are editing current channel check if we are permitted
-%   return unless $m->comp( 'checkLogin.html' );
-% } elsif (  $policy eq 'invite' and !$session{siteauth} ) { 
-%   # New channels can be made with siteauth creds or ffa/signup policy 
-%   return; } 
+% return unless check_cred( $policy );
 <form method="post">
 <table>
 % foreach my $t ( @text_f ) {
@@ -18,6 +13,19 @@
 % }
 <% form_row( "passwd", "password", "password", $ARGS{password}, $errs{password} ) %> 
 <% form_row( "passwd", "password2", "password", "", $errs{password2} ) %> 
+<tr>
+<td>Language:</td>
+<td>
+<& /w, w => 'langselect' &>
+</td></tr>
+<tr>
+<td>Public:</td>
+<td>
+% my $yc = $ARGS{public} eq 'yes' ? ' checked="checked"' : '';
+% my $nc = $ARGS{public} eq 'no' ? ' checked="checked"' : '';
+Yes:<input type="radio" name="public" value="yes"<% $yc %>>
+No:<input type="radio" name="public" value="no"<% $nc %>>
+</td></tr>
 <tr>
   <td><input type="submit" name="submit" value="<&|/l&>submit</&>"/></td>
 </tr>
@@ -27,8 +35,8 @@
 <%init>
   # XXX: Change 'input' types for 'public', 'language' etc.
 
-my @text_f = qw ( shortname title description language theme public username );
-  my $CC;
+  my @text_f = qw ( shortname title description theme username );
+  my @non_text_f = qw( language password public );
   my %errs;
   my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
                                  lang => $spoejs{lang_handle} );
@@ -38,54 +46,44 @@ my @text_f = qw ( shortname title description language theme public username );
 if ( -d $spoejs{channel_path} && !$ARGS{submit} )
 {
   # XXX: What goes on when adding 'lang' here? (~nothing is returned in get()
-  $CC = new Spoejs::ChannelConf( path => $spoejs{channel_path} );
-                                           #, lang => $spoejs{lang_handle} );
+  my $CC = new Spoejs::ChannelConf( path => $spoejs{channel_path},
+                                    lang => $spoejs{lang_handle}
+ );
 
   %ARGS = ( %ARGS, $CC->get() );
 }
 
 if ( $ARGS{submit} ) {
 
-  # XXX: Add checks on rest of input!!!
-  unless ( $ARGS{shortname} =~ /^[a-z]{4,10}$/ ) {
-    $errs{shortname} = " Only 4-10 letters from a-z";
-  }
-  if ( -d "$ENV{DOCUMENT_ROOT}users/$ARGS{shortname}" ) {
-    $errs{shortname} = " Channel already exists";
-  }
-  unless ( $ARGS{language} =~ /^[a-z]{2}$/ ) {
-    $errs{language} = " Only 2 letters (eg. 'da' or 'en')";
-  }
-  unless ( $ARGS{public} =~ /^yes$|^no$/ ) {
-    $errs{public} = " Only yes/no";
-  }
-  unless ( $ARGS{password} eq $ARGS{password2} ) {
-    $errs{password} = $errs{password2} = " Passwords does not match";
-  }
+  check_args( \%ARGS, \%errs );
 
   # Pick appropriate args from %ARGS
   my %cl_args;
-  @cl_args{ @text_f, 'password' } = @ARGS{ @text_f, 'password' };
+  @cl_args{ @text_f, @non_text_f } = @ARGS{ @text_f, @non_text_f };
 
   # Add 'active' based on site policy
   $cl_args{active} = $policy eq 'signup' ? 'no' : 'yes';
 
   # Create new channel if there were no errors
 
-  if ( keys %errs == 0 && !$CC ) {
+  if ( keys %errs == 0 && !$spoejs{channel} ) {
 
     my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
     my $res = $CL->new_channel( %cl_args );
 
-  } elsif (  keys %errs == 0 && $CC ) {
+  } elsif (  keys %errs == 0 && $spoejs{channel} ) {
+
+    my $CC = new Spoejs::ChannelConf( path => $spoejs{channel_path},
+                                      lang => $spoejs{lang_handle} );
 
     my $res = $CC->set( %cl_args );
   }
 }
-
+</%init>
+<%perl>
 sub form_row {
   my ( $text, $name, $type, $val, $err ) = @_;
-  $text = $m->comp( "/l", l=>$text );
+  $text = $m->comp( "/l", l => $text );
   return <<HTML;
 <tr>
   <td>$text:</td>
@@ -94,4 +92,40 @@ sub form_row {
 HTML
 }
 
-</%init>
+sub check_args {
+  my ( $ARGS, $errs ) = @_;
+ 
+  # XXX: Add checks on rest of input!!!
+  unless ( $$ARGS{shortname} =~ /^[a-z]{4,10}$/ ) {
+    $$errs{shortname} = " Only 4-10 letters from a-z";
+  }
+  if ( -d "$ENV{DOCUMENT_ROOT}users/$$ARGS{shortname}" and !$spoejs{channel}) {
+    $$errs{shortname} = " Channel already exists";
+  }
+  unless ( $$ARGS{language} =~ /^[a-z]{2}$/ ) {
+    $$errs{language} = " Only 2 letters (eg. 'da' or 'en')";
+  }
+  unless ( $$ARGS{public} =~ /^yes$|^no$/ ) {
+    $$errs{public} = " Only yes/no";
+  }
+  unless ( $$ARGS{password} eq $$ARGS{password2} ) {
+    $$errs{password} = $$errs{password2} = " Passwords does not match";
+  }
+}
+
+sub check_cred {
+ my $policy = shift;
+ if ( defined $spoejs{channel} ) {
+
+   # We are editing current channel check if we are permitted
+   return undef unless $m->comp( 'checkLogin.html' );
+
+ } elsif (  $policy eq 'invite' and !$session{siteauth} ) { 
+
+   # New channels can be made with siteauth creds or ffa/signup policy 
+   return undef;
+ }
+
+  return 1; 
+}
+</%perl>
