@@ -90,6 +90,17 @@ td {
    font-size: 12px;
 }
 
+td.form_error {
+   font-size: 12px;
+   font-weight: bold;
+   color: red;
+}
+
+td.form_desc {
+   font-size: 9px;
+   color: #666666;
+}
+
 img {
     border: 0;
 }
