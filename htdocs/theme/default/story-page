@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.20 2004/04/23 06:06:14 snicki Exp $
+%# $Id: story-page,v 1.21 2004/05/17 13:52:18 snicki Exp $
 %#
 <h2><% $story_ref->get( 'title' ) %></h2>
 <&| /w, w => "box", heading => $story_ref->get( 'title' ) &>
@@ -11,13 +11,17 @@
 <% $story_ref->get( 'date' ) %>
 <br/>
 <br/>
-<&| /w, w => "box", heading => $m->comp( '/l', l => 'abstract' ) &>
+%# XXX: use below line when 'summary' is added to resource.txt
+%#<&| /w, w => "box", heading => $m->comp( '/l', l => 'summary' ) &>
+<&| /w, w => "box", heading => '*Summary*' &>
 <& /w, w => "text", text=>$story_ref->get( 'abstract' ) &>
 </&>
 <br/>
 <br/>
 % my $text = $story_ref->get( 'fulltext' );
-<&| /w, w => "box", heading => $m->comp( '/l', l => 'fulltext' ) &>
+%# XXX: use below line when 'story' is added to resource.txt
+%#<&| /w, w => "box", heading => $m->comp( '/l', l => 'story' ) &>
+<&| /w, w => "box", heading => '*Story*' &>
 <& /w, w => "text", text => $text &>
 </&>
 % unless ( $text =~ /media=/ig ) { #XXX: Consider other ways...
