@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: login,v 1.11 2004/05/19 09:35:11 bottle18 Exp $
+%# $Id: login,v 1.12 2004/06/04 08:52:41 snicki Exp $
 %#
 <form method="post" action="<%$action%>" class="topbar">
 % if ( defined $session{$ses_var} ) {
@@ -13,7 +13,7 @@
 <tr>
   <td><&|/l&>username</&>:</td>
   <td><input size="10" type="text" name="username" tabindex="1" /></td>
-  <td><input type="submit" name="login" value="<&|/l&>login</&>"/></td>
+  <td><input type="submit" name="login" value="<&|/l&>login</&>" tabindex="3"/></td>
 </tr>
 <tr>
   <td><&|/l&>passwd</&>:</td>
