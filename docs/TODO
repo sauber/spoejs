@@ -1,21 +1,20 @@
 Release 0.02 (2004-05-22) must-have's:
 --------------------------------------
 
- - Documentation
  - Mix pic+txt (done)
- - Annotations
- - Comments
  - Movie-clips (done)
+ - Syndication (Done)
+ - Documentation
  - Nice theme
  - Better navigation
- - Link list
- - (Upload of non-story html pages)
 
 
 Release 0.03 (2004-07-03) must-have's:
 --------------------------------------
 
- - Syndication
+ - Users favorite links
+ - Annotations
+ - Comments
  - Official Central Spoejs Site
  - Demo site
  - Accurate translations
@@ -50,6 +49,8 @@ ChannelList:
  - Next/prev page
  - By latest update
  - By alphabet sorted
+ - Javascript to have iframe fit content
+ - How to handle links in iframes
 
 Register:
  - Check fields for valid data
@@ -87,6 +88,9 @@ Syndication:
 Annotations:
  - Specialize ::Text
  - Component to render pictures+localized annotation
+
+StoryList:
+ - Sub channels or story-sequences.
 
 StoryAdmin:
  - Add annotations to pictures
@@ -144,6 +148,7 @@ Extras:
  - Voting
  - Picture viewing statistics
  - News mailings / rss feed
+ - Upload of non-story html pages
 
 Translator:
  - Support parameters in translations,... %1 %2 ...
