@@ -16,9 +16,11 @@ Go to channel home.
 % return; }
 
 
-<h4><&|/l&>edit_lang</&>: <&|/l&><% $cur_lang %></&></h4>
+<h3><&|/l&>edit_lang</&>: <&|/l&><% $cur_lang %></&></h3>
 
 <form action="" method="post">
+<table width="500"><tr><td>
+<fieldset><legend>Please fill out this form:</legend>
 <&|/l&>yourname</&>:<br/>
 <input type="text" size="60" name="author" value="<%$ARGS{author}%>"/><br/>
 <&|/l&>storytitle</&>:<br/>
@@ -60,8 +62,10 @@ cols="60"><%$ARGS{fulltext}%></textarea>
 <br/>
 <br/>
 % }
+</fieldset>
 <input type="submit" name="submit" value="<&|/l&>submit</&>"/>
 <input type="submit" name="delete" value="<&|/l&>delete</&>"/>
+</td></tr></table>
 </form>
 % if ( $story_dir ) {
 <h4><&|/l&>media_man</&>:</h4>

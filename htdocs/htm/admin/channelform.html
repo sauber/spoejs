@@ -7,9 +7,13 @@
 % } else {
 % return unless check_cred( $policy );
 <form method="post">
-<table>
+<fieldset>
+<legend>Please fill out this form</legend>
+<table width="50%">
 % foreach my $t ( @text_f ) {
-<% form_row( $t, $t, "text", $ARGS{$t}, $errs{$t} ) %>
+%# Disable some controls when editing story
+% my $dis = defined $spoejs{channel} && $t eq 'shortname' ? 'disabled="disabled"' : '';
+<% form_row( $t, $t, "text", $ARGS{$t}, $errs{$t}, $dis ) %>
 % }
 <% form_row( "passwd", "password", "password", $ARGS{password}, $errs{password} ) %> 
 <% form_row( "passwd", "password2", "password", "", $errs{password2} ) %> 
@@ -27,9 +31,11 @@ Yes:<input type="radio" name="public" value="yes"<% $yc %>>
 No:<input type="radio" name="public" value="no"<% $nc %>>
 </td></tr>
 <tr>
-  <td><input type="submit" name="submit" value="<&|/l&>submit</&>"/></td>
+  <td><input type="submit" name="submit" value="<&|/l&>submit</&>"/>
+</td>
 </tr>
 </table>
+</fieldset>
 </form>
 %}
 <%init>
@@ -95,12 +101,12 @@ if ( $ARGS{submit} ) {
 </%init>
 <%perl>
 sub form_row {
-  my ( $text, $name, $type, $val, $err ) = @_;
+  my ( $text, $name, $type, $val, $err, $dis ) = @_;
   $text = $m->comp( "/l", l => $text );
   return <<HTML;
 <tr>
   <td>$text:</td>
-  <td><input value="$val" type="$type" name="$name">$err</td>
+  <td><input value="$val" type="$type" name="$name"$dis>$err</td>
 </tr>
 HTML
 }

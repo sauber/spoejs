@@ -1,19 +1,23 @@
 % return unless $m->comp( 'checkLogin.html' );
-<SCRIPT language="JavaScript" type="text/javascript">
-function addField ( fieldType, fieldName, onclick ) {
+<& /jscript/detectua.js &>
+<script language="JavaScript" type="text/javascript">
+
+function cr_filefield ( ) {
   if (document.getElementById) {
     var input = document.createElement('INPUT');
-      if (document.all) { // what follows should work 
+      if (is_ie4up) { // what follows should work 
                           // with NN6 but doesn't in M14
-        input.type = fieldType;
-        input.name = fieldName;
-	input.onclick = onclick;
+        var onclk = 'cr_table( document.all.tb );';
+        input.type = 'file';
+        input.name = 'files[]';
+	input.onclick = onclk;
       }
-      else if (document.getElementById) { // so here is the
+      else if (is_nav4up) { // so here is the
                                           // NN6 workaround
-        input.setAttribute('type', fieldType);
-        input.setAttribute('name', fieldName);
-        input.setAttribute('onclick', onclick );
+  var onclk = 'cr_table( document.getElementById("tb") );';
+        input.setAttribute('type', 'file');
+        input.setAttribute('name', 'files[]');
+        input.setAttribute('onclick', onclk );
       }
     return input;
   }
@@ -21,13 +25,12 @@ function addField ( fieldType, fieldName, onclick ) {
 
 function cr_table( tabbody ) {
   var tr = document.createElement("tr");
-  var t = "cr_table( document.getElementById(\'tb\') );";
   var td = document.createElement("td");
-  td.appendChild( addField( 'file', 'files[]', t ) );
+  td.appendChild( cr_filefield( ) );
   tr.appendChild(td);
   tabbody.appendChild(tr);
 }
-</SCRIPT>
+</script>
 
 <h2>File upload for channel: <% $spoejs{channel} %></h2>
 <form name="files" method="post" action="" enctype="multipart/form-data">
@@ -50,7 +53,8 @@ Media to add:<br/>
 <table>
 <tbody id="tb" width="100%"></tbody>
 </table>
-<input type="submit" name="upload" value="Upload"><br/>
+<input type="submit" name="upload" value="Upload">
+<input type="button" onclick='cr_table( document.getElementById("tb") );' value="Add field"/>
 </form>
 
 % if ($params{d}) {
