@@ -5,7 +5,11 @@ use Spoejs::Story;
 no Carp::Assert;
 use Date::Manip;
 use File::Path;
+
 use Data::Dumper;
+
+# ToDo:
+# 1. Avoid sorting by Story::date() for all stories in 'count' limited lists
 
 # Dir format yyyy/mm/## width ## 01-99 incrementing by 1 for each story.
 #
@@ -18,8 +22,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.3 2004/02/28 00:55:46 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.3 $';
+# $Id: StoryList.pm,v 1.4 2004/02/28 04:57:02 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.4 $';
 
 sub _initialize {
     my $self = shift;
@@ -67,6 +71,23 @@ my $all_by_date = sub {
     return @sorted_stories;
 };
 
+
+my $by_keyword = sub {
+    my $self = shift;
+    my %input = @_;
+
+
+    my $switch = { 'category' => sub { print "cat: " . $input{'category'} . "\n"; }, 
+ 		   'author' => sub { print "auth: ". $input{'author'} . "\n"; }, 
+# 		   'y' => sub { print ""; },
+# 		   'q' => sub { exit; } 
+};
+
+    my @cat = keys %input;
+    $$switch{$cat[0]}(); # Call the anon. sub
+
+    
+};
 
 
 #### Public interface ####
@@ -127,26 +148,114 @@ sub count_stories {
     my $self = shift;
     my %in = @_;
 
-#    $self->$count_by_xxx() if ( $in{by} =~ /\w+/ );
+#    $self->$count_by_category() if ( $in{by} eq 'category' );
 
 }
 
-
+# List stories based on given keywords
+# Overall ideas is to get full list and remove based on given criterias
+#
 sub list_stories {
 
     my $self = shift;
     my %in = @_;
+    my @res;
 
-    # Return all stories if no arguments given
-    return $self->$all_by_date() if ( @_ < 1 );
+    # Extract count if given; undef for all stories
+    $list_count = $in{count} || undef;
+    delete $in{count};
 
+    # Get story array
+    @res = $self->$all_by_date();
+
+    # Return all stories if no keyword/story is given
+    if ( keys %in == 0 ){ }
+
+    # Handle 'story' separately
+    # XXX: Terribly in need of refactoring!
+    if ( $in{story} ) {
+	my $story_dir = $in{story};
+	$story_dir =~ s/\///g;
+
+	my @new;
+	if ( $in{'prev'} ) {
+	    my $count = $in{'prev'};
+
+	    foreach $story ( @res ) {
+		# XXX: make story_path function call in Story
+		my $path = $story->{story_path};
+		$path =~ s/\///g;
+
+		if ( $path < $story_dir ) {
+		    push @new, $story;
+		    last if --$count <= 0;
+		}
+	    }
+
+	    @res = @new;
+
+	} elsif ( $in{'next'} ) {
+	    my $count = $in{'next'};
+
+	    foreach $story ( reverse @res ) {
+		# XXX: make story_path function call in Story
+		my $path = $story->{story_path};
+		$path =~ s/\///g;
+
+		if ( $path > $story_dir ) {
+		    push @new, $story;
+		    last if --$count <= 0;
+		}
+	    }
+
+	    @res = reverse @new;
+	}
+
+
+	delete $in{'story'};
+	delete $in{'prev'};
+	delete $in{'next'};
+    } 
+
+    # Handle "from-to" date range separately    
+    if ( $in{from} or $in{to} ) {
+	my $from = $in{from} || 0;
+	$from =~ s/\///g;
+	# What happens after 99 stories in december 9999?
+	my $to = $in{to} || 99991299;
+	$to =~ s/\///g;
+
+	my @new;
+	foreach $story ( @res ) {
+	    # XXX: make story_path function call in Story
+	    my $path = $story->{story_path};
+	    $path =~ s/\///g;
+
+	    push @new, $story if $path > $from and $path < $to; 
+	}
+
+	@res = @new;
+
+	delete $in{from};
+	delete $in{to};
+    } 
+
+    if ( keys %in > 0 ) {
+	# Filter by keyword, if given
+	my @kw = keys %in;
+	my $kw = $kw[0];
+
+	my @new;
+	foreach $story ( @res ) {
+	    my %story_kw = $story->get( $kw );
+	    push @new, $story if ( $story_kw{$kw} eq $in{$kw} );
+	}
+
+	@res = @new;	
+    }
+
+    # Shrink array to 'count' elements
+    $#res = $list_count - 1 if $list_count and @res > $list_count;
+
+    return @res;
 }
-
-
-### Switch
-#     my $switch = { 'category' => sub { print "cat"; }, 
-# 		   'author' => sub { print "auth"; }, 
-# 		   'y' => sub { print ""; },
-# 		   'q' => sub { exit; } };
-    
-#     $$switch{$_}(); # Call the anon. sub
