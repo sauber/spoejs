@@ -1,6 +1,6 @@
 <img src="\
-<& /htm/url:encode, "/$spoejs{channel}/pic.jpg", d => $d, m=> $size, p=>$img->{file} &>\
-"/>\
+<& /htm/url:encode, "/$spoejs{channel}/pic.jpg", d => $d, m=> $size,
+p=>$img->{file} &>" <% $img->html_imgsize( size => $size ) %>"/>\
 <%init>
   my $path = $spoejs{channel_path} . "/" .$d;
   my $ML = new Spoejs::MediaList( path => $path );
