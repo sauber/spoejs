@@ -137,7 +137,7 @@
 <lang=se/>italiansk
 </it>
 
-<jp>
+<ja>
 <lang=bg/>Iaponski
 <lang=da/>Japansk
 <lang=en/>Japanese
@@ -146,7 +146,7 @@
 <lang=ja/>日本語
 <lang=mk/>Јапонски
 <lang=se/>japanska
-</jp>
+</ja>
 
 <language>
 <lang=en/>Language
