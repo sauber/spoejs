@@ -1,6 +1,6 @@
 <img src="<& /htm/url:encode, "/$spoejs{channel}/pic.$ext", d=>$ARGS{d},
-                              p=>$ARGS{p}, m=> $ARGS{m}&>" 
-<% $P->html_imgsize( size => $ARGS{m} ) %>/>
+                              p=>$ARGS{p}, m=> $ARGS{m}&>" \
+<% $P->html_imgsize( size => $ARGS{m} ) %>/>\
 <%init>
   my $P = new Spoejs::Pic( path => "$spoejs{channel_path}/$ARGS{d}",
                            file => $ARGS{p} );

@@ -1,5 +1,5 @@
 % # This module encodes and decodes url's
-% # $Id: url,v 1.2 2004/03/27 13:38:00 snicki Exp $
+% # $Id: url,v 1.3 2004/04/01 08:43:26 sauber Exp $
 % # Encode and decode url
 % #
 <%shared>
@@ -14,7 +14,7 @@
 	DAMP => 40,
  );
 </%shared>
-<%method encode>
+<%method encode>\
 <%perl>
   my($link,%options) = @_;
   my($r,$k,$v);
