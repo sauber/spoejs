@@ -1,10 +1,11 @@
-%# title, icon, indexthumb, etc. for a story
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: abstract,v 1.31 2004/08/05 10:00:38 snicki Exp $
-%#
+<%doc>
+title, icon, indexthumb, etc. for a story
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: abstract,v 1.32 2004/08/08 16:01:48 snicki Exp $
+</%doc>
 <h3><% $title %></h3>
 <br/>
 <div class="left">

@@ -1,10 +1,11 @@
-%# generate data for abstract
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: abstract.sub,v 1.8 2004/08/05 10:15:25 snicki Exp $
-%#
+<%doc>
+generate data for abstract
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: abstract.sub,v 1.9 2004/08/08 16:01:48 snicki Exp $
+</%doc>
 <& $w,
    title      => $storyref->get( 'title' ),
    author     => $storyref->get( 'author' ),
@@ -18,30 +19,33 @@
    thumb_file => $thumb_fn,
 &>
 <%init>
-  my $author = $storyref->get( 'author' );
-  my $path = $storyref->story_path_from_full();
-  my $story_href = $m->scomp( '/htm/url:encode',
-			      "/$spoejs{channel}/story.html",
-			      d => $path
-			    );
-  my $edit_href; 
-  if ( $session{chanauth} && $spoejs{channel} && 
-       $session{chanauth}{$spoejs{channel}}) {
-    $edit_href = $m->scomp( '/htm/url:encode',
-			    "/$spoejs{channel}/admin/story.html", d => $path );
-  }
+my $author = $storyref->get( 'author' );
+my $path = $storyref->story_path_from_full();
+my $story_href = $m->scomp( '/htm/url:encode',
+			    "/$spoejs{channel}/story.html",
+			    d => $path
+			  );
+my $edit_href; 
+if ( $session{chanauth} && $spoejs{channel} && 
+     $session{chanauth}{$spoejs{channel}}) {
+  $edit_href = $m->scomp( '/htm/url:encode',
+			  "/$spoejs{channel}/admin/story.html", d => $path );
+}
 
-  # Thumbnail
+# Thumbnail
+my $thumb_fn;
+if ( $storyref->{ML}->get() ) {
+
   my $type = $storyref->get( 'thumbnail' );
 
   # Get default from channelconf
   if ( !$type or $type eq 'default' ) {
     $type = $spoejs{ChannelConf}->get( 'thumbnail' );
   }
+
   my $img  = $storyref->{ML}->get( $type );
-  my $thumb_fn;
   $thumb_fn = $type eq 'random' ? 'ANY' : $img->{file};
-  $thumb_fn = undef unless $storyref->{ML}->get();
+}
 </%init>
 <%args>
  $storyref => undef
