@@ -4,7 +4,7 @@ Show scaled picture or movie
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: media.sub,v 1.4 2004/08/12 12:59:14 snicki Exp $
+$Id: media.sub,v 1.5 2004/08/31 01:17:18 sauber Exp $
 </%doc>
 <& $w,
  href          => $href,
@@ -42,7 +42,7 @@ unless ( $html_wh or $ARGS{p} eq 'ANY' ) {
 
   # Find correct extension, ANY is specialcase, and always jpg
   my $ext;
-  $ARGS{p} =~ /(...)$/ and $ext = lc $1;
+  $ARGS{p} =~ /\.(.*?)$/ and $ext = lc $1;
   $ext = 'jpg' if $ARGS{p} eq 'ANY';
 
   # Get annotation
