@@ -32,7 +32,7 @@ $T->set( %data ) or die $T->{msg};
 $T->set( abstract => { en => "Something funny about handball" } );
 
 # Add single entry
-$T->set( single_test => { en => "value", dk => "vaerdi" } );
+#$T->set( single_test => "value" );
 
 # Get something back
 %data1 = $T->get( "abstract", "date" ) or die $T->{msg};
@@ -47,4 +47,4 @@ print "subset: \n" . Dumper(%data1);
 print "\n\nfull: \n" . Dumper(%data2);
 
 # Cleanup
-$T->del();
+#$T->del();

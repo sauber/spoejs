@@ -6,11 +6,11 @@ if ( $login ) {
   my @channels = $CL->search_channels( username => $username,
 	                               password => $password );
 
-  $session{logged_in} = 1 if @channels > 0;
+  $session{chanauth} = 1 if @channels > 0;
 
 } elsif ( $logout ) {
 
-  delete $session{logged_in};
+  delete $session{chanauth};
 }
 
 $m->redirect( $ENV{HTTP_REFERER} );

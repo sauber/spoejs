@@ -36,7 +36,7 @@ sub spoejs_setup {
 
   # Set language object
   $spoejs{lang_handle} = new Spoejs::Lang( lang_order =>
-                         [ $session{pref_lang}, @{ $session{browser_langs} }, 'en' ] );
+                 [ $session{pref_lang}, @{ $session{browser_langs} }, 'en' ] );
 
   # Set resource object
   $spoejs{res_handle} = new Spoejs::Resource( lang => $spoejs{lang_handle} );

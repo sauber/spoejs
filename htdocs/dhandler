@@ -1,9 +1,9 @@
 %# Handle nonhtml-users (less than 4 or more than 10 chars) calls specially
 % if ( length $path < 4 or length $path > 10 ) {
-<& "/html/$path", params => \%P &>
+<& "/html/$path", params => \%P, %ARGS &>
 %# If requested page exists call it with given params; else show error
 % } elsif ( -e "${doc_root}/$url_noparam" ) {
-<& "/html/$url_noparam", params => \%P &>
+<& "/html/$url_noparam", params => \%P, %ARGS &>
 % } else {
 <& "/html/error.html" &>
 % }
@@ -17,6 +17,7 @@ if ( 1 ) {
   use Spoejs::StoryList;
   use Spoejs::Resource;
   use Spoejs::Icon;
+  use Spoejs::SiteConf;
 }
 
   my $doc_root =  "$ENV{DOCUMENT_ROOT}html";
