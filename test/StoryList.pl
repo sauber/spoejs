@@ -14,7 +14,7 @@ $SL->del_story( story => $dir );
 
 my @all_stories = $SL->list_stories();
 print "All stories:\n";
-print $_->date(), "\n" for @all_stories;
+print $_->get( 'date' ), "\n" for @all_stories;
 
 @count_stories = $SL->list_stories( count => 3 );
 print "'count' stories:\n";
@@ -39,3 +39,4 @@ print $_->date(), "\n" for @next_stories;
 my %counts = $SL->count_stories( by => 'category' );
 print "Counts:\n";
 print Dumper( %counts );
+
