@@ -12,8 +12,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.27 2004/08/13 06:32:55 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.27 $';
+# $Id: Media.pm,v 1.28 2004/08/14 07:48:27 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.28 $';
 
 
 # Initializor
@@ -128,8 +128,6 @@ sub scale {
   my($blob);
   unless ( $self->{_im} ) {
     $self->_blob_to_im();
-#    $self->{_im} = Image::Magick->new();
-#    $self->{_im}->BlobToImage($self->{_blob});
     $blob = not undef;
   }
 
@@ -137,6 +135,11 @@ sub scale {
   my($x,$y) = $self->_scaledxy($w,$h,$m);
   return $self->_err( "Got zero width or height" ) if $x == 0 or $y == 0;
   $self->{_im}->Scale(width=>$x,height=>$y);
+
+  # After scaling these filters could be applied.
+  #$self->{_im}->Normalize();
+  #$self->{_im}->Equalize();
+  #$self->{_im}->Sharpen();
 
   # Convert back to blob?
   if ( $blob ) {
