@@ -15,21 +15,7 @@
 ==>
 % }
 </center>
-<%init>
-my @all = $list_ref->list();
-my %opt = ( count => $count, start => $start, end => $#all );
-my @cmp = ( "/htm/url:encode", $url );
-push @cmp, (d => $spoejs{p}{d}) if defined $spoejs{p}{d};
-
-my $ps = $list_ref->prev( %opt );
-my $prev_href = $m->scomp( @cmp, s => $ps ) if defined $ps;
-
-my $ns = $list_ref->next( %opt );
-my $next_href = $m->scomp( @cmp, s => $ns ) if defined $ns;
-</%init>
 <%args>
-  $count      => undef
-  $start      => 0
-  $url        => undef
-  $list_ref   => undef
+  $next_href => undef
+  $prev_href => undef
 </%args>
