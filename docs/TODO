@@ -15,8 +15,8 @@ Release 0.03 (2004-07-03) must-have's:
 
  - Nice theme
  - Users favorite links
- - Annotations
- - Comments
+ - Annotations (done)
+ - Comments (done)
  - Official Central Spoejs Site
  - Demo site
  - Accurate translations
@@ -41,25 +41,15 @@ Data:
  - File locks (write lock at first value update)
  - Undo, revisions
  - Normalize UTF8 (get out of bytemode first)
- - Avoid to show stack trace on syntax error in ::Text
+ - Handle YAML errors
  - Userdefined fields (location, people...)
  - Deal with paragraphs in ::Text instead of mason
- - Remove shortname from settings.txt
- - year/month dir must be corrected when changing date
-
-Channelconf:
- - default intro thumbnail select algorithm (first/random...)
- - After signup, show journalconf tabs
- - Bug: Changing journal conf causes "Invalid Journal-ID" error.
 
 ChannelList:
  - Complete content page
  - By latest update
  - By alphabet sorted
  - List of remote sites
-
-Register:
- - free-for-all/submit-confirm => include humantest
 
 Session:
  - Session component to avoid masonhandler code
@@ -82,12 +72,10 @@ Syndication:
  - None-spoejs syndication (html code to syndicate intro)
  - move latest.html into htm/
 
-Annotations:
- - BUG: Caching media output prevents viewing recent annotation edits
-
 Comments:
  - Journal owner can delete comments
  - Nicer design for displaying comments
+ - Display number of comments in intro
 
 Story:
  - Show big instead of thumb if only one media for story
@@ -95,14 +83,11 @@ Story:
 StoryList:
  - Sub channels or story-sequences.
  - ==> in storytitlelist should skip two pages ahead
- - When clicking thumb show story instead of bigger picture
  - Make clicks on icons work
  - Ensure that stories only are stored in valid paths eg( /\w+/\d\d\d\d/\d\d/\d\d// )
 
 StoryAdmin:
- - Del story with confirm/warning
  - Revise Write in more languages (only copy changed fields)
- - Active/inactive story
  - Support Media=* anywhere in story
  - Media=* at end.
  - Store GMT unixtime as well as user-entered date string
@@ -110,12 +95,10 @@ StoryAdmin:
  - Or something to handle dates better
  - Perhaps verify page after submit
  - Bug: Stack trace on invalid date
- - Use journalownername for new story when logged in
 
 SiteConf:
  - Paths, theme, lang
  - Quota
- - Change pw for user
  - Limitting possible _m values
  - Default settings.txt from empty
  - Only store in en language
@@ -123,16 +106,12 @@ SiteConf:
  - Site conf tabs
  - Siteconf link in topbar if admin is logged in
  - Unarchive
- - After first save, show Story Edit Tabs
 
 Navigation:
  - StoryList
-    - next/prev story
     - by month/year
  - Slideshow
- - Bug: http://server/user/ doesn't work. Only works with /index.html
  - On intro, only Show link if fulltext or media exist
- - Story page need 'Up' link back to index page where story appear
 
 Media:
  - Crop, rotate, brightness, compress
@@ -141,13 +120,11 @@ Media:
  - ML->ignore( @ml ) for media=* functionality
  - Different sizes for inline and not inline album
  - media page should have themable picture size
- - Bug: broken ANY thumb shows on stories without media
  - Bug: On inline pages, all media appear twice
  - Support movie clips in zip files
 
 Icons:
  - pregenerated icons (fx party)
- - fix utf8 icons
 
 Extras:
  - Calendar
