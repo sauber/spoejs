@@ -6,8 +6,8 @@ use LWP::UserAgent;
 use Spoejs::ChannelList;
 use Spoejs::SiteConf;
 
-# $Id: Syndication.pm,v 1.15 2004/05/16 12:30:37 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.15 $';
+# $Id: Syndication.pm,v 1.16 2004/05/16 12:37:26 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.16 $';
 
 # Constructor
 sub _initialize {
@@ -54,6 +54,7 @@ sub _parse_remote_list {
     my @sname_dates;
     my @lines = split /\n/, $list;
     for my $line ( @lines ) {
+	next unless $line =~ /^(\w+);(\d+)$/;
 	my ($sname, $date) = split /;/, $line;
         push @sname_dates, 
             { url => $url, shortname => $sname, date => $date };
