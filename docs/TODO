@@ -85,6 +85,7 @@ Media:
  - Scale
  - Single frame of movie
  - Crop, rotate, brightness, compress
+ - /chan/story/pic_m150.jpg url
  - utf8 filenames
  - Delete
 
