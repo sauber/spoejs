@@ -22,8 +22,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.11 2004/03/04 11:43:52 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.11 $';
+# $Id: StoryList.pm,v 1.12 2004/03/06 02:08:22 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.12 $';
 
 sub _initialize {
     my $self = shift;
@@ -45,7 +45,7 @@ sub _all_by_date {
 
     use File::Find;
     find sub {
-	my $res = $File::Find::name if /$file/;
+	my $res = $File::Find::name if /$file$/;
 	return unless $res;
 	$res =~ s/\/$file//;      #Strip filename
 
