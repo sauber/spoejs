@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media-page,v 1.8 2004/06/12 02:44:51 snicki Exp $
+%# $Id: media-page,v 1.9 2004/06/12 03:39:44 snicki Exp $
 %#
 <h2><% $S->get( 'title' ) %></h2>
 <center>
@@ -14,9 +14,7 @@
 </&>
 <br/>
 <br/>
-<&| /w, w => 'box', heading => '**comments**' &>
-<& /w, w => 'comments' &>
-</&>
+<& /w, w => 'comments', box => 1 &>
 <br/>
 <& /w, w => 'navi', %navi_opt &>
 </center>
