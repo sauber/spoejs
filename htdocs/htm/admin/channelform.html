@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.35 2004/05/20 08:08:26 snicki Exp $
+%# $Id: channelform.html,v 1.36 2004/06/04 07:30:41 snicki Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2><&|/l&>congrat_changes</&></h2>
@@ -88,7 +88,7 @@ $errs{password}, 16) %>
 </form>
 %}
 <%init>
-  my $cur_lang = $spoejs{lang_handle}->{lang_order}->[0];
+  my $cur_lang = $spoejs{current_language};
 
   my @text_f = qw ( username shortname title description );
   my @non_text_f = qw( language password public );
