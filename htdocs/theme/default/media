@@ -4,7 +4,8 @@
 <a href="<% $href %>">\
 %}
 <img src="<& /htm/url:encode, "/$spoejs{channel}/pic.$ext", d=>$ARGS{d},
-                              p=>$ARGS{p}, m=> $ARGS{m}&>" <% $html_wh %>>\
+                              p=>$ARGS{p}, m=> $ARGS{m}&>" <% $html_wh
+			      %> alt="<% $ARGS{p} %>" />\
 % if ( $href ) {
 </a>
 %}

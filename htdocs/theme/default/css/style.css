@@ -90,10 +90,6 @@ li {
    font-size: 14px;
 }
 
-div.weather {
- 	position: relative; 
-	left: -15px;
-}
 div.media {
   float:left;
   min-height: 150px;
@@ -115,8 +111,6 @@ div.bottom {
   margin-top: 70%;
 }
 fieldset {
-#  margin: 0 90% 0 0%;
-#  width: 0%;
   padding: 1em .5em .5em .5em;
   border: 1px solid #000000;
 }
