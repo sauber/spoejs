@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: siteconfig.html,v 1.7 2004/04/09 21:13:39 bottle18 Exp $
+%# $Id: siteconfig.html,v 1.8 2004/04/10 02:11:25 snicki Exp $
 %#
 <h1><&|/l&>statuschannel</&>:</h1>
 <& /w, w => "login", action => '', ses_var => 'siteauth' &>
@@ -23,10 +23,11 @@
 <td align="center"><% $chan->get( 'public' ) %></td>
 <td align="center">
 <select name="<% $chan->get( 'shortname' ) %>">
-% while ( my ( $k, $v ) = each %yn ) {
+%# while ( my ( $k, $v ) = each %yn ) {
+% for my $k ( qw( yes no ) ) {
 <option value="<% $k %>"\
 <% $chan->get( 'active' ) eq $k ? ' selected="selected">' : '>' %>
-<%$v %>
+<&|/l&><% $k %></&>
 </option>
 % }
 </select>
@@ -45,10 +46,10 @@
 <br/>
 <&|/l&>sitepolicy</&>:
 <select name="policy">
-% foreach my $pol ( sort keys %policy ) {
+% foreach my $pol ( @policy ) {
  <option value="<% $pol %>"\
 <% $SC->get( 'policy' ) eq $pol ? ' selected="selected">' : '>' %>\
-<%$policy{$pol}%></option>
+<&|/l&><%$pol%></&></option>
 % }
 </select>
 <br/>
@@ -71,11 +72,7 @@
 <&|/l&>addnewchannel</&>
 </a>
 <%init>
-
-my %yn = ( yes => 'Yes', no => 'No' );
-
-my %policy = ( ffa => 'Free All', signup => 'Signup Aprrove',
-               invite => 'Invite Only' );
+my @policy = qw( freeall signup_approve inviteonly );
 
 my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
                                lang => $spoejs{lang_handle} );

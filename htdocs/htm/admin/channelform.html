@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.18 2004/04/09 21:13:39 bottle18 Exp $
+%# $Id: channelform.html,v 1.19 2004/04/10 02:11:25 snicki Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2><&|/l&>congrat_changes</&></h2>
@@ -79,7 +79,7 @@ if ( $ARGS{submit} ) {
   $cl_args{shortname} = $ARGS{shortname};
 
   # Add 'active' based on site policy
-  $cl_args{active} = $policy eq 'signup' ? 'no' : 'yes';
+  $cl_args{active} = $policy eq 'signup_approve' ? 'no' : 'yes';
 
   # Create new channel if there were no errors
 
@@ -145,9 +145,9 @@ sub check_cred {
    # We are editing current channel check if we are permitted
    return undef unless $m->comp( 'checkLogin.html' );
 
- } elsif (  $policy eq 'invite' and !$session{siteauth} ) {
+ } elsif (  $policy eq 'inviteonly' and !$session{siteauth} ) {
 
-   # New channels can be made with siteauth creds or ffa/signup policy 
+   # New channels can be made with siteauth creds or freall/signup_approve pol.
    return undef;
  }
 

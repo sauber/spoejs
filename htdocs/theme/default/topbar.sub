@@ -19,7 +19,7 @@ if ( defined $spoejs{p}{d} and defined $spoejs{channel} ) {
 }
 
 my $signup_href;
-if ( ( $policy eq 'ffa' or $policy eq 'signup') and 
+if ( ( $policy eq 'freeall' or $policy eq 'signup_approve') and 
      !defined $spoejs{channel} ) {
   $signup_href = "/htm/admin/signup.html";
 }
