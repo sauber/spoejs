@@ -15,9 +15,10 @@ Revision history for Spoejs.
   - Tabbed configuration pages for site, journal and story
   - Picture rotation
   - Stories active/inactive
+  - Media info and Access stats
   Bug fixes:
   - Wording changes: Channel->Journal
-  - Maxside->diagonal for scaling media
+  - Maxside->sum-of-sides for scaling media
   - Encrypted passwords
   - Sorting by date
   - Change date of story
