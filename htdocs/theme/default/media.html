@@ -1,0 +1,37 @@
+<center>
+<h4><% $S->get( 'title' ) %></h4>
+<fieldset>
+<legend><% $filename %></legend>
+<a href="<% $img_href %>">
+<% $img_src %>
+</a>
+</fieldset>
+<br/>
+% if ( $prev_href ) {
+<a href="<% $prev_href %>">
+<==
+</a>
+% } else {
+<==
+% }
+==
+% if ( $next_href ) {
+<a href="<% $next_href %>">
+==>
+</a>
+% } else {
+==>
+% }
+</center>
+<a href="<% $back_href %>">Back to story</a>
+<%args>
+  $ML        => undef
+  $S         => undef
+  $back_href => undef
+  $next_href => undef
+  $prev_href => undef
+  $img_href  => undef
+  $img_src   => undef
+  $filename  => undef
+%params => undef
+</%args>

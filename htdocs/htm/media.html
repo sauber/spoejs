@@ -1,40 +1,42 @@
-<center>
-<h4><% $S->get( 'title' ) %></h4>
-% my $picref = $ML->get_picref($params{p}) 
-%                or $spoejs{error}{$m->current_comp->source_file} = $ML->{msg};
-Filename: <% $picref->utf_filename() %><br/>
-<a href="<% "$web_path/$params{p}" %>">
-<& /w, w => "media", d => $params{d}, p => $params{p}, m => 480 &>
-</a>
-<br/>
-% if (  $ML->prev( $params{p} ) ) {
-<a href="<& url:encode, "media.html", d=>$params{d}, p=> $ML->prev( $params{p} ) &>">
-<==
-</a>
-% } else {
-<==
-% }
-==
-% if (  $ML->next( $params{p} ) ) {
-<a href="<& url:encode, "media.html", d=>$params{d}, p=> $ML->next( $params{p} ) &>">
-==>
-</a>
-% } else {
-==>
-% }
-</center>
-<a href="<& url:encode, 'story.html', d => $params{d} &>">
-Back to story
-</a>
+<& /w, w => 'media.html',
+      ML => $ML,
+      S  => $S,
+      back_href => $back_href,
+      next_href => $next_href,
+      prev_href => $prev_href,
+      img_href  => $img_href,
+      img_src  => $img_src,
+      filename  => $filename,
+      params => \%params
+&>
 <%init>
-  my $web_path = "/users/$spoejs{channel}/$params{d}";
-  my $path = "$ENV{DOCUMENT_ROOT}$web_path";
+my $web_path = "/users/$spoejs{channel}/$params{d}";
+my $path = "$ENV{DOCUMENT_ROOT}$web_path";
 
-  my $ML = new Spoejs::MediaList( path => $path );
-  $spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
+my $ML = new Spoejs::MediaList( path => $path );
+$spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
 
-  my $S = new Spoejs::Story( path => $path, lang => $spoejs{lang_handle} );
-  $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
+my $S = new Spoejs::Story( path => $path, lang => $spoejs{lang_handle} );
+$spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
+
+my $next_href;
+if (  $ML->next( $params{p} ) ) {
+  $next_href = $m->scomp( '/htm/url:encode', "media.html", d=>$params{d},
+			   p=> $ML->next( $params{p} ) );
+}
+my $prev_href;
+if (  $ML->prev( $params{p} ) ) {
+  $prev_href = $m->scomp( '/htm/url:encode', "media.html", d=>$params{d},
+			   p=> $ML->prev( $params{p} ) );
+}
+my $back_href = $m->scomp( "url:encode", 'story.html', d => $params{d} );
+my $img_href  = "$web_path/$params{p}";
+my $img_src   = $m->scomp( '/w', w => "media", d => $params{d}, 
+			  p => $params{p}, m => 480 );
+
+my $picref    = $ML->get_picref($params{p}) 
+  or $spoejs{error}{$m->current_comp->source_file} = $ML->{msg};
+my $filename  = $picref->utf_filename();
 </%init>
 <%args>
  %params => undef
