@@ -1,0 +1,10 @@
+<img src="/ico/_c<%$category%>_m<%$size%>.jpg">
+
+<%init>
+
+</%init>
+
+<%args>
+    $category => undef
+    $size => undef
+</%args>
