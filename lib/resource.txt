@@ -70,6 +70,9 @@ addmediastory:
   zh: '给记事里加煤体'
 addnewjournal:
   en: Add a new spoejs journal
+always_random:
+  da: Altid tilfældig
+  en: Always Random
 annotations:
   da: Billedbeskrivelser
   en: Annotations
@@ -474,6 +477,17 @@ fileupload:
   ru: |-
     загрузить файл для рассказа
   zh: '文件上载'
+first:
+  ar: 'ﺃﻮﻟ'
+  da: Første
+  de: zu erst
+  en: First
+  es: Primero
+  hu: elso
+  iw: 'הראשון'
+  ja: '最初'
+  ru: 'первый'
+  zh: '首先'
 fix_and_resubmit:
   da: Ret og indsend igen
   en: Fix and resubmit
@@ -495,6 +509,16 @@ fr:
   ru: 'французский'
   se: Franska
   zh: '法语'
+freeall:
+  ar: 'ﻢﺟﺎﻧﺍًَ ﻞﻠﺠﻤﻴﻋ'
+  da: Fri-for-alle
+  de: allgemein zugänglich
+  en: Free-for-all
+  es: Gratis para todos
+  iw: 'חינם'
+  ja: '無料で開かれている'
+  ru: 'бесплатно для всех'
+  zh: '完全自由'
 full_story:
   ar: 'كلمات القصة جميعاً'
   da: Hele historien
@@ -577,6 +601,16 @@ invalid_title:
 invalid_username:
   da: Fejl i brugernavn
   en: 'Invalid username '
+inviteonly:
+  ar: 'ﻢﻋﺯﻮﻣ ﻒﻘﻃ'
+  da: Kun inviterede
+  de: nur auf Einladung
+  en: Invite-only
+  es: Sólo con invitación
+  iw: 'רק עם הזמנה'
+  ja: '招待のみ'
+  ru: 'пригласить только'
+  zh: '只邀请'
 is:
   ar: 'أسلندي'
   bg: 'Исландски'
@@ -694,6 +728,17 @@ language:
 language_description:
   da: Det primære sprog for journal indhold
   en: Primary language of journal content
+last:
+  ar: 'ﺎﻠﻨﻫﺎﻳﺓ'
+  da: Sidste
+  de: zu letzt
+  en: Last
+  es: 'Último'
+  hu: utolso
+  iw: 'אחרון'
+  ja: '最後'
+  ru: 'прошлый'
+  zh: '持续'
 localjournal:
   da: Lokale journaler
   en: Local Journals
@@ -829,6 +874,16 @@ newpass:
   ja: '新しいパスワード'
   ru: 'новый пароль'
   zh: '新的密码'
+no_:
+  ar: 'ﻻ'
+  da: Nej
+  de: Nein
+  en: No
+  es: No
+  iw: 'לא'
+  ja: 'いいえ'
+  ru: 'нет'
+  zh: '否'
 no_stories:
   ar: 'لا يوجد قصص'
   da: Ingen historier
@@ -983,6 +1038,17 @@ public:
   mk: 'Јавен'
   ru: 'Публичный'
   zh: '公众'
+random:
+  ar: 'ﻊﺷﻭﺎﺌﻳ'
+  da: Tilfældig
+  de: zufällig
+  en: Random
+  es: Aleatorio
+  hu: veletlen
+  iw: 'ראנדומאלי'
+  ja: 'ランダム'
+  ru: 'Случайный'
+  zh: '随便'
 rename_delete:
   da: Omdøb Slet
   en: Rename Delete
@@ -1047,6 +1113,16 @@ shortname:
 show_trans:
   da: Vis engelske oversættelser
   en: Show translation options
+signup_approve:
+  ar: 'ﺖﻣ ﺎﻠﻣﻭﺎﻔﻗﺓ '
+  da: Tilmeld-godkend
+  de: Anmeldung bestätigt
+  en: Signup Approve
+  es: Aprobar inscripción
+  iw: 'ההרשמה התקבלה'
+  ja: 'サインアップ承諾'
+  ru: 'Подтвердить подписку'
+  zh: '允许登记'
 signup_newjournal:
   da: |-
     Opret en ny journal og del dine oplevelser med venner og familie.
@@ -1067,6 +1143,17 @@ sitepolicy:
   ja: 'サイトポリシー'
   ru: 'Политика сайта'
   zh: '本页特权'
+specific:
+  ar: 'ﺥﺎﺻ'
+  da: Specifik
+  de: speziell
+  en: Specific
+  es: Específico
+  hu: specialis
+  iw: 'ספציפי'
+  ja: '詳細'
+  ru: 'Определенный'
+  zh: '具体'
 statusjournal:
   en: Status for journals on this site
 stories:
@@ -1223,6 +1310,16 @@ view:
 wrong_user_or_pwd:
   da: Forkert brugernavn eller adgangskode
   en: Wrong Username or password
+yes:
+  ar: 'ﻦﻌﻣ'
+  da: Ja
+  de: Ja
+  en: Yes
+  es: Sí
+  iw: 'כן'
+  ja: 'はい'
+  ru: 'Да'
+  zh: '是'
 you_have_been_logged_out:
   da: Du er nu logget ud
   en: You have been logged out

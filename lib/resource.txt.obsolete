@@ -32,9 +32,6 @@ administration:
   ja: '管理'
   ru: 'администрация'
   zh: '系统管理'
-always_random:
-  da: Altid tilfældig
-  en: Always Random
 categorylist:
   ar: 'ﻸﺣﺓ ﺎﻠﺨﺘﻳﺭﺎﺗ'
   da: Kategorier
@@ -126,27 +123,6 @@ do_u_need_account:
   da: New konto
   en: Do you need an account?
   zh: '新用户注册'
-first:
-  ar: 'ﺃﻮﻟ'
-  da: Første
-  de: zu erst
-  en: First
-  es: Primero
-  hu: elso
-  iw: 'הראשון'
-  ja: '最初'
-  ru: 'первый'
-  zh: '首先'
-freeall:
-  ar: 'ﻢﺟﺎﻧﺍًَ ﻞﻠﺠﻤﻴﻋ'
-  da: Fri-for-alle
-  de: allgemein zugänglich
-  en: Free-for-all
-  es: Gratis para todos
-  iw: 'חינם'
-  ja: '無料で開かれている'
-  ru: 'бесплатно для всех'
-  zh: '完全自由'
 fulltext:
   ar: 'ﺞﻤﻴﻋ ﺎﻠﻛﺎﻣﺎﺗ'
   da: Fuld tekst
@@ -157,37 +133,6 @@ fulltext:
   ja: '全テキスト'
   ru: 'полный текст'
   zh: '全部文章'
-inviteonly:
-  ar: 'ﻢﻋﺯﻮﻣ ﻒﻘﻃ'
-  da: Kun inviterede
-  de: nur auf Einladung
-  en: Invite-only
-  es: Sólo con invitación
-  iw: 'רק עם הזמנה'
-  ja: '招待のみ'
-  ru: 'пригласить только'
-  zh: '只邀请'
-last:
-  ar: 'ﺎﻠﻨﻫﺎﻳﺓ'
-  da: Sidste
-  de: zu letzt
-  en: Last
-  es: 'Último'
-  hu: utolso
-  iw: 'אחרון'
-  ja: '最後'
-  ru: 'прошлый'
-  zh: '持续'
-no_:
-  ar: 'ﻻ'
-  da: Nej
-  de: Nein
-  en: No
-  es: No
-  iw: 'לא'
-  ja: 'いいえ'
-  ru: 'нет'
-  zh: '否'
 open_public:
   da: 'Åben for alle'
   en: Open to public
@@ -199,17 +144,6 @@ passwd_again:
 probs_in_reg:
   da: 'Den indtastede information havde fejl:'
   en: 'The Journal Information you entered has problems:'
-random:
-  ar: 'ﻊﺷﻭﺎﺌﻳ'
-  da: Tilfældig
-  de: zufällig
-  en: Random
-  es: Aleatorio
-  hu: veletlen
-  iw: 'ראנדומאלי'
-  ja: 'ランダム'
-  ru: 'Случайный'
-  zh: '随便'
 register:
   ar: 'ﺖﺴﺠﻴﻟ'
   da: Registrer
@@ -244,16 +178,6 @@ signup:
   mk: 'Впиши'
   ru: 'Подписаться'
   zh: '登记'
-signup_approve:
-  ar: 'ﺖﻣ ﺎﻠﻣﻭﺎﻔﻗﺓ '
-  da: Tilmeld-godkend
-  de: Anmeldung bestätigt
-  en: Signup Approve
-  es: Aprobar inscripción
-  iw: 'ההרשמה התקבלה'
-  ja: 'サインアップ承諾'
-  ru: 'Подтвердить подписку'
-  zh: '允许登记'
 signup_newchannel:
   ar: 'ﺲﺠﻟ ﺎﻟﻯ ﻖﻧﺍﺓ ﺲﺑﻮﺠﻳ ﺝﺪﻳﺩﺓ'
   da: Tilmeld en ny spoejs kanal
@@ -277,17 +201,6 @@ site_home:
   ja: 'サイトのホーム'
   ru: 'Адрес сайта'
   zh: '本页'
-specific:
-  ar: 'ﺥﺎﺻ'
-  da: Specifik
-  de: speziell
-  en: Specific
-  es: Específico
-  hu: specialis
-  iw: 'ספציפי'
-  ja: '詳細'
-  ru: 'Определенный'
-  zh: '具体'
 spoejs_channels_at_this_site:
   ar: |-
     ﻱﻮﺟﺩ ﻖﻧﻭﺎﺗ ﺲﺑﻮﺠﻳ ﻒﻳ ﻩﺫﺍ ﺎﻠﻣﻮﻘﻋ
@@ -340,15 +253,3 @@ thechannel_notexit:
   ja: 'このチャンネルは存在しません'
   ru: 'Канал не существует!'
   zh: '这个网页不存在'
-yes:
-  ar: 'ﻦﻌﻣ'
-  da: Ja
-  de: Ja
-  en: Yes
-  es: Sí
-  iw: 'כן'
-  ja: 'はい'
-  ru: 'Да'
-  zh: '是'
-
-
