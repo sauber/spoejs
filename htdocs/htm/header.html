@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: header.html,v 1.6 2004/04/10 01:38:30 snicki Exp $
+%# $Id: header.html,v 1.7 2004/05/11 05:40:29 snicki Exp $
 %#
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html 
@@ -15,5 +15,9 @@
     <meta http-equiv="Content-Language" content="en" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="Content-Script-Type" content="text/javascript" />
-    <link rel="StyleSheet" href="/theme/<%$spoejs{p}{t}%>/css/style.css" type="text/css" />
+    <link rel="StyleSheet" href="<%$css%>" type="text/css" />
   </head>
+<%init>
+my $css = "/theme/$spoejs{p}{t}/css/style.css";
+$css = "/theme/default/css/style.css" unless -f "$ENV{DOCUMENT_ROOT}/$css";
+</%init>
