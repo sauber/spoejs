@@ -10,8 +10,8 @@ use base ( "Spoejs" );
 #use Data::Dumper;
 use YAML ':all';
 
-# $Id: Text.pm,v 1.27 2004/06/08 02:38:12 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.27 $';
+# $Id: Text.pm,v 1.28 2004/06/08 02:54:42 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.28 $';
 
 
 # Constructor
@@ -45,9 +45,9 @@ sub _store_data {
     my %data = %{$self->{data}}; #grab data for easier access
     my $entry;
     my $subentry;
-    my $USE_LAML = undef;
+    my $USE_YAML = undef;
 
-    if ( $USE_LAML  ) {
+    if ( $USE_YAML  ) {
       local $YAML::UseVersion = 0; # Avoid cluttering files with version info
       DumpFile( "$self->{path}/$self->{file}", $self->{data} );
     } else {
