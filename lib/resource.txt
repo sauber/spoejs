@@ -238,6 +238,10 @@
 <lang=zh/>希腊
 </gr>
 
+<hu>
+<lang=en/>Hungarian
+</hu>
+
 <is>
 <lang=ar/>أسلندي
 <lang=bg/>Исландски
