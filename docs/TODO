@@ -3,7 +3,8 @@ Release 0.02 (2004-05-22) must-have's:
 
  - Mix pic+txt (done)
  - Movie-clips (done)
- - Syndication (Done)
+ - Syndication (done)
+ - MD5 passwords (done)
  - Documentation
  - Nice theme
  - Better navigation
@@ -19,7 +20,7 @@ Release 0.03 (2004-07-03) must-have's:
  - Demo site
  - Accurate translations
  - Theme credits/versioning
- - MD5 passwords
+ - Unified auth for site/channel
 
 
 Development to-do list:
