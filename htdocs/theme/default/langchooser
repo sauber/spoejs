@@ -3,11 +3,8 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: langchooser,v 1.15 2004/06/11 03:46:57 sauber Exp $
+%# $Id: langchooser,v 1.16 2004/06/12 09:28:03 snicki Exp $
 %#
-<form method="post" action="/htm/changeLang.html" class="topbar">
-<table cellspacing="0" border="0">
-<tr><td><& langselect &></td></tr>
-<tr><td><input type="submit" value="**change_language**"/></td></tr>
-</table>
+<form method="post" action="/htm/changeLang.html">
+<& langselect &><input type="submit" value="**change_language**"/>
 </form>

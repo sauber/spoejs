@@ -3,10 +3,9 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: topbar,v 1.13 2004/06/11 03:46:57 sauber Exp $
+%# $Id: topbar,v 1.14 2004/06/12 09:28:03 snicki Exp $
 %#
 <div style="float:left;">
-<br/>
 <a href="/index.html">**home**</a>&nbsp;|
 % if ( $channel_href ) {
 %#<a href="<% $channel_href %>">**chan_home**</a>&nbsp;|
@@ -27,10 +26,15 @@
 <& /w, w => "langchooser" &>
 </div>
 <div style="float:right;">
-<& /w, w => "login", action => '/htm/login.html', ses_var => 'chanauth' &>\
+% if ( defined $session{chanauth} ) {
+<a href="/htm/login.html?logout=yes">**log_out**</a>
+% } else  {
+<a href="/htm/login.html">**log_in**</a>
+% }
+%#<& /w, w => "login", action => '/htm/login.html', ses_var => 'chanauth' &>\
+&nbsp;|&nbsp;
 </div>
-<br clear="all"/>
-<hr/>
+<hr class="topbar"/>
 <%args>
   $channel_href => undef
   $channel_name => undef
