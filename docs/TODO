@@ -33,6 +33,8 @@ Code structure:
  - Debug on/off
  - Error message when cookies missing
  - abstract rename to summary/intro
+ - Swap - and _ delimiters
+ - Code it sluggish. Optimize performance.
 
 Data:
  - Don't save text unless really changed
