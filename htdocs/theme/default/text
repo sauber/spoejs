@@ -3,14 +3,14 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: text,v 1.5 2004/04/16 14:20:11 sauber Exp $
+%# $Id: text,v 1.6 2004/04/18 23:48:22 snicki Exp $
 %#
 <%args>
 $paragraphs=>undef
 </%args>
 % for my $p ( @$paragraphs ) {
 %   if ( $p->{type} eq 'text' ) {
-<p align=justify><% $p->{content} %></p>
+<p align="justify"><% $p->{content} %></p>
 %   } elsif ( $p->{type} eq 'media' ) {
 <br clear="all"/>
 <& /w, w => 'album', ml => $p->{content} &>
