@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.33 2004/05/16 10:21:09 snicki Exp $
+%# $Id: index.html,v 1.34 2004/05/16 11:10:26 snicki Exp $
 %#
 <table><tr><td width="50%" valign="top">
 <h1>
@@ -29,11 +29,12 @@
 % }
 </td><td width="50%" valign="top">
 <h1>*Journals at friend's sites</h1>
+% if ( $remotes ) {
 %for my $rem ( @{$remotes} ) {
 <h2><a href="<% $rem->{url} . '/' . $rem->{shortname} .'/index.html' %>">
 <%$rem->{shortname}%> at <% $rem->{url} %></a></h2>
 <% $rem->{summary} %><br/><br/>
-%}
+%}}
 </td></tr></table>
 <hr/>
 <&|/l&>administration</&>
@@ -50,7 +51,7 @@ my @channels;
 my @auth =  keys %{$session{chanauth}} if defined $session{chanauth};
 @channels = $CL->newest_channels( auth => \@auth )  unless $CL->{msg};
 
-my $SYN = new Spoejs::Syndication( path => "$ENV{DOCUMENT_ROOT}/users/",
+my $SYN = new Spoejs::Syndication( path => "$ENV{DOCUMENT_ROOT}/../lib/",
                                    lang => $spoejs{lang_handle} );
 my $remotes = $SYN->newest_remotes( count => 5 );
 </%init>
