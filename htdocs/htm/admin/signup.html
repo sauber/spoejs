@@ -4,14 +4,14 @@ Offer to sign up
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: signup.html,v 1.13 2004/07/02 13:53:37 snicki Exp $
+$Id: signup.html,v 1.14 2004/07/02 14:38:12 snicki Exp $
 </%doc>
 % if ( defined $ARGS{signup_form} && !$error ) {
 <& journal_tab.mas &>
 <h2>**congrat_signup**</h2>
 <h3><a href="/<%$ARGS{shortname}%>/index.html">**click_journal**</a>
 %# Redirect to journal page
-<& timed_redirect.mas, url => "/$ARGS{shortname}/index.html", time => 3000 &>
+<& timed_redirect.mas, url => "/$ARGS{shortname}/admin/channelform.html", time => 3000 &>
 % } else {
 %# Check authorization
 % if (  $policy eq 'inviteonly' and !$session{siteauth} ) {
