@@ -4,7 +4,7 @@ login, authenticate, logout
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: login.html,v 1.10 2004/06/13 05:07:11 snicki Exp $
+$Id: login.html,v 1.11 2004/06/13 05:12:32 snicki Exp $
 </%doc>
 % if ( defined $session{chanauth} ) {
 %  # List authorized channels
@@ -22,10 +22,6 @@ $Id: login.html,v 1.10 2004/06/13 05:07:11 snicki Exp $
 %if ( $show_signup ) {
 <br/><a href="/htm/admin/signup.html">**new_account**</a>
 % }}
-<pre>
-<% Dumper \%ARGS %>
-<% Dumper \%session %>
-</pre>
 <%init>
 if ( $login ) {
 
