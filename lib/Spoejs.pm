@@ -1,14 +1,13 @@
 package Spoejs;
 
-# $Id: Spoejs.pm,v 1.2 2004/02/28 07:05:03 sauber Exp $
-$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.2 $';
+# $Id: Spoejs.pm,v 1.3 2004/03/02 05:35:49 snicki Exp $
+$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.3 $';
 
 # Constructor
 sub new {
 
     my $invocant  = shift;
     my $class     = ref($invocant) || $invocant;
-    my %param     = (@_);
 
     my $self = { };
     bless $self, $class;
