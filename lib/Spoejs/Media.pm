@@ -6,8 +6,8 @@ package Spoejs::Media;
 no Carp::Assert;
 use base ( "Spoejs" );
 
-# $Id: Media.pm,v 1.1 2004/02/27 07:45:24 sauber Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.1 $';
+# $Id: Media.pm,v 1.2 2004/02/27 08:01:39 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.2 $';
 
 
 #### Private helper functions ####
