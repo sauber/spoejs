@@ -1,10 +1,9 @@
 package Spoejs::Lang;
 use base ( "Spoejs" );
-#use utf8;
 use Data::Dumper;
 
-# $Id: Lang.pm,v 1.8 2004/03/25 03:48:48 snicki Exp $
-$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.8 $';
+# $Id: Lang.pm,v 1.9 2004/03/25 03:49:28 snicki Exp $
+$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.9 $';
 
 sub _initialize { }
 
