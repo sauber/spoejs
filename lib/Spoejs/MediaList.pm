@@ -2,8 +2,8 @@ package Spoejs::MediaList;
 use base ( "Spoejs::List" );
 use File::Basename;
 
-# $Id: MediaList.pm,v 1.7 2004/03/29 04:25:20 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.7 $';
+# $Id: MediaList.pm,v 1.8 2004/03/29 06:57:20 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.8 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -46,7 +46,7 @@ sub _list {
 sub list {
     my $self = shift;
 # XXX: What pattern should be used here?
-    my @files = $self->_list_from_file_pattern( '(jpg|JPG)$' );
+    my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG)$' );
     return $self->_list( sort @files );
 }
 
@@ -54,7 +54,7 @@ sub list {
 sub list_unsorted {
     my $self = shift;
 # XXX: What pattern should be used here?
-    my @files = $self->_list_from_file_pattern( '(jpg|JPG)$' );
+    my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG)$' );
     return $self->_list( @files );
 }
 
