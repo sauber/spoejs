@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: pic.common,v 1.3 2004/05/08 14:54:08 sauber Exp $
+%# $Id: pic.common,v 1.4 2004/05/08 15:29:36 sauber Exp $
 %#
 <% $$m_ref %>\
 % $m->abort();
@@ -23,13 +23,14 @@
     $spoejs{p}{p} =~ /\.(.*?)$/ and my $ext = lc $1;
     my $ct;
     for ($ext) {
-      /jpeg|jpg/     and $ct = "image/jpeg",      next;
       /gif/          and $ct = "image/gif",       next;
       /bmp/          and $ct = "image/bmp",       next;
       /png/          and $ct = "image/png",       next;
-      /mpeg|mpe|mpg/ and $ct = "video/mpeg",      next;
-      /mov|qt/       and $ct = "video/quicktime", next;
-      /avi/          and $ct = "video/x-msvideo", next;
+      # Thumbnails for movies is actually in jpeg format
+      #/jpeg|jpg/     and $ct = "image/jpeg",      next;
+      #/mpeg|mpe|mpg/ and $ct = "video/mpeg",      next;
+      #/mov|qt/       and $ct = "video/quicktime", next;
+      #/avi/          and $ct = "video/x-msvideo", next;
       # Pretend that anything else is jpeg format
       $ct = "image/jpeg";
     }
