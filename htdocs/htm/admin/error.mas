@@ -1,0 +1,32 @@
+<%method error_check>
+<%perl>
+  my ($data, $spec, $formname ) = @_;
+
+# Cleanup
+delete $session{form_error};
+
+# Go through all specified names
+for my $name ( keys %$spec ) {
+
+  # Is data for this name submitted
+  unless ( defined $data->{$name} ) {
+    $session{form_error}{$formname}{$name} = $spec->{$name}->{error};
+    next;
+  }
+
+  # Check regexp condition
+  if ( defined $spec->{$name}->{regexp} ) {
+    $session{form_error}{$formname}{$name} = $spec->{$name}->{error}
+	unless $data->{$name} =~ m/$spec->{$name}->{regexp}/;
+  }
+
+  # Check sub
+  if ( defined $spec->{$name}->{check} ) {
+    $session{form_error}{$formname}{$name} = $spec->{$name}->{error_check} 
+	  unless  $spec->{$name}->{check}->( $data );
+  }
+}
+
+return defined $session{form_error}{$formname};
+</%perl>
+</%method>
