@@ -1,27 +1,19 @@
-<h2><% $story_ref->get( 'title' ) %></h2>
+<&| /w, w => "box", heading => $story_ref->get( 'title' ) &>
 <&| /l &>date</&>:
 <% $story_ref->get( 'date' ) %>
 <br/>
 <br/>
-<fieldset class="full"><legend>Abstract</legend>
-<% $story_ref->get( 'abstract' ) %>
-</fieldset>
+<&| /w, w => "box", heading => 'Abstract' &>
+<& /w, w => "text", text=>$story_ref->get( 'abstract' ) &>
+</&>
 <br/>
 <br/>
-<fieldset class="full"><legend>Fulltext</legend>
+<&| /w, w => "box", heading => 'Fulltext' &>
 <& /w, w => "text", text=>$story_ref->get( 'fulltext' ) &>
-</fieldset>
+</&>
 <br/>
 <br/>
-<fieldset class="full"><legend>Media</legend>
-% my $count = 0;
-% for my $p ( @media_list ) {
-% my $href = $m->scomp( '/htm/url:encode', 'media.html',
-%                       d => $story_dir, s => $spoejs{p}{s} + $count++ );
-<& /w, w => "media", d => $story_dir, p => $p->{file}, m => $thumb_size,
-       html_wh => $p->html_imgsize( size => $thumb_size ), href => $href &>\
-% }
-</fieldset>
+<& /w, w => 'box', content => $media_list &>
 <& /w, w => 'navi', %navi_opt &>
 <br/>
 <br/>
@@ -29,11 +21,11 @@
 % if ( $edit_href ) {
 <a href="<% $edit_href %>">Edit</a>
 % }
+</&>
 <%args>
   $story_dir  => undef
   $story_ref  => undef
   $edit_href  => undef
   %navi_opt   => undef
-  @media_list => undef
-  $thumb_size => 150
+  $media_list => undef
 </%args>
