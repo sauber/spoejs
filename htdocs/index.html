@@ -3,18 +3,29 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.43 2004/05/18 02:16:48 snicki Exp $
+%# $Id: index.html,v 1.44 2004/05/19 10:37:19 snicki Exp $
 %#
 <table width="100%"><tr>
 % if ( @{$remotes} > 0 ) {
-<td width="50%" valign="top">
-%} else {
-<td width="100%" valign="top">
-%}
+<td width="50%">
 <h1>
-%#<&|/l&>spoejs_channels_at_this_site</&>
 <&|/l&>localjournal</&>
 </h1>
+</td>
+<td></td>
+<td width="50%" valign="top">
+<h1><&|/l&>journals_friends</&></h1>
+</td>
+%} else {
+<td width="100%" valign="top">
+<h1>
+<&|/l&>localjournal</&>
+</h1>
+</td>
+%}
+</tr>
+<tr>
+<td valign="top" style="padding-right: 8px;">
 % foreach my $chan ( @channels ) {
 <h2>
 <a href="/<% $chan->channel_dir() %>/index.html">
@@ -37,8 +48,8 @@
 % }
 </td>
 % if ( @{$remotes} > 0 ) {
-<td width="50%" valign="top">
-<h1><&|/l&>journals_friends</&></h1>
+<td valign="top" style="border: dashed gray 1px;"></td>
+<td valign="top" style="padding-left: 8px;">
 %for my $rem ( @{$remotes} ) {
 <h2><a href="<% $rem->{url} . '/' . $rem->{shortname} .'/index.html' %>">
 <%$rem->{shortname}%> at <% $rem->{url} %></a></h2>
