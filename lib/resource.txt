@@ -971,9 +971,16 @@ new_account:
   mk: 'Нова сметка'
   zh: '新用户注册'
 new_password:
-  da: Nyt kodeord
-  en: New password
+  ar: 'كلمة مرور جديدة'
+  da: Nyt password
+  de: neues Passwort
+  en: New Password
+  es: Nueva contraseña
+  iw: 'סיסמה חדשה'
+  ja: '新しいパスワード'
   mk: 'Нова лозинка'
+  ru: 'новый пароль'
+  zh: '新的密码'
 new_story:
   ar: 'قصة جديدة'
   da: Ny historie
@@ -1008,17 +1015,6 @@ newfilename:
   mk: 'Ново име на фајлот'
   ru: 'новое имя файла'
   zh: '新的文件名'
-newpass:
-  ar: 'كلمة مرور جديدة'
-  da: Nyt password
-  de: neues Passwort
-  en: New Password
-  es: Nueva contraseña
-  iw: 'סיסמה חדשה'
-  ja: '新しいパスワード'
-  mk: 'Нова лозинка'
-  ru: 'новый пароль'
-  zh: '新的密码'
 no_:
   ar: 'ﻻ'
   da: Nej
@@ -1313,12 +1309,6 @@ signup_not_allowed:
   en: Signup not allowed
   mk: |-
     Запишувањето не е дозволено
-site_config:
-  en: Site Configuration 
-siteconf:
-  en: Site Configuration 
-siteconfig:
-  en: Site Configuration 
 sitepolicy:
   ar: 'قوانيين الموقع'
   da: Site politik
