@@ -2,10 +2,11 @@
 <lang=bg/>Arabski
 <lang=da/>Arabisk
 <lang=en/>Arabic
+<lang=fr/>Arabe
 <lang=gr/>Αραβικά
 <lang=is/>Arabíska
+<lang=it/>arabo
 <lang=ja/>アラビア語
-<lang=jp/>アラビア語
 <lang=mk/>Арапски
 <lang=se/>arabisk
 </ar>
@@ -13,17 +14,19 @@
 <bg>
 <lang=bg/>Bylgarski
 <lang=en/>Bulgarian
+<lang=fr/>Bulgare
 <lang=gr/>Βουλγαρικά
 <lang=is/>Búlgarska
+<lang=it/>bulgano
 <lang=ja/>ブルガリア語
-<lang=jp/>ブルガリア語
 <lang=mk/>Бугарски
 <lang=se/>bulgarisk
 </bg>
 
 <bo>
 <lang=en/>Tibetan
-<lang=jp/>チベット語
+<lang=fr/>Tibetain
+<lang=it/>tibetano
 <lang=mk/>Тибетски
 </bo>
 
@@ -31,9 +34,10 @@
 <lang=bg/>Kategoriia
 <lang=da/>Kategori
 <lang=en/>Category
+<lang=fr/>Categorie
 <lang=gr/>Κατηγορία
+<lang=it/>categoria
 <lang=ja/>カテゴリー
-<lang=jp/>カテゴリー
 <lang=mk/>Категорија
 <lang=se/>kategori
 </category>
@@ -42,10 +46,11 @@
 <lang=bg/>Promeni
 <lang=da/>Skift
 <lang=en/>Change
+<lang=fr/>Change
 <lang=gr/>Αλλαγή
 <lang=is/>Breyting
+<lang=it/>cambio
 <lang=ja/>変更
-<lang=jp/>変化
 <lang=mk/>Промена
 <lang=se/>ändra
 </change>
@@ -54,10 +59,11 @@
 <lang=bg/>Danski
 <lang=da/>Dansk
 <lang=en/>Danish
+<lang=fr/>Danois
 <lang=gr/>Δανικά
 <lang=is/>Danska
+<lang=it/>danese
 <lang=ja/>デンマーク語
-<lang=jp/>デンマーク語
 <lang=mk/>Дански
 <lang=se/>Danska
 </da>
@@ -66,10 +72,11 @@
 <lang=bg/>Data
 <lang=da/>Dato
 <lang=en/>Date
+<lang=fr/>Date
 <lang=gr/>Ημερομηνία
 <lang=is/>Dagsetning
+<lang=it/>data
 <lang=ja/>日付
-<lang=jp/>日付
 <lang=mk/>Дата
 <lang=se/>datum
 </date>
@@ -78,10 +85,11 @@
 <lang=bg/>Germanski
 <lang=da/>Tysk
 <lang=en/>German
+<lang=fr/>Allemand
 <lang=gr/>Γερμανικά
 <lang=is/>Þýska
+<lang=it/>tedesco
 <lang=ja/>ドイツ語
-<lang=jp/>ドイツ語
 <lang=mk/>Германски
 <lang=se/>Tyska
 </de>
@@ -89,7 +97,9 @@
 <description>
 <lang=da/>Beskrivelse
 <lang=en/>Description
-<lang=jp/>記述
+<lang=fr/>Description
+<lang=it/>descrizione
+<lang=ja/>記述
 <lang=mk/>Опис
 </description>
 
@@ -97,10 +107,11 @@
 <lang=bg/>Angliiski
 <lang=da/>Engelsk
 <lang=en/>English
+<lang=fr/>Anglais
 <lang=gr/>Αγγλικά
 <lang=is/>Enska
+<lang=it/>inglese
 <lang=ja/>英語
-<lang=jp/>英語
 <lang=mk/>Англиски
 <lang=se/>Engelska
 </en>
@@ -109,10 +120,11 @@
 <lang=bg/>Frenski
 <lang=da/>Fransk
 <lang=en/>French
+<lang=fr/>Francais
 <lang=gr/>Γαλλικά
 <lang=is/>Franska
+<lang=it/>francese
 <lang=ja/>フランス語
-<lang=jp/>フランス語
 <lang=mk/>Француски
 <lang=se/>Franska
 </fr>
@@ -121,10 +133,11 @@
 <lang=bg/>Grytski
 <lang=da/>Græsk
 <lang=en/>Greek
+<lang=fr/>Grecque
 <lang=gr/>Ελληνικά
 <lang=is/>Gríska
+<lang=it/>greco
 <lang=ja/>ギリシャ語
-<lang=jp/>ギリシャ語
 <lang=mk/>Грчки
 <lang=se/>grekiska
 </gr>
@@ -133,10 +146,11 @@
 <lang=bg/>Islandski
 <lang=da/>Islandsk
 <lang=en/>Icelandic
+<lang=fr/>Islandais
 <lang=gr/>Ισλανδικά
 <lang=is/>Íslenska
+<lang=it/>islandese
 <lang=ja/>アイスランド語
-<lang=jp/>アイスランド語
 <lang=mk/>Исландски
 <lang=se/>islandska
 </is>
@@ -145,10 +159,11 @@
 <lang=bg/>Italianski
 <lang=da/>Italiensk
 <lang=en/>Italian
+<lang=fr/>Italien
 <lang=gr/>Ιταλικά
 <lang=is/>Ítalska
+<lang=it/>italiano
 <lang=ja/>イタリア語
-<lang=jp/>イタリア語
 <lang=mk/>Италијански
 <lang=se/>italiansk
 </it>
@@ -157,42 +172,48 @@
 <lang=bg/>Iaponski
 <lang=da/>Japansk
 <lang=en/>Japanese
+<lang=fr/>Japonais
 <lang=gr/>Ιαπωνικά
 <lang=is/>Japanska
+<lang=it/>giapponese
 <lang=ja/>日本語
-<lang=jp/>日本語
 <lang=mk/>Јапонски
 <lang=se/>japanska
 </ja>
 
-<jp>
-</jp>
-
 <language>
 <lang=en/>Language
-<lang=jp/>言語
+<lang=fr/>Language
+<lang=it/>lingua
+<lang=ja/>言語
 <lang=mk/>Јазик
 </language>
 
 <login>
 <lang=da/>Log ind
 <lang=en/>Login
-<lang=jp/>ログイン
+<lang=fr/>Connection
+<lang=it/>inizio attivita
+<lang=ja/>ログイン
 <lang=mk/>Логин (Влез)
 </login>
 
 <logout>
 <lang=da/>Log ud
 <lang=en/>Logout
-<lang=jp/>ログアウト
+<lang=fr/>Deconnection
+<lang=it/>termine attivita
+<lang=ja/>ログアウト
 <lang=mk/>Логаут (Излез)
 </logout>
 
 <mk>
 <lang=bg/>Makedonski
 <lang=en/>Macedonian
+<lang=fr/>Mecedonien
 <lang=gr/>Μακεδονικά
-<lang=jp/>マケドニア語
+<lang=it/>mecedone
+<lang=ja/>マケドニア語
 <lang=mk/>Македонски
 <lang=se/>macedoniska
 </mk>
@@ -201,10 +222,11 @@
 <lang=bg/>Parola
 <lang=da/>Kodeord
 <lang=en/>Password
+<lang=fr/>Mot de passe
 <lang=gr/>Κωδικός
 <lang=is/>Lykilorð
+<lang=it/>parola d'acceso
 <lang=ja/>パスワード
-<lang=jp/>パスワード
 <lang=mk/>Клучен збор
 <lang=se/>passord
 </passwd>
@@ -213,52 +235,64 @@
 <lang=bg/>Avtor
 <lang=da/>Af
 <lang=en/>Posted by
+<lang=fr/>Poster par
 <lang=gr/>Καταχώρηση από
+<lang=it/>inviato da
 <lang=ja/>記入される
-<lang=jp/>記入
 <lang=mk/>Испраќа
 <lang=se/>postat av
 </posted_by>
 
 <public>
 <lang=en/>Public
-<lang=jp/>公共
+<lang=fr/>Publique
+<lang=it/>pubulico
+<lang=ja/>公共
 <lang=mk/>Јавен
 </public>
 
 <se>
 <lang=bg/>Shvedski
 <lang=en/>Swedish
+<lang=fr/>Suedois
 <lang=gr/>Σουηδικά
 <lang=is/>Sænska
+<lang=it/>svedese
 <lang=ja/>スウェーデン語
-<lang=jp/>スウェーデン語
 <lang=mk/>Шведски
 <lang=se/>svenska
 </se>
 
 <shortname>
 <lang=en/>Shortname
-<lang=jp/>ショートネーム
+<lang=fr/>Surnom
+<lang=it/>nome corto
+<lang=ja/>ショートネーム
 <lang=mk/>Кратко име
 </shortname>
 
 <signup>
 <lang=en/>Sign up
-<lang=jp/>サインアップ
+<lang=fr/>Subscription
+<lang=it/>firmi in (su)
+<lang=ja/>サインアップ
 <lang=mk/>Впиши
 </signup>
 
 <submit>
 <lang=da/>Indsend
 <lang=en/>Submit
-<lang=jp/>承諾
+<lang=fr/>Soumettre
+<lang=it/>presenti
+<lang=ja/>承諾
 <lang=mk/>Поднеси
 </submit>
 
 <theme>
 <lang=en/>Theme
-<lang=jp/>テーマ
+<lang=fr/>Theme
+<lang=it/>tema
+<lang=ja/>テーマ
 <lang=mk/>Тема
 </theme>
 
@@ -266,10 +300,11 @@
 <lang=bg/>Zaglavie
 <lang=da/>Titel
 <lang=en/>Title
+<lang=fr/>Titre
 <lang=gr/>Τίτλος
 <lang=is/>Titill
+<lang=it/>titolo
 <lang=ja/>タイトル
-<lang=jp/>タイトル
 <lang=mk/>Наслов
 <lang=se/>titel
 </title>
@@ -277,7 +312,9 @@
 <username>
 <lang=da/>Brugernavn
 <lang=en/>Username
-<lang=jp/>ユーザー名
+<lang=fr/>Nom d'Utilisateur
+<lang=it/>nome di utente
+<lang=ja/>ユーザー名
 <lang=mk/>Корисничко име
 </username>
 
@@ -285,10 +322,11 @@
 <lang=bg/>Kitaiski
 <lang=da/>Kinesisk
 <lang=en/>Chinese
+<lang=fr/>Chinois
 <lang=gr/>Κινέζικα
 <lang=is/>Kínverska
+<lang=it/>cinese
 <lang=ja/>中国語
-<lang=jp/>中国語
 <lang=mk/>Кинески
 <lang=se/>kinesiska
 </zh>
