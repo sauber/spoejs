@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.30 2004/07/07 09:53:33 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.30 $';
+# $Id: StoryList.pm,v 1.31 2004/07/07 09:55:42 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.31 $';
 
 sub _initialize {
     my $self = shift;
@@ -275,6 +275,7 @@ sub fix_dir_date {
     my $story_path = shift;
 
     # Check given path
+    $story_path =~ s!/*?!!;
     return $self->_err( "Invalid path: $story_path" ) 
 	unless $story_path =~ m!\d+/\d+/\d+$!;
 
@@ -285,8 +286,11 @@ sub fix_dir_date {
     # Create new story dir structure
     my $date = $S->get( 'date' );
     my $new_path = $self->add_story( date => $date );
-    $story_path =~ s!/*?!!;
     $new_path =~ s!/*?!!;
+
+    # Check new path
+    return $self->_err( "Invalid path: $new_path" ) 
+	unless $new_path =~ m!\d+/\d+/\d+$!;
 
     # Move old storydir on top of newly created dir
     rename "$self->{path}/$story_path", "$self->{path}/$new_path";
