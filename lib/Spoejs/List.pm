@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.1 2004/03/06 09:11:14 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.1 $';
+# $Id: List.pm,v 1.2 2004/03/11 09:30:08 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.2 $';
 
 
 # Constructor
@@ -17,6 +17,21 @@ sub _initialize {
 }
 
 #### Private helper functions ####
+
+# Give list of dirs in given path
+#
+sub _dirs_in_path {
+    my ( $self, $path ) = @_;
+
+    opendir DH, "$path" or die $self->_err( "Can not open $path: $!");
+    my @res = reverse  sort
+                       grep { -d "$path/$_" }
+                       grep !/^\./,
+                       readdir DH;
+    closedir DH;
+
+    return @res;
+}
 
 
 # Make list of directories containing 'file'
