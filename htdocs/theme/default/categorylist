@@ -1,0 +1,11 @@
+% foreach my $cat ( keys %count ) {
+  <% $cat %> (<% $count{$cat} %>)<br>
+% }
+
+
+<%init>
+  # Todo add div. parameters
+  my $L  = new Spoejs::Lang( 'en' );
+  my $SL = new Spoejs::StoryList( lang => $L );
+  my %count = $SL->count_stories( by => 'category' ); 
+</%init>
