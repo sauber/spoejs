@@ -75,6 +75,10 @@ if ( $ARGS{upload} ) {
   @upl = $r->upload;
   for ( @upl ) {
     my $fn = $_->filename;
+
+    # strip leading directories
+    $fn =~ s#^.*[\\/]##;
+
     # Skip empty fields and zero-sized files
     next if ($fn eq '' or $_->size < 1);
     next unless $fn =~ /\.(png|gif|jpg|mov|avi|mpg|wma)$/i;
