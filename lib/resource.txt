@@ -106,6 +106,17 @@ ar:
   ru: 'арабский'
   se: arabisk
   zh: '阿拉伯语'
+archive:
+  ar: 'ﺍﻷﺮﺸﻴﻓ'
+  da: Arkiver
+  de: Archiv
+  en: Archive
+  es: Archivo
+  gr: 'Αρχείο'
+  iw: 'ארכיון'
+  ja: '古文書'
+  ru: 'архив'
+  zh: '完全控制'
 authorized_for:
   da: Adgang til
   en: Authorized for
@@ -137,6 +148,22 @@ bg:
   ru: 'болгарский'
   se: bulgarisk
   zh: '保加利亚语'
+blank_default:
+  ar: |-
+    (ﺎﺗﺮﻜﻫ ﻑﺍﺮﻏ ﺃﺫﺍ ﻙﺎﻨﺗ ﺎﻠﻘﺻﺓ ﺺﺤﻴﺤﻫ)
+  da: '(blank for dags dato)'
+  de: '(bei aktueller Geschichte leer lassen)'
+  en: '(leave blank if story is current)'
+  es: |-
+    (déjelo en blanco si el artículo ya está seleccionado)
+  hu: hagyd uresen ha a tortenet mostani?
+  iw: |-2
+     לעזב את השדה ריק אם הסיפורנכרן
+  ja: |-
+    （ストーリーが現在のものであれば空白にする）
+  ru: |-
+    (не заполнять, если рассказ текущий)
+  zh: '(如果记事是当今的，留下空癿)'
 bo:
   ar: 'تبتي'
   bg: 'Тибетски'
@@ -370,6 +397,16 @@ description:
 description_description:
   da: Beskrivelse af journalens indhold
   en: 'Describe content of journal '
+dimensions:
+  ar: 'ﺡﺩﻭﺩ ﺍﻭ ﻡﻭﺎﺼﻓﺎﺗ'
+  da: Dimensioner
+  de: Dimension
+  en: Dimentions
+  es: Dimensiones
+  gr: 'Διαστάσεις'
+  iw: 'הטל'
+  ja: '寸法'
+  ru: 'размерность'
 edit:
   ar: 'تصحيح'
   da: Ret
@@ -440,6 +477,17 @@ et:
   iw: 'אוסטונית'
   ja: 'エストニア語'
   ru: 'эстонский'
+fileformat:
+  ar: 'ﺖﻐﻳﺭ ﻥﻮﻋ ﻢﻠﻓ'
+  da: Filformat
+  de: Dateiformat
+  en: File format
+  es: Formato de archivo
+  gr: 'Τύπος αρχείου'
+  iw: 'פורמט קובץ'
+  ja: 'ファイル　フォーマット'
+  ru: 'формат файла'
+  zh: '文件格式'
 filename:
   ar: 'أسم ملف'
   da: Filnavn
@@ -451,6 +499,17 @@ filename:
   ja: 'ファイルネーム'
   ru: 'имя файла'
   zh: '文件名'
+filesize:
+  ar: 'ﺢﺠﻣ ﻢﻠﻓ'
+  da: Filstørrelse
+  de: Dateigröße
+  en: Filesize
+  es: Tamaño de archivo
+  gr: 'Μέγεθος αρχείου'
+  iw: 'גודל הקובץ'
+  ja: 'ファイルサイズ'
+  ru: 'размер файла'
+  zh: '文件大小'
 fileupload:
   ar: 'أدخال ملف للقصة'
   da: Filupload til historie
@@ -545,6 +604,9 @@ hu:
 image_code:
   da: Billede kode
   en: Image Code
+input_errors:
+  da: Indtastningsfejl
+  en: Input errors
 invalid_description:
   da: Fejl i beskrivelsen
   en: 'Invalid description '
@@ -599,9 +661,6 @@ it:
   ru: 'итальянский'
   se: italiansk
   zh: '意大利语'
-input_errors:
-  da: Indtastningsfejl
-  en: Input errors
 iw:
   da: Hebræisk
   de: Hebräisch

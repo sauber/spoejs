@@ -35,33 +35,6 @@ administration:
 always_random:
   da: Altid tilfældig
   en: Always Random
-archive:
-  ar: 'ﺍﻷﺮﺸﻴﻓ'
-  da: Arkiver
-  de: Archiv
-  en: Archive
-  es: Archivo
-  gr: 'Αρχείο'
-  iw: 'ארכיון'
-  ja: '古文書'
-  ru: 'архив'
-  zh: '完全控制'
-blank_default:
-  ar: |-
-    (ﺎﺗﺮﻜﻫ ﻑﺍﺮﻏ ﺃﺫﺍ ﻙﺎﻨﺗ ﺎﻠﻘﺻﺓ ﺺﺤﻴﺤﻫ)
-  da: '(blank for dags dato)'
-  de: '(bei aktueller Geschichte leer lassen)'
-  en: '(leave blank if story is current)'
-  es: |-
-    (déjelo en blanco si el artículo ya está seleccionado)
-  hu: hagyd uresen ha a tortenet mostani?
-  iw: |-2
-     לעזב את השדה ריק אם הסיפורנכרן
-  ja: |-
-    （ストーリーが現在のものであれば空白にする）
-  ru: |-
-    (не заполнять, если рассказ текущий)
-  zh: '(如果记事是当今的，留下空癿)'
 chan_home:
   ar: 'ﻖﻧﺍﺓ ﺎﻠﺒﻴﺗ'
   da: Historie index
@@ -128,42 +101,10 @@ congrat_changes:
   ru: |-
     Мои позравления, ваши изменения успешны
   zh: '祝贺你的更改成功了'
-dimensions:
-  ar: 'ﺡﺩﻭﺩ ﺍﻭ ﻡﻭﺎﺼﻓﺎﺗ'
-  da: Dimensioner
-  de: Dimension
-  en: Dimentions
-  es: Dimensiones
-  gr: 'Διαστάσεις'
-  iw: 'הטל'
-  ja: '寸法'
-  ru: 'размерность'
 do_u_need_account:
   da: New konto
   en: Do you need an account?
   zh: '新用户注册'
-fileformat:
-  ar: 'ﺖﻐﻳﺭ ﻥﻮﻋ ﻢﻠﻓ'
-  da: Filformat
-  de: Dateiformat
-  en: File format
-  es: Formato de archivo
-  gr: 'Τύπος αρχείου'
-  iw: 'פורמט קובץ'
-  ja: 'ファイル　フォーマット'
-  ru: 'формат файла'
-  zh: '文件格式'
-filesize:
-  ar: 'ﺢﺠﻣ ﻢﻠﻓ'
-  da: Filstørrelse
-  de: Dateigröße
-  en: Filesize
-  es: Tamaño de archivo
-  gr: 'Μέγεθος αρχείου'
-  iw: 'גודל הקובץ'
-  ja: 'ファイルサイズ'
-  ru: 'размер файла'
-  zh: '文件大小'
 first:
   ar: 'ﺃﻮﻟ'
   da: Første
