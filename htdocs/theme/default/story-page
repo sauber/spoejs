@@ -1,4 +1,4 @@
-<fieldset class="full"><legend><% $story_ref->get( 'title' ) %></legend>
+<h2><% $story_ref->get( 'title' ) %></h2>
 <&| /l &>date</&>:
 <% $story_ref->get( 'date' ) %>
 <br/>
@@ -14,15 +14,15 @@
 <br/>
 <br/>
 <fieldset class="full"><legend>Media</legend>
+% my $count = 0;
 % for my $p ( @media_list ) {
 % my $href = $m->scomp( '/htm/url:encode', 'media.html',
-%                       d => $story_dir, p => $p->{file} );
-<& /w, w => "media", d => $story_dir, p => $p->{file}, m => $thumb_size, 
+%                       d => $story_dir, s => $spoejs{p}{s} + $count++ );
+<& /w, w => "media", d => $story_dir, p => $p->{file}, m => $thumb_size,
        html_wh => $p->html_imgsize( size => $thumb_size ), href => $href &>\
 % }
 </fieldset>
 <& /w, w => 'navi', %navi_opt &>
-</fieldset>
 <br/>
 <br/>
 <br/>
