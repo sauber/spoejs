@@ -13,6 +13,7 @@
 
 <bg>
 <lang=bg/>Български
+<lang=da/>Bolgarsk
 <lang=en/>Bulgarian
 <lang=fr/>Bulgare
 <lang=gr/>Βουλγαρικά
@@ -25,6 +26,7 @@
 
 <bo>
 <lang=bg/>Тибетски
+<lang=da/>Tibetansk
 <lang=en/>Tibetan
 <lang=fr/>Tibetain
 <lang=it/>tibetano
@@ -119,6 +121,7 @@
 </en>
 
 <es>
+<lang=da/>Spansk
 <lang=en/>Spanish
 </es>
 
@@ -189,6 +192,7 @@
 
 <language>
 <lang=bg/>Език
+<lang=da/>Sprog
 <lang=en/>Language
 <lang=fr/>Language
 <lang=it/>lingua
@@ -218,6 +222,7 @@
 
 <mk>
 <lang=bg/>Македонски
+<lang=da/>Makedonsk
 <lang=en/>Macedonian
 <lang=fr/>Mecedonien
 <lang=gr/>Μακεδονικά
@@ -254,6 +259,7 @@
 
 <public>
 <lang=bg/>Публичен
+<lang=da/>Offentlig
 <lang=en/>Public
 <lang=fr/>Publique
 <lang=it/>pubulico
@@ -263,6 +269,7 @@
 
 <se>
 <lang=bg/>Шведски
+<lang=da/>Svensk
 <lang=en/>Swedish
 <lang=fr/>Suedois
 <lang=gr/>Σουηδικά
@@ -275,6 +282,7 @@
 
 <shortname>
 <lang=bg/>Кратко име
+<lang=da/>Kortnavn
 <lang=en/>Shortname
 <lang=fr/>Surnom
 <lang=it/>nome corto
@@ -284,6 +292,7 @@
 
 <signup>
 <lang=bg/>Абонамент
+<lang=da/>Tilmeld
 <lang=en/>Sign up
 <lang=fr/>Subscription
 <lang=it/>firmi in (su)
@@ -303,6 +312,7 @@
 
 <theme>
 <lang=bg/>Тема
+<lang=da/>Tema
 <lang=en/>Theme
 <lang=fr/>Theme
 <lang=it/>tema
