@@ -4,6 +4,7 @@
    story_href   => $story_href,
    signup_href  => $signup_href,
    new_href     => $new_href,
+   about_href   => 'http://spoejs.sourceforge.net/index.php?showpage=whatisit&faq=1'
 &>
 <%init>
 my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",

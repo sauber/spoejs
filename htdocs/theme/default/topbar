@@ -12,7 +12,7 @@ Story home<&|/l&>story_home</&></a>&nbsp;|
 % if ( $signup_href ) {
 <a href="<% $signup_href %>"><&|/l&>register</&></a>&nbsp;|
 % }
-<a href="/htm/about.html"><&|/l&>about</&></a>
+<a href="<% $about_href %>"><&|/l&>about</&></a>
 % if ( $new_href ) {
 &nbsp;|
 <a href="<% $new_href %>"><&|/l&>new_story</&></a>
@@ -33,4 +33,5 @@ Story home<&|/l&>story_home</&></a>&nbsp;|
   $story_href   => undef
   $signup_href  => undef
   $new_href     => undef
+  $about_href   => undef
 </%args>
