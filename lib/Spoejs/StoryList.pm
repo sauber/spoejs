@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.41 2005/03/18 05:30:05 sauber Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.41 $';
+# $Id: StoryList.pm,v 1.42 2005/03/18 05:37:44 sauber Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.42 $';
 
 sub _initialize {
     my $self = shift;
@@ -222,7 +222,6 @@ sub list_stories {
         my $add = 1;
         for $kw ( keys %in ) {
           if ( defined $in{$kw} ) {
-            warn "Checking $kw in $story\n";
 	    my $story_kw = $story->get( $kw );
 	    $story_kw ||= 'yes' if $kw eq 'active'; # Special case
             undef $add if $story_kw and $story_kw ne $in{$kw};
