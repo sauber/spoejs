@@ -4,7 +4,7 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.39 2004/07/07 09:56:41 snicki Exp $
+$Id: story.html,v 1.40 2004/07/14 06:53:03 snicki Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
@@ -39,8 +39,10 @@ $Id: story.html,v 1.39 2004/07/07 09:56:41 snicki Exp $
 </select>
 **or_new**: 
 <input type="text" size="30" name="newcategory" value=""/><br/>
+<br/>
 **story_summary**:<br/>
 <textarea name="abstract" rows="5" cols="60"><%$ARGS{abstract}%></textarea>
+<br/>
 <br/>
 **full_story**:<br/>
 <textarea name="fulltext" rows="20" cols="80" id="fulltext">
@@ -148,6 +150,10 @@ if ( defined $ARGS{submit} ) {
   }
 
 }
+
+# Pre-fill author if none is found in ARGS
+$ARGS{author} = $spoejs{ChannelConf}->get( 'name' ) 
+                                                  unless defined $ARGS{auther};
 
 # Used for category chooser - counts ignored
 my %categories = $spoejs{SL}->count_stories( by => 'category' );
