@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.20 2004/06/11 07:41:42 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.20 $';
+# $Id: Media.pm,v 1.21 2004/06/20 10:23:26 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.21 $';
 
 
 # Initializor
@@ -255,7 +255,7 @@ sub ping {
     my ( $w,$h,$s,$f ) = $im->Ping( "$self->{path}/$self->{file}" );
     ($w,$h) = $self->_scaledxy( $w, $h, $params{scalem} ) 
 	if defined $params{scalem};
-  return ( $w,$h,$f,$m );
+  return ( $w,$h,$s,$f );
 }
 
 # List of supported extensions seperated by |
