@@ -166,6 +166,11 @@
 <lang=zh/>按这里继续
 </click_continue>
 
+<comment>
+<lang=da/>Kommenter
+<lang=en/>Comment
+</comment>
+
 <congrat_changes>
 <lang=da/>Ændringer var successfulde
 <lang=en/>Congratulations your changes were successful
@@ -510,6 +515,11 @@
 <lang=se/>macedoniska
 <lang=zh/>马其顿语
 </mk>
+
+<more>
+<lang=da/>Mere
+<lang=en/>More
+</more>
 
 <new_story>
 <lang=da/>Ny historie
