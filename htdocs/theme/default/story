@@ -1,22 +1,19 @@
-<&| /l &>title</&>:
-<% $story_ref->get( 'title' ) %>
-<br/>
+<fieldset class="full"><legend><% $story_ref->get( 'title' ) %></legend>
 <&| /l &>date</&>:
 <% $story_ref->get( 'date' ) %>
 <br/>
 <br/>
-Abstract:
-<br/>
+<fieldset class="full"><legend>Abstract</legend>
 <% $story_ref->get( 'abstract' ) %>
+</fieldset>
 <br/>
 <br/>
-Fulltext:
-<br/>
+<fieldset class="full"><legend>Fulltext</legend>
 <% $story_ref->get( 'fulltext' ) %>
+</fieldset>
 <br/>
 <br/>
-Media:
-<br/>
+<fieldset class="full"><legend>Media</legend>
 % for ( @media_list ) {
 % my $p = $_->{file};
 %# XXX: Consider moving generation of these links to caller
@@ -25,6 +22,8 @@ Media:
 info => $_->info() &>
 </a>
 % }
+</fieldset>
+</fieldset>
 <br/>
 <br/>
 <br/>
