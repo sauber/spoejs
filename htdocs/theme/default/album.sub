@@ -3,10 +3,10 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: album.sub,v 1.3 2004/04/10 07:54:57 snicki Exp $
+%# $Id: album.sub,v 1.4 2004/04/10 08:04:19 snicki Exp $
 %#
 <& $w,
-   img_list  => \@ml
+   img_list  => \@ml,
    img_count => $spoejs{p}{s}
 &>
 <%init>
