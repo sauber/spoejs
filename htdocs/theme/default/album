@@ -3,14 +3,23 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: album,v 1.8 2004/05/23 08:02:36 snicki Exp $
+%# $Id: album,v 1.9 2004/06/03 00:51:07 snicki Exp $
 %#
 %for my $p ( @img_list ) {
 %  my $href = $m->scomp( '/htm/url:encode', 'media.html', d => $spoejs{p}{d},
 %                        s => $p->{file} );
-  <& '/w', w => "media", d =>  $spoejs{p}{d}, p => $p->{file}, 
-           m => $img_size, href => $href &>
+  <& '/w', w => "media", d =>  $spoejs{p}{d}, p => $p->{file}, m => $img_size,
+          href => $href, box_height => $max_height, html_wh => $p->{html_wh} &>
 %}
+<%init>
+# Find largest height
+my $max_height;
+for my $p ( @img_list ) {
+  my ($width, $height, @rest) = $p->info( $img_size ); 
+  $p->{html_wh} = 'width="' . $width . ' height="' . $height . '"';
+  $max_height = $height if $height > $max_height;
+}
+</%init>
 <%args>
   @img_list  => undef
   $img_count => undef
