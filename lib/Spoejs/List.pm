@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.12 2004/05/05 09:18:16 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.12 $';
+# $Id: List.pm,v 1.13 2004/07/02 16:29:21 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.13 $';
 
 
 # Constructor
@@ -92,23 +92,38 @@ sub _list_from_file_pattern {
     return @files;
 }
 
-sub _index_of {
-    my ( $self, $item, $list ) = @_;
-
-    return $item unless $item =~ /(\D\D\D)$/;
-
-    my $count = 0;
-    for my $i ( @$list ) {
-	# Handle list of objects by using file member
-	$i = $i->{file} if defined $i->{file};
-	return $count if $i =~ /$item$/;
-	$count++;
-    }
-}
 
 sub _item_of {
     my ( $self, $item, $list ) = @_;
     return $$list[$item];
+}
+
+# XXX: Move story/media to respective classes
+sub _index_of {
+    my ( $self, $item, $list ) = @_;
+
+    if ( $item =~ m|\d+/\d+/\d+| ) {
+	warn Dumper $list;
+	my $count = 0;
+	for my $i ( @$list ) {
+	    my $path = $i->story_path_from_full();
+	    return $count if $path =~ /$item$/;
+	    $count++;
+	}
+    }
+
+    if ( $item =~ /(\D\D\D)$/ ) {
+	
+	my $count = 0;
+	for my $i ( @$list ) {
+	    # Handle list of objects by using file member
+	    $i = $i->{file} if defined $i->{file};
+	    return $count if $i =~ /$item$/;
+	    $count++;
+	}
+    }
+
+    return $item;
 }
 
 #### Public interface ####
@@ -124,6 +139,8 @@ sub next {
     my ( $self, %param ) = @_;
 
     $param{start} = $self->_index_of( $param{start}, $param{list} );
+
+    warn "Start: " . $param{start};
 
     return undef if $param{start} >= $param{end};
     my $index = $param{start} + $param{count};
