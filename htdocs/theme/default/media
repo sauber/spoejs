@@ -3,11 +3,12 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.25 2004/05/20 10:18:16 snicki Exp $
+%# $Id: media,v 1.26 2004/05/20 10:49:40 snicki Exp $
 %#
 % unless ( $no_div ) {
 <div class="media">
 % }
+<center>
 % if ( $href ) {
 <a href="<% $href %>">\
 %}
@@ -17,10 +18,20 @@
 % if ( $href ) {
 </a>
 %}
+</center>
 %#Insert annotation here
 %my $annotation = $spoejs{Annotations}->get( $ARGS{p} ) 
 %	                                       if defined $spoejs{Annotations};
-<br/><% $annotation %>
+<div>
+<% $annotation %>
+% if ( undef ) {
+% my @words=qw(samba random word roppongi nudler flot s.p.o.e.j.s annotation home hehe);
+%# Edit annotations like this
+<% ucfirst $words[int rand @words] %>
+% for ( 0..1 + int rand 8 ) {
+<% $words[int rand @words] %>
+% }}
+</div>
 % unless ( $no_div ) {
 </div>
 % }
