@@ -1,29 +1,23 @@
 % foreach my $story ( @stories ) {
 <& /w, w => 'abstract', storyref => $story &><br/>
 % }
-<& /w, w => 'navi', left_href => $older_href, right_href => $newer_href &>
+<& /w, w => 'navi', %navi_opt &>
 <%init>
   # Todo add div. parameters
   my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
 	                          path => $spoejs{channel_path} );
 $spoejs{error}{$m->current_comp->source_file} = $SL->{msg} if $SL->{msg};
+  # XXX: Make ChannelConf or user selectable
 
-my $count = $spoejs{p}{n} || 4;
+my $count = 4;
 my $start = $spoejs{p}{s} || 0;
 my %sl_opt = ( category  => $spoejs{p}{c},
 	       prev      => $count,
 	       story_num => $start
 	     );
-my %opt;
-$opt{n} = $spoejs{p}{n} if defined $spoejs{p}{n};
 
 my @stories = $SL->list_stories( %sl_opt );
-%sl_opt = ( count => $count, start => $start );
-my @cmp = ( "/htm/url:encode", "/$spoejs{channel}/index.html" );
 
-$opt{s} = $SL->next( %sl_opt );
-my $newer_href = $m->scomp( @cmp, %opt ) if defined $opt{s};
-
-$opt{s} = $SL->prev(  %sl_opt );
-my $older_href = $m->scomp( @cmp, %opt ) if defined $opt{s};
+my %navi_opt = ( url => "/$spoejs{channel}/index.html",
+		 count => $count, start => $start, list_ref => $SL );
 </%init>

@@ -2,8 +2,8 @@ package Spoejs::List;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: List.pm,v 1.7 2004/04/05 23:11:25 snicki Exp $
-$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.7 $';
+# $Id: List.pm,v 1.8 2004/04/06 02:10:14 snicki Exp $
+$Spoejs::List::VERSION = $Spoejs::List::VERSION = '$Revision: 1.8 $';
 
 
 # Constructor
@@ -94,10 +94,31 @@ sub _list_from_file_pattern {
 
 #### Public interface ####
 
-sub next {
+# Return array of all elements in list (without args)
+#
+sub list { }
 
+
+# Return index 'count' ahead of 'start'
+#
+sub next {
+    my ( $self, %param ) = @_;
+
+    return undef if $param{start} >= $param{end};
+    my $index = $param{start} + $param{count};
+    return undef if $index > $param{end};
+    return $index;
 }
 
-sub prev {
 
+# Return index 'count' behind 'start'
+#
+sub prev {
+    my ( $self, %param ) = @_;
+
+    return undef if $param{start} <= 0;
+    my $index = $param{start} - $param{count};
+    return $param{end} if $index > $param{end};
+    return 0 if $index < 0;
+    return $index;
 }

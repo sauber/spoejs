@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.10 2004/04/05 23:11:25 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.10 $';
+# $Id: MediaList.pm,v 1.11 2004/04/06 02:10:15 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.11 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -34,50 +34,56 @@ sub _next {
 
 sub _list {
 
-    my ($self, @files) = @_;
+    my ($self, $start, $count, @files) = @_;
 
+    # Remove 'start' elements
+    @files = @files[$start..$#files] if $start;
 
     my @items;
-
     for ( @files ) {
 	@d{ 'file', 'path' } = fileparse $_;
 	push @items, new Spoejs::Pic( %d );
     }
 
-    return @items;
+    # Shrink array to 'count' elements
+    $#items = $count - 1 if $count and @items > $count;
 
+    return @items;
 }
+
 #### Public interface ####
 
 sub list {
     my $self = shift;
+    my %opt  = @_;
 # XXX: What pattern should be used here?
-    my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG)$' );
-    return $self->_list( sort @files );
+    my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG|gif|GIF)$' );
+    return $self->_list( $opt{start}, $opt{count}, sort @files );
 }
 
 
 sub list_unsorted {
     my $self = shift;
+    my %opt  = @_;
 # XXX: What pattern should be used here?
-    my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG)$' );
-    return $self->_list( @files );
+    my @files = $self->_list_from_file_pattern( '(jpg|JPG|png|PNG|gif|GIF)$' );
+    return $self->_list( $opt{start}, $opt{count}, @files );
 }
 
 
 
-sub next {
-    my ( $self, %param ) = @_;
-    my @list = $self->list();
-    return $self->_next( $param{current}, $param{count}, @list );
-}
+#sub next {
+#    my ( $self, %param ) = @_;
+#    my @list = $self->list( $parm{count} );
+#    return $self->_next( $param{start}, $param{count}, @list );
+#}
 
 
-sub prev {
-    my ( $self, %param ) = @_;
-    my @list = reverse $self->list();
-    return $self->_next( $param{current}, $param{count}, @list );
-}
+#sub prev {
+#    my ( $self, %param ) = @_;
+#    my @list = reverse $self->list( $param{count} );
+#    return $self->_next( $param{start}, $param{count}, @list );
+#}
 
 sub get_picref {
     my ( $self, $current ) = @_;

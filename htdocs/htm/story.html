@@ -2,21 +2,22 @@
        story_dir  => $spoejs{p}{d},
        story_ref  => $S,
        edit_href  => $a_edit,
-       next_href  => $next_href,
-       prev_href  => $prev_href,
+#       next_href  => $next_href,
+#       prev_href  => $prev_href,
+       navi_opt   => \%navi_opt,
        media_list => \@media_list
 &>
 <%init>
-  my $count = $spoejs{p}{n};
-  $count ||= 20;
+  # XXX: Make ChannelConf or user selectable
+  my $count = 20;
 
   my $path = $spoejs{channel_path} . "/" .$spoejs{p}{d};
   my $S = new Spoejs::Story( path => $path,
                              lang => $spoejs{lang_handle} );
   $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
 
-  my @media_list = $S->{ML}->next( current => $spoejs{p}{q},
-				   count => $count+1 );
+  my @media_list = $S->{ML}->list( start => $spoejs{p}{s},
+				   count => $count );
 
 my $a_edit = '';
 if ( $session{chanauth} && $spoejs{channel} &&
@@ -29,27 +30,8 @@ if ( $session{chanauth} && $spoejs{channel} &&
   $a_edit .= '">Edit</a>';
 }
 
-my $prev_href;
-my $next_href;
-my $nextpic;
-my $prevpic;
-
-if ( @media_list > $count ) {
-my @prev_list = $S->{ML}->prev( current => $spoejs{p}{q},
-				count => ($spoejs{p}{n} || 20)+1 );
-
-$nextpic = pop @media_list;
-$prevpic = pop @prev_list;
-
-$prev_href = $m->scomp( '/htm/url:encode',
-			"/$spoejs{channel}/story.html",
-			d => $spoejs{p}{d},
-			q => $prevpic->{file}
-		      );
-$next_href = $m->scomp( '/htm/url:encode',
-			"/$spoejs{channel}/story.html",
-			d => $spoejs{p}{d},
-			q => $nextpic->{file}
-		      );
-}
+my %navi_opt = ( url => "/$spoejs{channel}/story.html",
+		 count => $count,
+		 start => $spoejs{p}{s},
+		 list_ref => $S->{ML} );
 </%init>

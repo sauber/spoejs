@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.20 2004/04/05 12:17:57 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.20 $';
+# $Id: StoryList.pm,v 1.21 2004/04/06 02:10:15 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.21 $';
 
 sub _initialize {
     my $self = shift;
@@ -243,26 +243,7 @@ sub list_stories {
     return @res;
 }
 
-
-# Return elements 'next' newer tham 'current'
-#
-sub next {
-    my ( $self, %param ) = @_;
-
-    return undef if $param{start} <= 0;
-    return 0 if $param{count} > $param{start};
-    my $index = $param{start} - $param{count};
-    return $index;
-}
-
-
-# Return elements 'prev' older tham 'current'
-#
-sub prev {
-    my ( $self, %param ) = @_;
-
-    my @all = $self->list_stories( category => $param{category} );
-    return undef if $param{count} + $param{start} >= @all;
-    my $index = $param{start} + $param{count};
-    return $index;
+sub list {
+    my $self = shift;
+    return $self->list_stories();
 }

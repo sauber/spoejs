@@ -27,7 +27,7 @@
 </div>
 % }
 </fieldset>
-<& /w, w => 'navi', right_href => $next_href, left_href => $prev_href &>
+<& /w, w => 'navi', %navi_opt &>
 </fieldset>
 <br/>
 <br/>
@@ -35,9 +35,10 @@
 <% $edit_href %>
 <%args>
   $story_dir  => undef
-  $story_ref      => undef
+  $story_ref  => undef
   $edit_href  => undef
-  $next_href  => undef
-  $prev_href  => undef
+  %navi_opt   => undef
+#  $next_href  => undef
+#  $prev_href  => undef
   @media_list => undef
 </%args>
