@@ -6,6 +6,7 @@
 </about>
 
 <active>
+<lang=da/>Aktiv
 <lang=en/>Active
 <lang=zh/>运行
 </active>
@@ -18,19 +19,23 @@
 </add>
 
 <addfilepc>
+<lang=da/>Tilføj filer fra PC
 <lang=en/>Add files from PC
 </addfilepc>
 
 <addfileserver>
+<lang=da/>Tilføj filer fra server
 <lang=en/>Add files from server 
 </addfileserver>
 
 <addnewchannel>
+<lang=da/>Tilføj ny spoejs kanal
 <lang=en/>Add a new spoejs channel
 <lang=zh/>添加一个新的Spoejs网页
 </addnewchannel>
 
 <administration>
+<lang=da/>Administration
 <lang=en/>Administration
 <lang=hu/>adminisztracio
 <lang=zh/>系统管理
@@ -53,6 +58,7 @@
 </ar>
 
 <archive>
+<lang=da/>Arkiver
 <lang=en/>Archive
 <lang=zh/>完全控制
 </archive>
@@ -60,7 +66,7 @@
 <bg>
 <lang=ar/>بلغاري
 <lang=bg/>Български
-<lang=da/>Bolgarsk
+<lang=da/>Bulgarsk
 <lang=en/>Bulgarian
 <lang=fr/>Bulgare
 <lang=gr/>Βουλγαρικά
@@ -108,6 +114,7 @@
 </category>
 
 <categorylist>
+<lang=da/>Kategori liste
 <lang=en/>Category list
 <lang=zh/>一揽
 </categorylist>
@@ -135,6 +142,7 @@
 </change>
 
 <channelconf>
+<lang=da/>Kannalkonfiguration
 <lang=en/>Channel Configuration
 <lang=zh/>网页构造
 </channelconf>
@@ -147,32 +155,38 @@
 </choose>
 
 <click_channel>
+<lang=da/>Gå til kannal
 <lang=en/>Click here to go to channel
 <lang=zh/>按这里进入网页
 </click_channel>
 
 <click_continue>
+<lang=da/>Fortsæt
 <lang=en/>Click here to continue
 <lang=zh/>按这里继续
 </click_continue>
 
 <congrat_changes>
+<lang=da/>Ændringer var successfulde
 <lang=en/>Congratulations your changes were successful
 <lang=zh/>祝贺你的更改成功了
 </congrat_changes>
 
 <congrat_signup>
+<lang=da/>Tillykke du er nu oprettet
 <lang=en/>Congratulations you are now signed up
 <lang=zh/>祝贺你现在登录了
 </congrat_signup>
 
-<currentfilename>
-<lang=en/>Current filename
-</currentfilename>
-
 <currentfile>
+<lang=da/>Nuværende filer
 <lang=en/>Current files
 </currentfile>
+
+<currentfilename>
+<lang=da/>Aktuelt filnavn
+<lang=en/>Current filename
+</currentfilename>
 
 <da>
 <lang=ar/>دنماركي
@@ -230,6 +244,7 @@
 </delete>
 
 <deletefile>
+<lang=da/>Slet fil
 <lang=en/>Delete file
 </deletefile>
 
@@ -247,6 +262,7 @@
 </description>
 
 <dimensions>
+<lang=da/>Dimensioner
 <lang=en/>Dimentions
 </dimensions>
 
@@ -290,18 +306,22 @@
 </es>
 
 <fileformat>
+<lang=da/>Filformat
 <lang=en/>File format
 </fileformat>
 
 <filename>
+<lang=da/>Filnavn
 <lang=en/>Filename
 </filename>
 
 <filesize>
+<lang=da/>Filstørrelse
 <lang=en/>Filesize
 </filesize>
 
 <fileupload>
+<lang=da/>Filupload til historie
 <lang=en/>File upload for story
 </fileupload>
 
@@ -329,13 +349,10 @@
 </fr>
 
 <freeall>
+<lang=da/>Fri-for-alle
 <lang=en/>Free-for-all
 <lang=zh/>完全自由
 </freeall>
-
-<fullpath>
-<lang=en/>Full path
-</fullpath>
 
 <full_story>
 <lang=da/>Hele historien
@@ -343,6 +360,11 @@
 <lang=hu/>a tortenet teljes szovege
 <lang=zh/>全文报导正文
 </full_story>
+
+<fullpath>
+<lang=da/>Fuld sti
+<lang=en/>Full path
+</fullpath>
 
 <gr>
 <lang=ar/>يوناني
@@ -368,6 +390,7 @@
 </hu>
 
 <inviteonly>
+<lang=da/>Kun inviterede
 <lang=en/>Invite-only
 <lang=zh/>只邀请
 </inviteonly>
@@ -488,10 +511,6 @@
 <lang=zh/>马其顿语
 </mk>
 
-<newfilename>
-<lang=en/>New filename
-</newfilename>
-
 <new_story>
 <lang=da/>Ny historie
 <lang=en/>New story
@@ -500,31 +519,42 @@
 </new_story>
 
 <new_username>
+<lang=da/>Nyt brugernavn
 <lang=en/>New username
 <lang=zh/>新的用户名
 </new_username>
 
+<newfilename>
+<lang=da/>Nyt filnavn
+<lang=en/>New filename
+</newfilename>
+
 <newpass>
+<lang=da/>Nyt password
 <lang=en/>New Passward
 <lang=zh/>新的密码
 </newpass>
 
 <no>
+<lang=da/>Nej
 <lang=en/>No
 <lang=zh/>否
 </no>
 
 <no_stories>
+<lang=da/>Ingen historier
 <lang=en/>No stories
 <lang=zh/>没有内容
 </no_stories>
 
 <oneerror_occur>
+<lang=da/>En eller flere fejl er opstået i
 <lang=en/>One or more errors has occured in
 <lang=zh/>出现有一个或更多的错误
 </oneerror_occur>
 
 <or_add_newstory>
+<lang=da/>eller her for at tilføje en ny historie
 <lang=en/>or here to add a new story
 <lang=zh/>或许按这儿添加新的记事
 </or_add_newstory>
@@ -553,11 +583,13 @@
 </passwd>
 
 <please_fill_out_this_form>
+<lang=da/>Venligst udfyld denne formular
 <lang=en/>Please fill out this form
 <lang=zh/>请填写这张表
 </please_fill_out_this_form>
 
 <pleaselogin>
+<lang=da/>Log venligst ind før denne side tilgåes
 <lang=en/>Please Login before accessing this page
 <lang=zh/>进入此页之前请登录
 </pleaselogin>
@@ -637,11 +669,6 @@
 <lang=zh/>短名
 </shortname>
 
-<signup_approve>
-<lang=en/>Signup Approve
-<lang=zh/>允许登记
-</signup_approve>
-
 <signup>
 <lang=ar/>التسجيل
 <lang=bg/>Абонамент
@@ -655,7 +682,14 @@
 <lang=zh/>登记
 </signup>
 
+<signup_approve>
+<lang=da/>Tilmeld-godkend
+<lang=en/>Signup Approve
+<lang=zh/>允许登记
+</signup_approve>
+
 <signup_newchannel>
+<lang=da/>Tilmeld en ny spoejs kanal
 <lang=en/>Sign up for a new Spoejs channel
 <lang=zh/>登记新的网页
 </signup_newchannel>
@@ -668,12 +702,14 @@
 </site_home>
 
 <siteconf>
+<lang=da/>Site konfiguration
 <lang=en/>Site configuration
 <lang=hu/>hely konfiguracio
 <lang=zh/>网页结构
 </siteconf>
 
 <sitepolicy>
+<lang=da/>Site politik
 <lang=en/>Site Policy
 <lang=zh/>本页特权
 </sitepolicy>
@@ -686,11 +722,13 @@
 </specific>
 
 <spoejs_channels_at_this_site>
+<lang=da/>Spoejs kanaler på dette site
 <lang=en/>Spoejs channels at this site
 <lang=zh/>Spoejs网页
 </spoejs_channels_at_this_site>
 
 <statuschannel>
+<lang=da/>Status for kanaler på dette site
 <lang=en/>Status for channels at this site
 <lang=zh/>本网站网页的状况
 </statuschannel>
@@ -710,6 +748,7 @@
 </storytitle>
 
 <storytitlelist>
+<lang=da/>Historietitelliste
 <lang=en/>Story title list
 <lang=zh/>记事标题一览
 </storytitlelist>
@@ -728,6 +767,7 @@
 </submit>
 
 <thechannel_notexit>
+<lang=da/>Kanalen eksisterer ikke!
 <lang=en/>The channel doesn't exist!
 <lang=zh/>这个网页不存在
 </thechannel_notexit>
@@ -782,6 +822,7 @@
 </username>
 
 <yes>
+<lang=da/>Ja
 <lang=en/>Yes
 <lang=zh/>是
 </yes>
