@@ -17,8 +17,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.1 2004/02/27 06:47:01 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.1 $';
+# $Id: StoryList.pm,v 1.2 2004/02/27 08:18:52 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.2 $';
 
 sub _initialize {
     my $self = shift;
@@ -70,14 +70,16 @@ my $all_by_date = sub {
 
 #### Public interface ####
 
+# Add story - creates dir-structure for new story
+#
 sub add_story {
     my $self = shift;
+    my %input = @_;
     my $path = $self->{channel_path};
 
-    # Get year/month for folder
-    my ($month, $year) = (localtime)[4,5];
-    $month += 1;
-    $year  += 1900;
+    # Get year/month for folder or default to today
+    my $date = $input{date} || localtime;
+    my ($month, $year) = Date::Manip::UnixDate( $date, "%m", "%Y" );
 
     # Make sure folder exist
     mkdir "$path/$year" unless -d "$path/$year";
@@ -94,6 +96,8 @@ sub add_story {
 
     # Start from 0 if no dirs exist
     $current_dirs[0] ||= 0;    
+
+    return undef if $current_dirs[0] > 98;
 
     $new_dir = sprintf "%s/%0.2d", $path, $current_dirs[0] + 1;
 
