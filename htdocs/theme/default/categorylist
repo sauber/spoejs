@@ -5,7 +5,6 @@
 
 <%init>
   # Todo add div. parameters
-  my $L  = new Spoejs::Lang( $m->{session}{pref_lang} );
-  my $SL = new Spoejs::StoryList( lang => $L );
+  my $SL = new Spoejs::StoryList( lang =>  $m->{session}{lang_handle} );
   my %count = $SL->count_stories( by => 'category' ); 
 </%init>

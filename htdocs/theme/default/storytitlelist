@@ -1,10 +1,13 @@
 <table width="300">
 <tr>
-  <th>Title</th><th>Date</th>
+  <th><&|/l&>title</&></th>
+  <th><&|/l&>date</&></th>
 </tr>
 % foreach my $story ( @stories ) {
+% my $path = $story->{story_path};
+% $path =~ s/\///g;
 <tr>
-  <td><% $story->get( 'title' ) %></td>
+  <td><a href="story_d<% $path %>.html"><% $story->get( 'title' ) %></a></td>
   <td><% $story->get( 'date' ) %></td>
 </tr>
 % }
@@ -14,7 +17,7 @@
 
 <%init>
   # Todo add div. parameters
-  my $L  = new Spoejs::Lang( $m->{session}{pref_lang} );
-  my $SL = new Spoejs::StoryList( lang => $L );
+  my $SL = new Spoejs::StoryList( lang => $m->{session}{lang_handle} );
   my @stories = $SL->list_stories(); 
+
 </%init>
