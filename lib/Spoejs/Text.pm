@@ -4,12 +4,12 @@
 
 package Spoejs::Text;
 use Storable qw( dclone );
-use Carp::Assert;
+no Carp::Assert;
 use Spoejs::SiteConf;
 use base ( "Spoejs" );
 
-# $Id: Text.pm,v 1.1 2004/02/26 02:51:48 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::Auth::VERSION = '$Revision: 1.1 $';
+# $Id: Text.pm,v 1.2 2004/02/26 03:32:35 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::Auth::VERSION = '$Revision: 1.2 $';
 
 
 # Constructor
@@ -237,7 +237,7 @@ sub del {
 
     delete( $self->{data} );
 
-    $msg = unlink $self->{full_path} if -e $self->{full_path};
+    $msg = unlink $self->{full_path};
 
     $self->{is_loaded} = 0;
     $self->{is_modified} = 0;
