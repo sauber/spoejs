@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: siteconfig.html,v 1.10 2004/05/06 07:22:42 snicki Exp $
+%# $Id: siteconfig.html,v 1.11 2004/05/16 11:53:53 snicki Exp $
 %#
 <h1><&|/l&>statuschannel</&>:</h1>
 <& /w, w => "login", action => '', ses_var => 'siteauth' &>
@@ -75,6 +75,14 @@
 % }
 </select>
 <br/>
+**Peers:***<br/>
+<textarea name="peers" cols="40" rows="10">
+<% $SC->get('peers') %>
+</textarea>
+<br/>
+<br/>
+**Proxy:**<br/>
+<input type="text" name="proxy" size="40" value="<% $SC->get('proxy') %>"/>
 <br/>
 <input type="submit" name="submit" value="<&|/l&>submit</&>" />
 </form>
@@ -137,5 +145,12 @@ if ( $ARGS{submit} ) {
 
   # Set transoptions
   $SC->set( $transopt => $ARGS{$transopt} );
+
+  # Set peers
+  $SC->set( peers => { en => $ARGS{peers}} );
+
+  #Set proxy
+  $SC->set( proxy => { en => $ARGS{proxy}} );
+
 }
 </%init>
