@@ -1,7 +1,7 @@
 package Spoejs;
 
-# $Id: Spoejs.pm,v 1.4 2004/03/04 07:26:42 sauber Exp $
-$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.4 $';
+# $Id: Spoejs.pm,v 1.5 2004/03/04 11:43:52 snicki Exp $
+$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.5 $';
 
 # Constructor
 #
@@ -10,9 +10,9 @@ sub new {
     my $invocant  = shift;
     my $class     = ref($invocant) || $invocant;
 
-    my $self = { };
+    my $self = { @_ };
     bless $self, $class;
-    $self->_initialize(@_);
+    $self->_initialize();
 
     return $self;
 }

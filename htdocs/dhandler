@@ -56,8 +56,9 @@
   }
   # Set language object
   unless ( $session{lang_handle} ) {
-    $session{lang_handle} = new Spoejs::Lang( $session{pref_lang},
-				              @{$session{browser_langs}}
+    $session{lang_handle} = new Spoejs::Lang( lang_order => 
+    [ $session{pref_lang},
+      @{$session{browser_langs}}]
 					    );
   }
   # Set resource object

@@ -22,16 +22,13 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.10 2004/03/04 05:29:03 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.10 $';
+# $Id: StoryList.pm,v 1.11 2004/03/04 11:43:52 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.11 $';
 
 sub _initialize {
     my $self = shift;
-    my %input = @_;
 
-    $self->{channel_path} = Spoejs::ChannelConf->channel_dir();
     $self->{file} = "data.txt";
-    $self->{lang} = $input{lang};
 }
 
 
@@ -44,14 +41,13 @@ sub _all_by_date {
     my $self = shift;
     my @stories;
     my $file = $self->{file};
-    my $root_path = $self->{channel_path};
+    my $root_path = $self->{path};
 
     use File::Find;
     find sub {
 	my $res = $File::Find::name if /$file/;
 	return unless $res;
 	$res =~ s/\/$file//;      #Strip filename
-	$res =~ s/$root_path\///; #Strip leading path
 
 	my $S = Spoejs::Story->new( path => $res, lang => $self->{lang} );
 
@@ -78,10 +74,10 @@ sub _ls_loop {
     
     my @new;
     foreach $story ( @all ) {
-	# XXX: make story_path function call in Story
-	my $path = $story->{story_path};
+
+	my $path = $story->story_path_from_full();
 	$path =~ s/\///g;
-	
+
 	if ( $comp->( $path ) ) {
 	    push @new, $story;
 	    last if --$count == 0;
@@ -98,7 +94,7 @@ sub _ls_loop {
 sub add_story {
     my $self = shift;
     my %input = @_;
-    my $path = $self->{channel_path};
+    my $path = $self->{path};
 
     # Get year/month for folder or default to today
     my $date = $input{date} || localtime;
@@ -127,7 +123,7 @@ sub add_story {
     mkdir $new_dir;
 
     # Remove channel part of dir
-    $new_dir =~ s/$self->{channel_path}\///;
+    $new_dir =~ s/$self->{path}\///;
 
     # return path to new folder
     return $new_dir;
@@ -138,7 +134,7 @@ sub del_story {
 
     my $self = shift;
     my %in = @_;
-    my $root_path = $self->{channel_path};
+    my $root_path = $self->{path};
 
     # Remove given story-dir
     rmtree "${root_path}/$in{story}";
@@ -153,7 +149,7 @@ sub count_stories {
 
     # Get story array
     @all = $self->_all_by_date();
- 
+
     if ( $in{by} eq 'category' or  $in{by} eq 'author' ) {
 	for ( @all ) {
 	    my $cat = $_->get( $in{by} );
@@ -206,7 +202,7 @@ sub list_stories {
     if ( $in{from} or $in{to} ) {
 	my $from = $in{from} || 0;
 	$from =~ s/\///g;
-	# What happens after 99 stories in december 9999?
+	# XXX: What happens after 99 stories in december 9999?
 	my $to = $in{to} || 99991299;
 	$to =~ s/\///g;
 

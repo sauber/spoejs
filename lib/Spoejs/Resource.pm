@@ -1,12 +1,15 @@
 package Spoejs::Resource;
 use base ( "Spoejs::Text" );
 
-# $Id: Resource.pm,v 1.4 2004/03/04 07:36:10 sauber Exp $
-$Spoejs::Resource::VERSION = $Spoejs::Resource::VERSION = '$Revision: 1.4 $';
+# $Id: Resource.pm,v 1.5 2004/03/04 11:43:52 snicki Exp $
+$Spoejs::Resource::VERSION = $Spoejs::Resource::VERSION = '$Revision: 1.5 $';
 
 sub _initialize {
     my $self = shift;
-    $self->{file} = "resource.txt";
+    my $path = $ENV{DOCUMENT_ROOT} || '';
+    $self->SUPER::_initialize( @_, 
+			       path => "$path../lib/",
+			       file => "resource.txt" );
 }
 
 # Generate list of languages.

@@ -9,26 +9,15 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.10 2004/03/04 05:29:03 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.10 $';
+# $Id: Text.pm,v 1.11 2004/03/04 11:43:52 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.11 $';
 
 
 # Constructor
 sub _initialize {
 
     my $self  = shift;
-    my %param = (@_);
-
-    # Get site_dir for current user
-    $self->{path}        = Spoejs::ChannelConf->channel_dir() ."/$param{path}"
-	if $param{path};
-    $self->{story_path}  = $param{path};
-    $self->{file}        = $param{file};
-    $self->{full_path}   = "$self->{path}/$param{file}" if $param{file};
-    $self->{full_path}   = $param{full_path} if $param{full_path};
-    $self->{lang}        = $param{lang};
-    $self->{is_loaded}   = 0;
-    $self->{is_modified} = 0;
+    %{$self} = ( %{$self}, @_ );
 }
 
 
@@ -41,7 +30,7 @@ sub _store_data {
 
     my $self = shift;
     my %data = %{$self->{data}}; #grab data for easier access
-    open (FH, ">$self->{full_path}") or return undef;
+    open (FH, ">$self->{path}/$self->{file}") or return undef;
 
     foreach $key ( keys( %data ) ) {
 	
@@ -83,8 +72,7 @@ sub _store_data {
 sub _read_data {
 
     my $self = shift;
-
-    open FH, "<$self->{full_path}" or return; #Return if file does'nt exist
+    open FH, "<$self->{path}/$self->{file}" or return undef;
 
     my $tag = "";
     my $lang = "";
@@ -147,7 +135,6 @@ sub _read_data {
 	    $self->{data}{$tag} = $_ if ( $in_tag );
 	}
     }
-
     close FH;
 };
 
@@ -158,8 +145,8 @@ sub _check_load {
 
     my $self = shift;
 
-    if ( $self->{is_loaded} == 0 ) {
-	$self->_read_data();
+    unless ( $self->{is_loaded} ) {
+	$self->_read_data() or return undef;
 	$self->{is_loaded} = 1;
     }
 
@@ -175,7 +162,7 @@ sub get {
     my $self = shift;
     my %res;
 
-    $self->_check_load();
+    $self->_check_load() or return undef;
 
     # Return only requested values if a list is supplied. dclone deep-copies
     if ( @_ == 1 ) {
@@ -257,11 +244,11 @@ sub del {
     my $self = shift;
 
     delete( $self->{data} );
+    my $file =  $self->{path} . '/' . $self->{file};
+    $msg = unlink $file;
 
-    $msg = unlink $self->{full_path};
-
-    $self->{is_loaded} = 0;
-    $self->{is_modified} = 0;
+    undef $self->{is_loaded};
+    undef $self->{is_modified};
 }
 
 
@@ -271,5 +258,3 @@ sub DESTROY {
     my $self = shift;
     $self->_store_data( @_ ) if $self->{is_modified};
 }
-
-1;
