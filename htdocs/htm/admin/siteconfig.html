@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: siteconfig.html,v 1.11 2004/05/16 11:53:53 snicki Exp $
+%# $Id: siteconfig.html,v 1.12 2004/05/19 11:45:33 snicki Exp $
 %#
 <h1><&|/l&>statuschannel</&>:</h1>
 <& /w, w => "login", action => '', ses_var => 'siteauth' &>
@@ -42,6 +42,12 @@
 </tr>
 % }
 </table>
+<br/>
+*set_password_for*: <& /w, w => 'channelselect', channels =>\@channels &> *to* 
+<input type="password" name="channel_password"/>
+<input type="submit" name="change_chan_pw" value="*set_password*" />
+
+<br/>
 <br/>
 <&|/l&>sitepolicy</&>:
 <select name="policy">
@@ -152,5 +158,9 @@ if ( $ARGS{submit} ) {
   #Set proxy
   $SC->set( proxy => { en => $ARGS{proxy}} );
 
+}
+if ( $ARGS{change_chan_pw} ) {
+  $channels[$ARGS{channel}]->set( password => undef );
+  $channels[$ARGS{channel}]->set( password => {en => $ARGS{channel_password}});
 }
 </%init>
