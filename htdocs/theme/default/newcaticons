@@ -1,0 +1,23 @@
+% for ( @cats ) {
+<& /w, w => 'categoryicon', category => $_, size => 75 &>
+% }
+<%init>
+my $SL = new Spoejs::StoryList( path => $spoejs{channel_path},
+                                lang => $spoejs{lang_handle} );
+
+my @stories = $SL->list_stories();
+
+my @cats;
+for ( @stories ) {
+  push @cats, $_->get( 'category' );
+}
+
+my %seen = ();
+@cats = grep { ! $seen{$_} ++ } @cats; # Uniqify
+
+# Shrink array to 'count' elements
+$#cats = $numcats - 1 if $numcats and @cats > $numcats;
+</%init>
+<%args>
+  $numcats => 5
+</%args>
