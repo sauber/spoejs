@@ -1,23 +1,7 @@
 % foreach my $story ( @stories ) {
 <& /w, w => 'abstract', storyref => $story &><br/>
 % }
-<center>
-% if ( $newer_href ) {
-<a href="<% $newer_href %>">
-<== newer
-</a>
-% } else {
-<== newer
-% }
-==
-% if ( $older_href ) {
-<a href="<% $older_href %>">
-older ==>
-</a>
-% } else {
-older ==>
-%}
-</center>
+<& /w, w => 'navi', left_href => $newer_href, right_href => $older_href &>
 <%init>
   # Todo add div. parameters
   my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
