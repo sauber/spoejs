@@ -83,6 +83,7 @@ Syndication:
  - Central site for root index
  - Parallel lwp fetch
  - RSS feeds
+ - None-spoejs syndication (html code to syndicate intro)
 
 Annotations:
  - Specialize ::Text
