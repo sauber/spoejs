@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.29 2004/07/04 02:48:44 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.29 $';
+# $Id: StoryList.pm,v 1.30 2004/07/07 09:53:33 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.30 $';
 
 sub _initialize {
     my $self = shift;
@@ -137,6 +137,10 @@ sub del_story {
     my $self = shift;
     my %in = @_;
     my $root_path = $self->{path};
+
+    # Check given path
+    return $self->_err( "Invalid path: $in{story}" ) 
+	unless $in{story} =~ m!/\d+/\d+/\d+$!;
 
     # Remove given story-dir
     my $res = rmtree "${root_path}/$in{story}";
@@ -263,6 +267,35 @@ sub list {
     return $self->list_stories();
 }
 
+
+# Move story to directory corresponding to date
+#
+sub fix_dir_date {
+    my $self = shift;
+    my $story_path = shift;
+
+    # Check given path
+    return $self->_err( "Invalid path: $story_path" ) 
+	unless $story_path =~ m!\d+/\d+/\d+$!;
+
+    # Read in Story
+    my $S = new Spoejs::Story( path => "$self->{path}/$story_path",
+			       lang => $self->{lang});
+
+    # Create new story dir structure
+    my $date = $S->get( 'date' );
+    my $new_path = $self->add_story( date => $date );
+    $story_path =~ s!/*?!!;
+    $new_path =~ s!/*?!!;
+
+    # Move old storydir on top of newly created dir
+    rename "$self->{path}/$story_path", "$self->{path}/$new_path";
+
+    $S = undef; # Make sure we dont touch story after deleting it below
+    $self->del_story( $story_path );
+
+    return $new_path;
+}
 
 __END__
 
