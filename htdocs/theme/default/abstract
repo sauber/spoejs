@@ -8,13 +8,13 @@
   <td><&|/l&>category</&>: <%$storyref->get( 'category' )%></td>
 </tr>
 <tr>
-  <td><& /w, w => 'categoryicon', category =>$storyref->get( 'category' ) &></td>
+  <td><& /w, w => 'categoryicon', category =>$storyref->get( 'category' ), 
+             size=> 75 &></td>
   <td><% $storyref->get( 'abstract' ) %></td>
 </tr>
 <tr>
 <td>
-% my $path = $storyref->story_path_from_full();
-% $path =~ s/\///g;
+% my $path = $storyref->story_string_from_full();
 <a href="/<%$session{user}%>/story_d<%$path%>.html">More</a>
 <a href="">Comment</a>
 % if ( $session{chanauth} && $session{user} && 
