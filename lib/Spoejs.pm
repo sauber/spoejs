@@ -1,7 +1,7 @@
 package Spoejs;
 
-# $Id: Spoejs.pm,v 1.1 2004/02/26 02:51:08 snicki Exp $
-$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.1 $';
+# $Id: Spoejs.pm,v 1.2 2004/02/28 07:05:03 sauber Exp $
+$Spoejs::VERSION = $Spoejs::VERSION = '$Revision: 1.2 $';
 
 # Constructor
 sub new {
@@ -16,3 +16,7 @@ sub new {
 
     return $self;
 }
+
+# Default initializor
+
+sub _initialize {}
