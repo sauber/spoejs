@@ -1,130 +1,148 @@
 <ar>
 <lang=jp/>アラビア語
-<lang=gr/>Αραβικά
+<lang=mk/>Арапски
 <lang=en/>Arabic
+<lang=gr/>Αραβικά
 <lang=da/>Arabisk
 </ar>
 
 <bg>
 <lang=jp/>ブルガリア語
-<lang=gr/>Βουλγάρικα
+<lang=mk/>Бугарски
 <lang=en/>Bulgarian
+<lang=gr/>Βουλγαρικά
 </bg>
 
 <category>
 <lang=jp/>カテゴリー
-<lang=gr/>Κατηγορία
+<lang=mk/>Категорија
 <lang=en/>Category
+<lang=gr/>Κατηγορία
 <lang=da/>Kategori
 </category>
 
 <change>
 <lang=jp/>変更
-<lang=gr/>Αλλαγή
+<lang=mk/>Промена
 <lang=en/>Change
+<lang=gr/>Αλλαγή
 <lang=da/>Skift
 </change>
 
 <da>
 <lang=jp/>デンマーク語
-<lang=gr/>Δανικά
+<lang=mk/>Дански
 <lang=en/>Danish
+<lang=gr/>Δανικά
 <lang=da/>Dansk
 </da>
 
 <date>
 <lang=jp/>日付
+<lang=mk/>Дата
 <lang=is/>Dagsetning
-<lang=gr/>Ημερομηνία
 <lang=en/>Date
+<lang=gr/>Ημερομηνία
 <lang=da/>Dato
 </date>
 
 <de>
 <lang=jp/>ドイツ語
-<lang=gr/>Γερμανικά
+<lang=mk/>Германски
 <lang=en/>German
+<lang=gr/>Γερμανικά
 <lang=da/>Tysk
 </de>
 
 <en>
 <lang=jp/>英語
-<lang=gr/>Αγγλικά
+<lang=mk/>Англиски
 <lang=en/>English
+<lang=gr/>Αγγλικά
 <lang=da/>Engelsk
 </en>
 
 <fr>
 <lang=jp/>フランス語
-<lang=gr/>Γαλλικά
+<lang=mk/>Француски
 <lang=en/>French
+<lang=gr/>Γαλλικά
 <lang=da/>Fransk
 </fr>
 
 <gr>
 <lang=jp/>ギリシャ語
-<lang=gr/>Ελληνικά
+<lang=mk/>Грчки
 <lang=en/>Greek
+<lang=gr/>Ελληνικά
 <lang=da/>Græsk
 </gr>
 
 <is>
 <lang=jp/>アイスランド語
-<lang=gr/>Ισλανδικά
+<lang=mk/>Исландски
 <lang=en/>Icelandic
+<lang=gr/>Ισλανδικά
 <lang=da/>Islandsk
 </is>
 
 <it>
 <lang=jp/>イタリア語
-<lang=gr/>Ιταλικά
+<lang=mk/>Италијански
 <lang=en/>Italian
+<lang=gr/>Ιταλικά
 </it>
 
 <jp>
 <lang=jp/>日本語
-<lang=gr/>Ιαπωνικά
+<lang=mk/>Јапонски
 <lang=en/>Japanese
+<lang=gr/>Ιαπωνικά
 <lang=da/>Japansk
 </jp>
 
 <mk>
-<lang=mk/>hello
+<lang=mk/>Македонски
 <lang=gr/>Μακεδονικά
 <lang=en/>Macedonian
 </mk>
 
 <passwd>
 <lang=jp/>パスワード
-<lang=en/>Password
+<lang=mk/>Клучен збор
 <lang=gr/>Κωδικός
+<lang=en/>Password
 </passwd>
 
 <posted_by>
 <lang=jp/>記入される
-<lang=gr/>Καταχώρηση από
+<lang=mk/>Испраќа
 <lang=en/>Posted by
+<lang=gr/>Καταχώρηση από
 <lang=da/>Af
 </posted_by>
 
 <se>
 <lang=jp/>スウェーデン語
-<lang=gr/>Σουηδικά
+<lang=mk/>Шведски
 <lang=en/>Swedish
+<lang=gr/>Σουηδικά
 </se>
 
 <title>
 <lang=jp/>タイトル
+<lang=mk/>Наслов
 <lang=is/>Titill
-<lang=gr/>Τίτλος
 <lang=en/>Title
+<lang=gr/>Τίτλος
 <lang=da/>Titel
 </title>
 
 <zh>
 <lang=jp/>中国語
-<lang=gr/>Κινέζικα
+<lang=mk/>Кинески
 <lang=en/>Chinese
+<lang=gr/>Κινέζικα
 <lang=da/>Kinesisk
 </zh>
 
