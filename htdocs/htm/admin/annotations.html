@@ -27,7 +27,7 @@ value="<%$local_anno{$p->{file}}%>">
 
     my %new_anno;
     while ( my ( $k, $v ) = each %ARGS ) {
-      $new_anno{$k}{$current_language} = $v if length $v > 0;
+        $new_anno{$k}{$current_language} = $v;
     } 
 
     $spoejs{Annotations}->set( %new_anno );
