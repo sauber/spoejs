@@ -1,7 +1,16 @@
+<table width="100%">
+<tr>
+<td>
 <h2><% $CC->get( 'title' ) %></h2>
 <h4><% $CC->get( 'description' ) %></h4>
+</td>
+<td align="right">
+<& /w, w => 'newcaticons' &>
+</td>
+</tr>
+</table>
 <center>
-<& /w, w => "list" &>
+<& /w, w => "list", category => $category &>
 </center>
 <br/>
 <fieldset><legend>Category list</legend>
@@ -20,4 +29,5 @@
 <%args>
  $CC        => undef
  $edit_href => undef
+ $category  => undef
 </%args>
