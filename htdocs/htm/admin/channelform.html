@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.20 2004/04/10 13:07:28 bottle18 Exp $
+%# $Id: channelform.html,v 1.21 2004/04/19 07:16:21 bottle18 Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2><&|/l&>congrat_changes</&></h2>
@@ -31,6 +31,11 @@
 <& /w, w => 'langselect' &>
 </td></tr>
 <tr>
+<td><&|/l&>theme</&>:</td>
+<td>
+<& /w, w => 'themeselect' &>
+</td></tr>
+<tr>
 <td><&|/l&>public</&></td>
 <td>
 % my $yc = $ARGS{public} eq 'yes' ? ' checked="checked"' : '';
@@ -47,7 +52,7 @@
 <%init>
   my $cur_lang = $spoejs{lang_handle}->{lang_order}->[0];
 
-  my @text_f = qw ( shortname title description theme username );
+  my @text_f = qw ( shortname title description username );
   my @non_text_f = qw( language password public );
   my %errs;
   my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
