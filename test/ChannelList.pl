@@ -7,7 +7,9 @@ my $CL = new Spoejs::ChannelList( path => '../htdocs/users/' );
 
 my $res = $CL->new_channel( username => 'snicki', password => 'kodeord',
 			    title=>'Test channel', shortname => 'testchan',
-			    description => 'This is just a test channel' );
+			    description => 'This is just a test channel',
+			    theme => 'pinkandfluffy', lang => 'en',
+			    public => 'yes' );
 
 die $CL->{msg} unless $res;
 
