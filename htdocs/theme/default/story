@@ -19,7 +19,7 @@ Media:
 <br/>
 % for ( @media_list ) {
 % my $p = $_->{file};
-% XXX: Consider moving generation of these links to caller
+%# XXX: Consider moving generation of these links to caller
 <a href="<& /htm/url:encode, 'media.html', d => $story_dir, p => $p &>">
 <& /w, w => "media", d => $story_dir, p => $p, m => 150, 
 info => $_->info() &>
