@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index.html,v 1.47 2004/06/13 10:58:27 snicki Exp $
+%# $Id: index.html,v 1.48 2004/06/17 02:06:56 snicki Exp $
 %#
 <table width="100%">
 % if ( @{$remotes} > 0 ) {
@@ -26,8 +26,10 @@
 </a>
 </h2>
 % if ( $chan->{S} ) {
+% # Set up minimal spoejs environment
 % $spoejs{channel_path} = $chan->{path};
 % $spoejs{channel} = $chan->channel_dir();
+% $spoejs{ChannelConf} = $chan;
 % $spoejs{p}{t} = $chan->get('theme');
 <& /w, w => 'abstract', box => 1, storyref => $chan->{S} &>
 <br clear="all"/>
@@ -37,6 +39,7 @@
 %# Cleanup above assigmnets
 % delete $spoejs{channel_path};
 % delete $spoejs{channel};
+% delete $spoejs{ChannelConf};
 <br/>
 % }
 </td>
