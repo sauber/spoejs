@@ -1,0 +1,16 @@
+<%perl>
+  my %res;
+  # Extract URL encoded parameters
+  while( $url =~ s/_(\w)(\w*?)(?=[_\.])// ) {
+    $res{$1} = $2;
+  };
+
+  # Default to configured, then 'default' theme if none is given in URL
+  $res{t} ||= #$channelconf->get(theme) || 
+            'default';
+warn Dumper( %res );
+  return %res;
+</%perl>
+<%args>
+$url => undef
+</%args>
