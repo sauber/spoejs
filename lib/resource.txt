@@ -870,6 +870,14 @@
 <lang=zh/>杂记名
 </journal_name>
 
+<journal_security>
+<lang=en/>Journal Security
+</journal_security>
+
+<journal_security_description>
+<lang=en/>Choose public or private if the journal shall be seen by public 
+</journal_security_description>
+
 <journals_friends>
 <lang=en/>Journals at friend's sites
 </journals_friends>
@@ -890,6 +898,10 @@
 <lang=ru/>язык
 <lang=zh/>语言
 </language>
+
+<language_description>
+<lang=en/>The Lauguage you will choose to edit your journal
+</language_description>
 
 <last>
 <lang=ar/>النهاية
@@ -1143,6 +1155,18 @@
 <lang=zh/>请再次按入密码
 </passwd_again>
 
+<passwd_description>
+<lang=en/>Ask administrator-Soren
+</passwd_description>
+
+<passwd_retype>
+<lang=en/>Retype your password
+</passwd_retype>
+
+<passwd_retype_description>
+<lang=en/>Same as passwd
+</passwd_retype_description>
+
 <please_fill_out_this_form>
 <lang=ar/>الرجاء أكمال هذا الجدول
 <lang=da/>Venligst udfyld denne formular
@@ -1197,6 +1221,10 @@
 <lang=ru/>Просмотр
 <lang=zh/>预现
 </preview>
+
+<private>
+<lang=en/>Private
+</private>
 
 <public>
 <lang=ar/>عمومي 
@@ -1283,6 +1311,10 @@
 <lang=ru/>Сокращенное имя
 <lang=zh/>短名
 </shortname>
+
+<shortname_description>
+<lang=en/>A unique name for your journal.
+</shortname_description>
 
 <signup>
 <lang=ar/>التسجيل
@@ -1537,6 +1569,10 @@
 <lang=zh/>主题
 </theme>
 
+<theme_descrption>
+<lang=en/>Soren will explain it in better way
+</theme_description>
+
 <thumbnail>
 <lang=ar/>الرموز
 <lang=da/>Ikon
@@ -1570,6 +1606,10 @@
 <lang=zh/>标题
 </title>
 
+<title_description>
+<lang=en/>Title for the journal
+</title_description>
+
 <upload>
 <lang=ar/>أدخال
 <lang=da/>Indsend
@@ -1598,6 +1638,10 @@
 <lang=ru/>Имя пользователя
 <lang=zh/>用户名
 </username>
+
+<username_description>
+<Lang=en/>Choose a 4 to 16 letter for user name
+</username_description>
 
 <view>
 <lang=en/>View
