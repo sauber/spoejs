@@ -1,0 +1,112 @@
+<& /htm/header.html &>  
+<body onload="StartSlideShow()" style="border: 0px; padding:0px;spacing:0px; margin: 0px;">  
+<script language="JavaScript" type="text/javascript">
+
+var playing = 1;
+var Slides = new Array();
+
+% my $i = 0;
+% foreach my $media ( @ML ) {
+%  my $ext;
+%  $media->{file} =~ /(...)$/ and $ext = lc $1;
+%  my $src = $m->scomp( '/htm/url:encode', "/$spoejs{channel}/pic.$ext",
+%                        d=>$spoejs{p}{d}, p=>$media->{file}, m => $spoejs{p}{m} );
+Slides[<%$i++%>] = '<% $src %>';
+%}
+
+// DO NOT EDIT BELOW THIS LINE!
+function CacheImage(ImageSource) { // TURNS THE STRING INTO AN IMAGE OBJECT
+   var ImageObject = new Image();
+   ImageObject.src = ImageSource;
+   return ImageObject;
+}
+
+function ShowSlide(Direction) {
+   if (SlideReady) {
+      NextSlide = CurrentSlide + Direction;
+      // THIS WILL DISABLE THE BUTTONS (IE-ONLY)
+      document.SlideShow.Previous.disabled = (NextSlide == 0);
+      document.SlideShow.Next.disabled = (NextSlide == (Slides.length-1));    
+ if ((NextSlide >= 0) && (NextSlide < Slides.length)) {
+            document.images['Screen'].src = Slides[NextSlide].src;
+            CurrentSlide = NextSlide++;
+            Message = 'Picture ' + (CurrentSlide+1) + ' of ' + Slides.length;
+            self.defaultStatus = Message;
+            if (Direction == 1) CacheNextSlide();
+      }
+      return true;
+   }
+   // Retry
+   setTimeout("ShowSlide(1)", 500);
+}
+
+function Download() {
+   if (Slides[NextSlide].complete) {
+      SlideReady = true;
+      self.defaultStatus = Message;
+   }
+   else setTimeout("Download()", 100); // CHECKS DOWNLOAD STATUS EVERY 100 MS
+   return true;
+}
+
+function CacheNextSlide() {
+   if ((NextSlide < Slides.length) && (typeof Slides[NextSlide] == 'string'))
+{ // ONLY CACHES THE IMAGES ONCE
+      SlideReady = false;
+      self.defaultStatus = 'Downloading next picture...';
+      Slides[NextSlide] = CacheImage(Slides[NextSlide]);
+      Download();
+   }
+   return true;
+}
+
+function StartSlideShow() {
+   CurrentSlide = -1;
+   Slides[0] = CacheImage(Slides[0]);
+   SlideReady = true;
+   ShowSlide(1);
+}
+
+function on_img_load() {
+if ( playing == 1 ) {
+      setTimeout("ShowSlide(1)", 3000);
+}
+}
+
+function toggle_play() {
+  playing = 1-playing;
+  if ( playing == 1 ) {
+      setTimeout("ShowSlide(1)", 1000);
+  }
+}
+</script>
+<form name="SlideShow" style="border: 0px; padding:0px;spacing:0px; margin: 0px;">
+<table width="100%" style="border: 0px; padding:0px;spacing:0px; margin: 0px;">
+<tr style="border: 0px; padding:0px;spacing:0px; margin: 0px;">
+   <td  style="border: 0px; padding:0px;spacing:0px; margin: 0px;" colspan="3" align="center"><img name="Screen" onload="on_img_load()"/></td>
+</tr>
+<tr>
+   <td>
+       <input type="button" name="Previous" value="&nbsp;&lt;&lt;&nbsp;" 
+       onClick="ShowSlide(-1)"/>
+
+</td>
+<td align="center">
+       <input type="button" name="toggle" value="**pause_play**" 
+       onClick="toggle_play();"/>
+</td>
+   <td align="right">
+       <input type="button" name="Next" value="&nbsp;&gt;&gt;&nbsp;" 
+       onClick="ShowSlide(1)"/>
+</td>
+</tr>
+</table>
+</form>
+
+</body>
+</html>
+% $m->abort();
+<%init>
+    $m->clear_buffer();
+    my @ML =  $spoejs{Story}->{ML}->list();
+</%init>
