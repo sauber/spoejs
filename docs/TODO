@@ -90,6 +90,7 @@ Syndication:
  - Parallel lwp fetch
  - RSS feeds
  - None-spoejs syndication (html code to syndicate intro)
+ - move latest.html into htm/
 
 Annotations:
  - Specialize ::Text
