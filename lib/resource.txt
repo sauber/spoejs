@@ -1,4 +1,5 @@
 <ar>
+<lang=ar/>عربي
 <lang=bg/>Арабски
 <lang=da/>Arabisk
 <lang=en/>Arabic
@@ -12,6 +13,7 @@
 </ar>
 
 <bg>
+<lang=ar/>بلغاري
 <lang=bg/>Български
 <lang=da/>Bolgarsk
 <lang=en/>Bulgarian
@@ -25,6 +27,7 @@
 </bg>
 
 <bo>
+<lang=ar/>تبتي
 <lang=bg/>Тибетски
 <lang=da/>Tibetansk
 <lang=en/>Tibetan
@@ -34,6 +37,7 @@
 </bo>
 
 <category>
+<lang=ar/>فيئة
 <lang=bg/>Категория
 <lang=da/>Kategori
 <lang=en/>Category
@@ -46,6 +50,7 @@
 </category>
 
 <change>
+<lang=ar/>تغير
 <lang=bg/>Промени
 <lang=da/>Skift
 <lang=en/>Change
@@ -59,6 +64,7 @@
 </change>
 
 <da>
+<lang=ar/>دنماركي
 <lang=bg/>Датски
 <lang=da/>Dansk
 <lang=en/>Danish
@@ -72,6 +78,7 @@
 </da>
 
 <date>
+<lang=ar/>تاريخ
 <lang=bg/>Дата
 <lang=da/>Dato
 <lang=en/>Date
@@ -85,6 +92,7 @@
 </date>
 
 <de>
+<lang=ar/>الماني
 <lang=bg/>Германски
 <lang=da/>Tysk
 <lang=en/>German
@@ -98,6 +106,7 @@
 </de>
 
 <description>
+<lang=ar/>وصف
 <lang=bg/>Описание
 <lang=da/>Beskrivelse
 <lang=en/>Description
@@ -108,6 +117,7 @@
 </description>
 
 <en>
+<lang=ar/>أنجليزي
 <lang=bg/>Английски
 <lang=da/>Engelsk
 <lang=en/>English
@@ -121,11 +131,14 @@
 </en>
 
 <es>
+<lang=ar/>أسباني
+<lang=bg/>Испански
 <lang=da/>Spansk
 <lang=en/>Spanish
 </es>
 
 <fr>
+<lang=ar/>فرنسي
 <lang=bg/>Френски
 <lang=da/>Fransk
 <lang=en/>French
@@ -139,6 +152,7 @@
 </fr>
 
 <gr>
+<lang=ar/>يوناني
 <lang=bg/>Гръцки
 <lang=da/>Græsk
 <lang=en/>Greek
@@ -152,6 +166,7 @@
 </gr>
 
 <is>
+<lang=ar/>أسلندي
 <lang=bg/>Исландски
 <lang=da/>Islandsk
 <lang=en/>Icelandic
@@ -165,6 +180,7 @@
 </is>
 
 <it>
+<lang=ar/>اتالي
 <lang=bg/>Италиански
 <lang=da/>Italiensk
 <lang=en/>Italian
@@ -178,6 +194,7 @@
 </it>
 
 <ja>
+<lang=ar/>ياباني
 <lang=bg/>Японски
 <lang=da/>Japansk
 <lang=en/>Japanese
@@ -191,6 +208,7 @@
 </ja>
 
 <language>
+<lang=ar/>لغة
 <lang=bg/>Език
 <lang=da/>Sprog
 <lang=en/>Language
@@ -201,6 +219,7 @@
 </language>
 
 <login>
+<lang=ar/>دخول
 <lang=bg/>Вход
 <lang=da/>Log ind
 <lang=en/>Login
@@ -211,6 +230,7 @@
 </login>
 
 <logout>
+<lang=ar/>خروج
 <lang=bg/>Изход
 <lang=da/>Log ud
 <lang=en/>Logout
@@ -221,6 +241,7 @@
 </logout>
 
 <mk>
+<lang=ar/>ماسادوني
 <lang=bg/>Македонски
 <lang=da/>Makedonsk
 <lang=en/>Macedonian
@@ -233,6 +254,7 @@
 </mk>
 
 <passwd>
+<lang=ar/>كلمة المرور
 <lang=bg/>Парола
 <lang=da/>Kodeord
 <lang=en/>Password
@@ -246,6 +268,7 @@
 </passwd>
 
 <posted_by>
+<lang=ar/>تحرير من 
 <lang=bg/>Автор
 <lang=da/>Af
 <lang=en/>Posted by
@@ -258,6 +281,7 @@
 </posted_by>
 
 <public>
+<lang=ar/>عمومي 
 <lang=bg/>Публичен
 <lang=da/>Offentlig
 <lang=en/>Public
@@ -268,6 +292,7 @@
 </public>
 
 <se>
+<lang=ar/>سودي
 <lang=bg/>Шведски
 <lang=da/>Svensk
 <lang=en/>Swedish
@@ -281,6 +306,7 @@
 </se>
 
 <shortname>
+<lang=ar/>الاسم المستعار
 <lang=bg/>Кратко име
 <lang=da/>Kortnavn
 <lang=en/>Shortname
@@ -291,6 +317,7 @@
 </shortname>
 
 <signup>
+<lang=ar/>التسجيل
 <lang=bg/>Абонамент
 <lang=da/>Tilmeld
 <lang=en/>Sign up
@@ -301,6 +328,7 @@
 </signup>
 
 <submit>
+<lang=ar/>أرسال
 <lang=bg/>Приложи
 <lang=da/>Indsend
 <lang=en/>Submit
@@ -311,6 +339,7 @@
 </submit>
 
 <theme>
+<lang=ar/>ميزة
 <lang=bg/>Тема
 <lang=da/>Tema
 <lang=en/>Theme
@@ -321,6 +350,7 @@
 </theme>
 
 <title>
+<lang=ar/>عنوان
 <lang=bg/>Заглавие
 <lang=da/>Titel
 <lang=en/>Title
@@ -334,6 +364,7 @@
 </title>
 
 <username>
+<lang=ar/>أسم المستعمل
 <lang=bg/>Име на потребител
 <lang=da/>Brugernavn
 <lang=en/>Username
@@ -344,6 +375,7 @@
 </username>
 
 <zh>
+<lang=ar/>صينس
 <lang=bg/>Китайски
 <lang=da/>Kinesisk
 <lang=en/>Chinese
