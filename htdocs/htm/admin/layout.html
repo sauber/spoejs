@@ -1,0 +1,46 @@
+<%doc>
+Edit layout of channel
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: layout.html,v 1.1 2004/06/13 08:12:20 snicki Exp $
+</%doc>
+<fieldset>
+<legend>
+**layout_settings**
+</legend>
+<&| /htm/admin/fill_in_form.mas, data => \%ARGS, spec => $spec &>
+<form name="layout_form" method="post" action="">
+**thumb_count**: <input type="text" name="thumb_count" size="3">
+<br/>
+<br/>
+<input type="submit" name="submit" value="**submit**">
+</form>
+</&>
+</fieldset>
+<%init>
+my @attributes = qw( thumb_count );
+my $error;
+my $spec = { thumb_count => { regexp      => '\d+',
+                              error       => '**invalid_thumb_count**' },
+           };
+
+# Process submission
+if ( defined $ARGS{submit} ) {
+
+  # Check for errors
+  $error = $m->comp( '/htm/admin/error.mas:error_check', \%ARGS, $spec, 
+                     'layout_form' );
+
+  # Save data
+  $spoejs{ChannelConf}->set( thumb_count => $ARGS{thumb_count} );
+
+}
+
+# Fill in ARGS
+if ( -d $spoejs{channel_path} && ! defined $ARGS{submit} )
+{
+  %ARGS = ( %ARGS, $spoejs{ChannelConf}->get( @attributes ) );
+}
+</%init>
