@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: media,v 1.40 2004/06/03 01:14:59 snicki Exp $
+%# $Id: media,v 1.41 2004/06/03 01:21:26 snicki Exp $
 %#
 % unless ( $no_div ) {
 <div class="media" <% $styleh %>>
@@ -43,7 +43,8 @@ return if $m->cache_self(key => $ckey, expires_in => '240 hours');
   unless ( $html_wh or $ARGS{p} eq 'ANY' ) {
     my $M = new Spoejs::Media( path => "$spoejs{channel_path}/$ARGS{d}",
                                file => $ARGS{p} );
-    $spoejs{error}{$m->current_comp->source_file} = $M->{msg} if defined $M->{msg};
+    $spoejs{error}{$m->current_comp->source_file} = "$M->{msg}: $ARGS{p}"
+	 if defined $M->{msg};
     return undef if defined $M->{msg};
 
     $html_wh = $M->html_imgsize( size => $size );
