@@ -2,10 +2,10 @@
 % $m->abort();
 <%init>
     use Spoejs::Pic;
-    my $path = "$spoejs{channel_path}/$params{d}";
+    my $path = "$spoejs{channel_path}/$spoejs{p}{d}";
 
-    my $P = Spoejs::Pic->new( path => $path, file => $params{p} );
-    my $picref = $P->get( size => $params{m} );
+    my $P = Spoejs::Pic->new( path => $path, file => $spoejs{p}{p} );
+    my $picref = $P->get( size => $spoejs{p}{m} );
 
     # Make sure we only send out jpeg data
     $m->clear_buffer();
@@ -17,6 +17,3 @@
     $r->headers_out->add( "Expires" => $e );
     $r->headers_out->add( "Last-Modified" => $l );
 </%init>
-<%args>
- %params => undef    
-</%args>

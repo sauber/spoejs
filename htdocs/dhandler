@@ -1,27 +1,8 @@
-% if ( -f "${doc_root}/$url_noparam" ) {
-<& "/htm/$url_noparam", params => \%P, %ARGS &>
+% if ( -f "${doc_root}/$spoejs{url_noparam}" ) {
+<& "/htm/$spoejs{url_noparam}", %ARGS &>
 % } else {
 %  $spoejs{error}{not_found} = "File doesn't exist!";
 % }
 <%init>
-
-if ( 1 ) {
-  use Spoejs::Text;
-  use Spoejs::ChannelConf;
-  use Spoejs::ChannelList;
-  use Spoejs::Lang;
-  use Spoejs::StoryList;
-  use Spoejs::Resource;
-  use Spoejs::Icon;
-  use Spoejs::Pic;
-  use Spoejs::SiteConf;
-  use Bootstring;
-}
-
   my $doc_root =  "$ENV{DOCUMENT_ROOT}htm";
-  my ($req_uri, $path) = $m->comp( '/htm/session/setupSession',  
-                                   req_uri => $ENV{REQUEST_URI} );
-
-  my ( $url_noparam, %P ) = $m->comp( 'htm/session/parseParams',
-                                       url => $req_uri );
 </%init>

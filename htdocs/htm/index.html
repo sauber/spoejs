@@ -1,7 +1,7 @@
 <& /w, w         => 'index-page',
        CC        => $CC,
        edit_href => $edit_href,
-       category  => $params{c}
+       category  => $spoejs{p}{c}
 &>
 <%init>
 my $CC = new Spoejs::ChannelConf( path=> $spoejs{channel_path},

@@ -4,10 +4,13 @@
 <a href="/index.html"><&|/l&>site_home</&></a>&nbsp;|
 % if ( defined $spoejs{channel} ) {
 <a href="/<% $spoejs{channel} %>/index.html"><&|/l&>chan_home</&></a>&nbsp;|
-% } else {
-% if ( $policy eq 'ffa' or $policy eq 'signup' ) {
+%   if ( defined $spoejs{p}{d} ) {
+<a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d => $spoejs{p}{d} &>">
+Story home<&|/l&>story_home</&></a>&nbsp;|
+%   }
+% } elsif ( $policy eq 'ffa' or $policy eq 'signup' ) {
 <a href="/htm/admin/signup.html"><&|/l&>register</&></a>&nbsp;|
-% } }
+% }
 <a href="/htm/about.html"><&|/l&>about</&></a>
 % if ( $session{chanauth} && $session{chanauth}{$spoejs{channel}} ) {
 &nbsp;|

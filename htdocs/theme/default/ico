@@ -4,7 +4,7 @@
 <%init>
     use Spoejs::Icon;
     my $I = Spoejs::Icon->new();
-    my $iconref = $I->get( category => $$params{c}, size => $$params{m} );
+    my $iconref = $I->get( category => $spoejs{p}{c}, size => $spoejs{p}{m} );
 
     $r->content_type('image/jpeg');
     # Caching
@@ -15,6 +15,3 @@
     $r->headers_out->add( "Last-Modified" => $l );
 
 </%init>
-<%args>
- $params => undef    
-</%args>

@@ -94,15 +94,15 @@ my $SL = Spoejs::StoryList->new( path => $spoejs{channel_path},
                                  lang => $spoejs{lang_handle} );
 $spoejs{error}{$m->current_comp->source_file} = $SL->{msg} if $SL->{msg};
 
-my $story_dir = $params{d} || undef;
+my $story_dir = $spoejs{p}{d} || undef;
 my $S;
 my %checked;
 my $checked_file;
 
 # Get data from existing story or create new story
-if ( $params{d} && -d "$spoejs{channel_path}/$params{d}" && !$ARGS{submit} ) {
+if ( $spoejs{p}{d} && -d "$spoejs{channel_path}/$spoejs{p}{d}" && !$ARGS{submit} ) {
 
-  $S = new Spoejs::Story( path => "$spoejs{channel_path}/$params{d}",
+  $S = new Spoejs::Story( path => "$spoejs{channel_path}/$spoejs{p}{d}",
                           lang => $spoejs{lang_handle} );
   $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
 

@@ -37,7 +37,7 @@ function cr_table( tabbody ) {
 Story to add media to:<br/>
 <select name="story">
 %foreach my $story ( @stories ) {
-% my $arg_path = $params{d};
+% my $arg_path = $spoejs{p}{d};
 % my $cur_path = $story->story_path_from_full();
 % $arg_path =~ s{(\d{4})(\d\d)(\d\d)}{$1/$2/$3}g if $arg_path;
 % my $selected = $arg_path eq $cur_path ? ' selected="selected"' : ''; 
@@ -57,9 +57,9 @@ Media to add:<br/>
 <input type="button" onclick='cr_table( document.getElementById("tb") );' value="Add field"/>
 </form>
 
-% if ($params{d}) {
+% if ($spoejs{p}{d}) {
 <h4>Current files:</h4>
-% my $ML = new Spoejs::MediaList( path=>"$spoejs{channel_path}/$params{d}" );
+% my $ML = new Spoejs::MediaList( path=>"$spoejs{channel_path}/$spoejs{p}{d}" );
 % $spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
 
 <table width="100%">
@@ -75,7 +75,7 @@ Media to add:<br/>
 % }
 </table>
 <br/>
-<a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d=>$params{d} &>">
+<a href="<& /htm/url:encode, "/$spoejs{channel}/story.html", d=>$spoejs{p}{d} &>">
 Back to story
 </a>
 <br/>
@@ -83,7 +83,7 @@ Back to story
 <br/>
 <h4><&|/l&>media_man</&>:</h4>
 <a href="<& /htm/url:encode, "/$spoejs{channel}/admin/rename.html", 
-                              d=>$params{d} &>">
+                              d=>$spoejs{p}{d} &>">
 <&|/l&>edit</&>
 </a>
 <script>

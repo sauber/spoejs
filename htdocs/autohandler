@@ -21,7 +21,15 @@ if ( 1 ) {
   use Bootstring;
 }
 
+  my $doc_root =  "$ENV{DOCUMENT_ROOT}htm";
+  my ($req_uri, $path) = $m->comp( '/htm/session/setupSession',  
+                                   req_uri => $ENV{REQUEST_URI} );
+
+  my ( $url_noparam, %P ) = $m->comp( 'htm/session/parseParams',
+                                       url => $req_uri );
+  $spoejs{p} = \%P;
+  $spoejs{url_noparam} = $url_noparam;
   # We need to call this here to have %spoejs available in pages that do 
   # not get through dhandler
-  $m->comp( '/htm/session/setupSession', req_uri => $ENV{REQUEST_URI} );
+#  $m->comp( '/htm/session/setupSession', req_uri => $ENV{REQUEST_URI} );
 </%init>

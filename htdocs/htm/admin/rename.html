@@ -19,7 +19,7 @@ value="<% $pic->utf_filename() %>">
 <input type="checkbox" name="delete" value="<% $pic->{file} %>">
 </td>
 <td align="center">
-<& /w, w => "media", d => $params{d}, p => $pic->{file}, m => 75, info => $pic->info() &>
+<& /w, w => "media", d => $spoejs{p}{d}, p => $pic->{file}, m => 75, info => $pic->info() &>
 </td>
 </tr>
 % }
@@ -27,7 +27,7 @@ value="<% $pic->utf_filename() %>">
 <input type="submit" name="submit">
 </form>
 <%init>
-  my $user_path = "$spoejs{channel_path}/$params{d}";
+  my $user_path = "$spoejs{channel_path}/$spoejs{p}{d}";
 
   if ( defined $ARGS{submit} ) {
 
