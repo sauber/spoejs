@@ -1,255 +1,2715 @@
 ---
-about:
-  ar: 'ﻊﻧ'
-  da: Om Spoejs
-  de: 'über'
-  en: About
-  es: Acerca de
-  hu: korulbelul?
-  iw: 'על'
-  ja: '情報'
-  ru: 'о'
-  zh: '有关内容'
-abstract:
-  ar: 'ﻢﺤﺗﻮﻳﺎﺗ'
-  da: Resume
-  de: Zusammenfassung
-  en: Abstract
-  es: Resumen
-  iw: 'תוכן'
-  ja: '空想'
+access_statistics:
+  da: Adgangsstatistik
+  en: Access Statistics
+  ru: 'статистика доступа'
+  zh: '运行统计'
+account_information:
+  da: Opgørelse
+  en: Account Information
+  es: Información de la cuenta
+  et: Kasutaja tuvastus
+  gr: 'Στοιχεία Λογαριασμού'
+  hu: számla információ
+  ja: 'アカウント情報'
+  mk: 'Информации за сметката'
+  ru: 'Регистрационные данные'
+  zh: '帐号情况'
+active:
+  ar: 'فعال'
+  da: Aktiv
+  de: aktiv
+  en: Active
+  es: Activar
+  et: Töös
+  gr: 'Ενεργό'
+  hu: aktív
+  it: attivo
+  iw: 'פעיל'
+  ja: 'アクティブ'
+  mk: 'Активен'
+  ru: 'активный'
+  zh: '运行'
+add:
+  ar: 'أضيق'
+  da: Tilføj
+  de: hinzufügen
+  en: Add
+  es: Agregar
+  et: Lisa
+  gr: 'Προσθήκη'
+  hu: ad
+  is: Bæta við
+  it: agguingere
+  iw: 'מוסיף'
+  ja: '追加'
+  mk: 'Додај'
+  ru: 'добавить'
+  zh: '添加'
+add_comment:
+  da: Tilføj kommentar
+  de: kommentieren
+  en: Add Comment
+  es: Agregar comentario
+  et: Lisa märkus
+  gr: 'Προσθήκη σχολίου'
+  hu: megjegyzés
+  it: agguniga un comment
+  ja: 'コメントを追加'
+  mk: 'Додај коментар'
+  ru: 'добавить комментарий'
+  zh: '添加注解'
+addfield:
+  ar: 'أضيف جدول'
+  da: Tilføj felt
+  de: Feld hinzufügen
+  en: Add field
+  es: Agregar campo
+  et: Lisa veel mõni
+  gr: 'Προσθήκη πεδίου'
+  hu: másik mező
+  it: agguniga un campo
+  iw: 'מוסיף שדה'
+  ja: '分野を追加'
+  mk: 'Додај поле'
+  ru: 'добавить поле'
+  zh: '添加项目'
+addfilepc:
+  ar: 'أضيف ملف من الحاسوب'
+  da: Tilføj filer fra PC
+  de: Dateien von PC hinzufügen
+  en: Add files from PC
+  es: Agregar archivos desde PC
+  et: Lisa salvestis arvutist
+  gr: |-
+    Προσθήκη αρχείων απο τον υπολογιστή σας
+  hu: PCről fájl hozzáadása
+  it: agguinga un documento da computer
+  iw: 'הוטפת תיק מהמחשב אישי'
+  ja: PCからファイルを追加
+  mk: |-
+    Додај фајлови од персонален компјутер
+  ru: 'добавить файлы из PC'
+  zh: '从PC上引入文件'
+addfileserver:
+  ar: 'أضيف ملف من السرفر'
+  da: Tilføj filer fra server
+  de: Dateien von Server hinzufügen
+  en: Add files from server
+  es: Agregar archivos desde servidor
+  et: Lisa juba varem lehele pandud faile
+  gr: 'Προσθήκη αρχείων απο το Server'
+  hu: Serverről fájl hozzáadása
+  it: agguinga i documenti da servatore
+  iw: 'הוטפת תיק סירבר'
+  ja: 'サーバーからファイルを追加'
+  mk: 'Додај фајлови од сервер'
+  ru: 'добавить файлы с сервера'
+  zh: '从Server上引入文件'
+addmediastory:
+  ar: 'أضيف المحقات للقصة'
+  da: Tilføj medier til historie
+  de: Medien der Geschichte hinzufügen
+  en: Add media to story
+  es: Agregar medio a artículo
+  et: Lisa jutule kujundus
+  gr: 'Προσθήκη media'
+  hu: Média hozzáadása a történethez
+  it: agguinga mezzi di comminigcazione per la storia
+  iw: 'הוטפת מידיא על הסיפוד'
+  ja: 'ストーリーにメディアを追加'
+  mk: 'Додај медиум на приказната'
+  ru: |-
+    добавить мультимедиа к рассказу
+  zh: '给记事里加煤体'
+addnewjournal:
+  da: Tilføj en ny spoejs journal
+  de: eine neue Rubrik hinzufügen
+  en: Add a new spoejs journal
+  es: Agregar un nuevo diario de Spoejs
+  et: Lisa uus album
+  gr: 'Προσθήκη'
+  hu: adj hozzá egy új spoejs újságot
+  it: agguinga un nuovo spoejs giornare
+  ja: '新しいspoejsジャーナルを追加'
+  mk: 'Додај ново списание'
+  ru: 'добавить новый spoejs журнал'
+  zh: '添加新的Spoejs杂记'
+all:
+  da: Alle
+  de: alles
+  en: All
+  es: Todos
+  et: Kõik
+  gr: '‘Ολα'
+  hu: minden
+  it: tutto
+  ja: '全て'
+  mk: 'Се'
+  ru: 'все'
+  zh: '全部'
+always_random:
+  da: Altid tilfældig
+  de: immer zufällig
+  en: Always Random
+  es: Siempre aleatorio
+  et: Alati juhuslik
+  gr: 'Πάντα τυχαίο'
+  hu: mindig véletlen
+  is: Alltaf tilviljanakennt
+  it: sempre sensa senso
+  ja: '常にランダム'
+  mk: 'Секогаш случаен'
+  ru: 'всегда случайно'
+annotations:
+  da: Billedbeskrivelser
+  de: Anmerkungen
+  en: Annotations
+  es: Anotaciones
+  et: Märkmed
+  gr: 'Σχόλια'
+  hu: rövidítés
+  it: commenti
+  ja: '注釈'
+  mk: 'Забелешки'
   ru: 'аннотация'
-  zh: '摘要'
-administration:
-  ar: 'ﺍﻷﺩﺍﺭﺓ'
-  da: Administration
-  de: Verwaltung
-  en: Administration
-  es: Administración
-  gr: 'Διαχείριση'
-  hu: adminisztracio
-  iw: 'הכהלה'
-  ja: '管理'
-  ru: 'администрация'
-  zh: '系统管理'
-categorylist:
-  ar: 'ﻸﺣﺓ ﺎﻠﺨﺘﻳﺭﺎﺗ'
+ar:
+  ar: 'عربي'
+  bg: 'Арабски'
+  da: Arabisk
+  de: Arabisch
+  en: Arabic
+  es: 'Árabe'
+  et: Araabia
+  fr: Arabe
+  gr: 'Αραβικά'
+  hu: arab
+  is: Arabíska
+  it: arabo
+  iw: 'ערבית'
+  ja: 'アラビア語'
+  mk: 'Арапски'
+  ru: 'арабский'
+  se: arabisk
+  zh: '阿拉伯语'
+archive:
+  ar: 'ﺍﻷﺮﺸﻴﻓ'
+  da: Arkiver
+  de: Archiv
+  en: Archive
+  es: Archivo
+  et: Ladu
+  gr: 'Αρχείο'
+  hu: tárolt
+  is: Safn
+  it: documeto
+  iw: 'ארכיון'
+  ja: 'アーカイブ'
+  mk: 'Архива'
+  ru: 'архив'
+  zh: '完全控制'
+authorized_for:
+  da: Adgang til
+  de: autorisiert für
+  en: Authorized for
+  es: Autorizado para
+  et: Lubatud
+  gr: 'Εξουσιοδότηση'
+  hu: jogosult ... re
+  it: avuto l'autorita
+  ja: 'に委任しました。'
+  mk: 'Со авторство на'
+  ru: 'авторизованно для'
+backtostory:
+  ar: 'الرجوع للقصة'
+  da: Tilbage til historie
+  de: Zurück zur Geschichte
+  en: Back to story
+  es: Volver a la historia
+  et: Jutu juurde tagasi
+  gr: 'Επιστροφή'
+  hu: vissza a történethez
+  it: torno la storia
+  iw: 'חזרה בסיפור'
+  ja: 'ストーリーに戻る'
+  mk: 'Назад кон приказната'
+  ru: 'вернуться к рассказу'
+  zh: '回到记事'
+bg:
+  ar: 'بلغاري'
+  bg: 'Български'
+  da: Bulgarsk
+  de: Bulgarisch
+  en: Bulgarian
+  es: Búlgaro
+  et: Bulgaaria
+  fr: Bulgare
+  gr: 'Βουλγαρικά'
+  hu: bolgar
+  is: Búlgarska
+  it: bulgano
+  iw: 'בולגרית'
+  ja: 'ブルガリア語'
+  mk: 'Бугарски'
+  ru: 'болгарский'
+  se: bulgarisk
+  zh: '保加利亚语'
+blank_default:
+  ar: >-
+    (ﺎﺗﺮﻜﻫ ﻑﺍﺮﻏ ﺃﺫﺍ ﻙﺎﻨﺗ ﺎﻠﻘﺻﺓ
+    ﺺﺤﻴﺤﻫ)
+  da: '(blank for dags dato)'
+  de: '(bei aktueller Geschichte leer lassen)'
+  en: '(leave blank if story is current)'
+  es: |-
+    (déjalo en blanco si el artículo ya está seleccionado)
+  et: '(Kui lugu pole lõppenud, siis jäta tühjaks)'
+  hu: hagyd uresen ha a tortenet mostani?
+  it: lasccia spazio se la storia e coretto
+  iw: |-2
+     לעזב את השדה ריק אם הסיפורנכרן
+  ja: |-
+    （ストーリーが現在のものであれば空白にする）
+  mk: |-
+    (остави празно ако приказната е тековна)
+  ru: |-
+    (не заполнять, если рассказ текущий)
+  zh: '(如果记事是当今的，留下空癿)'
+bo:
+  ar: 'تبتي'
+  bg: 'Тибетски'
+  da: Tibetansk
+  de: Tibetisch
+  en: Tibetan
+  es: Tibetano
+  et: Tiibeti
+  fr: Tibetain
+  hu: tibeti
+  it: tibetano
+  iw: 'תיבתית'
+  ja: 'チベット語'
+  mk: 'Тибетски'
+  ru: 'тибетский'
+  zh: '西藏语'
+categories:
   da: Kategorier
-  de: Kategorienliste
+  de: Kategorien
+  en: Categories
+  es: Categorías
+  et: Jutulõngad
+  gr: 'Κατηγορίες'
+  hu: kategóriák
+  it: categorie
+  ja: 'カテゴリー一覧'
+  mk: 'Категории'
+  ru: 'категории'
+  zh: '种类'
+category:
+  ar: 'فيئة'
+  bg: 'Категория'
+  da: Kategori
+  de: Kategorie
+  en: Category
+  es: Categoría
+  et: Kõneaine
+  fr: Categorie
+  gr: 'Κατηγορία'
+  hu: kategoria
+  it: categoria
+  iw: 'קטאגורית'
+  ja: 'カテゴリー'
+  mk: 'Категорија'
+  ru: 'категория'
+  se: kategori
+  zh: '种类'
+categorylist:
+  da: Kategoriliste
+  de: Themenliste
   en: Category list
   es: Lista de categorías
+  et: Aineloend
   gr: 'Λίστα κατηγοριών'
-  iw: 'רשימת הקטאגורית'
+  hu: kategória lista
+  it: la lista di categorie
   ja: 'カテゴリーリスト'
+  mk: 'Лист на категории'
   ru: 'список категорий'
-  zh: '一揽'
-chan_home:
-  ar: 'ﻖﻧﺍﺓ ﺎﻠﺒﻴﺗ'
-  da: Historie index
-  de: Kanalstartseite
-  en: Channel home
-  es: Inicio del canal
-  iw: 'ערוץ הבית'
-  ja: 'チャンネルホーム'
+  zh: '种类'
+change_journal_password:
+  da: Skift journal password
+  de: Passwort ändern
+  en: Change journal password
+  es: Cambiar contraseña del diario
+  et: Vaheta salasõna
+  gr: |-
+    Αλλαγή κωδικού πρόσβασης ημερολογίου
+  hu: változtasd meg az újság jelszavát
+  it: cambia il giornare sicurezza
+  ja: 'ジャーナルのパスワードを変える'
+  mk: |-
+    Промени ја лозинката на списанието
+  ru: 'изменить пароль журнала'
+change_language:
+  da: Skift sprog
+  de: Sprache wechseln
+  en: Change Language
+  es: Cambiar idioma
+  et: Vaheta keelt
+  gr: 'Αλλαγή γλώσσας'
+  hu: változtass nyelvet
+  it: cambia la lingua
+  ja: '言語を変える'
+  mk: 'Промени го јазикот'
+  ru: 'изменить язык'
+  zh: '语言变换'
+changes_saved_successfully:
+  da: 'Ændringerne er gemt'
+  de: Einstellungen wurden gespeichert
+  en: Changes saved successfully
+  es: Se han guardado los cambios
+  et: Muutused salvestati
+  gr: |-
+    Αποθήκευση αλλαγών επιτυχής
+  hu: változtatás sikeresen elmentve
+  is: Breytingar vistaðar
+  it: cambiamento e tenuto sucesso
+  ja: '変更は正常に処理されました'
+  mk: 'Промените се снимени'
   ru: |-
-    домашний канал? (it is not clear w/o context)
-  zh: '网页'
-change:
-  ar: 'ﺖﻐﻳﺭ'
-  bg: 'Промени'
-  da: Skift
-  de: wechseln
-  en: Change
-  es: Cambiar
-  fr: Change
-  gr: 'Αλλαγή'
-  hu: valtozas
-  is: Breyting
-  it: cambio
-  iw: 'שינוי'
-  ja: '変える'
-  mk: 'Промена'
-  ru: 'изменить '
-  se: 'ändra'
-  zh: '更改'
-change_deleted:
-  da: Skift slettede
-  en: Change deleted
-channelconf:
-  ar: 'ﺖﻐﻳﺭ ﻞﻠﻘﻧﺍﺓ'
-  da: Journalkonfiguration
-  de: Kanal konfigurieren
-  en: Channel Configuration
-  es: Configuración de canales
-  iw: 'שידרוג הערוץ'
-  ja: 'チャンネル配置'
-  ru: 'конфигурация канала'
-  zh: '网页构造'
-click_continue:
-  ar: 'ﺄﻗﺭ ﻪﻧﺍ ﻝﻸﺴﺘﻣﺭﺍﺭ'
-  da: Fortsæt
-  de: anklicken zum Fortsetzen
-  en: Click here to continue
-  es: Pulse aquí para continuar
-  gr: 'Συνέχεια'
-  iw: 'להקליק כאן כדי להמשיךן'
-  ja: '続けるにはこちらをクリック'
-  ru: 'продолжить'
-  zh: '按这里继续'
+    изменения успешно сохранены
+choose:
+  ar: 'أختار'
+  da: Vælg
+  de: wählen
+  en: Choose
+  es: Elegir
+  et: Vali
+  gr: 'Επιλογή'
+  hu: választ
+  is: Veldu
+  it: scegliereq
+  iw: 'בחירה'
+  ja: '選択'
+  mk: 'Избери'
+  ru: 'выбрать'
+  zh: '选择'
+click_insert_image:
+  da: Klik for at indsætte billede
+  de: Bild per Mausklick einsetzen
+  en: Click and insert image
+  es: Haz clic para insertar imagen
+  et: sisesta pilt klõpsates.
+  gr: 'Εισαγωγή εικόνας'
+  hu: klikk és szúrd be a képet
+  it: La click ici e introdurre  if imagio
+  ja: 'クリックしてイメージを挿入'
+  mk: 'Кликни и внеси слика'
+  ru: 'кликнуть и вставить образ'
+click_journal:
+  da: Gå til journal
+  de: Hier klicken um zur aktuellen Ausgabe zu kommen
+  en: Click here to go to journal
+  es: Pulsa aquí para ir al diario
+  et: Albumisse saad siia klõpsates
+  hu: klikkelj ide és menj az újsághoz
+  it: clika ici per andare per un viaggio
+  ja: 'ここを押してジャーナルへ'
+  mk: 'Кликни овде за списанието'
+  ru: |-
+    кликнуть здесь для перехода в журнал
 comment:
-  ar: 'ﺄﻘﺗﺮﺣﺎﺗ'
   da: Kommentar
-  de: Kommentar
+  de: Bezeichnung
   en: Comment
   es: Comentario
-  iw: 'דעות'
+  et: Märkus
+  gr: 'Σχόλιο'
+  hu: megjegyzés
+  it: commento
   ja: 'コメント'
+  mk: 'Коментар'
   ru: 'комментарий'
-  zh: '见解'
-congrat_changes:
-  ar: 'ﺖﻐﻳﺭﺎﺘﻛ ﻙﺎﻨﺗ ﻥﺎﺠﺣﺓ'
-  da: 'Ændringer var successfulde'
-  de: Gratulation, Ihre Änderungen waren erfolgreich
-  en: Congratulations your changes were successful
-  es: |-
-    Enhorabuena, sus cambios se han realizado sin problemas
-  iw: 'השינוי שלך היה נכון'
+  zh: '注释'
+comment_missing:
+  da: Kommentar mangler
+  de: Bezeichnungen fehlen
+  en: Comments missing
+  es: No hay comentarios
+  et: Märkused puuduvad
+  gr: 'Απαιτούνται σχόλια'
+  hu: megjegyzés hiányzik
+  it: commenti unscessiva
+  ja: 'コメントがありません'
+  mk: 'Нема коментари'
+  ru: 'комментарий отсутствует'
+comments:
+  da: Kommentarer
+  de: Bezeichnungen
+  en: Comments
+  es: Comentarios
+  et: Märkused
+  gr: 'Σχόλια'
+  hu: megjegyzések
+  it: Commeti
+  ja: 'コメント'
+  mk: 'Коментар'
+  ru: 'комментарии'
+  zh: '注释'
+congrat_signup:
+  ar: 'لقد نجحت في التسجيل'
+  da: Tillykke du er nu oprettet
+  de: Gratulation, Sie sind jetzt angemeldet
+  en: Congratulations you are now signed up
+  es: Enhorabuena, ya estás inscrito
+  et: Tubli! Nüüd oled arvele võetud.
+  gr: >-
+    Συγχαρητήρια! Ο λογαριασμός σας
+    δημιουργήθηκε
+  hu: gratulálunk mostmár be van léptetve
+  it: Congrazioneno!avuto fatto la
+  iw: 'אתה נרשםחדש'
   ja: |-
-    おめでとうございます。変更は正常に処理されました。
+    おめでとうございます。サインアップが完了しました。
+  mk: 'Честитки, впишани сте'
   ru: |-
-    Мои позравления, ваши изменения успешны
-  zh: '祝贺你的更改成功了'
-do_u_need_account:
-  da: New konto
-  en: Do you need an account?
-  zh: '新用户注册'
-fulltext:
-  ar: 'ﺞﻤﻴﻋ ﺎﻠﻛﺎﻣﺎﺗ'
-  da: Fuld tekst
-  de: voller Text
-  en: Full text
-  es: Texto completo
-  iw: 'טקסט מליג'
-  ja: '全テキスト'
-  ru: 'полный текст'
-  zh: '全部文章'
-open_public:
-  da: 'Åben for alle'
-  en: Open to public
-  zh: '对外公开'
-passwd_again:
-  da: Indtast adgangskode igen
-  en: Please enter your password again
-  zh: '请再次按入密码'
-probs_in_reg:
-  da: 'Den indtastede information havde fejl:'
-  en: 'The Journal Information you entered has problems:'
-register:
-  ar: 'ﺖﺴﺠﻴﻟ'
-  da: Registrer
-  de: einschreiben
-  en: Register
-  es: Registrarse
-  hu: regisztral
-  iw: 'הרשמה'
-  ja: '登録'
-  ru: 'Зарегистрироваться'
-  zh: '登录'
-sat:
-  da: Site konfiguration
-  en: Site configuration
-shortname_description:
+    Мои позравления, Вы зарегистрированы
+  zh: '祝贺你现在登录了'
+current_category:
+  da: Nuværende kategori
+  en: Current Category
+  ru: 'текущая категория'
+currentfile:
+  ar: 'الملفات المفتوحة'
+  da: Nuværende filer
+  de: Aktuelle Dateien
+  en: Current files
+  es: Archivos actuales
+  et: Valitud failid
+  gr: 'Τρέχοντα αρχεία'
+  hu: meglévő fájlok
+  it: Ultima figlighi quand
+  iw: 'התקירת המשומשות'
+  ja: '現在のファイル'
+  mk: 'Тековни фајлови'
+  ru: 'Текущие файлы'
+  zh: '现在的文件'
+currentfilename:
+  ar: 'أسماء المفات الحالية'
+  da: Aktuelt filnavn
+  de: Aktueller Dateiname
+  en: Current filename
+  es: Nombre del archivo actual
+  et: Faili praegune nimi
+  gr: 'Τρέχον όνομα αρχείου'
+  hu: meglévő fájlnevek
+  it: nuove fimaisl
+  iw: 'שם התיק המשומש'
+  ja: '現在のファイルネーム'
+  mk: 'Тековно име на фајлот'
+  ru: 'Текущие имя файла'
+  zh: '现在的文件名'
+da:
+  ar: 'دنماركي'
+  bg: 'Датски'
+  da: Dansk
+  de: Dänisch
+  en: Danish
+  es: Danés
+  et: Taani
+  fr: Danois
+  gr: 'Δανικά'
+  hu: dán
+  is: Danska
+  it: danese
+  iw: 'דינמרקית'
+  ja: 'デンマーク語'
+  mk: 'Дански'
+  ru: 'датский'
+  se: Danska
+  zh: '丹麦语'
+date:
+  ar: 'تاريخ'
+  bg: 'Дата'
+  da: Dato
+  de: Datum
+  en: Date
+  es: Fecha
+  et: Kuupäev
+  fr: Date
+  gr: 'Ημερομηνία'
+  hu: dátum
+  is: Dagsetning
+  it: data
+  iw: 'תאריך'
+  ja: '日付'
+  mk: 'Дата'
+  ru: 'дата'
+  se: datum
+  zh: '日期'
+de:
+  ar: 'الماني'
+  bg: 'Германски'
+  da: Tysk
+  de: Deutsch
+  en: German
+  es: Alemán
+  et: Saksa
+  fr: Allemand
+  gr: 'Γερμανικά'
+  hu: német
+  is: 'Þýska'
+  it: tedesco
+  iw: 'גרמנית'
+  ja: 'ドイツ語'
+  mk: 'Германски'
+  ru: 'немецкий'
+  se: Tyska
+  zh: '德语'
+delete:
+  ar: 'أمحاء'
+  da: Slet
+  de: Löschen
+  en: Delete
+  es: Eliminar
+  et: Kustuta
+  gr: 'Διαγραφή'
+  hu: töröl
+  it: togliere
+  iw: 'מחק'
+  ja: '消去'
+  mk: 'Избриши'
+  ru: 'удалить'
+  zh: '删去'
+delete_category:
+  da: Slet kategori
+  en: Delete Category
+  ru: 'удалить категорию'
+  zh: '删去种类'
+delete_journal:
+  da: Slet journal
+  de: Ausgabe löschen
+  en: Delete journal
+  es: Eliminar diario
+  et: Kustuta album
+  gr: 'Διαγραφή ημερολογίου'
+  hu: töröld az újságot
+  it: cancellare giornale
+  ja: 'ジャーナルを消去'
+  mk: 'Избриши го списанието'
+  ru: 'удалить журнал'
+delete_story:
+  da: Slet historie
+  de: Story löschen
+  en: Delete Story
+  es: Eliminar artículo
+  et: Kustuta jutt
+  gr: 'Διαγραφή ιστορίας'
+  hu: töröld a történetet
+  it: cancellare la storia
+  ja: 'ストーリーを消去'
+  mk: 'Избриши ја приказната'
+  ru: 'удалить историю'
+deletefile:
+  ar: 'أمحاء ملف'
+  da: Slet fil
+  de: Datei löschen
+  en: Delete file
+  es: Eliminar archivo
+  et: Kustuta fail
+  gr: 'Διαγραφή αρχείου'
+  hu: töröld a fájlt
+  it: cancellare il documeti
+  iw: 'מחק אתתיק'
+  ja: 'ファイルを消去'
+  mk: 'Избриши го фајлот'
+  ru: 'удалить файл'
+  zh: '删去文件'
+description:
+  ar: 'وصف'
+  bg: 'Описание'
+  da: Beskrivelse
+  de: Beschreibung
+  en: Description
+  es: Descripción
+  et: Tutvustus
+  fr: Description
+  gr: 'Περιγραφή'
+  hu: leírás
+  it: descrizione
+  iw: 'תיאור'
+  ja: '概要'
+  mk: 'Опис'
+  ru: 'описание'
+  zh: '描述'
+description_description:
+  da: Beskrivelse af journalens indhold
+  de: Geben Sie eine Ihaltsbeschreibung
+  en: Describe content of journal
+  es: Describe el contenido del diario
+  et: Kirjelda albumi sisu
+  gr: 'Περιγραφή περιεχομένων'
+  hu: 'írd le az újság tartalmát'
+  it: describere il contenuto di giornale
+  ja: 'ジャーナルコンテンツ概要'
+  mk: |-
+    Опиши ја содржината на списанието
+  ru: 'описать содержиние журнала'
+dimensions:
+  ar: 'ﺡﺩﻭﺩ ﺍﻭ ﻡﻭﺎﺼﻓﺎﺗ'
+  da: Dimensioner
+  de: Dimension
+  en: Dimensions
+  es: Dimensiones
+  et: Mõõdud
+  gr: 'Διαστάσεις'
+  hu: dimenziók
+  it: dimensione
+  iw: 'הטל'
+  ja: '寸法'
+  mk: 'Димензии'
+  ru: 'размерность'
+edit:
+  ar: 'تصحيح'
+  da: Ret
+  de: Bearbeiten
+  en: Edit
+  es: Editar
+  et: Muuda
+  gr: 'Επεξεργασία'
+  hu: szerkeszt
+  it: redazione
+  iw: 'עריכה'
+  ja: '編集'
+  mk: 'Едитирај'
+  ru: 'редактирование'
+  zh: '编辑'
+edit_annotations:
+  da: Retter billedbeskrivelser
+  de: Anmerkungen bearbeiten
+  en: Editing Annotations
+  es: Editando anotaciones
+  et: Märkuste muutmine
+  gr: 'Επεξεργασία σχολίων'
+  hu: rövidítések szerkesztése
+  it: redigere l'annotazione
+  ja: '注釈の編集'
+  mk: 'Едитирање на забелешките'
+  ru: 'редактируемые аннотации'
+edit_lang:
+  ar: 'تصحيح ملف'
+  da: Retter for sproget
+  de: Sprache bearbeiten
+  en: Editing language
+  es: Idioma de edición
+  et: Kasutatav keel
+  gr: 'Επεξεργασία γλώσσας'
+  hu: nyelv-szerkesztes
+  it: redigere la lingua
+  iw: 'שפת עריכה'
+  ja: '編集用語'
+  mk: 'Јазик на едитирање'
+  ru: 'язык редактирования'
+  zh: '编辑语言'
+email:
+  da: Email
+  de: Email
+  en: Email
+  es: Correo electrónico
+  et: e-post
+  gr: Email
+  hu: email
+  it: Email
+  ja: Eメール
+  mk: 'Електронска пошта'
+  ru: 'электронная почта'
+  zh: '电子邮件'
+en:
+  ar: 'أنجليزي'
+  bg: 'Английски'
+  da: Engelsk
+  de: Englisch
+  en: English
+  es: Inglés
+  et: Inglise
+  fr: Anglais
+  gr: 'Αγγλικά'
+  hu: angol
+  is: Enska
+  it: inglese
+  iw: 'אנגלית'
+  ja: '英語'
+  mk: 'Англиски'
+  ru: 'английский'
+  se: Engelska
+  zh: '英语'
+error_code:
+  da: Fejlkode
+  de: Fehlercode
+  en: Error Code
+  es: Código del error
+  et: Viga
+  gr: 'Κωδικός Λάθους'
+  hu: hiba kód
+  it: codice di errore
+  ja: 'エラーコード'
+  mk: 'Погрешна шифра'
+  ru: 'код ошибки'
+es:
+  ar: 'أسباني'
+  bg: 'Испански'
+  da: Spansk
+  de: Spanisch
+  en: Spanish
+  es: Español
+  et: Hispaania
+  gr: 'Ισπανικά'
+  hu: spanyol
+  it: spagnolo
+  iw: 'ספרדית'
+  ja: 'スペイン語'
+  mk: 'Шпански'
+  ru: 'испанский'
+  zh: '西班牙语'
+et:
+  ar: 'أستوني'
+  da: Estisk
+  de: Estnisch
+  en: Estonian
+  es: Estonio
+  et: Eesti
+  hu: 'észt'
+  it: estone
+  iw: 'אוסטונית'
+  ja: 'エストニア語'
+  mk: 'Естонски'
+  ru: 'эстонский'
+extended_information:
+  da: Udvidet information
+  en: Extended information
+  es: Información ampliada
+  et: lisateave
+  hu: kiterjesztett információ
+  ja: '追加情報'
+  ru: 'расширенная информация'
+file_size:
+  da: Filstørrelse
+  en: File size
+  es: Tamaño de archivo
+  et: Faili suurus
+  hu: fájl méret
+  ja: 'ファイルサイズ'
+  ru: 'размер файла'
+file_type:
+  da: Filtype
+  en: File type
+  es: Tipo de archivo
+  et: Faili liik
+  hu: fájl típus
+  ja: 'ファイルタイプ'
+  ru: 'тип файла'
+fileformat:
+  ar: 'ﺖﻐﻳﺭ ﻥﻮﻋ ﻢﻠﻓ'
+  da: Filformat
+  de: Dateiformat
+  en: File format
+  es: Formato de archivo
+  et: Faililaiend
+  gr: 'Τύπος αρχείου'
+  hu: fájl  forma
+  it: il modulo di documeto
+  iw: 'פורמט קובץ'
+  ja: 'ファイル　フォーマット'
+  mk: 'Формат на фајлот'
+  ru: 'формат файла'
+  zh: '文件格式'
+filename:
+  ar: 'أسم ملف'
+  da: Filnavn
+  de: Dateiname
+  en: Filename
+  es: Nombre de archivo
+  et: Faili nimi
+  gr: 'Όνομα αρχείου'
+  hu: fájlnév
+  it: il nome di documento
+  iw: 'שם קובץ'
+  ja: 'ファイルネーム'
+  mk: 'Име на фајлот'
+  ru: 'имя файла'
+  zh: '文件名'
+filesize:
+  ar: 'ﺢﺠﻣ ﻢﻠﻓ'
+  da: Filstørrelse
+  de: Dateigröße
+  en: Filesize
+  es: Tamaño de archivo
+  et: Faili suurus
+  gr: 'Μέγεθος αρχείου'
+  hu: fájl méret
+  it: la grandezza di documento
+  iw: 'גודל הקובץ'
+  ja: 'ファイルサイズ'
+  mk: 'Големина на фајлот'
+  ru: 'размер файла'
+  zh: '文件大小'
+fileupload:
+  ar: 'أدخال ملف للقصة'
+  da: Filupload til historie
+  de: Datei für Geschichte laden
+  en: File upload for story
+  es: Cargar archivo para artículo
+  et: Lisa fail jutule
+  hu: fájl feltöltése a történethez
+  it: rinnvo il docomento per la storia
+  iw: 'שמירת קובץ לסיפור'
+  ja: |-
+    ストーリー用のファイルアップロード
+  mk: |-
+    Вчитување ан фајл за приказна
+  ru: |-
+    загрузить файл для рассказа
+  zh: '文件上载'
+first:
+  ar: 'ﺃﻮﻟ'
+  da: Første
+  de: zu erst
+  en: First
+  es: Primero
+  et: Esimene
+  hu: első
+  it: la prima
+  iw: 'הראשון'
+  ja: '最初'
+  mk: 'Прв'
+  ru: 'первый'
+  zh: '首先'
+fix_and_resubmit:
+  da: Ret og indsend igen
+  de: korrigieren und erneut absenden
+  en: Fix and resubmit
+  es: Corregir y volver a enviar
+  et: Paranda viga ja katsu veel kord
+  hu: javít és újra elköld
+  it: modifica e riproppore
+  ja: '直して再提出'
+  mk: 'Поправи и внеси повторно'
+  ru: |-
+    исправить и представить еще раз
+fr:
+  ar: 'فرنسي'
+  bg: 'Френски'
+  da: Fransk
+  de: Französisch
+  en: French
+  es: Francés
+  et: Prantsuse
+  fr: Francais
+  gr: 'Γαλλικά'
+  hu: francia
+  is: Franska
+  it: francese
+  iw: 'צרפתית'
+  ja: 'フランス語'
+  mk: 'Француски'
+  ru: 'французский'
+  se: Franska
+  zh: '法语'
+freeall:
+  ar: 'ﻢﺟﺎﻧﺍًَ ﻞﻠﺠﻤﻴﻋ'
+  da: Fri-for-alle
+  de: allgemein zugänglich
+  en: Free-for-all
+  es: Gratis para todos
+  et: Täiesti tasuta
+  hu: ingyenes mindenkinek
+  it: gratuito per tutti
+  iw: 'חינם'
+  ja: '無料で開かれている'
+  mk: 'Бесплатно за секого'
+  ru: 'бесплатно для всех'
+  zh: '完全自由'
+full_story:
+  ar: 'كلمات القصة جميعاً'
+  da: Hele historien
+  de: Geschichte voller Text
+  en: Full story text
+  es: Texto completo del artículo
+  et: Kogu jutt
+  hu: a törtenet teljes szövege
+  it: il texto di tutta storia
+  iw: 'טקסט מלא לסיפור'
+  ja: 'フルストーリーテキスト'
+  mk: 'Приказна со целосен текст'
+  ru: 'полный техт рассказа'
+  zh: '全文报导正文'
+fullpath:
+  ar: 'الطريق كاملة'
+  da: Fuld sti
+  de: voller Pfad
+  en: Full path
+  es: Ruta completa
+  et: Täieline aadress
+  hu: teljes út
+  it: tutto passaggio
+  iw: 'הדרך המלאה'
+  ja: '全通路'
+  mk: 'Целосен пат'
+  ru: 'полный путь'
+  zh: '全部地址'
+fullscreen_slideshow:
+  da: Slideshow
+  en: Full screen slide show
+  es: Presentación a pantalla completa
+  et: Lai väljapanek
+  hu: teljes képernyős fólia bemutató
+  ja: '全画面スライドショー'
+  ru: 'полноэкранное слайд-шоу '
+gr:
+  ar: 'يوناني'
+  bg: 'Гръцки'
+  da: Græsk
+  de: Griechisch
+  en: Greek
+  es: Griego
+  et: Kreeka
+  fr: Grecque
+  gr: 'Ελληνικά'
+  hu: görög
+  is: Gríska
+  it: greco
+  iw: 'יוונית'
+  ja: 'ギリシャ語'
+  mk: 'Грчки'
+  ru: 'греческий'
+  se: grekiska
+  zh: '希腊'
+help:
+  da: Hjælp
+  de: Hilfe
+  en: Help
+  es: Ayuda
+  et: Abi
+  hu: segítség
+  it: aiuto
+  ja: 'ヘルプ'
+  mk: 'Помош'
+  ru: 'помощь'
+  zh: '帮助'
+home:
+  da: Hjem
+  de: Home
+  en: Home
+  es: Inicio
+  et: Kodu
+  hu: otthon
+  it: home
+  ja: 'ホーム'
+  mk: 'Дома'
+  ru: 'домой'
+  zh: '本页'
+hu:
+  ar: 'هنجاري'
+  da: Ungarsk
+  de: Ungarisch
+  en: Hungarian
+  es: Húngaro
+  et: Ungari
+  hu: magyar
+  is: Ungverska
+  it: Ungherese
+  iw: 'הונגרית'
+  ja: 'ハンガリー語'
+  mk: 'Унгарски'
+  ru: 'венгерский'
+  zh: '匈牙利语'
+icon_admin:
+  da: Administrér billede
+  en: Icon Admin
+icon_upload:
+  da: Upload billede
+  en: Icon Upload
+image_code:
+  da: Billedekode
+  de: Bildcode
+  en: Image Code
+  es: Código de imagen
+  et: Sisesta kiri pildilt
+  hu: kép kód
+  it: il codice della immagine
+  ja: 'イメージコード'
+  mk: 'Код на сликата'
+  ru: 'код изображения'
+information:
+  da: Information
+  de: Information
+  en: Information
+  es: Información
+  et: Teave
+  hu: információ
+  it: informazioni
+  ja: 'インフォメーション'
+  mk: 'Информации'
+  ru: 'информация'
+  zh: '情报'
+input_errors:
+  da: Indtastningsfejl
+  de: Eingabefehler
+  en: Input errors
+  es: Errores de entrada
+  et: Sisestusvead
+  hu: beviteli hibák
+  it: inscersi gli errori
+  ja: 'エラーを入力'
+  mk: 'Грешки во внесувањето'
+  ru: 'входные ошибки'
+  zh: '输入错误'
+invalid_description:
+  da: Fejl i beskrivelsen
+  de: falsche Beschreibung
+  en: Invalid description
+  es: Descripción incorrecta
+  et: Kirjeldus on vigane
+  hu: 'érvénytelen leírás'
+  it: la descripzione e invalido
+  ja: '無効な説明'
+  mk: 'Погрешен опис'
+  ru: 'неправильное описание'
+invalid_journal_id:
+  da: Fejl i Journal-ID
+  de: ungültige Ausgabenidentifizierung
+  en: Invalid Journal-ID
+  es: ID de diario incorrecta
+  et: Albumi tähis on vigane
+  hu: 'érvénytelen újság-ID'
+  it: giornare ID e invalido
+  ja: '無効なジャーナルID'
+  mk: >-
+    Погрешен идентификациски број на
+    списанието
+  ru: 'неправильный ID журнала'
+invalid_name:
+  da: Ugyldigt navn
+  en: Invalid Name
+  es: Nombre incorrecto
+  et: Kõlbmatu nimi
+  hu: 'érvénytelen név'
+  ja: '無効な名前'
+  mk: 'Погрешно име'
+  ru: 'неправильное имя'
+  zh: '不合格的'
+invalid_password:
+  da: Det angivne password er for kort
+  de: Passwort hat zu wenig Zeichen
+  en: Password too short
+  es: La contraseña es demasiado corta
+  et: Salasõna on liiga lühike
+  hu: a jelszó túl rövid
+  is: Lykilorð of stutt
+  it: password e corta
+  ja: 'パスワードが短すぎます'
+  mk: 'Лозинката е премногу куса'
+  ru: 'пароль слишком короткий'
+  zh: '密码太短'
+invalid_thumb_count:
+  da: Ugyldigt antal miniaturebilleder
+  de: falsche Anzahl der Thumbnails
+  en: Invalid number of thumbnails
+  es: Número incorrecto de imágenes en miniatura
+  et: Sobimatu pisipiltide arv
+  hu: 'érvénytelen számú kiskép'
+  it: il nombre invalido dello schizzo
+  ja: '無効な数のサムネイル'
+invalid_title:
+  da: Fejl i titel
+  de: falscher Titel
+  en: Invalid title
+  es: Título incorrecto
+  et: Pealkiri on vigane
+  hu: 'érvénytelen cím'
+  it: il titolo invalido
+  ja: '無効なタイトル'
+  mk: 'Погрешен наслов'
+  ru: 'непрравильный заголовок'
+  zh: '不合格的题目'
+invalid_username:
+  da: Fejl i brugernavn
+  de: falscher Benutzername
+  en: Invalid username
+  es: Nombre de usuario incorrecto
+  et: Varjunimi on vigane
+  hu: 'érvénytelen felhasználói név'
+  is: 'Ógilt notendanafn'
+  it: Username invalido
+  ja: '無効なユーザー名'
+  mk: 'Погрешно корисничко име'
+  ru: |-
+    неправильное имя пользователя
+  zh: '不合格的用户名'
+inviteonly:
+  ar: 'ﻢﻋﺯﻮﻣ ﻒﻘﻃ'
+  da: Kun inviterede
+  de: nur auf Einladung
+  en: Invite-only
+  es: Sólo con invitación
+  et: Ainult kutsega
+  hu: csak meghív
+  it: Per gli inviati
+  iw: 'רק עם הזמנה'
+  ja: '招待のみ'
+  mk: 'Само по покана'
+  ru: 'пригласить только'
+  zh: '只邀请'
+is:
+  ar: 'أسلندي'
+  bg: 'Исландски'
+  da: Islandsk
+  de: Isländisch
+  en: Icelandic
+  es: Islandés
+  et: Islandi
+  fr: Islandais
+  gr: 'Ισλανδικά'
+  hu: izlandi
+  is: 'Íslenska'
+  it: islandese
+  iw: 'איסלדית'
+  ja: 'アイスランド語'
+  mk: 'Исландски'
+  ru: 'исландский'
+  se: islandska
+  zh: '冰岛语'
+it:
+  ar: 'اتالي'
+  bg: 'Италиански'
+  da: Italiensk
+  de: Italienisch
+  en: Italian
+  es: Italiano
+  et: Itaalia
+  fr: Italien
+  gr: 'Ιταλικά'
+  hu: olasz
+  is: 'Ítalska'
+  it: italiano
+  iw: 'איטלקית'
+  ja: 'イタリア語'
+  mk: 'Италијански'
+  ru: 'итальянский'
+  se: italiansk
+  zh: '意大利语'
+iw:
+  da: Hebræisk
+  de: Hebräisch
+  en: Hebrew
+  es: Hebreo
+  et: Heebrea
+  hu: héber
+  it: ebreo
+  iw: 'עברית'
+  ja: 'ヘブライ語'
+  mk: 'Еврејски'
+  ru: 'иврит'
+ja:
+  ar: 'ياباني'
+  bg: 'Японски'
+  da: Japansk
+  de: Japanisch
+  en: Japanese
+  es: Japonés
+  et: Jaapani
+  fr: Japonais
+  gr: 'Ιαπωνικά'
+  hu: japán
+  is: Japanska
+  it: giapponese
+  iw: 'יפנית'
+  ja: '日本語'
+  mk: 'Јапонски'
+  ru: 'японский'
+  se: japanska
+  zh: '日语'
+journal_admin:
+  da: Journal Administrator
+  de: Ausgaben Administrator
+  en: Journal Administrator
+  es: Administrador del diario
+  et: Albumi peremees
+  hu: 'újság adminisztrátor'
+  it: giornale amministrazione
+  ja: 'ジャーナル管理者'
+  mk: |-
+    Администратор на списанието
+  ru: 'администратор журнала'
+journal_config:
+  da: Journal konfiguration
+  de: Ausgaben-Einstellung
+  en: Journal Configuration
+  es: Configuración del diario
+  et: Albumi seaded
+  hu: 'újság konfiguráció'
+  it: il giornale configurazione
+  ja: 'ジャーナル配置'
+  mk: |-
+    Конфигурација на списанието
+  ru: 'конфигурация журнала'
+journal_default:
+  da: Journal standard
+  de: Ausgaben-Voreinstellung
+  en: Journal default
+  es: Diario predeterminado
+  et: Albumi algseaded
+  hu: 'újság alapértelmezés'
+  it: giornale scaduto
+  ja: 'デフォルトのジャーナル'
+  mk: 'Дефолт на списанието'
+  ru: 'журнал по умолчанию'
+journal_deleted:
+  da: Journal er slettet
+  de: gelöschte Ausgabe
+  en: Journal deleted
+  es: Diario eliminado
+  et: Album kustutati
+  hu: 'újság törölve'
+  it: giornale cancellato
+  ja: 'ジャーナルを消去しました'
+  mk: 'Списанието е избришано'
+  ru: 'журнал удален'
+journal_exists:
+  da: Journal-ID eksisterer allerede
+  de: Ausgabenidentifizierung existiert bereits
+  en: Journal-ID already exists
+  es: La ID del diario ya existe
+  et: See tähistab juba olemasolevat albumit
+  hu: 'újság-ID már létezik'
+  it: giornale ID e gia avuto
+  ja: 'このジャーナルIDは既に存在します'
+  mk: >-
+    Идентификацискиот број на списанието
+    веќе постои
+  ru: ID журнала уже существует
+journal_home:
+  da: Journal hjem
+  de: Ausgabe-Home
+  en: Journal Home
+  es: Inicio del diario
+  et: Koondalbum
+  hu: 'újság otthon'
+  it: Giornale Home
+  ja: 'ジャーナルホーム'
+  mk: 'Дом на списанието'
+  ru: 'домашний журнал'
+journal_id:
+  da: Journal-ID
+  de: Ausgabenidentifizierung
+  en: Journal-ID
+  es: ID del diario
+  et: Tähis
+  hu: 'újság-ID'
+  it: giornale ID
+  ja: 'ジャーナルID'
+  mk: |-
+    Идентификациски број на списанието
+  ru: ID журнала
+journal_id_description:
   da: |-
-    4-16 små bogstaver til at identificeres din journal, fx:
+    4-16 små bogstaver til at identificeres din journal i URL'en, ex:
+  de: |-
+    4 bis 16 Kleinbuchstaben um Ausgabe zu identifizieren wie in dieser URL
   en: |-
     4 to 16 lowercase letters to identify journal in URL like this:
-signup:
-  ar: 'ﺎﻠﺘﺴﺠﻴﻟ'
-  bg: 'Абонамент'
-  da: Tilmeld
-  de: anmelden
-  en: Sign up
-  es: Inscribirse
-  fr: Subscription
-  hu: feliratkozik
-  it: firmi in (su)
-  iw: 'הרשמה'
-  ja: 'サインアップ'
-  mk: 'Впиши'
-  ru: 'Подписаться'
-  zh: '登记'
-signup_newchannel:
-  ar: 'ﺲﺠﻟ ﺎﻟﻯ ﻖﻧﺍﺓ ﺲﺑﻮﺠﻳ ﺝﺪﻳﺩﺓ'
-  da: Tilmeld en ny spoejs kanal
-  de: für einen neuen Spoejs Kanal anmelden
-  en: Sign up for a new Spoejs channel
-  es: Inscríbase en un nuevo canal de Spoejs
-  iw: 'ההרשמה לערוץ סבוכי חדש'
+  es: |-
+    Usa entre 4 y 16 letras minúsculas para identificar el diario en la URL:
+  et: |-
+    4 kuni 6 albumit aadressiribal märkivat väiketähte või numbrit näiteks:
+  hu: >-
+    újság azonosítására szolgáló, kisbetűs 4-től 16 hosszúságú
+    szavak a URL-ben mint:
+  ja: >-
+    このようなURLの中のジャーナルを識別する4〜16個の小文字:
+  mk: ! >-
+    4 до 16 мали букви кои што ќе го
+    идентификуваат списанието според УРЛ,
+    како на пример
+  ru: >-
+    от 4 до 16 прописных букв, чтобы
+    идентифицировать журнал на URL, например: 
+journal_info:
+  da: Journal information
+  de: Ausgaben-Information
+  en: Journal Information
+  es: Información del diario
+  et: Kasutaja andmed
+  hu: 'újság információ'
+  it: Giornale informazioni
+  ja: 'ジャーナルインフォメーション'
+  mk: 'Информација за списанието'
+  ru: 'нформация журнала'
+journal_layout:
+  da: Journal layout
+  de: Ausgaben-Layout
+  en: Journal Layout
+  es: Diseño del diario
+  et: Albumi paigutus
+  hu: 'újságszerkezet'
+  it: giornale impaginazione
+  ja: 'ジャーナルレイアウト'
+  mk: 'Изглед на списанието'
+journal_name:
+  da: Journal navn
+  de: Ausgaben-Name
+  en: Journal Name
+  es: Nombre del diario
+  et: Albumi nimi
+  hu: 'újságnév'
+  it: il nome di giornale
+  ja: 'ジャーナル名'
+  mk: 'Име на списанието'
+  zh: '杂记名'
+journal_security:
+  da: Tilgængelighed
+  de: Zugang
+  en: Access
+  es: Acceso
+  et: Ligipääs
+  hu: elérés
+  it: accesso
+  ja: 'アクセス'
+  mk: 'Пристап'
+journal_security_description:
+  da: Vis journalen på forsiden eller hold den privat
+  de: Ausgabe in startseite integrieren
+  en: |-
+    Include journal on site front page, or keep private 
+  es: |-
+    Incluye el diario en la primera página del sitio, o mantenlo privado
+  et: |-
+    Kas su album lisatakse esilehele või hoiad selle endale?
+  hu: |-
+    tedd be az újságot az első oldalra, vagy tartsd titokban
+  it: |-
+    tenuto giornale a sito FRONT pagina o tenuto privata
+  ja: >-
+    サイトフロントページ上のジャーナルを含んでいるか、あるいは個別にしておきます。
+  mk: >-
+    Вклучи го списанието на насловната
+    страна на сајтот, или остави го
+    неприкажано
+journals_friends:
+  da: Journaler på vennesider
+  de: Ausgaben auf der Seite eines Freundes
+  en: Journals at Friends' Sites
+  es: Diarios en sitios de amigos
+  et: Sõprade albumid
+  hu: 'újságok barátok lapján'
+  it: giornale di siti amici
+  ja: '友達のサイトのジャーナル'
+  mk: |-
+    Списанија на сајтови на пријатели
+keyword:
+  da: Nøgleord
+  de: Passwort
+  en: Keyword
+  es: Palabra clave
+  et: Märksõna
+  hu: kulcsszó
+  it: Keyword
+  ja: 'キーワード'
+  mk: 'Клучен збор'
+language:
+  ar: 'لغة'
+  bg: 'Език'
+  da: Sprog
+  de: Sprache
+  en: Language
+  es: Idioma
+  et: Keel
+  fr: Language
+  hu: nyelv
+  it: lingua
+  iw: 'שפה'
+  ja: '言語'
+  mk: 'Јазик'
+  ru: 'язык'
+  zh: '语言'
+language_description:
+  da: Det primære sprog for journal indhold
+  de: vorwiegende Sprache von Ausgabeninhalt
+  en: Primary language of journal content
+  es: Idioma principal del contenido del diario
+  et: Algupärandi keel
+  hu: az újság tartalmának elsődleges nyelve
+  it: primo lingua di contenuto giornale
+  ja: 'ジャーナル内容の第一言語'
+  mk: >-
+    Примарен јазик на содржината на
+    списанието 
+last:
+  ar: 'ﺎﻠﻨﻫﺎﻳﺓ'
+  da: Sidste
+  de: zu letzt
+  en: Last
+  es: 'Último'
+  et: Viimane
+  hu: utolsó
+  is: Síðasta
+  it: ultimo
+  iw: 'אחרון'
+  ja: '最後'
+  mk: 'Последен'
+  ru: 'прошлый'
+  zh: '持续'
+layout:
+  da: Layout
+  de: Layout
+  en: Layout
+  es: Diseño
+  et: Paigutus
+  hu: szerkezet
+  it: impaginazione
+  ja: 'レイアウト'
+  mk: 'Изглед'
+localjournal:
+  da: Lokale journaler
+  de: lokale Ausgaben
+  en: Local Journals
+  es: Diarios locales
+  et: Kohalikud albumid
+  hu: helyi újság
+  it: Giornale di localita
+  ja: 'ローカルジャーナル'
+  mk: 'Локални списанија'
+login:
+  ar: 'دخول'
+  bg: 'Вход'
+  da: Log ind
+  de: Einloggen
+  en: Login
+  es: Inicio de sesión
+  et: Sisene
+  fr: Connection
+  hu: bejelentkezés
+  it: inizio attivita
+  iw: 'כניטה'
+  ja: 'ログイン'
+  mk: 'Логин (Влез)'
+  ru: 'вход в систему'
+  zh: '登录'
+logout:
+  ar: 'خروج'
+  bg: 'Изход'
+  da: Log ud
+  de: Ausloggen
+  en: Logout
+  es: Final de sesión
+  et: Lahku
+  fr: Deconnection
+  hu: kijelentkezés
+  it: termine attivita
+  iw: 'יציאה'
+  ja: 'ログアウト'
+  mk: 'Логаут (Излез)'
+  ru: 'выход из системы'
+  zh: '注销'
+media:
+  ar: 'أعلام'
+  da: Media
+  de: Medien
+  en: Media
+  es: Medios
+  et: Kujundus
+  hu: média
+  it: Media
+  iw: 'מידיא'
+  ja: 'メディア'
+  mk: 'Медиуми'
+  ru: 'мультимедиа'
+  zh: '煤体'
+media_annotations:
+  da: Mediekommentar
+  de: Anmerkungen zu Medien
+  en: Media Annotations
+  es: Anotaciones de medios
+  et: Salvestiste tähistamine
+  hu: média rövidítés
+  it: Media annotazione
+  ja: 'メディア注釈'
+  mk: 'Забелешки за медиумите'
+media_information:
+  da: Medieinformation
+  en: Media information
+  es: Información de medios
+  et: Salvestise üksikasjad
+  hu: média információ
+  ja: 'メディアインフォメーション'
+media_man:
+  ar: '   ادارة الاعلام'
+  da: Mediehåndtering
+  de: Medien Verwaltung
+  en: Media management
+  es: Gestión de medios
+  et: Kujundushaldus
+  hu: média szervezés
+  it: Media gestire
+  iw: '   ניהול מידיא'
+  ja: 'メディアマネージメント'
+  mk: 'Управување со медиуми'
+  ru: 'управление мультимедиа'
+  zh: '媒体管理'
+media_mixing:
+  da: Medieblanding
+  de: Medienverknüpfung
+  en: Media mixing
+  es: Mezcla de medios
+  et: Salvestise lisamine jutule
+  hu: média keverés
+  it: Media mescorare
+  ja: 'メディアミックス'
+  mk: 'Мешање на медиумите'
+media_rename:
+  da: Omdøb medie
+  de: geänderte Bezeichnung von Medien
+  en: Media rename
+  es: Cambiar nombre de medio
+  et: Salvestise kustutamine ja nime muutmine
+  hu: média újranevezése
+  ja: 'メディアに再度名前をつける'
+  mk: 'Преименување на медиумите'
+media_upload:
+  da: Upload medie
+  de: Medienübertragung
+  en: Media upload
+  es: Cargar medio
+  et: Faili ületoomine
+  hu: média feltöltése
+  it: media rinovo
+  ja: 'メデイアアップロード'
+  mk: 'Вчитување на медиумите'
+mk:
+  ar: 'ماسادوني'
+  bg: 'Македонски'
+  da: Makedonsk
+  de: Mazedonisch
+  en: Macedonian
+  es: Macedonio
+  et: Makedoonia
+  fr: Mecedonien
+  gr: 'Μακεδονικά'
+  hu: makedón
+  it: mecedone
+  iw: 'מסדונית'
+  ja: 'マケドニア語'
+  mk: 'Македонски'
+  ru: 'македонский'
+  se: macedoniska
+  zh: '马其顿语'
+month_top5:
+  da: Månedens top 5
+  en: Month Top5
+more:
+  ar: 'مزيد'
+  da: Vis
+  de: mehr
+  en: More
+  es: Más
+  et: Veel
+  hu: több
+  is: Meira
+  it: un 'po di piu
+  iw: 'ירתר'
+  ja: 'より'
+  mk: 'Повеќе'
+  ru: 'более'
+  zh: '更多'
+name:
+  da: Navn
+  de: Name
+  en: Name
+  es: Nombre
+  et: Nimi
+  hu: név
+  is: Nafn
+  it: il nome
+  ja: '名前'
+  mk: 'Име'
+name_description:
+  da: Navnebeskrivelse
+  en: Name Description
+  es: Descripción del nombre
+  et: Kirjanikunimi
+  hu: név leírása
+  ja: '名前詳細'
+  mk: 'Опис на името'
+name_missing:
+  da: Navn mangler
+  de: Name fehlt
+  en: Name missing
+  es: No hay nombre
+  et: Puudub nimi
+  hu: a név hiányzik
+  it: nome perduto
+  ja: '名前が失われています。'
+  mk: 'Недостасува име'
+new_account:
+  da: Ny konto
+  de: Neues Benutzerkonto
+  en: New account
+  es: Nueva cuenta
+  et: Uus kasutaja
+  hu: 'új folyószámla'
+  it: nuovo accounto
+  ja: '新しいアカウント'
+  mk: 'Нова сметка'
+  zh: '新用户注册'
+new_category:
+  da: Ny kategori
+  en: New Category
+new_password:
+  ar: 'كلمة مرور جديدة'
+  da: Nyt password
+  de: Neues Benutzerkonto
+  en: New Password
+  es: Nueva contraseña
+  et: Uus salasõna
+  hu: 'új jelszó'
+  is: Nýtt lykilorð
+  it: nuovo password
+  iw: 'סיסמה חדשה'
+  ja: '新しいパスワード'
+  mk: 'Нова лозинка'
+  ru: 'новый пароль'
+  zh: '新的密码'
+new_story:
+  ar: 'قصة جديدة'
+  da: Ny historie
+  de: neu Geschichte
+  en: New story
+  es: Artículo nuevo
+  et: Uus jutt
+  hu: 'új törtenet'
+  is: Ný frásögn
+  it: nuova storia
+  iw: 'סיפור חדש'
+  ja: '新しいストーリー'
+  mk: 'Нова приказна'
+  ru: 'новый рассказ'
+  zh: '新的故事'
+new_username:
+  ar: 'عضو جديد'
+  da: Nyt brugernavn
+  de: neuer Benutzername
+  en: New username
+  es: Nuevo nombre de usuario
+  et: Uus varjunimi
+  hu: 'új felhasználói név'
+  is: Nýtt notendanafn
+  it: nuono Username
+  iw: 'שם משתמש חדש'
+  ja: '新しいユーザーネーム'
+  mk: 'Ново корисничко име'
+  ru: 'новое имя пользователя'
+  zh: '新的用户名'
+newest_story:
+  da: Nyeste historie
+  en: Newest story
+  es: Artículo más reciente
+  et: Viimane täiendus loole
+  hu: a legújabb történet ... nél
+  ja: '最新のストーリー'
+  zh: '最新的故事'
+newfilename:
+  ar: 'أسم ملف جديد'
+  da: Nyt filnavn
+  de: neuer Dateiname
+  en: New filename
+  es: Nuevo nombre de archivo
+  et: Faili uus nimi
+  hu: 'új fájlnév'
+  is: Nýtt skráarnafn
+  it: nuovo nome di documeto
+  iw: 'שם קובץ חדש'
+  ja: '新しいファイルネーム'
+  mk: 'Ново име на фајлот'
+  ru: 'новое имя файла'
+  zh: '新的文件名'
+newpass:
+  da: Ny adgangskode
+  en: New Password
+  es: Nueva contraseña
+  et: Uus salasõna
+  hu: 'új jelszó'
+  is: Nýtt lykilorð
+  ja: '新しいパスワード'
+  mk: 'Нова лозинка'
+  zh: '新的密码'
+no_:
+  ar: 'ﻻ'
+  da: Nej
+  de: Nein
+  en: No
+  es: No
+  et: Ei
+  hu: nem
+  is: Nei
+  it: no
+  iw: 'לא'
+  ja: 'いいえ'
+  mk: 'Не'
+  ru: 'нет'
+  zh: '否'
+no_stories:
+  ar: 'لا يوجد قصص'
+  da: Ingen historier
+  de: keine Geschichten
+  en: No stories
+  es: No hay artículos
+  et: Tühi
+  hu: incsenek történetek
+  it: non c'e la storia
+  iw: 'בלי סיפורים'
+  ja: 'ストーリーはありません'
+  mk: 'Нема приказни'
+  ru: 'нет рассказов'
+  zh: '没有内容'
+number_of_views:
+  da: Antal visninger
+  en: Number of views
+  es: Número de vistas
+  et: Vaadete arv
+  hu: a nézetek száma
+  ja: '表示数'
+  ru: 'число видов'
+oneerror_occur:
+  ar: 'حدث خطاء أو أكثر'
+  da: En eller flere fejl er opstået i
+  de: ein oder mehrere Fehler sind aufgetreten
+  en: One or more errors has occured in
+  es: Se han producido uno o más errores en
+  et: Tekitas tõrke
+  hu: eyg vagy több hiba előfordult
+  it: una o piu di erore e causato
+  iw: 'נעשה יותר מטעות אחת'
   ja: |-
-    新しいSpoejsチャンネルへサインアップする
+    の中で一つまたはそれ以上のエラーが起きました。
+  mk: |-
+    Една или повеќе грешки се појавија во
+  ru: 'одна или более ошибок в'
+  zh: '出现有一个或更多的错误'
+or_add_newstory:
+  ar: 'أو هنا لأضافة قصة جديدة'
+  da: eller her for at tilføje en ny historie
+  de: oder hier um eine neue Geschichte hinzuzufügen
+  en: or here to add a new story
+  es: o aquí para agregar un nuevo artículo
+  et: Siin saad lisada uue jutu
+  hu: vagy itt adj hozzá egy új történetet
+  it: o ici per agguingere una nuova storia
+  iw: 'אוכאן כדי להוסיף סיפור חדש'
+  ja: |-
+    またはここから新しいストーリーを追加して下さい
+  mk: |-
+    или тука за да додадете нова приказна
   ru: |-
-    Подписаться на новый Spoejs канал
-  zh: '登记新的网页'
-site_home:
-  ar: 'ﺎﻠﻋﻭﺩﺓ ﺎﻟﻯ ﺎﻠﺼﻔﺣﺓ ﺍﻻﻮﻟﻯ'
-  da: Kanal index
-  de: Startseite
-  en: Site home
-  es: Página de inicio del sitio
-  hu: eredeti hely?
-  iw: 'דף בית'
-  ja: 'サイトのホーム'
-  ru: 'Адрес сайта'
-  zh: '本页'
-spoejs_channels_at_this_site:
+    или здесь добавить новый рассказ
+  zh: '或许按这儿添加新的记事'
+or_new:
+  ar: 'أو جديد'
+  da: eller ny
+  de: oder neu
+  en: or new
+  es: o nuevo
+  et: Või tee uus
+  hu: vagy új
+  is: eða nýtt
+  it: o nuovo
+  iw: 'או חדש'
+  ja: 'または新しい'
+  mk: 'или нов (нова, ново)'
+  ru: 'или новый'
+  zh: '或许新'
+passwd:
+  ar: 'كلمة المرور'
+  bg: 'Парола'
+  da: Adgangskode
+  de: Passwort
+  en: Password
+  es: Contraseña
+  et: Salasõna
+  fr: Mot de passe
+  gr: 'Κωδικός'
+  hu: jelszó
+  is: Lykilorð
+  it: parola d'acceso
+  iw: 'סיסמה'
+  ja: 'パスワード'
+  mk: 'Клучен збор'
+  ru: 'пароль'
+  se: passord
+  zh: '密码'
+passwd_description:
+  da: |-
+    En god adgangskode er let at huske men svært at gætte
+  de: Einfach zu behalten, schwer zu erraten
+  en: Something easy to remember but hard to guess
+  es: |-
+    Algo que sea fácil de recordar pero difícil de adivinar
+  et: |-
+    ,mida endal oleks hea meelde jätta, kuid teistel raske arvata.
+  hu: |-
+    valami amire könnyű emlékezni de nehéz kitalálni
+  is: |-
+    Eitthvað sem er auðvelt adð muna enn erfitt að giska
+  it: |-
+    qualcosa facile di ricordare ma difficile per trovare
+  ja: |-
+    覚えるのは簡単だけど予想するのは難しい
+  mk: >-
+    Нешто што лесно се памети, но тешко се
+    погодува
+  ru: >-
+    что-нибуть что легко запомнить, но трудно
+    угадать
+passwd_retype:
+  da: Skriv adgangskoden igen
+  de: Passwort wiederholen
+  en: Re-type password
+  es: Vuelve a escribir la contraseña
+  et: Sisesta sama salasõna veel kord
+  hu: 'írd újra a jelszó'
+  is: Sláðu lykilorð inn aftur
+  it: Re-type Password
+  ja: |-
+    もう一度パスワードを入力して下さい
+  mk: |-
+    Внесете ја лозинката повторно
+  ru: 'Повтори пароль'
+passwd_retype_description:
+  da: Samme som ovenfor
+  de: gleich wie oben
+  en: Same as above
+  es: Igual que antes
+  et: Sama salasõna, mis ülemises tekstiväljas.
+  hu: ugyanaz mint fent
+  it: lo stesso di prima
+  ja: '上に同じ'
+  mk: 'Исто како погоре'
+  ru: 'также как выше'
+password_mismatch:
+  da: Adgangskoderne var ikke ens
+  de: falsches Passwort
+  en: Passwords did not match
+  es: Las contraseñas no coinciden
+  et: Salasõnad ei ühtinud
+  hu: a jelszavak nem egyeznek
+  is: Lykilorð passar ekki
+  it: Password e sbaliato
+  ja: 'パスワードが合いません'
+  mk: 'Лозинките не се исти'
+  ru: 'пароли не совпадают'
+past30days:
+  da: Sidste 30 dage
+  en: Past 30 days
+  es: 'Últimos 30 días'
+  et: Eelmised 30 päeva
+  hu: az elmúlt 30 nap
+  ja: '３０日後'
+  ru: 'после 30 дней'
+past7days:
+  da: Sidste 7 dage
+  en: Past 7 days
+  es: 'Últimos 7 días'
+  et: Eelmised 7 päeva
+  hu: az elmúlt 7 nap
+  ja: '７日後'
+  ru: 'после 7 дней'
+pause_play:
+  da: Hold pause
+  en: Pause Play
+  ru: 'пауза'
+peers:
+  da: Venner
+  de: Pier
+  en: Peers
+  es: Iguales
+  et: '???'
+  hu: osztálytársak
+  it: per vedere
+  ja: '仲間'
+please_fill_out_this_form:
+  ar: 'الرجاء أكمال هذا الجدول'
+  da: Venligst udfyld denne formular
+  de: bitte dieses Formular ausfüllen
+  en: Please fill out this form
+  es: Rellena este formulario
+  et: Kirjuta siia lahtrisse! Vali pildile koht ja ...
+  hu: kérem töltse ki a nyomtatványt
+  it: inscerisi questo form
+  iw: 'בבקשה למליגאת הבקשה הבאה'
+  ja: 'この用紙に記入して下さい。'
+  mk: |-
+    Ве молиме пополнете го овој формулар
+  ru: |-
+    Пожалуйста, заполните эту форму
+  zh: '请填写这张表'
+pleaselogin:
   ar: |-
-    ﻱﻮﺟﺩ ﻖﻧﻭﺎﺗ ﺲﺑﻮﺠﻳ ﻒﻳ ﻩﺫﺍ ﺎﻠﻣﻮﻘﻋ
-  da: Spoejs kanaler på dette site
-  de: Spoejs Kanäle auf diesem Website
-  en: Spoejs channels at this site
-  es: Canales de Spoejs en este sitio
-  iw: 'קישור עם ערוץסבוכי'
-  ja: 'このサイトのSpoejsチャンネル'
-  ru: 'Каналы Spoejs на этом сайте'
-  zh: Spoejs网页
-story_home:
-  ar: 'ﺎﻠﻋﻭﺩﺓ ﻞﻠﻘﺻﺓ'
-  da: Historie
-  de: Start der Geschichte
-  en: Story home
-  es: Inicio del artículo
-  iw: 'התחלת הסיפור'
-  ja: 'ストーリーホーム'
-  ru: 'Адрес рассказа'
-  zh: '记事本页'
-storytitlelist:
-  ar: 'ﺝﺩﻮﻟ ﻊﻧﺍﻮﻴﻧ ﺎﻠﻘﺼﺻ'
+    الرجاء ادخال معلوماتك قبل الدخول
+  da: Log venligst ind før denne side tilgåes
+  de: bitte vor Zugang auf diese Seite einloggen
+  en: Please Login before accessing this page
+  es: Inicia una sesión antes de acceder a esta página
+  et: Sellele lehele saab ainult oma salasõna abil
+  hu: kérem jelentkezzen be a lap elérése előtt
+  it: Login prima di usare questa pagina
+  iw: 'יש להרשם לפני הכניטה'
+  ja: |-
+    このページにアクセスするにはログインが必要です。
+  mk: >-
+    Ве молиме логирајте се пред да пристапите
+    кон оваа страна
+  ru: >-
+    Пожалуйста, войдите в систему для доступа
+    к этой странице
+  zh: '进入此页之前请登录'
+post_a_comment:
+  da: Indsend kommentar
+  de: ein Kommentar
+  en: Post a comment
+  es: Envíia un comentario
+  et: Saada oma arvamus
+  hu: tegyen megjegyzést
+  it: inviare un commento
+  ja: 'コメントを書く'
+  mk: 'Оставете коментар'
+  ru: 'разместить комментарий'
+posted_by:
+  ar: 'تحرير من'
+  bg: 'Автор'
+  da: Af
+  de: verschickt von
+  en: Posted by
+  es: Enviado por
+  et: Saatis
+  fr: Poster par
+  gr: 'Καταχώρηση από'
+  hu: feladva ... által?
+  it: inviato da
+  iw: 'באדיברת'
+  ja: '記入者'
+  mk: 'Испраќа'
+  ru: 'Представлено'
+  se: postat av
+  zh: '邮寄人'
+preview:
+  ar: 'مراجعة'
+  da: Udkast
+  de: Vorschau
+  en: Preview
+  es: Vista preliminar
+  et: Vaata üle
+  hu: megtekintés
+  it: anteprima
+  iw: 'חזרה'
+  ja: 'プレビュー'
+  mk: 'Преглед'
+  ru: 'Просмотр'
+  zh: '预现'
+private:
+  da: Privat
+  de: privat
+  en: Private
+  es: Privado
+  et: Piiratud
+  hu: privát (titkos)
+  it: privata
+  ja: 'プライベート'
+  mk: 'Приватно'
+  ru: 'частный'
+proxy:
+  da: Proxy
+  de: Proxy
+  en: Proxy
+  es: Proxy
+  et: Vahendus
+  hu: elérés
+  it: sostituzione
+  ja: 'プロキシ'
+  mk: 'Прокси'
+  ru: proxy
+public:
+  ar: 'عمومي'
+  bg: 'Публичен'
+  da: Offentlig
+  de: 'öffentlich'
+  en: Public
+  es: Público
+  et: Avalik
+  fr: Publique
+  hu: nyilvános
+  it: pubulico
+  iw: 'פופלארי'
+  ja: 'パブリック'
+  mk: 'Јавен'
+  ru: 'Публичный'
+  zh: '公众'
+random:
+  ar: 'ﻊﺷﻭﺎﺌﻳ'
+  da: Tilfældig
+  de: zufällig
+  en: Random
+  es: Aleatorio
+  et: Juhuslik
+  hu: véletlen
+  is: Tilviljanakennt
+  iw: 'ראנדומאלי'
+  ja: 'ランダム'
+  mk: 'Случаен'
+  ru: 'Случайный'
+  zh: '随便'
+ru:
+  da: Russisk
+  de: russisch
+  en: Russian
+  es: Ruso
+  et: Vene
+  hu: orosz
+  is: Rússneska
+  it: russo
+  ja: 'ロシア語'
+  mk: 'Руски'
+  ru: 'Русский'
+  zh: '俄语'
+save_changes:
+  da: Gem ændringer
+  de: Einstellungen sichern
+  en: Save Changes
+  es: Guardar cambios
+  et: Säilita muudatused
+  hu: mentsd a változtatásokat
+  it: tenere la cambiamento
+  ja: '変更を保存する'
+  mk: 'Сними ги промените'
+  ru: 'Сохранить изменения'
+scf:
+  ar: 'تغيرات على الموقع'
+  da: Site konfiguration
+  de: Website Konfiguration
+  en: Site configuration
+  es: Configuración del sitio
+  et: Lehe seaded
+  hu: hely konfiguráció
+  iw: 'דף שידרג'
+  ja: 'サイト配置'
+  mk: 'Конфигурација на сајтот'
+  ru: 'Конфигурация сайта'
+  zh: '网页结构'
+se:
+  ar: 'سويدي'
+  bg: 'Шведски'
+  da: Svensk
+  de: Schwedisch
+  en: Swedish
+  es: Sueco
+  et: Rootsi
+  fr: Suedois
+  gr: 'Σουηδικά'
+  hu: svéd
+  is: Sænska
+  it: svedese
+  iw: 'שוודית'
+  ja: 'スウェーデン語'
+  mk: 'Шведски'
+  ru: 'Шведский'
+  se: svenska
+  zh: '瑞典语'
+security_image_failed_verification:
+  da: Verificering af sikkerhedsbilledet fejlede
+  de: Sicherheitsbild konnte nicht erkannt werden
+  en: Security image failed verification
+  es: No se ha podido verificar la imagen de seguridad
+  et: Turve ei võimaldanud tuvastada sellist pilti
+  hu: a biztonsági kép nem ment át az ellenőrzésen
+  ja: |-
+    セキュリティイメージは立証に失敗しました。
+  mk: |-
+    Сликата за сигурност не одговара
+set_password:
+  da: Sæt kodeord
+  de: Passwort definieren
+  en: Set password
+  es: Definir contraseña
+  et: Määra salasõna
+  hu: 'írj jelszót'
+  it: metta Password
+  ja: 'パスワードをセットする'
+  mk: 'Постави лозинка'
+  ru: 'установить пароль'
+shortname:
+  ar: 'الاسم المستعار'
+  bg: 'Кратко име'
+  da: Kortnavn
+  de: Kurzname
+  en: Shortname
+  es: Diminutivo
+  et: Nimelühend
+  fr: Surnom
+  hu: rövid név
+  it: nome corto
+  iw: 'שם משתמש'
+  ja: 'ショートネーム'
+  mk: 'Кратко име'
+  ru: 'Сокращенное имя'
+  zh: '短名'
+show_story:
+  da: Vis historie
+  en: Show story
+  es: Ver artículo
+  et: Kas lugu näidata?
+  hu: mutasd a történetet
+  ja: 'ストーリーを見せる'
+  mk: 'Прика'
+  ru: 'показать историю'
+show_trans:
+  da: Vis engelske oversættelser
+  de: 'Übersetzungsmöglichkeiten anzeigen'
+  en: Show translation options
+  es: Ver opciones de traducción
+  et: Tõlkevõimalused
+  hu: mutass fordítási lehetőségeket
+  it: Mostra translazione
+  ja: '翻訳オプションを表示する'
+  mk: |-
+    Прикажи ги опциите за превод
+  ru: 'показать опции перевода'
+signup_approve:
+  ar: 'ﺖﻣ ﺎﻠﻣﻭﺎﻔﻗﺓ'
+  da: Tilmeld-godkend
+  de: Anmeldung bestätigt
+  en: Signup Approve
+  es: Aprobar inscripción
+  et: Kinnita andmed
+  hu: beléptetés elfogadás
+  it: Approva signup
+  iw: 'ההרשמה התקבלה'
+  ja: 'サインアップ承諾'
+  mk: 'Запишувањето е одобрено'
+  ru: 'Подтвердить подписку'
+  zh: '允许登记'
+signup_newjournal:
+  da: |-
+    Opret en ny journal og del dine oplevelser med venner og familie.
+  de: ! >-
+    Biite melden Sie sich an, um neue Ausgaben anzulegen bzw. Erfahrungen mit
+    Freunden und Ihrer Familie austauschen zu können
+  en: ! >-
+    Sign up for a new media journal and share your experiences with friends and
+    family.
+  es: ! >-
+    Inscríbete para un nuevo diario multimedia y comparte experiencias con tus
+    amigos y familiares.
+  et: ! >-
+    Pane ennast kirja! Siin võid jagada oma pilte ja muljeid pere ja
+    sõpradega.
+  hu: ! >-
+    jelentkezz fel egy új média újságra és osztd meg a tapasztalataidat
+    barátokkal és a családdal
+  ja: >-
+    新しいメディアジャーナルの手続きをして、あなたの経験を友達や家族と共有しましょう☆
+  mk: >-
+    Запишете се за ново медиско списание и
+    поделете ги вашите искуства со
+    пријателите и семејството
+  ru: >-
+    подпишись на новый мультимедиа журнал и
+    поделись своим опытом с друзьями и семьей
+  zh: '注册新的杂记并与家人及朋友分享'
+signup_not_allowed:
+  da: Tilmelding er ikke tilladt
+  de: Anmeldung fehlgeschlagen
+  en: Signup not allowed
+  es: Inscripción no permitida
+  et: Ei saa sind arvele võtta
+  hu: beléptetés nem engedélyezett
+  it: signup e non permesso
+  ja: |-
+    サインアップは許可されませんでした。
+  mk: |-
+    Запишувањето не е дозволено
+  ru: 'подписка не разрешена'
+sitepolicy:
+  ar: 'قوانيين الموقع'
+  da: Site politik
+  de: Website Grundsätze
+  en: Site Policy
+  es: Normas del sitio
+  et: Meie põhimõtted
+  hu: hely szabályzat
+  it: siti politica
+  iw: 'כללים'
+  ja: 'サイトポリシー'
+  mk: 'Регулатива на сајтот'
+  ru: 'Политика сайта'
+  zh: '本页特权'
+specific:
+  ar: 'ﺥﺎﺻ'
+  da: Specifik
+  de: speziell
+  en: Specific
+  es: Específico
+  et: Eri
+  hu: speciális
+  it: specifico
+  iw: 'ספציפי'
+  ja: '詳細'
+  mk: 'Специфичен'
+  ru: 'Определенный'
+  zh: '具体'
+statusjournal:
+  da: Status for journaler på denne side
+  de: Verwendung von Ausgaben auf dieser Seite
+  en: Status for journals on this site
+  es: Estado de los diarios en este sitio
+  et: Albumite seisund
+  hu: az újságok állapota ezen a helyen
+  ja: |-
+    このサイトでのジャーナルのステータス
+  mk: |-
+    Статус на списанијата на овој сајт
+  ru: |-
+    состояние журналов на этом сайте
+stories:
   da: Historier
-  de: Geschichtstitelliste
+  de: Geschichten
+  en: Stories
+  es: Artículos
+  et: Jutud
+  hu: történetek
+  it: le storie
+  ja: 'ストーリー一覧'
+  mk: 'Приказни'
+  ru: 'истории'
+  zh: '记事'
+story:
+  da: Historie
+  de: Geschichte
+  en: Story
+  es: Artículo
+  et: Jutt
+  hu: történet
+  it: la storia
+  ja: 'ストーリー'
+  mk: 'Приказна'
+  ru: 'история'
+  zh: '记事'
+story_deleted:
+  da: Historie slettet
+  de: gelöschte Geschichten
+  en: Story deleted
+  es: Artículo eliminado
+  et: See jutt kustutati
+  hu: történet törölve
+  it: La stora e
+  ja: 'ストーリーを消去'
+  mk: 'Статијата е избришана'
+  ru: 'история удалена'
+story_details:
+  da: Detaljer fra historien
+  de: komplette Geschichte
+  en: Story details
+  es: Datos del artículo
+  et: Jutu juurde
+  hu: történet részletei
+  it: piu di storia
+  ja: 'ストーリーの詳細'
+  mk: 'Детали за статијата'
+  ru: 'детали истории'
+story_edit:
+  da: 'Ændre historie'
+  de: zusammengefasste Geschichte
+  en: Story edit
+  es: Edición del artículo
+  et: Muuda juttu
+  hu: történet szerkesztés
+  it: la storia redazione
+  ja: 'ストーリーを編集'
+  mk: 'Едитирање на статијата'
+  ru: 'редактирование истории'
+story_summary:
+  ar: 'محتويات القصة'
+  da: Historie abstrakt
+  de: Zusammenfassung der Geschichte
+  en: Story summary
+  es: Resumen del artículo
+  et: Jutu kokkuvõte
+  hu: történet összefoglalása
+  it: il compendio della storia
+  iw: 'תוכך הסיפור'
+  ja: '空想のストーリー'
+  mk: 'Резиме на приказната'
+  ru: 'Аннотация рассказа'
+  zh: '记事摘要'
+storysave:
+  ar: 'تم حفظ القصة بنجاح'
+  da: Historien er gemt korrekt
+  de: Die Geschichte wurde erfolgreich gespeichert
+  en: Story saved successfully
+  es: El artículo se ha guardado sin problemas
+  et: Jutt salvestati
+  hu: a történet sikeresen elmentve
+  it: la storia e servato riuscito
+  iw: 'הסיפור נכמר בהצלחה'
+  ja: 'ストーリーは正常に保存されました'
+  mk: 'Приказната е снимена'
+  ru: 'Расказ успешно сохранен'
+  zh: '保存记事成功'
+storytitle:
+  ar: 'عنوان القصة'
+  da: Historie titel
+  de: Titel der Geschichte
+  en: Story title
+  es: Título del artículo
+  et: Jutu pealkiri
+  hu: történet címe
+  it: il titolo della storia
+  iw: 'כותרת הסיפור'
+  ja: 'ストーリータイトル'
+  mk: 'Наслов на приказната'
+  ru: 'Заголовок рассказа'
+  zh: '记事标题'
+storytitlelist:
+  da: Overskrift
+  de: Themenüberblick für Geschichten
   en: Story title list
   es: Lista de títulos de artículos
-  iw: 'רשימת כרתרות'
-  ja: 'ストーリータイトルリスト'
-  ru: |-
-    Список заголовков рассказов
-  zh: '记事标题一览'
-submit_query:
+  et: Pealkirjade loend
+  hu: a történet címlistája
+  it: La tista di titolo della storia
+  ja: 'ストーリータイトルのリスト'
+  mk: 'Листа на имиња на статиите'
+submit:
+  ar: 'أرسال'
+  bg: 'Приложи'
   da: Indsend
-  de: Abfrage abschicken
-  en: Submit Query
-  es: Enviar consulta
-  iw: 'שליחת ההמלצה'
-  ja: 'クエリーを提出'
-  ru: 'представить запрос'
-thanks:
-  en: Thank you
-thechannel_notexit:
-  ar: 'ﻩﺫﺓ ﺎﻠﻘﻧﺍﺓ ﻎﻳﺭ ﻡﻮﺟﻭﺩﺓ'
-  da: Kanalen eksisterer ikke!
-  de: der Kanal existiert nicht
-  en: The channel doesn't exist!
-  es: '¡Ese canal no existe!'
-  iw: 'הערוץ לא כמצא'
-  ja: 'このチャンネルは存在しません'
-  ru: 'Канал не существует!'
-  zh: '这个网页不存在'
+  de: Abschicken
+  en: Submit
+  es: Enviar
+  et: Kinnita
+  fr: Soumettre
+  hu: bead
+  it: presenti
+  iw: 'שליחה'
+  ja: '提出'
+  mk: 'Поднеси'
+  ru: 'представить'
+  zh: '承诺'
+summary:
+  da: Resume
+  de: Zusammenfassung
+  en: Summary
+  es: Resumen
+  et: Kokkuvõte
+  hu: 'összefoglalás'
+  it: copendio
+  ja: 'サマリー'
+  mk: 'Апстракт'
+  zh: '摘要'
+syndication:
+  da: Sammenslutning
+  de: Syndikation
+  en: Syndication
+  es: Syndication
+  et: '???'
+  hu: szindikátus
+  it: organizzazione
+  ja: '再発行'
+  mk: 'Синдикација'
+theme:
+  ar: 'ميزة'
+  bg: 'Тема'
+  da: Tema
+  de: Thema
+  en: Theme
+  es: Tema
+  et: Mulje
+  fr: Theme
+  hu: tema
+  is: Tema
+  it: tema
+  iw: 'תכונה'
+  ja: 'テーマ'
+  mk: 'Тема'
+  ru: 'Тема'
+  zh: '主题'
+theme_default:
+  da: Standard tema
+  de: Themen-Voreinstellung
+  en: Theme default
+  es: Tema predeterminado
+  et: Meie määratud
+  hu: az alaptéma
+  it: tema e scaduto
+  ja: 'デフォルトのテーマ'
+  mk: 'Дефолт на темата'
+  ru: 'Тема по умолчанию'
+theme_description:
+  da: Journalens udseende
+  de: Erscheinungsbild der Ausgabe
+  en: Visual appearance of journal
+  es: Aspecto visual del diario
+  et: Albumi välisilme
+  hu: azújság vizuális megjelenése
+  ja: 'ジャーナルの画像表示'
+  mk: |-
+    Визуелен изглед на списанието
+  ru: 'Визульный вид журнала'
+thumb_count:
+  da: Markeringer pr. side
+  de: Anzahl der Voransichten pro Seite
+  en: Thumbnails per page
+  es: Imágenes en miniatura por página
+  et: Pisipiltide arv lehel
+  hu: kisképek per oldal
+  it: i schizzi per la pagina
+  ja: 'ページごとのサムネール'
+  ru: 'Пиктограмм на страницу'
+thumb_count_description:
+  da: |-
+    Antal miniaturebilleder der vises på hver historie side
+  de: Anzahl der Medien-Voransichten pro Seite
+  en: Number of media thumbnails per story page
+  es: |-
+    Número de imágenes en miniatura por página del artículo
+  et: 'Ühel lehel nähtavate pisipiltide arv'
+  hu: történetlaponkénti kisképek száma
+  it: i numeri di media schizzi per la pagina storia
+  ja: |-
+    ストーリーページの中のメディアサムネイルの数
+  ru: >-
+    Число пиктограмм мультимедиа на страницу
+    истории
+thumbnail:
+  ar: 'الرموز'
+  da: Miniaturebillede
+  de: Voransicht
+  en: Thumbnail
+  es: Imagen en miniatura
+  et: Näidatav pisipilt
+  hu: kiskép
+  it: il schizzo
+  iw: 'איקונם'
+  ja: 'サムネイル'
+  ru: 'Пиктограмма'
+  zh: '简要'
+title:
+  ar: 'عنوان'
+  bg: 'Заглавие'
+  da: Titel
+  de: Titel
+  en: Title
+  es: Título
+  et: Pealkiri
+  fr: Titre
+  gr: 'Τίτλος'
+  hu: cím
+  is: Titill
+  it: titolo
+  iw: 'כותרת'
+  ja: 'タイトル'
+  mk: 'Наслов'
+  ru: 'Заголовок'
+  se: titel
+  zh: '标题'
+title_description:
+  da: Journalens navn
+  de: Name der Ausgabe
+  en: Name of journal
+  es: Nombre del diario
+  et: Albumi nimi
+  hu: az újság neve
+  it: il nome del giornal
+  ja: 'ジャーナルの名前'
+  mk: 'Име на списанието'
+  ru: 'имя журнала'
+  zh: '记事名'
+total:
+  da: I alt
+  en: Total
+  es: Total
+  et: Kokku
+  hu: 'összeg'
+  ja: '全部'
+  ru: 'Всего'
+  zh: '全部'
+total_top5:
+  da: Total top 5
+  en: Total Top5
+  ru: Top 5  за все время
+  zh: '占全部的前五位'
+up_:
+  da: Op
+  en: Up
+  es: Arriba
+  et: 'Üles'
+  hu: fel
+  is: Upp
+  ja: '上へ'
+  mk: 'Горе'
+  ru: 'вверх'
+  zh: '向上'
+upload:
+  ar: 'أدخال'
+  da: Indsend
+  de: heraufladen
+  en: Upload
+  es: Cargar
+  et: Salvesta lehele
+  hu: feltölt
+  it: rinovo
+  iw: 'שליפה'
+  ja: 'アップロード'
+  mk: 'Внеси'
+  ru: 'Загрузить'
+  zh: '上载'
+user_login:
+  da: Bruger log ind
+  de: Anmeldung
+  en: User Login
+  es: Inicio de sesión de usuario
+  et: Kasutaja, sisene
+  hu: felhasználói bejelentkezés
+  it: Uttente Login
+  ja: 'ユーザーログイン'
+  mk: 'Логирање на корисникот'
+  zh: '用户登记'
+username:
+  ar: 'أسم المستعمل'
+  bg: 'Име на потребител'
+  da: Brugernavn
+  de: Benutzername
+  en: Username
+  es: Nombre de usuario
+  et: Varjunimi
+  fr: Nom d'Utilisateur
+  hu: felhasználói név
+  is: Notendanafn
+  it: nome di utente
+  iw: 'שם משתמש'
+  ja: 'ユーザーネーム'
+  mk: 'Корисничко име'
+  ru: 'Имя пользователя'
+  zh: '用户名'
+username_description:
+  da: 4-16 små bogstaver og tal
+  de: 4 bis 16 Kleinbuchstaben oder Zahlen
+  en: 4 to 16 lowercase letters or numbers
+  es: Entre 4 y 16 letras minúsculas o números
+  et: 4 kuni 6 väiketähte või numbrit
+  hu: 'kisbetűs 4-től 16 hosszú szavak vagy számok '
+  ja: 4〜16個の小文字あるいは数字
+  mk: 4 до 16 мали букви или броеви
+  ru: |-
+    от 4 до 6 прописных букв или цифр
+  zh: 4到16位的小写字母或数字
+view:
+  da: Vis
+  de: Anzeige
+  en: View
+  es: Ver
+  et: Vaata
+  hu: kép
+  is: Skoða
+  it: guarda
+  ja: '表示'
+  mk: 'Прегледај'
+  ru: 'вид'
+  zh: '一览'
+views:
+  da: Visninger
+  en: Views
+  es: Vistas
+  et: Vaated
+  hu: képek
+  ja: '複数表示'
+  ru: 'виды'
+  zh: '一览'
+week_top5:
+  da: Denne uges top 5
+  en: Week Top5
+  ru: Top 5 за неделю
+  zh: '占每星期的前五位'
+wrong_user_or_pwd:
+  da: Forkert brugernavn eller adgangskode
+  de: falscher Benutzername oder falsches Kennwort
+  en: Wrong Username or password
+  es: |-
+    El nombre de usuario o la contraseña no son correctos
+  et: Emb-kumb kas varjunimi või salasõna oli vigane
+  hu: rossz felhasználói név vagy jelszó
+  it: Username o Password e invalido
+  ja: |-
+    無効なユーザーネーム、またはパスワードです
+  mk: |-
+    Погрешно корисничко име или лозинка
+  ru: |-
+    неправильное имя пользователя или пароль
+  zh: '错误的用户名或密码'
+yes:
+  ar: 'ﻦﻌﻣ'
+  da: Ja
+  de: Ja
+  en: Yes
+  es: Sí
+  et: Nõus
+  hu: igen
+  is: Já
+  it: si
+  iw: 'כן'
+  ja: 'はい'
+  mk: 'Да'
+  ru: 'Да'
+  zh: '是'
+you_have_been_logged_out:
+  da: Du er nu logget ud
+  de: Sie wurden soeben abgemeldet
+  en: You have been logged out
+  es: Tu sesión ha finalizado
+  et: Oled hetkel juba mängust väljas
+  hu: kijelentkeztél
+  it: Siete stati fuori
+  ja: 'ログアウトされました'
+  mk: 'Одлогирани сте'
+  ru: 'Вы вышли из системы'
+  zh: '你已经退出'
+yourname:
+  ar: 'أسمك'
+  da: Dit navn
+  de: Ihr Name
+  en: Your name
+  es: Tu nombre
+  et: Sinu kirjanikunimi
+  hu: neve
+  is: Nafn
+  it: il tuo nome
+  iw: 'השם שלך'
+  ja: 'あなたのお名前'
+  mk: 'Вашето име'
+  ru: 'Ваше имя'
+  zh: '你的名字'
+zh:
+  ar: 'صيني'
+  bg: 'Китайски'
+  da: Kinesisk
+  de: Chinesisch
+  en: Chinese
+  es: Chino
+  et: Hiina
+  fr: Chinois
+  gr: 'Κινέζικα'
+  hu: kínai
+  is: Kínverska
+  it: cinese
+  iw: 'סיני'
+  ja: '中国語'
+  mk: 'Кинески'
+  ru: 'Китайский'
+  se: kinesiska
+  zh: '中文'
