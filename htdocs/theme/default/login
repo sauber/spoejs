@@ -1,5 +1,5 @@
-<form method="post" action="/html/login.html">
-% if ( $session{logged_in} ) {
+<form method="post" action="<%$action%>">
+% if ( $session{$ses_var} ) {
 <input type="submit" name="logout" value="<&|/l&>logout</&>"/></td>
 % } else {
 <table>
@@ -15,3 +15,7 @@
 </table>
 % }
 </form>
+<%args>
+ $action => undef
+ $ses_var => undef
+</%args>
