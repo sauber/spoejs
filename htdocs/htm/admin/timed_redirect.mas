@@ -1,0 +1,15 @@
+<%doc>
+simple JS redirect comp; can be called from anywhere in the html body
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: timed_redirect.mas,v 1.1 2004/07/02 13:54:50 snicki Exp $
+</%doc>
+<script>
+  setTimeout("location.href='<% $url %>'", <% $time %> );
+</script>
+<%args>
+ $url  => undef
+ $time => 3000
+</%args>
