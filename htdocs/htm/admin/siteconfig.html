@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: siteconfig.html,v 1.13 2004/05/19 12:46:07 snicki Exp $
+%# $Id: siteconfig.html,v 1.14 2004/05/19 12:58:53 snicki Exp $
 %#
 <h1><&|/l&>statuschannel</&>:</h1>
 <& /w, w => "login", action => '', ses_var => 'siteauth' &>
@@ -43,10 +43,13 @@
 % }
 </table>
 <br/>
-*set_password_for*: <& /w, w => 'channelselect', channels =>\@channels &> *to_* 
-<input type="password" name="channel_password"/>
+<fieldset><legend>*change_journal_password*</legend>
+*journal*: <& /w, w => 'channelselect', channels =>\@channels &><br/>
+<br/>
+*new_password*<input type="password" name="channel_password"/><br/>
+<br/>
 <input type="submit" name="change_chan_pw" value="*set_password*" />
-
+</fieldset>
 <br/>
 <br/>
 <&|/l&>sitepolicy</&>:
