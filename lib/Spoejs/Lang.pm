@@ -2,8 +2,8 @@ package Spoejs::Lang;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Lang.pm,v 1.9 2004/03/25 03:49:28 snicki Exp $
-$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.9 $';
+# $Id: Lang.pm,v 1.10 2004/03/27 01:52:40 snicki Exp $
+$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.10 $';
 
 sub _initialize { }
 
@@ -30,12 +30,16 @@ sub tr {
 
 	    # If no lang was found, take first available
 	    if ( ref($data->{$key}) eq 'HASH' ) {
+
 		@vals = values %{$data->{$key}};
 		$data->{$key} = $vals[0];
 	    }
 
 	} else {
-	    
+
+	    # Skip non-languag elements
+	    next unless $key =~ /^..$/;
+
 	    # Single value - find desired lang
 	    for ( @{ $self->{lang_order} } ) {
 		return $data->{$_} if defined $data->{$_};
