@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: setupSession,v 1.10 2004/04/09 18:23:52 sauber Exp $
+%# $Id: setupSession,v 1.11 2004/04/19 02:44:20 snicki Exp $
 %#
 <%perl>
 
@@ -32,6 +32,8 @@ if ( length $path > 3 and length $path < 11 ) {
   delete $spoejs{channel_path};
 }
 
+lang_setup();
+spoejs_setup();
 
 # Create div. objects in %spoejs
 
@@ -42,9 +44,6 @@ if ( $spoejs{channel_path} ) {
   $spoejs{error}{$m->current_comp->source_file} = $spoejs{SL}->{msg}
     if $spoejs{SL}->{msg};
 }
-
-lang_setup();
-spoejs_setup();
 
 sub lang_setup {
 
