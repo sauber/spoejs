@@ -7,12 +7,12 @@
 % }
 <%init>
 # Does component exist in required theme? Otherwise use default.
-my $comp = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{theme}/$w" 
-	                                 ? "/theme/$spoejs{theme}/$w" 
+my $comp = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{p}{t}/$w" 
+	                                 ? "/theme/$spoejs{p}{t}/$w" 
 	                                 : "/theme/default/$w";
 # Choose a box
-my $boxc = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{theme}/box" 
-	                                 ? "/theme/$spoejs{theme}/box" 
+my $boxc = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{p}{t}/box" 
+	                                 ? "/theme/$spoejs{p}{t}/box" 
 	                                 : "/theme/default/box";
 </%init>
 <%args>

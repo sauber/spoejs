@@ -6,9 +6,6 @@
   $$options{t} ||= #$channelconf->get(theme) || 
             'default';
 
-  # Set theme in %spoejs
-  $spoejs{theme} = $$options{t};
   $spoejs{p} = $options;
   $spoejs{url_noparam} = $link;
-
 </%perl>
