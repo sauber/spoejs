@@ -15,13 +15,9 @@
 </table>
 <& /w, w => "list" &>
 <br/>
-<fieldset><legend><&|/l&>categorylist</&></legend>
-<& /w, w => "categorylist" &>
-</fieldset>
+<& /w, w => "categorylist", box => 'y' &>
 <br/>
-<fieldset><legend><&|/l&>storytitlelist</&></legend>
-<& /w, w => "storytitlelist" &>
-</fieldset>
+<& /w, w => "storytitlelist", box => 'y' &>
 % if ( $edit_href ) {
 <br/>
 <a href="/<% $edit_href %>"><&|/l&>channelconf</&></a>
