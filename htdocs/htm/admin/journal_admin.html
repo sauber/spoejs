@@ -4,7 +4,7 @@ Journal management
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: journal_admin.html,v 1.2 2004/07/04 06:16:47 snicki Exp $
+$Id: journal_admin.html,v 1.3 2004/08/08 16:11:45 snicki Exp $
 </%doc>
 <& /htm/admin/site_tab.mas &>
 <br/>
@@ -60,7 +60,7 @@ $Id: journal_admin.html,v 1.2 2004/07/04 06:16:47 snicki Exp $
 # Check auth
 unless ( defined $session{chanauth} && defined $session{chanauth}{'**scf**'} ) {
   $m->print( '**pleaselogin**' );
-  return; 
+  return;
 }
 
 my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
@@ -68,12 +68,12 @@ my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
 $spoejs{error}{$m->current_comp->source_file} = $CL->{msg} if $CL->{msg};
 
 # Delete and archive before getting channel list
-if ( $ARGS{delete} ) {
+if ( defined $ARGS{delete} ) {
 
   $CL->delete_channel( $ARGS{delete} ) or warn $CL->{msg};
 }
 
-if ( $ARGS{archive} ) {
+if ( defined $ARGS{archive} ) {
 
   $CL->archive_channel( $ARGS{archive} );
 }
@@ -84,15 +84,15 @@ my @channels;
 @channels = () if $channels[0] eq undef;
 
 # Set the new status
-if ( $ARGS{submit} ) {
+if ( defined $ARGS{submit} ) {
 
   foreach my $chan ( @channels ) {
-    $chan->set( active => $ARGS{$chan->shortname()} );
+    $chan->set( active => $ARGS{$chan->shortname()} ) or warn $chan->{msg};
   }
 
 }
 
-if ( $ARGS{change_chan_pw} ) {
+if ( defined $ARGS{change_chan_pw} ) {
   $channels[$ARGS{channel}]->set( password => undef );
   $channels[$ARGS{channel}]->set( password => $ARGS{channel_password});
 }
