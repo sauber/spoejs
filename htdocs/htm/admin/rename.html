@@ -1,9 +1,10 @@
 <form action="" method="post">
-<table>
+<table width="100%">
 <tr>
-  <th>Current utf filename:</th>
+  <th>Current filename:</th>
   <th>New filename:</th>
   <th>Delete file</th>
+  <th>Preview</th>
 </tr>
 % foreach my $pic ( @media ) {
 <tr>
@@ -11,11 +12,14 @@
 <% $pic->utf_filename() %>
 </td>
 <td>
-<input type="text" size="40" name="<% $pic->{file} %>" \
+<input type="text" size="20" name="<% $pic->{file} %>" \
 value="<% $pic->utf_filename() %>">
 </td>
 <td align="center">
 <input type="checkbox" name="delete" value="<% $pic->{file} %>">
+</td>
+<td align="center">
+<& /w, w => "media", d => $params{d}, p => $pic->{file}, m => 75, info => $pic->info() &>
 </td>
 </tr>
 % }
