@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: debug.html,v 1.2 2004/04/09 17:56:19 sauber Exp $
+%# $Id: debug.html,v 1.3 2004/06/13 05:07:11 snicki Exp $
 %#
 <%init>
 use Data::Dumper;
@@ -11,6 +11,10 @@ use Data::Dumper;
 
 <hr noshade="noshade"/>
 <h2>Debug info:</h2>
+ARGS:
+<pre>
+<% Dumper( \%ARGS ) %>
+</pre>
 Session:
 <pre>
 <% Dumper( \%session ) %>

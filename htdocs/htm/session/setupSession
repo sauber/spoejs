@@ -3,10 +3,9 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: setupSession,v 1.16 2004/06/04 07:25:25 snicki Exp $
+%# $Id: setupSession,v 1.17 2004/06/13 05:07:11 snicki Exp $
 %#
 <%perl>
-
   unless ( -w "$ENV{DOCUMENT_ROOT}/users/" ) {
     print "Site not correctly configured: $ENV{DOCUMENT_ROOT}/users is not
 writable";

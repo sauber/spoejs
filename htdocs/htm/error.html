@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: error.html,v 1.7 2004/06/11 03:46:35 sauber Exp $
+%# $Id: error.html,v 1.8 2004/06/13 05:07:11 snicki Exp $
 %#
 % if ( $spoejs{error} ) {
 <hr/>
@@ -15,3 +15,9 @@
 % }
 % delete $spoejs{error};
 % }
+<pre>
+%for ( @{$session{errors}} ) {
+<% $_ %>
+%}
+%delete $session{errors};
+</pre>

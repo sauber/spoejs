@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.29 2004/06/13 02:44:15 snicki Exp $
+%# $Id: story.html,v 1.30 2004/06/13 05:07:11 snicki Exp $
 %#
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 <& /js/confirm.js &>
@@ -125,7 +125,7 @@ if ( defined $spoejs{Story} && !$ARGS{submit} ) {
 
 }
 
-if ( $ARGS{submit} ) {
+if ( defined $ARGS{submit} ) {
 
   # Get thumbnail
   $ARGS{thumbnail} = $ARGS{thumbfile} if $ARGS{thumbnail} eq 'specific';
@@ -149,11 +149,9 @@ if ( $ARGS{submit} ) {
     die "Could not create new story" unless length $story_dir > 8;
     my $S = new Spoejs::Story( lang => $spoejs{lang_handle},
                                path => "$spoejs{channel_path}/$story_dir" );
-    $spoejs{error}{$m->current_comp->source_file} = $S->{msg} 
-                                                      if $S->{msg};
+    $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
     $S->set( %new_data );
   }
-
 }
 
 # Delete story if so told
