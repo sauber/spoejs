@@ -2,8 +2,8 @@ package Spoejs::Movie;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
 
-# $Id: Movie.pm,v 1.11 2004/06/13 00:35:23 snicki Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.11 $';
+# $Id: Movie.pm,v 1.12 2004/06/23 06:44:11 sauber Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.12 $';
 
 # Supported extensions
 $Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov|qt|mpeg|mpe';
@@ -28,7 +28,7 @@ sub load {
   my $mov = "$self->{path}/$self->{file}";
 
   # Get duration of movie
-  my $info = `mplayer -ac null -vc null -vo null -ao null -frames 0 -identify $mov`;
+  my $info = `mplayer -nosound -ac null -vc null -vo null -ao null -frames 0 -identify $mov`;
   my($sec);
   if ( $info =~ /ID_LENGTH=(\d+)/ and $1 > 1 ) {
     $sec = $1;
@@ -46,7 +46,7 @@ sub load {
   my $tmpfile = $tmpdir . "/00000002.jpg";
   system("mkdir $tmpdir");
   # Add -osdlevel 0 to get rid off seek-indicator
-  system("mplayer -ac null -ao null -really-quiet -ss $randomstart -frames 2 -vo jpeg -jpeg outdir=$tmpdir $mov");
+  system("mplayer -nosound -ac null -ao null -really-quiet -ss $randomstart -frames 2 -vo jpeg -jpeg outdir=$tmpdir $mov");
 
   # Read in frame from file to internal blob
   my $tmpslash = $/;
@@ -69,7 +69,7 @@ sub ping {
   my($self, %params) = @_;
 
   my $file = "$self->{path}/$self->{file}";
-  my $info = `mplayer -vc null -ac null -ao null -vo null -frames 0 -identify $file | grep VIDEO:`;
+  my $info = `mplayer -nosound -vc null -ac null -ao null -vo null -frames 0 -identify $file | grep VIDEO:`;
   my $size = -s $file;
   my($format,$width,$height) = $info =~ /VIDEO:\s+(.*?)\s+(\d+)x(\d+)/;
 
