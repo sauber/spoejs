@@ -1,15 +1,16 @@
 # Notes/Todos:
 # 1. Consider new-line handling in parsing/storing routines. 
-# 2. Where does $filename come from?
+# 2. Better error-handling!!!
 
 package Spoejs::Text;
 use Storable qw( dclone );
-no Carp::Assert;
+use Carp::Assert;
 use Spoejs::ChannelConf;
 use base ( "Spoejs" );
+use Data::Dumper;
 
-# $Id: Text.pm,v 1.5 2004/02/27 05:12:20 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.5 $';
+# $Id: Text.pm,v 1.6 2004/02/28 07:36:21 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.6 $';
 
 
 # Constructor
@@ -19,11 +20,10 @@ sub _initialize {
     my %param = (@_);
 
     # Get site_dir for current user
-    $param{path} =  Spoejs::ChannelConf->channel_dir() ."/". $param{path};
-
-    $self->{path}        = $param{path};
+    $self->{path}        = Spoejs::ChannelConf->channel_dir() ."/$param{path}";
+    $self->{story_path}  = $param{path};
     $self->{file}        = $param{file};
-    $self->{full_path}   = "$param{path}/$param{file}";
+    $self->{full_path}   = "$self->{path}/$param{file}";
     $self->{lang}        = $param{lang};
     $self->{is_loaded}   = 0;
     $self->{is_modified} = 0;
@@ -176,7 +176,22 @@ sub get {
     $self->$check_load();
 
     # Return only requested values if a list is supplied. dclone deep-copies
-    if ( @_ > 0 ) {
+    if ( @_ == 1 ) {
+	$val = shift;
+ 	# Get var incl. languages
+	if ( ref $self->{data}{$val} ) {
+
+	    $res{$val} = dclone( $self->{data}{$val} );
+
+	} else {
+	    $res{$_} = $self->{data}{$_[0]};
+	}
+	
+ 	$self->{lang}->tr( \%res );
+ 	return $res{$val};
+    }
+    elsif ( @_ > 1 ) {
+	# Copy value for each argument
 	for (@_) {
 
 	    if ( ref $self->{data}{$_} ) {
@@ -186,7 +201,7 @@ sub get {
 	    }
 	}
     } else {
-	
+	# Copy whole data-hash	
 	%res = %{ dclone( $self->{data} ) };
     }
 
