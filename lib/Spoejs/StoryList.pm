@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.18 2004/04/04 06:17:29 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.18 $';
+# $Id: StoryList.pm,v 1.19 2004/04/04 23:59:50 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.19 $';
 
 sub _initialize {
     my $self = shift;
@@ -192,11 +192,11 @@ sub list_stories {
 	$story_dir =~ s/\///g;
 
 	@res = $self->_ls_loop( $in{'prev'}, 
-			       sub { return $_[0] < $story_dir; },
+			       sub { return $_[0] <= $story_dir; },
 			       @res ) if $in{'prev'}; 
 	
 	@res = $self->_ls_loop( $in{'next'}, 
-			       sub { return $_[0] > $story_dir; },
+			       sub { return $_[0] >= $story_dir; },
 			       reverse @res ) if $in{'next'};
     } 
     delete $in{'story'};
@@ -232,7 +232,7 @@ sub list_stories {
 	    @res = @new;
 	}	
     }
-
+    warn Dumper @res;
     # Shrink array to 'count' elements
     $#res = $list_count - 1 if $list_count and @res > $list_count;
 
