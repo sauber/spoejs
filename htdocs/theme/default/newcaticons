@@ -1,5 +1,7 @@
 % for ( @cats ) {
+<a href="<& /htm/url:encode, "/$spoejs{channel}/index.html", c => $_ &>">
 <& /w, w => 'categoryicon', category => $_, size => 75 &>
+</a>
 % }
 <%init>
 my $SL = new Spoejs::StoryList( path => $spoejs{channel_path},
