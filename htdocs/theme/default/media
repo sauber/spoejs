@@ -12,6 +12,8 @@
 </div>
 </center>\
 <%init>
+  return unless defined $ARGS{p};
+
   unless ( $html_wh ) {
   my $P = new Spoejs::Pic( path => "$spoejs{channel_path}/$ARGS{d}",
                            file => $ARGS{p} );
