@@ -1,4 +1,4 @@
-# $Id: Bootstring.pm,v 1.7 2004/06/01 06:36:31 sauber Exp $
+# $Id: Bootstring.pm,v 1.8 2004/06/01 07:32:17 sauber Exp $
 # Encode and decode utf8 into a set of basic code points
 
 package Bootstring;
@@ -7,8 +7,8 @@ use strict;
 use integer;
 use utf8;
 
-# $Id: Bootstring.pm,v 1.7 2004/06/01 06:36:31 sauber Exp $
-$Bootstring::VERSION = $Bootstring::VERSION = '$Revision: 1.7 $';
+# $Id: Bootstring.pm,v 1.8 2004/06/01 07:32:17 sauber Exp $
+$Bootstring::VERSION = $Bootstring::VERSION = '$Revision: 1.8 $';
 
 # Constructor
 #
@@ -85,17 +85,18 @@ sub newtable {
 # Input int output char using modified table
 #
 sub nchr {
-  my $self = shift;
+  my($self,$c) = @_;
 
-  return $_[0] > $self->{maxord} ? chr($_[0]) : $self->{chr}{$_[0]} ;
+  #return $_[0] > $self->{maxord} ? chr($_[0]) : $self->{chr}{$_[0]} ;
+  return $c > $self->{maxord} ? chr($c) : $self->{chr}{$c} ;
 }
  
 # Input char output char using modified table
 #
 sub nord {
-  my $self = shift;
+  my($self,$c) = @_;
 
-  return exists $self->{ord}{$_[0]} ? $self->{ord}{$_[0]} : ord($_[0]) ;
+  return exists $self->{ord}{$c} ? $self->{ord}{$c} : ord($c) ;
 }
 
 # Hex code of ascii/utf8 char
@@ -138,7 +139,9 @@ sub encode {
   my $self = shift;
   my $input = shift;
 
-  $self->{trace} = "Encoding trace of $input:\n\n";
+  if ( exists $self->{DEBUG} ) {
+    $self->{trace} = "Encoding trace of $input:\n\n";
+  }
 
   #my @input = split //, $input; # doesn't work in 5.6.x!
   my @input = map substr($input, $_, 1), 0..length($input)-1;
@@ -150,9 +153,11 @@ sub encode {
   $BasicRE = qr/[$BasicRE]/;
 
   # Trace output
-  $self->{trace} .= "bias is $bias\n"
-                 .  "input is:\n"
-                 .  join(' ', map hex4($_), @input) . "\n";
+  if ( exists $self->{DEBUG} ) {
+    $self->{trace} .= "bias is $bias\n"
+                   .  "input is:\n"
+                   .  join(' ', map hex4($_), @input) . "\n";
+  }
 
   my @output;
   my @tmpout;
@@ -160,19 +165,23 @@ sub encode {
   my $h = my $b = @basic;
   push @output, @basic, $self->{DELIMITER} if $b > 0;
 
-  if ( @basic ) {
-    $self->{trace} .= 'basic code points ('
-                   .  join(', ', map hex4($_), @basic)
-                   .  ') are copied to literal portion: "'
-                   .  join('', @output)
-                   .  '"' . "\n";
-  } else {
-    $self->{trace} .= "there are no basic code points, so no literal portion\n";
+  if ( exists $self->{DEBUG} ) {
+    if ( @basic ) {
+      $self->{trace} .= 'basic code points ('
+                     .  join(', ', map hex4($_), @basic)
+                     .  ') are copied to literal portion: "'
+                     .  join('', @output)
+                     .  '"' . "\n";
+    } else {
+      $self->{trace} .= "there are no basic code points, so no literal portion\n";
+    }
   }
 
   while ($h < @input) {
     my $m = min(grep { $_ >= $n } map $self->nord($_), @input);
-    $self->{trace} .= sprintf "next code point to insert is %04x\n", $m;
+    if ( exists $self->{DEBUG} ) {
+      $self->{trace} .= sprintf "next code point to insert is %04x\n", $m;
+    }
     $delta += ($m - $n) * ($h + 1);
     $n = $m;
     for my $i (@input) {
@@ -195,15 +204,19 @@ sub encode {
         $h++;
       }
     }
-    $self->{trace} .= "needed delta is $delta, encodes as " . '"'
-                   .  join('',@tmpout) . '"' . "\n"
-                   .  "bias becomes $bias\n";
+    if ( exists $self->{DEBUG} ) {
+      $self->{trace} .= "needed delta is $delta, encodes as " . '"'
+                     .  join('',@tmpout) . '"' . "\n"
+                     .  "bias becomes $bias\n";
+    }
     push @output, @tmpout;
     @tmpout = ();
     $delta++;
     $n++;
   }
-  $self->{trace} .= 'output is "' . join('', @output) . '"' . "\n";
+  if ( exists $self->{DEBUG} ) {
+    $self->{trace} .= 'output is "' . join('', @output) . '"' . "\n";
+  }
   return join '', @output;
 }
 
@@ -221,7 +234,9 @@ sub decode{
   my $self = shift;
   my $code = shift;
 
-  $self->{trace} = "Decoding trace of $code:\n\n";
+  if ( exists $self->{DEBUG} ) {
+    $self->{trace} = "Decoding trace of $code:\n\n";
+  }
 
   my $n      = $self->{INITIAL_N};
   my $i      = 0;
@@ -232,32 +247,42 @@ sub decode{
 
   my @output;
 
-  $self->{trace} .= "n is $n, i is $i, bias = $bias\n"
-                 .  'input is "' . $code . '"' . "\n";
+  if ( exists $self->{DEBUG} ) {
+    $self->{trace} .= "n is $n, i is $i, bias = $bias\n"
+                   .  'input is "' . $code . '"' . "\n";
+  }
 
   if ($code =~ s/(.*)$self->{DELIMITER}//o) {
     push @output, map $self->nord($_), split //, $1;
-    $self->{trace} .= 'literal portion is "' . $1 . $self->{DELIMITER}
-                   .  '", so extended string starts as:' . "\n"
-                   .  join(' ', map hex4($self->nchr($_)), @output) . "\n";
+    if ( exists $self->{DEBUG} ) {
+      $self->{trace} .= 'literal portion is "' . $1 . $self->{DELIMITER}
+                     .  '", so extended string starts as:' . "\n"
+                     .  join(' ', map hex4($self->nchr($_)), @output) . "\n";
+    }
     my $bas = join('',@{$self->{BASIC}});
     for ( split //, $1 ) {
       return _croak('non-basic code point' ) unless $bas =~ /$_/o;
     }
   } else {
-    $self->{trace} .=
+    if ( exists $self->{DEBUG} ) {
+      $self->{trace} .=
            "there is no delimiter, so extended string starts empty\n";
+    }
   }
 
   while ($code) {
     my $oldi = $i;
     my $w    = 1;
-    $self->{trace} .= 'delta "';
+    if ( exists $self->{DEBUG} ) {
+      $self->{trace} .= 'delta "';
+    }
   LOOP:
     for (my $k = $self->{BASE}; 1; $k += $self->{BASE}) {
       my $cp = substr($code, 0, 1, '');
       my $digit = $self->nord($cp);
-      $self->{trace} .= $cp;
+      if ( exists $self->{DEBUG} ) {
+        $self->{trace} .= $cp;
+      }
       defined $digit or return _croak("invalid punycode input");
       $i += $digit * $w;
         my $t = ($k <= $bias)
@@ -268,13 +293,19 @@ sub decode{
         last LOOP if $digit < $t;
         $w *= ($self->{BASE} - $t);
     }
-    $self->{trace} .= '" decodes to ' . "$i\n";
+    if ( exists $self->{DEBUG} ) {
+      $self->{trace} .= '" decodes to ' . "$i\n";
+    }
     $bias = $self->adapt($i - $oldi, @output + 1, $oldi == 0);
-    $self->{trace} .= "bias becomes $bias\n";
+    if ( exists $self->{DEBUG} ) {
+      $self->{trace} .= "bias becomes $bias\n";
+    }
     $n += $i / (@output + 1);
     $i = $i % (@output + 1);
     splice(@output, $i, 0, $n);
-    $self->{trace} .= join(' ', map hex4($self->nchr($_)), @output) . "\n";
+    if ( exists $self->{DEBUG} ) {
+      $self->{trace} .= join(' ', map hex4($self->nchr($_)), @output) . "\n";
+    }
     $i++;
   }
   my $res = pack("C*", map ord $self->nchr($_), @output);
