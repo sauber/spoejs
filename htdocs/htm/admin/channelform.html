@@ -4,7 +4,7 @@ Register channel or edit configuration
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: channelform.html,v 1.41 2004/06/13 05:33:23 snicki Exp $
+$Id: channelform.html,v 1.42 2004/06/13 05:40:31 snicki Exp $
 </%doc>
 %if ( defined $ARGS{delete} ) {
 <h2>**channel_deleted**</h2>
@@ -179,6 +179,7 @@ if ( defined $ARGS{submit} ) {
 if ( defined $ARGS{delete} && defined $spoejs{channel} ) {
   my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
   $CL->delete_channel( $spoejs{channel} ) or warn $CL->{msg};
+  delete $session{chanauth}{$spoejs{channel}};
 }
 
 </%init>
