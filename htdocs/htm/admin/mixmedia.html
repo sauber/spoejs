@@ -4,7 +4,7 @@ Mix story text with media
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: mixmedia.html,v 1.1 2004/06/16 12:56:16 snicki Exp $
+$Id: mixmedia.html,v 1.2 2004/06/27 05:57:20 snicki Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 <& /htm/admin/story_tab.mas &>
@@ -43,4 +43,13 @@ if ( defined $ARGS{submit} ) {
 
 # Add data to args
 %ARGS = ( %ARGS, $spoejs{Story}->get() );
+
+# Join paragraphs of text
+# This is copied from story.html, consider factoring out
+for my $k ( keys %ARGS ) {
+  if ( ref($ARGS{$k}) eq "ARRAY" ) {
+    $ARGS{$k} = join "\n\n", @{$ARGS{$k}};
+  }
+}
+
 </%init>
