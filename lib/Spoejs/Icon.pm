@@ -3,8 +3,8 @@ use LWP::UserAgent;
 no Carp::Assert;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.2 2004/02/29 07:17:38 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.2 $';
+# $Id: Icon.pm,v 1.3 2004/02/29 08:56:55 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.3 $';
 
 #### Private interface ####
 
@@ -57,8 +57,8 @@ my $downloadicon = sub {
   # Downloading most square picture
   $r = $ua->get( "http://images.google.com$I[0]{link}" );
   if ($r->is_success) {
-    my $g = $r->content;
-    return \$g;
+    $self->{_blob} = $r->content;
+    return 1;
   } else {
     warn $r->status_line;
     return undef;
@@ -70,21 +70,17 @@ my $downloadicon = sub {
 sub get {
   my($self,%data) = @_;
 
-  my $blobref = $self->$downloadicon($data{category})
-             || $self->$downloadicon($self->{_didyoumean});
-  return undef unless $blobref;
+  $self->$downloadicon($data{category})
+    || $self->$downloadicon($self->{_didyoumean});
+  return undef unless $self->{_blob};
 
   # If size is specified then convert to imagemagick object, scale, and
   # convert back to jpeg again.
   if ( $data{size} ) {
-    $self->{im} = Image::Magick->new(magick=>'jpg');
-    $self->{im}->BlobToImage($$blobref);
     $self->scale($data{size});
-    my $blob = $self->{im}->ImageToBlob();
-    $blobref = \$blob;
   }
 
-  return $blobref;
+  return \$self->{_blob};
 }
 
 1;

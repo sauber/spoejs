@@ -2,21 +2,22 @@
 # Read/write files
 # Perhaps file size check
 # Notes:
-# $self->{im} is an ImageMagick object
+# $self->{_im} is an ImageMagick object
+# $self->{_blob} is raw image
 
 package Spoejs::Media;
 use Image::Magick;
 no Carp::Assert;
 use base ( "Spoejs" );
 
-# $Id: Media.pm,v 1.3 2004/02/28 07:05:13 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.3 $';
+# $Id: Media.pm,v 1.4 2004/02/29 08:57:01 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.4 $';
 
 #### Private helper functions ####
 
 # strip illegal chars from filename
 #
-my $valid_name = sub {
+sub valid_name {
     my($self,$f) = @_;
 
     $f =~ tr/A-Z/a-z/;                        # Only lowercase letters
@@ -30,11 +31,26 @@ my $valid_name = sub {
 sub scale {
   my($self,$m) = @_;
 
-  return undef unless $self->{im};
+  return undef unless $self->{_im} or $self->{_blob};
+
+  # Convert from blob to im first ?
+  my($blob);
+  unless ( $self->{_im} ) {
+    $self->{_im} = Image::Magick->new(magick=>'jpg');
+    $self->{_im}->BlobToImage($self->{_blob});
+    $blob = not undef;
+  }
+
   my($w,$h) = $self->info();
   if ( $w>$h ) { $x=$m; $y = int .5 + $m*$h/$w }
           else { $y=$m; $x = int .5 + $m*$w/$h }
-   $self->{im}->Scale(width=>$x,height=>$y);
+  $self->{_im}->Scale(width=>$x,height=>$y);
+
+  # Convert back to blob?
+  if ( $blob ) {
+    $self->{_blob} = $self->{_im}->ImageToBlob();
+    undef $self->{_im};
+  }
 };
 
 #### Public interface ####
@@ -43,8 +59,8 @@ sub scale {
 sub info {
   my($self) = @_;
 
-  return undef unless $self->{im};
-  return $self->{im}->Get('width','height','filesize','Magick')
+  return undef unless $self->{_im};
+  return $self->{_im}->Get('width','height','filesize','Magick');
 }
 
 
