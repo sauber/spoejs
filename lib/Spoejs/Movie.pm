@@ -1,10 +1,9 @@
 package Spoejs::Movie;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-use Video::Info;
 
-# $Id: Movie.pm,v 1.7 2004/05/09 13:29:01 snicki Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.7 $';
+# $Id: Movie.pm,v 1.8 2004/05/22 15:00:32 sauber Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.8 $';
 
 # Supported extensions
 $Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov|qt|mpeg|mpe';
@@ -26,12 +25,22 @@ sub load {
   my($self) = @_;
 
 
+  my $mov = "$self->{path}/$self->{file}";
+
+  # Get duration of movie
+  my $info = `mplayer -identify $mov`;
+  my($sec);
+  if ( $info =~ /ID_LENGTH=(\d+)/ and $1 > 1 ) {
+    $sec = $1;
+  } elsif  ( $info =~ /MOV track #\d+: (\d+) chunks/ and $1 > 1 ) {
+    $sec = $1;
+  } else {
+    $sec = 1;
+  }
+
   # Use mplayer to extract one frame from movie
   # 00000001.jpg is sometimes first frame of movie
   # 00000002.jpg is random frame of movie
-  my $mov = "$self->{path}/$self->{file}";
-  my $info = Video::Info->new(-file=>$mov);
-  my $sec = $info->duration();
   my $randomstart = int rand $sec;
   my $tmpdir = "/tmp/.spoejstmp.$$";
   my $tmpfile = $tmpdir . "/00000002.jpg";
@@ -39,6 +48,7 @@ sub load {
   # Add -osdlevel 0 to get rid off seek-indicator
   system("mplayer -really-quiet -ss $randomstart -frames 2 -vo jpeg -jpeg outdir=$tmpdir -nosound $mov");
 
+  # Read in frame from file to internal blob
   my $tmpslash = $/;
   undef $/;
   open _PIC, "$tmpfile" or return $self->_err( "unable to open file $tmpfile: $!" );
@@ -47,18 +57,22 @@ sub load {
   close _PIC;
   $/ = $tmpslash;
 
+  # Clean up all tmp files
   system("rm -rf $tmpdir");
 
   return \$self->{_blob};
 }
 
-
+# get geometry, size and format by using mplayer
+#
 sub ping {
   my($self) = shift;
 
-  my $info = Video::Info->new(-file=>"$self->{path}/$self->{file}"); 
-
-  return ($info->width(), $info->height(), $info->filesize(), $info->type());
+  my $file = "$self->{path}/$self->{file}";
+  my $info = `mplayer -identify $file | grep VIDEO:`;
+  my $size = -s $file;
+  my($format,$width,$height) = $info =~ /VIDEO:\s+(.*?)\s+(\d+)x(\d+)/;
+  return ($width,$height,$size,$format);
 }
 
 # Get width/height string for use in HTML
