@@ -6,8 +6,8 @@ use LWP::UserAgent;
 use Spoejs::ChannelList;
 use Spoejs::SiteConf;
 
-# $Id: Syndication.pm,v 1.10 2004/05/16 10:59:29 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.10 $';
+# $Id: Syndication.pm,v 1.11 2004/05/16 11:22:40 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.11 $';
 
 # Constructor
 sub _initialize {
@@ -15,6 +15,7 @@ sub _initialize {
 #    $self->SUPER::_initialize(@_, file => 'syndication.txt' );
     $self->{siteconf} = new Spoejs::ChannelConf( path => $self->{path},
 						 lang => $self->{lang} );
+    $self->{proxy} = $self->{siteconf}->get( 'proxy' );
 }
 
 #### Private helper functions ####
@@ -26,6 +27,8 @@ sub _fetch_url {
   my $url  = shift;
 
   my $ua = LWP::UserAgent->new;
+  # XXX: Make check for valid proxy stricter
+  $ua->proxy( 'http', $self->{proxy} ) if length $self->{proxy} > 10;
   my $res= $ua->get($url);
   my ($content);
   if ($res->is_success) {
@@ -44,14 +47,14 @@ sub _fetch_url {
 #
 sub _parse_remote_list {
     my $self = shift;
-    my ($site, $url, $list ) = @_;
+    my ( $url, $list ) = @_;
 
     my @sname_dates;
     my @lines = split /\n/, $list;
     for my $line ( @lines ) {
 	my ($sname, $date) = split /;/, $line;
         push @sname_dates, 
-            { site => $site, url => $url, shortname => $sname, date => $date };
+            { url => $url, shortname => $sname, date => $date };
     }
     return @sname_dates;
 }
@@ -62,13 +65,7 @@ sub _remotes_from_conf {
   my $self  = shift;
 
   my $list = $self->{siteconf}->get( 'peers' );
-  my @strings = split /\n/, $list;
-  my %peers;
-  for my $str ( @strings ) {
-      my ( $short, $url ) = split /;/, $str;
-      $peers{$short} = $url;
-  }
-  return %peers;
+  return split /\n/, $list;
 }
 
 
@@ -77,11 +74,11 @@ sub _remotes_from_conf {
 sub _fetch_remote_lists {
   my $self  = shift;
   my $remotedoc = "/latest.html"; #XXX: Consider moving to new() call or config
-  my %sites = $self->_remotes_from_conf();
+  my @peers = $self->_remotes_from_conf();
 
-  while ( my ( $site, $url ) = ( each %sites ) ) {
+  for my $url ( @peers ) {
       my $list = $self->_fetch_url( $url . $remotedoc );
-      push @{$self->{globallist}}, $self->_parse_remote_list( $site, $url, $list );
+      push @{$self->{globallist}}, $self->_parse_remote_list( $url, $list );
   }
 }
 
