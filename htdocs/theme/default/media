@@ -1,0 +1,5 @@
+<img src="/<% $session{user} %>/pic_d<% $ARGS{d}%>_p<%
+$ARGS{p} %>_m<% $ARGS{m} %>.jpg" />
+<%args>
+ $params => undef    
+</%args>
