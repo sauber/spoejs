@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.28 2004/05/18 14:00:24 snicki Exp $
+%# $Id: channelform.html,v 1.29 2004/05/20 05:45:44 snicki Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2><&|/l&>congrat_changes</&></h2>
@@ -36,8 +36,6 @@
 <% form_row( "passwd", "password", "password", $ARGS{password},
              $errs{password} ) %> 
 <% form_row( "passwd_retype", "password2", "password", "", $errs{password2}) %>
-<% form_row( 'shortname', 'shortname', "text", $ARGS{'shortname'},
-             $errs{'shortname'} ) %>
 <% form_row( 'title',  'title', "text", $ARGS{'title'}, $errs{'title'} ) %>
 <% form_row( 'description', 'description', "text", $ARGS{'description'},
               $errs{'description'} ) %>
@@ -56,7 +54,13 @@
 <td class="form_desc">*theme_description*</td>
 </tr>
 <tr>
-<td>*journal_security*</td>
+<td>*journal_id*:</td>
+  <td><input value="<%$ARGS{'shortname'}%>" type="text" name="shortname"></td>
+  <td class="form_desc">*journal_id_description* http://<%
+  $ENV{SERVER_NAME} %>/&lt;*journal_id*&gt;</td>
+</tr>
+<tr>
+<td>*journal_security*:</td>
 <td>
 % my $yc = $ARGS{public} eq 'yes' ? ' checked="checked"' : '';
 % my $nc = $ARGS{public} eq 'no_' ? ' checked="checked"' : '';
