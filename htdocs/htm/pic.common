@@ -1,0 +1,29 @@
+%# Common rendering functionality
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: pic.common,v 1.1 2004/04/23 08:16:47 snicki Exp $
+%#
+<% $$picref %>
+% $m->abort();
+<%init>
+    my $path = "$spoejs{channel_path}/$spoejs{p}{d}";
+
+    my $P = Spoejs::Media->new( path => $path, file => $spoejs{p}{p} );
+    my $picref = $P->get( size => $spoejs{p}{m} );
+
+    # Make sure we only send out jpeg data
+    $m->clear_buffer();
+    $r->content_type( $ct );
+
+    # Caching
+    my $offset = 60 * 60 * 24 * 60; # seconds * minutes * hours * days
+    my $e = gmtime( time + $offset );
+    my $l = gmtime( time - $offset * 10 );
+    $r->headers_out->add( "Expires" => $e );
+    $r->headers_out->add( "Last-Modified" => $l );
+</%init>
+<%args>
+ $ct => undef
+</%args>
