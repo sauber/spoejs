@@ -4,8 +4,8 @@ use utf8;
 use Locale::Language;
 use Data::Dumper;
 
-# $Id: Lang.pm,v 1.2 2004/03/01 10:48:48 snicki Exp $
-$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.2 $';
+# $Id: Lang.pm,v 1.3 2004/03/01 23:48:42 snicki Exp $
+$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.3 $';
 
 sub _initialize {
     my $self = shift;
@@ -63,7 +63,7 @@ sub tr {
 # 
 sub lang_list {
     my $self = shift;
-    my @twoletter = qw( en dk de fr se jp zh gr ar it );
+    my @twoletter = qw( en da de fr se jp zh gr ar it );
     my $T = new Spoejs::Text(  lang=>$self, 
 	            full_path => '/usr/local/wwwdoc/spoejs/lib/resource.txt' );
     my %langs = $T->get( @twoletter );
