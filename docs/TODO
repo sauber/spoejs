@@ -57,6 +57,7 @@ Register:
  - Check fields for valid data
  - Delete own channel
  - Languages is messy
+ - free-for-all/submit-confirm => include humantest
 
 Session:
  - Session component to avoid masonhandler code
