@@ -1,0 +1,113 @@
+<%doc>
+Upload of icon files to lib/icons
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: icon_upload.html,v 1.1 2004/08/23 08:24:07 snicki Exp $
+</%doc>
+<& /htm/admin/site_tab.mas &>
+<& /js/detectua.js &>
+<script language="JavaScript" type="text/javascript">
+
+function cr_filefield ( ) {
+  if (document.getElementById) {
+    var input = document.createElement('INPUT');
+      if (is_ie4up) { // what follows should work 
+                          // with NN6 but doesn't in M14
+        var onclk = 'cr_table( document.all.tb );';
+        input.type = 'file';
+        input.size = '80';
+        input.name = 'files[]';
+	input.onclick = onclk;
+      }
+      else if (is_nav4up) { // so here is the
+                                          // NN6 workaround
+  var onclk = 'cr_table( document.getElementById("tb") );';
+        input.setAttribute('type', 'file');
+        input.setAttribute('size', '80');
+        input.setAttribute('name', 'files[]');
+        input.setAttribute('onclick', onclk );
+      }
+    return input;
+  }
+}
+
+function cr_table( tabbody ) {
+  var tr = document.createElement("tr");
+  var td = document.createElement("td");
+  td.appendChild( cr_filefield( ) );
+  tr.appendChild(td);
+  tabbody.appendChild(tr);
+}
+</script>
+
+<& /htm/admin/story_tab.mas &>
+
+<h2>**icon_upload**</h2>
+<form name="files" method="post" action="" enctype="multipart/form-data">
+<br/>
+<fieldset><legend>**addfilepc**</legend>
+<table>
+<tbody id="tb" width="100%"></tbody>
+</table>
+</fieldset>
+<input type="submit" name="upload" value="**upload**">
+<input type="button" onclick='cr_table( document.getElementById("tb") );' value="**addfield**"/>
+</form>
+<h4>**currentfile**:</h4>
+% my $ML = new Spoejs::MediaList( path => "$ENV{DOCUMENT_ROOT}/../lib/icons" );
+% $spoejs{error}{$m->current_comp->source_file} = $ML->{msg} if $ML->{msg};
+<table width="100%">
+<tr><th>**filename**</th><th>**filesize**</th><th>**dimensions**</th><th>**fileformat**</th></tr>
+% for my $med ( $ML->list()) {
+% my ($width, $height, $size, $format) = $med->ping();
+<tr>
+<td><% $med->{file}  %></td>
+<td align="right"><% $size %> bytes</td>
+<td align="center"><% $width %>x<% $height %></td>
+<td align="center"><% $format %></td>
+</tr>
+% }
+</table>
+<script>
+  // Add first entry
+  cr_table( document.getElementById('tb') );
+</script>
+
+<%init>
+# Check auth
+unless ( defined $session{chanauth} && defined $session{chanauth}{'**scf**'} ) {
+  $m->print( '**pleaselogin**' );
+  return; 
+}
+
+use Spoejs::Archive;
+my @upl;
+
+if ( $ARGS{upload} ) {
+  my $story_path = "$ENV{DOCUMENT_ROOT}/../lib/icons";
+  @upl = $r->upload;
+  for my $u ( @upl ) {
+    my $fn = $u->filename;
+
+    # strip leading directories
+    $fn = strip_leading($fn);
+
+    # Skip empty fields and zero-sized files
+    next if ($fn eq '' or $u->size < 1);
+
+    # Add the file
+    my $M = new Spoejs::Media( path => $story_path, file => $fn, fh => $u->fh,
+                               size => $u->size );
+    $spoejs{error}{$m->current_comp->source_file} = $M->{msg}
+                                                          if defined $M->{msg};
+ }
+}
+
+sub strip_leading {
+  my $fn = shift;
+  $fn =~ s#^.*[\\/]##;
+  return $fn;
+}
+</%init>
