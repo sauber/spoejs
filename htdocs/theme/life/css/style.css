@@ -85,15 +85,18 @@ td.form_desc {
 }
 
 table.tab {
-   background-color: #dddddd;
+   background-color: #cccccc;
 }
 
 td.tab {
+   border: outset 2px;
+   padding-left: 4px;
+   padding-right: 4px;
 }
 
 
 td.tab_marked {
-   background-color: #bbbbbb;
+   #background-color: #bbbbbb;
 }
 
 
