@@ -1,4 +1,4 @@
-%# $Id: form.html,v 1.2 2004/03/15 04:08:12 sauber Exp $
+%# $Id: form.html,v 1.3 2004/03/15 12:46:05 sauber Exp $
 <%init>
 use Spoejs::Resource;
 my $R = new Spoejs::Resource;
@@ -7,16 +7,16 @@ my $lang = $session{translator};
 
 # Check if translations have been provided.
 for ( @keys ) {
-  if ( $ARGS{$_} ){
-    $R->set( $_ => { $lang => $ARGS{$_} } );
+  if ( $ARGS{"XkX$_"} ){
+    $R->set( $_ => { $lang => $ARGS{"XkX$_"} } );
   }
 }
 
 #Check if new words have been added. Only for admins.
 if ( $session{wordadmin} ) {
   for ( 1 ..5 ) {
-    if ( $ARGS{"newkey$_"} and $ARGS{"newword$_"} ) {
-      $R->set( $ARGS{"newkey$_"} => { 'en' => $ARGS{"newword$_"} } );
+    if ( $ARGS{"XkXnewkey$_"} and $ARGS{"XkXnewword$_"} ) {
+      $R->set( $ARGS{"XkXnewkey$_"} => { 'en' => $ARGS{"XkXnewword$_"} } );
     }
   }
   my @keys = $R->keys;
@@ -37,15 +37,15 @@ translations will be used in Spoejs project.</p>
 %   for ( @keys ) {
 <tr>
 <td><% $R->{data}{$_}{en} %></td>
-<td><input name="<% $_ %>" value="<% $R->{data}{$_}{$lang} %>"/></td>
+<td><input name="XkX<% $_ %>" value="<% $R->{data}{$_}{$lang} %>"/></td>
 </tr>
 %   }
 %   if ( $session{wordadmin} ) {
 <tr><th>New Keywords</th><th>English text</th></tr>
 %     for ( 1..5 ) {
 <tr>
-<td><input name="newkey<% $_ %>"></td>
-<td><input name="newword<% $_ %>"></td>
+<td><input name="XkXnewkey<% $_ %>"></td>
+<td><input name="XkXnewword<% $_ %>"></td>
 </tr>
 %     }
 %   }

@@ -1,16 +1,19 @@
-%# $Id: index.html,v 1.3 2004/03/15 04:08:12 sauber Exp $
+%# $Id: index.html,v 1.4 2004/03/15 12:46:05 sauber Exp $
 <%args>
 $_username=>undef
 $_password=>undef
+$username=>undef
+$password=>undef
 </%args>
 <%init>
 my($l,$u,$p,$e,$n);
-if ( $_username and $_password ) {
+if ( ( $_username and $_password ) or ( $username and $password ) ) {
   open FH, "$ENV{DOCUMENT_ROOT}/html/translate/people.txt";
     while (<FH>) {
       next if /^#/;
       ($l,$u,$p,$e,$n) = split ',';
       last if $u eq $_username and $p eq $_password;
+      last if $u eq $username and $p eq $password;
       undef $l;
     }
   close FH;
