@@ -5,8 +5,8 @@ use Date::Manip;
 use LWP::UserAgent;
 use Spoejs::ChannelList;
 
-# $Id: Syndication.pm,v 1.8 2004/05/16 10:09:20 snicki Exp $
-$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.8 $';
+# $Id: Syndication.pm,v 1.9 2004/05/16 10:15:23 snicki Exp $
+$Spoejs::Syndication::VERSION = $Spoejs::Syndication::VERSION = '$Revision: 1.9 $';
 
 # Constructor
 sub _initialize {
@@ -98,9 +98,8 @@ sub _rewrite_urls {
 
     for my $chan ( @{$self->{globallist}} ) {
 	my $url = $chan->{url};
-#	$chan->{summary} =~ s{(href|src)="(http://.*?/)?(.*)"}{$1="$url/$3"}g;
-	$chan->{summary} =~ s{href="(http://.*?/)?(.*)"}{href="$url/$2"}g;
-	$chan->{summary} =~ s{src="(http://.*?/)?(.*)"}{src="$url/$2"}g;
+	$chan->{summary} =~ 
+	       s#(src|href)=(["']?)(?!http://.*?)/(.*?)(["']?)#$1=$2$url/$4$5#g;
     }
 }
 
