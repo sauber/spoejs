@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.22 2004/06/21 12:59:40 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.22 $';
+# $Id: Media.pm,v 1.23 2004/06/27 13:46:16 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.23 $';
 
 
 # Initializor
@@ -206,6 +206,21 @@ sub info {
   return undef unless $self->{_im};
 
   return $self->{_im}->Get('width','height','filesize','Magick');
+}
+
+
+# Rotate 90 degrees clockwise (90) or counterclickwise (270)
+sub rotate {
+  my($self,$degrees) = @_;
+
+  # XXX: Load object into image magick object
+  #return undef unless $self->{file};
+  #$self->load() or return undef;
+
+  # And then rotate it
+  $self->{_im}->Rotate(degrees=>$degrees)
+
+  # XXX: And now save image... but save requires filehandle instead of blob?
 }
 
 
