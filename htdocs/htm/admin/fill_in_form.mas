@@ -59,7 +59,7 @@ sub prepend_errors {
     $$form = "<li class=\"form_error\">$err</li>" . $$form;
   }
 
-  $$form = "<span class=\"form_error\">**the_entered_information_contains_errors**</span><br/><ul>" . $$form;
+  $$form = "<span class=\"form_error\">**input_errors**</span><br/><ul>" . $$form;
 
 }
 </%perl>
