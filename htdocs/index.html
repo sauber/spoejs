@@ -22,34 +22,11 @@ Administration:
 Site configuration
 </a>
 <%init>
-use Date::Manip;
 my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
                                   lang => $spoejs{lang_handle} );
 $spoejs{error}{$m->current_comp->source_file} = $CL->{msg} if $CL->{msg};
-my $SC = new Spoejs::SiteConf( path => "$ENV{DOCUMENT_ROOT}/../lib",
-                               lang => $spoejs{lang_handle} );
-$spoejs{error}{$m->current_comp->source_file} = $SC->{msg} if $SC->{msg};
-my $policy = $SC->get( 'policy' );
 
 # Gives array of ChannelConf object refs
 my @channels;
-@channels = $CL->search_channels() unless $CL->{msg};
-@channels = () if ( $channels[0] eq undef );
-
-# Sort channels by date of newest entry
-for my $c ( @channels ) {
-  my $SL = new Spoejs::StoryList( lang => $spoejs{lang_handle},
-                                  path => $c->{path} );
-  my @s = $SL->list_stories( count => 1 );
-
-  # Add date in seconds since epoch
-  $c->{newest_date} = $s[0] ? UnixDate($s[0]->get( 'date' ), "%s") : 0;
-
-  # Add story reference for later use
-  $c->{S} = $s[0] if $s[0];
-}
-
-warn Dumper @channels;
-# Sort based on date in seconds
-@channels = sort { $b->{newest_date} <=> $a->{newest_date} } @channels;
+@channels = $CL->newest_channels() unless $CL->{msg};
 </%init>
