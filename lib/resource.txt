@@ -8,6 +8,7 @@
 <lang=iw/>על
 <lang=ja/>情報
 <lang=ru/>о
+<lang=zh/>有关内容
 </about>
 
 <abstract>
@@ -22,6 +23,11 @@
 <lang=zh/>摘要
 </abstract>
 
+<account_signup>
+<lang=en/>Account Sign Up
+<lang=zh/>用户注册
+</account_signup>
+
 <active>
 <lang=ar/>فعال
 <lang=da/>Aktiv
@@ -34,10 +40,6 @@
 <lang=ru/>активный
 <lang=zh/>运行
 </active>
-
-<account_signup>
-<lang=en/>Account Sign Up
-</account_signup>
 
 <add>
 <lang=ar/>أضيق
@@ -223,6 +225,11 @@
 <lang=zh/>西藏语
 </bo>
 
+<categories>
+<lang=en/>Categories
+<lang=zh/>种类
+</categories>
+
 <category>
 <lang=ar/>فيئة
 <lang=bg/>Категория
@@ -242,10 +249,6 @@
 <lang=zh/>种类
 </category>
 
-<categories>
-<lang=en/>Categories
-</categories>
-
 <categorylist>
 <lang=ar/>لأحة الختيرات
 <lang=da/>Kategori liste
@@ -258,10 +261,6 @@
 <lang=ru/>список категорий
 <lang=zh/>一揽
 </categorylist>
-
-<change_language>
-<lang=en/>Change language
-</change_language>
 
 <chan_home>
 <lang=ar/>قناة البيت
@@ -294,6 +293,11 @@
 <lang=se/>ändra
 <lang=zh/>更改
 </change>
+
+<change_language>
+<lang=en/>Change Language
+<lang=zh/>语言变换
+</change_language>
 
 <channelconf>
 <lang=ar/>تغير للقناة
@@ -526,6 +530,7 @@
 
 <do_u_need_account>
 <lang=en/>Do you need an account?
+<lang=zh/>新用户注册
 </do_u_need_account>
 
 <edit>
@@ -757,10 +762,12 @@
 
 <help>
 <lang=en/>Help
+<lang=zh/>帮助
 </help>
 
 <home>
 <lang=en/>Home
+<lang=zh/>本页
 </home>
 
 <hu>
@@ -857,6 +864,11 @@
 <lang=se/>japanska
 <lang=zh/>日语
 </ja>
+
+<journal_name>
+<lang=en/>Journal Name
+<lang=zh/>杂记名
+</journal_name>
 
 <journals_friends>
 <lang=en/>Journals at friend's sites
@@ -986,6 +998,11 @@
 <lang=zh/>更多
 </more>
 
+<new_account>
+<lang=en/>New account
+<lang=zh/>新用户注册
+</new_account>
+
 <new_story>
 <lang=ar/>قصة جديدة
 <lang=da/>Ny historie
@@ -1071,6 +1088,11 @@
 <lang=zh/>出现有一个或更多的错误
 </oneerror_occur>
 
+<open_public>
+<lang=en/>Open to public
+<lang=zh/>对外公开
+</open_public>
+
 <or_add_newstory>
 <lang=ar/>أو هنا لأضافة قصة جديدة
 <lang=da/>eller her for at tilføje en ny historie
@@ -1116,6 +1138,11 @@
 <lang=zh/>密码
 </passwd>
 
+<passwd_again>
+<lang=en/>Please enter your password again
+<lang=zh/>请再次按入密码
+</passwd_again>
+
 <please_fill_out_this_form>
 <lang=ar/>الرجاء أكمال هذا الجدول
 <lang=da/>Venligst udfyld denne formular
@@ -1156,7 +1183,7 @@
 <lang=mk/>Испраќа
 <lang=ru/>Представлено
 <lang=se/>postat av
-<lang=zh/>邮寄
+<lang=zh/>邮寄人
 </posted_by>
 
 <preview>
@@ -1217,6 +1244,7 @@
 <ru>
 <lang=en/>Russian
 <lang=ru/>Русский
+<lang=zh/>俄语
 </ru>
 
 <se>
@@ -1299,6 +1327,7 @@
 
 <signup_newjournal>
 <lang=en/>Sign up for a new media journal and share your experiences with friends family.
+<lang=zh/>注册新的杂记并与家人及朋友分享
 </signup_newjournal>
 
 <site_home>
@@ -1376,13 +1405,15 @@
 <lang=zh/>本网站网页的状况
 </statuschannel>
 
-<story>
-<lang=en/>Story
-</story>
-
 <stories>
 <lang=en/>Stories
+<lang=zh/>记事
 </stories>
+
+<story>
+<lang=en/>Story
+<lang=zh/>记事
+</story>
 
 <story_abstract>
 <lang=ar/>محتويات القصة
@@ -1474,6 +1505,7 @@
 
 <summary>
 <lang=en/>Summary
+<lang=zh/>摘要
 </summary>
 
 <thechannel_notexit>
