@@ -4,7 +4,7 @@ front page
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: index.html,v 1.52 2004/08/08 19:45:57 snicki Exp $
+$Id: index.html,v 1.53 2004/08/08 20:01:08 snicki Exp $
 </%doc>
 <table width="100%">
 % if ( @{$remotes} > 0 ) {
@@ -22,11 +22,11 @@ $Id: index.html,v 1.52 2004/08/08 19:45:57 snicki Exp $
 <td valign="top" style="padding-right: 8px;">
 % foreach my $chan ( @channels ) {
 <hr style="border: dashed gray 1px;">
-<a href="/<% $chan->channel_dir() %>/index.html">
-<h3>
-<% $chan->get( 'title' ) %>
-</h3>
-</a>
+<br/>
+<span style="font-size: large;">
+**newest_story_at** <a href="/<% $chan->channel_dir() %>/index.html">
+<% $chan->get( 'title' ) %></a>:
+</span>
 % if ( $chan->{S} ) {
 % # Set up minimal spoejs environment
 % $spoejs{channel_path} = $chan->{path};
@@ -42,16 +42,19 @@ $Id: index.html,v 1.52 2004/08/08 19:45:57 snicki Exp $
 % delete $spoejs{channel_path};
 % delete $spoejs{channel};
 % delete $spoejs{ChannelConf};
-<br/>
 % }
 </td>
 % if ( @{$remotes} > 0 ) {
 <td valign="top" style="padding-left: 8px;">
 %for my $rem ( @{$remotes} ) {
 <hr style="border: dashed gray 1px;">
-<a href="<% $rem->{url} . '/' . $rem->{shortname} . '/index.html' %>">
-<h3><% $rem->{shortname} %> at <% $rem->{url} %></h3></a>
-<% $rem->{summary} %><br/><br/>
+<br/>
+<span style="font-size: large;">
+**newest_story_at** <a href="<% $rem->{url} . '/' . $rem->{shortname} . '/index.html' %>">
+ <% $rem->{url} %>/<% $rem->{shortname} %></a>:
+</span>
+<% $rem->{summary} %>
+<br/>
 %}
 </td>
 %}
