@@ -17,10 +17,12 @@
 % for ( @media_list ) {
 % my $p = $_->{file};
 %# XXX: Consider moving generation of these links to caller
+<div style="float:left; padding:3px; border-style:ridge; margin:3px; background-color:yellow">
 <a href="<& /htm/url:encode, 'media.html', d => $story_dir, p => $p &>">\
-<& /w, w => "media", d => $story_dir, p => $p, m => 150, 
-info => $_->info() &>\
-</a>
+<& /w, w => "media", d => $story_dir, p => $p, m => 150, info => $_->info() &>\
+</a><br>
+%# XXX: Insert annotation here
+</div>
 % }
 </fieldset>
 </fieldset>
