@@ -8,8 +8,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use YAML qw( DumpFile LoadFile);
 
-# $Id: Text.pm,v 1.31 2004/06/11 07:45:46 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.31 $';
+# $Id: Text.pm,v 1.32 2004/07/02 16:38:49 sauber Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.32 $';
 
 
 # Constructor
@@ -18,17 +18,6 @@ sub _initialize {
     my $self  = shift;
     %{$self} = ( %{$self}, @_ );
 
-    # Check file
-    if ( -f "$self->{path}/$self->{file}" ) {
-	$self->{msg} = "Can't write file $self->{path}/$self->{file}"
-	    unless -w "$self->{path}/$self->{file}";
-	$self->{msg} = "Can't read file $self->{path}/$self->{file}"
-	    unless -r "$self->{path}/$self->{file}";
-    } else {
-	open FH, ">$self->{path}/$self->{file}"
-	    or $self->{msg} = "Can't create $self->{path}/$self->{file}: $1";
-	close FH;
-    }
 }
 
 
@@ -46,16 +35,14 @@ sub _store_data {
     my $USE_YAML = 1;
 
     if ( $USE_YAML  ) {
-
       local $YAML::UseVersion = 0; # Avoid cluttering files with version info
       DumpFile( "$self->{path}/$self->{file}", $self->{data} );
-
     } else {
 
-    open (FH, ">$self->{path}/$self->{file}") or
- 	return $self->_err( "Could not open $self->{path}/$self->{file}: $!");
+        open (FH, ">$self->{path}/$self->{file}") or
+          return $self->_err( "Could not open $self->{path}/$self->{file}: $!");
 
-    foreach $key ( sort keys( %data ) ) {
+      foreach $key ( sort keys( %data ) ) {
 
 	$entry = "<$key>\n";
 
@@ -210,18 +197,29 @@ sub _check_load {
 
     my $self = shift;
 
-    unless ( defined $self->{is_loaded} ) {
-	if ( -w "$self->{path}/$self->{file}" ) {
+    unless ( defined $self->{is_loaded} or defined $self->{is_savable} ) {
+	if ( -f "$self->{path}/$self->{file}" ) {
 	    $self->_read_data() or return undef;
 	    $self->{is_loaded} = 1;
-	}
-	else {
-	    return $self->_err( "$self->{path}/$self->{file} is unwriteable" );
-	}
+        }
     }
 
     # Success
     return 1;
+}
+
+# Check if a file can be created for saving data
+#
+sub _check_save {
+  my $self = shift;
+
+  return 1 if $self->{is_savable};
+
+  open FH, ">$self->{path}/$self->{file}"
+    or return $self->_err( "Can't create $self->{path}/$self->{file}: $!" );
+  close FH;
+
+  $self->{is_savable} = 1;
 }
 
 
@@ -280,7 +278,8 @@ sub set {
 
     my $self = shift;
 
-    $self->_check_load() or return undef;
+    $self->_check_load();
+    $self->_check_save() or return undef;
 
     %in_data = @_;
 
