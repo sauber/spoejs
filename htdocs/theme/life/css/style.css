@@ -131,11 +131,11 @@ div.media {
   text-align:center;
   padding:1px;
   margin: 3px;
-  border: solid black 1px;
+  border: ridge;
 }
 
 div.annotation {
-  background-color: yellow;
+  background-color: #FFCC00;
   text-align: center;
 }
 
