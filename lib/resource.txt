@@ -1,11 +1,13 @@
 <about>
 <lang=da/>Om Spoejs
 <lang=en/>About
+<lang=zh/>大约
 </about>
 
 <add>
 <lang=da/>Tilføj
 <lang=en/>Add
+<lang=zh/>增加
 </add>
 
 <ar>
@@ -20,6 +22,7 @@
 <lang=ja/>アラビア語
 <lang=mk/>Арапски
 <lang=se/>arabisk
+<lang=zh/>阿拉伯语
 </ar>
 
 <bg>
@@ -34,6 +37,7 @@
 <lang=ja/>ブルガリア語
 <lang=mk/>Бугарски
 <lang=se/>bulgarisk
+<lang=zh/>保加利亚语
 </bg>
 
 <blank_default>
@@ -49,6 +53,7 @@
 <lang=fr/>Tibetain
 <lang=it/>tibetano
 <lang=mk/>Тибетски
+<lang=zh/>西藏语 
 </bo>
 
 <category>
@@ -62,11 +67,13 @@
 <lang=ja/>カテゴリー
 <lang=mk/>Категорија
 <lang=se/>kategori
+<lang=zh/>种类
 </category>
 
 <chan_home>
 <lang=da/>Historie index
 <lang=en/>Channel home
+<lang=zh/>海峡家
 </chan_home>
 
 <change>
@@ -81,11 +88,13 @@
 <lang=ja/>変更
 <lang=mk/>Промена
 <lang=se/>ändra
+<lang=zh/>改变
 </change>
 
 <choose>
 <lang=da/>Vælg
 <lang=en/>Choose
+<lang=zh/>选择
 </choose>
 
 <da>
@@ -100,6 +109,7 @@
 <lang=ja/>デンマーク語
 <lang=mk/>Дански
 <lang=se/>Danska
+<lang=zh/>丹麦语
 </da>
 
 <date>
@@ -114,6 +124,7 @@
 <lang=ja/>日付
 <lang=mk/>Дата
 <lang=se/>datum
+<lang=zh/>日期
 </date>
 
 <de>
@@ -128,11 +139,13 @@
 <lang=ja/>ドイツ語
 <lang=mk/>Германски
 <lang=se/>Tyska
+<lang=zh/>德语
 </de>
 
 <delete>
 <lang=da/>Slet
 <lang=en/>Delete
+<lang=zh/>删去
 </delete>
 
 <description>
@@ -144,16 +157,19 @@
 <lang=it/>descrizione
 <lang=ja/>記述
 <lang=mk/>Опис
+<lang=zh/>描述 
 </description>
 
 <edit>
 <lang=da/>Ret
 <lang=en/>Edit
+<lang=zh/>编辑
 </edit>
 
 <edit_lang>
 <lang=da/>Retter for sproget
 <lang=en/>Editing language
+<lang=zh/>编辑语言
 </edit_lang>
 
 <en>
@@ -168,6 +184,7 @@
 <lang=ja/>英語
 <lang=mk/>Англиски
 <lang=se/>Engelska
+<lang=zh/>英语
 </en>
 
 <es>
@@ -175,11 +192,13 @@
 <lang=bg/>Испански
 <lang=da/>Spansk
 <lang=en/>Spanish
+<lang=zh/>西班牙语
 </es>
 
 <first>
 <lang=da/>Første
 <lang=en/>First
+<lang=zh/>首先
 </first>
 
 <fr>
@@ -194,11 +213,13 @@
 <lang=ja/>フランス語
 <lang=mk/>Француски
 <lang=se/>Franska
+<lang=zh/>法语
 </fr>
 
 <full_story>
 <lang=da/>Hele historien
 <lang=en/>Full story text
+<lang=zh/>全文报导正文
 </full_story>
 
 <gr>
@@ -213,6 +234,7 @@
 <lang=ja/>ギリシャ語
 <lang=mk/>Грчки
 <lang=se/>grekiska
+<lang=zh/>希腊
 </gr>
 
 <is>
@@ -227,6 +249,7 @@
 <lang=ja/>アイスランド語
 <lang=mk/>Исландски
 <lang=se/>islandska
+<lang=zh/>冰岛人
 </is>
 
 <it>
@@ -241,6 +264,7 @@
 <lang=ja/>イタリア語
 <lang=mk/>Италијански
 <lang=se/>italiansk
+<lang=zh/>意大利语
 </it>
 
 <ja>
@@ -255,6 +279,7 @@
 <lang=ja/>日本語
 <lang=mk/>Јапонски
 <lang=se/>japanska
+<lang=zh/>日语
 </ja>
 
 <language>
@@ -266,11 +291,13 @@
 <lang=it/>lingua
 <lang=ja/>言語
 <lang=mk/>Јазик
+<lang=zh/>语言
 </language>
 
 <last>
 <lang=da/>Sidste
 <lang=en/>Last
+<lang=zh/>持续
 </last>
 
 <login>
@@ -282,6 +309,7 @@
 <lang=it/>inizio attivita
 <lang=ja/>ログイン
 <lang=mk/>Логин (Влез)
+<lang=zh/>登录
 </login>
 
 <logout>
@@ -293,11 +321,13 @@
 <lang=it/>termine attivita
 <lang=ja/>ログアウト
 <lang=mk/>Логаут (Излез)
+<lang=zh/>注销
 </logout>
 
 <media_man>
 <lang=da/>Medie håndtering
 <lang=en/>Media management
+<lang=zh/>媒体管理
 </media_man>
 
 <mk>
@@ -311,11 +341,13 @@
 <lang=ja/>マケドニア語
 <lang=mk/>Македонски
 <lang=se/>macedoniska
+<lang=zh/>马其顿
 </mk>
 
 <new_story>
 <lang=da/>Ny historie
 <lang=en/>New story
+<lang=zh/>新的故事
 </new_story>
 
 <or_new>
@@ -335,6 +367,7 @@
 <lang=ja/>パスワード
 <lang=mk/>Клучен збор
 <lang=se/>passord
+<lang=zh/>口令
 </passwd>
 
 <posted_by>
@@ -359,16 +392,19 @@
 <lang=it/>pubulico
 <lang=ja/>公共
 <lang=mk/>Јавен
+<lang=zh/>公众
 </public>
 
 <random>
 <lang=da/>Tilfældig
 <lang=en/>Random
+<lang=zh/>随便
 </random>
 
 <register>
 <lang=da/>Registrer
 <lang=en/>Register
+<lang=zh/>记录
 </register>
 
 <se>
@@ -383,6 +419,7 @@
 <lang=ja/>スウェーデン語
 <lang=mk/>Шведски
 <lang=se/>svenska
+<lang=zh/>瑞典语
 </se>
 
 <shortname>
@@ -405,21 +442,25 @@
 <lang=it/>firmi in (su)
 <lang=ja/>サインアップ
 <lang=mk/>Впиши
+<lang=zh/>搜索
 </signup>
 
 <site_home>
 <lang=da/>Kanal index
 <lang=en/>Site home
+<lang=zh/>场所家
 </site_home>
 
 <specific>
 <lang=da/>Specifik
 <lang=en/>Specific
+<lang=zh/>具体
 </specific>
 
 <story_abstract>
 <lang=da/>Historie abstrakt
 <lang=en/>Story abstract
+<lang=zh/>故事抽象
 </story_abstract>
 
 <storytitle>
@@ -436,6 +477,7 @@
 <lang=it/>presenti
 <lang=ja/>承諾
 <lang=mk/>Поднеси
+<lang=zh/>结果
 </submit>
 
 <theme>
@@ -447,11 +489,13 @@
 <lang=it/>tema
 <lang=ja/>テーマ
 <lang=mk/>Тема
+<lang=zh/>故事标题
 </theme>
 
 <thumbnail>
 <lang=da/>Ikon
 <lang=en/>Thumbnail
+<lang=zh/>简略
 </thumbnail>
 
 <title>
@@ -466,6 +510,7 @@
 <lang=ja/>タイトル
 <lang=mk/>Наслов
 <lang=se/>titel
+<lang=zh/>标题
 </title>
 
 <username>
@@ -477,6 +522,7 @@
 <lang=it/>nome di utente
 <lang=ja/>ユーザー名
 <lang=mk/>Корисничко име
+<lang=zh/>用户名
 </username>
 
 <yourname>
@@ -496,5 +542,6 @@
 <lang=ja/>中国語
 <lang=mk/>Кинески
 <lang=se/>kinesiska
+<lang=zh/>中国
 </zh>
 
