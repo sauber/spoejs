@@ -1828,7 +1828,7 @@ summary:
   zh: '摘要'
 syndication:
   de: Sydikation
-  en: Sydication
+  en: Syndication
   es: Sydication
   it: organizzazione
   ja: '再発行'
