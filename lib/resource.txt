@@ -19,6 +19,10 @@
 <lang=en/>Bulgarian
 </bg>
 
+<bo>
+<lang=en/>Tibetan
+</bo>
+
 <category>
 <lang=bg/>Kategoriia
 <lang=se/>kategori
@@ -223,7 +227,7 @@
 </description>
 
 <language>
-<language=en/>Language
+<lang=en/>Language
 </language>
 
 <theme>
