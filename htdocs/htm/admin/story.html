@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.26 2004/06/12 09:24:33 snicki Exp $
+%# $Id: story.html,v 1.27 2004/06/12 14:34:06 snicki Exp $
 %#
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 <& /js/confirm.js &>
@@ -52,7 +52,7 @@ Go to channel home.
 <%$ARGS{fulltext}%></textarea>
 <br/>
 <br/>
-% if ( $story_dir ) {
+% if ( defined $spoejs{Story} ) {
 **thumbnail**:<br/>
 % for my $i ( @thumb ) {
 **<% $i %>**: <input type="radio" name="thumbnail" value="<% $i
@@ -60,7 +60,7 @@ Go to channel home.
 % }
 <select name="thumbfile">
   <option value="">**choose**</option>
-% for ( $S->media_list() ) {
+% for ( $spoejs{Story}->media_list() ) {
 % my $c = $checked_file eq $_->{file} ? ' selected="selected"' : '';
   <option value="<%$_->{file}%>"<% $c %>><% $_->utf_filename() %></option>
 % }
@@ -73,7 +73,7 @@ Go to channel home.
 <input type="submit" name="delete" value="**delete**" onclick="return confirmSubmit()"/>
 %#
 </form>
-% if ( $story_dir ) {
+% if ( defined $spoejs{Story} ) {
 <h4>**media_man**:</h4>
 <a href="<& /htm/url:encode, "/$spoejs{channel}/admin/upload.html", 
                              d =>$story_dir &>">
@@ -108,19 +108,14 @@ my $cur_lang = $spoejs{current_language};
 my @entries = qw( title date category abstract fulltext author thumbnail );
 
 my $story_dir = $spoejs{p}{d} || undef;
-my $S;
 my %checked;
 my $checked_file;
 
 # Get data from existing story or create new story
-if ( $spoejs{p}{d} && -d "$spoejs{channel_path}/$spoejs{p}{d}" && !$ARGS{submit} ) {
-
-  $S = new Spoejs::Story( path => "$spoejs{channel_path}/$spoejs{p}{d}",
-                          lang => $spoejs{lang_handle} );
-  $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
+if ( defined $spoejs{Story} && !$ARGS{submit} ) {
 
   # Add data to args
-  %ARGS = ( %ARGS, $S->get() );
+  %ARGS = ( %ARGS, $spoejs{Story}->get() );
 
   # Find thumbtype for html 'checked'ing
   for ( @thumb ) {
@@ -133,22 +128,10 @@ if ( $spoejs{p}{d} && -d "$spoejs{channel_path}/$spoejs{p}{d}" && !$ARGS{submit}
 
 }
 
-
 if ( $ARGS{submit} ) {
 
   # Get thumbnail
   $ARGS{thumbnail} = $ARGS{thumbfile} if $ARGS{thumbnail} eq 'specific';
-
-  # Create new story if necessary
-  unless ( $story_dir && -d "$spoejs{channel_path}/$story_dir" ) {
-    use Date::Manip;
-    $ARGS{date} ||= Date::Manip::UnixDate( "today", "%b %d %Y %H:%M" );
-    $story_dir = $spoejs{SL}->add_story( date => $ARGS{date} );
-  }
-
-  $S = new Spoejs::Story( path => "$spoejs{channel_path}/$story_dir",
-                          lang => $spoejs{lang_handle} );
-  $spoejs{error}{$m->current_comp->source_file} = $S->{msg} if $S->{msg};
 
   # XXX: Verify input
   $ARGS{category} = $ARGS{newcategory} if $ARGS{newcategory};
@@ -159,12 +142,25 @@ if ( $ARGS{submit} ) {
     $new_data{$_}{$cur_lang} = $ARGS{$_};
   }
 
-  $S->set( %new_data );
+  # Create new story if necessary
+  if ( defined $spoejs{Story} ) {
+    $spoejs{Story}->set( %new_data );
+  } else {
+    use POSIX qw(strftime);
+    $new_data{date}{$cur_lang} ||= strftime "%F", localtime time();
+    $story_dir = $spoejs{SL}->add_story( date => $new_data{date}{$cur_lang} );
+    die "Could not create new story" unless length $story_dir > 8;
+    my $S = new Spoejs::Story( lang => $spoejs{lang_handle},
+                               path => "$spoejs{channel_path}/$story_dir" );
+    $spoejs{error}{$m->current_comp->source_file} = $S->{msg} 
+                                                      if $S->{msg};
+    $S->set( %new_data );
+  }
+
 }
 
-if ( $ARGS{delete} ) {
-  $spoejs{SL}->del_story( story => $story_dir );
-}
+# Delete story if so told
+$spoejs{SL}->del_story( story => $story_dir ) if ( $ARGS{delete} );
 
 # Used for category chooser - counts ignored
 my %categories = $spoejs{SL}->count_stories( by => 'category' );
