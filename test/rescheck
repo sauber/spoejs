@@ -7,11 +7,9 @@ find ../htdocs -type f -exec egrep '\*\*.*?\*\*' {} \; | perl -n -e '@a=m!\*\*(.
 
 # Find resources available
 #
-#cat ~/spoejs/lib/resource.txt  | perl -n -e 'm/<(\w+)>/ and $1=~/(...+)/ and print "$1\n"' > /tmp/.$$.avail
-cat ../lib/resource.txt  | perl -n -e 'm/<(\w+)>|^(\w):/ and $1=~/(...+)/ and print "$1\n"' > /tmp/.$$.avail
+cat ../lib/resource.txt | perl -n -e 'm/^(\w+):/ and $1=~/(...+)/ and print "$1\n"' > /tmp/.$$.avail
 
 echo "Keywords in use                         Keywords available"
 echo "---------------                         ------------------"
 diff --side-by-side -W 72 /tmp/.$$.inuse /tmp/.$$.avail
 rm /tmp/.$$.*
-
