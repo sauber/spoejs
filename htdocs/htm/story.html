@@ -3,12 +3,13 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.19 2004/06/22 08:00:46 snicki Exp $
+%# $Id: story.html,v 1.20 2004/07/02 15:20:46 snicki Exp $
 %#
 <& /w, w          => 'story-page',
        story_dir  => $spoejs{p}{d},
        story_ref  => $spoejs{Story},
        edit_href  => $a_edit,
+       up_href    => $up_href,
        navi_opt   => \%navi_opt,
        media_list => $spoejs{Story}->{ML}
 &>
@@ -29,4 +30,7 @@ my %navi_opt = ( url => "/$spoejs{channel}/story.html",
 		 count => $count,
 		 start => $spoejs{p}{s},
 		 list_ref => $spoejs{Story}->{ML} );
+
+# Story navigation
+my $up_href = $m->scomp( '/htm/url:encode', 'index.html', s => $spoejs{p}{d} );
 </%init>
