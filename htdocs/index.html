@@ -4,7 +4,7 @@ front page
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: index.html,v 1.55 2004/08/13 07:08:36 sauber Exp $
+$Id: index.html,v 1.56 2004/08/13 07:32:47 sauber Exp $
 </%doc>
 <table width="100%">
 % if ( @{$remotes} > 0 ) {
@@ -20,7 +20,7 @@ $Id: index.html,v 1.55 2004/08/13 07:08:36 sauber Exp $
 <td valign="top" style="padding-right: 8px;">
 % foreach my $chan ( @channels ) {
 <hr style="border: dashed gray 1px;">
-<br/>
+<table><tr><td bgcolor="#<% hashcolor($chan->get( 'title' )) %>">
 <span style="font-size: large;">
 <a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'title' ) %></a>
 </span>
@@ -32,8 +32,10 @@ $Id: index.html,v 1.55 2004/08/13 07:08:36 sauber Exp $
 % $spoejs{channel} = $chan->channel_dir();
 % $spoejs{ChannelConf} = $chan;
 % $spoejs{p}{t} = $chan->get('theme');
+<table><tr><td bgcolor=#ffffff>
 <& /w, w => 'abstract', box => 1, storyref => $chan->{S} &>
 <br clear="all"/>
+</td></tr></table>
 % } else {
 **no_stories**
 % }
@@ -41,6 +43,7 @@ $Id: index.html,v 1.55 2004/08/13 07:08:36 sauber Exp $
 % delete $spoejs{channel_path};
 % delete $spoejs{channel};
 % delete $spoejs{ChannelConf};
+</td></tr></table>
 % }
 </td>
 % if ( @{$remotes} > 0 ) {
@@ -48,14 +51,16 @@ $Id: index.html,v 1.55 2004/08/13 07:08:36 sauber Exp $
 %for my $rem ( @{$remotes} ) {
 %  $rem->{url} =~ s,/$,,; #Remove trailing slash if present
 <hr style="border: dashed gray 1px;">
-<br/>
+<table width=100%><tr><td bgcolor="#<% hashcolor($rem->{shortname}) %>">
 <span style="font-size: large;">
 <a href="<% $rem->{url} . '/' . $rem->{shortname} . '/index.html' %>"><% $rem->{url} %>/<% $rem->{shortname} %></a>
 </span>
 <br/>
 **newest_story**:<br/>
+<table width=100%><tr><td bgcolor=#ffffff>
 <% $rem->{summary} %>
-<br/>
+</td></tr></table>
+</td></tr></table>
 %}
 </td>
 %}
@@ -72,4 +77,13 @@ my @auth =  keys %{$session{chanauth}} if defined $session{chanauth};
 my $SYN = new Spoejs::Syndication( path => "$ENV{DOCUMENT_ROOT}/../lib/",
                                    lang => $spoejs{lang_handle} );
 my $remotes = $SYN->newest_remotes( count => scalar @channels );
+
+sub hashcolor {
+  my $c = 1;map{$c=($c*ord)%(16**6)}split//,$_[0];
+  my($i,$n,$m,@h);@h=(int$c/16**4,int$c/256%256,$c%256);
+  for$i(0..2){$m=$i if$h[$i]<$h[$m];$n=$i if$h[$i]>$h[$n]}
+  $h[$m]=128if$h[$m]>128;$h[$n]=128if$h[$n]<128;
+  $c=sprintf"%06X",$h[2]+$h[1]*256+$h[0]*16**4;
+  return $c;
+}
 </%init>
