@@ -1,0 +1,29 @@
+% # This module encodes and decodes url's
+% # $Id: url,v 1.1 2004/03/23 08:07:52 sauber Exp $
+% # Encode and decode url
+                                                                                
+<%method encode>
+<%perl>
+  my($link,%options) = @_;
+                                                                                
+  my($r,$k,$v);
+  while ( ($k,$v) = each %options ) {
+    $r .= "_$k$v";
+  }
+  $link =~ s/(.*)\.(.*?)/$1$r.$2/;
+</%perl>
+<% $link %>\
+</%method>
+                                                                                
+<%method decode>
+<%perl>
+  my($link) = @_;
+                                                                                
+  my %O;
+  while ( $link =~ s/(_)(.)(.*?)(?=[_.])// ) {
+    $O{$2} = $3;
+  }
+
+  return $link,\%O;
+</%perl>
+</%method> 
