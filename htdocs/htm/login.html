@@ -4,7 +4,7 @@ login, authenticate, logout
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: login.html,v 1.12 2004/06/13 06:50:30 snicki Exp $
+$Id: login.html,v 1.13 2004/06/13 07:08:55 snicki Exp $
 </%doc>
 % if ( defined $session{chanauth} ) {
 %  # List authorized channels
@@ -47,11 +47,14 @@ if ( $login ) {
   my $u = $spoejs{SiteConf}->get( 'username' );
   $session{chanauth}{'**sa**'} = $username if $username eq $u and $password eq $p;
 
-# Prepare error for fill_in_form
- delete $session{form_error}{login_form};
- unless ( defined $session{chanauth} ) {
-   $session{form_error}{login_form}{username} = '**wrong_user_or_pwd**';
- }
+  # Check translator auth; beware, this redirects directly to translate site
+  check_translate( $username, $password ); 
+
+  # Prepare error for fill_in_form
+  delete $session{form_error}{login_form};
+  unless ( defined $session{chanauth} ) {
+    $session{form_error}{login_form}{username} = '**wrong_user_or_pwd**';
+  }
 } elsif ( $logout ) {
 
   delete $session{chanauth};
@@ -91,6 +94,29 @@ unless ( defined $spoejs{channel} && defined $session{chanauth} &&
 }
 </%perl>
 </%method>
+<%perl>
+sub check_translate {
+  my ( $username, $password ) = @_;
+  my ($l,$u,$p,$e,$n);
+  open FH, "$ENV{DOCUMENT_ROOT}/htm/translate/people.txt";
+    while (<FH>) {
+      next if /^#/;
+      ($l,$u,$p,$e,$n) = split ',';
+      last if $u eq $username and $p eq $password;
+      undef $l;
+    }
+  close FH;
+  if ( $l ) {
+    if ( $l eq 'admin' ) {
+      $session{translator} = 'en';
+      $session{wordadmin} = 1;
+    } else {
+      $session{translator} = $l;
+    }
+    $m->redirect( '/htm/translate/index.html' );
+  }
+}
+</%perl>
 <%args>
 $username => undef
 $password => undef
