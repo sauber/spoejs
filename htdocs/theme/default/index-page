@@ -3,13 +3,13 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index-page,v 1.9 2004/04/10 07:21:08 sauber Exp $
+%# $Id: index-page,v 1.10 2004/04/18 23:48:58 snicki Exp $
 %#
 <table width="100%">
 <tr>
 <td>
 <h2><% $CC->get( 'title' ) %></h2>
-<h4><% $CC->get( 'description' ) %></h4>
+<h3><% $CC->get( 'description' ) %></h3>
 </td>
 <td align="right">
 % if ( defined $spoejs{p}{c} ) {
