@@ -22,8 +22,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.4 2004/02/28 04:57:02 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.4 $';
+# $Id: StoryList.pm,v 1.5 2004/02/28 05:15:36 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.5 $';
 
 sub _initialize {
     my $self = shift;
@@ -143,13 +143,25 @@ sub del_story {
     rmtree "${root_path}/$in{story}";
 }
 
-
+# XXX: Add counts by year/month
+#
 sub count_stories {
     my $self = shift;
     my %in = @_;
+    my %counts;
 
-#    $self->$count_by_category() if ( $in{by} eq 'category' );
-
+    # Get story array
+    @all = $self->$all_by_date();
+ 
+    if ( $in{by} eq 'category' or  $in{by} eq 'author' ) {
+	for ( @all ) {
+	    my %cath = $_->get( $in{by} );
+	    my $cat = $cath{ $in{by} };
+	    $counts{$cat}++;
+	}
+	return %counts;    
+    }
+    
 }
 
 # List stories based on given keywords
