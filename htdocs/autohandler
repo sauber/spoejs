@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: autohandler,v 1.25 2004/05/19 09:49:44 snicki Exp $
+%# $Id: autohandler,v 1.26 2004/05/19 22:19:19 snicki Exp $
 %#
 <& htm/header.html &>
 <body>
@@ -46,7 +46,7 @@ $m->call_next if ( $spoejs{url_noparam} =~ /pic\.common/ );
 <%filter>
 if ( $spoejs{showtranslationoptions} eq 'yes' ) {
   s{\*(\w+?)\*}{($spoejs{res_handle}->get( $1 )||"*$1*") .
-                ( '(' . ($spoejs{res_handle}->get( $1 )||"*$1*") . ')' )}gex;
+                ( '(' . ($spoejs{res_handle_en}->get( $1 )||"*$1*") . ')' )}gex;
 }else{
   s{\*(\w+?)\*}{$spoejs{res_handle}->get( $1 )||"*$1*"}gex;
 }
