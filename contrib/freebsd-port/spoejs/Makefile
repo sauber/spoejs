@@ -28,6 +28,7 @@ RUN_DEPENDS+=	${SITE_PERL}/Video/Info.pm:${PORTSDIR}/multimedia/p5-Video-Info
 RUN_DEPENDS+=	${SITE_PERL}/IO/Zlib.pm:${PORTSDIR}/archivers/p5-IO-Zlib
 RUN_DEPENDS+=	${SITE_PERL}/Archive/Tar.pm:${PORTSDIR}/archivers/p5-Archive-Tar
 RUN_DEPENDS+=	${SITE_PERL}/Archive/Zip.pm:${PORTSDIR}/archivers/p5-Archive-Zip
+RUN_DEPENDS+=	${SITE_PERL}/HTML/FillInForm.pm:${PORTSDIR}/www/p5-HTML-FillInForm
 
 NO_BUILD=	yes
 
