@@ -20,6 +20,3 @@
     $r->headers_out->add( "Expires" => $e );
     $r->headers_out->add( "Last-Modified" => $l );
 </%init>
-<%args>
- %params => undef    
-</%args>

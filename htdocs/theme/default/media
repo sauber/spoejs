@@ -9,6 +9,3 @@
   my $ext;
   $ARGS{p} =~ /(...)$/ and $ext = lc $1;
 </%init>
-<%args>
- %params => undef    
-</%args>

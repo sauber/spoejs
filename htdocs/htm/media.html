@@ -7,7 +7,6 @@
       img_href  => $img_href,
       img_src  => $img_src,
       filename  => $filename,
-      params => \%params
 &>
 <%init>
 my $web_path = "/users/$spoejs{channel}/$spoejs{p}{d}";
@@ -38,6 +37,3 @@ my $picref    = $ML->get_picref($spoejs{p}{p})
   or $spoejs{error}{$m->current_comp->source_file} = $ML->{msg};
 my $filename  = $picref->utf_filename();
 </%init>
-<%args>
- %params => undef
-</%args>

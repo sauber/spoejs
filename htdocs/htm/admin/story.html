@@ -79,11 +79,6 @@ cols="60"><%$ARGS{fulltext}%></textarea>
 <&|/l&>edit</&>
 </a>
 % }
-%#<pre>
-%#<% Dumper %params %>
-%#<% Dumper %ARGS %>
-%#<% Dumper $cur_lang %>
-%#</pre>
 <%init>
 my %thumb = ( first => 'First', last => 'Last', random => 'Random',
 specific => 'Specific' );
@@ -154,6 +149,3 @@ if ( $ARGS{delete} ) {
 # Used for category chooser - counts ignored
 my %categories = $SL->count_stories( by => 'category' );
 </%init>
-<%args>
-  %params => undef
-</%args>

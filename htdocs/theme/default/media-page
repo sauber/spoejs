@@ -33,5 +33,4 @@
   $img_href  => undef
   $img_src   => undef
   $filename  => undef
-%params => undef
 </%args>
