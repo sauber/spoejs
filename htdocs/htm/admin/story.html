@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story.html,v 1.17 2004/04/09 18:06:42 sauber Exp $
+%# $Id: story.html,v 1.18 2004/04/10 04:12:27 snicki Exp $
 %#
 % return unless $m->comp( 'checkLogin.html' );
 <& /js/confirm.js &>
@@ -27,7 +27,7 @@ Go to channel home.
 
 <form action="" method="post">
 <table width="500"><tr><td>
-<fieldset><legend>Please fill out this form:</legend>
+<fieldset><legend><&|/l&>please_fill_out_this_form</&></legend>
 <&|/l&>yourname</&>:<br/>
 <input type="text" size="60" name="author" value="<%$ARGS{author}%>"/><br/>
 <&|/l&>storytitle</&>:<br/>
