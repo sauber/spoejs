@@ -1,10 +1,12 @@
 <h1>Spoejs channels at this site:</h1>
+<& /w, w => 'langchooser' &>
 % foreach my $chan ( @channels ) {
-<a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'title' ) %></a><br/>
-% }
+% if ( $chan->get( 'approved' ) eq 'yes' && $chan->get( 'public' ) eq 'yes' ) {
+<a href="/<% $chan->channel_dir() %>/index.html"><% $chan->get( 'title' ) %>
+</a><br/>
+% } }
 
 <%init>
-# XXX: Only show channels that are approved AND public
 my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/",
                                   lang => $spoejs{lang_handle} );
 # Gives array of ChannelConf object refs
