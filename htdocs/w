@@ -2,9 +2,10 @@
 <& $comp, %ARGS &>
 <%init>
 # Does component exist in required theme? Otherwise use default.
-my $comp = -e "/theme/$spoejs{theme}/$w" ? "/theme/$spoejs{theme}/$w" 
+my $comp = -f "$ENV{DOCUMENT_ROOT}/theme/$spoejs{theme}/$w" 
+	                                 ? "/theme/$spoejs{theme}/$w" 
 	                                 : "/theme/default/$w";
 </%init>
 <%args>
 $w => undef
-</%args>
+</%args>	
