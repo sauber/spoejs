@@ -5,8 +5,8 @@ use File::Path;
 use Date::Manip;
 use Data::Dumper;
 
-# $Id: ChannelList.pm,v 1.13 2004/04/03 00:01:17 snicki Exp $
-$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.13 $';
+# $Id: ChannelList.pm,v 1.14 2004/04/03 05:42:43 snicki Exp $
+$Spoejs::ChannelList::VERSION = $Spoejs::ChannelList::VERSION = '$Revision: 1.14 $';
 
 
 # Constructor
@@ -34,8 +34,10 @@ sub search_channels {
 
     my ($self, %p ) = @_;
 
-    my @all = $self->_list_from_filename( $self->{path}, $self->{file} )
+    my @all;
+    @all = $self->_list_from_filename( $self->{path}, $self->{file} )
 	or return $self->_err( "Could not get channel list" );
+    @all = () if $all[0] eq undef;
 
     my @chans;
     for my $ch ( @all ) {
@@ -61,6 +63,8 @@ sub search_channels {
 	    push @chans, $CC
 	}
     }
+
+    @chans = () if $chans[0] eq undef;
 
     return @chans;
 }
