@@ -2,7 +2,7 @@
 <br/>
 <% $S->get( 'abstract' ) %>
 %# XXX: User referer or similar - this is most often wrong!!
-<a href="/<% $m->{session}{user} %>/index.html">Back</a>
+<a href="/<% $session{user} %>/index.html">Back</a>
 <%init>
   my $path;
   $params{d} =~ /(\d{4})(\d\d)(\d\d)/ and $path = "$1/$2/$3";
