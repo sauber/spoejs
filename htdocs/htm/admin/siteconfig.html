@@ -102,7 +102,9 @@ if ( $ARGS{archive} ) {
 }
 
 # Get array of ChannelConf object refs
-my @channels = $CL->search_channels();
+my @channels;
+@channels = $CL->search_channels();
+@channels = () if $channels[0] eq undef;
 
 # Set the new status
 if ( $ARGS{submit} ) {
