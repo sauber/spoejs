@@ -55,6 +55,7 @@ Register:
  - Check fields for valid data
  - Theme selector
  - Encrypted passwords
+ - Delete own channel
 
 Session:
  - Session component to avoid masonhandler code
@@ -126,6 +127,7 @@ Media:
  - caching of indexthumb, even for random
  - slow random rotation
  - gif+bmp
+ - pregenerated icons (fx party)
 
 Extras:
  - Calendar
@@ -136,13 +138,14 @@ Extras:
  - own html code
  - Voting
  - Picture viewing statistics
+ - News mailings / rss feed
 
 Translator:
  - Support parameters in translations,... %1 %2 ...
  - Return keyword if no text present
 
 Search:
- - Seach in channels and stories
+ - Search in channels and stories
 
 Caching:
  - Mason caching, shared mem, squid
