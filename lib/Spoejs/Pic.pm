@@ -1,8 +1,8 @@
 package Spoejs::Pic;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-# $Id: Pic.pm,v 1.19 2004/08/13 06:32:55 sauber Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.19 $';
+# $Id: Pic.pm,v 1.20 2004/08/14 07:10:36 sauber Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.20 $';
 
 # Supported extensions
 $Spoejs::Pic::EXTENSIONS = 'jpg|jpeg|png|gif|bmp';
@@ -62,26 +62,25 @@ sub extinfo {
   return $self->_err("$self->{path}/$self->{file} does not exist")
     unless -f "$self->{path}/$self->{file}";
 
-  my %picinfo;
-  # Image::Info sometimes hang, so timeout after 2 seconds.
-  eval {
+  # Image::Info sometimes hang, or sometimes coredumps!! So we have to deal
+  # with that :-p Better spawn an external process to protext httpd.
+  my $o;
+  eval{
     local $SIG{ALRM} = sub { die "timeout\n" };
     alarm 2;
-    use Image::Info qw(image_info);
-    my $info = image_info("$self->{path}/$self->{file}");
-    for my $k ( keys %$info ) {
-      my $v = scalar $info->{$k};
-      my $t = ref($v);
-      #warn "Image::Info $k ($t): $v\n" unless $t;
-      # Only bother to get scalar values
-      $picinfo{$k} = $v unless $t;
-    }
+    $o = `perl -e 'use Image::Info qw(image_info);\$i=image_info("$self->{path}/$self->{file}");for(sort{lc(\$a)cmp lc(\$b)}keys%\$i){print"\$_|!|\t\$i->{\$_}|!|\n\n"unless ref(\$i->{\$_});}'`;
     alarm 0;
   };
 
+  my %picinfo;
+  for ( grep /\|\!\|\t/, split /\|\!\|\n\n/, $o ) {
+    my($k,$v) = split /\|\!\|\t/;
+    #print "$k : $v\n";
+    $picinfo{$k} = $v;
+  }
+
   return \%picinfo;
 }
-
 
 __END__
 
