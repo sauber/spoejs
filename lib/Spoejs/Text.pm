@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.11 2004/03/04 11:43:52 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.11 $';
+# $Id: Text.pm,v 1.12 2004/03/06 00:41:16 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.12 $';
 
 
 # Constructor
@@ -30,7 +30,9 @@ sub _store_data {
 
     my $self = shift;
     my %data = %{$self->{data}}; #grab data for easier access
-    open (FH, ">$self->{path}/$self->{file}") or return undef;
+    open (FH, ">$self->{path}/$self->{file}") or
+ 	return $self->_err( "_store_data: Could not open $self->{path}/$self->{file}: $! ");
+    binmode( FH, ":utf8" );
 
     foreach $key ( keys( %data ) ) {
 	
@@ -58,6 +60,9 @@ sub _store_data {
     }
 
     close FH;
+
+    # Success
+    return 1;
 };
 
 
@@ -72,7 +77,8 @@ sub _store_data {
 sub _read_data {
 
     my $self = shift;
-    open FH, "<$self->{path}/$self->{file}" or return undef;
+    open FH, "<$self->{path}/$self->{file}" or return 1;
+    binmode( FH, ":utf8" );
 
     my $tag = "";
     my $lang = "";
@@ -136,7 +142,10 @@ sub _read_data {
 	}
     }
     close FH;
-};
+
+    # Success
+    return 1;
+}
 
 
 # Read file from disk if it is not already in memory 
@@ -146,11 +155,10 @@ sub _check_load {
     my $self = shift;
 
     unless ( $self->{is_loaded} ) {
-	$self->_read_data() or return undef;
+	$self->_read_data();
 	$self->{is_loaded} = 1;
     }
-
-};
+}
 
 
 #### Public interface ####
@@ -162,22 +170,23 @@ sub get {
     my $self = shift;
     my %res;
 
-    $self->_check_load() or return undef;
+    $self->_check_load();
+
+    return $self->_err( "No data set or loaded" ) unless $self->{data};
 
     # Return only requested values if a list is supplied. dclone deep-copies
     if ( @_ == 1 ) {
 	$val = shift;
  	# Get var incl. languages
 	if ( ref $self->{data}{$val} ) {
-
+	    # $val contains langs, so deep-copy
 	    $res{$val} = dclone( $self->{data}{$val} );
-
+	    %res = $self->{lang}->tr( \%res );
+	    return $res{$val};
 	} else {
-	    $res{$_} = $self->{data}{$_[0]};
+	    # No langs so return value
+	    return $self->{data}{$val};
 	}
-	
- 	%res = $self->{lang}->tr( \%res );
- 	return $res{$val};
     }
     elsif ( @_ > 1 ) {
 
@@ -247,8 +256,8 @@ sub del {
     my $file =  $self->{path} . '/' . $self->{file};
     $msg = unlink $file;
 
-    undef $self->{is_loaded};
-    undef $self->{is_modified};
+    delete $self->{is_loaded};
+    delete $self->{is_modified};
 }
 
 

@@ -3,8 +3,8 @@ use base ( "Spoejs" );
 use utf8;
 use Data::Dumper;
 
-# $Id: Lang.pm,v 1.6 2004/03/04 11:43:52 snicki Exp $
-$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.6 $';
+# $Id: Lang.pm,v 1.7 2004/03/06 00:41:16 snicki Exp $
+$Spoejs::Lang::VERSION = $Spoejs::Lang::VERSION = '$Revision: 1.7 $';
 
 sub _initialize { }
 
@@ -48,6 +48,6 @@ sub tr {
 
 	}
     }
-    
+
     return %{$data};
 }
