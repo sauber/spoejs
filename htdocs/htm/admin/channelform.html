@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.29 2004/05/20 05:45:44 snicki Exp $
+%# $Id: channelform.html,v 1.30 2004/05/20 05:49:43 snicki Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2><&|/l&>congrat_changes</&></h2>
@@ -65,8 +65,8 @@
 % my $yc = $ARGS{public} eq 'yes' ? ' checked="checked"' : '';
 % my $nc = $ARGS{public} eq 'no_' ? ' checked="checked"' : '';
 % $yc = ' checked="checked"' unless $yc or $nc;
-*public*<input type="radio" name="public" value="yes"<% $yc %>>
-*private*<input type="radio" name="public" value="no_"<% $nc %>>
+*public*: <input type="radio" name="public" value="yes"<% $yc %>>
+*private*: <input type="radio" name="public" value="no_"<% $nc %>>
 </td>
 <td class="form_desc">*journal_security_description*</td>
 </tr>
