@@ -3,47 +3,58 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: comment.html,v 1.4 2004/06/08 02:49:19 snicki Exp $
+%# $Id: comment.html,v 1.5 2004/06/08 08:48:51 sauber Exp $
 %#
 <script language="JavaScript">
 self.location = '<% $ENV{HTTP_REFERER} %>';
 </script>
 <%init>
 # Is required information entered?
-unless ( $name and $comment ) {
-  # XXX: information missing error
-  #warn "information missing error";
+unless ( 0 < length $name ) {
+  $session{formerror} .= "**name_missing**\t";
+}
+
+unless ( 0 < length $comment ) {
+  $session{formerror} .= "**comment_missing**\t";
 }
 
 # Was human verification submitted?
+my $rr;
 if ( $code and $md5sum ) {
-  $m->comp('/htm/humantest:response', $code, $md5sum, $name, $email);
-  #warn "code=$code md5sum=$md5sum";
+  $rr = $m->comp('/htm/humantest:response', $code, $md5sum, $name, $email);
 } 
 
 # Did human test succeed?
 unless ( exists $session{humanname} ) {
-  # XXX: human test failed, stop
-  #warn "human test failed, stop";
+  $session{formerror} .=
+    "**security_image_failed_verification**, **error_code** $rr\t";
 }
 
-# render information to put into comments storage
-my $block = sprintf "Name=%s\n", $name;
-$block .= sprintf "Email=%s\n", $email if $email;
-$block .= sprintf "Date=%d\n", time();
-$block .= sprintf "Lang=%s\n", $spoejs{current_language};
-$block .= sprintf "Comment=%s\n", $comment;
-$block .= "\n";
+# Store data if there were no errors
+if ( exists $session{formerror} ) {
+  # There are errors. Save the form data for later.
+  $session{formcomment} = $comment;
+  $session{formname} = $name;
+  $session{formemail} = $email;
+} else {
+  # render information to put into comments storage
+  my $block = sprintf "Name=%s\n", $name;
+  $block .= sprintf "Email=%s\n", $email if $email;
+  $block .= sprintf "Date=%d\n", time();
+  $block .= sprintf "Lang=%s\n", $spoejs{current_language};
+  $block .= sprintf "Comment=%s\n", $comment;
+  $block .= "\n";
 
-# Insert into storage
-# XXX: file and object
-my $story_path = "$spoejs{channel_path}/$spoejs{p}{d}";
-my $Com = new Spoejs::Comments( path => $story_path );
-my $object = $spoejs{p}{p} if defined $spoejs{p}{p};
-$object ||= $spoejs{p}{s} if defined $spoejs{p}{s};;
-$object ||= 'story';
-$Com->append( $object => $block );
-
+  # Insert into storage
+  # XXX: file and object
+  my $story_path = "$spoejs{channel_path}/$spoejs{p}{d}";
+  my $C = new Spoejs::Comments( path => $story_path );
+  my $object = $spoejs{p}{p} if defined $spoejs{p}{p};
+  $object ||= $spoejs{p}{s} if defined $spoejs{p}{s};;
+  $object ||= 'story';
+  $C->append( $object => $block );
+}
+  
 # Go back to where we came from
 #$m->redirect( $ENV{HTTP_REFERER} );
 </%init>
