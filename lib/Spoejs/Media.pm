@@ -11,8 +11,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 
-# $Id: Media.pm,v 1.6 2004/03/25 03:48:48 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.6 $';
+# $Id: Media.pm,v 1.7 2004/03/27 13:18:34 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.7 $';
 
 #### Private helper functions ####
 
@@ -108,4 +108,10 @@ sub rename {
     $self->valid_name();
 
     rename "$old_file", "$self->{path}/$self->{file}" or warn "rename: $!";
+}
+
+
+sub delete {
+    my ( $self ) = shift;
+    return unlink "$self->{path}/$self->{file}";
 }
