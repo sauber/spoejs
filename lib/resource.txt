@@ -84,6 +84,10 @@
 <lang=zh/>种类
 </category>
 
+<categorylist>
+<lang=en/>Category list
+</category>
+
 <chan_home>
 <lang=da/>Historie index
 <lang=en/>Channel home
@@ -518,6 +522,11 @@
 <lang=zh/>登记
 </signup>
 
+<signup_newchannel>
+<lang=en/>Sign up for a new Spoejs channel
+<lang=zh/>登记新的网页
+</signup_newchannel>
+
 <site_home>
 <lang=da/>Kanal index
 <lang=en/>Site home
@@ -555,7 +564,11 @@
 <lang=en/>Story title
 <lang=hu/>tortenet cim
 <lang=zh/>故事
-</storytitle>
+<storytitle>
+
+<storytitlelist>
+<lang=en/>Story title list
+</storytitlelist>
 
 <submit>
 <lang=ar/>أرسال
