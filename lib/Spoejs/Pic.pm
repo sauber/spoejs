@@ -1,8 +1,8 @@
 package Spoejs::Pic;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-# $Id: Pic.pm,v 1.15 2004/05/09 11:57:15 snicki Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.15 $';
+# $Id: Pic.pm,v 1.16 2004/05/09 11:59:28 snicki Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.16 $';
 
 # Supported extensions
 $Spoejs::Pic::EXTENSIONS = 'jpg|png|gif|bmp';
@@ -15,6 +15,7 @@ sub _initialize {
   # Set supported extensions and call Media's initializor
   $self->{extensions} = $Spoejs::Pic::EXTENSIONS;
   $self->_check_save();
+  return undef if defined $self->{msg};
 
   # Check if file is ok and rotate
   if (  defined $self->{fh} and $self->ping() ) {
