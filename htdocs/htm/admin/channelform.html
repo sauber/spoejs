@@ -1,10 +1,11 @@
-%# Register channel or edit configuration
-%#
-%# License: Artistic License
-%#          http://www.opensource.org/licenses/artistic-license.php
-%#
-%# $Id: channelform.html,v 1.38 2004/06/11 03:46:57 sauber Exp $
-%#
+<%doc>
+Register channel or edit configuration
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: channelform.html,v 1.39 2004/06/11 10:09:24 snicki Exp $
+</%doc>
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2>**congrat_changes**</h2>
 <a href="/<%$ARGS{shortname}%>/index.html">**click_continue**</a>
@@ -35,12 +36,21 @@
 <tr><td colspan="3" class="form_error">**fix_and_resubmit**</td></tr>
 <tr><td colspan="3" class="form_error"><hr/></td></tr>
 %}
-<% form_row( 'username',  'username', "text", $ARGS{'username'},
-             $errs{'username'}, 16 ) %>
-<% form_row( "passwd", "password", "password", $ARGS{password},
-             $errs{password}, 16 ) %> 
-<% form_row( "passwd_retype", "password2", "password", "",
-$errs{password}, 16) %>
+<tr>
+  <td>**username**:</td>
+  <td><input type="text" name="username" size="16"></td>
+  <td class="form_desc">**username_description**</td>
+</tr>
+<tr>
+  <td>**passwd**:</td>
+  <td><input type="password" name="password" size="16"></td>
+  <td class="form_desc">**passwd_description**</td>
+</tr>
+<tr>
+  <td>**passwd_retype**:</td>
+  <td><input type="password" name="password2" size="16"></td>
+  <td class="form_desc">**passwd_retype_description**</td>
+</tr>
 <tr>
 <td>&nbsp;</td>
 </tr>
@@ -52,10 +62,16 @@ $errs{password}, 16) %>
   <td class="form_desc">**journal_id_description** http://<%
   $ENV{SERVER_NAME} %>/&lt;**journal_id**&gt;</td>
 </tr>
-<% form_row( 'title',  'title', "text", $ARGS{'title'},
-             $errs{'title'}, 30 ) %>
-<% form_row( 'description', 'description', "text", $ARGS{'description'},
-              $errs{'description'}, 50 ) %>
+<tr>
+  <td>**title**:</td>
+  <td><input type="text" name="title" size="30"></td>
+  <td class="form_desc">**title_description**</td>
+</tr>
+<tr>
+  <td>**description**:</td>
+  <td><input type="text" name="description" size="50"></td>
+  <td class="form_desc">**description_description**</td>
+</tr>
 <tr>
 <td>**language**:</td>
 <td>
@@ -146,21 +162,6 @@ if ( $ARGS{submit} ) {
 }
 </%init>
 <%perl>
-sub form_row {
-  my ( $text, $name, $type, $val, $err, $size ) = @_;
-  $size ||= 20;
-  my $errclass = $err ? ' class="form_error"' : '';
-  my $desc = "${text}_description"; #before text-change
-  $text = "**$text**";
-  return <<HTML;
-<tr>
-  <td$errclass>$text:</td>
-  <td><input value="$val" type="$type" name="$name" size="$size"></td>
-  <td class="form_desc">**$desc**</td>
-</tr>
-HTML
-}
-
 sub check_args {
   my ( $ARGS, $errs ) = @_;
 
