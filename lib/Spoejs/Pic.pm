@@ -1,8 +1,8 @@
 package Spoejs::Pic;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
-# $Id: Pic.pm,v 1.14 2004/05/08 13:53:35 sauber Exp $
-$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.14 $';
+# $Id: Pic.pm,v 1.15 2004/05/09 11:57:15 snicki Exp $
+$Spoejs::Pic::VERSION = $Spoejs::Pic::VERSION = '$Revision: 1.15 $';
 
 # Supported extensions
 $Spoejs::Pic::EXTENSIONS = 'jpg|png|gif|bmp';
@@ -17,7 +17,7 @@ sub _initialize {
   $self->_check_save();
 
   # Check if file is ok and rotate
-  if ( $self->ping() and defined $self->{fh} ) {
+  if (  defined $self->{fh} and $self->ping() ) {
       # XXX: Not-portable
       my $fp = "$self->{path}/$self->{file}";
       my $jh = `which jhead`;
