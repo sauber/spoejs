@@ -11,10 +11,13 @@
 </tr></table>
 <%init>
 # Check authorization
-return undef unless $m->comp( '/htm/login.html:check_login', silent => 1 );
+unless ( $no_auth ) {
+  return undef unless $m->comp( '/htm/login.html:check_login', silent => 1 );
+}
 </%init>
 <%args>
-  @list   => undef
-  $caller => 'NO_MATCH'
-  $label  => undef
+  @list    => undef
+  $caller  => 'NO_MATCH'
+  $label   => undef
+  $no_auth => undef
 </%args>
