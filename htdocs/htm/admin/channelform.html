@@ -71,6 +71,9 @@ if ( $ARGS{submit} ) {
     my $CL = new Spoejs::ChannelList( path => "$ENV{DOCUMENT_ROOT}/users/" );
     my $res = $CL->new_channel( %cl_args );
 
+    # Start as logged in when you have just signed up
+    $session{chanauth}{$cl_args{shortname}} = 1;
+
   } elsif (  keys %errs == 0 && $spoejs{channel} ) {
 
     my $CC = new Spoejs::ChannelConf( path => $spoejs{channel_path},
@@ -78,6 +81,8 @@ if ( $ARGS{submit} ) {
 
     my $res = $CC->set( %cl_args );
   }
+
+
 }
 </%init>
 <%perl>
