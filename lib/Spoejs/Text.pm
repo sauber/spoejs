@@ -9,8 +9,8 @@ use Spoejs::ChannelConf;
 use base ( "Spoejs" );
 use Data::Dumper;
 
-# $Id: Text.pm,v 1.14 2004/03/07 10:16:09 snicki Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.14 $';
+# $Id: Text.pm,v 1.15 2004/03/09 01:39:05 snicki Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.15 $';
 
 
 # Constructor
@@ -228,25 +228,30 @@ sub set {
     foreach $key ( keys %in_data ) {
 	my $type = ref( $in_data{$key} );
 	
-	# If hash, loop again
 	if ( $type eq "" ) {
 	    # If SCALAR, ref is false - add/overwrite directly
-	    $self->{data}{$key} = $in_data{$key};
+
+	    unless( $self->{data}{$key} eq $in_data{$key} ) {
+		$self->{data}{$key} = $in_data{$key};
+		$self->{is_modified} = 1;
+	    }
 	    
 	} else {
 	    # If this level contains nested elements they will be replaced
 	    # TODO: Check and report nested elements og make funktion recursive
+	    # TODO: Set is_modified only if something really changes.
 	    # to handle "unlimited" nesting.
 	    if( defined $self->{data}{$key} ) {
 		%{ $self->{data}{$key} } = ( %{ $self->{data}{$key} }, 
 					     %{ $in_data{$key} } );
+		$self->{is_modified} = 1;
+
 	    } else {
 		%{ $self->{data}{$key} } = ( %{ $in_data{$key} } );
+		$self->{is_modified} = 1;
 	    }
 	}
     }
-
-    $self->{is_modified} = 1;
 }
 
 
