@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.39 2004/10/28 12:05:34 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.39 $';
+# $Id: StoryList.pm,v 1.40 2004/10/28 12:52:43 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.40 $';
 
 sub _initialize {
     my $self = shift;
@@ -134,8 +134,17 @@ sub del_story {
 }
 
 
-# XXX: Add counts by year/month
+# Return the total number of stories
 #
+sub count {
+    my $self = shift;
+
+    # The list of paths to all data.txt files in scalar context is the count
+    return scalar $self->_list_from_filename( $self->{path}, $self->{file} );
+}
+
+# Count number of stories by keyword
+# XXX: Should renamed to e.g. count_stories_by, number_of etc..
 sub count_stories {
   my $self = shift;
   my %in = @_;
