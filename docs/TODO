@@ -74,12 +74,6 @@ GUI Design:
  - Spoejs Logo
  - Lists with stripes in different colors.
 
-StoryConf:
- - Store GMT unixtime as well as user-entered date string
- - Parse localized datestring to unixtime
- - Or something to handle dates better
- - Perhaps verify page after submit
-
 Syndication:
  - Central site for root index
  - Parallel lwp fetch
@@ -88,6 +82,7 @@ Syndication:
  - move latest.html into htm/
 
 Annotations:
+ - BUG: Caching media output prevents viewing recent annotation edits
 
 Comments:
  - Journal owner can delete comments
@@ -109,6 +104,10 @@ StoryAdmin:
  - Active/inactive story
  - Support Media=* anywhere in story
  - Media=* at end.
+ - Store GMT unixtime as well as user-entered date string
+ - Parse localized datestring to unixtime
+ - Or something to handle dates better
+ - Perhaps verify page after submit
 
 SiteConf:
  - Paths, theme, lang
@@ -121,6 +120,7 @@ SiteConf:
  - Site conf tabs
  - Siteconf link in topbar if admin is logged in
  - Unarchive
+ - After first save, show Story Edit Tabs
 
 Navigation:
  - StoryList
@@ -129,6 +129,7 @@ Navigation:
  - Slideshow
  - Bug: http://server/user/ doesn't work. Only works with /index.html
  - On intro, only Show link if fulltext or media exist
+ - Story page need 'Up' link back to index page where story appear
 
 Media:
  - Crop, rotate, brightness, compress
