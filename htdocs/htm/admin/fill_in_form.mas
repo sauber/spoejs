@@ -7,6 +7,7 @@
  $data   => undef
  $object => undef
  $fill_password => 0
+ $ignore => undef
 </%args>
 
 <%init>
@@ -18,6 +19,7 @@
                               fdat      => $data,
                               fobject   => $object,
                               fill_password => $fill_password,
+			      ignore_fields => $ignore,
                             );
 
      # Add errors on top of form
