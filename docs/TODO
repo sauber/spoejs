@@ -50,6 +50,7 @@ Data:
 Channelconf:
  - default intro thumbnail select algorithm (first/random...)
  - After signup, show journalconf tabs
+ - Bug: Changing journal conf causes "Invalid Journal-ID" error.
 
 ChannelList:
  - Complete content page
@@ -72,6 +73,7 @@ Theme:
 GUI Design:
  - Spoejs Logo
  - Lists with stripes in different colors.
+ - Divider between New Story and Logout
 
 Syndication:
  - Central site for root index
@@ -107,6 +109,7 @@ StoryAdmin:
  - Parse localized datestring to unixtime
  - Or something to handle dates better
  - Perhaps verify page after submit
+ - Bug: Stack trace on invalid date
 
 SiteConf:
  - Paths, theme, lang
@@ -139,6 +142,7 @@ Media:
  - media page should have themable picture size
  - Bug: broken ANY thumb shows on stories without media
  - Bug: On inline pages, all media appear twice
+ - Support movie clips in zip files
 
 Icons:
  - pregenerated icons (fx party)
