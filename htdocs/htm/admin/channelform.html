@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: channelform.html,v 1.27 2004/05/18 13:56:13 snicki Exp $
+%# $Id: channelform.html,v 1.28 2004/05/18 14:00:24 snicki Exp $
 %#
 %if ( $ARGS{submit} && keys %errs == 0 && $spoejs{channel} ) {
 <h2><&|/l&>congrat_changes</&></h2>
@@ -46,14 +46,14 @@
 <td>
 <& /w, w => 'langselect' &>
 </td>
-<td>*language_description*</td>
+<td class="form_desc">*language_description*</td>
 </tr>
 <tr>
 <td>*theme*:</td>
 <td>
 <& /w, w => 'themeselect' &>
 </td>
-<td>*theme_description*</td>
+<td class="form_desc">*theme_description*</td>
 </tr>
 <tr>
 <td>*journal_security*</td>
@@ -64,7 +64,7 @@
 *public*<input type="radio" name="public" value="yes"<% $yc %>>
 *private*<input type="radio" name="public" value="no_"<% $nc %>>
 </td>
-<td>*journal_security_description*</td>
+<td class="form_desc">*journal_security_description*</td>
 </tr>
 </table>
 </fieldset>
@@ -141,7 +141,7 @@ sub form_row {
 <tr>
   <td$errclass>$text:</td>
   <td><input value="$val" type="$type" name="$name"><!--$err--></td>
-  <td>*$desc*</td>
+  <td class="form_desc">*$desc*</td>
 </tr>
 HTML
 }
