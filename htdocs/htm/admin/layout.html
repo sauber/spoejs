@@ -4,7 +4,7 @@ Edit layout of channel
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: layout.html,v 1.2 2004/06/13 08:18:45 snicki Exp $
+$Id: layout.html,v 1.3 2004/06/13 08:24:40 snicki Exp $
 </%doc>
 <fieldset>
 <legend>
@@ -34,10 +34,11 @@ if ( defined $ARGS{submit} ) {
                      'layout_form' );
 
   # Save data
-  for my $attrib ( @attributes ) {
-    $spoejs{ChannelConf}->set( $attrib => $ARGS{$attrib} );
+  unless ( $error ) {
+    for my $attrib ( @attributes ) {
+      $spoejs{ChannelConf}->set( $attrib => $ARGS{$attrib} );
+    }
   }
-
 }
 
 # Fill in ARGS
