@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: setupSession,v 1.15 2004/05/18 13:15:31 snicki Exp $
+%# $Id: setupSession,v 1.16 2004/06/04 07:25:25 snicki Exp $
 %#
 <%perl>
 
@@ -63,6 +63,7 @@ if ( length $path > 3 and length $path < 11 ) {
   # Set language object
   $spoejs{lang_handle} = new Spoejs::Lang( lang_order =>
                  [ $session{pref_lang}, @{ $session{browser_langs} }, 'en' ] );
+  $spoejs{current_language} = $spoejs{lang_handle}->{lang_order}->[0];
 
   # Set resource object
   $spoejs{res_handle} = new Spoejs::Resource( lang => $spoejs{lang_handle} );
