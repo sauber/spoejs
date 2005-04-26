@@ -4,13 +4,13 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.45 2004/08/16 10:49:52 sauber Exp $
+$Id: story.html,v 1.46 2005/04/26 20:04:55 snicki Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
 <& /htm/admin/story_tab.mas &>
 %}
-% if ( $ARGS{submit} ) {
+% if ( $ARGS{submit} && keys(%validation_errors) == 0 ) {
 <h4>**storysave**.</h4>
 %# Redirect to story page
 % my $url = $m->scomp( '/htm/url:encode',
@@ -27,7 +27,7 @@ $Id: story.html,v 1.45 2004/08/16 10:49:52 sauber Exp $
 <input type="text" size="60" name="title" value="<%$ARGS{title}%>"/><br/>
 <br/>
 **date**: **blank_default**<br/>
-<input type="text" size="60" name="date" value="<%$ARGS{date}%>"/><br/>
+<input type="text" size="60" name="date" value="<%$ARGS{date}%>"/> <span class="form_error"><%$validation_errors{date}%></span><br/>
 <br/>
 **category**:<br/>
 <select name="category">
@@ -81,6 +81,7 @@ my $story_dir = $spoejs{p}{d} || undef;
 my %checked;
 my $checked_file;
 
+my %validation_errors;
 
 # Get data from existing story or create new story
 if ( defined $spoejs{Story} && !$ARGS{submit} ) {
@@ -117,13 +118,23 @@ if ( $ARGS{active} eq 'no' ) {
   $checked{active_yes} = ' checked="checked"';
 }
 
-
 if ( defined $ARGS{submit} ) {
+
+  # Verify date
+  my $date = Date::Manip::ParseDate( $ARGS{date} );  
+  if(! $date){
+    $validation_errors{date} = "**bad_date_format**";
+  }
+
+  # XXX: Verify other input
+
+}
+
+if ( defined $ARGS{submit} && keys( %validation_errors) == 0 ) {
 
   # Get thumbnail
   $ARGS{thumbnail} = $ARGS{thumbfile} if $ARGS{thumbnail} eq 'specific';
 
-  # XXX: Verify input
   $ARGS{category} = $ARGS{newcategory} if $ARGS{newcategory};
 
   # Save to story
