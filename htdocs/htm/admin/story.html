@@ -4,7 +4,7 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.46 2005/04/26 20:04:55 snicki Exp $
+$Id: story.html,v 1.47 2005/04/27 15:56:22 snicki Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
@@ -38,7 +38,7 @@ $Id: story.html,v 1.46 2005/04/26 20:04:55 snicki Exp $
 % }
 </select>
 **or_new**: 
-<input type="text" size="30" name="newcategory" value=""/><br/>
+<input type="text" size="30" name="newcategory" value="<%$ARGS{newcategory}%>"/><br/>
 <br/>
 **story_summary**:<br/>
 <textarea name="abstract" rows="5" cols="60"><%$ARGS{abstract}%></textarea>
