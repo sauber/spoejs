@@ -12,8 +12,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.30 2004/10/28 12:07:18 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.30 $';
+# $Id: Media.pm,v 1.31 2005/04/27 20:31:28 snicki Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.31 $';
 
 
 # Initializor
@@ -233,9 +233,7 @@ sub rotate {
     print _PIC $self->{_blob};
   close _PIC;
 
-#  $self->save( \$self->{_blob} );
-
-  warn "Image rotated";
+  return 1;
 }
 
 

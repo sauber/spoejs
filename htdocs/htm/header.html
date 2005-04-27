@@ -4,7 +4,7 @@ html header with xhtml version, utf-8 and javascript
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: header.html,v 1.9 2004/08/08 16:12:09 snicki Exp $
+$Id: header.html,v 1.10 2005/04/27 20:31:27 snicki Exp $
 </%doc>
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html 
@@ -17,7 +17,7 @@ $Id: header.html,v 1.9 2004/08/08 16:12:09 snicki Exp $
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="Content-Script-Type" content="text/javascript" />
     <link rel="StyleSheet" href="<%$css%>" type="text/css" />
-  </head>
+   </head>
 <%init>
 my $css = "/theme/$spoejs{p}{t}/css/style.css";
 $css = "/theme/default/css/style.css" unless -f "$ENV{DOCUMENT_ROOT}/$css";

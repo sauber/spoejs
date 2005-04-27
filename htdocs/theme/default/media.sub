@@ -4,7 +4,7 @@ Show scaled picture or movie
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: media.sub,v 1.5 2004/08/31 01:17:18 sauber Exp $
+$Id: media.sub,v 1.6 2005/04/27 20:31:28 snicki Exp $
 </%doc>
 <& $w,
  href          => $href,
@@ -27,6 +27,16 @@ my $ckey ="$spoejs{channel_path}-$ARGS{d}-$ARGS{p}-$size";
 
 # get width/height for html
 unless ( $html_wh or $ARGS{p} eq 'ANY' ) {
+  # check on-disk fila hasn't changed (happens when rotating)
+  my $co = $m->cache->get_object($ckey);
+  my ($dev,$ino,$mode,$nlink,$uid,$gid,$rdev,$sz,$atime,$mtime,@rest) = stat("$spoejs{channel_path}/$ARGS{d}/$ARGS{p}");
+
+  if( $co && $mtime > $co->get_created_at() )
+  {
+    $m->cache->remove($ckey);
+  }
+
+  # Continue normal processing
   $html_wh = $m->cache->get($ckey);
   if ( !defined $html_wh  ) {
     my $M = new Spoejs::Media( path => "$spoejs{channel_path}/$ARGS{d}",
@@ -34,9 +44,8 @@ unless ( $html_wh or $ARGS{p} eq 'ANY' ) {
     $spoejs{error}{$m->current_comp->source_file} = "$M->{msg}: $ARGS{p}"
 	 if defined $M->{msg};
     return undef if defined $M->{msg};
-
     $html_wh = $M->html_imgsize( size => $size );
-    $m->cache->set($ckey, $html_wh);
+    $m->cache->set($ckey, $html_wh, );
   }
 }
 
