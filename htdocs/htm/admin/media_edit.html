@@ -1,0 +1,28 @@
+%if( $session{do_rotate} ) {
+<script language="JavaScript"><!--
+    location.reload(false); // forces a reload from the server
+//--></script>
+% delete $session{do_rotate}; }
+% return unless $m->comp( '/htm/login.html:check_login' );
+<& /htm/admin/story_tab.mas &>
+<form method="POST">
+<& '/w', w => "media", d =>  $spoejs{p}{d}, p => $spoejs{p}{p},
+         m => 400, no_div => 1, no_annotation => 1 &>
+<br/>
+<input type="submit" name="rotate" value="**rotate**"/>
+</form>
+<%$tmp%>
+<%init>
+my $tmp;
+if( $ARGS{rotate} )
+{
+my $P = new Spoejs::Pic( file => $spoejs{p}{p}, path => "$spoejs{channel_path}/$spoejs{p}{d}" );
+if($P->rotate(90)){
+  $tmp = "rotating";
+  $session{do_rotate} = 1;
+  $m->redirect('#');
+}else {
+ $tmp = $P->{msg};
+}
+}
+</%init>
