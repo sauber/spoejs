@@ -1,0 +1,91 @@
+%# Show a story with all it's details and media
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: story-page,v 1.1 2005/05/01 12:50:44 sauber Exp $
+%#
+<script language="JavaScript" type="text/javascript">
+function slideshow(url) {
+  var w= screen.width;
+  var h= screen.height;
+  var options= "width=" + screen.width + ",height=" + screen.height;
+  window.open(url,"fs",options);
+}
+</script>
+<& /htm/admin/story_tab.mas &>
+%#<h2><% $story_ref->get( 'title' ) %></h2>
+%# Story navigation
+<center>
+% if ( $next_href ) {
+<a href="<% $next_href %>">&laquo;</a> |
+% }
+% if ( $up_href ) {
+<a href="<% $up_href %>">**up_**</a>
+% }
+% if ( $prev_href ) {
+| <a href="<% $prev_href %>">&raquo;</a>
+% }
+<br/>
+**fullscreen_slideshow**: 
+% for my $ss ( @ss_sizes ) {
+% my $url = $m->scomp( '/htm/url:encode', 'slideshow.html', d => $spoejs{p}{d}, m => $$ss[0] );
+<a href="javascript:slideshow('<%$url%>')"><%$$ss[1]%></a>
+%}
+<br/><br/>
+</center>
+<&| /w, w => "box", heading => $story_ref->get( 'date' ) &>
+<h3><% $story_ref->get( 'title' ) %></h3>
+%#<br/>
+%#<br/>
+%#<&| /w, w => "box", heading => '**summary**' &>
+<& /w, w => "text", text=>$story_ref->get( 'abstract' ) &>
+%#</&>
+%#<br/>
+%#<br/>
+% my $text = $story_ref->get( 'fulltext' );
+<&| /w, w => "box", heading => '**story**' &>
+<& /w, w => "text", text => $text &>
+</&>
+% my $tmptxt = join '', @$text if defined @$text;
+% unless ( $tmptxt =~ /media=/isg ) { #XXX: Consider other ways...
+<br/>
+<br/>
+% if ( $media_list->list() > 0 ) {
+<&| /w, w => 'box', heading => '**media**' &>
+<& /w, w => 'album', media_list => $media_list, navi_opt => \%navi_opt &>
+</&>
+% }}
+<br/>
+<br/>
+<& /w, w => 'comments', box => 1 &>
+<br/>
+<br/>
+<& /w, w => 'stats', box => 1, storyref => $story_ref &>
+<br/>
+<br/>
+<br/>
+% if ( $edit_href ) {
+%#<a href="<% $edit_href %>">**edit**</a>
+% }
+</&>
+<%init>
+# Set thumbnail count (overridable in channelconf)
+my $thumbnail_count = 10;
+$navi_opt{count} = $thumbnail_count if $navi_opt{count} == -1;
+
+my @ss_sizes = ( [1000, '800x600'], [1280, '1024x768'], [1640, '1280x1024'], [2000, '1600x1200'] );
+
+# Update access stats
+$spoejs{Stats}->access('story');
+</%init>
+<%args>
+  $story_dir  => undef
+  $story_ref  => undef
+  $edit_href  => undef
+  $up_href    => undef
+  $prev_href  => undef
+  $next_href  => undef
+  %navi_opt   => undef
+  $media_list => undef
+</%args>

@@ -1,0 +1,24 @@
+%# Channel front page
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: index-page,v 1.1 2005/05/01 12:50:44 sauber Exp $
+%#
+<table width=100% bgcolor="#ffcccc"><tr><td>
+<div style="float: right;">
+% if ( defined $spoejs{p}{c} ) {
+<h3>**category**: <%  $spoejs{p}{c} %></h3>
+% } else {
+<& /w, w => 'newcaticons' &>
+% }
+</div>
+<h2><% $CC->get( 'title' ) %></h2>
+<h3><% $CC->get( 'description' ) %></h3>
+</td></tr></table><br>
+<& /w, w => "list" &>
+<%init>
+</%init>
+<%args>
+ $CC        => undef
+</%args>
