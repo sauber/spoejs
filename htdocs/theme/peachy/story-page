@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.1 2005/05/01 12:50:44 sauber Exp $
+%# $Id: story-page,v 1.2 2005/05/02 02:28:25 sauber Exp $
 %#
 <script language="JavaScript" type="text/javascript">
 function slideshow(url) {
@@ -36,35 +36,27 @@ function slideshow(url) {
 </center>
 <&| /w, w => "box", heading => $story_ref->get( 'date' ) &>
 <h3><% $story_ref->get( 'title' ) %></h3>
-%#<br/>
-%#<br/>
-%#<&| /w, w => "box", heading => '**summary**' &>
+<&| /w, w => "box", heading => '**summary**' &>
 <& /w, w => "text", text=>$story_ref->get( 'abstract' ) &>
-%#</&>
-%#<br/>
-%#<br/>
+</&>
 % my $text = $story_ref->get( 'fulltext' );
 <&| /w, w => "box", heading => '**story**' &>
 <& /w, w => "text", text => $text &>
 </&>
 % my $tmptxt = join '', @$text if defined @$text;
 % unless ( $tmptxt =~ /media=/isg ) { #XXX: Consider other ways...
-<br/>
-<br/>
 % if ( $media_list->list() > 0 ) {
 <&| /w, w => 'box', heading => '**media**' &>
 <& /w, w => 'album', media_list => $media_list, navi_opt => \%navi_opt &>
+<div style="clear:both;"></div>
 </&>
 % }}
-<br/>
-<br/>
+%#<&| /w, w => 'box', heading => '**comments**' &>
 <& /w, w => 'comments', box => 1 &>
-<br/>
-<br/>
+%#</&>
+%#<&| /w, w => 'box', heading => '**stats**' &>
 <& /w, w => 'stats', box => 1, storyref => $story_ref &>
-<br/>
-<br/>
-<br/>
+%#</&>
 % if ( $edit_href ) {
 %#<a href="<% $edit_href %>">**edit**</a>
 % }

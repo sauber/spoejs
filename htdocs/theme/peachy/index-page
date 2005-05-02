@@ -3,19 +3,21 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: index-page,v 1.1 2005/05/01 12:50:44 sauber Exp $
+%# $Id: index-page,v 1.2 2005/05/02 02:28:25 sauber Exp $
 %#
-<table width=100% bgcolor="#ffcccc"><tr><td>
+%#<div style="background-color: #FFCCCC;">
+<&| /w, w => "box", heading => $CC->get( 'title' ) &>
 <div style="float: right;">
 % if ( defined $spoejs{p}{c} ) {
 <h3>**category**: <%  $spoejs{p}{c} %></h3>
 % } else {
+**categories**:<br>
 <& /w, w => 'newcaticons' &>
 % }
 </div>
-<h2><% $CC->get( 'title' ) %></h2>
 <h3><% $CC->get( 'description' ) %></h3>
-</td></tr></table><br>
+<div style="clear:right;"></div>
+</&>
 <& /w, w => "list" &>
 <%init>
 </%init>

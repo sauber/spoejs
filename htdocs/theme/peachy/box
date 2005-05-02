@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: box,v 1.1 2005/05/01 12:50:44 sauber Exp $
+%# $Id: box,v 1.2 2005/05/02 02:28:24 sauber Exp $
 %#
 <%args>
 $content => undef
@@ -16,9 +16,9 @@ unless ( $heading ) {
 # Avoid empty boxes
 return unless $content =~ /\w/;
 </%init>
-<table bgcolor=#ffcccc width=100%><tr><td>
+<div style="background-color: #FFCCCC; padding: 2px; margin: 2px;">
 % if ( $heading ) {
 <h2><% $heading %></h2>\
 % }
 <% $content %>
-</td></tr></table>\
+</div>

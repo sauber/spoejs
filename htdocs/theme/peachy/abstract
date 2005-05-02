@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract,v 1.1 2005/05/01 12:50:44 sauber Exp $
+%# $Id: abstract,v 1.2 2005/05/02 02:28:24 sauber Exp $
 %#
 <div class="right" style="margin: 5px;">
 <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
@@ -12,23 +12,20 @@
 <big><% $title %></big><br>
 <div class="category">**category**: <% $category %></div>
 <hr>
-<table><tr>
 % if ( $thumb_file ) {
-<td>
+<div style="float: left; margin: 5px;">
   <& /w, w => 'media', d => $path, p => $thumb_file,
      m => 320, href=>$story_href, no_div=>1 &>
-</td>
+</div>
 % }
-<td valign=top>
 <& /w, w => "text", text=>$abstract &><br />
-</td>
-</tr></table>
 <p align=right>
 <a href="<% $story_href %>">**view**</a>
 % if ( $edit_href ) {
 | <a href="<% $edit_href %>">**edit**</a>
 % }
 </p>
+<div style="clear:both;"></div>
 <hr>
 <p align=right>
 <b>**posted_by**:</b> <% $author %>
