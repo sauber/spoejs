@@ -3,10 +3,10 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: list,v 1.21 2004/04/10 07:21:08 sauber Exp $
+%# $Id: list,v 1.22 2005/05/02 02:38:27 sauber Exp $
 %#
 % foreach my $story ( @stories ) {
-<& /w, w => 'abstract', box => 1, storyref => $story &><br/>
+<& /w, w => 'abstract', box => 1, storyref => $story &>
 % }
 <& /w, w => 'navi', %navi_opt &>
 <%args>
