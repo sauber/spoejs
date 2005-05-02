@@ -1,5 +1,4 @@
 <div class="left_index">
 <& /w, w => "categorylist", box => 1 &>
-<br/>
 <& /w, w => "storytitlelist", box => 1 &>
 </div>
