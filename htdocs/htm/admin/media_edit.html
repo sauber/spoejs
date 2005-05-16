@@ -5,24 +5,33 @@
 % delete $session{do_rotate}; }
 % return unless $m->comp( '/htm/login.html:check_login' );
 <& /htm/admin/story_tab.mas &>
+<h3>**media_edit**</h3>
 <form method="POST">
 <& '/w', w => "media", d =>  $spoejs{p}{d}, p => $spoejs{p}{p},
          m => 400, no_div => 1, no_annotation => 1 &>
 <br/>
-<input type="submit" name="rotate" value="**rotate**"/>
+<br/>
+<h4>**rotate**</h4>
+<input type="submit" name="rotatel" value="**left**"/>
+<input type="submit" name="rotater" value="**right**"/>
 </form>
-<%$tmp%>
+<%$message%>
 <%init>
-my $tmp;
-if( $ARGS{rotate} )
+my $message;
+my $deg = 0;
+$deg = 90 if( $ARGS{rotater} );
+$deg = 270 if( $ARGS{rotatel} );
+
+# return if we are not rotating
+if( $deg != 0 )
 {
-my $P = new Spoejs::Pic( file => $spoejs{p}{p}, path => "$spoejs{channel_path}/$spoejs{p}{d}" );
-if($P->rotate(90)){
-  $tmp = "rotating";
-  $session{do_rotate} = 1;
-  $m->redirect('#');
-}else {
- $tmp = $P->{msg};
-}
+  #Rotate
+  my $P = new Spoejs::Pic( file => $spoejs{p}{p}, path => "$spoejs{channel_path}/$spoejs{p}{d}" );
+  if($P->rotate($deg)){
+    $session{do_rotate} = 1;
+    $m->redirect('#');
+  }else {
+    $message = $P->{msg};
+  }
 }
 </%init>

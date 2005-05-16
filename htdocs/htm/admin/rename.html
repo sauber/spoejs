@@ -4,7 +4,7 @@ Rename media files
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: rename.html,v 1.21 2005/04/27 20:31:28 snicki Exp $
+$Id: rename.html,v 1.22 2005/05/16 20:16:30 snicki Exp $
 </%doc>
 % return unless $m->comp( '/htm/login.html:check_login' );
 <& /js/confirm.js &>
@@ -31,7 +31,7 @@ value="<% $pic->utf_filename() %>">
 <input type="checkbox" name="delete" value="<% $pic->{file} %>">
 </td>
 <td align="center">
-<a href="<& /htm/url:encode, 'media_edit.html', d => $spoejs{p}{d}, p=> $pic->{file} &>">**edit**</a>
+<a href="<& /htm/url:encode, 'media_edit.html', d => $spoejs{p}{d}, p=> $pic->{file} &>">**more**</a>
 </td>
 <td align="center">
 <& /w, w => "media", d => $spoejs{p}{d}, p => $pic->{file}, m => 75,

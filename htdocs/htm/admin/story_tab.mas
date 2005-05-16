@@ -12,7 +12,7 @@ my @urls = (
 [ "$prefix/upload.html", '**media_upload**' ],
 [ "$prefix/mixmedia.html", '**media_mixing**' ],
 [ "$prefix/annotations.html", '**media_annotations**' ],
-[ "$prefix/rename.html", '**media_rename**' ],
+[ "$prefix/rename.html", '**media_edit**' ],
 [ "$prefix/delete_story.html", '**delete_story**' ],
 );
 
