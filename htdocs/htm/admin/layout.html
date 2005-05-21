@@ -4,7 +4,7 @@ Edit layout of channel
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: layout.html,v 1.10 2004/06/17 01:29:54 snicki Exp $
+$Id: layout.html,v 1.11 2005/05/21 14:31:40 snicki Exp $
 </%doc>
 <& journal_tab.mas &>
 <br/>
@@ -39,6 +39,21 @@ $Id: layout.html,v 1.10 2004/06/17 01:29:54 snicki Exp $
 </form>
 </&>
 </fieldset>
+<br/>
+<br/>
+<fieldset>
+<legend>
+**custom_content**
+</legend>
+<form name="custom_form" method="post" action="">
+<textarea rows="15" cols="80" name="custom_content">
+<% $ARGS{custom_content} %>
+</textarea>
+<br/>
+<br/>
+<input type="submit" name="save_content" value="**submit**">
+</form>
+</fieldset>
 <%init>
 # Check authorization
 return undef unless $m->comp( '/htm/login.html:check_login' );
@@ -70,12 +85,24 @@ if ( defined $ARGS{submit} ) {
   }
 }
 
+if ( defined $ARGS{save_content} ) {
+
+  # Check for errors
+
+  # Save data
+  unless ( $error ) {
+     $spoejs{ChannelConf}->set( 'custom_content' => $ARGS{custom_content} );
+  }
+}
+
 # Fill in ARGS
 if ( defined $spoejs{ChannelConf} )
 {
   for my $attrib ( @attributes ) {
     $ARGS{$attrib} = $spoejs{ChannelConf}->get( $attrib );
   }
+
+  $ARGS{custom_content} = $spoejs{ChannelConf}->get( 'custom_content' );
 }
 
 # Find thumbtype for html 'checked'ing
