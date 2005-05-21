@@ -1756,6 +1756,9 @@ no_stories:
   mk: 'Нема приказни'
   ru: 'нет рассказов'
   zh: '没有内容'
+note:
+  en: Note
+  da: Notits
 oneerror_occur:
   ar: 'حدث خطاء أو أكثر'
   da: En eller flere fejl er opstået i
