@@ -34,19 +34,6 @@ active:
   mk: 'Активен'
   ru: 'активный'
   zh: '运行'
-add:
-  da: Tilføj
-  en: Add
-  es: Agregar
-  et: Lisa
-  hu: ad
-  is: Bæta við
-  it: agguingere
-  iw: 'מוסיף'
-  ja: '追加'
-  mk: 'Додај'
-  ru: 'добавить'
-  zh: '添加'
 add_comment:
   da: Tilføj kommentar
   de: kommentieren
@@ -209,6 +196,9 @@ backtostory:
   mk: 'Назад кон приказната'
   ru: 'вернуться к рассказу'
   zh: '回到记事'
+bad_date_format:
+  da: Kan ikke forstå dato
+  en: Date not in valid format
 bg:
   ar: 'بلغاري'
   bg: 'Български'
@@ -473,6 +463,9 @@ currentfilename:
   mk: 'Тековно име на фајлот'
   ru: 'Текущие имя файла'
   zh: '现在的文件名'
+custom_content:
+  da: Brugerdefineret notits
+  en: User defined note
 da:
   ar: 'دنماركي'
   bg: 'Датски'
@@ -1395,16 +1388,6 @@ journals_friends:
   ja: '友達のサイトのジャーナル'
   mk: |-
     Списанија на сајтови на пријатели
-keyword:
-  da: Nøgleord
-  de: Passwort
-  en: Keyword
-  es: Palabra clave
-  et: Märksõna
-  hu: kulcsszó
-  it: Keyword
-  ja: 'キーワード'
-  mk: 'Клучен збор'
 language:
   ar: 'لغة'
   bg: 'Език'
@@ -1458,6 +1441,9 @@ layout:
   it: impaginazione
   ja: 'レイアウト'
   mk: 'Изглед'
+left:
+  da: Venstre
+  en: Left
 localjournal:
   da: Lokale journaler
   de: lokale Ausgaben
@@ -1524,6 +1510,9 @@ media_annotations:
   it: Media annotazione
   ja: 'メディア注釈'
   mk: 'Забелешки за медиумите'
+media_edit:
+  da: Ret Media
+  en: Edit Media
 media_information:
   da: Medieinformation
   en: Media information
@@ -1556,15 +1545,6 @@ media_mixing:
   it: Media mescorare
   ja: 'メディアミックス'
   mk: 'Мешање на медиумите'
-media_rename:
-  da: Omdøb medie
-  de: geänderte Bezeichnung von Medien
-  en: Media rename
-  es: Cambiar nombre de medio
-  et: Salvestise kustutamine ja nime muutmine
-  hu: média újranevezése
-  ja: 'メディアに再度名前をつける'
-  mk: 'Преименување на медиумите'
 media_upload:
   da: Upload medie
   de: Medienübertragung
@@ -1600,6 +1580,12 @@ month_top5:
   et: Selle kuu viis parimat
   hu: a hónap első 5-je
   ja: '今月のトップ５'
+more:
+  da: Flere
+  en: More
+more_edit:
+  da: Ret flere
+  en: Edit more
 name:
   da: Navn
   de: Name
@@ -2041,6 +2027,12 @@ random:
   ja: 'ランダム'
   ru: 'Случайный'
   zh: '随便'
+right:
+  da: Højre
+  en: Right
+rotate:
+  da: Drej
+  en: Rotate
 ru:
   da: Russisk
   de: russisch
@@ -2245,6 +2237,9 @@ specific:
   mk: 'Специфичен'
   ru: 'Определенный'
   zh: '具体'
+stats:
+  da: Statistik
+  en: Statistics
 statusjournal:
   ar: 'وضع النشرة على الموقع'
   da: Status for journaler på denne side
