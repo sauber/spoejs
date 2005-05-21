@@ -3,8 +3,9 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract,v 1.2 2005/05/02 02:28:24 sauber Exp $
+%# $Id: abstract,v 1.3 2005/05/21 13:41:30 sauber Exp $
 %#
+<div style="overflow:auto">
 <div class="right" style="margin: 5px;">
 <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
 </div>
@@ -25,7 +26,7 @@
 | <a href="<% $edit_href %>">**edit**</a>
 % }
 </p>
-<div style="clear:both;"></div>
+</div>
 <hr>
 <p align=right>
 <b>**posted_by**:</b> <% $author %>

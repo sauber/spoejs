@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.2 2005/05/02 02:28:25 sauber Exp $
+%# $Id: story-page,v 1.3 2005/05/21 13:41:30 sauber Exp $
 %#
 <script language="JavaScript" type="text/javascript">
 function slideshow(url) {
@@ -46,10 +46,12 @@ function slideshow(url) {
 % my $tmptxt = join '', @$text if defined @$text;
 % unless ( $tmptxt =~ /media=/isg ) { #XXX: Consider other ways...
 % if ( $media_list->list() > 0 ) {
+<div style="overflow: auto">
 <&| /w, w => 'box', heading => '**media**' &>
 <& /w, w => 'album', media_list => $media_list, navi_opt => \%navi_opt &>
-<div style="clear:both;"></div>
+%#<div style="clear:right;"></div>
 </&>
+</div>
 % }}
 %#<&| /w, w => 'box', heading => '**comments**' &>
 <& /w, w => 'comments', box => 1 &>
