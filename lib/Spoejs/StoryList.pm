@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.42 2005/03/18 05:37:44 sauber Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.42 $';
+# $Id: StoryList.pm,v 1.43 2005/05/21 13:53:54 snicki Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.43 $';
 
 sub _initialize {
     my $self = shift;
@@ -155,6 +155,7 @@ sub count_stories {
 
   if ( $in{by} eq 'category' or  $in{by} eq 'author' ) {
     for my $s ( @{$self->{stories}} ) {
+      next if !defined $in{include_inactive} && $s->get('active') eq 'no';
       my $cat = $s->get( $in{by} );
       $counts{$cat}++;
     }
