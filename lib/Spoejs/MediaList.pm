@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.21 2004/06/11 08:19:37 snicki Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.21 $';
+# $Id: MediaList.pm,v 1.22 2005/06/26 09:27:54 snicki Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.22 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -67,6 +67,11 @@ sub list {
     return $self->_list( $opt{start}, $opt{count}, sort @files );
 }
 
+sub count {
+    my $self = shift;
+    my @files = $self->_list_from_file_pattern( '('. $self->all_extensions() . ')$' );
+    return scalar @files;
+}
 
 sub list_unsorted {
     my $self = shift;

@@ -4,7 +4,7 @@ title, icon, indexthumb, etc. for a story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: abstract,v 1.33 2004/08/31 02:18:29 sauber Exp $
+$Id: abstract,v 1.34 2005/06/26 09:27:53 snicki Exp $
 </%doc>
 <h3><% $title %></h3>
 <br/>
@@ -28,6 +28,7 @@ $Id: abstract,v 1.33 2004/08/31 02:18:29 sauber Exp $
 <b>**posted_by**:</b> <% $author %><br/>
 <b>**category**:</b> <% $category %><br/>
 <b>**views**:</b> <% $views %><br/>
+<b>**media_count**:</b> <% $num_media %><br/>
 <br/>
 <& /w, w => "text", text=>$abstract &>
 </div>
@@ -43,4 +44,5 @@ $Id: abstract,v 1.33 2004/08/31 02:18:29 sauber Exp $
   $edit_href  => undef
   $thumb_file => undef
   $views      => 0
+  $num_media  => 0
 </%args>
