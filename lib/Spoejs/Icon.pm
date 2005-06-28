@@ -2,8 +2,8 @@ package Spoejs::Icon;
 use LWP::UserAgent;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.13 2004/08/16 11:02:05 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.13 $';
+# $Id: Icon.pm,v 1.14 2005/06/28 01:28:49 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.14 $';
 
 # Initializor
 #
@@ -60,7 +60,7 @@ sub _downloadicon {
   # misspelling suggestion or unknown.
   unless ( @I ) {
     $index =~ m/Did you mean:.*?<i>(.*?)<\/i>/;
-    $self->{_didyoumean} = $1 || 'unknown';
+    $self->{_didyoumean} = $1 || 'Icon' . 1 + int rand 99;
     return $self->_err('No mathing pictures. Try alternative.');
   }
 
