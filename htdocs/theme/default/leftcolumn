@@ -1,4 +1,7 @@
 <div class="left_index">
-<& /w, w => "categorylist", box => 1 &><br/>
+<& /w, w => "categorylist", box => 1 &>
+% if ( $spoejs{ChannelConf} && $spoejs{ChannelConf}->get( 'usertext' ) != /^\s*$/ ) {
+<& /w, w => "customcontent", box => 1 &>
+% }
 <& /w, w => "storytitlelist", box => 1 &>
 </div>
