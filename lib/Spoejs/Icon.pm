@@ -2,8 +2,8 @@ package Spoejs::Icon;
 use LWP::UserAgent;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.14 2005/06/28 01:28:49 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.14 $';
+# $Id: Icon.pm,v 1.15 2005/07/15 10:42:20 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.15 $';
 
 # Initializor
 #
@@ -53,7 +53,7 @@ sub _downloadicon {
       $s *= $xy;
     }
     $I[$n]{link} = $l[$n];
-    $I[$n]{xyrt} = $s;
+    $I[$n]{xyrt} = $s**3;
   }
 
   # Did we get at least one picture? Otherwise pass on Google's
@@ -65,10 +65,25 @@ sub _downloadicon {
   }
 
   # sort by squaredness
-  @I = sort { $b->{xyrt} <=> $a->{xyrt} } @I;
+  #@I = sort { $b->{xyrt} <=> $a->{xyrt} } @I;
+
+  # Weighted random choice based upon size and squaredness
+  my $t; $t += $_->{xyrt} for @I;
+  my $link;
+  while ( not $link ) {
+    $rand = rand $t;
+    for my $i ( @I ) {
+      if ( ( $rand -= $i->{xyrt} ) < 0 ) {
+        $link = $i->{link};
+        last;
+      }
+    }
+  }
+
 
   # Downloading most square picture
-  $r = $ua->get( "http://images.google.com$I[0]{link}" );
+  #$r = $ua->get( "http://images.google.com$I[0]{link}" );
+  $r = $ua->get( "http://images.google.com$link" );
   if ($r->is_success) {
     $self->{_blob} = $r->content;
     return 1;
