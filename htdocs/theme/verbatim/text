@@ -1,0 +1,23 @@
+%# Render paragraphs of text
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: text,v 1.3 2005/07/20 04:09:34 sauber Exp $
+%#
+<%args>
+$paragraphs=>undef
+</%args>
+% for my $p ( @$paragraphs ) {
+%   if ( $p->{type} eq 'text' ) {
+%     if ( $p->{content} =~ /^\s+/ ) {
+<blockquote><pre><% $p->{content} %></pre></blockquote>
+%     } else {
+<p align="justify"><% $p->{content} %></p>
+%     }
+%   } elsif ( $p->{type} eq 'media' ) {
+<br clear="all"/>
+<& /w, w => 'album', ml => $p->{content} &>
+<br clear="all"/>
+%   }
+% }
