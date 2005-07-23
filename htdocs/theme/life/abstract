@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: abstract,v 1.8 2004/11/26 04:05:54 sauber Exp $
+%# $Id: abstract,v 1.9 2005/07/23 03:50:13 sauber Exp $
 %#
 <h3><% $title %></h3>
 % if ( $thumb_file ) {
@@ -13,10 +13,13 @@
 </div>
 % }
 <& /w, w => 'categoryicon', category => $category, size => $icon_size &>
-<b>**posted_by**:</b> <% $author %>
-<b>**date**:</b> <% $date %>
-<b>**category**:</b> <% $category %>
-<b>**views**:</b> <% $views %>
+<small>
+**posted_by**: <b><% $author %></b>
+**date**: <b><% $date %></b>
+**category**: <b><% $category %></b>
+**media_count**: <b><% $num_media %></b>
+**views**: <b><% $views %></b>
+</small>
 <& /w, w => "text", text=>$abstract &><br />
 <a href="<% $story_href %>">**view**</a>
 % if ( $edit_href ) {
@@ -34,4 +37,5 @@
   $edit_href  => undef
   $thumb_file => undef
   $views      => 0
+  $num_media  => 0
 </%args>
