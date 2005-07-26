@@ -4,7 +4,7 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.47 2005/04/27 15:56:22 snicki Exp $
+$Id: story.html,v 1.48 2005/07/26 06:16:25 snicki Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
@@ -121,11 +121,12 @@ if ( $ARGS{active} eq 'no' ) {
 if ( defined $ARGS{submit} ) {
 
   # Verify date
-  my $date = Date::Manip::ParseDate( $ARGS{date} );  
-  if(! $date){
-    $validation_errors{date} = "**bad_date_format**";
+  if( length($ARGS{date}) > 0 )
+    my $date = Date::Manip::ParseDate( $ARGS{date} );  
+    if(! $date){
+      $validation_errors{date} = "**bad_date_format**";
+    }
   }
-
   # XXX: Verify other input
 
 }
