@@ -4,7 +4,7 @@ front page
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: index.html,v 1.60 2004/11/11 04:38:28 sauber Exp $
+$Id: index.html,v 1.61 2005/08/24 05:29:02 sauber Exp $
 </%doc>
 <table width="100%">
 % if ( @{$remotes} > 0 ) {
@@ -77,7 +77,7 @@ my $SYN = new Spoejs::Syndication( path => "$ENV{DOCUMENT_ROOT}/../lib/",
 my $remotes = $SYN->newest_remotes( count => scalar @channels );
 
 sub hashcolor {
-  my$c=1;map{$c=1+($c*ord)%(216)}split//,$_[0];
+  my$c=1;map{$c=(51*$c+ord)%(216)}split//,"$_[0]x";
   my($i,$n,$m,@h);@h=(51*int$c/36,51*int$c/6%6,51*($c%6));
   for$i(0..2){$m=$i if$h[$i]<$h[$m];$n=$i if$h[$i]>$h[$n]}
   $h[$m]=102if$h[$m]>102;$h[$n]=153if$h[$n]<153;
