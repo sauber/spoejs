@@ -23,8 +23,8 @@ use Data::Dumper;
 # prev_story(cur=>'2004/02/01', author=>'soren');
 
 
-# $Id: StoryList.pm,v 1.43 2005/05/21 13:53:54 snicki Exp $
-$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.43 $';
+# $Id: StoryList.pm,v 1.44 2005/08/24 09:16:31 sauber Exp $
+$Spoejs::StoryList::VERSION = $Spoejs::StoryList::VERSION = '$Revision: 1.44 $';
 
 sub _initialize {
     my $self = shift;
@@ -249,7 +249,7 @@ sub list_stories {
         # Remove entries newer than sortkey and truncate to given count
 	if ( $prev ) {
 	    @res = grep { $_->{sortkey} <= $sortkey } @res;
-	    $#res = $prev if $prev < $#res;
+	    $#res = $prev-1 if $prev-1 < $#res;
 	}
 
 	# Remove entries older than sortkey and truncate
