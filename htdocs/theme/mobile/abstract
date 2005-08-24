@@ -4,11 +4,11 @@ title, icon, indexthumb, etc. for a story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: abstract,v 1.1 2005/08/24 09:22:40 sauber Exp $
+$Id: abstract,v 1.2 2005/08/24 09:49:31 sauber Exp $
 </%doc>
 <a href="<% $story_href %>"><% $title %></a> (<% $date %>)
 % if ( $thumb_file ) {
-<& /w, w => 'media', d => $path, p => $thumb_file, m => 50, href=>$story_href &>
+<& /w, w => 'media', d => $path, p => $thumb_file, m => 150, href=>$story_href &>
 % }
 <%args>
   $title      => undef
