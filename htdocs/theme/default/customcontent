@@ -1,0 +1,9 @@
+%# Display custom content for journal
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: customcontent,v 1.1 2005/08/24 06:52:21 sauber Exp $
+%#
+<h2>**note**</h2>
+<% $spoejs{ChannelConf}->get( 'usertext' ) %>\
