@@ -1,0 +1,14 @@
+%# Channel front page
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: index-page,v 1.1 2005/08/24 09:22:40 sauber Exp $
+%#
+<% $CC->get( 'title' ) %> - <% $CC->get( 'description' ) %><br/>
+<& /w, w => "list" &>
+<%init>
+</%init>
+<%args>
+ $CC        => undef
+</%args>

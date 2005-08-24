@@ -1,0 +1,15 @@
+%# List of stories
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: list,v 1.1 2005/08/24 09:22:40 sauber Exp $
+%#
+<& /w, w => 'navi', %navi_opt &>
+% foreach my $story ( @stories ) {
+<& /w, w => 'abstract', box => 1, storyref => $story &><br/>
+% }
+<%args>
+ @stories  => undef
+ %navi_opt => undef
+</%args>

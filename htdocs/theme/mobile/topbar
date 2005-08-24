@@ -1,0 +1,12 @@
+<%doc>
+topbar of links on every page
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: topbar,v 1.1 2005/08/24 09:22:40 sauber Exp $
+</%doc>
+<img src="/theme/default/spoejs-logo.jpg" width="164" height="38" alt="powered by spoejs">&nbsp;
+<& /w, w => "langchooser" &>
+<%args>
+</%args>
