@@ -1,0 +1,21 @@
+%# Show bigger version of scaled picture/media
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: media-page,v 1.1 2005/08/25 03:31:30 sauber Exp $
+%#
+<h4><% $spoejs{Story}->get( 'title' ) %></h4>
+<% $img_src %>
+<& /w, w => 'navi', %navi_opt &>
+<a href="<% $back_href %>">Back to story</a>
+<%args>
+  $ML        => undef
+  $back_href => undef
+  $next_href => undef
+  $prev_href => undef
+  $img_href  => undef
+  $img_src   => undef
+  $filename  => undef
+  %navi_opt  => undef
+</%args>

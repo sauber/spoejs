@@ -1,0 +1,48 @@
+%# Show a story with all it's details and media
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: story-page,v 1.1 2005/08/25 03:31:30 sauber Exp $
+%#
+<h4><% $story_ref->get( 'title' ) %></h4>
+%# Story navigation
+<center>
+% if ( $next_href ) {
+<a href="<% $next_href %>">&lt;==</a>
+% }
+% if ( $up_href ) {
+<a href="<% $up_href %>">**up_**</a>
+% }
+% if ( $prev_href ) {
+<a href="<% $prev_href %>">==&gt;</a>
+% }
+</center>
+<&| /w, w => "box", &>
+<& /w, w => "text", text=>$story_ref->get( 'abstract' ) &>
+</&>
+% if ( $media_list->list() > 0 ) {
+<&| /w, w => 'box', &>
+<& /w, w => 'album', media_list => $media_list, navi_opt => \%navi_opt &>
+</&>
+% }
+<%init>
+# Set thumbnail count (overridable in channelconf)
+# XXX: The count here seems to not work
+my $thumbnail_count = 10;
+#$navi_opt{count} = $thumbnail_count if $navi_opt{count} == -1;
+$navi_opt{count} = $thumbnail_count;
+
+# Update access stats
+$spoejs{Stats}->access('story');
+</%init>
+<%args>
+  $story_dir  => undef
+  $story_ref  => undef
+  $edit_href  => undef
+  $up_href    => undef
+  $prev_href  => undef
+  $next_href  => undef
+  %navi_opt   => undef
+  $media_list => undef
+</%args>
