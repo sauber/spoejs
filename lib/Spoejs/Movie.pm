@@ -2,8 +2,8 @@ package Spoejs::Movie;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
 
-# $Id: Movie.pm,v 1.15 2005/06/15 08:28:45 sauber Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.15 $';
+# $Id: Movie.pm,v 1.16 2005/09/22 04:27:27 sauber Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.16 $';
 
 # Supported extensions
 $Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov|qt|mpeg|mpe';
@@ -46,8 +46,8 @@ sub load {
   my $tmpfile = $tmpdir . "/00000002.jpg";
   system("mkdir $tmpdir");
   # Add -osdlevel 0 to get rid off seek-indicator
-  system("echo mplayer -nosound -ac null -ao null -really-quiet -ss $randomstart -frames 2 -vo jpeg:outdir=$tmpdir -vf decimate $mov 2>&1 >> $tmpdir/log");
-  system("mplayer -nosound -ac null -ao null -really-quiet -ss $randomstart -frames 2 -vo jpeg:outdir=$tmpdir -vf decimate $mov 2>&1 >> $tmpdir/log");
+  system("echo mplayer -nosound -ac null -ao null -really-quiet -ss $randomstart -frames 5 -vo jpeg:outdir=$tmpdir -vf decimate $mov 2>&1 >> $tmpdir/log");
+  system("mplayer -nosound -ac null -ao null -really-quiet -ss $randomstart -frames 5 -vo jpeg:outdir=$tmpdir -vf decimate $mov 2>&1 >> $tmpdir/log");
 
   # Read in frame from file to internal blob
   my $tmpslash = $/;
