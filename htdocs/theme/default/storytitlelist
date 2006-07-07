@@ -4,9 +4,11 @@ List of story titles
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
- $Id: storytitlelist,v 1.27 2004/07/04 02:57:11 snicki Exp $
+ $Id: storytitlelist,v 1.28 2006/07/07 17:12:56 sauber Exp $
 </%doc>
-% use Date::Manip;
+<%once>
+use Date::Manip;
+</%once>
 <h2>**stories**</h2>
 %#**storytitlelist**
 % foreach my $story ( @stories ) {

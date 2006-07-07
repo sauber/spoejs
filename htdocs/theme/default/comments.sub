@@ -4,12 +4,15 @@ Generate data for comments
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: comments.sub,v 1.7 2004/08/31 06:18:10 sauber Exp $
+$Id: comments.sub,v 1.8 2006/07/07 17:12:56 sauber Exp $
 </%doc>
 <& $w,
    comments => \@comments,
    ignore   => [ 'code', 'md5sum' ]
 &>
+<%once>
+use POSIX qw(strftime);
+</%once>
 <%init>
 # Get hold of comment object
 my $story_path = "$spoejs{channel_path}/$spoejs{p}{d}";
@@ -34,7 +37,6 @@ my @comments = map {{ /^(\w+?)\s*=\s*(.+?)$/gm }}
 # XXX: Throw an error if there are no comments...
 
 # Fix dates to be human readable
-use POSIX qw(strftime);
 for ( @comments ) {
   $_->{Date} = strftime "%F", localtime $_->{Date};
 }
