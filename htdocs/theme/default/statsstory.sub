@@ -4,7 +4,7 @@ Get access count for all stories
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: statsstory.sub,v 1.1 2006/07/07 13:51:12 sauber Exp $
+$Id: statsstory.sub,v 1.2 2006/07/07 14:02:16 sauber Exp $
 </%doc>
 <& $w,
   total  => \@total,
@@ -13,33 +13,35 @@ $Id: statsstory.sub,v 1.1 2006/07/07 13:51:12 sauber Exp $
 &>
 <%init>
 # Get all stories
-my @all = $spoejs{SL}->list_stories();
-#my @top =
-#  map { $_->[0] }
-#  sort { $a->[1] <=> $b->[1] }
-#  map {[ $_->get( 'title' ), $_->get( 'access' ) ]}
-#  @all;
 my @prepared;
-for my $story ( @all ) {
-  my %storyinfo;
-  $storyinfo{title} = $story->get( 'title' );
-  $storyinfo{access} = $story->get( 'access' );
-  $storyinfo{path} = $story->story_path_from_full();
-  $storyinfo{date} = $story->get( 'date' );
-
+for my $story ( $spoejs{SL}->list_stories() ) {
   my $stat = new Spoejs::Stats( path => $story->{path} );
   # 0=total, 1=month, 0=week
   my @views = $stat->stats( 'story' );
+  my %storyinfo;
   $storyinfo{access} = \@views;
-
-   push @prepared, \%storyinfo;
+  $storyinfo{title} = $story->get( 'title' );
+  $storyinfo{path} = $story->story_path_from_full();
+  $storyinfo{date} = $story->get( 'date' );
+  push @prepared, \%storyinfo;
 }
-my @total = sort { $b->{access}[0] <=> $a->{access}[0] } @prepared;
-@total = @total[0..4];
-my @month = sort { $b->{access}[1] <=> $a->{access}[1] } @prepared;
-@month = @month[0..4];
-my @week = sort { $b->{access}[2] <=> $a->{access}[2] } @prepared;
-@week = @week[0..4];
+# Get top5 of each periode
+my $i;
+$i = 0;
+my @total = grep { ++$i <= 5}
+            sort { $b->{access}[0] <=> $a->{access}[0] }
+            grep { $_->{access}[0] > 0 }
+            @prepared;
+$i = 0;
+my @month = grep { ++$i < 5}
+            sort { $b->{access}[1] <=> $a->{access}[1] }
+            grep { $_->{access}[1] > 0 }
+            @prepared;
+$i = 0;
+my @week  = grep { ++$i < 5}
+            sort { $b->{access}[2] <=> $a->{access}[2] }
+            grep { $_->{access}[2] > 0 }
+            @prepared;
 </%init>
 <%args>
   $w => undef
