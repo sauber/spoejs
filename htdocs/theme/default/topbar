@@ -4,7 +4,7 @@ topbar of links on every page
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: topbar,v 1.21 2004/08/22 20:26:38 snicki Exp $
+$Id: topbar,v 1.22 2006/07/07 13:51:12 sauber Exp $
 </%doc>
 <div style="float:left;">
 <img src="/theme/default/spoejs-logo.jpg" width="164" height="38" alt="powered by spoejs">&nbsp;
@@ -16,6 +16,9 @@ $Id: topbar,v 1.21 2004/08/22 20:26:38 snicki Exp $
 % }
 % if ( $story_href ) {
 <a href="<% $story_href %>"><% $story_title %></a>&nbsp;|
+% }
+% if ( $stats_href ) {
+<a href="<% $stats_href %>">**stats**</a>&nbsp;|
 % }
 <a href="<% $about_href %>">**help**</a>
 &nbsp;|
@@ -54,6 +57,7 @@ $Id: topbar,v 1.21 2004/08/22 20:26:38 snicki Exp $
   $channel_name => undef
   $story_href   => undef
   $story_title  => undef
+  $stats_href   => undef
   $new_href     => undef
   $about_href   => undef
   $signup_href  => undef

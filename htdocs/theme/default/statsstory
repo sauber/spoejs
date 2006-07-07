@@ -1,0 +1,43 @@
+<%doc>
+List most accesses stories
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+ $Id: statsstory,v 1.1 2006/07/07 13:51:12 sauber Exp $
+</%doc>
+<h4>**stories**</h4>
+<table>
+<tr><th></th><th>**total_top5**</th><th>**month_top5**</th><th>**week_top5**</th></tr>
+% for my $n ( 0..4) {
+<tr><th><% $n+1 %></th>
+% if ( $total[$n] ) {
+<td><a href="<& /htm/url:encode, 'story.html', d => $total[$n]{path} &>">\
+<% $total[$n]{title} %></a> (<% $total[$n]{date} %>):
+<% $total[$n]{access}[0] %></td>
+% } else {
+<td></td>
+% }
+% if ( $month[$n] ) {
+<td><a href="<& /htm/url:encode, 'story.html', d => $month[$n]{path} &>">\
+<% $month[$n]{title} %></a> (<% $month[$n]{date} %>):
+<% $month[$n]{access}[1] %></td>
+% } else {
+<td></td>
+% }
+% if ( $week[$n] ) {
+<td><a href="<& /htm/url:encode, 'story.html', d => $week[$n]{path} &>">\
+<% $week[$n]{title} %></a> (<% $week[$n]{date} %>):
+<% $week[$n]{access}[2] %></td>
+% } else {
+<td></td>
+% }
+</tr>
+% }
+</table>
+
+<%args>
+ @total  => undef
+ @month  => undef
+ @week  => undef
+</%args>

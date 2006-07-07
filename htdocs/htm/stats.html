@@ -1,0 +1,16 @@
+<%doc>
+Show channel access statistics
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: stats.html,v 1.1 2006/07/07 13:51:11 sauber Exp $
+</%doc>
+<& /w, w         => 'stats-page',
+       CC        => $CC
+&>
+<%init>
+my $CC = new Spoejs::ChannelConf( path=> $spoejs{channel_path},
+                                  lang => $spoejs{lang_handle} );
+$spoejs{error}{$m->current_comp->source_file} = $CC->{msg} if $CC->{msg};
+</%init>

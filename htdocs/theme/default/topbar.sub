@@ -3,13 +3,14 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: topbar.sub,v 1.9 2004/06/15 05:27:47 snicki Exp $
+%# $Id: topbar.sub,v 1.10 2006/07/07 13:51:12 sauber Exp $
 %#
 <& $w,
    channel_href => $channel_href,
    channel_name => $chan_name,
    story_href   => $story_href,
    story_title  => $story_title,
+   stats_href   => $stats_href,
    new_href     => $new_href,
    signup_href  => $show_signup,
    edit_href    => $edit_href,
@@ -32,9 +33,11 @@ if ( defined $session{chanauth} &&
 
 my $chan_name;
 my $channel_href;
+my $stats_href;
 if ( defined $spoejs{channel} ) {
   $chan_name = $spoejs{ChannelConf}->get( 'title' );
   $channel_href = "/$spoejs{channel}/index.html" if defined $spoejs{channel};
+  $stats_href = "/$spoejs{channel}/stats.html" if defined $spoejs{channel};
 }
 
 my $story_title;

@@ -1,0 +1,16 @@
+%# Channel front page
+%#
+%# License: Artistic License
+%#          http://www.opensource.org/licenses/artistic-license.php
+%#
+%# $Id: stats-page,v 1.1 2006/07/07 13:51:12 sauber Exp $
+%#
+<h2><% $CC->get( 'title' ) %></h2>
+<h3>**stats**</h3>
+<& /w, w => "statsstory" &>
+<%init>
+#my @stories = $spoejs{SL}->list_stories();
+</%init>
+<%args>
+ $CC        => undef
+</%args>
