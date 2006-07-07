@@ -1,0 +1,26 @@
+<%doc>
+Show scaled picture or movie
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: media,v 1.1 2006/07/07 11:54:30 sauber Exp $
+</%doc>
+% if ( $href ) {
+<a href="<% $href %>">\
+%}
+<% $imgsrc %>\
+% if ( $href ) {
+</a>
+%}
+% if ( $annotation ) {
+<% $annotation %>
+% }
+<%args>
+ $href          => undef
+ $imgsrc        => undef
+ $no_div        => undef
+ $annotation    => undef
+ $styleh        => undef
+ $stylew        => undef
+</%args>
