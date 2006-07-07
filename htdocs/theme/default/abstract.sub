@@ -4,7 +4,7 @@ generate data for abstract
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: abstract.sub,v 1.11 2005/06/26 09:27:53 snicki Exp $
+$Id: abstract.sub,v 1.12 2006/07/07 12:22:44 sauber Exp $
 </%doc>
 <& $w,
    title      => $storyref->get( 'title' ),
@@ -18,7 +18,8 @@ $Id: abstract.sub,v 1.11 2005/06/26 09:27:53 snicki Exp $
    edit_href  => $edit_href,
    thumb_file => $thumb_fn,
    views      => $views,
-   num_media  => $storyref->{ML}->count()
+   num_media  => $storyref->{ML}->count(),
+   comments   => $num_comments,
 &>
 <%init>
 my $author = $storyref->get( 'author' );
@@ -53,6 +54,15 @@ if ( $storyref->{ML}->get() ) {
 my($views);
 my $stat = new Spoejs::Stats( path => $storyref->{path} );
 ($views) = $stat->stats( 'story' );
+
+# Number of comments for story, not including pics
+my $C = new Spoejs::Comments( path => $storyref->{path} );
+my $commentsdata = $C->get( 'story' );
+# After data is load from file, then parse it into a list of hashes
+my @comments = map {{ /^(\w+?)\s*=\s*(.+?)$/gm }}
+               split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $commentsdata;
+my $num_comments = scalar @comments;
+
 </%init>
 <%args>
  $storyref => undef
