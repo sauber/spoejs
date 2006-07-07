@@ -2,8 +2,8 @@ package Spoejs::Icon;
 use LWP::UserAgent;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.15 2005/07/15 10:42:20 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.15 $';
+# $Id: Icon.pm,v 1.16 2006/07/07 11:49:51 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.16 $';
 
 # Initializor
 #
@@ -25,7 +25,7 @@ sub _downloadicon {
   $ua->agent('Lynx/2.8.4rel.1 libwww-FM/2.14');
 
   # Perform the search
-  my $r= $ua->get("http://images.google.com/images?q=%22$category%22&imgsz=small");
+  my $r= $ua->get("http://images.google.com/images?q=%22$category%22&imgsz=medium");
   my ($index);
   if ($r->is_success) {
     $index = $r->content;
