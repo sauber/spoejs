@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: url,v 1.15 2004/06/07 14:06:48 snicki Exp $
+%# $Id: url,v 1.16 2006/07/07 16:13:07 sauber Exp $
 %#
 <%once>
   # The Bootstring encode object has high start up overhead,
@@ -54,5 +54,17 @@
   # Return the original string minus all the decoded parameters found,
   # and a ref to the hash of parameters.
   return $link,\%O;
+</%perl>
+</%method>
+<%method bsencode>\
+<%perl>
+  # Just encode one string
+  return $BS->encode( $_[0] );
+</%perl>
+</%method>
+<%method bsdecode>\
+<%perl>
+  # Just decode one string
+  return $BS->decode( $_[0] );
 </%perl>
 </%method>
