@@ -1,0 +1,81 @@
+<%doc>
+Get access count for all media in all stories
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: statsmedia.sub,v 1.1 2006/07/07 16:26:16 sauber Exp $
+</%doc>
+<& $w,
+  total  => \@total,
+  month  => \@month,
+  week   => \@week ,
+&>
+<%init>
+# Get top5 for all stories
+my %media;
+for my $story ( $spoejs{SL}->list_stories() ) {
+  my $stat = new Spoejs::Stats( path => $story->{path} );
+  # 0=total, 1=month, 0=week
+  my $V = $stat->topN( 5 );
+  for my $p ( qw(total month week) ) {
+    for my $v ( @{$V->{$p}} ) {
+      $media{$v->[0]}{story} = $story;
+      next unless $v->[1] > 0;
+      next if $v->[0] eq 'ANY';
+      #      filename       count
+      $media{$v->[0]}{$p} = $v->[1];
+      $media{$v->[0]}{media} = $v->[0];
+    }
+  }
+  
+}
+# Get top5 of each periode
+# Collect path, name and href for those media that will be displayed
+my $i;
+$i = 0;
+my @total =
+   map { $media{$_} }
+   map { $media{$_}{path} ||= $media{$_}{story}->story_path_from_full();
+         my($base,$ext) = split /\./, $_;
+         $media{$_}{file} ||= $m->comp('/htm/url:bsdecode',$base).".$ext";
+         $media{$_}{href} ||= $m->scomp( '/htm/url:encode',
+                                         "/$spoejs{channel}/media.html",
+                                         d => $media{$_}{path} );
+         $_ }
+   grep { ++$i <= 5}
+   sort { $media{$b}{total} <=> $media{$a}{total} }
+   grep { $media{$_}{total} > 0 }
+   keys %media;
+$i = 0;
+my @month =
+   map { $media{$_} }
+   map { $media{$_}{path} ||= $media{$_}{story}->story_path_from_full();
+         my($base,$ext) = split /\./, $_;
+         $media{$_}{file} ||= $m->comp('/htm/url:bsdecode',$base).".$ext";
+         $media{$_}{href} ||= $m->scomp( '/htm/url:encode',
+                                         "/$spoejs{channel}/media.html",
+                                         d => $media{$_}{path} );
+         $_ }
+   grep { ++$i <= 5}
+   sort { $media{$b}{month} <=> $media{$a}{month} }
+   grep { $media{$_}{month} > 0 }
+   keys %media;
+$i = 0;
+my @week =
+   map { $media{$_} }
+   map { $media{$_}{path} ||= $media{$_}{story}->story_path_from_full();
+         my($base,$ext) = split /\./, $_;
+         $media{$_}{file} ||= $m->comp('/htm/url:bsdecode',$base).".$ext";
+         $media{$_}{href} ||= $m->scomp( '/htm/url:encode',
+                                         "/$spoejs{channel}/media.html",
+                                         d => $media{$_}{path} );
+         $_ }
+   grep { ++$i <= 5}
+   sort { $media{$b}{week} <=> $media{$a}{week} }
+   grep { $media{$_}{week} > 0 }
+   keys %media;
+</%init>
+<%args>
+  $w => undef
+</%args>

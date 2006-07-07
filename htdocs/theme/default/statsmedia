@@ -1,0 +1,45 @@
+<%doc>
+List most accesses media
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+ $Id: statsmedia,v 1.1 2006/07/07 16:26:13 sauber Exp $
+</%doc>
+<h4>**media**</h4>
+<table>
+<tr><th></th><th>**week_top5**</th><th>**month_top5**</th><th>**total_top5**</th></tr>
+% for my $n ( 0..4) {
+<tr><th><% $n+1 %></th>
+% if ( $week[$n]{week} > 0 ) {
+<td align = center><& /w, w => 'media', d => $week[$n]{path},
+           p => $week[$n]{media}, m => 150,
+           href=> $week[$n]{href}
+    &><br /><% $week[$n]{file} %> (<% $week[$n]{week} %>)</td>
+% } else {
+<td></td>
+% }
+% if ( $month[$n]{month} > 0 ) {
+<td align = center><& /w, w => 'media', d => $month[$n]{path},
+           p => $month[$n]{media}, m => 150,
+           href=> $month[$n]{href}
+    &><br /><% $month[$n]{file} %> (<% $month[$n]{month} %>)</td>
+% } else {
+<td></td>
+% }
+% if ( $total[$n]{total} > 0 ) {
+<td align = center><& /w, w => 'media', d => $total[$n]{path},
+           p => $total[$n]{media}, m => 150,
+           href=> $total[$n]{href}
+    &><br /><% $total[$n]{file} %> (<% $total[$n]{total} %>)</td>
+% } else {
+<td></td>
+% }
+</tr>
+% }
+</table>
+<%args>
+ @total  => undef
+ @month  => undef
+ @week  => undef
+</%args>

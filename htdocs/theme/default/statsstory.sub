@@ -4,7 +4,7 @@ Get access count for all stories
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: statsstory.sub,v 1.2 2006/07/07 14:02:16 sauber Exp $
+$Id: statsstory.sub,v 1.3 2006/07/07 16:26:16 sauber Exp $
 </%doc>
 <& $w,
   total  => \@total,
@@ -30,16 +30,19 @@ my $i;
 $i = 0;
 my @total = grep { ++$i <= 5}
             sort { $b->{access}[0] <=> $a->{access}[0] }
+            grep { $_->{title} and $_->{date} }
             grep { $_->{access}[0] > 0 }
             @prepared;
 $i = 0;
 my @month = grep { ++$i < 5}
             sort { $b->{access}[1] <=> $a->{access}[1] }
+            grep { $_->{title} and $_->{date} }
             grep { $_->{access}[1] > 0 }
             @prepared;
 $i = 0;
 my @week  = grep { ++$i < 5}
             sort { $b->{access}[2] <=> $a->{access}[2] }
+            grep { $_->{title} and $_->{date} }
             grep { $_->{access}[2] > 0 }
             @prepared;
 </%init>
