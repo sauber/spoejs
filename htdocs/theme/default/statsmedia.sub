@@ -4,7 +4,7 @@ Get access count for all media in all stories
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: statsmedia.sub,v 1.1 2006/07/07 16:26:16 sauber Exp $
+$Id: statsmedia.sub,v 1.2 2006/07/07 16:45:54 sauber Exp $
 </%doc>
 <& $w,
   total  => \@total,
@@ -41,7 +41,7 @@ my @total =
          $media{$_}{file} ||= $m->comp('/htm/url:bsdecode',$base).".$ext";
          $media{$_}{href} ||= $m->scomp( '/htm/url:encode',
                                          "/$spoejs{channel}/media.html",
-                                         d => $media{$_}{path} );
+                                         d => $media{$_}{path}, p => $_ );
          $_ }
    grep { ++$i <= 5}
    sort { $media{$b}{total} <=> $media{$a}{total} }
@@ -55,7 +55,7 @@ my @month =
          $media{$_}{file} ||= $m->comp('/htm/url:bsdecode',$base).".$ext";
          $media{$_}{href} ||= $m->scomp( '/htm/url:encode',
                                          "/$spoejs{channel}/media.html",
-                                         d => $media{$_}{path} );
+                                         d => $media{$_}{path}, p => $_ );
          $_ }
    grep { ++$i <= 5}
    sort { $media{$b}{month} <=> $media{$a}{month} }
@@ -69,7 +69,7 @@ my @week =
          $media{$_}{file} ||= $m->comp('/htm/url:bsdecode',$base).".$ext";
          $media{$_}{href} ||= $m->scomp( '/htm/url:encode',
                                          "/$spoejs{channel}/media.html",
-                                         d => $media{$_}{path} );
+                                         d => $media{$_}{path}, p => $_ );
          $_ }
    grep { ++$i <= 5}
    sort { $media{$b}{week} <=> $media{$a}{week} }
