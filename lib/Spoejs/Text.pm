@@ -6,10 +6,10 @@ package Spoejs::Text;
 use Storable qw( dclone );
 use Spoejs::ChannelConf;
 use base ( "Spoejs" );
-use YAML qw( DumpFile LoadFile);
+use YAML::Syck;
 
-# $Id: Text.pm,v 1.38 2004/10/22 06:14:49 sauber Exp $
-$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.38 $';
+# $Id: Text.pm,v 1.39 2006/07/07 11:49:31 sauber Exp $
+$Spoejs::Text::VERSION = $Spoejs::Text::VERSION = '$Revision: 1.39 $';
 
 
 # Constructor
