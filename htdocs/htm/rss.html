@@ -1,0 +1,28 @@
+<%doc>
+rss feed of one channel
+
+License: Artistic License
+         http://www.opensource.org/licenses/artistic-license.php
+
+$Id: rss.html,v 1.1 2006/07/08 06:21:54 sauber Exp $
+</%doc>
+<%once>
+use XML::RSS;
+use Data::Dumper;
+</%once>
+<%init>
+my $CC = new Spoejs::ChannelConf( path=> $spoejs{channel_path},
+                                  lang => $spoejs{lang_handle} );
+
+my $rss = new XML::RSS (version => '2.0');
+$rss->channel(
+  title          => $CC->get( 'title' ),
+  link           => $CC->get( 'description' ),
+  language       => $CC->get( 'language' ),
+  description    => $CC->get( 'description' ),
+);
+$m->clear_buffer();
+$r->content_type('text/xml');
+</%init>
+<% $rss->as_string %>
+% $m->abort();
