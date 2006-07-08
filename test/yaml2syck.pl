@@ -3,7 +3,9 @@
 # Date: 2006-07-08
 # Author: Soren Dossing
 # License: Artistic License
-# Description: Convert data in YAML format to YAML::Syck
+# Description: Convert data in YAML format to YAML::Syck. Specify top dir
+# of yaml files. Converts everything below. Might get errors when running
+# twice, which can safely be ignore.
 
 use YAML::Syck qw(DumpFile);
 use YAML qw(LoadFile);
