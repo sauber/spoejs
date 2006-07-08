@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: upload.html,v 1.26 2004/06/16 12:56:16 snicki Exp $
+%# $Id: upload.html,v 1.27 2006/07/08 13:40:46 sauber Exp $
 %#
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 <& /js/detectua.js &>
@@ -97,8 +97,10 @@ function cr_table( tabbody ) {
 %#<% Dumper %ARGS %>
 %#<hr/>
 
-<%init>
+<%once>
 use Spoejs::Archive;
+</%once>
+<%init>
 my @upl;
 
 if ( $ARGS{upload} ) {

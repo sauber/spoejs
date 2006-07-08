@@ -4,23 +4,84 @@ rss feed of one channel
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: rss.html,v 1.1 2006/07/08 06:21:54 sauber Exp $
+$Id: rss.html,v 1.2 2006/07/08 13:40:45 sauber Exp $
 </%doc>
 <%once>
 use XML::RSS;
-use Data::Dumper;
+use Date::Manip;
+#use Data::Dumper;
 </%once>
 <%init>
 my $CC = new Spoejs::ChannelConf( path=> $spoejs{channel_path},
                                   lang => $spoejs{lang_handle} );
+my $http = "http://" . $ENV{SERVER_NAME};
+my @stories = $spoejs{SL}->list_stories( prev => 25, story_num => 0 );
 
 my $rss = new XML::RSS (version => '2.0');
 $rss->channel(
   title          => $CC->get( 'title' ),
-  link           => $CC->get( 'description' ),
-  language       => $CC->get( 'language' ),
+  link           => "$http/".$CC->get( 'shortname' ) . "/",
   description    => $CC->get( 'description' ),
+  language       => $CC->get( 'language' ),
+  generator      => 'Spoejs http://spoejs.sf.net/',
+  copyright      => 'Content of this feed belong to owner',
+  lastBuildDate  => UnixDate($stories[0]->get( 'date' ), "%g"),
+  pubDate        => UnixDate("now", "%g"),
+  #ttl            => 48 * 60,    # 48 hours
+  ttl            => 1,    # XXX: 1 minut for debug
 );
+$rss->image(
+  title       => 'Spoejs',
+  url         => "$http/theme/default/spoejs-logo.jpg",
+  link        => "$http/",
+  width       => 164,
+  height      => 38,
+  description => 'Spoejs'
+);
+
+for my $story ( @stories ) {
+  my $path = $story->story_path_from_full();
+  my $desc = $m->scomp( '/w', w=>'text', text=>$story->get('abstract') );
+  my $link = "$http" . $m->scomp( '/htm/url:encode',
+                                  "/$spoejs{channel}/story.html",
+                                  d => $path );
+
+  # Render img html
+  my $type = $story->get( 'thumbnail' );
+  $type = $spoejs{ChannelConf}->get( 'thumbnail' )
+    if !$type or $type eq 'default';
+  #warn "title=". $story->get( 'title' )." type=$type\n"; # XXX: debug
+  #warn "desc=". $story->get( 'abstract' )." type=$type\n"; # XXX: debug
+  $ type ||= 'random';
+  my $thumb = $type eq 'random' ? 'ANY' : $story->{ML}->get( $type )->{file};
+  if ( $thumb ) {
+    my $imghtml = $m->scomp( '/w', w=>'media', d => ${path}, p => $thumb,
+                             m => 200, href=>$link );
+    $imghtml =~ s/src="/src="$http/;
+    $imghtml =~ s/<.?div.*>//g;
+    $imghtml =~ s/ \/>/ align="right" \/>/;
+    # Insert Image in text
+    if ( $desc =~ /^<.*?>/ ) {
+      $desc =~ s/^(<.*?>)/$1$imghtml/;
+    } else {
+      $desc .= $imghtml;
+    }
+    #$desc = $imghtml; # XXX: debug
+  }
+  
+  $rss->add_item(
+    category => $story->get( 'category' ),
+    author => '(' . $story->get( 'author' ) . ')',
+    title => $story->get( 'title' ),
+    pubDate => UnixDate($story->get( 'date' ), "%g"),
+    description => $desc,
+    permaLink  => $link,
+  );
+}
+
+
+
+
 $m->clear_buffer();
 $r->content_type('text/xml');
 </%init>

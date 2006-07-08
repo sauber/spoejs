@@ -4,7 +4,7 @@ Insert or edit story
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.49 2005/07/26 06:35:40 sauber Exp $
+$Id: story.html,v 1.50 2006/07/08 13:40:45 sauber Exp $
 </%doc>
 % return undef unless $m->comp( '/htm/login.html:check_login' );
 %if ( defined $spoejs{p}{d} ) {
@@ -73,6 +73,9 @@ $Id: story.html,v 1.49 2005/07/26 06:35:40 sauber Exp $
 <input type="submit" name="submit" value="**submit**"/>&nbsp;
 </form>
 </fieldset>
+<%once>
+    use POSIX qw(strftime);
+</%once>
 <%init>
 my $cur_lang = $spoejs{current_language};
 my @entries = qw( title date category abstract fulltext author thumbnail active );
@@ -168,7 +171,6 @@ if ( defined $ARGS{submit} && keys( %validation_errors) == 0 ) {
       $story_dir = $new_path; # Used for redirect
     }
   } else {
-    use POSIX qw(strftime);
     $new_data{date}{$cur_lang} ||= strftime "%F", localtime time();
     $story_dir = $spoejs{SL}->add_story( date => $new_data{date}{$cur_lang} );
     die "Could not create new story" unless length $story_dir > 8;

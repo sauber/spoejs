@@ -4,7 +4,7 @@ Upload of icon files to lib/icons
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: icon_upload.html,v 1.1 2004/08/23 08:24:07 snicki Exp $
+$Id: icon_upload.html,v 1.2 2006/07/08 13:40:45 sauber Exp $
 </%doc>
 <& /htm/admin/site_tab.mas &>
 <& /js/detectua.js &>
@@ -75,6 +75,9 @@ function cr_table( tabbody ) {
   cr_table( document.getElementById('tb') );
 </script>
 
+<%once>
+use Spoejs::Archive;
+</%once>
 <%init>
 # Check auth
 unless ( defined $session{chanauth} && defined $session{chanauth}{'**scf**'} ) {
@@ -82,7 +85,6 @@ unless ( defined $session{chanauth} && defined $session{chanauth}{'**scf**'} ) {
   return; 
 }
 
-use Spoejs::Archive;
 my @upl;
 
 if ( $ARGS{upload} ) {

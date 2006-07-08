@@ -4,12 +4,14 @@ Show icon
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: ico.jpg,v 1.5 2004/08/08 16:12:09 snicki Exp $
+$Id: ico.jpg,v 1.6 2006/07/08 13:40:45 sauber Exp $
 </%doc>
 <% $$iconref %>\
 % $m->abort();
-<%init>
+<%once>
     use Spoejs::Icon;
+</%once>
+<%init>
     my $I = Spoejs::Icon->new();
     my $iconref = $I->get( category => $spoejs{p}{c}, size => $spoejs{p}{m} );
 
