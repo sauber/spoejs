@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: parseParams,v 1.13 2004/08/12 12:48:18 snicki Exp $
+%# $Id: parseParams,v 1.14 2006/07/08 14:45:51 sauber Exp $
 %#
 <%perl>
   my $url = $ENV{PATH_INFO};
@@ -16,6 +16,7 @@
   my ( $link, $options ) = $m->comp('/htm/url:decode', $url );
 
   # Default to configured, then 'default' theme if none is given in URL
+  $$options{theme} = $$options{t} ? { t => $$options{t} } : {} ;
   $$options{t} ||= $spoejs{ChannelConf}->get( 'theme' ) if defined $spoejs{channel};
   $$options{t} ||= 'default';
 

@@ -1521,6 +1521,9 @@ mk:
   ru: македонский
   se: macedoniska
   zh: 马其顿语
+mobile:
+  en: Mobile
+  da: Mobil
 month_top5:
   da: Månedens top 5
   en: Month Top5

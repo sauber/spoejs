@@ -4,7 +4,7 @@ generate data for abstract
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: abstract.sub,v 1.13 2006/07/07 17:12:56 sauber Exp $
+$Id: abstract.sub,v 1.14 2006/07/08 14:45:51 sauber Exp $
 </%doc>
 <& $w,
    title      => $storyref->get( 'title' ),
@@ -26,7 +26,7 @@ my $author = $storyref->get( 'author' );
 my $path = $storyref->story_path_from_full();
 my $story_href = $m->scomp( '/htm/url:encode',
 			    "/$spoejs{channel}/story.html",
-			    d => $path
+			    d => $path, %{$spoejs{p}{theme}},
 			  );
 my $edit_href; 
 if ( $session{chanauth} && $spoejs{channel} && 

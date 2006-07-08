@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: navi.sub,v 1.5 2004/10/28 12:40:42 snicki Exp $
+%# $Id: navi.sub,v 1.6 2006/07/08 14:45:51 sauber Exp $
 %#
 <& $w,
    next_href => $next_href,
@@ -12,7 +12,7 @@
 <%init>
 my @all = $list_ref->list();
 my %opt = ( count => $count, start => $start, list => \@all );
-my @cmp = ( "/htm/url:encode", $url );
+my @cmp = ( "/htm/url:encode", $url, %{$spoejs{p}{theme}} );
 push @cmp, (d => $spoejs{p}{d}) if defined $spoejs{p}{d};
 push @cmp, (c => $spoejs{p}{c}) if defined $spoejs{p}{c};
 

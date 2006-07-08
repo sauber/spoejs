@@ -4,11 +4,11 @@ Show a list of media with links to larger versions
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: album,v 1.16 2004/08/08 16:01:48 snicki Exp $
+$Id: album,v 1.17 2006/07/08 14:45:51 sauber Exp $
 </%doc>
 %for my $p ( @img_list ) {
 %  my $href = $m->scomp( '/htm/url:encode', 'media.html', d => $spoejs{p}{d},
-%                        s => $p->{file} );
+%                        s => $p->{file}, %{$spoejs{p}{theme}} );
   <& '/w', w => "media", d =>  $spoejs{p}{d}, p => $p->{file}, m => $img_size,
      href => $href, box_height => $max_height, html_wh => $p->{html_wh} &>
 %}

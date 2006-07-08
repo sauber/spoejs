@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: topbar.sub,v 1.11 2006/07/08 13:40:48 sauber Exp $
+%# $Id: topbar.sub,v 1.12 2006/07/08 14:45:51 sauber Exp $
 %#
 <& $w,
    channel_href => $channel_href,
@@ -12,6 +12,7 @@
    story_title  => $story_title,
    stats_href   => $stats_href,
    rss_href     => $rss_href,
+   mobile_href  => $mobile_href,
    new_href     => $new_href,
    signup_href  => $show_signup,
    edit_href    => $edit_href,
@@ -36,11 +37,13 @@ my $chan_name;
 my $channel_href;
 my $stats_href;
 my $rss_href;
+my $mobile_href;
 if ( defined $spoejs{channel} ) {
   $chan_name = $spoejs{ChannelConf}->get( 'title' );
   $channel_href = "/$spoejs{channel}/index.html" if defined $spoejs{channel};
   $stats_href = "/$spoejs{channel}/stats.html" if defined $spoejs{channel};
   $rss_href = "/$spoejs{channel}/rss.html" if defined $spoejs{channel};
+  $mobile_href = "/$spoejs{channel}/index-tmobile_.html" if defined $spoejs{channel};
 }
 
 my $story_title;
