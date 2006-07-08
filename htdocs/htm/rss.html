@@ -4,7 +4,7 @@ rss feed of one channel
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: rss.html,v 1.2 2006/07/08 13:40:45 sauber Exp $
+$Id: rss.html,v 1.3 2006/07/08 15:05:52 sauber Exp $
 </%doc>
 <%once>
 use XML::RSS;
@@ -56,7 +56,7 @@ for my $story ( @stories ) {
   my $thumb = $type eq 'random' ? 'ANY' : $story->{ML}->get( $type )->{file};
   if ( $thumb ) {
     my $imghtml = $m->scomp( '/w', w=>'media', d => ${path}, p => $thumb,
-                             m => 200, href=>$link );
+                             m => 280, href=>$link );
     $imghtml =~ s/src="/src="$http/;
     $imghtml =~ s/<.?div.*>//g;
     $imghtml =~ s/ \/>/ align="right" \/>/;

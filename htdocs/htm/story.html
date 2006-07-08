@@ -4,7 +4,7 @@ Show a story with all it's data
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: story.html,v 1.23 2004/10/28 12:40:12 snicki Exp $
+$Id: story.html,v 1.24 2006/07/08 15:05:52 sauber Exp $
 </%doc>
 <& /w, w          => 'story-page',
        story_dir  => $spoejs{p}{d},
@@ -35,13 +35,13 @@ my %navi_opt = ( url => "/$spoejs{channel}/story.html",
 		 list_ref => $spoejs{Story}->{ML} );
 
 # Story navigation
-my $up_href = $m->scomp( '/htm/url:encode', 'index.html', s => $spoejs{p}{d} );
+my $up_href = $m->scomp( '/htm/url:encode', 'index.html', s => $spoejs{p}{d}, %{$spoejs{p}{theme}} );
 
 # Find prev / next story
 my @all = $spoejs{SL}->list();
 my $start_i =  $spoejs{SL}->_index_of($spoejs{p}{d});
 my %opt = ( count => 1, start => $start_i, list => \@all );
-my @cmp = ( "/htm/url:encode", 'story.html' );
+my @cmp = ( "/htm/url:encode", 'story.html', %{$spoejs{p}{theme}} );
 push @cmp, (c => $spoejs{p}{c}) if defined $spoejs{p}{c};
 
 my $ps = $all[$spoejs{SL}->prev( %opt )];
