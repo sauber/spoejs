@@ -12,8 +12,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.31 2005/04/27 20:31:28 snicki Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.31 $';
+# $Id: Media.pm,v 1.32 2006/08/27 14:13:25 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.32 $';
 
 
 # Initializor
@@ -111,9 +111,11 @@ sub _im_to_blob {
 # Scale current image magick object to specified maxside
 #
 sub scale {
-  my($self,$m) = @_;
+  my($self,%param) = @_;
 
   return undef unless $self->{_im} or $self->{_blob};
+
+  my $m = $param{size};
 
   # Convert from blob to im first ?
   my($blob);
@@ -131,6 +133,11 @@ sub scale {
   #$self->{_im}->Normalize();
   #$self->{_im}->Equalize();
   #$self->{_im}->Sharpen();
+
+  # Non-default quality
+  if ( $param{quality} ) {
+    $self->{_im}->Set( quality => $param{quality} );
+  }
 
   # Convert back to blob?
   if ( $blob ) {
@@ -197,7 +204,8 @@ sub get {
   return undef unless $self->{file};
   $self->load() or return undef;
   if ( $params{size} ) {
-    $self->scale( $params{size} );
+    #$self->scale( $params{size} );
+    $self->scale( %params );
   }
   return \$self->{_blob};
 }
