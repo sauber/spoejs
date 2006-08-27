@@ -4,7 +4,7 @@ html header with xhtml version, utf-8 and javascript
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: header.html,v 1.10 2005/04/27 20:31:27 snicki Exp $
+$Id: header.html,v 1.11 2006/08/27 14:15:02 snicki Exp $
 </%doc>
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html 
@@ -17,8 +17,12 @@ $Id: header.html,v 1.10 2005/04/27 20:31:27 snicki Exp $
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="Content-Script-Type" content="text/javascript" />
     <link rel="StyleSheet" href="<%$css%>" type="text/css" />
+    <% $rsslink %>
    </head>
 <%init>
 my $css = "/theme/$spoejs{p}{t}/css/style.css";
 $css = "/theme/default/css/style.css" unless -f "$ENV{DOCUMENT_ROOT}/$css";
+
+# For images $spoejs{ChannelConf} is undefined
+my $rsslink = "<link rel=\"alternate\" title=\"<% $spoejs{ChannelConf}->get('title') %>\" href=\"rss.html\" type=\"application/rss+xml\">" if defined($spoejs{ChannelConf});
 </%init>
