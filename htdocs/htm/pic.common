@@ -4,7 +4,7 @@ Common rendering functionality
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: pic.common,v 1.6 2004/08/31 01:15:20 sauber Exp $
+$Id: pic.common,v 1.7 2006/08/27 14:13:50 sauber Exp $
 </%doc>
 <% $$m_ref %>\
 % $m->abort();
@@ -18,7 +18,7 @@ $Id: pic.common,v 1.6 2004/08/31 01:15:20 sauber Exp $
     } else {
        $M = Spoejs::Media->new( path => $path, file => $spoejs{p}{p} );
     }
-    my $m_ref = $M->get( size => $spoejs{p}{m} );
+    my $m_ref = $M->get( size => $spoejs{p}{m}, quality => $spoejs{p}{q} );
 
     # Determine content-type
     $spoejs{p}{p} =~ /\.(.*?)$/ and my $ext = lc $1;
