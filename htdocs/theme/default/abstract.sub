@@ -4,7 +4,7 @@ generate data for abstract
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: abstract.sub,v 1.14 2006/07/08 14:45:51 sauber Exp $
+$Id: abstract.sub,v 1.15 2006/10/22 03:50:40 sauber Exp $
 </%doc>
 <& $w,
    title      => $storyref->get( 'title' ),
@@ -56,8 +56,12 @@ my $stat = new Spoejs::Stats( path => $storyref->{path} );
 ($views) = $stat->stats( 'story' );
 
 # Number of comments for story, including pics
+# XXX: If no arguments is specified the $C->get() call, then the number of
+#      elements are undef or 1. When the argument is 'story', then the results
+#      are correct. Seems not possible to get combined number of comments fo
+#      for story and all media together.
 my $C = new Spoejs::Comments( path => $storyref->{path} );
-my $commentsdata = $C->get( );
+my $commentsdata = $C->get( 'story' );
 # After data is load from file, then parse it into a list of hashes
 my @comments = map {{ /^(\w+?)\s*=\s*(.+?)$/gm }}
                split /\r\n\r\n|\n\r\n\r|\n\n|\r\r/, $commentsdata;
