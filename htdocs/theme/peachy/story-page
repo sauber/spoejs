@@ -3,7 +3,7 @@
 %# License: Artistic License
 %#          http://www.opensource.org/licenses/artistic-license.php
 %#
-%# $Id: story-page,v 1.3 2005/05/21 13:41:30 sauber Exp $
+%# $Id: story-page,v 1.4 2006/10/23 09:18:00 sauber Exp $
 %#
 <script language="JavaScript" type="text/javascript">
 function slideshow(url) {
@@ -55,10 +55,6 @@ function slideshow(url) {
 % }}
 %#<&| /w, w => 'box', heading => '**comments**' &>
 <& /w, w => 'comments', box => 1 &>
-%#</&>
-%#<&| /w, w => 'box', heading => '**stats**' &>
-<& /w, w => 'stats', box => 1, storyref => $story_ref &>
-%#</&>
 % if ( $edit_href ) {
 %#<a href="<% $edit_href %>">**edit**</a>
 % }
