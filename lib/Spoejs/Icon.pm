@@ -2,8 +2,8 @@ package Spoejs::Icon;
 use LWP::UserAgent;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.16 2006/07/07 11:49:51 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.16 $';
+# $Id: Icon.pm,v 1.17 2007/02/25 13:12:39 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.17 $';
 
 # Initializor
 #
@@ -37,7 +37,7 @@ sub _downloadicon {
   # Identify all links and their sizes
   my(@l,@p);
   for ( split /\n/, $index ) {
-    push @l,m,src=(/images.q=.*?) ,g;
+    push @l,m,src=(.*?/images.q=.*?) ,g;
     push @p,m,(\d+ x \d+ pixels) -,g;
   }
 
@@ -82,8 +82,7 @@ sub _downloadicon {
 
 
   # Downloading most square picture
-  #$r = $ua->get( "http://images.google.com$I[0]{link}" );
-  $r = $ua->get( "http://images.google.com$link" );
+  $r = $ua->get( "$link" );
   if ($r->is_success) {
     $self->{_blob} = $r->content;
     return 1;
