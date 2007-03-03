@@ -12,8 +12,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.32 2006/08/27 14:13:25 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.32 $';
+# $Id: Media.pm,v 1.33 2007/03/03 19:03:59 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.33 $';
 
 
 # Initializor
@@ -22,7 +22,7 @@ sub _initialize {
   my($self) = shift;
 
   $self->{path} ||= '.';
-  return $self->_err( "Must give file to new" ) unless $self->{file};
+  return $self->_err( "Must give file to new" ) unless -f $self->{file};
 
   my @attrib = qw ( path file fh size );
   my %opt;
