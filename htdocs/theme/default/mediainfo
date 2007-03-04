@@ -4,7 +4,7 @@ Show information about media files
 License: Artistic License
          http://www.opensource.org/licenses/artistic-license.php
 
-$Id: mediainfo,v 1.7 2005/03/20 14:06:14 snicki Exp $
+$Id: mediainfo,v 1.8 2007/03/04 07:58:48 sauber Exp $
 </%doc>
 <table border=0>
 <tr><th colspan=3 align=left>**media_information**:</th></tr>
@@ -35,6 +35,6 @@ my ( $total, $month, $week ) = $spoejs{Stats}->stats( $picref->{file} );
 
 # Get lots (potentially) of extra information
 my $extinfo = $picref->extinfo();
-$extinfo = \{} unless $extinfo; # No information if error occured.
+$extinfo = {} unless $extinfo; # No information if error occured.
 
 </%init>
