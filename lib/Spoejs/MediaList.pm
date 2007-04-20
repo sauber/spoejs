@@ -3,8 +3,8 @@ use base ( "Spoejs::List" );
 use File::Basename;
 use Data::Dumper;
 
-# $Id: MediaList.pm,v 1.23 2007/03/04 07:58:07 sauber Exp $
-$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.23 $';
+# $Id: MediaList.pm,v 1.24 2007/04/20 16:27:08 sauber Exp $
+$Spoejs::MediaList::VERSION = $Spoejs::MediaList::VERSION = '$Revision: 1.24 $';
 
 # Should be called with 'path' to directory containing the media
 sub _initialize {
@@ -137,6 +137,9 @@ sub all_extensions {
     #	$Spoejs::Archive::EXTENSIONS;
     # XXX: Archive does not work anymore - don't know why
     return $Spoejs::Pic::EXTENSIONS . '|' . $Spoejs::Movie::EXTENSIONS;
+    return join '|', grep {/./} $Spoejs::Pic::EXTENSIONS,
+                                $Spoejs::Movie::EXTENSIONS,
+                                $Spoejs::Archive::EXTENSIONS;
 }
 
 __END__
