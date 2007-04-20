@@ -12,8 +12,8 @@ use Bootstring;
 no Carp::Assert;
 use base ( "Spoejs" );
 use Data::Dumper;
-# $Id: Media.pm,v 1.34 2007/03/04 07:58:07 sauber Exp $
-$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.34 $';
+# $Id: Media.pm,v 1.35 2007/04/20 14:35:06 sauber Exp $
+$Spoejs::Media::VERSION = $Spoejs::Media::VERSION = '$Revision: 1.35 $';
 
 
 # Initializor
@@ -23,8 +23,8 @@ sub _initialize {
 
   $self->{path} ||= '.';
   return $self->_err( "Must give file to new" ) unless $self->{file};
-  return $self->_err( "$self->{file}: Unsupported filetype" )
-    unless -f "$self->{path}/$self->{file}";
+  #return $self->_err( "$self->{file}: Unsupported filetype" )
+  #  unless -f "$self->{path}/$self->{file}";
 
   my @attrib = qw ( path file fh size );
   my %opt;
