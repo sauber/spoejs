@@ -2,8 +2,8 @@ package Spoejs::Icon;
 use LWP::UserAgent;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.18 2007/04/20 14:56:32 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.18 $';
+# $Id: Icon.pm,v 1.19 2007/04/20 14:58:32 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.19 $';
 
 # Initializor
 #
@@ -34,17 +34,12 @@ sub _downloadicon {
     return $self->_err('Could not find any matching pictures');
   }
 
-  warn $index;
-
   # Identify all links and their sizes
   my(@l,@p);
   for ( split /\n/, $index ) {
     push @l,m,src=(\S+?/images.q=\S+?) ,g;
     push @p,m,(\d+ x \d+ - ),g;
   }
-
-  warn "Sources: @l\n";
-  warn "Sizes: @p\n";
 
   # Calculate squaredness
   # And combine links with squaredness
@@ -145,11 +140,11 @@ sub get {
 
   # Try several times to get an icon, first local, then from google
   $self->_localloadicon($data{category})
-    || $self->_downloadicon($data{category},$data{size},'small');
-    #|| $self->_downloadicon($self->{_didyoumean},$data{size},'small')
-    #|| $self->_downloadicon($data{category},$data{size})
-    #|| $self->_downloadicon($self->{_didyoumean},$data{size});
-  warn "No picture downloaded for $data{category}\n" unless $self->{_blob};
+    || $self->_downloadicon($data{category},$data{size},'small')
+    || $self->_downloadicon($self->{_didyoumean},$data{size},'small')
+    || $self->_downloadicon($data{category},$data{size})
+    || $self->_downloadicon($self->{_didyoumean},$data{size});
+  #warn "No picture downloaded for $data{category}\n" unless $self->{_blob};
   return $self->_err('No picture downloaded') unless $self->{_blob};
 
   # If size is specified then convert to imagemagick object, scale, and
