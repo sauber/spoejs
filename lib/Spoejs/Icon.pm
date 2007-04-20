@@ -2,8 +2,8 @@ package Spoejs::Icon;
 use LWP::UserAgent;
 use base ( "Spoejs::Media" );
 
-# $Id: Icon.pm,v 1.19 2007/04/20 14:58:32 sauber Exp $
-$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.19 $';
+# $Id: Icon.pm,v 1.20 2007/04/20 15:17:20 sauber Exp $
+$Spoejs::Icon::VERSION = $Spoejs::Icon::VERSION = '$Revision: 1.20 $';
 
 # Initializor
 #
@@ -150,7 +150,7 @@ sub get {
   # If size is specified then convert to imagemagick object, scale, and
   # convert back to jpeg again.
   if ( $data{size} ) {
-    $self->scale($data{size});
+    $self->scale( size => $data{size});
   }
 
   return \$self->{_blob};
