@@ -20,7 +20,7 @@ RUN_DEPENDS+=	${LOCALBASE}/bin/mplayer:${PORTSDIR}/multimedia/mplayer
 RUN_DEPENDS+=	${SITE_PERL}/mach/mod_perl.pm:${PORTSDIR}/www/mod_perl
 RUN_DEPENDS+=	${SITE_PERL}/HTML/Mason.pm:${PORTSDIR}/www/p5-HTML-Mason
 RUN_DEPENDS+=	${SITE_PERL}/mach/Image/Magick.pm:${PORTSDIR}/graphics/ImageMagick
-RUN_DEPENDS+=	${SITE_PERL}/YAML.pm:${PORTSDIR}/textproc/p5-YAML
+RUN_DEPENDS+=	${SITE_PERL}/mach/YAML/Syck.pm:${PORTSDIR}/textproc/p5-YAML-Syck
 RUN_DEPENDS+=	${SITE_PERL}/mach/Apache/Request.pm:${PORTSDIR}/www/p5-libapreq
 RUN_DEPENDS+=	${SITE_PERL}/Apache/Session/File.pm:${PORTSDIR}/www/p5-Apache-Session
 RUN_DEPENDS+=	${SITE_PERL}/Image/Info.pm:${PORTSDIR}/graphics/p5-Image-Info
@@ -34,6 +34,8 @@ RUN_DEPENDS+=	${SITE_PERL}/Archive/Tar.pm:${PORTSDIR}/archivers/p5-Archive-Tar
 RUN_DEPENDS+=	${SITE_PERL}/Archive/Zip.pm:${PORTSDIR}/archivers/p5-Archive-Zip
 RUN_DEPENDS+=	${SITE_PERL}/HTML/FillInForm.pm:${PORTSDIR}/www/p5-HTML-FillInForm
 RUN_DEPENDS+=	${SITE_PERL}/Authen/Captcha.pm:${PORTSDIR}/security/p5-Authen-Captcha
+RUN_DEPENDS+=	${SITE_PERL}/XML/RSS.pm:${PORTSDIR}/security/p5-XML-RSS
+RUN_DEPENDS+=	${SITE_PERL}/IPC/Run.pm:${PORTSDIR}/devel/p5-IPC-Run
 
 NO_BUILD=	yes
 
