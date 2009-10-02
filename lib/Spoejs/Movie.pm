@@ -2,11 +2,11 @@ package Spoejs::Movie;
 use base ( "Spoejs::Media" );
 use Data::Dumper;
 
-# $Id: Movie.pm,v 1.17 2007/01/23 12:48:28 sauber Exp $
-$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.17 $';
+# $Id: Movie.pm,v 1.18 2009/10/02 04:44:42 sauber Exp $
+$Spoejs::Movie::VERSION = $Spoejs::Movie::VERSION = '$Revision: 1.18 $';
 
 # Supported extensions
-$Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov|qt|mpeg|mpe|mp4';
+$Spoejs::Movie::EXTENSIONS = 'avi|mpg|wmv|asf|mov|qt|mpeg|mpe|mp4|m4v';
 
 # Initializor
 #
